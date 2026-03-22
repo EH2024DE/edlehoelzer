@@ -2,11 +2,6 @@ if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
 
-window.addEventListener("pageshow", (event) => {
-  if (!event.persisted) {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }
-});
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menuButton");
   const closeButton = document.getElementById("menuCloseButton");
@@ -54,9 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const video = document.querySelector(".hero__video");
   if (video) {
-    const p = video.play();
-    if (p && typeof p.catch === "function") {
-      p.catch(() => {});
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
     }
   }
 
@@ -69,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressBar = document.getElementById("scrollyProgress");
   const images = [...scrolly.querySelectorAll(".scrolly__image")];
   const steps = [...scrolly.querySelectorAll(".scrollyStep")];
+
   if (!frame || !images.length || !steps.length) return;
 
   let activeIndex = 0;
@@ -79,8 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function activate(index) {
     if (index === activeIndex) return;
     activeIndex = index;
+
     images.forEach((img, i) => img.classList.toggle("is-active", i === index));
     steps.forEach((step, i) => step.classList.toggle("is-active", i === index));
+
     if (progressBar) {
       progressBar.style.width = `${((index + 1) / images.length) * 100}%`;
     }
@@ -95,6 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const rect = step.getBoundingClientRect();
       const center = rect.top + rect.height / 2;
       const distance = Math.abs(viewportCenter - center);
+
       if (distance < closestDistance) {
         closestDistance = distance;
         closestIndex = index;
@@ -134,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   activate(0);
   animateFrame();
+
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
