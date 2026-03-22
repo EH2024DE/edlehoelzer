@@ -2,10 +2,11 @@ if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
 
-window.addEventListener("load", () => {
-  window.scrollTo(0, 0);
+window.addEventListener("pageshow", (event) => {
+  if (!event.persisted) {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
 });
-
 document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menuButton");
   const closeButton = document.getElementById("menuCloseButton");
