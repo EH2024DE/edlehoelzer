@@ -28,7 +28,7 @@ img,video{display:block;max-width:100%}
   }
 
   .mobileOnly{
-    display:initial !important;
+    display:block !important;
   }
 
   .mobileGallery.mobileOnly,
@@ -99,8 +99,24 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .scrollyStep.is-active{opacity:1;transform:translateY(0)}
 .mobileGallery{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}
 .mobileGallery::-webkit-scrollbar,.workshopSlider::-webkit-scrollbar{display:none}
-.mobileCard{min-width:88%;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);flex-shrink:0}
-.mobileCard img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#ece3d8}
+.mobileCard{
+  min-width:72%;
+  max-width:72%;
+  scroll-snap-align:start;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  flex-shrink:0;
+}
+
+.mobileCard img{
+  width:100%;
+  aspect-ratio:5/6;
+  object-fit:cover;
+  background:#ece3d8;
+}
 .mobileCard__text{padding:18px 18px 22px}
 .mobileCard__text p{margin:10px 0 0;color:rgba(17,17,17,.72)}
 .workshopIntro{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;margin-bottom:28px}
