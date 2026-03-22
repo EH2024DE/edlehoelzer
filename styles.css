@@ -127,8 +127,21 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .workshopGrid__item--wide img{aspect-ratio:4/5}
 .workshopGrid__item figcaption,.workshopSlider__item figcaption{margin-top:12px;color:rgba(17,17,17,.68);font-size:14px;line-height:1.55}
 .workshopSlider{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
-.workshopSlider__item{min-width:82%;scroll-snap-align:start;margin:0;flex-shrink:0}
-.workshopSlider__item img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;box-shadow:var(--shadow)}
+.workshopSlider__item{
+  min-width:68%;
+  max-width:68%;
+  scroll-snap-align:start;
+  margin:0;
+  flex-shrink:0;
+}
+
+.workshopSlider__item img{
+  width:100%;
+  aspect-ratio:5/6;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
 .customLayout{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
 .customLayout__left .section__lead{max-width:32ch}
 .customLayout__right{display:flex;flex-direction:column}
