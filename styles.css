@@ -97,12 +97,22 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .scrollyStep:last-child{border-bottom:none}
 .scrollyStep p{margin:10px 0 0 0;color:rgba(17,17,17,.72)}
 .scrollyStep.is-active{opacity:1;transform:translateY(0)}
-.mobileGallery{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+.mobileGallery{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+  padding:0 4px 8px;
+  scroll-padding-left:4px;
+}
 .mobileGallery::-webkit-scrollbar,.workshopSlider::-webkit-scrollbar{display:none}
 .mobileCard{
   min-width:72%;
   max-width:72%;
   scroll-snap-align:start;
+  scroll-snap-stop:always;
   background:#fff;
   border:1px solid var(--line);
   border-radius:18px;
@@ -190,5 +200,21 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .footer__links{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:rgba(17,17,17,.66)}
 .footer__meta{font-size:13px;color:rgba(17,17,17,.58)}
 @media (max-width:1100px){.scrolly{grid-template-columns:1fr}.scrolly__media{height:58vh;top:86px}.scrollyStep{min-height:auto;padding:28px 0;opacity:1;transform:none}.workshopIntro,.customLayout,.storyGrid,.serviceCards{grid-template-columns:1fr}.workshopGrid{grid-template-columns:1fr 1fr}.workshopGrid__item--wide{grid-column:1 / -1}}
-@media (max-width:900px){.container,.container--narrow{width:min(100%, calc(100% - 24px))}.desktopOnly{display:none}.mobileOnly{display:block}.topbar__inner{grid-template-columns:46px 1fr 46px;min-height:72px;position:relative}.brand{position:absolute;left:50%;transform:translateX(-50%);grid-column:auto;justify-self:center;gap:8px}.brand__logo{height:28px}.brand__text{font-size:22px;font-weight:600}.topbar__right{position:absolute;right:0;top:50%;transform:translateY(-50%);gap:0}.topbar__right .btn,.topbar__right .lang{display:none}.hero{min-height:84vh}.hero__content{padding-bottom:34px}.hero__copy{margin-left:0;max-width:none}.hero h1{font-size:clamp(40px,12vw,62px);line-height:.96}.hero__lead{font-size:18px;max-width:30ch}.hero__actions{gap:10px}.btn{min-height:46px;padding:11px 16px;font-size:15px}.section{padding:76px 0}.section__lead{font-size:17px}h2{font-size:clamp(30px,8vw,42px)}h3{font-size:24px}.workshopIntro{gap:16px;margin-bottom:20px}.processRow{grid-template-columns:38px 1fr;gap:14px;padding:16px 0 20px}.serviceCard,.card{padding:20px}.closingHero{min-height:62vh}.closingHero__content{min-height:62vh}.footer__inner{align-items:flex-start}}
+@media (max-width:900px).mobileCard__text{
+  padding:14px 14px 18px;
+}
+
+.mobileCard__text h3{
+  font-size:20px;
+}
+
+.mobileCard__text p{
+  font-size:14px;
+  line-height:1.5;
+}
+
+.workshopSlider__item{
+  min-width:58%;
+  max-width:58%;
+}{.container,.container--narrow{width:min(100%, calc(100% - 24px))}.desktopOnly{display:none}.mobileOnly{display:block}.topbar__inner{grid-template-columns:46px 1fr 46px;min-height:72px;position:relative}.brand{position:absolute;left:50%;transform:translateX(-50%);grid-column:auto;justify-self:center;gap:8px}.brand__logo{height:28px}.brand__text{font-size:22px;font-weight:600}.topbar__right{position:absolute;right:0;top:50%;transform:translateY(-50%);gap:0}.topbar__right .btn,.topbar__right .lang{display:none}.hero{min-height:84vh}.hero__content{padding-bottom:34px}.hero__copy{margin-left:0;max-width:none}.hero h1{font-size:clamp(40px,12vw,62px);line-height:.96}.hero__lead{font-size:18px;max-width:30ch}.hero__actions{gap:10px}.btn{min-height:46px;padding:11px 16px;font-size:15px}.section{padding:76px 0}.section__lead{font-size:17px}h2{font-size:clamp(30px,8vw,42px)}h3{font-size:24px}.workshopIntro{gap:16px;margin-bottom:20px}.processRow{grid-template-columns:38px 1fr;gap:14px;padding:16px 0 20px}.serviceCard,.card{padding:20px}.closingHero{min-height:62vh}.closingHero__content{min-height:62vh}.footer__inner{align-items:flex-start}}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.scrolly__image,.scrollyStep,.scrolly__frame,.scrolly__progress span,.mobileMenu,.menuBackdrop,.btn{transition:none}}
