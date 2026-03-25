@@ -1,1 +1,378 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pflege von Schneidebrettern | Edle Hölzer</title>
+  <meta name="description" content="So pflegst und bereitest du dein Schneidebrett aus Holz wieder auf. Mit Video, Anleitung, Schleifempfehlung und Tipps zur richtigen Ölpflege.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .pflege-hero {
+      padding: 110px 0 70px;
+      background: linear-gradient(180deg, #ffffff, #eee5da);
+    }
 
+    .pflege-wrap {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .pflege-hero h1 {
+      font-size: clamp(36px, 6vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin: 0 0 18px;
+    }
+
+    .pflege-lead {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(17,17,17,.74);
+      max-width: 52ch;
+      margin: 0;
+    }
+
+    .pflege-section {
+      padding: 70px 0;
+      background: #f5f1eb;
+    }
+
+    .pflege-card {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,.08);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.03);
+    }
+
+    .pflege-video {
+      aspect-ratio: 9 / 16;
+      width: min(420px, 100%);
+      border: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(0,0,0,.08);
+      background: #000;
+    }
+
+    .pflege-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .pflege-copy h2,
+    .pflege-block h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+    }
+
+    .pflege-copy p,
+    .pflege-block p,
+    .pflege-block li {
+      color: rgba(17,17,17,.74);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .pflege-block + .pflege-block {
+      margin-top: 22px;
+    }
+
+    .pflege-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .pflege-steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .pflege-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+
+    .pflege-step:last-child {
+      border-bottom: none;
+    }
+
+    .pflege-step__num {
+      font-weight: 800;
+      color: #a4774c;
+      font-size: 18px;
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .pflege-step h3 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .pflege-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .pflege-note {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,.08);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .pflege-note h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .pflege-cta {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pflege-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      line-height: 1;
+      border: 1px solid rgba(17,17,17,.14);
+      background: #b88857;
+      color: #fff;
+    }
+
+    .pflege-btn--ghost {
+      background: transparent;
+      color: #111;
+    }
+
+    @media (max-width: 900px) {
+      .pflege-grid,
+      .pflege-boxes {
+        grid-template-columns: 1fr;
+      }
+
+      .pflege-hero {
+        padding: 90px 0 54px;
+      }
+
+      .pflege-video {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="./index.html" class="brand" aria-label="Edle Hölzer Startseite">
+        <img src="./assets/logo.jpg" alt="Edle Hölzer Logo" class="brand__logo">
+        <span class="brand__text">Edle Hölzer</span>
+      </a>
+      <div class="topbar__right">
+        <div class="lang">
+          <a href="./pflege.html" class="is-active">DE</a>
+          <a href="./en/care.html">EN</a>
+        </div>
+      </div>
+    </div>
+    <nav class="mobileMenu" id="mobileMenu">
+      <div class="mobileMenu__head">
+        <div class="mobileMenu__lang">
+          <a href="./pflege.html" class="is-active">DE</a>
+          <a href="./en/care.html">EN</a>
+        </div>
+        <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
+      </div>
+      <a href="./index.html">Startseite</a>
+      <a href="./pflege.html">Pflege</a>
+      <a href="./index.html#service">Aufbereitungsservice</a>
+      <a href="./index.html#sonderanfertigung">Sonderanfertigung</a>
+      <a href="./index.html#b2b">B2B</a>
+    </nav>
+    <div class="menuBackdrop" id="menuBackdrop"></div>
+  </header>
+
+  <main>
+    <section class="pflege-hero">
+      <div class="pflege-wrap">
+        <p class="eyebrow eyebrow--dark">Pflege</p>
+        <h1>So wird dein Schneidebrett wieder stark.</h1>
+        <p class="pflege-lead">
+          Ein gutes Brett hält viel aus. Aber auch Massivholz braucht ab und zu Pflege.
+          Hier zeigen wir dir, wie du dein Brett sauber auffrischst, richtig schleifst und wieder ölst – ohne Drama, ohne Hexenwerk.
+        </p>
+      </div>
+    </section>
+
+    <section class="pflege-section">
+      <div class="pflege-wrap">
+        <div class="pflege-grid">
+          <div class="pflege-card">
+            <iframe
+              class="pflege-video"
+              src="https://www.youtube-nocookie.com/embed/S719JvOY0Yo"
+              title="Schneidebrett aufbereiten – Edle Hölzer"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="pflege-copy">
+            <h2>Im Video zeigen wir den Kernprozess.</h2>
+            <p>
+              Erst wird geschliffen, dann gewischt, dann geölt. Kein Blendwerk. Einfach der Weg zurück zu einer sauberen Oberfläche.
+            </p>
+
+            <div class="pflege-block" style="margin-top:22px;">
+              <h2>Was du brauchst</h2>
+              <ul class="pflege-list">
+                <li>80er Schleifpapier für den ersten Abtrag</li>
+                <li>120er Schleifpapier zum Verfeinern</li>
+                <li>Optional 240er für den sauberen Feinschliff</li>
+                <li>Sauberes Tuch</li>
+                <li>Wasser zum Zwischenwischen</li>
+                <li>Leinöl-Finish oder unser Pflegebalsam</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pflege-card" style="margin-top:26px;">
+          <h2>Schritt für Schritt: Brett wieder aufbereiten</h2>
+          <div class="pflege-steps">
+            <div class="pflege-step">
+              <div class="pflege-step__num">01</div>
+              <div>
+                <h3>Reinigen und trocknen</h3>
+                <p>Vor dem Schleifen muss das Brett sauber und trocken sein. Nicht halbfeucht anfangen. Das bringt nichts.</p>
+              </div>
+            </div>
+
+            <div class="pflege-step">
+              <div class="pflege-step__num">02</div>
+              <div>
+                <h3>Mit 80er Körnung starten</h3>
+                <p>Der erste Schleifgang nimmt Gebrauchsspuren, Flecken und raue Stellen runter. Hier wird nicht gestreichelt, hier wird gearbeitet.</p>
+              </div>
+            </div>
+
+            <div class="pflege-step">
+              <div class="pflege-step__num">03</div>
+              <div>
+                <h3>Über Kreuz schleifen</h3>
+                <p>Nach dem ersten Schleifgang ruhig einmal über Kreuz arbeiten. So bekommst du die Fläche gleichmäßiger und nicht nur optisch „irgendwie glatt“.</p>
+              </div>
+            </div>
+
+            <div class="pflege-step">
+              <div class="pflege-step__num">04</div>
+              <div>
+                <h3>Zwischenwischen</h3>
+                <p>Staub runter, Fläche kontrollieren, dann weiter. Wer Schleifstaub mit einölt, baut sich nur den nächsten Ärger direkt ein.</p>
+              </div>
+            </div>
+
+            <div class="pflege-step">
+              <div class="pflege-step__num">05</div>
+              <div>
+                <h3>Mit 120er nacharbeiten</h3>
+                <p>Jetzt wird die Oberfläche ruhiger und sauberer. Für viele Bretter reicht das schon. Wenn du es feiner willst, geh danach noch auf 240er.</p>
+              </div>
+            </div>
+
+            <div class="pflege-step">
+              <div class="pflege-step__num">06</div>
+              <div>
+                <h3>Ölen oder Balsam auftragen</h3>
+                <p>Zum Schluss kommt das Finish. Dünn auftragen, einziehen lassen, Überschuss abnehmen. Nicht ertränken. Holz braucht Pflege, kein Ölbaden.</p>
+              </div>
+            </div>
+
+            <div class="pflege-step">
+              <div class="pflege-step__num">07</div>
+              <div>
+                <h3>Trocknen lassen und Ergebnis genießen</h3>
+                <p>Danach sieht man den Unterschied sofort. Das Brett wirkt wieder ruhiger, satter und sauberer. Genau darum geht es.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pflege-boxes">
+          <div class="pflege-note">
+            <h3>Was du vermeiden solltest</h3>
+            <p>
+              Nicht in die Spülmaschine. Nicht einweichen. Nicht dauerhaft nass liegen lassen.
+              Nicht mit irgendeinem beliebigen Öl arbeiten. Und nicht so schleifen, als wolltest du den halben Zentimeter Material vernichten.
+            </p>
+          </div>
+
+          <div class="pflege-note">
+            <h3>Wann wir übernehmen sollten</h3>
+            <p>
+              Wenn das Brett stark mitgenommen ist, tiefe Schäden hat, verzogen ist oder du schlicht keine Zeit hast, übernehmen wir die Aufbereitung für dich.
+              Man muss nicht alles selbst machen. Man muss nur wissen, wann es sinnvoll ist.
+            </p>
+          </div>
+        </div>
+
+        <div class="pflege-card" style="margin-top:22px;">
+          <h2>Kurz gesagt</h2>
+          <p>
+            Reinigen. Trocknen. 80er. 120er. Optional 240er. Wischen. Ölen. Fertig.  
+            Wer das regelmäßig macht, hat lange Freude an seinem Brett. Und wenn nicht: wir sind da.
+          </p>
+
+          <div class="pflege-cta">
+            <a class="pflege-btn" href="./index.html#service">Aufbereitungsservice ansehen</a>
+            <a class="pflege-btn pflege-btn--ghost" href="mailto:edle.hoelzer@gmx.de?subject=Pflege%20und%20Aufbereitung">Frage zur Pflege stellen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">Edle Hölzer</div>
+        <div class="footer__meta">Handgefertigt in Mittelhessen.</div>
+      </div>
+      <div class="footer__links">
+        <a href="./index.html">Startseite</a>
+        <a href="./impressum.html">Impressum</a>
+        <a href="./datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./main.js"></script>
+</body>
+</html>
