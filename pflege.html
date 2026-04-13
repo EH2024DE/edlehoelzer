@@ -167,9 +167,56 @@
       color: #111;
     }
 
+    .pflege-produkt {
+      margin-top: 26px;
+      background: #fff;
+      border: 1px solid rgba(17,17,17,.08);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,.03);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .pflege-produkt__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 300px;
+    }
+
+    .pflege-produkt__copy {
+      padding: 36px;
+    }
+
+    .pflege-produkt__copy p.eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8a7a6a;
+      margin: 0 0 12px;
+    }
+
+    .pflege-produkt__copy h2 {
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+    }
+
+    .pflege-produkt__copy p.desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(17,17,17,.7);
+      margin: 0 0 24px;
+    }
+
     @media (max-width: 900px) {
       .pflege-grid,
-      .pflege-boxes {
+      .pflege-boxes,
+      .pflege-produkt {
         grid-template-columns: 1fr;
       }
 
@@ -179,6 +226,14 @@
 
       .pflege-video {
         width: 100%;
+      }
+
+      .pflege-produkt__img {
+        min-height: 240px;
+      }
+
+      .pflege-produkt__copy {
+        padding: 24px;
       }
     }
   </style>
@@ -287,7 +342,7 @@
               <div class="pflege-step__num">03</div>
               <div>
                 <h3>Über Kreuz schleifen</h3>
-                <p>Nach dem ersten Schleifgang ruhig einmal über Kreuz arbeiten. So bekommst du die Fläche gleichmäßiger und nicht nur optisch „irgendwie glatt“.</p>
+                <p>Nach dem ersten Schleifgang ruhig einmal über Kreuz arbeiten. So bekommst du die Fläche gleichmäßiger und nicht nur optisch „irgendwie glatt".</p>
               </div>
             </div>
 
@@ -346,15 +401,41 @@
         <div class="pflege-card" style="margin-top:22px;">
           <h2>Kurz gesagt</h2>
           <p>
-            Reinigen. Trocknen. 80er. 120er. Optional 240er. Wischen. Ölen. Fertig.  
+            Reinigen. Trocknen. 80er. 120er. Optional 240er. Wischen. Ölen. Fertig.
             Wer das regelmäßig macht, hat lange Freude an seinem Brett. Und wenn nicht: wir sind da.
           </p>
 
           <div class="pflege-cta">
             <a class="pflege-btn" href="./index.html#service">Aufbereitungsservice ansehen</a>
-            <a class="pflege-btn pflege-btn--ghost" href="mailto:edle.hoelzer@gmx.de?subject=Pflege%20und%20Aufbereitung">Frage zur Pflege stellen</a>
+            <a class="pflege-btn pflege-btn--ghost" href="mailto:info@edlehoelzer.de?subject=Pflege%20und%20Aufbereitung">Frage zur Pflege stellen</a>
           </div>
         </div>
+
+        <!-- Produktempfehlung: Pflegebalsam -->
+        <div class="pflege-produkt">
+          <img
+            class="pflege-produkt__img"
+            src="./assets/pflegebalsam_thumbnail.jpg"
+            alt="Pflegebalsam Edle Hölzer – Bienenwachs und Leinölfirnis"
+            loading="lazy"
+          >
+          <div class="pflege-produkt__copy">
+            <p class="eyebrow">Unser Pflegeprodukt</p>
+            <h2>Pflegebalsam aus Bienenwachs &amp; Leinölfirnis.</h2>
+            <p class="desc">
+              Handgemacht in Mittelhessen. Lebensmittelecht, ohne Zusatzstoffe.
+              Eine Anwendung reicht – dein Brett ist direkt geschützt und gepflegt.
+              Inklusive Pflegeanleitung im Schneidebrett-Format.
+            </p>
+            <a
+              class="pflege-btn"
+              href="https://edlehoelzervonkoc.etsy.com"
+              target="_blank"
+              rel="noopener"
+            >Im Shop ansehen</a>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
