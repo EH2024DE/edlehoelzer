@@ -3,345 +3,218 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cutting Board Care | Edle Hölzer</title>
-  <meta name="description" content="How to restore and care for your wooden cutting board. Video, sanding steps, oil finish and practical care tips.">
+  <title>How to Restore a Wooden Cutting Board (Sanding & Oiling Guide) | Edle Hölzer</title>
+  <meta name="description" content="Learn how to restore your wooden cutting board properly. Step-by-step sanding and oiling guide used by craftsmen. No shortcuts, no nonsense.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+     {
+       "@type": "Question",
+       "name": "How do you restore a wooden cutting board?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Clean, dry, sand with 80 and 120 grit, wipe and apply oil."
+       }
+     },
+     {
+       "@type": "Question",
+       "name": "How often should you oil a cutting board?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Every few weeks depending on usage or when the surface looks dry."
+       }
+     },
+     {
+       "@type": "Question",
+       "name": "Which oil is best for cutting boards?",
+       "acceptedAnswer": {
+         "@type": "Answer",
+         "text": "Food-safe oils like linseed oil or specialized cutting board balm."
+       }
+     }
+   ]
+  }
+  </script>
+
   <style>
-    .pflege-hero {
-      padding: 110px 0 70px;
-      background: linear-gradient(180deg, #ffffff, #eee5da);
-    }
-    .pflege-wrap {
-      width: min(980px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-    .pflege-hero h1 {
-      font-size: clamp(36px, 6vw, 62px);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      margin: 0 0 18px;
-    }
-    .pflege-lead {
-      font-size: 18px;
-      line-height: 1.7;
-      color: rgba(17,17,17,.74);
-      max-width: 52ch;
-      margin: 0;
-    }
-    .pflege-section {
-      padding: 70px 0;
-      background: #f5f1eb;
-    }
-    .pflege-card {
-      background: #fff;
-      border: 1px solid rgba(17,17,17,.08);
-      border-radius: 20px;
-      padding: 26px;
-      box-shadow: 0 10px 24px rgba(0,0,0,.03);
-    }
-    .pflege-video {
-      aspect-ratio: 9 / 16;
-      width: min(420px, 100%);
-      border: 0;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 14px 34px rgba(0,0,0,.08);
-      background: #000;
-    }
-    .pflege-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 26px;
-      align-items: start;
-    }
-    .pflege-copy h2,
-    .pflege-block h2 {
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin: 0 0 16px;
-    }
-    .pflege-copy p,
-    .pflege-block p,
-    .pflege-block li {
-      color: rgba(17,17,17,.74);
-      line-height: 1.7;
-      margin: 0;
-    }
-    .pflege-block + .pflege-block {
-      margin-top: 22px;
-    }
-    .pflege-list {
-      margin: 0;
-      padding-left: 18px;
-    }
-    .pflege-steps {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-    .pflege-step {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 16px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(17,17,17,.08);
-    }
-    .pflege-step:last-child {
-      border-bottom: none;
-    }
-    .pflege-step__num {
-      font-weight: 800;
-      color: #a4774c;
-      font-size: 18px;
-      line-height: 1;
-      padding-top: 4px;
-    }
-    .pflege-step h3 {
-      margin: 0 0 6px;
-      font-size: 20px;
-      letter-spacing: -0.02em;
-    }
-    .pflege-boxes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 22px;
-    }
-    .pflege-note {
-      background: #fff;
-      border: 1px solid rgba(17,17,17,.08);
-      border-radius: 18px;
-      padding: 20px;
-    }
-    .pflege-note h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-    .pflege-cta {
-      margin-top: 28px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .pflege-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: 700;
-      line-height: 1;
-      border: 1px solid rgba(17,17,17,.14);
-      background: #b88857;
-      color: #fff;
-    }
-    .pflege-btn--ghost {
-      background: transparent;
-      color: #111;
-    }
-    @media (max-width: 900px) {
-      .pflege-grid,
-      .pflege-boxes {
-        grid-template-columns: 1fr;
-      }
-      .pflege-hero {
-        padding: 90px 0 54px;
-      }
-      .pflege-video {
-        width: 100%;
-      }
+    .pflege-hero { padding:110px 0 70px; background:linear-gradient(180deg,#ffffff,#eee5da);}
+    .pflege-wrap { width:min(980px,calc(100% - 32px)); margin:0 auto;}
+    .pflege-hero h1 { font-size:clamp(36px,6vw,62px); line-height:1.02; letter-spacing:-0.03em; margin:0 0 18px;}
+    .pflege-lead { font-size:18px; line-height:1.7; color:rgba(17,17,17,.74); max-width:52ch;}
+    .pflege-section { padding:70px 0; background:#f5f1eb;}
+    .pflege-card { background:#fff; border:1px solid rgba(17,17,17,.08); border-radius:20px; padding:26px; box-shadow:0 10px 24px rgba(0,0,0,.03);}
+    .pflege-video { aspect-ratio:9/16; width:min(420px,100%); border:0; border-radius:18px; overflow:hidden; background:#000;}
+    .pflege-grid { display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+    .pflege-copy h2,.pflege-block h2 { font-size:clamp(28px,4vw,42px); margin:0 0 16px;}
+    .pflege-copy p,.pflege-block p,.pflege-block li { color:rgba(17,17,17,.74); line-height:1.7;}
+    .pflege-list { padding-left:18px;}
+    .pflege-steps { display:grid; gap:14px; margin-top:18px;}
+    .pflege-step { display:grid; grid-template-columns:44px 1fr; gap:16px; padding:18px 0; border-bottom:1px solid rgba(17,17,17,.08);}
+    .pflege-step__num { font-weight:800; color:#a4774c;}
+    .pflege-boxes { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px;}
+    .pflege-note { background:#fff; border:1px solid rgba(17,17,17,.08); border-radius:18px; padding:20px;}
+    .pflege-cta { margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;}
+    .pflege-btn { padding:12px 18px; border-radius:8px; font-weight:700; background:#b88857; color:#fff;}
+    .pflege-btn--ghost { background:transparent; color:#111;}
+    .pflege-produkt { margin-top:26px; background:#fff; border-radius:20px; display:grid; grid-template-columns:1fr 1fr;}
+    .pflege-produkt__img { width:100%; object-fit:cover;}
+    .pflege-produkt__copy { padding:36px;}
+    @media(max-width:900px){
+      .pflege-grid,.pflege-boxes,.pflege-produkt{grid-template-columns:1fr;}
     }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
-      <a href="../index.html" class="brand" aria-label="Edle Hölzer home">
-        <img src="../assets/logo.jpg" alt="Edle Hölzer logo" class="brand__logo">
-        <span class="brand__text">Edle Hölzer</span>
-      </a>
-      <div class="topbar__right">
-        <div class="lang">
-          <a href="../pflege.html">DE</a>
-          <a href="./care.html" class="is-active">EN</a>
-        </div>
-      </div>
+
+<main>
+
+<section class="pflege-hero">
+  <div class="pflege-wrap">
+    <p class="eyebrow eyebrow--dark">Care</p>
+    <h1>How to restore a wooden cutting board properly.</h1>
+    <p class="pflege-lead">
+      A well-made board can take years of use.  
+      But solid wood is not maintenance-free.  
+      This is how you restore the surface properly — sand it clean, oil it right, and make it last.
+    </p>
+  </div>
+</section>
+
+<section class="pflege-section">
+<div class="pflege-wrap">
+
+<div class="pflege-grid">
+  <div class="pflege-card">
+    <iframe class="pflege-video"
+      src="https://www.youtube-nocookie.com/embed/S719JvOY0Yo"
+      title="How to restore a cutting board"
+      loading="lazy"
+      allowfullscreen></iframe>
+  </div>
+
+  <div class="pflege-copy">
+    <h2>This is the process. Nothing more.</h2>
+    <p>Sanding. Wiping. Oiling. No shortcuts.</p>
+
+    <div class="pflege-block">
+      <h2>What you actually need</h2>
+      <ul class="pflege-list">
+        <li>80 grit sandpaper</li>
+        <li>120 grit sandpaper</li>
+        <li>Optional 240 grit</li>
+        <li>Clean cloth</li>
+        <li>Water</li>
+        <li>Oil or care balm</li>
+      </ul>
     </div>
-    <nav class="mobileMenu" id="mobileMenu">
-      <div class="mobileMenu__head">
-        <div class="mobileMenu__lang">
-          <a href="../pflege.html">DE</a>
-          <a href="./care.html" class="is-active">EN</a>
-        </div>
-        <button class="mobileMenu__close" id="menuCloseButton" aria-label="Close menu">×</button>
-      </div>
-      <a href="../index.html">Home</a>
-      <a href="./care.html">Care</a>
-      <a href="../index.html#service">Restoration service</a>
-      <a href="../index.html#sonderanfertigung">Custom work</a>
-      <a href="../index.html#b2b">B2B</a>
-    </nav>
-    <div class="menuBackdrop" id="menuBackdrop"></div>
-  </header>
+  </div>
+</div>
 
-  <main>
-    <section class="pflege-hero">
-      <div class="pflege-wrap">
-        <p class="eyebrow eyebrow--dark">Care</p>
-        <h1>How to bring your cutting board back to life.</h1>
-        <p class="pflege-lead">
-          A good board can take a lot. But even solid wood needs proper care from time to time.
-          Here we show you how to refresh the surface, sand it properly and oil it again – clean, simple and without nonsense.
-        </p>
-      </div>
-    </section>
+<div class="pflege-card">
+<h2>Step by step: restore the board properly</h2>
 
-    <section class="pflege-section">
-      <div class="pflege-wrap">
-        <div class="pflege-grid">
-          <div class="pflege-card">
-            <iframe
-              class="pflege-video"
-              src="https://www.youtube-nocookie.com/embed/S719JvOY0Yo"
-              title="Restoring a cutting board – Edle Hölzer"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen>
-            </iframe>
-          </div>
+<div class="pflege-steps">
 
-          <div class="pflege-copy">
-            <h2>The video shows the core process.</h2>
-            <p>
-              First sanding, then wiping, then oiling. No gimmicks. Just the clean way back to a strong surface.
-            </p>
+<div class="pflege-step">
+<div class="pflege-step__num">01</div>
+<div><h3>Clean and dry</h3><p>Must be fully dry.</p></div>
+</div>
 
-            <div class="pflege-block" style="margin-top:22px;">
-              <h2>What you need</h2>
-              <ul class="pflege-list">
-                <li>80 grit sandpaper for the first pass</li>
-                <li>120 grit sandpaper for refining</li>
-                <li>Optional 240 grit for a finer finish</li>
-                <li>A clean cloth</li>
-                <li>Water for wiping between passes</li>
-                <li>A linseed oil finish or our care balm</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+<div class="pflege-step">
+<div class="pflege-step__num">02</div>
+<div><h3>Start with 80 grit</h3><p>Remove damage.</p></div>
+</div>
 
-        <div class="pflege-card" style="margin-top:26px;">
-          <h2>Step by step: how to restore your board</h2>
-          <div class="pflege-steps">
-            <div class="pflege-step">
-              <div class="pflege-step__num">01</div>
-              <div>
-                <h3>Clean it and let it dry</h3>
-                <p>The board must be clean and dry before sanding. Starting on a damp surface is pointless.</p>
-              </div>
-            </div>
-            <div class="pflege-step">
-              <div class="pflege-step__num">02</div>
-              <div>
-                <h3>Start with 80 grit</h3>
-                <p>The first sanding pass removes marks, stains and rough areas. This is where the real work starts.</p>
-              </div>
-            </div>
-            <div class="pflege-step">
-              <div class="pflege-step__num">03</div>
-              <div>
-                <h3>Sand across the grain as well</h3>
-                <p>After the first pass, sanding across the direction once can help level the surface more evenly.</p>
-              </div>
-            </div>
-            <div class="pflege-step">
-              <div class="pflege-step__num">04</div>
-              <div>
-                <h3>Wipe between sanding passes</h3>
-                <p>Remove dust, check the surface, then continue. Oiling sanding dust into the board is a bad idea.</p>
-              </div>
-            </div>
-            <div class="pflege-step">
-              <div class="pflege-step__num">05</div>
-              <div>
-                <h3>Refine with 120 grit</h3>
-                <p>Now the surface gets cleaner and calmer. For many boards this is enough. If you want it finer, go up to 240 grit.</p>
-              </div>
-            </div>
-            <div class="pflege-step">
-              <div class="pflege-step__num">06</div>
-              <div>
-                <h3>Apply oil or care balm</h3>
-                <p>Finish the board with a thin coat, let it soak in and wipe off the excess. Wood needs care, not drowning.</p>
-              </div>
-            </div>
-            <div class="pflege-step">
-              <div class="pflege-step__num">07</div>
-              <div>
-                <h3>Let it dry and enjoy the result</h3>
-                <p>The difference is visible immediately. The board looks richer, cleaner and more balanced again.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="pflege-step">
+<div class="pflege-step__num">03</div>
+<div><h3>Sand across grain</h3><p>Levels properly.</p></div>
+</div>
 
-        <div class="pflege-boxes">
-          <div class="pflege-note">
-            <h3>What to avoid</h3>
-            <p>
-              No dishwasher. Do not soak it. Do not leave it on a wet surface.
-              Do not use random oils. And do not sand it like you are trying to remove half the board.
-            </p>
-          </div>
+<div class="pflege-step">
+<div class="pflege-step__num">04</div>
+<div><h3>Wipe between passes</h3><p>Remove dust.</p></div>
+</div>
 
-          <div class="pflege-note">
-            <h3>When we should take over</h3>
-            <p>
-              If the board is heavily worn, deeply damaged, warped or you simply do not have the time, we can restore it for you.
-              You do not have to do everything yourself. You just need to know when it makes sense.
-            </p>
-          </div>
-        </div>
+<div class="pflege-step">
+<div class="pflege-step__num">05</div>
+<div><h3>Refine with 120 grit</h3><p>Enough for most boards.</p></div>
+</div>
 
-        <div class="pflege-card" style="margin-top:22px;">
-          <h2>In short</h2>
-          <p>
-            Clean. Dry. 80 grit. 120 grit. Optional 240 grit. Wipe. Oil. Done.
-            If you do that regularly, your board will stay strong for a long time. If not, we are here.
-          </p>
+<div class="pflege-step">
+<div class="pflege-step__num">06</div>
+<div><h3>Apply oil</h3><p>Thin layer only.</p></div>
+</div>
 
-          <div class="pflege-cta">
-            <a class="pflege-btn" href="../index.html#service">View restoration service</a>
-            <a class="pflege-btn pflege-btn--ghost" href="mailto:edle.hoelzer@gmx.de?subject=Care%20and%20restoration">Ask a care question</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<div class="pflege-step">
+<div class="pflege-step__num">07</div>
+<div><h3>Let it dry</h3><p>Result is immediate.</p></div>
+</div>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>
-        <div class="footer__brand">Edle Hölzer</div>
-        <div class="footer__meta">Handcrafted in central Germany.</div>
-      </div>
-      <div class="footer__links">
-        <a href="../index.html">Home</a>
-        <a href="../impressum.html">Impressum</a>
-        <a href="../datenschutz.html">Privacy</a>
-      </div>
-    </div>
-  </footer>
+</div>
+</div>
 
-  <script src="../main.js"></script>
+<!-- SEO Sections -->
+
+<div class="pflege-card">
+<h2>How often should you oil a cutting board?</h2>
+<p>Oil your board whenever the surface looks dry or dull. For regular use, every few weeks is enough.</p>
+</div>
+
+<div class="pflege-card">
+<h2>Which oil is best for cutting boards?</h2>
+<p>Use food-safe oils like linseed oil or a proper care balm. Avoid cheap or random oils.</p>
+</div>
+
+<div class="pflege-card">
+<h2>Can you sand an end grain cutting board?</h2>
+<p>Yes. Use controlled sanding and proper grit progression. End grain requires more precision.</p>
+</div>
+
+<div class="pflege-boxes">
+  <div class="pflege-note">
+    <h3>What to avoid</h3>
+    <p>No dishwasher. No soaking. No cheap oils.</p>
+  </div>
+
+  <div class="pflege-note">
+    <h3>When we take over</h3>
+    <p>For damaged or warped boards, professional restoration makes more sense.</p>
+  </div>
+</div>
+
+<div class="pflege-card">
+<h2>In short</h2>
+<p>Clean. Dry. Sand. Wipe. Oil. Done.</p>
+
+<div class="pflege-cta">
+<a class="pflege-btn" href="../index.html#service">Restoration service</a>
+<a class="pflege-btn pflege-btn--ghost" href="mailto:info@edlehoelzer.de">Ask a question</a>
+</div>
+</div>
+
+<div class="pflege-produkt">
+<img class="pflege-produkt__img" src="../assets/pflegebalsam_thumbnail.jpg" alt="cutting board oil treatment before and after">
+<div class="pflege-produkt__copy">
+<p class="eyebrow">Our care product</p>
+<h2>Care balm from beeswax and linseed oil.</h2>
+<p>Food-safe. Handmade. One application is enough.</p>
+<a class="pflege-btn" href="https://edlehoelzervonkoc.etsy.com">View product</a>
+</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
 </body>
 </html>
