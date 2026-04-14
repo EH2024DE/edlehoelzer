@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anfrage erhalten | Edle Hölzer</title>
+  <meta name="description" content="Vielen Dank für Ihre Anfrage bei Edle Hölzer. Wir melden uns in der Regel innerhalb von 24 bis 48 Stunden zurück.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .thankyou-hero {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      padding: 110px 0 70px;
+      background: linear-gradient(180deg, #ffffff, #eee5da);
+    }
+
+    .thankyou-wrap {
+      width: min(780px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .thankyou-card {
+      background: #fff;
+      border: 1px solid rgba(17,17,17,.08);
+      border-radius: 24px;
+      padding: 42px;
+      box-shadow: 0 14px 34px rgba(0,0,0,.06);
+      text-align: center;
+    }
+
+    .thankyou-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(184,136,87,.12);
+      color: #a4774c;
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .thankyou-card h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .thankyou-lead {
+      margin: 0 auto 24px;
+      max-width: 52ch;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(17,17,17,.68);
+    }
+
+    .thankyou-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 0 0 26px;
+      text-align: left;
+    }
+
+    .thankyou-box {
+      background: #f8f4ee;
+      border: 1px solid #e8e0d6;
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .thankyou-box strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    .thankyou-box span {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: rgba(17,17,17,.65);
+    }
+
+    .thankyou-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .thankyou-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: 'Montserrat', sans-serif;
+      transition: background 0.2s, transform 0.15s, border-color 0.2s;
+      text-decoration: none;
+    }
+
+    .thankyou-btn--primary {
+      background: #b88857;
+      color: #fff;
+      border: none;
+    }
+
+    .thankyou-btn--primary:hover {
+      background: #9a7045;
+      transform: translateY(-1px);
+    }
+
+    .thankyou-btn--ghost {
+      background: transparent;
+      color: #1a1a1a;
+      border: 1px solid #d9cfc2;
+    }
+
+    .thankyou-btn--ghost:hover {
+      border-color: #b88857;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 760px) {
+      .thankyou-card {
+        padding: 28px 22px;
+      }
+
+      .thankyou-boxes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar__inner">
+    <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="./index.html" class="brand" aria-label="Edle Hölzer Startseite">
+      <img src="./assets/logo.jpg" alt="Edle Hölzer Logo" class="brand__logo">
+      <span class="brand__text">Edle Hölzer</span>
+    </a>
+    <div class="topbar__right">
+      <div class="lang">
+        <a href="./danke.html" class="is-active">DE</a>
+      </div>
+      <a href="./b2b.html" class="btn btn--small">Zur B2B-Seite</a>
+    </div>
+  </div>
+  <nav class="mobileMenu" id="mobileMenu">
+    <div class="mobileMenu__head">
+      <div class="mobileMenu__lang">
+        <a href="./danke.html" class="is-active">DE</a>
+      </div>
+      <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
+    </div>
+    <a href="./index.html">Startseite</a>
+    <a href="./b2b.html">B2B</a>
+    <a href="./impressum.html">Impressum</a>
+    <a href="./datenschutz.html">Datenschutz</a>
+  </nav>
+  <div class="menuBackdrop" id="menuBackdrop"></div>
+</header>
+
+<main class="thankyou-hero">
+  <div class="thankyou-wrap">
+    <section class="thankyou-card">
+      <div class="thankyou-icon">✓</div>
+      <h1>Anfrage erhalten.</h1>
+      <p class="thankyou-lead">
+        Vielen Dank für Ihre Anfrage. Wir prüfen die Angaben und melden uns in der Regel innerhalb von 24 bis 48 Stunden mit einer realistischen Einschätzung oder einem passenden Angebot zurück.
+      </p>
+
+      <div class="thankyou-boxes">
+        <div class="thankyou-box">
+          <strong>Was jetzt passiert</strong>
+          <span>Wir prüfen Produkt, Menge, Budget und Umsetzbarkeit Ihrer Anfrage.</span>
+        </div>
+        <div class="thankyou-box">
+          <strong>Rückmeldung</strong>
+          <span>Sie erhalten von uns eine erste belastbare Einschätzung oder direkt ein Angebot.</span>
+        </div>
+        <div class="thankyou-box">
+          <strong>Falls es eilt</strong>
+          <span>Schreiben Sie uns ergänzend direkt per E-Mail, wenn ein enger Termin relevant ist.</span>
+        </div>
+      </div>
+
+      <div class="thankyou-actions">
+        <a href="./index.html" class="thankyou-btn thankyou-btn--primary">Zur Startseite</a>
+        <a href="mailto:info@edlehoelzer.de?subject=Ergänzung%20zu%20meiner%20B2B-Anfrage" class="thankyou-btn thankyou-btn--ghost">Per E-Mail ergänzen</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div class="footer__brand">Edle Hölzer</div>
+      <div class="footer__meta">Handgefertigt in Mittelhessen.</div>
+    </div>
+    <div class="footer__links">
+      <a href="./index.html">Startseite</a>
+      <a href="./impressum.html">Impressum</a>
+      <a href="./datenschutz.html">Datenschutz</a>
+      <a href="mailto:info@edlehoelzer.de">E-Mail</a>
+    </div>
+  </div>
+</footer>
+
+<script src="./main.js"></script>
+</body>
+</html>
