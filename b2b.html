@@ -14,22 +14,26 @@
       padding: 110px 0 70px;
       background: linear-gradient(180deg, #ffffff, #eee5da);
     }
+
     .b2b-wrap {
       width: min(1100px, calc(100% - 32px));
       margin: 0 auto;
     }
+
     .b2b-hero-grid {
       display: grid;
       grid-template-columns: 1fr 420px;
       gap: 32px;
       align-items: start;
     }
+
     .b2b-hero h1 {
       font-size: clamp(2.2rem, 4.5vw, 3.6rem);
       line-height: 1.02;
       letter-spacing: -0.04em;
       margin: 0 0 18px;
     }
+
     .b2b-lead {
       font-size: 1.05rem;
       line-height: 1.7;
@@ -37,35 +41,46 @@
       max-width: 54ch;
       margin: 0 0 22px;
     }
-    .b2b-points, .b2b-mini-list, .b2b-check-list, .b2b-form-steps {
+
+    .b2b-points,
+    .b2b-mini-list,
+    .b2b-check-list,
+    .b2b-form-steps {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .b2b-points {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin: 0 0 28px;
     }
-    .b2b-points li, .b2b-check-list li {
+
+    .b2b-points li,
+    .b2b-check-list li {
       position: relative;
       padding-left: 22px;
       font-size: 0.92rem;
       color: #2c2c2c;
     }
-    .b2b-points li::before, .b2b-check-list li::before {
+
+    .b2b-points li::before,
+    .b2b-check-list li::before {
       content: "✓";
       position: absolute;
       left: 0;
       color: #a4774c;
       font-weight: 800;
     }
+
     .b2b-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
+
     .b2b-btn {
       display: inline-flex;
       align-items: center;
@@ -79,24 +94,29 @@
       transition: background 0.2s, transform 0.15s, border-color 0.2s;
       text-decoration: none;
     }
+
     .b2b-btn--primary {
       background: #b88857;
       color: #fff;
       border: none;
     }
+
     .b2b-btn--primary:hover {
       background: #9a7045;
       transform: translateY(-1px);
     }
+
     .b2b-btn--ghost {
       background: transparent;
       color: #1a1a1a;
       border: 1px solid #d9cfc2;
     }
+
     .b2b-btn--ghost:hover {
       border-color: #b88857;
       transform: translateY(-1px);
     }
+
     .b2b-form-card {
       background: #fff;
       border: 1px solid rgba(17,17,17,.08);
@@ -106,16 +126,19 @@
       position: sticky;
       top: 88px;
     }
+
     .b2b-form-card h2 {
       font-size: 1.35rem;
       letter-spacing: -0.02em;
       margin: 0 0 6px;
     }
+
     .b2b-form-card > p {
       font-size: 0.9rem;
       color: rgba(17,17,17,.6);
       margin: 0 0 18px;
     }
+
     .b2b-form-steps {
       display: grid;
       gap: 6px;
@@ -123,22 +146,27 @@
       padding-bottom: 18px;
       border-bottom: 1px solid #e8e0d6;
     }
+
     .b2b-form-steps li {
       font-size: 0.88rem;
       color: rgba(17,17,17,.6);
     }
+
     .b2b-form-steps strong {
       color: #1a1a1a;
     }
+
     .b2b-form {
       display: grid;
       gap: 12px;
     }
+
     .b2b-field-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
+
     .b2b-label {
       display: grid;
       gap: 5px;
@@ -147,7 +175,10 @@
       font-family: "Montserrat", sans-serif;
       color: #1a1a1a;
     }
-    .b2b-input, .b2b-select, .b2b-textarea {
+
+    .b2b-input,
+    .b2b-select,
+    .b2b-textarea {
       width: 100%;
       border: 1px solid #d9cfc2;
       border-radius: 10px;
@@ -158,23 +189,30 @@
       color: #1a1a1a;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .b2b-input:focus, .b2b-select:focus, .b2b-textarea:focus {
+
+    .b2b-input:focus,
+    .b2b-select:focus,
+    .b2b-textarea:focus {
       outline: none;
       border-color: #b88857;
       box-shadow: 0 0 0 3px rgba(184,136,87,.12);
     }
+
     .b2b-textarea {
       min-height: 120px;
       resize: vertical;
     }
+
     .b2b-hint {
       font-size: 0.8rem;
       color: rgba(17,17,17,.55);
       line-height: 1.5;
     }
+
     .b2b-hint a {
       color: #a4774c;
     }
+
     .b2b-honeypot {
       position: absolute !important;
       left: -5000px !important;
@@ -182,10 +220,12 @@
       height: 1px !important;
       overflow: hidden !important;
     }
+
     .b2b-submit {
       width: 100%;
       cursor: pointer;
     }
+
     .b2b-trust {
       display: flex;
       align-items: center;
@@ -195,18 +235,23 @@
       color: rgba(17,17,17,.5);
       justify-content: center;
     }
+
     .b2b-trust::before {
       content: "🔒";
       font-size: 0.9rem;
     }
+
     .b2b-section {
       padding: 64px 0;
     }
+
     .b2b-section--white { background: #fff; }
     .b2b-section--sand { background: #f5f1eb; }
+
     .b2b-section-head {
       margin-bottom: 32px;
     }
+
     .b2b-section-head p {
       max-width: 60ch;
       color: rgba(17,17,17,.65);
@@ -214,26 +259,45 @@
       font-size: 0.95rem;
       line-height: 1.65;
     }
-    .b2b-card, .b2b-price-card, .b2b-usecase, .b2b-faq-item, .b2b-product, .b2b-featured {
+
+    .b2b-card,
+    .b2b-price-card,
+    .b2b-usecase,
+    .b2b-faq-item,
+    .b2b-product,
+    .b2b-featured {
       background: #fff;
       border: 1px solid rgba(17,17,17,.08);
       border-radius: 18px;
       box-shadow: 0 8px 20px rgba(0,0,0,.03);
     }
-    .b2b-card, .b2b-price-card, .b2b-usecase, .b2b-faq-item {
+
+    .b2b-card,
+    .b2b-price-card,
+    .b2b-usecase,
+    .b2b-faq-item {
       padding: 24px;
     }
-    .b2b-card h3, .b2b-price-card h3, .b2b-usecase h3, .b2b-faq-item h3 {
+
+    .b2b-card h3,
+    .b2b-price-card h3,
+    .b2b-usecase h3,
+    .b2b-faq-item h3 {
       font-size: 1.02rem;
       letter-spacing: -0.01em;
       margin: 0 0 8px;
     }
-    .b2b-card p, .b2b-price-card p, .b2b-usecase p, .b2b-faq-item p {
+
+    .b2b-card p,
+    .b2b-price-card p,
+    .b2b-usecase p,
+    .b2b-faq-item p {
       font-size: 0.9rem;
       color: rgba(17,17,17,.65);
       line-height: 1.6;
       margin: 0;
     }
+
     .b2b-icon {
       width: 40px;
       height: 40px;
@@ -248,20 +312,32 @@
       margin-bottom: 14px;
       font-family: "Montserrat", sans-serif;
     }
-    .b2b-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .b2b-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+    .b2b-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .b2b-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
 
     .b2b-products {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
+
     .b2b-product {
       overflow: hidden;
       display: flex;
       flex-direction: column;
       height: 100%;
     }
+
     .b2b-product__thumb {
       width: 100%;
       aspect-ratio: 3 / 2;
@@ -270,17 +346,36 @@
       border-bottom: 1px solid rgba(17,17,17,.06);
       flex-shrink: 0;
     }
+
     .b2b-product__thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .b2b-product__body { padding: 20px; }
-    .b2b-product__body h3 { font-size: 1rem; margin: 0 0 6px; }
-    .b2b-product__body p { font-size: 0.88rem; color: rgba(17,17,17,.65); line-height: 1.55; margin: 0 0 12px; }
 
-    .b2b-badge-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .b2b-product__body {
+      padding: 20px;
+    }
+
+    .b2b-product__body h3 {
+      font-size: 1rem;
+      margin: 0 0 6px;
+    }
+
+    .b2b-product__body p {
+      font-size: 0.88rem;
+      color: rgba(17,17,17,.65);
+      line-height: 1.55;
+      margin: 0 0 12px;
+    }
+
+    .b2b-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
     .b2b-badge {
       display: inline-flex;
       align-items: center;
@@ -291,7 +386,14 @@
       font-size: 0.78rem;
       font-weight: 600;
     }
-    .b2b-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+
+    .b2b-prices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
     .b2b-price {
       font-size: 1.9rem;
       font-weight: 800;
@@ -299,21 +401,40 @@
       color: #1a1a1a;
       margin: 8px 0 10px;
     }
-    .b2b-mini-list { display: grid; gap: 6px; margin-top: 12px; }
+
+    .b2b-mini-list {
+      display: grid;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
     .b2b-mini-list li {
       font-size: 0.88rem;
       color: rgba(17,17,17,.65);
       padding-left: 18px;
       position: relative;
     }
-    .b2b-mini-list li::before { content: "–"; position: absolute; left: 0; color: #b88857; }
-    .b2b-process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+    .b2b-mini-list li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #b88857;
+    }
+
+    .b2b-process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
     .b2b-process-step {
       background: #fff;
       border: 1px solid #e8e0d6;
       border-radius: 14px;
       padding: 20px;
     }
+
     .b2b-step-num {
       display: inline-flex;
       width: 30px;
@@ -327,17 +448,46 @@
       font-size: 0.85rem;
       margin-bottom: 12px;
     }
-    .b2b-process-step h3 { font-size: 0.95rem; margin: 0 0 6px; }
-    .b2b-process-step p { font-size: 0.86rem; color: rgba(17,17,17,.65); line-height: 1.55; margin: 0; }
-    .b2b-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+
+    .b2b-process-step h3 {
+      font-size: 0.95rem;
+      margin: 0 0 6px;
+    }
+
+    .b2b-process-step p {
+      font-size: 0.86rem;
+      color: rgba(17,17,17,.65);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .b2b-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
     .b2b-stat {
       background: rgba(255,255,255,.8);
       border: 1px solid rgba(184,136,87,.15);
       border-radius: 12px;
       padding: 16px;
     }
-    .b2b-stat strong { display: block; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 4px; }
-    .b2b-stat span { font-size: 0.83rem; color: rgba(17,17,17,.6); }
+
+    .b2b-stat strong {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    .b2b-stat span {
+      font-size: 0.83rem;
+      color: rgba(17,17,17,.6);
+    }
+
     .b2b-featured {
       background: linear-gradient(135deg, rgba(184,136,87,.1), rgba(255,255,255,.95));
       border: 1px solid rgba(184,136,87,.2);
@@ -345,8 +495,21 @@
       padding: 32px;
       box-shadow: 0 8px 20px rgba(0,0,0,.03);
     }
-    .b2b-featured h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.03em; margin: 0 0 10px; }
-    .b2b-featured p { font-size: 0.95rem; color: rgba(17,17,17,.65); line-height: 1.65; margin: 0; max-width: 60ch; }
+
+    .b2b-featured h2 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      letter-spacing: -0.03em;
+      margin: 0 0 10px;
+    }
+
+    .b2b-featured p {
+      font-size: 0.95rem;
+      color: rgba(17,17,17,.65);
+      line-height: 1.65;
+      margin: 0;
+      max-width: 60ch;
+    }
+
     .b2b-anchor {
       margin-top: 24px;
       padding: 18px 22px;
@@ -359,8 +522,20 @@
       justify-content: space-between;
       gap: 12px;
     }
-    .b2b-anchor p { margin: 0; font-size: 0.93rem; font-weight: 600; color: #1a1a1a; }
-    .b2b-faq { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .b2b-anchor p {
+      margin: 0;
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .b2b-faq {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
     .b2b-proof-strip {
       background: #fff8f2;
       border: 1px solid rgba(184,136,87,.2);
@@ -372,6 +547,7 @@
       align-items: center;
       gap: 20px;
     }
+
     .b2b-proof-strip__quote {
       flex: 1;
       font-size: 0.9rem;
@@ -379,22 +555,52 @@
       color: #2c2c2c;
       font-style: italic;
     }
+
     .b2b-proof-strip__meta {
       font-size: 0.78rem;
       color: #8a7a6a;
       white-space: nowrap;
     }
-    .b2b-stars { color: #c8a96e; letter-spacing: 1px; font-style: normal; }
+
+    .b2b-stars {
+      color: #c8a96e;
+      letter-spacing: 1px;
+      font-style: normal;
+    }
 
     @media (max-width: 1024px) {
-      .b2b-hero-grid { grid-template-columns: 1fr; }
-      .b2b-form-card { position: static; }
-      .b2b-products, .b2b-grid-3, .b2b-prices, .b2b-process { grid-template-columns: 1fr 1fr; }
+      .b2b-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .b2b-form-card {
+        position: static;
+      }
+
+      .b2b-products,
+      .b2b-grid-3,
+      .b2b-prices,
+      .b2b-process {
+        grid-template-columns: 1fr 1fr;
+      }
     }
+
     @media (max-width: 680px) {
-      .b2b-hero { padding: 90px 0 50px; }
-      .b2b-products, .b2b-grid-3, .b2b-prices, .b2b-process,
-      .b2b-grid-2, .b2b-faq, .b2b-stats, .b2b-points, .b2b-field-row { grid-template-columns: 1fr; }
+      .b2b-hero {
+        padding: 90px 0 50px;
+      }
+
+      .b2b-products,
+      .b2b-grid-3,
+      .b2b-prices,
+      .b2b-process,
+      .b2b-grid-2,
+      .b2b-faq,
+      .b2b-stats,
+      .b2b-points,
+      .b2b-field-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -632,22 +838,38 @@
         <div class="b2b-usecase">
           <h3>Mitarbeitergeschenke</h3>
           <p>Für Weihnachten, Jubiläen, interne Meilensteine oder als hochwertiges Willkommensgeschenk.</p>
-          <div class="b2b-badge-row"><span class="b2b-badge">Wertschätzung</span><span class="b2b-badge">Alltagstauglich</span><span class="b2b-badge">Logo möglich</span></div>
+          <div class="b2b-badge-row">
+            <span class="b2b-badge">Wertschätzung</span>
+            <span class="b2b-badge">Alltagstauglich</span>
+            <span class="b2b-badge">Logo möglich</span>
+          </div>
         </div>
         <div class="b2b-usecase">
           <h3>Kundengeschenke</h3>
           <p>Für wichtige Kunden, Geschäftspartner oder hochwertige Beilagen zu besonderen Projekten und Abschlüssen.</p>
-          <div class="b2b-badge-row"><span class="b2b-badge">Bleibender Eindruck</span><span class="b2b-badge">Premium-Wirkung</span><span class="b2b-badge">Personalisierbar</span></div>
+          <div class="b2b-badge-row">
+            <span class="b2b-badge">Bleibender Eindruck</span>
+            <span class="b2b-badge">Premium-Wirkung</span>
+            <span class="b2b-badge">Personalisierbar</span>
+          </div>
         </div>
         <div class="b2b-usecase">
           <h3>Events &amp; Messen</h3>
           <p>Als hochwertige Limited Series für ausgewählte Kontakte, Speaker, Partner oder VIP-Gäste.</p>
-          <div class="b2b-badge-row"><span class="b2b-badge">Gezielte Verteilung</span><span class="b2b-badge">Markenstark</span><span class="b2b-badge">Kein Streuartikel</span></div>
+          <div class="b2b-badge-row">
+            <span class="b2b-badge">Gezielte Verteilung</span>
+            <span class="b2b-badge">Markenstark</span>
+            <span class="b2b-badge">Kein Streuartikel</span>
+          </div>
         </div>
         <div class="b2b-usecase">
           <h3>Sonderanfertigungen</h3>
           <p>Wenn Format, Gravur oder Konzept nicht standardisiert sind und das Geschenk stärker auf deine Marke einzahlen soll.</p>
-          <div class="b2b-badge-row"><span class="b2b-badge">Individuelles Format</span><span class="b2b-badge">Maßanfertigung</span><span class="b2b-badge">Projektbezogen</span></div>
+          <div class="b2b-badge-row">
+            <span class="b2b-badge">Individuelles Format</span>
+            <span class="b2b-badge">Maßanfertigung</span>
+            <span class="b2b-badge">Projektbezogen</span>
+          </div>
         </div>
       </div>
     </div>
@@ -666,7 +888,9 @@
           <h3>Kleine Bretter</h3>
           <div class="b2b-price">bis 50 €</div>
           <p>Der naheliegende Einstieg für unkomplizierte Mitarbeitergeschenke mit echter Wertigkeit.</p>
-          <div class="b2b-badge-row" style="margin:4px 0 12px;"><span class="b2b-badge">Beliebt für Mitarbeitergeschenke</span></div>
+          <div class="b2b-badge-row" style="margin:4px 0 12px;">
+            <span class="b2b-badge">Beliebt für Mitarbeitergeschenke</span>
+          </div>
           <ul class="b2b-mini-list">
             <li>Kompakte Formate mit sauberem Auftritt</li>
             <li>Ab 10 Stück sinnvoll realisierbar</li>
@@ -828,6 +1052,7 @@
     </div>
   </div>
 </footer>
+
 <script src="./main.js"></script>
 </body>
 </html>
