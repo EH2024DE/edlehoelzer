@@ -1,1043 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Firmengeschenke & B2B | Edle Hölzer</title>
-  <meta name="description" content="Personalisierte Firmengeschenke aus massivem Holz. Schneidebretter, Servierbretter, Geschenksets und Massivholz-Visitenkarten mit Logo-Gravur für Unternehmen." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edle Hölzer – Handwerk statt Massenware</title>
+  <meta name="description" content="Handgefertigte Schneidebretter und Holzprodukte aus Mittelhessen. Massivholz, saubere Verarbeitung, keine Serienware.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <style>
-    .b2b-hero {
-      padding: 110px 0 70px;
-      background: linear-gradient(180deg, #ffffff, #eee5da);
-    }
-
-    .b2b-wrap {
-      width: min(1100px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .b2b-hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .b2b-hero h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
-      margin: 0 0 18px;
-    }
-
-    .b2b-lead {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: rgba(17,17,17,.72);
-      max-width: 54ch;
-      margin: 0 0 22px;
-    }
-
-    .b2b-points,
-    .b2b-mini-list,
-    .b2b-check-list,
-    .b2b-form-steps {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .b2b-points {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin: 0 0 28px;
-    }
-
-    .b2b-points li,
-    .b2b-check-list li {
-      position: relative;
-      padding-left: 22px;
-      font-size: 0.92rem;
-      color: #2c2c2c;
-    }
-
-    .b2b-points li::before,
-    .b2b-check-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #a4774c;
-      font-weight: 800;
-    }
-
-    .b2b-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .b2b-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      font-family: 'Montserrat', sans-serif;
-      transition: background 0.2s, transform 0.15s, border-color 0.2s;
-      text-decoration: none;
-    }
-
-    .b2b-btn--primary {
-      background: #b88857;
-      color: #fff;
-      border: none;
-    }
-
-    .b2b-btn--primary:hover {
-      background: #9a7045;
-      transform: translateY(-1px);
-    }
-
-    .b2b-btn--ghost {
-      background: transparent;
-      color: #1a1a1a;
-      border: 1px solid #d9cfc2;
-    }
-
-    .b2b-btn--ghost:hover {
-      border-color: #b88857;
-      transform: translateY(-1px);
-    }
-
-    .b2b-form-card {
-      background: #fff;
-      border: 1px solid rgba(17,17,17,.08);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 14px 34px rgba(0,0,0,.06);
-      position: sticky;
-      top: 88px;
-    }
-
-    .b2b-form-card h2 {
-      font-size: 1.35rem;
-      letter-spacing: -0.02em;
-      margin: 0 0 6px;
-    }
-
-    .b2b-form-card > p {
-      font-size: 0.9rem;
-      color: rgba(17,17,17,.6);
-      margin: 0 0 18px;
-    }
-
-    .b2b-form-steps {
-      display: grid;
-      gap: 6px;
-      margin: 0 0 18px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid #e8e0d6;
-    }
-
-    .b2b-form-steps li {
-      font-size: 0.88rem;
-      color: rgba(17,17,17,.6);
-    }
-
-    .b2b-form-steps strong {
-      color: #1a1a1a;
-    }
-
-    .b2b-form {
-      display: grid;
-      gap: 12px;
-    }
-
-    .b2b-field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .b2b-label {
-      display: grid;
-      gap: 5px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
-      color: #1a1a1a;
-    }
-
-    .b2b-input,
-    .b2b-select,
-    .b2b-textarea {
-      width: 100%;
-      border: 1px solid #d9cfc2;
-      border-radius: 10px;
-      padding: 11px 13px;
-      background: #faf8f5;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      color: #1a1a1a;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .b2b-input:focus,
-    .b2b-select:focus,
-    .b2b-textarea:focus {
-      outline: none;
-      border-color: #b88857;
-      box-shadow: 0 0 0 3px rgba(184,136,87,.12);
-    }
-
-    .b2b-textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .b2b-hint {
-      font-size: 0.8rem;
-      color: rgba(17,17,17,.55);
-      line-height: 1.5;
-    }
-
-    .b2b-honeypot {
-      position: absolute !important;
-      left: -5000px !important;
-      width: 1px !important;
-      height: 1px !important;
-      overflow: hidden !important;
-    }
-
-    .b2b-submit {
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .b2b-section {
-      padding: 64px 0;
-      background: #f5f1eb;
-    }
-
-    .b2b-section--white {
-      background: #fff;
-    }
-
-    .b2b-section--sand {
-      background: #f5f1eb;
-    }
-
-    .b2b-section-head {
-      margin-bottom: 32px;
-    }
-
-    .b2b-section-head p {
-      max-width: 60ch;
-      color: rgba(17,17,17,.65);
-      margin: 8px 0 0;
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    .b2b-card,
-    .b2b-price-card,
-    .b2b-usecase,
-    .b2b-faq-item,
-    .b2b-product,
-    .b2b-featured {
-      background: #fff;
-      border: 1px solid rgba(17,17,17,.08);
-      border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.03);
-    }
-
-    .b2b-card,
-    .b2b-price-card,
-    .b2b-usecase,
-    .b2b-faq-item {
-      padding: 24px;
-    }
-
-    .b2b-card h3,
-    .b2b-price-card h3,
-    .b2b-usecase h3,
-    .b2b-faq-item h3 {
-      font-size: 1.02rem;
-      letter-spacing: -0.01em;
-      margin: 0 0 8px;
-    }
-
-    .b2b-card p,
-    .b2b-price-card p,
-    .b2b-usecase p,
-    .b2b-faq-item p {
-      font-size: 0.9rem;
-      color: rgba(17,17,17,.65);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .b2b-icon {
-      width: 40px;
-      height: 40px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      background: rgba(184,136,87,.12);
-      color: #a4774c;
-      font-weight: 800;
-      font-size: 0.85rem;
-      margin-bottom: 14px;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .b2b-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .b2b-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .b2b-products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .b2b-product {
-      overflow: hidden;
-    }
-
-    .b2b-product__thumb {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: #f0ebe4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-
-    .b2b-product__body {
-      padding: 20px;
-    }
-
-    .b2b-product__body h3 {
-      font-size: 1rem;
-      margin: 0 0 6px;
-    }
-
-    .b2b-product__body p {
-      font-size: 0.88rem;
-      color: rgba(17,17,17,.65);
-      line-height: 1.55;
-      margin: 0 0 12px;
-    }
-
-    .b2b-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .b2b-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #f0ebe4;
-      color: #5a4a3a;
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-
-    .b2b-prices {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .b2b-price {
-      font-size: 1.9rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: #1a1a1a;
-      margin: 8px 0 10px;
-    }
-
-    .b2b-mini-list {
-      display: grid;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .b2b-mini-list li {
-      font-size: 0.88rem;
-      color: rgba(17,17,17,.65);
-      padding-left: 18px;
-      position: relative;
-    }
-
-    .b2b-mini-list li::before {
-      content: "–";
-      position: absolute;
-      left: 0;
-      color: #b88857;
-    }
-
-    .b2b-process {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .b2b-process-step {
-      background: #fff;
-      border: 1px solid #e8e0d6;
-      border-radius: 14px;
-      padding: 20px;
-    }
-
-    .b2b-step-num {
-      display: inline-flex;
-      width: 30px;
-      height: 30px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #b88857;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.85rem;
-      margin-bottom: 12px;
-    }
-
-    .b2b-process-step h3 {
-      font-size: 0.95rem;
-      margin: 0 0 6px;
-    }
-
-    .b2b-process-step p {
-      font-size: 0.86rem;
-      color: rgba(17,17,17,.65);
-      line-height: 1.55;
-      margin: 0;
-    }
-
-    .b2b-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .b2b-stat {
-      background: rgba(255,255,255,.8);
-      border: 1px solid rgba(184,136,87,.15);
-      border-radius: 12px;
-      padding: 16px;
-    }
-
-    .b2b-stat strong {
-      display: block;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 4px;
-    }
-
-    .b2b-stat span {
-      font-size: 0.83rem;
-      color: rgba(17,17,17,.6);
-    }
-
-    .b2b-featured {
-      background: linear-gradient(135deg, rgba(184,136,87,.1), rgba(255,255,255,.95));
-      border: 1px solid rgba(184,136,87,.2);
-      padding: 32px;
-    }
-
-    .b2b-featured h2 {
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      letter-spacing: -0.03em;
-      margin: 0 0 10px;
-    }
-
-    .b2b-featured p {
-      font-size: 0.95rem;
-      color: rgba(17,17,17,.65);
-      line-height: 1.65;
-      margin: 0;
-      max-width: 60ch;
-    }
-
-    .b2b-anchor {
-      margin-top: 24px;
-      padding: 18px 22px;
-      background: linear-gradient(90deg, rgba(184,136,87,.1), rgba(184,136,87,.04));
-      border: 1px solid rgba(184,136,87,.18);
-      border-radius: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .b2b-anchor p {
-      margin: 0;
-      font-size: 0.93rem;
-      font-weight: 600;
-      color: #1a1a1a;
-    }
-
-    .b2b-faq {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    @media (max-width: 1024px) {
-      .b2b-hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .b2b-form-card {
-        position: static;
-      }
-
-      .b2b-products,
-      .b2b-grid-3,
-      .b2b-prices,
-      .b2b-process {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .b2b-hero {
-        padding: 90px 0 50px;
-      }
-
-      .b2b-products,
-      .b2b-grid-3,
-      .b2b-prices,
-      .b2b-process,
-      .b2b-grid-2,
-      .b2b-faq,
-      .b2b-stats,
-      .b2b-points,
-      .b2b-field-row {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <header class="topbar">
   <div class="container topbar__inner">
-    <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     <a href="./index.html" class="brand" aria-label="Edle Hölzer Startseite">
       <img src="./assets/logo.jpg" alt="Edle Hölzer Logo" class="brand__logo">
       <span class="brand__text">Edle Hölzer</span>
     </a>
     <div class="topbar__right">
-      <div class="lang">
-        <a href="./b2b.html" class="is-active">DE</a>
-      </div>
-      <a href="#anfrage" class="btn btn--small">B2B-Anfrage stellen</a>
+      <div class="lang"><a href="./index.html" class="is-active">DE</a><a href="./en/index.html">EN</a></div>
+      <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn btn--small">Schneidebretter entdecken</a>
     </div>
   </div>
   <nav class="mobileMenu" id="mobileMenu">
     <div class="mobileMenu__head">
-      <div class="mobileMenu__lang">
-        <a href="./b2b.html" class="is-active">DE</a>
-      </div>
+      <div class="mobileMenu__lang"><a href="./index.html" class="is-active">DE</a><a href="./en/index.html">EN</a></div>
       <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
     </div>
-    <a href="./index.html">Startseite</a>
-    <a href="#produkte">Produkte</a>
-    <a href="#preise">Preise</a>
-    <a href="#ablauf">Ablauf</a>
-    <a href="#anfrage">Anfrage</a>
+    <a href="#philosophie">Philosophie</a>
+    <a href="./pflege.html">Pflege</a>
+    <a href="#produktdetails">Produkt</a>
+    <a href="#werkstatt">Werkstatt</a>
+    <a href="#sonderanfertigung">Sonderanfertigung</a>
+    <a href="#service">Aufbereitung</a>
+    <a href="#ueberuns">Über uns</a>
+    <a href="./b2b.html">B2B</a>
   </nav>
   <div class="menuBackdrop" id="menuBackdrop"></div>
 </header>
 
 <main>
-  <section class="b2b-hero">
-    <div class="b2b-wrap">
-      <div class="b2b-hero-grid">
-        <div>
-          <p class="eyebrow eyebrow--dark">B2B · Firmengeschenke · Sonderanfertigungen</p>
-          <h1>Firmengeschenke, die bleiben.</h1>
-          <p class="b2b-lead">
-            Individuell gefertigte Holzprodukte aus Massivholz – personalisiert mit Ihrem Logo oder Ihrer Botschaft.
-            Für Unternehmen, die kein beliebiges Geschenk suchen, sondern etwas, das genutzt, gesehen und erinnert wird.
-          </p>
-
-          <ul class="b2b-points">
-            <li>Personalisierung mit Logo-Gravur</li>
-            <li>Klare Preisrahmen zur Budgetplanung</li>
-            <li>Ab 10 Stück sinnvoll realisierbar</li>
-            <li>Produkte mit echter Nutzung im Alltag</li>
-          </ul>
-
-          <div class="b2b-actions">
-            <a href="#anfrage" class="b2b-btn b2b-btn--primary">Jetzt Anfrage senden</a>
-            <a href="#preise" class="b2b-btn b2b-btn--ghost">Preisrahmen ansehen</a>
-          </div>
-
-          <div class="b2b-anchor">
-            <p>Sie möchten direkt prüfen, was in Ihrem Budget sinnvoll umsetzbar ist?</p>
-            <a href="#anfrage" class="b2b-btn b2b-btn--primary">Projekt anfragen</a>
-          </div>
-        </div>
-
-        <aside class="b2b-form-card" id="anfrage">
-          <h2>Projektanfrage</h2>
-          <p>Der direkte Weg zur ersten belastbaren Einschätzung. Klar, schnell, ohne unnötige Schleifen.</p>
-
-          <ul class="b2b-form-steps">
-            <li><strong>1.</strong> Produkt und Menge eintragen</li>
-            <li><strong>2.</strong> Budget oder Zielrahmen ergänzen</li>
-            <li><strong>3.</strong> Wir melden uns mit einer realistischen Einschätzung</li>
-          </ul>
-
-          <form class="b2b-form" action="https://formspree.io/f/maqanpld" method="POST">
-            <label class="b2b-label b2b-honeypot" aria-hidden="true">
-              Nicht ausfüllen
-              <input class="b2b-input" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-            </label>
-
-            <input type="hidden" name="_subject" value="Neue B2B-Anfrage über edlehoelzer.de">
-            <input type="hidden" name="_next" value="https://edlehoelzer.de/danke.html">
-
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                Name
-                <input class="b2b-input" type="text" name="name" placeholder="Max Mustermann" required>
-              </label>
-              <label class="b2b-label">
-                Firma
-                <input class="b2b-input" type="text" name="company" placeholder="Muster GmbH" required>
-              </label>
-            </div>
-
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                E-Mail
-                <input class="b2b-input" type="email" name="email" placeholder="name@firma.de" required>
-              </label>
-              <label class="b2b-label">
-                Telefon
-                <input class="b2b-input" type="tel" name="phone" placeholder="Optional">
-              </label>
-            </div>
-
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                Wunschprodukt
-                <select class="b2b-select" name="product" required>
-                  <option value="">Bitte wählen</option>
-                  <option>Schneidebrett</option>
-                  <option>Servierbrett</option>
-                  <option>Geschenkset mit Pflegeprodukt</option>
-                  <option>Massivholz-Visitenkarte</option>
-                  <option>Sonderanfertigung</option>
-                </select>
-              </label>
-              <label class="b2b-label">
-                Stückzahl
-                <select class="b2b-select" name="quantity" required>
-                  <option value="">Bitte wählen</option>
-                  <option>10–25 Stück</option>
-                  <option>25–50 Stück</option>
-                  <option>50–100 Stück</option>
-                  <option>100+ Stück</option>
-                </select>
-              </label>
-            </div>
-
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                Budgetrahmen
-                <select class="b2b-select" name="budget">
-                  <option value="">Optional</option>
-                  <option>Bis 1.000 €</option>
-                  <option>1.000–2.500 €</option>
-                  <option>2.500–5.000 €</option>
-                  <option>5.000 €+</option>
-                </select>
-              </label>
-              <label class="b2b-label">
-                Lieferzeit / Termin
-                <input class="b2b-input" type="text" name="timeline" placeholder="z. B. bis 15. November">
-              </label>
-            </div>
-
-            <label class="b2b-label">
-              Nachricht
-              <textarea class="b2b-textarea" name="message" placeholder="Was wird benötigt? Gewünschtes Format, Gravur, Anlass oder besondere Anforderungen."></textarea>
-            </label>
-
-            <button type="submit" class="b2b-btn b2b-btn--primary b2b-submit">Unverbindliche Anfrage senden</button>
-<p class="b2b-hint">
-Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß unserer 
-<a href="./datenschutz.html">Datenschutzerklärung</a> einverstanden.
-</p>
-            <p class="b2b-hint">Antwort in der Regel innerhalb von 24–48 Stunden. Nach dem Absenden werden Sie auf die Danke-Seite weitergeleitet.</p>
-          </form>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="b2b-section b2b-section--white" id="produkte">
-    <div class="b2b-wrap">
-      <div class="b2b-section-head">
-        <p class="eyebrow eyebrow--dark">Produkte</p>
-        <h2>Was wir für Unternehmen fertigen.</h2>
-        <p>Fokussiert, klar und ohne künstlich aufgeblähtes Sortiment. Die Hauptrolle spielen hochwertige Bretter und sinnvolle Geschenksets.</p>
-      </div>
-
-      <div class="b2b-products">
-        <div class="b2b-product">
-          <div class="b2b-product__thumb">🪵</div>
-          <div class="b2b-product__body">
-            <h3>Schneide- &amp; Servierbretter</h3>
-            <p>Massivholz, handgefertigt, in verschiedenen Formaten und mit oder ohne Gravur. Das Kernprodukt für Mitarbeiter-, Kunden- und Partnergeschenke.</p>
-            <div class="b2b-badge-row">
-              <span class="b2b-badge">Logo-Gravur</span>
-              <span class="b2b-badge">Ab 10 Stück</span>
-              <span class="b2b-badge">Personalisierbar</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="b2b-product">
-          <div class="b2b-product__thumb">🎁</div>
-          <div class="b2b-product__body">
-            <h3>Geschenksets</h3>
-            <p>Kombinationen aus Brett und Pflegeprodukt, auf Wunsch ergänzt um kleine Küchenhelfer. Für Unternehmen, die ein runderes Geschenk überreichen wollen.</p>
-            <div class="b2b-badge-row">
-              <span class="b2b-badge">Komplettes Geschenk</span>
-              <span class="b2b-badge">Pflegeprodukt möglich</span>
-              <span class="b2b-badge">Höhere Wirkung</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="b2b-product">
-          <div class="b2b-product__thumb">🃏</div>
-          <div class="b2b-product__body">
-            <h3>Massivholz-Visitenkarten</h3>
-            <p>Ein haptisches Markenobjekt für Messen, exklusive Erstkontakte oder Branchen, in denen Materialwirkung einen Unterschied macht.</p>
-            <div class="b2b-badge-row">
-              <span class="b2b-badge">Auffällig</span>
-              <span class="b2b-badge">Nicht beliebig</span>
-              <span class="b2b-badge">Starker Erstkontakt</span>
-            </div>
-          </div>
+  <section class="hero">
+    <video class="hero__video" autoplay muted loop playsinline><source src="./assets/hero.mp4" type="video/mp4"></video>
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <div class="hero__copy">
+        <p class="eyebrow">Handgefertigt · Massivholz · Keine Serienware</p>
+        <h1>Handwerk statt<br>Massenware.</h1>
+        <p class="hero__lead">Schneidebretter und Holzprodukte mit Gewicht, Substanz und sauberem Schliff. Gefertigt in Mittelhessen für Menschen, die echte Materialien und ehrliche Arbeit schätzen.</p>
+        <div class="hero__actions">
+          <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn">Schneidebretter entdecken</a>
+          <a href="#produktdetails" class="btn btn--ghost">Mehr sehen</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="b2b-section b2b-section--sand">
-    <div class="b2b-wrap">
-      <div class="b2b-section-head">
-        <p class="eyebrow eyebrow--dark">Warum Massivholz</p>
-        <h2>Austauschbare Geschenke werden schnell vergessen.</h2>
-        <p>Ein gutes Firmengeschenk soll nicht nur übergeben, sondern genutzt werden. Genau dort setzen wir an.</p>
-      </div>
-
-      <div class="b2b-grid-3">
-        <div class="b2b-card">
-          <div class="b2b-icon">01</div>
-          <h3>Mehr Wirkung</h3>
-          <p>Massivholz mit Gravur vermittelt Wertigkeit. Sichtbar, spürbar und deutlich glaubwürdiger als ein beliebiger Werbeartikel.</p>
-        </div>
-        <div class="b2b-card">
-          <div class="b2b-icon">02</div>
-          <h3>Mehr Präsenz</h3>
-          <p>Ein hochwertiges Brett verschwindet nicht in der Schublade. Es bleibt im Alltag präsent – in der Küche und beim Servieren.</p>
-        </div>
-        <div class="b2b-card">
-          <div class="b2b-icon">03</div>
-          <h3>Mehr Planbarkeit</h3>
-          <p>Klare Mindestmengen, definierte Preisrahmen und direkte Abstimmung. Weniger Leerlauf, mehr Umsetzbarkeit.</p>
-        </div>
-      </div>
-
-      <div class="b2b-anchor">
-        <p>Sie möchten direkt klären, ob Ihr Projekt zu Menge, Budget und Lieferzeit passt?</p>
-        <a href="#anfrage" class="b2b-btn b2b-btn--primary">Anfrage einreichen</a>
-      </div>
+  <section id="philosophie" class="section section--white">
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--dark">Philosophie</p>
+      <h2>Gutes Handwerk braucht keine Show.</h2>
+      <p class="section__lead">Viele Produkte versuchen über Lautstärke zu wirken. Viel Oberfläche, viele Effekte, viele Versprechen. Wir verfolgen einen anderen Ansatz. Ein gutes Brett entsteht aus sauber ausgewähltem Holz, präziser Verarbeitung und Proportionen, die nicht nur heute gut aussehen, sondern auch nach Jahren im Alltag bestehen.</p>
     </div>
   </section>
 
-  <section class="b2b-section b2b-section--white">
-    <div class="b2b-wrap">
-      <div class="b2b-section-head">
-        <p class="eyebrow eyebrow--dark">Geeignet für</p>
-        <h2>Typische B2B-Einsätze.</h2>
-        <p>Diese Anwendungsfälle decken den Großteil typischer Firmenanfragen ab.</p>
-      </div>
-
-      <div class="b2b-grid-2">
-        <div class="b2b-usecase">
-          <h3>Mitarbeitergeschenke</h3>
-          <p>Für Weihnachten, Jubiläen, interne Meilensteine oder als hochwertiges Willkommensgeschenk.</p>
-          <div class="b2b-badge-row">
-            <span class="b2b-badge">Wertschätzung</span>
-            <span class="b2b-badge">Alltagstauglich</span>
-            <span class="b2b-badge">Logo möglich</span>
+  <section id="produktdetails" class="section section--white section--tight-bottom">
+    <div class="container desktopOnly">
+      <div class="scrolly">
+        <div class="scrolly__media">
+          <div class="scrolly__frame" id="scrollyFrame">
+            <div class="scrolly__progress"><span id="scrollyProgress"></span></div>
+            <img class="scrolly__image is-active" src="./product/board3.jpg" alt="Schneidebrett direkte Frontansicht">
+            <img class="scrolly__image" src="./product/board1.jpg" alt="Schneidebrett schräg von oben">
+            <img class="scrolly__image" src="./product/board4.jpg" alt="Griffmulden des Schneidebretts">
+            <img class="scrolly__image" src="./product/board5.jpg" alt="Schneidebrett in flacher Frontansicht">
+            <img class="scrolly__image" src="./product/board8.jpg" alt="Schneidebrett Abschlussansicht">
           </div>
         </div>
-        <div class="b2b-usecase">
-          <h3>Kundengeschenke</h3>
-          <p>Für wichtige Kunden, Geschäftspartner oder hochwertige Beilagen zu besonderen Projekten und Abschlüssen.</p>
-          <div class="b2b-badge-row">
-            <span class="b2b-badge">Bleibender Eindruck</span>
-            <span class="b2b-badge">Premium-Wirkung</span>
-            <span class="b2b-badge">Personalisierbar</span>
-          </div>
+        <div class="scrolly__steps">
+          <article class="scrollyStep is-active" data-step="0"><p class="eyebrow eyebrow--dark">Erster Eindruck</p><h2>Ein gutes Brett wirkt ruhig.</h2><p>Bevor man ein Detail sieht, muss die Gesamtwirkung stimmen. Klare Linien, saubere Proportionen und ein Auftritt ohne unnötige Lautstärke.</p></article>
+          <article class="scrollyStep" data-step="1"><h3>Substanz statt Effekt</h3><p>Aus der schrägen Perspektive zeigt sich, ob ein Brett nur gut fotografiert ist oder ob Material, Verarbeitung und Form wirklich zusammenpassen.</p></article>
+          <article class="scrollyStep" data-step="2"><h3>Funktion, sauber gelöst</h3><p>Griffmulden gehören für uns nicht als Dekor an ein Brett. Sie müssen das Handling verbessern und sich stimmig in die Form einfügen.</p></article>
+          <article class="scrollyStep" data-step="3"><h3>Auch liegend überzeugend</h3><p>Ein Brett muss nicht nur aufrecht gut aussehen. Erst in der ruhigen, flachen Ansicht sieht man, ob Stärke, Fläche und Verarbeitung wirklich stimmig sind.</p></article>
+          <article class="scrollyStep" data-step="4"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und über Jahre zuverlässig funktionieren.</p><div class="ctaRow"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn">Schneidebretter entdecken</a></div></article>
         </div>
-        <div class="b2b-usecase">
-          <h3>Events &amp; Messen</h3>
-          <p>Als hochwertige Limited Series für ausgewählte Kontakte, Speaker, Partner oder VIP-Gäste.</p>
-          <div class="b2b-badge-row">
-            <span class="b2b-badge">Gezielte Verteilung</span>
-            <span class="b2b-badge">Markenstark</span>
-            <span class="b2b-badge">Kein Streuartikel</span>
-          </div>
-        </div>
-        <div class="b2b-usecase">
-          <h3>Sonderanfertigungen</h3>
-          <p>Wenn Format, Gravur oder Konzept nicht standardisiert sind und das Geschenk stärker auf Ihre Marke einzahlen soll.</p>
-          <div class="b2b-badge-row">
-            <span class="b2b-badge">Individuelles Format</span>
-            <span class="b2b-badge">Maßanfertigung</span>
-            <span class="b2b-badge">Projektbezogen</span>
-          </div>
-        </div>
+      </div>
+    </div>
+
+    <div class="container mobileOnly">
+      <div class="mobileGallery">
+        <article class="mobileCard"><img src="./product/board3.jpg" alt="Schneidebrett direkte Frontansicht"><div class="mobileCard__text"><p class="eyebrow eyebrow--dark">Erster Eindruck</p><h3>Ein gutes Brett wirkt ruhig.</h3><p>Bevor man ein Detail sieht, muss die Gesamtwirkung stimmen. Klare Linien, saubere Proportionen und ein Auftritt ohne unnötige Lautstärke.</p></div></article>
+        <article class="mobileCard"><img src="./product/board1.jpg" alt="Schneidebrett schräg von oben"><div class="mobileCard__text"><h3>Substanz statt Effekt</h3><p>Aus der schrägen Perspektive zeigt sich, ob ein Brett nur gut fotografiert ist oder ob Material, Verarbeitung und Form wirklich zusammenpassen.</p></div></article>
+        <article class="mobileCard"><img src="./product/board4.jpg" alt="Griffmulden des Schneidebretts"><div class="mobileCard__text"><h3>Funktion, sauber gelöst</h3><p>Griffmulden gehören für uns nicht als Dekor an ein Brett. Sie müssen das Handling verbessern und sich stimmig in die Form einfügen.</p></div></article>
+        <article class="mobileCard"><img src="./product/board5.jpg" alt="Schneidebrett in flacher Frontansicht"><div class="mobileCard__text"><h3>Auch liegend überzeugend</h3><p>Ein Brett muss nicht nur aufrecht gut aussehen. Erst in der ruhigen, flachen Ansicht sieht man, ob Stärke, Fläche und Verarbeitung wirklich stimmig sind.</p></div></article>
+        <article class="mobileCard"><img src="./product/board8.jpg" alt="Schneidebrett Abschlussansicht"><div class="mobileCard__text"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und über Jahre zuverlässig funktionieren.</p><div class="ctaRow"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn">Schneidebretter entdecken</a></div></div></article>
       </div>
     </div>
   </section>
 
-  <section class="b2b-section b2b-section--sand" id="preise">
-    <div class="b2b-wrap">
-      <div class="b2b-section-head">
-        <p class="eyebrow eyebrow--dark">Preisrahmen</p>
-        <h2>Orientierung statt Preisnebel.</h2>
-        <p>Der finale Preis hängt von Format, Holzart, Stückzahl, Gravur und Ausführung ab. Diese Richtwerte geben Planungssicherheit.</p>
+  <section id="werkstatt" class="section section--sand section--tight-top">
+    <div class="container">
+      <div class="workshopIntro">
+        <div><p class="eyebrow eyebrow--dark">Werkstatt</p><h2>Der Unterschied entsteht im Prozess.</h2></div>
+        <p class="section__lead workshopIntro__lead">Traditionelle Maschinen, denen wir aus gutem Grund treu bleiben. Präzise eingestellt, sauber geführt und eingesetzt für Ergebnisse, die nicht nur heute gut aussehen, sondern auch morgen noch überzeugen.</p>
       </div>
-
-<div class="b2b-price-card" style="border-color: rgba(184,136,87,.26); box-shadow: 0 12px 28px rgba(184,136,87,.08);">
-  <div class="b2b-icon">S</div>
-  <h3>Kleine Bretter</h3>
-  <div class="b2b-price">bis 50 €</div>
-  <p>Der naheliegende Einstieg für unkomplizierte Mitarbeitergeschenke mit echter Wertigkeit.</p>
-  <div class="b2b-badge-row" style="margin: 4px 0 12px;">
-    <span class="b2b-badge">Beliebt für Mitarbeitergeschenke</span>
-    <span class="b2b-badge">Bis 50 €</span>
-  </div>
-  <ul class="b2b-mini-list">
-    <li>Kompakte Formate mit sauberem Auftritt</li>
-    <li>Ab 10 Stück sinnvoll realisierbar</li>
-    <li>Ideal für HR, Teams und interne Anlässe</li>
-  </ul>
-</div>
-
-<div class="b2b-price-card">
-  <div class="b2b-icon">M</div>
-  <h3>Mittlere Bretter</h3>
-  <div class="b2b-price">90–100 €</div>
-  <p>Für wertigere Kundengeschenke oder Mitarbeitergeschenke mit deutlich stärkerer Präsenz.</p>
-  <ul class="b2b-mini-list">
-    <li>Mehr Präsenz und Geschenk-Wirkung</li>
-    <li>Geeignet für ausgewählte Kunden und Schlüsselmitarbeiter</li>
-    <li>Spürbar hochwertiger im Auftritt</li>
-  </ul>
-</div>
-
-<div class="b2b-price-card">
-  <div class="b2b-icon">P</div>
-  <h3>Premium</h3>
-  <div class="b2b-price">180–230 €</div>
-  <p>Für Jubiläen, Schlüsselkontakte oder besondere Anlässe, bei denen maximale Wirkung gewünscht ist.</p>
-  <ul class="b2b-mini-list">
-    <li>Große Formate mit Premium-Anmutung</li>
-    <li>Starke Wirkung für exklusive Geschenke</li>
-    <li>Ideal für besondere Kunden und Partner</li>
-  </ul>
-</div>
-
-<p style="margin:16px 0 0; font-size:0.9rem; line-height:1.65; color:rgba(17,17,17,.62); max-width:72ch;">
-  Viele unserer kleineren Bretter liegen im Bereich bis 50 € und eignen sich damit ideal für unkomplizierte Mitarbeitergeschenke im Rahmen üblicher Sachbezugsgrenzen. Die steuerliche Behandlung sollte im Einzelfall intern oder steuerlich geprüft werden.
-</p>
+      <div class="workshopGrid desktopOnly">
+        <figure class="workshopGrid__item workshopGrid__item--wide"><img src="./assets/workshop1.jpg" alt="Tischkreissäge in der Werkstatt"><figcaption>Sauberer Zuschnitt ist keine Nebensache. Hier beginnt Präzision.</figcaption></figure>
+        <figure class="workshopGrid__item"><img src="./assets/workshop2.jpg" alt="Eichebohlen in der Werkstatt"><figcaption>Materialwahl entscheidet früh, ob ein Produkt später Charakter hat.</figcaption></figure>
+        <figure class="workshopGrid__item"><img src="./assets/workshop3.jpg" alt="Abrichthobel in der Werkstatt"><figcaption>Gerade Flächen und saubere Übergänge entstehen nicht zufällig.</figcaption></figure>
       </div>
-
-      <div class="b2b-anchor">
-        <p>Sie haben bereits ein Zielbudget? Teilen Sie es im Formular mit. Das spart Zeit und führt schneller zur passenden Lösung.</p>
-        <a href="#anfrage" class="b2b-btn b2b-btn--primary">Zum Formular</a>
+      <div class="workshopSlider mobileOnly">
+        <figure class="workshopSlider__item"><img src="./assets/workshop1.jpg" alt="Tischkreissäge in der Werkstatt"><figcaption>Sauberer Zuschnitt ist keine Nebensache. Hier beginnt Präzision.</figcaption></figure>
+        <figure class="workshopSlider__item"><img src="./assets/workshop2.jpg" alt="Eichebohlen in der Werkstatt"><figcaption>Materialwahl entscheidet früh, ob ein Produkt später Charakter hat.</figcaption></figure>
+        <figure class="workshopSlider__item"><img src="./assets/workshop3.jpg" alt="Abrichthobel in der Werkstatt"><figcaption>Gerade Flächen und saubere Übergänge entstehen nicht zufällig.</figcaption></figure>
       </div>
     </div>
   </section>
 
-  <section class="b2b-section b2b-section--white">
-    <div class="b2b-wrap">
-      <div class="b2b-grid-2">
-        <div class="b2b-featured">
-          <p class="eyebrow eyebrow--dark">Mindestmengen &amp; Umsetzung</p>
-          <h2>Klarheit vor dem ersten Gespräch.</h2>
-          <p>Damit ein B2B-Projekt wirtschaftlich sinnvoll bleibt, kommunizieren wir die Rahmenbedingungen offen.</p>
-          <div class="b2b-stats">
-            <div class="b2b-stat">
-              <strong>ab 10</strong>
-              <span>Standardprodukte als sinnvolle Einstiegsmenge</span>
-            </div>
-            <div class="b2b-stat">
-              <strong>ab 25</strong>
-              <span>Stärker individualisierte Projekte als Richtwert</span>
-            </div>
-            <div class="b2b-stat">
-              <strong>24–48h</strong>
-              <span>Ziel für erste Rückmeldung oder Angebot</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="b2b-card" style="padding:28px;">
-          <p class="eyebrow eyebrow--dark">Personalisierung</p>
-          <h3 style="font-size:1.15rem;margin:0 0 10px;">Was individualisiert werden kann.</h3>
-          <ul class="b2b-check-list">
-            <li>Logo-Gravur</li>
-            <li>Kurze Botschaften oder Namen</li>
-            <li>Format und Größe je nach Projekt</li>
-            <li>Produktwahl nach Anlass und Budget</li>
-          </ul>
-          <p style="margin-top:16px;font-size:0.88rem;color:rgba(17,17,17,.6);line-height:1.6;">
-            Nicht jede Idee ist sinnvoll. Wenn ein Wunsch technisch, optisch oder wirtschaftlich keinen Sinn ergibt, wird das offen gesagt.
-          </p>
-        </div>
+  <section id="sonderanfertigung" class="section section--white">
+    <div class="container customLayout">
+      <div class="customLayout__left"><p class="eyebrow eyebrow--dark">Sonderanfertigung</p><h2>Dein Brett nach deinen Ideen.</h2><p class="section__lead">Ob Gravur, Saftrille, besondere Maße, bestimmte Hölzer oder ein individuelles Geschenk: Wir besprechen dein Wunschbrett direkt mit dir und prüfen, was sinnvoll und sauber umsetzbar ist.</p></div>
+      <div class="customLayout__right">
+        <div class="processRow"><span>01</span><div><h3>Erstgespräch</h3><p>Vorabstimmung per E-Mail oder Telefon. Du schilderst Idee, Maße, Einsatzbereich und Wünsche.</p></div></div>
+        <div class="processRow"><span>02</span><div><h3>Materialauswahl</h3><p>Wir prüfen passende Hölzer, Konstruktion, Format und sinnvolle Details für dein Brett.</p></div></div>
+        <div class="processRow"><span>03</span><div><h3>Unverbindliches Angebot</h3><p>Du erhältst eine klare Einschätzung zu Aufwand, Preis und Umsetzbarkeit – ohne Verpflichtung.</p></div></div>
+        <div class="processRow"><span>04</span><div><h3>Realisierung</h3><p>Nach Freigabe fertigen wir dein Brett sauber und abgestimmt auf deine Anforderungen.</p></div></div>
+        <div class="ctaRow"><a href="mailto:info@edlehoelzer.de" class="btn">Projekt anfragen</a></div>
       </div>
     </div>
   </section>
 
-  <section class="b2b-section b2b-section--sand" id="ablauf">
-    <div class="b2b-wrap">
-      <div class="b2b-section-head">
-        <p class="eyebrow eyebrow--dark">Ablauf</p>
-        <h2>So läuft die Zusammenarbeit.</h2>
-        <p>Kein unnötiges Hin und Her. Der Prozess ist so aufgebaut, dass Geschäftskunden schnell eine belastbare Aussage erhalten.</p>
+  <section id="service" class="section section--moka">
+    <div class="container container--narrow serviceIntro">
+      <p class="eyebrow eyebrow--dark">Aufbereitungsservice</p>
+      <h2>Dein Schneidebrett verdient ein zweites Leben.</h2>
+      <p class="section__lead">Auch ein gutes Brett braucht mit der Zeit Zuwendung. Deshalb bieten wir zwei Auffrischungsstufen an – je nach Zustand und gewünschtem Ergebnis.</p>
+      <div class="serviceCards">
+        <article class="serviceCard"><h3>Feinschliff-Pflege</h3><p>Für Bretter mit normalen Gebrauchsspuren. Oberfläche auffrischen, glätten und neu pflegen – sauber, schnell und sinnvoll.</p></article>
+        <article class="serviceCard"><h3>Komplett-Refit</h3><p>Für Bretter, die deutlich mehr Aufmerksamkeit brauchen. Intensivere Überarbeitung mit neuer Oberfläche und umfassender Auffrischung.</p></article>
       </div>
-
-      <div class="b2b-process">
-        <div class="b2b-process-step">
-          <div class="b2b-step-num">1</div>
-          <h3>Anfrage</h3>
-          <p>Sie senden die wichtigsten Eckdaten: Produkt, Menge, Budget und Wunschdetails.</p>
-        </div>
-        <div class="b2b-process-step">
-          <div class="b2b-step-num">2</div>
-          <h3>Prüfung</h3>
-          <p>Wir prüfen Machbarkeit, Gravur, Produktionsaufwand und geben eine realistische Einschätzung ab.</p>
-        </div>
-        <div class="b2b-process-step">
-          <div class="b2b-step-num">3</div>
-          <h3>Rückmeldung</h3>
-          <p>Sie erhalten eine passende Einschätzung oder ein Angebot innerhalb eines klaren Preis- und Qualitätsrahmens.</p>
-        </div>
-        <div class="b2b-process-step">
-          <div class="b2b-step-num">4</div>
-          <h3>Produktion</h3>
-          <p>Nach Freigabe wird gefertigt und termingerecht ausgeliefert – ohne unnötige Komplexität.</p>
-        </div>
-      </div>
-
-      <div class="b2b-anchor">
-        <p>Je präziser die Angaben im Formular, desto schneller erhalten Sie eine belastbare Rückmeldung.</p>
-        <a href="#anfrage" class="b2b-btn b2b-btn--primary">Jetzt Angaben eintragen</a>
-      </div>
+      <div class="ctaRow"><a href="mailto:info@edlehoelzer.de" class="btn btn--ghost-dark">Brett prüfen lassen</a></div>
     </div>
   </section>
 
-  <section class="b2b-section b2b-section--white">
-    <div class="b2b-wrap">
-      <div class="b2b-section-head">
-        <p class="eyebrow eyebrow--dark">FAQ</p>
-        <h2>Häufige Fragen vor der Anfrage.</h2>
-      </div>
-
-      <div class="b2b-faq">
-        <div class="b2b-faq-item">
-          <h3>Gibt es eine Mindestbestellmenge?</h3>
-          <p>Ja. Standardprodukte starten in der Regel ab 10 Stück. Für stärker individualisierte Projekte liegt die sinnvolle Menge meist ab 25 Stück.</p>
-        </div>
-        <div class="b2b-faq-item">
-          <h3>Sind exakte Preise direkt möglich?</h3>
-          <p>Ein exakter Preis hängt immer von Menge, Format, Gravur und Ausführung ab. Deshalb nennen wir zunächst realistische Preisrahmen.</p>
-        </div>
-        <div class="b2b-faq-item">
-          <h3>Ist eine Logo-Gravur möglich?</h3>
-          <p>Ja. Logos und kurze Botschaften lassen sich je nach Produkt integrieren. Im Zweifel prüfen wir Lesbarkeit und Wirkung vorab.</p>
-        </div>
-        <div class="b2b-faq-item">
-          <h3>Wie schnell erfolgt eine Rückmeldung?</h3>
-          <p>Das Ziel liegt bei 24 bis 48 Stunden für eine erste Einschätzung oder ein passendes Angebot.</p>
-        </div>
-      </div>
+  <section id="ueberuns" class="section section--white">
+    <div class="container container--narrow"><p class="eyebrow eyebrow--dark">Über uns</p><h2>Wer dahintersteht.</h2><p class="section__lead">Edle Hölzer entstand aus der gemeinsamen Leidenschaft von Özgür und Serkan für hochwertiges Handwerk, ehrliche Materialien und gutes Design. Was in einer kleinen Werkstatt begann, ist heute eine Manufaktur mit klarem Anspruch: langlebige Produkte aus Holz, sauber gefertigt und ohne unnötige Show.</p></div>
+    <div class="container storyGrid">
+      <article class="card"><h3>Hi, ich bin Özgür.</h3><p>Ich bin Gründer von Edle Hölzer, Handwerker seit rund 20 Jahren und verantwortlich für Entwurf, Holzauswahl und Fertigung.</p><p>In Mittelhessen fertige ich Schneidebretter aus Eiche, Nussbaum, Fachwerkholz und weiteren ausgewählten Hölzern – traditionell, bewusst ohne CNC.</p><p>Jedes Brett entsteht in präziser Handarbeit. Es soll langlebig sein, Charakter haben und nicht wirken wie ein beliebiges Serienprodukt.</p></article>
+      <article class="card"><h3>Hi, ich bin Serkan.</h3><p>Ich bin Ingenieur, Hobbyfotograf und verantwortlich für den Online-Auftritt von Edle Hölzer.</p><p>Mein Part ist es, Özgürs Handwerk sichtbar zu machen: durch Fotos, Videos und eine klare Darstellung dessen, was hinter den Produkten steckt.</p><p>Mich interessiert nicht künstliches Marketing. Mich interessiert, dass regionales Holz, echtes Schreinerhandwerk und langlebiges Design so gezeigt werden, wie sie sind: ehrlich, hochwertig und nachvollziehbar.</p></article>
     </div>
   </section>
 
-  <section class="b2b-section b2b-section--sand">
-    <div class="b2b-wrap">
-      <div class="b2b-featured">
-        <p class="eyebrow eyebrow--dark">Nächster Schritt</p>
-        <h2>Wenn das Projekt ernst gemeint ist, starten Sie hier.</h2>
-        <p>Kein unnötiges Mail-Pingpong. Nutzen Sie das Formular und geben Sie direkt die relevanten Informationen mit.</p>
-        <div class="b2b-actions" style="margin-top:22px;">
-          <a href="#anfrage" class="b2b-btn b2b-btn--primary">Zur Projektanfrage</a>
-          <a href="mailto:info@edlehoelzer.de?subject=B2B-Anfrage%20Firmengeschenke" class="b2b-btn b2b-btn--ghost">Alternativ per E-Mail</a>
-        </div>
+  <section id="b2b" class="section section--sand">
+    <div class="container container--narrow"><p class="eyebrow eyebrow--dark">Für Unternehmen</p><h2>Firmengeschenke mit Substanz.</h2><p class="section__lead">Standardgeschenke landen schnell in der Schublade. Ein massives Holzprodukt bleibt. Wir fertigen kleine Serien für Weihnachtsgeschenke, Firmengeschenke, Sonderanfertigungen oder Massivholz-Visitenkarten.</p><div class="ctaRow"><a href="./b2b.html" class="btn">Mehr erfahren &amp; Anfrage stellen</a></div></div>
+  </section>
+
+  <section id="bewertungen" style="padding:80px 24px;background:#f9f7f4;text-align:center;font-family:'Montserrat',sans-serif;">
+    <div style="position:relative;max-width:640px;margin:0 auto 52px;">
+      <div style="position:relative;z-index:1;">
+        <p style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:#8a7a6a;margin:0 0 20px;font-family:'Montserrat',sans-serif;">Kundenstimmen</p>
+        <div style="width:36px;height:1px;background:#c8a96e;margin:0 auto 24px;"></div>
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:#1a1a1a;margin:0 0 16px;line-height:1.15;letter-spacing:-0.02em;font-family:'Montserrat',sans-serif;">Ehrliche Worte. Echter Alltag.</h2>
+        <p style="font-size:0.88rem;color:#8a7a6a;margin:0;letter-spacing:0.04em;font-family:'Montserrat',sans-serif;">20 Bewertungen &middot; &Oslash; 5,0 Sterne auf Etsy</p>
       </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto 48px;text-align:left;">
+      <div style="background:#f0ebe4;border:1px solid #ddd4c8;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:14px;"><div style="color:#c8a96e;font-size:0.95rem;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:0.9rem;line-height:1.65;color:#2c2c2c;margin:0;flex:1;">&#8222;Wir sind Wiederholungst&auml;ter&hellip; Von der Qualit&auml;t des ersten Brettes und dem herausragenden Service so begeistert, dass wir uns entschieden haben, ein zweites zu nehmen. Der Servicegedanke und die Liebe zum Handwerk sprechen f&uuml;r sich.&#8220;</p><p style="font-size:0.78rem;color:#8a7a6a;margin:0;letter-spacing:0.04em;">&mdash; Nils, Februar 2026</p></div>
+      <div style="background:#f0ebe4;border:1px solid #ddd4c8;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:14px;"><div style="color:#c8a96e;font-size:0.95rem;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:0.9rem;line-height:1.65;color:#2c2c2c;margin:0;flex:1;">&#8222;Worte versagen. Das Holz hat so viel Charakter, und man sp&uuml;rt die Liebe und Sorgfalt, die in diesem Brett stecken. Gebaut f&uuml;r die Ewigkeit. Man erh&auml;lt hier wirklich viel mehr als nur ein Schneidebrett.&#8220;</p><p style="font-size:0.78rem;color:#8a7a6a;margin:0;letter-spacing:0.04em;">&mdash; Deanne, Januar 2026</p></div>
+      <div style="background:#f0ebe4;border:1px solid #ddd4c8;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:14px;"><div style="color:#c8a96e;font-size:0.95rem;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:0.9rem;line-height:1.65;color:#2c2c2c;margin:0;flex:1;">&#8222;Das Brett wirkt alleine durch St&auml;rke und Gewicht mega wertig. Die pers&ouml;nliche Gravur verleiht dem Brett noch ein St&uuml;ck mehr Individualit&auml;t &ndash; und f&uuml;r unsere G&auml;ste ist es ein echter Hingucker.&#8220;</p><p style="font-size:0.78rem;color:#8a7a6a;margin:0;letter-spacing:0.04em;">&mdash; Gabriel, Dezember 2024</p></div>
+      <div style="background:#f0ebe4;border:1px solid #ddd4c8;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:14px;"><div style="color:#c8a96e;font-size:0.95rem;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:0.9rem;line-height:1.65;color:#2c2c2c;margin:0;flex:1;">&#8222;Ich bin einfach rundum zufrieden! Sowohl die Qualit&auml;t als auch die Kundenbetreuung waren beispiellos. Ich schreibe sonst kaum Rezensionen &ndash; aber hier war es einfach n&ouml;tig. Auf jeden Fall eine Kaufempfehlung!&#8220;</p><p style="font-size:0.78rem;color:#8a7a6a;margin:0;letter-spacing:0.04em;">&mdash; Laura, Dezember 2025</p></div>
+      <div style="background:#f0ebe4;border:1px solid #ddd4c8;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:14px;"><div style="color:#c8a96e;font-size:0.95rem;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:0.9rem;line-height:1.65;color:#2c2c2c;margin:0;flex:1;">&#8222;Das Schneidebrett hat alle Erwartungen &uuml;bertroffen. Massiv, stabil, mit Griffmulden und F&uuml;&szlig;en. Die Verpackung war sehr liebevoll, der Versand super schnell. Alles in allem eine tolle Erfahrung und jeden Cent wert.&#8220;</p><p style="font-size:0.78rem;color:#8a7a6a;margin:0;letter-spacing:0.04em;">&mdash; Friederike, Januar 2025</p></div>
+      <div style="background:#f0ebe4;border:1px solid #ddd4c8;border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:14px;"><div style="color:#c8a96e;font-size:0.95rem;letter-spacing:2px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:0.9rem;line-height:1.65;color:#2c2c2c;margin:0;flex:1;">&#8222;Man merkt, dass es mit viel Liebe zum Detail gefertigt wurde. Die Gravur ist ein wundersch&ouml;nes, dezentes Detail, das dem Ganzen eine ganz besondere Note verleiht. Ein funktionales Kunstwerk f&uuml;r unsere K&uuml;che.&#8220;</p><p style="font-size:0.78rem;color:#8a7a6a;margin:0;letter-spacing:0.04em;">&mdash; Kalin, M&auml;rz 2026</p></div>
+    </div>
+    <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" style="display:inline-block;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#8a7a6a;text-decoration:none;border-bottom:1px solid #c8a96e;padding-bottom:2px;font-family:'Montserrat',sans-serif;">Alle Bewertungen auf Etsy ansehen &rarr;</a>
+  </section>
+
+  <section class="closingHero">
+    <img src="./assets/hero-fallback.jpg" alt="Werkstattszene Edle Hölzer">
+    <div class="closingHero__overlay"></div>
+    <div class="container closingHero__content">
+      <p class="eyebrow">Abschluss</p><h2>Handwerk. Vertrauen. Substanz.</h2><p>Am Ende zählt nicht, wie laut ein Produkt wirkt. Sondern ob es sauber gebaut ist und im Alltag zuverlässig bleibt.</p>
+      <div class="ctaRow"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn">Schneidebretter entdecken</a></div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
   <div class="container footer__inner">
-    <div>
-      <div class="footer__brand">Edle Hölzer</div>
-      <div class="footer__meta">Handgefertigt in Mittelhessen.</div>
-    </div>
-    <div class="footer__links">
-      <a href="./index.html">Startseite</a>
-      <a href="./impressum.html">Impressum</a>
-      <a href="./datenschutz.html">Datenschutz</a>
-      <a href="mailto:info@edlehoelzer.de">E-Mail</a>
-    </div>
+    <div><div class="footer__brand">Edle Hölzer</div><div class="footer__meta">Handgefertigt in Mittelhessen.</div></div>
+    <div class="footer__links"><a href="./pflege.html">Pflege</a><a href="./b2b.html">B2B</a><a href="./impressum.html">Impressum</a><a href="./datenschutz.html">Datenschutz</a><a href="mailto:info@edlehoelzer.de">E-Mail</a><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener">Shop</a></div>
   </div>
 </footer>
-
 <script src="./main.js"></script>
 </body>
 </html>
