@@ -668,133 +668,131 @@
             <li><strong>2.</strong> Budget oder Zielrahmen ergänzen</li>
             <li><strong>3.</strong> Wir melden uns mit einer realistischen Einschätzung</li>
           </ul>
-          <form class="b2b-form" action="https://formspree.io/f/maqanpld" method="POST" novalidate>
-            <label class="b2b-label b2b-honeypot" aria-hidden="true">
-              Nicht ausfüllen
-              <input class="b2b-input" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-            </label>
+          <form class="b2b-form" action="https://formspree.io/f/maqanpld" method="POST">
+  <label class="b2b-label b2b-honeypot" aria-hidden="true">
+    Nicht ausfüllen
+    <input class="b2b-input" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+  </label>
 
-            <input type="hidden" name="_subject" value="Neue B2B-Anfrage über edlehoelzer.de">
-            <input type="hidden" name="_next" value="https://edlehoelzer.de/danke.html">
+  <input type="hidden" name="_subject" value="Neue B2B-Anfrage über edlehoelzer.de">
+  <input type="hidden" name="_next" value="https://edlehoelzer.de/danke.html">
 
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                Name
-                <input
-                  class="b2b-input"
-                  type="text"
-                  name="name"
-                  placeholder="Max Mustermann"
-                  required
-                  minlength="2"
-                  maxlength="80"
-                  autocomplete="name"
-                >
-              </label>
-              <label class="b2b-label">
-                Firma
-                <input
-                  class="b2b-input"
-                  type="text"
-                  name="company"
-                  placeholder="Muster GmbH"
-                  required
-                  minlength="2"
-                  maxlength="100"
-                  autocomplete="organization"
-                >
-              </label>
-            </div>
+  <div class="b2b-field-row">
+    <label class="b2b-label">
+      Name
+      <input
+        class="b2b-input"
+        type="text"
+        name="name"
+        placeholder="Max Mustermann"
+        required
+        minlength="2"
+        maxlength="80"
+        autocomplete="name">
+    </label>
 
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                E-Mail
-                <input
-                  class="b2b-input"
-                  type="email"
-                  name="email"
-                  placeholder="name@firma.de"
-                  required
-                  maxlength="120"
-                  autocomplete="email"
-                  inputmode="email"
-                >
-              </label>
-              <label class="b2b-label">
-                Telefon
-                <input
-                  class="b2b-input"
-                  type="tel"
-                  name="phone"
-                  placeholder="Optional"
-                  maxlength="30"
-                  autocomplete="tel"
-                  inputmode="tel"
-                >
-              </label>
-            </div>
+    <label class="b2b-label">
+      Firma
+      <input
+        class="b2b-input"
+        type="text"
+        name="company"
+        placeholder="Muster GmbH"
+        required
+        minlength="2"
+        maxlength="100"
+        autocomplete="organization">
+    </label>
+  </div>
 
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                Wunschprodukt
-                <select class="b2b-select" name="product" required>
-                  <option value="">Bitte wählen</option>
-                  <option>Schneidebrett</option>
-                  <option>Servierbrett</option>
-                  <option>Geschenkset mit Pflegeprodukt</option>
-                  <option>Massivholz-Visitenkarte</option>
-                  <option>Sonderanfertigung</option>
-                </select>
-              </label>
-              <label class="b2b-label">
-                Stückzahl
-                <select class="b2b-select" name="quantity" required>
-                  <option value="">Bitte wählen</option>
-                  <option>10–25 Stück</option>
-                  <option>25–50 Stück</option>
-                  <option>50–100 Stück</option>
-                  <option>100+ Stück</option>
-                </select>
-              </label>
-            </div>
+  <div class="b2b-field-row">
+    <label class="b2b-label">
+      E-Mail
+      <input
+        class="b2b-input"
+        type="email"
+        name="email"
+        placeholder="name@firma.de"
+        required
+        maxlength="120"
+        autocomplete="email"
+        inputmode="email">
+    </label>
 
-            <div class="b2b-field-row">
-              <label class="b2b-label">
-                Budgetrahmen
-                <select class="b2b-select" name="budget">
-                  <option value="">Optional</option>
-                  <option>Bis 1.000 €</option>
-                  <option>1.000–2.500 €</option>
-                  <option>2.500–5.000 €</option>
-                  <option>5.000 €+</option>
-                </select>
-              </label>
-              <label class="b2b-label">
-                Lieferzeit / Termin
-                <input
-                  class="b2b-input"
-                  type="text"
-                  name="timeline"
-                  placeholder="z. B. bis 15. November"
-                  maxlength="60"
-                >
-              </label>
-            </div>
+    <label class="b2b-label">
+      Telefon
+      <input
+        class="b2b-input"
+        type="tel"
+        name="phone"
+        placeholder="Optional"
+        maxlength="30"
+        autocomplete="tel"
+        inputmode="tel">
+    </label>
+  </div>
 
-            <label class="b2b-label">
-              Nachricht
-              <textarea
-                class="b2b-textarea"
-                name="message"
-                placeholder="Was wird benötigt? Gewünschtes Format, Gravur, Anlass oder besondere Anforderungen."
-                maxlength="1200"
-              ></textarea>
-            </label>
+  <div class="b2b-field-row">
+    <label class="b2b-label">
+      Wunschprodukt
+      <select class="b2b-select" name="product" required>
+        <option value="">Bitte wählen</option>
+        <option>Schneidebrett</option>
+        <option>Servierbrett</option>
+        <option>Geschenkset mit Pflegeprodukt</option>
+        <option>Massivholz-Visitenkarte</option>
+        <option>Sonderanfertigung</option>
+      </select>
+    </label>
 
-            <button type="submit" class="b2b-btn b2b-btn--primary b2b-submit">Unverbindliche Anfrage senden</button>
-            <p class="b2b-hint">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="./datenschutz.html">Datenschutzerklärung</a> zu.</p>
-            <p class="b2b-hint">Antwort in der Regel innerhalb von 24–48 Stunden. Für B2B-Anfragen idealerweise mit Firmenadresse.</p>
-          </form>
+    <label class="b2b-label">
+      Stückzahl
+      <select class="b2b-select" name="quantity" required>
+        <option value="">Bitte wählen</option>
+        <option>10–25 Stück</option>
+        <option>25–50 Stück</option>
+        <option>50–100 Stück</option>
+        <option>100+ Stück</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="b2b-field-row">
+    <label class="b2b-label">
+      Budgetrahmen
+      <select class="b2b-select" name="budget">
+        <option value="">Optional</option>
+        <option>Bis 1.000 €</option>
+        <option>1.000–2.500 €</option>
+        <option>2.500–5.000 €</option>
+        <option>5.000 €+</option>
+      </select>
+    </label>
+
+    <label class="b2b-label">
+      Lieferzeit / Termin
+      <input
+        class="b2b-input"
+        type="text"
+        name="timeline"
+        placeholder="z. B. bis 15. November"
+        maxlength="60">
+    </label>
+  </div>
+
+  <label class="b2b-label">
+    Nachricht
+    <textarea
+      class="b2b-textarea"
+      name="message"
+      placeholder="Was wird benötigt? Gewünschtes Format, Gravur, Anlass oder besondere Anforderungen."
+      maxlength="1200"></textarea>
+  </label>
+
+  <button type="submit" class="b2b-btn b2b-btn--primary b2b-submit">Unverbindliche Anfrage senden</button>
+  <p class="b2b-hint">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="./datenschutz.html">Datenschutzerklärung</a> zu.</p>
+  <p class="b2b-hint">Antwort in der Regel innerhalb von 24–48 Stunden. Für B2B-Anfragen idealerweise mit Firmenadresse.</p>
+</form>
           <div class="b2b-trust">Deine Daten werden sicher übertragen und nicht weitergegeben.</div>
         </aside>
       </div>
