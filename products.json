@@ -2,7 +2,7 @@
   "products": [
     {
       "id": "pflegebalsam-bienenwachs",
-      "name": "Pflegebalsam – Bienenwachs & Leinölfirnis",
+      "name": "Pflegebalsam – Bienenwachs & Leinölfirnis", 
       "description": "Lebensmittelechter Pflegebalsam aus Bienenwachs und Leinölfirnis. Schützt Schneidebretter, Holzmöbel und Küchenutensilien. Handgemacht in Mittelhessen.",
       "price": "9,99 €",
       "image": "./assets/pflegebalsam_thumbnail.jpg",
