@@ -1,4 +1,9 @@
 {
+  "meta": {
+    "schemaVersion": 1,
+    "updatedAt": "2026-04-21",
+    "maintainer": "Edle Hoelzer"
+  },
   "products": [
     {
       "id": "pflegebalsam-bienenwachs",
@@ -8,14 +13,20 @@
       "priceLabel": "9,99 €",
       "priceOrder": 10,
       "shortDescription": "Lebensmittelechter Pflegebalsam aus Bienenwachs und Leinölfirnis. Schützt Schneidebretter, Holzmöbel und Küchenutensilien. Handgemacht in Mittelhessen.",
-      "badges": ["Pflege", "Alltag"],
+      "badges": [
+        "Pflege",
+        "Alltag"
+      ],
       "image": "./assets/pflegebalsam_thumbnail.jpg",
       "etsyUrl": "https://edlehoelzervonkoc.etsy.com/listing/1881802291",
       "featured": false,
       "active": true,
       "sizeProfile": "compact",
       "portability": "high",
-      "useCase": ["care", "gifting"],
+      "useCase": [
+        "care",
+        "gifting"
+      ],
       "woodCut": "mixed",
       "weightClass": "light",
       "servingSuitable": false,
@@ -32,14 +43,20 @@
       "priceLabel": "24,99 €",
       "priceOrder": 25,
       "shortDescription": "Handgefertigter Teigschaber aus Eiche, Nussbaum, Esche, Buche oder Kambala. Ergonomisch geformt, kompakt und gut in der Hand. Zum Teilen, Formen und Aufnehmen von Schnittgut.",
-      "badges": ["Kompakt", "Geschenk"],
+      "badges": [
+        "Kompakt",
+        "Geschenk"
+      ],
       "image": "./assets/detail_03.jpg",
       "etsyUrl": "https://edlehoelzervonkoc.etsy.com/listing/4471048251",
       "featured": false,
       "active": true,
       "sizeProfile": "compact",
       "portability": "high",
-      "useCase": ["cutting", "gifting"],
+      "useCase": [
+        "cutting",
+        "gifting"
+      ],
       "woodCut": "facegrain",
       "weightClass": "light",
       "servingSuitable": false,
@@ -56,14 +73,20 @@
       "priceLabel": "ab 49 €",
       "priceOrder": 49,
       "shortDescription": "Massives Stirnholzbrett aus sibirischer Lärche. Kompaktes Format, solides Gewicht, alltagstauglich.",
-      "badges": ["Stirnholz", "Kompakt"],
+      "badges": [
+        "Stirnholz",
+        "Kompakt"
+      ],
       "image": "./assets/board4.jpg",
       "etsyUrl": "https://edlehoelzervonkoc.etsy.com/listing/1818046728",
       "featured": false,
       "active": true,
       "sizeProfile": "compact",
       "portability": "medium",
-      "useCase": ["cutting", "gifting"],
+      "useCase": [
+        "cutting",
+        "gifting"
+      ],
       "woodCut": "endgrain",
       "weightClass": "medium",
       "servingSuitable": false,
@@ -80,14 +103,21 @@
       "priceLabel": "ab 89 €",
       "priceOrder": 89,
       "shortDescription": "Stirnholzbrett aus amerikanischem Schwarznuss mit Ahornstreifen. Handlich und dennoch großzügig im Format.",
-      "badges": ["Topseller", "Stirnholz"],
+      "badges": [
+        "Topseller",
+        "Stirnholz"
+      ],
       "image": "./assets/board1.jpg",
       "etsyUrl": "https://edlehoelzervonkoc.etsy.com/listing/4450988121",
       "featured": true,
       "active": true,
       "sizeProfile": "medium",
       "portability": "medium",
-      "useCase": ["cutting", "serving", "gifting"],
+      "useCase": [
+        "cutting",
+        "serving",
+        "gifting"
+      ],
       "woodCut": "endgrain",
       "weightClass": "medium",
       "servingSuitable": true,
@@ -104,14 +134,22 @@
       "priceLabel": "ab 149 €",
       "priceOrder": 149,
       "shortDescription": "Stirnholzbrett mit 3D-Design aus Nussbaum, Wenge, Eiche und Buche. Beidseitig nutzbar, lebensmittelecht geölt.",
-      "badges": ["Premium", "Statement"],
+      "badges": [
+        "Premium",
+        "Statement"
+      ],
       "image": "./assets/board2.jpg",
       "etsyUrl": "https://edlehoelzervonkoc.etsy.com/listing/1803930088",
       "featured": true,
       "active": true,
       "sizeProfile": "large",
       "portability": "low",
-      "useCase": ["cutting", "serving", "gifting", "b2b"],
+      "useCase": [
+        "cutting",
+        "serving",
+        "gifting",
+        "b2b"
+      ],
       "woodCut": "endgrain",
       "weightClass": "heavy",
       "servingSuitable": true,
@@ -128,14 +166,20 @@
       "priceLabel": "ab 59 €",
       "priceOrder": 59,
       "shortDescription": "Handgefertigtes Servierbrett-Set in Schwertform aus Eiche, Esche oder Nussbaum für Anrichten und Servieren.",
-      "badges": ["Servieren", "Geschenk"],
+      "badges": [
+        "Servieren",
+        "Geschenk"
+      ],
       "image": "./assets/board3.jpg",
       "etsyUrl": "https://edlehoelzervonkoc.etsy.com/listing/4389604739",
       "featured": false,
       "active": true,
       "sizeProfile": "medium",
       "portability": "medium",
-      "useCase": ["serving", "gifting"],
+      "useCase": [
+        "serving",
+        "gifting"
+      ],
       "woodCut": "facegrain",
       "weightClass": "light",
       "servingSuitable": true,
@@ -152,14 +196,21 @@
       "priceLabel": "ab 79 €",
       "priceOrder": 79,
       "shortDescription": "Dreiteiliges Servierbrett-Set mit Ständer aus Massivholz. Hosting-System für Tapas, Käse und Charcuterie.",
-      "badges": ["Servieren", "B2B"],
+      "badges": [
+        "Servieren",
+        "B2B"
+      ],
       "image": "./assets/board_oak.jpg",
       "etsyUrl": "https://edlehoelzervonkoc.etsy.com/listing/4440690649",
       "featured": false,
       "active": true,
       "sizeProfile": "large",
       "portability": "medium",
-      "useCase": ["serving", "gifting", "b2b"],
+      "useCase": [
+        "serving",
+        "gifting",
+        "b2b"
+      ],
       "woodCut": "facegrain",
       "weightClass": "medium",
       "servingSuitable": true,

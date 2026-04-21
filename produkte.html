@@ -32,6 +32,10 @@
     .recommendationCard__body p { margin: 0 0 12px; color: #52463b; line-height: 1.55; }
     .recommendationList { display: grid; gap: 10px; }
     .catalogFilters { display: grid; gap: 16px; margin: 6px 0 22px; }
+    .catalogStatus { margin: 0 0 12px; font-size: 0.88rem; color: #66574a; }
+    .catalogStatus strong { color: #2a231d; }
+    .catalogAlert { margin: 0 0 14px; border: 1px solid #e4b68f; border-radius: 6px; background: #fff4ea; color: #7a3d10; padding: 10px 12px; font-size: 0.88rem; display: none; }
+    .catalogAlert.is-visible { display: block; }
     .filterGroup { display: flex; flex-wrap: wrap; gap: 10px; }
     .filterGroup button { border: 1px solid #d6c8b4; background: #fff; color: #342e29; border-radius: 22px; padding: 8px 14px; font: inherit; font-size: 0.85rem; cursor: pointer; }
     .filterGroup button.is-active { border-color: #b88857; background: #f4ecdf; color: #1a1a1a; }
@@ -65,7 +69,7 @@
 <main>
   <section class="section section--white productsIntro"><div class="container container--narrow"><p class="eyebrow eyebrow--dark">Produktübersicht</p><h1>Die richtige Auswahl beginnt beim Einsatz.</h1><p class="section__lead">Hier findest du alle aktuellen Produkte in einer kuratierten Übersicht. Der Auswahlhelfer bringt dich schnell zu einer stimmigen Richtung, der Abschluss erfolgt direkt bei Etsy.</p></div></section>
   <section class="section section--sand" id="finder"><div class="container"><div class="finderBox"><div class="finderHead"><div><p class="eyebrow eyebrow--dark">Produktfinder</p><h2 style="margin-top:0;">Welches Brett passt zu dir?</h2></div><a href="#finder" class="finderReset" id="finderReset">Neu starten</a></div><div class="finderQuestion" id="finderQuestion"></div><div class="finderFeedback" id="finderFeedback" aria-live="polite"></div><div class="finderResult" id="finderResult"></div></div></div></section>
-  <section class="section section--white" id="produktuebersicht"><div class="container"><p class="eyebrow eyebrow--dark">Sortiment</p><h2>Alle Produkte</h2><div class="catalogFilters" id="catalogFilters"></div><div class="productGrid" id="productGrid"></div></div></section>
+  <section class="section section--white" id="produktuebersicht"><div class="container"><p class="eyebrow eyebrow--dark">Sortiment</p><h2>Alle Produkte</h2><p class="catalogStatus" id="catalogStatus" aria-live="polite"></p><p class="catalogAlert" id="catalogAlert" role="status" aria-live="polite"></p><div class="catalogFilters" id="catalogFilters"></div><div class="productGrid" id="productGrid"></div></div></section>
   <section class="section section--sand"><div class="container container--narrow"><div class="b2bCta"><p class="eyebrow eyebrow--dark">B2B</p><h2 style="margin-top:0;">Für Unternehmen und Serienanfragen</h2><p class="section__lead">Für größere Stückzahlen, Firmengeschenke oder individualisierte Varianten prüfen wir mit dir den passenden Rahmen und eine realistische Umsetzung.</p><div class="ctaRow"><a href="./b2b.html" class="btn">Zu B2B</a></div></div></div></section>
 </main>
 <footer class="footer"><div class="container footer__inner"><div><div class="footer__brand">Edle Hölzer</div><div class="footer__meta">Handgefertigt in Mittelhessen.</div></div><div class="footer__links"><a href="./produkte.html">Produkte</a><a href="./pflege.html">Pflege</a><a href="./b2b.html">B2B</a><a href="./impressum.html">Impressum</a><a href="./datenschutz.html">Datenschutz</a></div></div></footer>
@@ -74,6 +78,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     var productGrid = document.getElementById("productGrid");
     var catalogFilters = document.getElementById("catalogFilters");
+    var catalogStatus = document.getElementById("catalogStatus");
+    var catalogAlert = document.getElementById("catalogAlert");
     var finderQuestion = document.getElementById("finderQuestion");
     var finderFeedback = document.getElementById("finderFeedback");
     var finderResult = document.getElementById("finderResult");
@@ -121,6 +127,54 @@
       var groups = catalogFilters.querySelectorAll(".filterGroup");
       if (groups[0]) { groups[0].querySelectorAll("button").forEach(function (button) { button.addEventListener("click", function () { activeCategory = button.getAttribute("data-filter-key"); renderCatalogFilters(); renderProductGrid(); }); }); }
       if (groups[1]) { groups[1].querySelectorAll("button").forEach(function (button) { button.addEventListener("click", function () { activePrice = button.getAttribute("data-filter-key"); renderCatalogFilters(); renderProductGrid(); }); }); }
+    }
+
+    function setCatalogStatus(meta, count) {
+      if (!meta || !meta.updatedAt) {
+        catalogStatus.innerHTML = "<strong>Katalogstatus:</strong> " + count + " aktive Produkte.";
+        return;
+      }
+      catalogStatus.innerHTML = "<strong>Katalogstatus:</strong> " + count + " aktive Produkte · Stand " + meta.updatedAt + ".";
+    }
+
+    function showCatalogAlert(message) {
+      catalogAlert.textContent = message;
+      catalogAlert.classList.add("is-visible");
+    }
+
+    function hideCatalogAlert() {
+      catalogAlert.textContent = "";
+      catalogAlert.classList.remove("is-visible");
+    }
+
+    function validateCatalog(items) {
+      var requiredFields = ["id", "name", "category", "priceLabel", "priceOrder", "etsyUrl"];
+      var ids = Object.create(null);
+      var urls = Object.create(null);
+      var errors = [];
+      var cleaned = [];
+
+      items.forEach(function (item, index) {
+        if (!item || typeof item !== "object") {
+          errors.push("Eintrag #" + (index + 1) + " ist kein Objekt.");
+          return;
+        }
+        var missing = requiredFields.filter(function (field) { return !item[field] && item[field] !== 0; });
+        if (missing.length) {
+          errors.push("Eintrag '" + (item.id || ("#" + (index + 1))) + "' fehlt: " + missing.join(", ") + ".");
+          return;
+        }
+        if (ids[item.id]) { errors.push("Doppelte Produkt-ID: " + item.id + "."); return; }
+        ids[item.id] = true;
+        if (urls[item.etsyUrl]) { errors.push("Doppelte Etsy-URL: " + item.etsyUrl + "."); }
+        urls[item.etsyUrl] = true;
+        if (typeof item.priceOrder !== "number" || Number.isNaN(item.priceOrder)) {
+          errors.push("Ungültiger Preiswert bei '" + item.id + "' (priceOrder muss Zahl sein).");
+          return;
+        }
+        cleaned.push(item);
+      });
+      return { cleaned: cleaned, errors: errors };
     }
 
     function getFilteredProducts() {
@@ -203,12 +257,34 @@
 
     finderReset.addEventListener("click", function (event) { event.preventDefault(); resetFinder(); });
 
-    fetch("./products.json").then(function (response) { return response.json(); }).then(function (data) {
-      products = (data.products || []).filter(function (item) { return item && item.id && item.name; });
+    fetch("./products.json").then(function (response) { return response.text(); }).then(function (text) {
+      var data;
+      hideCatalogAlert();
+      if (text.indexOf("<<<<<<<") !== -1 || text.indexOf(">>>>>>>") !== -1 || text.indexOf("=======") !== -1) {
+        throw new Error("merge-conflict");
+      }
+      try {
+        data = JSON.parse(text);
+      } catch (error) {
+        throw new Error("parse-error");
+      }
+      var validation = validateCatalog(data.products || []);
+      products = validation.cleaned.filter(function (item) { return item.active; });
+      if (validation.errors.length) {
+        showCatalogAlert("Achtung: Im Katalog wurden " + validation.errors.length + " Problem(e) erkannt. Fehlerhafte Einträge wurden ausgeblendet.");
+        console.warn("Katalog-Validierung:", validation.errors);
+      }
+      setCatalogStatus(data.meta || null, products.length);
       renderCatalogFilters();
       renderProductGrid();
       resetFinder();
-    }).catch(function () {
+    }).catch(function (error) {
+      setCatalogStatus(null, 0);
+      if (error && error.message === "merge-conflict") {
+        showCatalogAlert("products.json enthält Konfliktmarker aus einem Merge. Bitte Datei bereinigen und erneut deployen.");
+      } else {
+        showCatalogAlert("Katalog konnte nicht gelesen werden. Bitte JSON-Struktur von products.json prüfen.");
+      }
       productGrid.innerHTML = '<p style="color:#5f544a;">Die Produktdaten konnten gerade nicht geladen werden.</p>';
     });
   });
