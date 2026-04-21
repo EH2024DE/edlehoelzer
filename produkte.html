@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produkte | Edle Hölzer</title>
+  <meta name="description" content="Produktübersicht und Auswahlhelfer für Schneidebretter und Holzprodukte von Edle Hölzer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .productsIntro {
+      padding-bottom: 50px;
+    }
+
+    .finderBox {
+      background: #f5f1eb;
+      border: 1px solid #e3d8c9;
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .finderHead {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .finderReset {
+      color: #6e6154;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.74rem;
+      text-decoration: none;
+      border-bottom: 1px solid #ccb8a0;
+      align-self: flex-start;
+    }
+
+    .finderQuestion {
+      transition: opacity 0.25s ease;
+    }
+
+    .finderQuestion.is-changing {
+      opacity: 0.45;
+    }
+
+    .finderStep {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #857462;
+      margin: 0 0 8px;
+    }
+
+    .finderPrompt {
+      margin: 0 0 16px;
+      color: #1a1a1a;
+      font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+    }
+
+    .finderOptions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .finderOptions button {
+      background: #fff;
+      border: 1px solid #d9cdbd;
+      border-radius: 6px;
+      color: #1a1a1a;
+      padding: 12px 13px;
+      text-align: left;
+      font: inherit;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .finderOptions button:hover,
+    .finderOptions button:focus-visible {
+      border-color: #b88857;
+      background: #fbf8f4;
+      outline: none;
+    }
+
+    .finderFeedback {
+      margin-top: 14px;
+      min-height: 20px;
+      color: #5c4f43;
+    }
+
+    .finderResult {
+      margin-top: 24px;
+      border-top: 1px solid #dbcfbe;
+      padding-top: 20px;
+      display: none;
+    }
+
+    .finderResult.is-visible {
+      display: block;
+    }
+
+    .finderResultGrid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .recommendationCard {
+      border: 1px solid #deceb9;
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .recommendationCard img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .recommendationCard__body {
+      padding: 14px;
+    }
+
+    .recommendationCard__body h3,
+    .recommendationCard__body h4 {
+      margin: 0 0 10px;
+    }
+
+    .recommendationCard__body p {
+      margin: 0 0 12px;
+      color: #52463b;
+      line-height: 1.55;
+    }
+
+    .recommendationList {
+      display: grid;
+      gap: 10px;
+    }
+
+    .catalogFilters {
+      display: grid;
+      gap: 16px;
+      margin: 6px 0 22px;
+    }
+
+    .filterGroup {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filterGroup button {
+      border: 1px solid #d6c8b4;
+      background: #fff;
+      color: #342e29;
+      border-radius: 22px;
+      padding: 8px 14px;
+      font: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .filterGroup button.is-active {
+      border-color: #b88857;
+      background: #f4ecdf;
+      color: #1a1a1a;
+    }
+
+    .productGrid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .productCard {
+      background: #fff;
+      border: 1px solid #e1d5c6;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .productCard img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .productCard__body {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      height: 100%;
+    }
+
+    .productCard__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .productCard__meta span {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6f6358;
+      border: 1px solid #e1d7c9;
+      padding: 3px 7px;
+      border-radius: 20px;
+    }
+
+    .productCard h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .productCard p {
+      margin: 0;
+      color: #564a40;
+      line-height: 1.5;
+      font-size: 0.93rem;
+    }
+
+    .productCard__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .productPrice {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 0.92rem;
+    }
+
+    .b2bCta {
+      border: 1px solid #e1d4c0;
+      border-radius: 8px;
+      padding: 24px;
+      background: #f8f4ee;
+    }
+
+    @media (max-width: 980px) {
+      .finderOptions,
+      .productGrid,
+      .finderResultGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .finderBox,
+      .b2bCta {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar__inner">
+    <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    <a href="./index.html" class="brand" aria-label="Edle Hölzer Startseite">
+      <img src="./assets/logo.jpg" alt="Edle Hölzer Logo" class="brand__logo">
+      <span class="brand__text">Edle Hölzer</span>
+    </a>
+    <div class="topbar__right">
+      <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn btn--small">Zum Shop</a>
+    </div>
+  </div>
+  <nav class="mobileMenu" id="mobileMenu">
+    <div class="mobileMenu__head">
+      <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
+    </div>
+    <a href="./index.html">Start</a>
+    <a href="#finder">Produktfinder</a>
+    <a href="#produktuebersicht">Produkte</a>
+    <a href="./pflege.html">Pflege</a>
+    <a href="./b2b.html">B2B</a>
+  </nav>
+  <div class="menuBackdrop" id="menuBackdrop"></div>
+</header>
+
+<main>
+  <section class="section section--white productsIntro">
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--dark">Produktübersicht</p>
+      <h1>Die richtige Auswahl beginnt beim Einsatz.</h1>
+      <p class="section__lead">Hier findest du alle aktuellen Produkte in einer kuratierten Übersicht. Der Auswahlhelfer bringt dich schnell zu einer stimmigen Richtung, der Abschluss erfolgt direkt bei Etsy.</p>
+    </div>
+  </section>
+
+  <section class="section section--sand" id="finder">
+    <div class="container">
+      <div class="finderBox">
+        <div class="finderHead">
+          <div>
+            <p class="eyebrow eyebrow--dark">Produktfinder</p>
+            <h2 style="margin-top:0;">Welches Brett passt zu Ihnen?</h2>
+          </div>
+          <a href="#finder" class="finderReset" id="finderReset">Neu starten</a>
+        </div>
+
+        <div class="finderQuestion" id="finderQuestion"></div>
+        <div class="finderFeedback" id="finderFeedback" aria-live="polite"></div>
+        <div class="finderResult" id="finderResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="produktuebersicht">
+    <div class="container">
+      <p class="eyebrow eyebrow--dark">Sortiment</p>
+      <h2>Alle Produkte</h2>
+
+      <div class="catalogFilters" id="catalogFilters"></div>
+      <div class="productGrid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container container--narrow">
+      <div class="b2bCta">
+        <p class="eyebrow eyebrow--dark">B2B</p>
+        <h2 style="margin-top:0;">Für Unternehmen und Serienanfragen</h2>
+        <p class="section__lead">Für größere Stückzahlen, Firmengeschenke oder individualisierte Varianten prüfen wir mit dir den passenden Rahmen und eine realistische Umsetzung.</p>
+        <div class="ctaRow"><a href="./b2b.html" class="btn">Zu B2B</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div><div class="footer__brand">Edle Hölzer</div><div class="footer__meta">Handgefertigt in Mittelhessen.</div></div>
+    <div class="footer__links"><a href="./produkte.html">Produkte</a><a href="./pflege.html">Pflege</a><a href="./b2b.html">B2B</a><a href="./impressum.html">Impressum</a><a href="./datenschutz.html">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script src="./main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var productGrid = document.getElementById("productGrid");
+    var catalogFilters = document.getElementById("catalogFilters");
+    var finderQuestion = document.getElementById("finderQuestion");
+    var finderFeedback = document.getElementById("finderFeedback");
+    var finderResult = document.getElementById("finderResult");
+    var finderReset = document.getElementById("finderReset");
+
+    var products = [];
+    var activeCategory = "all";
+    var activePrice = "all";
+
+    var finderState = {
+      stepIndex: 0,
+      picks: []
+    };
+
+    var questions = [
+      {
+        key: "space",
+        prompt: "Wie viel Platz steht in deiner Küche zur Verfügung?",
+        options: [
+          { label: "Kompakt, wenig Arbeitsfläche", hint: "Dann zählt ein handliches Format.", score: { sizeProfile: { compact: 2 }, kitchenType: { small: 2 }, portability: { high: 1 } } },
+          { label: "Normaler Küchenarbeitsplatz", hint: "Dann bleibt ein mittleres Brett flexibel.", score: { sizeProfile: { medium: 2 }, kitchenType: { all: 1 } } },
+          { label: "Großzügige Arbeitsfläche", hint: "Dann kann das Brett auch präsenter ausfallen.", score: { sizeProfile: { large: 2 }, kitchenType: { large: 2 }, portability: { low: 1 } } }
+        ]
+      },
+      {
+        key: "usage",
+        prompt: "Wofür nutzt du das Brett hauptsächlich?",
+        options: [
+          { label: "Vor allem schneiden", hint: "Dann sind Stabilität und Belastbarkeit entscheidend.", score: { useCase: { cutting: 3 }, weightClass: { heavy: 1, medium: 1 } } },
+          { label: "Schneiden und servieren", hint: "Dann braucht es eine ausgewogene Lösung.", score: { useCase: { cutting: 2, serving: 2 }, servingSuitable: { true: 1 } } },
+          { label: "Vor allem servieren", hint: "Dann wird Optik und Handling wichtiger.", score: { useCase: { serving: 3 }, tactileProfile: { characterful: 2 }, servingSuitable: { true: 2 } } }
+        ]
+      },
+      {
+        key: "material",
+        prompt: "Was ist dir beim Holzaufbau wichtiger?",
+        options: [
+          { label: "Messerschonung und Substanz", hint: "Dann ist Stirnholz meist die stimmigste Richtung.", score: { woodCut: { endgrain: 3 }, tactileProfile: { robust: 1, premium: 1 } } },
+          { label: "Ruhige, unkomplizierte Fläche", hint: "Dann passt Flankenholz oft besser in den Alltag.", score: { woodCut: { facegrain: 2 }, portability: { medium: 1, high: 1 } } },
+          { label: "Markantes Holzbild mit Präsenz", hint: "Dann darf das Brett auch als Objekt wirken.", score: { tactileProfile: { premium: 2, characterful: 2 }, premiumLevel: { "2": 1, "3": 2 } } }
+        ]
+      },
+      {
+        key: "character",
+        prompt: "Soll das Brett eher praktisch oder markant sein?",
+        options: [
+          { label: "Praktisch und alltagstauglich", hint: "Dann priorisieren wir robuste und klare Modelle.", score: { segment: { topseller: 2, stirnholz: 1 }, tactileProfile: { robust: 2 }, premiumLevel: { "1": 1, "2": 1 } } },
+          { label: "Markant mit mehr Präsenz", hint: "Dann gewichten wir Premium und Ausdruck stärker.", score: { segment: { premium: 2, serving: 1 }, tactileProfile: { premium: 2, characterful: 1 }, premiumLevel: { "3": 2 } } },
+          { label: "Ausgewogen", hint: "Dann bleibt die Auswahl bewusst breit.", score: { premiumLevel: { "2": 2 }, useCase: { cutting: 1, serving: 1 } } }
+        ]
+      }
+    ];
+
+    var categoryFilters = [
+      { key: "all", label: "Alle Kategorien" },
+      { key: "board", label: "Schneidebretter" },
+      { key: "accessory", label: "Pflege & Zubehör" }
+    ];
+
+    var priceFilters = [
+      { key: "all", label: "Alle Preise", min: 0, max: Infinity },
+      { key: "under50", label: "Bis 50 €", min: 0, max: 50 },
+      { key: "under100", label: "Bis 100 €", min: 0, max: 100 },
+      { key: "over100", label: "Ab 100 €", min: 100, max: Infinity }
+    ];
+
+    function createFilterGroup(title, filters, activeKey) {
+      return '<div><p class="finderStep" style="margin-bottom:8px;">' + title + '</p><div class="filterGroup">' +
+        filters.map(function (filter) {
+          var activeClass = filter.key === activeKey ? "is-active" : "";
+          return '<button type="button" class="' + activeClass + '" data-filter-key="' + filter.key + '">' + filter.label + '</button>';
+        }).join("") +
+        '</div></div>';
+    }
+
+    function renderCatalogFilters() {
+      catalogFilters.innerHTML =
+        createFilterGroup("Kategorie", categoryFilters, activeCategory) +
+        createFilterGroup("Preisbereich", priceFilters, activePrice);
+
+      var groups = catalogFilters.querySelectorAll(".filterGroup");
+      if (groups[0]) {
+        groups[0].querySelectorAll("button").forEach(function (button) {
+          button.addEventListener("click", function () {
+            activeCategory = button.getAttribute("data-filter-key");
+            renderCatalogFilters();
+            renderProductGrid();
+          });
+        });
+      }
+      if (groups[1]) {
+        groups[1].querySelectorAll("button").forEach(function (button) {
+          button.addEventListener("click", function () {
+            activePrice = button.getAttribute("data-filter-key");
+            renderCatalogFilters();
+            renderProductGrid();
+          });
+        });
+      }
+    }
+
+    function getFilteredProducts() {
+      var priceFilter = priceFilters.find(function (item) {
+        return item.key === activePrice;
+      }) || priceFilters[0];
+
+      return products.filter(function (product) {
+        var categoryMatch = activeCategory === "all" || product.category === activeCategory;
+        var priceMatch = product.priceOrder >= priceFilter.min && product.priceOrder < priceFilter.max;
+        return product.active && categoryMatch && priceMatch;
+      });
+    }
+
+    function renderProductGrid() {
+      var visible = getFilteredProducts();
+
+      productGrid.innerHTML = visible.map(function (product) {
+        var badges = (product.badges || []).slice(0, 2).map(function (badge) {
+          return '<span>' + badge + '</span>';
+        }).join("");
+
+        return '<article class="productCard">' +
+          '<img src="' + product.image + '" alt="' + product.name + '">' +
+          '<div class="productCard__body">' +
+          '<div class="productCard__meta">' + badges + '</div>' +
+          '<h3>' + product.name + '</h3>' +
+          '<p>' + product.shortDescription + '</p>' +
+          '<div class="productCard__footer">' +
+          '<span class="productPrice">' + product.priceLabel + '</span>' +
+          '<a class="btn btn--small" href="' + product.etsyUrl + '" target="_blank" rel="noopener">Bei Etsy ansehen</a>' +
+          '</div></div></article>';
+      }).join("");
+
+      if (!visible.length) {
+        productGrid.innerHTML = '<p style="color:#5f544a;">Für diese Kombination ist aktuell kein Produkt aktiv.</p>';
+      }
+    }
+
+    function scoreProduct(product) {
+      return finderState.picks.reduce(function (total, pick) {
+        var question = questions[pick.stepIndex];
+        var option = question.options[pick.optionIndex];
+        var score = option.score;
+        var points = 0;
+
+        Object.keys(score).forEach(function (field) {
+          var mapping = score[field];
+          Object.keys(mapping).forEach(function (key) {
+            var target = String(product[field]);
+
+            if (field === "useCase") {
+              if (product.useCase.indexOf(key) !== -1) {
+                points += mapping[key];
+              }
+              return;
+            }
+
+            if (target === key) {
+              points += mapping[key];
+            }
+          });
+        });
+
+        return total + points;
+      }, 0);
+    }
+
+    function finderReason(product) {
+      var profile = product.woodCut === "endgrain" ? "Stirnholz" : "Flankenholz";
+      var weight = product.weightClass === "heavy" ? "mit hohem Gewicht" : "mit ausgewogenem Gewicht";
+      return profile + ", " + weight + " und klar auf " + product.segment + " ausgerichtet.";
+    }
+
+    function renderFinderResult() {
+      var ranked = products
+        .filter(function (item) { return item.category === "board" && item.active; })
+        .map(function (item) {
+          return { product: item, score: scoreProduct(item) };
+        })
+        .sort(function (a, b) {
+          return b.score - a.score;
+        })
+        .slice(0, 3);
+
+      if (!ranked.length) {
+        finderResult.classList.remove("is-visible");
+        finderResult.innerHTML = "";
+        return;
+      }
+
+      var top = ranked[0].product;
+      var secondary = ranked.slice(1).map(function (entry) {
+        return '<article class="recommendationCard"><div class="recommendationCard__body"><h4>' + entry.product.name + '</h4><p>' + finderReason(entry.product) + '</p></div></article>';
+      }).join("");
+
+      finderResult.innerHTML =
+        '<p class="finderStep">Empfehlung</p>' +
+        '<h3 style="margin-top:0;">Diese Auswahl passt am besten zu deinem Profil.</h3>' +
+        '<div class="finderResultGrid">' +
+        '<article class="recommendationCard">' +
+        '<img src="' + top.image + '" alt="' + top.name + '">' +
+        '<div class="recommendationCard__body"><h3>' + top.name + '</h3><p>' + finderReason(top) + '</p><a class="btn btn--small" href="' + top.etsyUrl + '" target="_blank" rel="noopener">Bei Etsy ansehen</a></div>' +
+        '</article>' +
+        '<div class="recommendationList">' + secondary + '</div>' +
+        '</div>';
+
+      finderResult.classList.add("is-visible");
+    }
+
+    function renderFinderStep() {
+      var question = questions[finderState.stepIndex];
+      if (!question) {
+        finderQuestion.innerHTML = "";
+        finderFeedback.textContent = "";
+        renderFinderResult();
+        return;
+      }
+
+      finderQuestion.innerHTML =
+        '<p class="finderStep">Schritt ' + (finderState.stepIndex + 1) + ' von ' + questions.length + '</p>' +
+        '<h3 class="finderPrompt">' + question.prompt + '</h3>' +
+        '<div class="finderOptions">' +
+        question.options.map(function (option, optionIndex) {
+          return '<button type="button" data-option-index="' + optionIndex + '">' + option.label + '</button>';
+        }).join("") +
+        '</div>';
+
+      finderQuestion.querySelectorAll("button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          var optionIndex = Number(button.getAttribute("data-option-index"));
+          var option = question.options[optionIndex];
+
+          finderState.picks.push({ stepIndex: finderState.stepIndex, optionIndex: optionIndex });
+          finderFeedback.textContent = option.hint;
+          finderQuestion.classList.add("is-changing");
+
+          window.setTimeout(function () {
+            finderQuestion.classList.remove("is-changing");
+            finderState.stepIndex += 1;
+            renderFinderStep();
+          }, 240);
+        });
+      });
+    }
+
+    function resetFinder() {
+      finderState = { stepIndex: 0, picks: [] };
+      finderFeedback.textContent = "";
+      finderResult.classList.remove("is-visible");
+      finderResult.innerHTML = "";
+      renderFinderStep();
+    }
+
+    finderReset.addEventListener("click", function (event) {
+      event.preventDefault();
+      resetFinder();
+    });
+
+    fetch("./products.json")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        products = (data.products || []).filter(function (item) {
+          return item && item.id && item.name;
+        });
+
+        renderCatalogFilters();
+        renderProductGrid();
+        resetFinder();
+      })
+      .catch(function () {
+        productGrid.innerHTML = '<p style="color:#5f544a;">Die Produktdaten konnten gerade nicht geladen werden.</p>';
+      });
+  });
+</script>
+</body>
+</html>
