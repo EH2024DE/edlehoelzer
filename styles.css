@@ -216,7 +216,31 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .seoHero__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.62fr);gap:42px;align-items:center}
 .seoHero h1{font-size:clamp(42px,6.4vw,76px);letter-spacing:0}
 .seoHero__lead{font-size:19px;line-height:1.7;color:rgba(17,17,17,.74);max-width:58ch;margin:18px 0 0}
-.seoHero__image{border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);width:100%;aspect-ratio:4/5;object-fit:cover;background:#ece3d8}
+.seoHero__image {
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  width: min(100%, 560px);
+  height: clamp(320px, 42vw, 560px);
+  justify-self: end;
+  object-fit: cover;
+  object-position: center;
+  background: #ece3d8;
+}
+@media (max-width: 1100px) {
+  .seoHero__image {
+    width: 100%;
+    height: clamp(300px, 58vw, 520px);
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .seoHero__image {
+    height: clamp(240px, 72vw, 390px);
+    border-radius: 14px;
+  }
+}
 .seoContent{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:42px;align-items:start}
 .seoText{max-width:76ch}
 .seoText p,.seoText li{color:rgba(17,17,17,.74)}
