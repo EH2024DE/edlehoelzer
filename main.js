@@ -335,7 +335,6 @@ function initProductsPage() {
 
   var requiredFields = [
     "id",
-    "listingId",
     "name",
     "category",
     "segment",
@@ -344,12 +343,13 @@ function initProductsPage() {
     "shortDescription",
     "longDescription",
     "badges",
-    "image",
-    "gallery",
     "etsyUrl",
     "featured",
     "active",
     "needsReview",
+    "dataVerified",
+    "imageVerified",
+    "directListingUrlVerified",
     "productType",
     "material",
     "woodCut",
@@ -431,15 +431,19 @@ function initProductsPage() {
         }
       });
 
-      if (product.active && !product.image) {
-        console.warn("[Edle Hölzer] Aktives Produkt ohne Bild:", product.id);
+      if (product.active && product.image && product.imageVerified !== true) {
+        console.warn("[Edle Hölzer] Produktbild ist vorhanden, aber nicht verifiziert und wird nicht angezeigt:", product.id);
       }
 
       if (product.active && product.category === "board" && !product.etsyUrl) {
         console.warn("[Edle Hölzer] Aktives Brett ohne Etsy-Link wird nicht prominent empfohlen:", product.id);
       }
 
-      if (product.active && product.image) {
+      if (product.directListingUrlVerified === true && !product.listingId) {
+        console.warn("[Edle Hölzer] Verifizierter Etsy-Direktlink ohne Listing-ID:", product.id);
+      }
+
+      if (product.active && product.image && product.imageVerified === true && product.image.charAt(0) === "/") {
         checkImage(product.image, product.id);
       }
     });
@@ -559,20 +563,27 @@ function initProductsPage() {
         buildProductMedia(main) +
         '<div class="recommendationCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(main.segment) + '</p>' +
-          '<h3>' + escapeHtml(main.name) + '</h3>' +
-          '<p>' + escapeHtml(main.shortDescription) + '</p>' +
-          buildBadges(main.badges) +
+          '<h3>' + escapeHtml(displayProductName(main)) + '</h3>' +
+          buildFeatureBadges(main) +
+          buildProductFacts(main) +
           '<p class="productCard__price">' + escapeHtml(main.priceLabel) + '</p>' +
           '<div class="ctaRow">' +
-            '<a class="btn" href="' + escapeAttribute(main.etsyUrl) + '" target="_blank" rel="noopener">Bei Etsy ansehen</a>' +
+            '<a class="btn" href="' + escapeAttribute(main.etsyUrl) + '" target="_blank" rel="noopener">' + escapeHtml(etsyActionLabel(main)) + '</a>' +
             '<a class="btn btn--ghost-dark" href="#produkte-grid">Produktgrid ansehen</a>' +
             '<button class="btn btn--ghost-dark" type="button" data-finder-reset>Neu starten</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
-      (alternatives.length ? '<div class="alternativeList"><h3>Alternativen</h3>' + alternatives.map(function (product) {
-        return '<article><strong>' + escapeHtml(product.name) + '</strong><span>' + escapeHtml(product.shortDescription) + '</span></article>';
-      }).join("") + '</div>' : "");
+      (alternatives.length ? '<div class="alternativeList"><h3>Alternativen</h3><div class="alternativeGrid">' + alternatives.map(function (product) {
+        return '<a class="alternativeCard" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">' +
+          buildProductMedia(product) +
+          '<span class="alternativeCard__body">' +
+            '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
+            '<strong>' + escapeHtml(displayProductName(product)) + '</strong>' +
+            '<span>' + escapeHtml(product.priceLabel) + '</span>' +
+          '</span>' +
+        '</a>';
+      }).join("") + '</div></div>' : "");
 
     bindReset(resultRoot);
     renderGrid();
@@ -673,6 +684,10 @@ function initProductsPage() {
       score -= 10;
     }
 
+    if (product.dataVerified !== true) {
+      score -= 20;
+    }
+
     if (!product.etsyUrl) {
       score -= 8;
     }
@@ -684,8 +699,17 @@ function initProductsPage() {
     return product &&
       product.active === true &&
       product.needsReview === false &&
+      product.dataVerified === true &&
       product.category === "board" &&
-      Boolean(product.etsyUrl);
+      Boolean(product.etsyUrl) &&
+      hasConcreteFinderData(product);
+  }
+
+  function hasConcreteFinderData(product) {
+    return product.sizeLabel &&
+      product.sizeLabel !== "Format laut Etsy-Export" &&
+      product.thicknessLabel &&
+      product.thicknessLabel !== "laut Etsy-Export";
   }
 
   function buildReason(product) {
@@ -805,15 +829,9 @@ function initProductsPage() {
         buildProductMedia(product) +
         '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(product.segment) + '</p>' +
-          '<h3>' + escapeHtml(product.name) + '</h3>' +
-          '<p>' + escapeHtml(product.shortDescription) + '</p>' +
-          buildBadges(product.badges) +
-          '<dl class="productFacts">' +
-            '<div><dt>Material</dt><dd>' + escapeHtml(product.material) + '</dd></div>' +
-            '<div><dt>Format</dt><dd>' + escapeHtml(product.sizeLabel) + '</dd></div>' +
-            '<div><dt>Gewicht</dt><dd>' + escapeHtml(labelFor(product.weightClass)) + '</dd></div>' +
-            '<div><dt>Handling</dt><dd>' + escapeHtml(labelFor(product.portability)) + '</dd></div>' +
-          '</dl>' +
+          '<h3>' + escapeHtml(displayProductName(product)) + '</h3>' +
+          buildFeatureBadges(product) +
+          buildProductFacts(product) +
           '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' +
           buildProductActions(product) +
         '</div>' +
@@ -822,19 +840,117 @@ function initProductsPage() {
   }
 
   function buildProductMedia(product) {
+    if (!product.image || product.imageVerified !== true) {
+      return '<div class="productCard__media productCard__media--pending">' +
+        '<span>Produktbild direkt im Etsy-Listing prüfen</span>' +
+      '</div>';
+    }
+
     return '<div class="productCard__media">' +
       '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
     '</div>';
   }
 
-  function buildBadges(badges) {
+  function buildFeatureBadges(product) {
+    var badges = product.badges;
     if (!Array.isArray(badges) || !badges.length) {
       return "";
     }
 
-    return '<div class="productBadgeRow">' + badges.map(function (badge) {
+    var materialParts = String(product.material || "").split(",").map(function (part) {
+      return part.trim();
+    }).filter(Boolean);
+
+    var filtered = badges.filter(function (badge) {
+      var value = String(badge || "");
+      var normalized = value.toLowerCase();
+      if (!value) {
+        return false;
+      }
+      if (normalized.indexOf("cm") !== -1 || normalized.indexOf("kg") !== -1) {
+        return false;
+      }
+      if (value === product.material || materialParts.indexOf(value) !== -1) {
+        return false;
+      }
+      if (value === product.sizeLabel || value === product.thicknessLabel) {
+        return false;
+      }
+      return true;
+    });
+
+    if (!filtered.length) {
+      return "";
+    }
+
+    return '<div class="productBadgeRow">' + filtered.slice(0, 3).map(function (badge) {
       return '<span>' + escapeHtml(badge) + '</span>';
     }).join("") + '</div>';
+  }
+
+  function buildProductFacts(product) {
+    var facts = [];
+
+    if (product.material) {
+      facts.push(["Material", product.material]);
+    }
+
+    if (product.category === "board" && hasMeaningfulValue(product.sizeLabel)) {
+      facts.push(["Maße", product.sizeLabel]);
+    }
+
+    if (product.category === "board" && product.weightClass) {
+      facts.push(["Gewicht", labelFor(product.weightClass)]);
+    }
+
+    if (product.category === "board" && product.portability) {
+      facts.push(["Handling", labelFor(product.portability)]);
+    }
+
+    if (product.category === "care") {
+      facts = [
+        ["Typ", "Pflegeprodukt"],
+        ["Basis", product.material || "Bienenwachs und Öl"]
+      ];
+    }
+
+    if (product.category === "accessory") {
+      facts = [
+        ["Typ", product.productType === "accessory" ? "Küchenhelfer" : product.segment],
+        ["Material", product.material || "Holz"]
+      ];
+    }
+
+    if (!facts.length) {
+      return "";
+    }
+
+    return '<dl class="productFacts">' + facts.map(function (fact) {
+      return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
+    }).join("") + '</dl>';
+  }
+
+  function hasMeaningfulValue(value) {
+    return value &&
+      value !== "Format laut Etsy-Export" &&
+      value !== "laut Etsy-Export" &&
+      value !== "nicht relevant";
+  }
+
+  function displayProductName(product) {
+    var name = String(product.name || "");
+
+    if (name.indexOf("|") !== -1) {
+      name = name.split("|")[0];
+    }
+
+    name = name
+      .replace(/:\s*\d{1,3}(?:[,.]\d+)?\s*[x×].*$/i, "")
+      .replace(/\s+[–-]\s*\d{1,3}(?:[,.]\d+)?\s*[x×].*$/i, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+
+    return name || product.name;
   }
 
   function buildProductActions(product) {
@@ -842,11 +958,16 @@ function initProductsPage() {
       return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Produktdaten">Daten anfragen</a></div>';
     }
 
+    var primaryLabel = etsyActionLabel(product);
     var secondary = product.category === "board"
       ? '<a class="btn btn--ghost-dark" href="/pflege.html">Pflege lesen</a>'
       : '<a class="btn btn--ghost-dark" href="/schneidebretter-massivholz/">Bretter ansehen</a>';
 
-    return '<div class="ctaRow"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">Bei Etsy ansehen</a>' + secondary + '</div>';
+    return '<div class="ctaRow"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a>' + secondary + '</div>';
+  }
+
+  function etsyActionLabel(product) {
+    return product.directListingUrlVerified === true ? "Bei Etsy ansehen" : "Im Etsy-Shop suchen";
   }
 
   function labelFor(value) {
