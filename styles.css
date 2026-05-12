@@ -310,6 +310,8 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .productCard.is-review{opacity:.72}
 .productCard__media{aspect-ratio:4/3;background:#ece3d8;overflow:hidden;border-bottom:1px solid var(--line)}
 .productCard__media img{width:100%;height:100%;object-fit:cover;object-position:center}
+.productCard__media--pending{display:flex;align-items:center;justify-content:center;padding:22px;text-align:center;background:linear-gradient(135deg,#efe6da,#f8f3ec);color:rgba(17,17,17,.58)}
+.productCard__media--pending span{max-width:20ch;font-size:13px;font-weight:800;line-height:1.4;text-transform:uppercase;letter-spacing:.08em}
 .productCard__body{display:flex;flex-direction:column;gap:12px;flex:1;padding:20px}
 .productCard__body h3{font-size:24px;letter-spacing:0}
 .productCard__body p{margin:0;color:rgba(17,17,17,.68)}

@@ -344,12 +344,12 @@ function initProductsPage() {
     "shortDescription",
     "longDescription",
     "badges",
-    "image",
-    "gallery",
     "etsyUrl",
     "featured",
     "active",
     "needsReview",
+    "dataVerified",
+    "imageVerified",
     "productType",
     "material",
     "woodCut",
@@ -431,15 +431,15 @@ function initProductsPage() {
         }
       });
 
-      if (product.active && !product.image) {
-        console.warn("[Edle Hölzer] Aktives Produkt ohne Bild:", product.id);
+      if (product.active && product.image && product.imageVerified !== true) {
+        console.warn("[Edle Hölzer] Produktbild ist vorhanden, aber nicht verifiziert und wird nicht angezeigt:", product.id);
       }
 
       if (product.active && product.category === "board" && !product.etsyUrl) {
         console.warn("[Edle Hölzer] Aktives Brett ohne Etsy-Link wird nicht prominent empfohlen:", product.id);
       }
 
-      if (product.active && product.image) {
+      if (product.active && product.image && product.imageVerified === true) {
         checkImage(product.image, product.id);
       }
     });
@@ -673,6 +673,10 @@ function initProductsPage() {
       score -= 10;
     }
 
+    if (product.dataVerified !== true) {
+      score -= 20;
+    }
+
     if (!product.etsyUrl) {
       score -= 8;
     }
@@ -684,6 +688,7 @@ function initProductsPage() {
     return product &&
       product.active === true &&
       product.needsReview === false &&
+      product.dataVerified === true &&
       product.category === "board" &&
       Boolean(product.etsyUrl);
   }
@@ -822,6 +827,12 @@ function initProductsPage() {
   }
 
   function buildProductMedia(product) {
+    if (!product.image || product.imageVerified !== true) {
+      return '<div class="productCard__media productCard__media--pending">' +
+        '<span>Produktbild direkt im Etsy-Listing prüfen</span>' +
+      '</div>';
+    }
+
     return '<div class="productCard__media">' +
       '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
     '</div>';
