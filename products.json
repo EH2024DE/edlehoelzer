@@ -1208,12 +1208,13 @@
       "recommendedFor": [
         "grosse Arbeitsflaechen",
         "dauerhaft liegendes Brett",
-        "Servieren",
-        "Stirnholz-Haptik"
+        "Premium-Stirnholz",
+        "BBQ"
       ],
       "notIdealFor": [
         "kleine Arbeitsflaechen",
-        "haeufiges Tragen"
+        "haeufiges Tragen",
+        "leichtes Handling"
       ]
     },
     {
@@ -2155,10 +2156,10 @@
       "woodCut": "end",
       "sizeLabel": "Format laut Etsy-Export",
       "thicknessLabel": "massiv",
-      "sizeProfile": "medium",
-      "weightClass": "medium",
-      "portability": "balanced",
-      "kitchenFit": "normal",
+      "sizeProfile": "large",
+      "weightClass": "heavy",
+      "portability": "stationary",
+      "kitchenFit": "large",
       "useCases": [
         "daily",
         "serving",
@@ -2170,11 +2171,15 @@
       "giftable": true,
       "careIntensity": "medium",
       "recommendedFor": [
-        "Servieren",
-        "Stirnholz-Haptik"
+        "grosse Arbeitsflaechen",
+        "dauerhaft liegendes Brett",
+        "Premium-Stirnholz",
+        "BBQ"
       ],
       "notIdealFor": [
-        "Nutzer, die ein anderes Format suchen"
+        "kleine Arbeitsflaechen",
+        "haeufiges Tragen",
+        "leichtes Handling"
       ]
     },
     {
