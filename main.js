@@ -967,7 +967,7 @@ function initProductsPage() {
   }
 
   function etsyActionLabel(product) {
-    return product.directListingUrlVerified === true ? "Bei Etsy ansehen" : "Im Etsy-Shop suchen";
+    return "Bei Etsy ansehen";
   }
 
   function labelFor(value) {
