@@ -335,7 +335,6 @@ function initProductsPage() {
 
   var requiredFields = [
     "id",
-    "listingId",
     "name",
     "category",
     "segment",
@@ -350,6 +349,7 @@ function initProductsPage() {
     "needsReview",
     "dataVerified",
     "imageVerified",
+    "directListingUrlVerified",
     "productType",
     "material",
     "woodCut",
@@ -439,7 +439,11 @@ function initProductsPage() {
         console.warn("[Edle Hölzer] Aktives Brett ohne Etsy-Link wird nicht prominent empfohlen:", product.id);
       }
 
-      if (product.active && product.image && product.imageVerified === true) {
+      if (product.directListingUrlVerified === true && !product.listingId) {
+        console.warn("[Edle Hölzer] Verifizierter Etsy-Direktlink ohne Listing-ID:", product.id);
+      }
+
+      if (product.active && product.image && product.imageVerified === true && product.image.charAt(0) === "/") {
         checkImage(product.image, product.id);
       }
     });
@@ -564,7 +568,7 @@ function initProductsPage() {
           buildBadges(main.badges) +
           '<p class="productCard__price">' + escapeHtml(main.priceLabel) + '</p>' +
           '<div class="ctaRow">' +
-            '<a class="btn" href="' + escapeAttribute(main.etsyUrl) + '" target="_blank" rel="noopener">Bei Etsy ansehen</a>' +
+            '<a class="btn" href="' + escapeAttribute(main.etsyUrl) + '" target="_blank" rel="noopener">' + escapeHtml(etsyActionLabel(main)) + '</a>' +
             '<a class="btn btn--ghost-dark" href="#produkte-grid">Produktgrid ansehen</a>' +
             '<button class="btn btn--ghost-dark" type="button" data-finder-reset>Neu starten</button>' +
           '</div>' +
@@ -690,7 +694,15 @@ function initProductsPage() {
       product.needsReview === false &&
       product.dataVerified === true &&
       product.category === "board" &&
-      Boolean(product.etsyUrl);
+      Boolean(product.etsyUrl) &&
+      hasConcreteFinderData(product);
+  }
+
+  function hasConcreteFinderData(product) {
+    return product.sizeLabel &&
+      product.sizeLabel !== "Format laut Etsy-Export" &&
+      product.thicknessLabel &&
+      product.thicknessLabel !== "laut Etsy-Export";
   }
 
   function buildReason(product) {
@@ -853,11 +865,16 @@ function initProductsPage() {
       return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Produktdaten">Daten anfragen</a></div>';
     }
 
+    var primaryLabel = etsyActionLabel(product);
     var secondary = product.category === "board"
       ? '<a class="btn btn--ghost-dark" href="/pflege.html">Pflege lesen</a>'
       : '<a class="btn btn--ghost-dark" href="/schneidebretter-massivholz/">Bretter ansehen</a>';
 
-    return '<div class="ctaRow"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">Bei Etsy ansehen</a>' + secondary + '</div>';
+    return '<div class="ctaRow"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a>' + secondary + '</div>';
+  }
+
+  function etsyActionLabel(product) {
+    return product.directListingUrlVerified === true ? "Bei Etsy ansehen" : "Im Etsy-Shop suchen";
   }
 
   function labelFor(value) {
