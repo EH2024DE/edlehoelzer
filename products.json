@@ -831,8 +831,9 @@
       "shortDescription": "Metall,Bienenwachs.",
       "longDescription": "Pflege für Holz, das bleibt. Unser Pflegebalsam wurde für Schneidebretter und Küchenholz entwickelt, die regelmäßig genutzt werden – und genau deshalb gepflegt werden müssen. Die Kombination aus regionalem Bienenwachs und lebensmittelechtem Leinölfirnis schützt das Holz vor Austrocknung, nährt es von innen und bringt die natürliche Maserung sichtbar zurück..",
       "badges": [
-        "Metall,Bienenwachs",
-        "personalisierbar"
+        "Pflege",
+        "Bienenwachs",
+        "Leinölfirnis"
       ],
       "image": "https://i.etsystatic.com/54205761/r/il/cf7420/7953670261/il_fullxfull.7953670261_dtqd.jpg",
       "gallery": [
@@ -853,14 +854,14 @@
       "dataVerifiedAt": "2026-05-12",
       "source": "20260422_Etsy_Shop_Listings.csv",
       "productType": "care",
-      "material": "Metall,Bienenwachs",
+      "material": "Bienenwachs und Leinölfirnis",
       "woodCut": "none",
-      "sizeLabel": "Format laut Etsy-Export",
-      "thicknessLabel": "laut Etsy-Export",
+      "sizeLabel": "Pflegeprodukt",
+      "thicknessLabel": "nicht relevant",
       "sizeProfile": "medium",
-      "weightClass": "medium",
-      "portability": "balanced",
-      "kitchenFit": "normal",
+      "weightClass": "light",
+      "portability": "portable",
+      "kitchenFit": "small",
       "useCases": [
         "daily",
         "gift"
@@ -1016,8 +1017,8 @@
       "listingId": "",
       "exportRow": 16,
       "name": "Servierbrett Set aus Massivholz mit Halter (3-teilig) – handgefertigtes Tapas- & Gastgeber-System",
-      "category": "accessory",
-      "segment": "Zubehoer",
+      "category": "board",
+      "segment": "Servierbrett-Set",
       "priceLabel": "129,99 EUR",
       "priceOrder": 129.99,
       "stock": 5,
@@ -1048,7 +1049,7 @@
       "imageVerified": true,
       "dataVerifiedAt": "2026-05-12",
       "source": "20260422_Etsy_Shop_Listings.csv",
-      "productType": "accessory",
+      "productType": "servingBoard",
       "material": "Esche, Ahorn, Mahagoni, Laerche",
       "woodCut": "none",
       "sizeLabel": "Format laut Etsy-Export",
@@ -1058,19 +1059,23 @@
       "portability": "balanced",
       "kitchenFit": "normal",
       "useCases": [
-        "daily"
+        "daily",
+        "serving"
       ],
-      "servingSuitable": false,
+      "servingSuitable": true,
       "tactileProfile": "smooth",
       "premiumLevel": 2,
       "giftable": true,
       "careIntensity": "low",
       "recommendedFor": [
-        "Kuechenhelfer",
-        "Geschenkergänzung"
+        "Servieren",
+        "Tapas",
+        "Gastgeber",
+        "Geschenkset"
       ],
       "notIdealFor": [
-        "Haupt-Schneidebrett"
+        "kräftiges Schneiden",
+        "BBQ-Hackarbeiten"
       ]
     },
     {
