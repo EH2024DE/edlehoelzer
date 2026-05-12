@@ -3,8 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edle Hölzer – Handwerk statt Massenware</title>
-  <meta name="description" content="Handgefertigte Schneidebretter und Holzprodukte aus Mittelhessen. Massivholz, saubere Verarbeitung, keine Serienware.">
+  <title>Schneidebretter aus Massivholz | Handgefertigt in Mittelhessen – Edle Hölzer</title>
+  <meta name="description" content="Handgefertigte Schneidebretter und Holzprodukte aus Mittelhessen. Produktberater, Massivholz, Gravur, Sondermaß und Etsy-Checkout.">
+  <link rel="canonical" href="https://edlehoelzer.de/">
+  <link rel="alternate" hreflang="de" href="https://edlehoelzer.de/">
+  <link rel="alternate" hreflang="en" href="https://edlehoelzer.de/en/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://edlehoelzer.de/">
+  <link rel="preload" as="image" href="./assets/hero-fallback.jpg">
+  <meta property="og:title" content="Schneidebretter aus Massivholz | Edle Hölzer">
+  <meta property="og:description" content="Handgefertigte Schneidebretter mit Produktberatung, Massivholz, Gravur und Sondermaß.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://edlehoelzer.de/">
+  <meta property="og:image" content="https://edlehoelzer.de/assets/hero-fallback.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,7 +32,7 @@
     </a>
     <div class="topbar__right">
       <div class="lang"><a href="./index.html" class="is-active">DE</a><a href="./en/index.html">EN</a></div>
-      <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn btn--small" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Schneidebretter entdecken</a>
+      <a href="./produkte.html#produktfinder" class="btn btn--small">Passendes Brett finden</a>
     </div>
   </div>
   <nav class="mobileMenu" id="mobileMenu">
@@ -30,8 +41,9 @@
       <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
     </div>
     <a href="#philosophie">Philosophie</a>
+    <a href="./produkte.html#produktfinder">Produktfinder</a>
+    <a href="./produkte.html#produkte-grid">Produkte</a>
     <a href="./pflege.html" data-goatcounter-click="true" data-goatcounter-title="pflege_cta_click">Pflege</a>
-    <a href="#produktdetails">Produkt</a>
     <a href="#werkstatt">Werkstatt</a>
     <a href="#sonderanfertigung">Sonderanfertigung</a>
     <a href="#service">Aufbereitung</a>
@@ -43,17 +55,21 @@
 
 <main>
   <section class="hero">
-    <video class="hero__video" autoplay muted loop playsinline><source src="./assets/hero.mp4" type="video/mp4"></video>
+    <picture class="hero__picture">
+      <source srcset="./assets/hero-fallback.jpg" type="image/jpeg">
+      <img class="hero__image" src="./assets/hero-fallback.jpg" alt="Handgefertigtes Schneidebrett aus Massivholz in realer Nutzung" width="760" height="507" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero__overlay"></div>
     <div class="container hero__content">
       <div class="hero__copy">
-        <p class="eyebrow">Handgefertigt · Massivholz · Keine Serienware</p>
-        <h1>Handwerk statt<br>Massenware.</h1>
-        <p class="hero__lead">Schneidebretter und Holzprodukte mit Gewicht, Substanz und sauberem Schliff. Gefertigt in Mittelhessen für Menschen, die echte Materialien und ehrliche Arbeit schätzen.</p>
+        <p class="eyebrow">Handgefertigt in Mittelhessen &middot; Massivholz &middot; Keine Serienware</p>
+        <h1>Schneidebretter mit Gewicht, Charakter und sauberem Handwerk.</h1>
+        <p class="hero__lead">Für Küche, BBQ und besondere Geschenke. Gefertigt aus ausgewählten Hölzern, sichtbar verarbeitet und auf Alltag ausgelegt.</p>
         <div class="hero__actions">
-          <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Schneidebretter entdecken</a>
-          <a href="#produktdetails" class="btn btn--ghost">Mehr sehen</a>
+          <a href="./produkte.html#produktfinder" class="btn">Passendes Brett finden</a>
+          <a href="./produkte.html#produkte-grid" class="btn btn--ghost">Alle Produkte ansehen</a>
         </div>
+        <p class="hero__textlink"><a href="./b2b.html">Sonderanfertigung oder Firmenanfrage</a></p>
       </div>
     </div>
   </section>
@@ -84,7 +100,7 @@
           <article class="scrollyStep" data-step="1"><h3>Substanz statt Effekt</h3><p>Aus der schrägen Perspektive zeigt sich, ob ein Brett nur gut fotografiert ist oder ob Material, Verarbeitung und Form wirklich zusammenpassen.</p></article>
           <article class="scrollyStep" data-step="2"><h3>Funktion, sauber gelöst</h3><p>Griffmulden gehören für uns nicht als Dekor an ein Brett. Sie müssen das Handling verbessern und sich stimmig in die Form einfügen.</p></article>
           <article class="scrollyStep" data-step="3"><h3>Auch liegend überzeugend</h3><p>Ein Brett muss nicht nur aufrecht gut aussehen. Erst in der ruhigen, flachen Ansicht sieht man, ob Stärke, Fläche und Verarbeitung wirklich stimmig sind.</p></article>
-          <article class="scrollyStep" data-step="4"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und über Jahre zuverlässig funktionieren.</p><div class="ctaRow"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Schneidebretter entdecken</a></div></article>
+          <article class="scrollyStep" data-step="4"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und über Jahre zuverlässig funktionieren.</p><div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn">Passendes Brett finden</a><a href="./produkte.html#produkte-grid" class="btn btn--ghost-dark">Alle Produkte ansehen</a></div></article>
         </div>
       </div>
     </div>
@@ -95,7 +111,7 @@
         <article class="mobileCard"><img src="./product/board1.jpg" alt="Schneidebrett schräg von oben"><div class="mobileCard__text"><h3>Substanz statt Effekt</h3><p>Aus der schrägen Perspektive zeigt sich, ob ein Brett nur gut fotografiert ist oder ob Material, Verarbeitung und Form wirklich zusammenpassen.</p></div></article>
         <article class="mobileCard"><img src="./product/board4.jpg" alt="Griffmulden des Schneidebretts"><div class="mobileCard__text"><h3>Funktion, sauber gelöst</h3><p>Griffmulden gehören für uns nicht als Dekor an ein Brett. Sie müssen das Handling verbessern und sich stimmig in die Form einfügen.</p></div></article>
         <article class="mobileCard"><img src="./product/board5.jpg" alt="Schneidebrett in flacher Frontansicht"><div class="mobileCard__text"><h3>Auch liegend überzeugend</h3><p>Ein Brett muss nicht nur aufrecht gut aussehen. Erst in der ruhigen, flachen Ansicht sieht man, ob Stärke, Fläche und Verarbeitung wirklich stimmig sind.</p></div></article>
-        <article class="mobileCard"><img src="./product/board8.jpg" alt="Schneidebrett Abschlussansicht"><div class="mobileCard__text"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und über Jahre zuverlässig funktionieren.</p><div class="ctaRow"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Schneidebretter entdecken</a></div></div></article>
+        <article class="mobileCard"><img src="./product/board8.jpg" alt="Schneidebrett Abschlussansicht"><div class="mobileCard__text"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und über Jahre zuverlässig funktionieren.</p><div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn">Passendes Brett finden</a><a href="./produkte.html#produkte-grid" class="btn btn--ghost-dark">Alle Produkte ansehen</a></div></div></article>
       </div>
     </div>
   </section>
@@ -182,7 +198,7 @@
     <div class="closingHero__overlay"></div>
     <div class="container closingHero__content">
       <p class="eyebrow">Abschluss</p><h2>Handwerk. Vertrauen. Substanz.</h2><p>Am Ende zählt nicht, wie laut ein Produkt wirkt. Sondern ob es sauber gebaut ist und im Alltag zuverlässig bleibt.</p>
-      <div class="ctaRow"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Schneidebretter entdecken</a></div>
+      <div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn">Passendes Brett finden</a><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn btn--ghost" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Zum Etsy-Shop</a></div>
     </div>
   </section>
 </main>
@@ -190,7 +206,33 @@
 <footer class="footer">
   <div class="container footer__inner">
     <div><div class="footer__brand">Edle Hölzer</div><div class="footer__meta">Handgefertigt in Mittelhessen.</div></div>
-    <div class="footer__links"><a href="./pflege.html" data-goatcounter-click="true" data-goatcounter-title="pflege_cta_click">Pflege</a><a href="./b2b.html">B2B</a><a href="./impressum.html">Impressum</a><a href="./datenschutz.html">Datenschutz</a><a href="mailto:info@edlehoelzer.de" data-goatcounter-click="true" data-goatcounter-title="mailto_click">E-Mail</a><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Shop</a></div>
+    <nav class="footer__nav" aria-label="Footer-Navigation">
+      <div class="footer__group">
+        <div class="footer__groupTitle">Produkte</div>
+        <a href="./produkte.html#produktfinder">Produktfinder</a>
+        <a href="./produkte.html#produkte-grid">Alle Produkte</a>
+        <a href="./schneidebretter-massivholz/">Schneidebretter aus Massivholz</a>
+        <a href="./schneidebrett-eiche/">Schneidebrett Eiche</a>
+        <a href="./schneidebrett-nussbaum/">Schneidebrett Nussbaum</a>
+        <a href="./stirnholz-schneidebrett/">Stirnholz Schneidebrett</a>
+      </div>
+      <div class="footer__group">
+        <div class="footer__groupTitle">Geschenke &amp; Anlässe</div>
+        <a href="./schneidebrett-mit-gravur/">Schneidebrett mit Gravur</a>
+        <a href="./hochwertige-geschenke-holz/">Hochwertige Geschenke aus Holz</a>
+        <a href="./geschenk-fuer-maenner-holz/">Geschenk für Männer</a>
+        <a href="./geschenk-fuer-frauen-holz/">Geschenk für Frauen</a>
+        <a href="./barbecue-geschenk/">Barbecue Geschenk</a>
+      </div>
+      <div class="footer__group">
+        <div class="footer__groupTitle">Küche &amp; Ratgeber</div>
+        <a href="./hochwertige-kuechenaccessoires/">Hochwertige Küchenaccessoires</a>
+        <a href="./pflege.html" data-goatcounter-click="true" data-goatcounter-title="pflege_cta_click">Schneidebrett richtig pflegen</a>
+        <a href="./b2b.html">Firmengeschenke aus Holz</a>
+        <a href="./impressum.html">Impressum</a>
+        <a href="./datenschutz.html">Datenschutz</a>
+      </div>
+    </nav>
   </div>
 </footer>
 <script src="./main.js"></script>

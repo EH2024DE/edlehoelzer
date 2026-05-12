@@ -9,6 +9,7 @@
   <link rel="alternate" hreflang="de" href="https://edlehoelzer.de/" />
   <link rel="alternate" hreflang="en" href="https://edlehoelzer.de/en/index.html" />
   <link rel="alternate" hreflang="x-default" href="https://edlehoelzer.de/" />
+  <link rel="preload" as="image" href="/assets/hero-fallback.jpg">
   <meta property="og:title" content="Solid Wood Cutting Boards | Edle Hölzer" />
   <meta property="og:description" content="Handcrafted cutting boards and wood gifts from central Germany. Oak, walnut, custom engraving and sizes." />
   <meta property="og:type" content="website" />
@@ -53,7 +54,10 @@
 
 <main>
   <section class="hero">
-    <video class="hero__video" autoplay muted loop playsinline><source src="../assets/hero.mp4" type="video/mp4"></video>
+    <picture class="hero__picture">
+      <source srcset="../assets/hero-fallback.jpg" type="image/jpeg">
+      <img class="hero__image" src="../assets/hero-fallback.jpg" alt="Handcrafted solid wood cutting board in use" width="760" height="507" fetchpriority="high" decoding="async">
+    </picture>
     <div class="hero__overlay"></div>
     <div class="container hero__content">
       <div class="hero__copy">
