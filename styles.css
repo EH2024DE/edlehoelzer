@@ -297,12 +297,12 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .finderOption__attributes{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(164,119,76,.86)}
 .finderNav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
 .finderNav button:disabled{opacity:.45;cursor:not-allowed}
-.finderResult{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:26px;scroll-margin-top:100px}
+.finderResult{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:26px;scroll-margin-top:100px;overflow:hidden}
 .finderResult__head p:not(.eyebrow){max-width:78ch;color:rgba(17,17,17,.72)}
-.recommendationCard{display:grid;grid-template-columns:minmax(220px,360px) minmax(0,1fr);gap:24px;align-items:stretch;margin-top:22px;min-width:0}
-.recommendationCard>.productCard__media{width:100%;max-width:100%;min-width:0;height:100%;border:1px solid var(--line);border-radius:8px}
+.recommendationCard{display:flex;gap:24px;align-items:stretch;margin-top:22px;min-width:0}
+.recommendationCard>.productCard__media{flex:0 0 min(36%,440px);width:min(36%,440px);max-width:440px;min-width:260px;height:auto;border:1px solid var(--line);border-radius:8px}
 .recommendationCard>.productCard__media img{width:100%;height:100%;object-fit:cover}
-.recommendationCard__body{display:flex;flex-direction:column;justify-content:center;gap:12px;min-width:0}
+.recommendationCard__body{display:flex;flex:1 1 0;flex-direction:column;justify-content:center;gap:12px;min-width:0}
 .recommendationCard__body h3{overflow-wrap:anywhere}
 .recommendationCard__body .productFacts{min-width:0}
 .recommendationCard__body .ctaRow{align-items:stretch}
@@ -559,9 +559,19 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
   .finderShell__top,
   .finderOptions,
   .productFilters,
-  .recommendationCard,
   .alternativeGrid{
     grid-template-columns:1fr;
+  }
+
+  .recommendationCard{
+    flex-direction:column;
+  }
+
+  .recommendationCard>.productCard__media{
+    flex:none;
+    width:100%;
+    max-width:100%;
+    min-width:0;
   }
 
   .alternativeCard{

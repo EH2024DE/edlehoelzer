@@ -690,7 +690,7 @@ function initProductsPage() {
       }
 
       if (priority === "premium") {
-        score += 5;
+        score += 12;
       }
 
       if (priority === "serving") {
