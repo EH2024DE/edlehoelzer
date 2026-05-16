@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  initCardWelcome();
   initProductsPage();
 
   if (window.innerWidth <= 900) {
@@ -181,6 +182,105 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
+
+function initCardWelcome() {
+  var storageKey = "edlehoelzer.cardWelcomeSeen";
+  var params = new URLSearchParams(window.location.search);
+  var path = window.location.pathname.replace(/\/+$/, "");
+  var isCardVisit =
+    path === "/karte" ||
+    path === "/karte/index.html" ||
+    params.get("ref") === "karte" ||
+    window.location.hash === "#karte";
+
+  if (!isCardVisit || readSessionFlag(storageKey) === "1") {
+    return;
+  }
+
+  writeSessionFlag(storageKey, "1");
+
+  var delay = 1700 + Math.round(Math.random() * 500);
+  window.setTimeout(function () {
+    showCardWelcome();
+  }, delay);
+
+  function showCardWelcome() {
+    var mount = document.getElementById("cardWelcomeMount");
+    if (!mount || document.querySelector(".cardWelcome")) {
+      return;
+    }
+
+    var banner = document.createElement("aside");
+    banner.className = "cardWelcome";
+    banner.setAttribute("role", "status");
+    banner.setAttribute("aria-label", "Willkommenshinweis fuer Kartenbesucher");
+    banner.innerHTML =
+      '<button class="cardWelcome__close" type="button" aria-label="Hinweis schließen">×</button>' +
+      '<p class="cardWelcome__kicker">Persönliche Empfehlung</p>' +
+      '<h2>Schön, dass Sie hier sind.</h2>' +
+      '<p>Diese Karte geben wir nicht beliebig weiter. Sie ist für Menschen gedacht, bei denen wir glauben, dass echtes Handwerk, gutes Material und persönliche Beratung geschätzt werden.</p>' +
+      '<ul class="cardWelcome__facts">' +
+        '<li>Handgefertigt in Mittelhessen</li>' +
+        '<li>Massivholz statt Serienware</li>' +
+        '<li>Schnelle persönliche Beratung</li>' +
+      '</ul>' +
+      '<div class="cardWelcome__actions">' +
+        '<a class="btn" href="./produkte.html#produktfinder">Passendes Brett finden</a>' +
+        '<a class="btn btn--ghost-dark" href="./produkte.html#produkte-grid">Produkte ansehen</a>' +
+      '</div>' +
+      '<a class="cardWelcome__contact" href="mailto:info@edlehoelzer.de?subject=Frage%20zur%20Holzkarte">Frage stellen</a>';
+
+    mount.appendChild(banner);
+
+    requestAnimationFrame(function () {
+      banner.classList.add("is-visible");
+    });
+
+    var closeButton = banner.querySelector(".cardWelcome__close");
+    if (closeButton) {
+      closeButton.addEventListener("click", dismiss);
+    }
+
+    banner.addEventListener("click", function (event) {
+      if (event.target && event.target.closest("a")) {
+        dismiss();
+      }
+    });
+
+    document.addEventListener("keydown", onKeydown);
+
+    function onKeydown(event) {
+      if (event.key === "Escape") {
+        dismiss();
+      }
+    }
+
+    function dismiss() {
+      document.removeEventListener("keydown", onKeydown);
+      banner.classList.remove("is-visible");
+      banner.classList.add("is-leaving");
+      window.setTimeout(function () {
+        if (banner.parentNode) {
+          banner.parentNode.removeChild(banner);
+        }
+      }, 240);
+    }
+  }
+
+  function readSessionFlag(key) {
+    try {
+      return window.sessionStorage.getItem(key);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function writeSessionFlag(key, value) {
+    try {
+      window.sessionStorage.setItem(key, value);
+    } catch (error) {}
+  }
+}
 
 function initProductsPage() {
   var finderRoot = document.querySelector("[data-product-finder]");
@@ -998,11 +1098,7 @@ function initProductsPage() {
     }
 
     var primaryLabel = etsyActionLabel(product);
-    var secondary = product.category === "board"
-      ? '<a class="btn btn--ghost-dark" href="/pflege.html">Pflege lesen</a>'
-      : '<a class="btn btn--ghost-dark" href="/schneidebretter-massivholz/">Bretter ansehen</a>';
-
-    return '<div class="ctaRow"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a>' + secondary + '</div>';
+    return '<div class="ctaRow"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a></div>';
   }
 
   function etsyActionLabel(product) {
