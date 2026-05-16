@@ -406,7 +406,7 @@ function initProductsPage() {
     .catch(function (error) {
       console.warn("[Edle Hölzer] Produktdaten konnten nicht initialisiert werden:", error);
       if (gridRoot) {
-        gridRoot.innerHTML = '<p class="productEmpty">Die Produktdaten konnten gerade nicht geladen werden. Bitte direkt im <a href="https://edlehoelzervonkoc.etsy.com">Etsy-Shop</a> ansehen.</p>';
+        gridRoot.innerHTML = '<p class="productEmpty">Die Auswahl konnte gerade nicht geladen werden. Bitte direkt im <a href="https://edlehoelzervonkoc.etsy.com">Etsy-Shop</a> ansehen.</p>';
       }
     });
 
@@ -543,7 +543,7 @@ function initProductsPage() {
 
     if (!main) {
       resultRoot.hidden = false;
-      resultRoot.innerHTML = '<h2>Das dürfte am besten zu Ihrem Alltag passen</h2><p>Für diese Kombination fehlt aktuell ein belastbar gepflegtes Hauptbrett. Eine kurze Anfrage ist hier sinnvoller als eine automatische Empfehlung.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">Schneidebrett anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
+      resultRoot.innerHTML = '<h2>Das dürfte am besten zu Ihrem Alltag passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">Schneidebrett anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
       bindReset(resultRoot);
       return;
     }
@@ -857,7 +857,7 @@ function initProductsPage() {
       });
 
     if (!products.length) {
-      gridRoot.innerHTML = '<p class="productEmpty">Für diese Filterkombination gibt es aktuell keine gepflegten Produkte.</p>';
+      gridRoot.innerHTML = '<p class="productEmpty">Für diese Filterkombination gibt es aktuell keine passenden Produkte.</p>';
       return;
     }
 
@@ -881,7 +881,7 @@ function initProductsPage() {
   function buildProductMedia(product) {
     if (!product.image || product.imageVerified !== true) {
       return '<div class="productCard__media productCard__media--pending">' +
-        '<span>Produktbild direkt im Etsy-Listing prüfen</span>' +
+        '<span>Produktbild folgt</span>' +
       '</div>';
     }
 
@@ -994,7 +994,7 @@ function initProductsPage() {
 
   function buildProductActions(product) {
     if (product.needsReview || !product.etsyUrl) {
-      return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Produktdaten">Daten anfragen</a></div>';
+      return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Produkt">Produkt anfragen</a></div>';
     }
 
     var primaryLabel = etsyActionLabel(product);
