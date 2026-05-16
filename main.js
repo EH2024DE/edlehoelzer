@@ -676,6 +676,32 @@ function initProductsPage() {
       score += 3;
     }
 
+    if (isStatementDesignProduct(product) &&
+      (use === "gift" || use === "serving" || priority === "premium" || priority === "serving") &&
+      space !== "small" &&
+      movement !== "portable" &&
+      haptics !== "smooth") {
+      if (use === "gift") {
+        score += 3;
+      }
+
+      if (use === "serving") {
+        score += 3;
+      }
+
+      if (priority === "premium") {
+        score += 5;
+      }
+
+      if (priority === "serving") {
+        score += 3;
+      }
+
+      if (space === "large" && movement === "stationary" && haptics === "substantial") {
+        score += 2;
+      }
+    }
+
     if (product.category !== "board") {
       score -= 20;
     }
@@ -693,6 +719,19 @@ function initProductsPage() {
     }
 
     return score;
+  }
+
+  function isStatementDesignProduct(product) {
+    var badges = Array.isArray(product.badges) ? product.badges.join(" ") : "";
+    var text = [
+      product.name,
+      product.shortDescription,
+      product.longDescription,
+      badges
+    ].join(" ").toLowerCase();
+
+    return text.indexOf("3d-design") !== -1 ||
+      (text.indexOf("3d") !== -1 && text.indexOf("design") !== -1);
   }
 
   function canRecommendAsMainBoard(product) {

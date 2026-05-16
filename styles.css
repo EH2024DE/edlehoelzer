@@ -299,8 +299,14 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .finderNav button:disabled{opacity:.45;cursor:not-allowed}
 .finderResult{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:26px;scroll-margin-top:100px}
 .finderResult__head p:not(.eyebrow){max-width:78ch;color:rgba(17,17,17,.72)}
-.recommendationCard{display:grid;grid-template-columns:minmax(240px,360px) minmax(0,1fr);gap:24px;align-items:stretch;margin-top:22px}
-.recommendationCard__body{display:flex;flex-direction:column;justify-content:center}
+.recommendationCard{display:grid;grid-template-columns:minmax(220px,360px) minmax(0,1fr);gap:24px;align-items:stretch;margin-top:22px;min-width:0}
+.recommendationCard>.productCard__media{width:100%;max-width:100%;min-width:0;height:100%;border:1px solid var(--line);border-radius:8px}
+.recommendationCard>.productCard__media img{width:100%;height:100%;object-fit:cover}
+.recommendationCard__body{display:flex;flex-direction:column;justify-content:center;gap:12px;min-width:0}
+.recommendationCard__body h3{overflow-wrap:anywhere}
+.recommendationCard__body .productFacts{min-width:0}
+.recommendationCard__body .ctaRow{align-items:stretch}
+.recommendationCard__body .ctaRow .btn{flex:1 1 170px;max-width:100%}
 .alternativeList{display:grid;gap:14px;margin-top:24px}
 .alternativeList h3{font-size:22px;letter-spacing:0}
 .alternativeGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -309,6 +315,7 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .alternativeCard .productCard__media{height:100%;aspect-ratio:auto;border-bottom:none;border-right:1px solid var(--line)}
 .alternativeCard__body{display:grid;align-content:center;gap:5px;padding:12px 12px 12px 0;min-width:0}
 .alternativeCard strong{font-size:15px;line-height:1.25}
+.alternativeCard strong,.alternativeCard span{overflow-wrap:anywhere}
 .alternativeCard span:not(.productCard__segment){color:rgba(17,17,17,.68);font-size:13px}
 .productFilters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 22px}
 .productFilters label{display:grid;gap:6px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.55)}
