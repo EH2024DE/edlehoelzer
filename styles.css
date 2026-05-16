@@ -318,6 +318,11 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .footer__brand{font-weight:800}
 .footer__links{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:rgba(17,17,17,.66)}
 .footer__meta{font-size:13px;color:rgba(17,17,17,.58)}
+.footerSocial{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.footerSocial a{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:8px 11px;border:1px solid rgba(87,58,34,.16);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(238,229,218,.72));color:rgba(54,37,24,.82);font-size:12px;font-weight:800;line-height:1;box-shadow:0 8px 18px rgba(52,35,22,.05);transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .18s ease}
+.footerSocial a:hover,.footerSocial a:focus-visible{border-color:rgba(184,136,87,.42);color:var(--ink);background:#fff;transform:translateY(-1px);outline:none}
+.footerSocial svg{width:17px;height:17px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.footerSocial .socialIconFill{fill:currentColor;stroke:none}
 
 .subheadline{margin:10px 0 0;font-size:clamp(20px,2.6vw,32px);font-weight:700;color:rgba(255,255,255,.86)}
 .subheadline--dark{color:rgba(17,17,17,.72)}
@@ -727,5 +732,5 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
-  .scrolly__image,.scrollyStep,.scrolly__frame,.scrolly__progress span,.mobileMenu,.menuBackdrop,.btn,.finderOption,.finderProgress span,.cardWelcome{transition:none}
+  .scrolly__image,.scrollyStep,.scrolly__frame,.scrolly__progress span,.mobileMenu,.menuBackdrop,.btn,.finderOption,.finderProgress span,.cardWelcome,.footerSocial a{transition:none}
 }
