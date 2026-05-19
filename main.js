@@ -346,8 +346,6 @@ function initReviewTrustStrips() {
       copy: isEnglish ? {
         headlineFallback: "Reviews on ",
         headlineSuffix: " stars on ",
-        sublineWithCountStart: "Genuine feedback from currently ",
-        sublineWithCountEnd: " reviews.",
         sublineFallback: "Genuine feedback from people who already use our products or have given them as gifts.",
         ratingLabelSuffix: " out of 5 stars",
         metaSeparator: " · ",
@@ -368,8 +366,6 @@ function initReviewTrustStrips() {
       } : {
         headlineFallback: "Bewertungen auf ",
         headlineSuffix: " Sterne auf ",
-        sublineWithCountStart: "Echte Rückmeldungen aus derzeit ",
-        sublineWithCountEnd: " Bewertungen.",
         sublineFallback: "Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.",
         ratingLabelSuffix: " von 5 Sternen",
         metaSeparator: " · ",
@@ -475,10 +471,6 @@ function initReviewTrustStrips() {
   }
 
   function buildReviewSubline(meta) {
-    if (meta.ratingCount > 0 && !meta.needsReview) {
-      return config.copy.sublineWithCountStart + meta.ratingCount + config.copy.sublineWithCountEnd;
-    }
-
     return config.copy.sublineFallback;
   }
 
