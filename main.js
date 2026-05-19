@@ -206,6 +206,10 @@ function initHeroVideo() {
 
     video.src = videoSrc;
     sourceIsSet = true;
+
+    if (typeof video.load === "function") {
+      video.load();
+    }
   }
 
   function updateToggleState() {
