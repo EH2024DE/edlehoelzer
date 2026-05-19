@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initCardWelcome();
   initProductsPage();
+  initReviewTrustStrips();
 
   if (window.innerWidth <= 900) {
     return;
@@ -279,6 +280,302 @@ function initCardWelcome() {
     try {
       window.sessionStorage.setItem(key, value);
     } catch (error) {}
+  }
+}
+
+function initReviewTrustStrips() {
+  var roots = Array.prototype.slice.call(document.querySelectorAll("[data-review-trust-strip]"));
+
+  if (!roots.length || !window.fetch) {
+    return;
+  }
+
+  fetchJson("/data/reviews.json")
+    .then(function (reviewData) {
+      return fetchJson("/data/reviews-meta.json")
+        .catch(function (error) {
+          console.warn("[Edle Hölzer] Etsy-Review-Metadaten konnten nicht geladen werden:", error);
+          return {};
+        })
+        .then(function (metaData) {
+          return {
+            reviews: normalizeReviews(reviewData),
+            meta: normalizeReviewMeta(metaData)
+          };
+        });
+    })
+    .then(function (payload) {
+      var reviews = payload.reviews;
+      var meta = payload.meta;
+
+      if (!reviews.length) {
+        console.warn("[Edle Hölzer] Keine gültigen Etsy-Bewertungen zum Anzeigen gefunden.");
+        return;
+      }
+
+      roots.forEach(function (root) {
+        renderReviewTrustStrip(root, reviews, meta);
+        bindReviewScrolling(root);
+      });
+    })
+    .catch(function (error) {
+      console.warn("[Edle Hölzer] Etsy-Bewertungen konnten nicht geladen werden:", error);
+    });
+
+  function fetchJson(url) {
+    return fetch(url, { credentials: "same-origin" }).then(function (response) {
+      if (!response.ok) {
+        throw new Error(url + " konnte nicht geladen werden.");
+      }
+      return response.json();
+    });
+  }
+
+  function normalizeReviews(data) {
+    if (!Array.isArray(data)) {
+      console.warn("[Edle Hölzer] reviews.json enthält keine Liste.");
+      return [];
+    }
+
+    return data
+      .filter(function (review) {
+        var rating = Number(review && review.rating);
+        var text = String(review && review.text || "").trim();
+        var isValid = review &&
+          review.featured === true &&
+          review.needsReview !== true &&
+          text.length > 0 &&
+          rating >= 1 &&
+          rating <= 5;
+
+        if (!isValid && review && review.featured === true) {
+          console.warn("[Edle Hölzer] Ungültige Etsy-Bewertung wird übersprungen:", review.id || review.reviewerName || "ohne ID");
+        }
+
+        return isValid;
+      })
+      .slice(0, 12);
+  }
+
+  function normalizeReviewMeta(data) {
+    var meta = data && typeof data === "object" && !Array.isArray(data) ? data : {};
+    var ratingAverage = Number(meta.ratingAverage);
+    var ratingCount = Number(meta.ratingCount);
+
+    return {
+      source: String(meta.source || "Etsy"),
+      shopName: String(meta.shopName || "Edle Hölzer"),
+      ratingAverage: ratingAverage >= 1 && ratingAverage <= 5 ? ratingAverage : null,
+      ratingCount: ratingCount > 0 ? Math.round(ratingCount) : 0,
+      lastUpdated: String(meta.lastUpdated || ""),
+      sourceUrl: String(meta.sourceUrl || "https://edlehoelzervonkoc.etsy.com"),
+      needsReview: meta.needsReview === true
+    };
+  }
+
+  function renderReviewTrustStrip(root, reviews, meta) {
+    var headline = root.querySelector("[data-review-headline]");
+    var subline = root.querySelector("[data-review-subline]");
+    var track = root.querySelector("[data-review-track]");
+    var sourceLink = root.querySelector("[data-review-source-link]");
+
+    if (!headline || !subline || !track) {
+      return;
+    }
+
+    headline.textContent = buildReviewHeadline(meta);
+    subline.textContent = buildReviewSubline(meta);
+    track.innerHTML = reviews.map(buildReviewCard).join("");
+
+    if (sourceLink && meta.sourceUrl) {
+      sourceLink.href = meta.sourceUrl;
+    }
+
+    root.hidden = false;
+
+    if (window.location.hash === "#" + root.id) {
+      window.requestAnimationFrame(function () {
+        if (typeof root.scrollIntoView === "function") {
+          root.scrollIntoView({ block: "start" });
+          return;
+        }
+
+        document.documentElement.scrollTop = root.offsetTop;
+        document.body.scrollTop = root.offsetTop;
+      });
+    }
+  }
+
+  function buildReviewHeadline(meta) {
+    if (!meta.ratingAverage || meta.needsReview) {
+      return "Bewertungen auf " + meta.source;
+    }
+
+    return formatGermanNumber(meta.ratingAverage) + " Sterne auf " + meta.source;
+  }
+
+  function buildReviewSubline(meta) {
+    if (meta.ratingCount > 0 && !meta.needsReview) {
+      return "Echte Rückmeldungen aus derzeit " + meta.ratingCount + " Bewertungen.";
+    }
+
+    return "Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.";
+  }
+
+  function buildReviewCard(review) {
+    var rating = Math.max(1, Math.min(5, Math.round(Number(review.rating))));
+    var labelParts = [
+      review.reviewerName,
+      formatReviewDate(review.date),
+      review.product
+    ].filter(Boolean);
+
+    return '<article class="reviewCard">' +
+      '<div class="reviewCard__stars" aria-label="' + escapeAttribute(rating + " von 5 Sternen") + '">' + buildStars(rating) + '</div>' +
+      '<p class="reviewCard__text">“' + escapeHtml(review.text) + '”</p>' +
+      '<p class="reviewCard__meta">' + escapeHtml(labelParts.join(" · ")) + '</p>' +
+    '</article>';
+  }
+
+  function buildStars(rating) {
+    var stars = "";
+    for (var i = 0; i < 5; i += 1) {
+      stars += i < rating ? "★" : "☆";
+    }
+    return stars;
+  }
+
+  function formatGermanNumber(value) {
+    return Number(value).toLocaleString("de-DE", {
+      minimumFractionDigits: Number(value) % 1 === 0 ? 0 : 1,
+      maximumFractionDigits: 1
+    });
+  }
+
+  function formatReviewDate(value) {
+    var text = String(value || "");
+    var match = text.match(/^(\d{4})-(\d{2})$/);
+    var months = [
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember"
+    ];
+
+    if (!match) {
+      return text;
+    }
+
+    return months[Number(match[2]) - 1] + " " + match[1];
+  }
+
+  function bindReviewScrolling(root) {
+    var viewport = root.querySelector("[data-review-viewport]");
+
+    if (!viewport) {
+      return;
+    }
+
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var isPaused = false;
+    var isDragging = false;
+    var startX = 0;
+    var startScrollLeft = 0;
+
+    viewport.addEventListener("mouseenter", pause);
+    viewport.addEventListener("mouseleave", resume);
+    viewport.addEventListener("focusin", pause);
+    viewport.addEventListener("focusout", resume);
+    viewport.addEventListener("touchstart", pause, { passive: true });
+    viewport.addEventListener("touchend", resume, { passive: true });
+
+    viewport.addEventListener("pointerdown", function (event) {
+      if (event.pointerType !== "mouse" || viewport.scrollWidth <= viewport.clientWidth) {
+        return;
+      }
+
+      isDragging = true;
+      pause();
+      startX = event.clientX;
+      startScrollLeft = viewport.scrollLeft;
+      viewport.classList.add("is-dragging");
+      viewport.setPointerCapture(event.pointerId);
+    });
+
+    viewport.addEventListener("pointermove", function (event) {
+      if (!isDragging) {
+        return;
+      }
+
+      event.preventDefault();
+      viewport.scrollLeft = startScrollLeft - (event.clientX - startX);
+    });
+
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+
+    function endDrag(event) {
+      if (!isDragging) {
+        return;
+      }
+
+      isDragging = false;
+      viewport.classList.remove("is-dragging");
+
+      if (event && viewport.hasPointerCapture(event.pointerId)) {
+        viewport.releasePointerCapture(event.pointerId);
+      }
+
+      window.setTimeout(resume, 900);
+    }
+
+    function pause() {
+      isPaused = true;
+    }
+
+    function resume() {
+      isPaused = false;
+    }
+
+    if (!reducedMotion) {
+      window.setTimeout(function () {
+        requestAnimationFrame(autoScroll);
+      }, 1200);
+    }
+
+    function autoScroll() {
+      if (!isPaused && !isDragging && viewport.scrollWidth > viewport.clientWidth) {
+        var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        viewport.scrollLeft += 0.22;
+
+        if (viewport.scrollLeft >= maxScroll - 1) {
+          viewport.scrollTo({ left: 0, behavior: "smooth" });
+        }
+      }
+
+      requestAnimationFrame(autoScroll);
+    }
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function escapeAttribute(value) {
+    return escapeHtml(value);
   }
 }
 
