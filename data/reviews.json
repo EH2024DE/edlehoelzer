@@ -1,0 +1,112 @@
+[
+  {
+    "id": "etsy-review-001",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Tolle Verarbeitung und liegt bestens in der Hand! Ich bin begeistert!!!",
+    "product": "Massiver Teigschaber aus Holz",
+    "reviewerName": "Axel",
+    "date": "2026-05",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-002",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Outstanding experience from start to finish. Serkan and the team did a fantastic job creating a custom heartwood black walnut holder for my cutting board. The craftsmanship is excellent, with great attention to detail, and the final piece fits perfectly.",
+    "product": "Schneidebrett-Halter nach Maß",
+    "reviewerName": "Daniel",
+    "date": "2026-04",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-003",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Hallo, heute ist die Holz Pflege angekommen! Natürlich sofort ausprobiert auf unseren ältesten Küchenbrett. Mein Mann und ich konnten es nicht glauben, bis auf die Einschnitte vom Messer sieht es wieder wie neu aus. 1000% Weiterempfehlung!",
+    "product": "Holzpflege-Set für Schneidebretter",
+    "reviewerName": "Marina",
+    "date": "2026-04",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-004",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Everything was great and very pleasant.",
+    "product": "Holzpflege-Set",
+    "reviewerName": "Tö",
+    "date": "2026-04",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-005",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "I bought this as a gift for my wife and she absolutely loves it. You can really tell this was made with care: the wood is high quality, the finish is smooth, and the weight is perfect.",
+    "product": "Stirnholz-Schneidebrett aus Lärche",
+    "reviewerName": "Kalin",
+    "date": "2026-03",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-006",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Sehr zufrieden - alles lief reibungslos, freundlich und zuverlässig. Gerne wieder!",
+    "product": "Holzpflege-Set",
+    "reviewerName": "Petra",
+    "date": "2026-02",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-007",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Wir sind Wiederholungstäter. Wir waren von der Qualität des ersten Brettes und des herausragenden Service so begeistert, dass wir uns entschieden haben, ein kleines Brett als Erweiterung dazuzunehmen.",
+    "product": "Stirnholz-Schneidebrett Wildkirsche",
+    "reviewerName": "Nils",
+    "date": "2026-02",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-008",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Words fail. Images fail. It's truly mesmerising. The wood is so full of character and you can feel the love and care in the craftsmanship of this board.",
+    "product": "Stirnholz-Schneidebrett Eiche",
+    "reviewerName": "Deanne",
+    "date": "2026-01",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-009",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "I had a really excellent experience purchasing this board. The seller was very communicative, shared useful care tips, and the board itself is just beautiful.",
+    "product": "Stirnholz-Schneidebrett Lärche",
+    "reviewerName": "Isabel",
+    "date": "2026-01",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-010",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Thanks Serkan, it was a perfect gift for my grill buddy!",
+    "product": "3D-Schneidebrett",
+    "reviewerName": "Ilnar",
+    "date": "2025-02",
+    "featured": true,
+    "needsReview": false
+  }
+]
