@@ -392,6 +392,18 @@ function initReviewTrustStrips() {
     }
 
     root.hidden = false;
+
+    if (window.location.hash === "#" + root.id) {
+      window.requestAnimationFrame(function () {
+        if (typeof root.scrollIntoView === "function") {
+          root.scrollIntoView({ block: "start" });
+          return;
+        }
+
+        document.documentElement.scrollTop = root.offsetTop;
+        document.body.scrollTop = root.offsetTop;
+      });
+    }
   }
 
   function buildReviewHeadline(meta) {
