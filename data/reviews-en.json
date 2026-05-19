@@ -1,0 +1,112 @@
+[
+  {
+    "id": "etsy-review-en-001",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Beautifully made and feels excellent in the hand. I am thrilled!",
+    "product": "Solid wooden dough scraper",
+    "reviewerName": "Axel",
+    "date": "2026-05",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-002",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Outstanding experience from start to finish. Serkan and the team did a fantastic job creating a custom heartwood black walnut holder for my cutting board. The craftsmanship is excellent, with great attention to detail, and the final piece fits perfectly.",
+    "product": "Custom cutting board holder",
+    "reviewerName": "Daniel",
+    "date": "2026-04",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-003",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "The wood care arrived today and of course we tried it right away on our oldest kitchen board. My husband and I could hardly believe it: apart from the knife marks, it looks almost new again. A 1000% recommendation!",
+    "product": "Wood care set for cutting boards",
+    "reviewerName": "Marina",
+    "date": "2026-04",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-004",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Everything was great and very pleasant.",
+    "product": "Wood care set",
+    "reviewerName": "Tö",
+    "date": "2026-04",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-005",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "I bought this as a gift for my wife and she absolutely loves it. You can really tell this was made with care: the wood is high quality, the finish is smooth, and the weight is perfect.",
+    "product": "End-grain larch cutting board",
+    "reviewerName": "Kalin",
+    "date": "2026-03",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-006",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Very satisfied. Everything went smoothly, kindly and reliably. Gladly again!",
+    "product": "Wood care set",
+    "reviewerName": "Petra",
+    "date": "2026-02",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-007",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "We keep coming back. We were so impressed by the quality of the first board and the outstanding service that we decided to add a smaller board as well.",
+    "product": "Wild cherry end-grain cutting board",
+    "reviewerName": "Nils",
+    "date": "2026-02",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-008",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Words fail. Images fail. It's truly mesmerising. The wood is so full of character and you can feel the love and care in the craftsmanship of this board.",
+    "product": "Oak end-grain cutting board",
+    "reviewerName": "Deanne",
+    "date": "2026-01",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-009",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "I had a really excellent experience purchasing this board. The seller was very communicative, shared useful care tips, and the board itself is just beautiful.",
+    "product": "Larch end-grain cutting board",
+    "reviewerName": "Isabel",
+    "date": "2026-01",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-010",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Thanks Serkan, it was a perfect gift for my grill buddy!",
+    "product": "3D cutting board",
+    "reviewerName": "Ilnar",
+    "date": "2025-02",
+    "featured": true,
+    "needsReview": false
+  }
+]
