@@ -72,6 +72,7 @@ h3{font-size:clamp(20px,2.5vw,28px);font-weight:700}
 .eyebrow{margin:0 0 14px 0;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:700;color:rgba(255,255,255,.82)}
 .eyebrow--dark{color:rgba(17,17,17,.58)}
 .section{padding:110px 0}
+section[id]{scroll-margin-top:88px}
 .section--tight-bottom{padding-bottom:56px}
 .section--tight-top{padding-top:56px}
 .section--white{background:transparent}
