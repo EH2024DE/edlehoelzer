@@ -12,7 +12,7 @@
   <link rel="alternate" hreflang="de" href="https://edlehoelzer.de/">
   <link rel="alternate" hreflang="en" href="https://edlehoelzer.de/en/index.html">
   <link rel="alternate" hreflang="x-default" href="https://edlehoelzer.de/">
-  <link rel="preload" as="image" href="./assets/hero-fallback.jpg">
+  <link rel="preload" as="image" href="./assets/hero_intro_video_edle_hoelzer_poster.webp" type="image/webp">
   <meta property="og:title" content="Schneidebretter aus Massivholz | Edle Hölzer">
   <meta property="og:description" content="Handgefertigte Schneidebretter mit Produktberatung, Massivholz, Gravur und Sondermaß.">
   <meta property="og:type" content="website">
@@ -58,11 +58,11 @@
 
 <main>
   <section id="hero" class="hero">
-    <picture class="hero__picture">
-      <source srcset="./assets/hero-fallback.jpg" type="image/jpeg">
-      <img class="hero__image" src="./assets/hero-fallback.jpg" alt="Handgefertigtes Schneidebrett aus Massivholz in realer Nutzung" width="760" height="507" fetchpriority="high" decoding="async">
-    </picture>
+    <video id="heroVideo" class="hero__video" autoplay muted loop playsinline preload="none" poster="./assets/hero_intro_video_edle_hoelzer_poster.webp" data-hero-video data-src="./assets/hero_intro_video_edle_hoelzer.mp4" aria-label="Edle Hölzer Werkstattvideo"></video>
     <div class="hero__overlay"></div>
+    <button class="hero__videoToggle" type="button" data-hero-video-toggle aria-controls="heroVideo" aria-label="Hero-Video abspielen" data-label-play="Hero-Video abspielen" data-label-pause="Hero-Video pausieren">
+      <span class="hero__videoToggleIcon" aria-hidden="true"></span>
+    </button>
     <div class="container hero__content">
       <div class="hero__copy">
         <p class="eyebrow">Handgefertigt in Mittelhessen &middot; Massivholz &middot; Keine Serienware</p>

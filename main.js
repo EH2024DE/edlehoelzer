@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initCardWelcome();
   initProductsPage();
+  initHeroVideo();
   initReviewTrustStrips();
 
   if (window.innerWidth <= 900) {
@@ -183,6 +184,86 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
+
+function initHeroVideo() {
+  var video = document.querySelector("[data-hero-video]");
+  var toggle = document.querySelector("[data-hero-video-toggle]");
+
+  if (!video || !toggle) {
+    return;
+  }
+
+  var videoSrc = video.getAttribute("data-src");
+  var playLabel = toggle.getAttribute("data-label-play") || "Video abspielen";
+  var pauseLabel = toggle.getAttribute("data-label-pause") || "Video pausieren";
+  var desktopQuery = window.matchMedia("(min-width: 901px)");
+  var sourceIsSet = false;
+
+  function setVideoSource() {
+    if (sourceIsSet || !videoSrc) {
+      return;
+    }
+
+    video.src = videoSrc;
+    sourceIsSet = true;
+
+    if (typeof video.load === "function") {
+      video.load();
+    }
+  }
+
+  function updateToggleState() {
+    var isPlaying = !video.paused && !video.ended;
+    toggle.classList.toggle("is-playing", isPlaying);
+    toggle.setAttribute("aria-label", isPlaying ? pauseLabel : playLabel);
+  }
+
+  function playVideo() {
+    setVideoSource();
+
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(updateToggleState);
+    }
+  }
+
+  function configureForViewport() {
+    video.controls = false;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    if (desktopQuery.matches) {
+      video.preload = "metadata";
+      video.autoplay = true;
+      playVideo();
+    } else {
+      video.preload = "none";
+      video.autoplay = false;
+      updateToggleState();
+    }
+  }
+
+  toggle.addEventListener("click", function () {
+    if (video.paused || video.ended) {
+      playVideo();
+    } else {
+      video.pause();
+    }
+  });
+
+  video.addEventListener("play", updateToggleState);
+  video.addEventListener("pause", updateToggleState);
+  video.addEventListener("ended", updateToggleState);
+
+  if (typeof desktopQuery.addEventListener === "function") {
+    desktopQuery.addEventListener("change", configureForViewport);
+  } else if (typeof desktopQuery.addListener === "function") {
+    desktopQuery.addListener(configureForViewport);
+  }
+
+  configureForViewport();
+}
 
 function initCardWelcome() {
   var storageKey = "edlehoelzer.cardWelcomeSeen";
