@@ -5,6 +5,7 @@ Die Website lädt Bewertungen statisch aus JSON-Dateien. Es gibt keinen Live-Fet
 ## Dateien
 
 - `data/reviews.json`: sichtbare Review-Karten für die Website
+- `data/reviews-en.json`: englische Review-Karten für die englische Startseite
 - `data/reviews-meta.json`: Bewertungsdurchschnitt, Bewertungsanzahl, Quelle und Aktualisierungsdatum
 - `scripts/sync-etsy-reviews.js`: vorbereitetes manuelles Hilfsscript für spätere Etsy-API-Nutzung
 
@@ -20,6 +21,8 @@ Die Website lädt Bewertungen statisch aus JSON-Dateien. Es gibt keinen Live-Fet
 8. Setze `needsReview: true`, wenn Text, Datum, Bewertung oder Quelle noch geprüft werden müssen. Solche Einträge werden im Frontend nicht angezeigt.
 
 Die Website zeigt nur Einträge mit `featured: true`, gültigem Text, gültigem Rating und `needsReview: false`. Es werden maximal 12 Bewertungen gerendert.
+
+Für die englische Startseite müssen übersetzte oder bereits englische Review-Auszüge zusätzlich in `data/reviews-en.json` gepflegt werden. IDs können das Suffix `-en-` verwenden; Rating, Datum, Quelle und `featured` sollten mit dem deutschen Eintrag konsistent bleiben.
 
 ## Bewertungsanzahl und Durchschnitt aktualisieren
 
@@ -54,10 +57,11 @@ Das Script versucht nur offiziell zugängliche Etsy-Open-API-Daten zu nutzen. We
 ## Testschritte nach Aktualisierung
 
 1. Startseite öffnen und prüfen, ob die Bewertungsleiste sichtbar ist.
-2. `produkte.html` öffnen und prüfen, ob dieselbe Leiste sichtbar ist.
-3. Bewertungsanzahl und Durchschnitt gegen `data/reviews-meta.json` prüfen.
-4. Reviews horizontal scrollen und auf Desktop per Maus ziehen.
-5. Auf Mobile per Swipe prüfen.
-6. Testweise eine Bewertung auf `needsReview: true` setzen oder `text` leeren und prüfen, dass sie nicht angezeigt wird.
-7. `data/reviews-meta.json` ändern und prüfen, ob Headline/Subline aktualisiert werden.
-8. Browser-Konsole prüfen: Es sollten keine Fehler erscheinen. Entwicklerhinweise per `console.warn` sind erlaubt.
+2. Englische Startseite `en/index.html` öffnen und prüfen, ob englische Review-Texte sichtbar sind.
+3. `produkte.html` öffnen und prüfen, ob dieselbe Leiste sichtbar ist.
+4. Bewertungsanzahl und Durchschnitt gegen `data/reviews-meta.json` prüfen.
+5. Reviews horizontal scrollen und auf Desktop per Maus ziehen.
+6. Auf Mobile per Swipe prüfen.
+7. Testweise eine Bewertung auf `needsReview: true` setzen oder `text` leeren und prüfen, dass sie nicht angezeigt wird.
+8. `data/reviews-meta.json` ändern und prüfen, ob Headline/Subline aktualisiert werden.
+9. Browser-Konsole prüfen: Es sollten keine Fehler erscheinen. Entwicklerhinweise per `console.warn` sind erlaubt.

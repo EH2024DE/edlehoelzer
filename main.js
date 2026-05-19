@@ -290,9 +290,11 @@ function initReviewTrustStrips() {
     return;
   }
 
-  fetchJson("/data/reviews.json")
+  var config = getReviewConfig(roots[0]);
+
+  fetchJson(config.reviewsUrl)
     .then(function (reviewData) {
-      return fetchJson("/data/reviews-meta.json")
+      return fetchJson(config.metaUrl)
         .catch(function (error) {
           console.warn("[Edle Hölzer] Etsy-Review-Metadaten konnten nicht geladen werden:", error);
           return {};
@@ -329,6 +331,64 @@ function initReviewTrustStrips() {
       }
       return response.json();
     });
+  }
+
+  function getReviewConfig(root) {
+    var language = String(document.documentElement.lang || "de").toLowerCase();
+    var isEnglish = language.indexOf("en") === 0;
+
+    return {
+      isEnglish: isEnglish,
+      locale: isEnglish ? "en-US" : "de-DE",
+      reviewsUrl: root.getAttribute("data-reviews-src") || (isEnglish ? "/data/reviews-en.json" : "/data/reviews.json"),
+      metaUrl: root.getAttribute("data-review-meta-src") || "/data/reviews-meta.json",
+      fallbackSourceUrl: "https://edlehoelzervonkoc.etsy.com",
+      copy: isEnglish ? {
+        headlineFallback: "Reviews on ",
+        headlineSuffix: " stars on ",
+        sublineWithCountStart: "Genuine feedback from currently ",
+        sublineWithCountEnd: " reviews.",
+        sublineFallback: "Genuine feedback from people who already use our products or have given them as gifts.",
+        ratingLabelSuffix: " out of 5 stars",
+        metaSeparator: " · ",
+        months: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ]
+      } : {
+        headlineFallback: "Bewertungen auf ",
+        headlineSuffix: " Sterne auf ",
+        sublineWithCountStart: "Echte Rückmeldungen aus derzeit ",
+        sublineWithCountEnd: " Bewertungen.",
+        sublineFallback: "Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.",
+        ratingLabelSuffix: " von 5 Sternen",
+        metaSeparator: " · ",
+        months: [
+          "Januar",
+          "Februar",
+          "März",
+          "April",
+          "Mai",
+          "Juni",
+          "Juli",
+          "August",
+          "September",
+          "Oktober",
+          "November",
+          "Dezember"
+        ]
+      }
+    };
   }
 
   function normalizeReviews(data) {
@@ -368,7 +428,7 @@ function initReviewTrustStrips() {
       ratingAverage: ratingAverage >= 1 && ratingAverage <= 5 ? ratingAverage : null,
       ratingCount: ratingCount > 0 ? Math.round(ratingCount) : 0,
       lastUpdated: String(meta.lastUpdated || ""),
-      sourceUrl: String(meta.sourceUrl || "https://edlehoelzervonkoc.etsy.com"),
+      sourceUrl: String(meta.sourceUrl || config.fallbackSourceUrl),
       needsReview: meta.needsReview === true
     };
   }
@@ -408,18 +468,18 @@ function initReviewTrustStrips() {
 
   function buildReviewHeadline(meta) {
     if (!meta.ratingAverage || meta.needsReview) {
-      return "Bewertungen auf " + meta.source;
+      return config.copy.headlineFallback + meta.source;
     }
 
-    return formatGermanNumber(meta.ratingAverage) + " Sterne auf " + meta.source;
+    return formatReviewNumber(meta.ratingAverage) + config.copy.headlineSuffix + meta.source;
   }
 
   function buildReviewSubline(meta) {
     if (meta.ratingCount > 0 && !meta.needsReview) {
-      return "Echte Rückmeldungen aus derzeit " + meta.ratingCount + " Bewertungen.";
+      return config.copy.sublineWithCountStart + meta.ratingCount + config.copy.sublineWithCountEnd;
     }
 
-    return "Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.";
+    return config.copy.sublineFallback;
   }
 
   function buildReviewCard(review) {
@@ -431,9 +491,9 @@ function initReviewTrustStrips() {
     ].filter(Boolean);
 
     return '<article class="reviewCard">' +
-      '<div class="reviewCard__stars" aria-label="' + escapeAttribute(rating + " von 5 Sternen") + '">' + buildStars(rating) + '</div>' +
+      '<div class="reviewCard__stars" aria-label="' + escapeAttribute(rating + config.copy.ratingLabelSuffix) + '">' + buildStars(rating) + '</div>' +
       '<p class="reviewCard__text">“' + escapeHtml(review.text) + '”</p>' +
-      '<p class="reviewCard__meta">' + escapeHtml(labelParts.join(" · ")) + '</p>' +
+      '<p class="reviewCard__meta">' + escapeHtml(labelParts.join(config.copy.metaSeparator)) + '</p>' +
     '</article>';
   }
 
@@ -445,8 +505,8 @@ function initReviewTrustStrips() {
     return stars;
   }
 
-  function formatGermanNumber(value) {
-    return Number(value).toLocaleString("de-DE", {
+  function formatReviewNumber(value) {
+    return Number(value).toLocaleString(config.locale, {
       minimumFractionDigits: Number(value) % 1 === 0 ? 0 : 1,
       maximumFractionDigits: 1
     });
@@ -455,26 +515,12 @@ function initReviewTrustStrips() {
   function formatReviewDate(value) {
     var text = String(value || "");
     var match = text.match(/^(\d{4})-(\d{2})$/);
-    var months = [
-      "Januar",
-      "Februar",
-      "März",
-      "April",
-      "Mai",
-      "Juni",
-      "Juli",
-      "August",
-      "September",
-      "Oktober",
-      "November",
-      "Dezember"
-    ];
 
     if (!match) {
       return text;
     }
 
-    return months[Number(match[2]) - 1] + " " + match[1];
+    return config.copy.months[Number(match[2]) - 1] + " " + match[1];
   }
 
   function bindReviewScrolling(root) {
