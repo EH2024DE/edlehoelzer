@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initProductsPage();
   initHeroVideo();
   initReviewTrustStrips();
+  initBackToTop();
 
   if (window.innerWidth <= 900) {
     return;
@@ -184,6 +185,55 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
+
+function initBackToTop() {
+  var button = document.createElement("button");
+  var threshold = 520;
+  var ticking = false;
+  var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var label = isEnglish ? "Back to top" : "Nach oben";
+
+  button.type = "button";
+  button.className = "backToTop";
+  button.setAttribute("aria-label", label);
+  button.setAttribute("title", label);
+  button.innerHTML = '<span aria-hidden="true">↑</span>';
+
+  if (!document.getElementById("backToTopStyles")) {
+    var style = document.createElement("style");
+    style.id = "backToTopStyles";
+    style.textContent =
+      ".backToTop{position:fixed;right:18px;bottom:18px;z-index:180;width:46px;height:46px;border:1px solid rgba(17,17,17,.12);border-radius:999px;background:rgba(255,255,255,.92);color:#111;box-shadow:0 12px 28px rgba(0,0,0,.10);backdrop-filter:blur(12px);display:grid;place-items:center;font:700 22px/1 Montserrat,system-ui,sans-serif;cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,background-color .18s ease,border-color .18s ease}" +
+      ".backToTop.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}" +
+      ".backToTop:hover{background:#fff;border-color:rgba(184,136,87,.42)}" +
+      ".backToTop:focus-visible{outline:2px solid rgba(184,136,87,.72);outline-offset:3px}" +
+      "@media (max-width:640px){.backToTop{right:14px;bottom:14px;width:42px;height:42px;font-size:20px}}";
+    document.head.appendChild(style);
+  }
+
+  function updateVisibility() {
+    var isVisible = window.scrollY > threshold;
+    button.classList.toggle("is-visible", isVisible);
+    ticking = false;
+  }
+
+  function requestVisibilityUpdate() {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    requestAnimationFrame(updateVisibility);
+  }
+
+  button.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  document.body.appendChild(button);
+  updateVisibility();
+  window.addEventListener("scroll", requestVisibilityUpdate, { passive: true });
+}
 
 function initHeroVideo() {
   var video = document.querySelector("[data-hero-video]");
