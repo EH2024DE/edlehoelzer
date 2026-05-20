@@ -72,10 +72,12 @@
   }
 
   function renderCard(product) {
+    var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
+
     return '<article class="productCard">' +
       '<a class="productCard__link" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener" data-goatcounter-click="true" data-goatcounter-title="etsy_click">' +
         '<div class="productCard__media productCard__imgWrap">' +
-          '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
+          '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
         '</div>' +
         '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(product.segment || product.category || "Produkt") + '</p>' +
@@ -165,6 +167,20 @@
       value !== "nicht relevant";
   }
 
+  function hasMinimumBoardSize(product, minCm) {
+    var size = String(product.sizeLabel || "");
+    var match = size.match(/(\d+(?:[,.]\d+)?)\s*[x×]\s*(\d+(?:[,.]\d+)?)/i);
+
+    if (!match) {
+      return product.sizeProfile !== "compact";
+    }
+
+    var first = Number(match[1].replace(",", "."));
+    var second = Number(match[2].replace(",", "."));
+
+    return first >= minCm && second >= minCm;
+  }
+
   function displayProductName(product) {
     var name = String(product.name || "");
 
@@ -203,4 +219,5 @@
   }
 
   window.renderProductGrid = renderProductGrid;
+  window.productGridHasMinimumBoardSize = hasMinimumBoardSize;
 })();
