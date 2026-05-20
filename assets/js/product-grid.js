@@ -1,0 +1,206 @@
+(function () {
+  var catalogPromise = null;
+
+  function loadProducts() {
+    if (!catalogPromise) {
+      catalogPromise = fetch("/products.json")
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("products.json konnte nicht geladen werden.");
+          }
+
+          return response.json();
+        })
+        .then(function (data) {
+          var products = Array.isArray(data) ? data : data.products;
+          if (!Array.isArray(products)) {
+            throw new Error("products.json enthält keine Produktliste.");
+          }
+
+          return products;
+        });
+    }
+
+    return catalogPromise;
+  }
+
+  function renderProductGrid(containerId, filterFn) {
+    var container = document.getElementById(containerId);
+    if (!container) {
+      return;
+    }
+
+    container.innerHTML = '<p class="productGridEmpty">Produkte werden geladen.</p>';
+
+    loadProducts()
+      .then(function (products) {
+        var filtered = products
+          .filter(function (product) {
+            return product && product.active !== false;
+          })
+          .filter(function (product) {
+            return typeof filterFn === "function" ? filterFn(product) : true;
+          })
+          .filter(function (product) {
+            return product.image && product.etsyUrl;
+          })
+          .sort(sortProducts);
+
+        if (!filtered.length) {
+          renderFallback(container);
+          return;
+        }
+
+        container.innerHTML = filtered.map(renderCard).join("");
+      })
+      .catch(function (error) {
+        console.warn("[Edle Hölzer] Landingpage-Produkte konnten nicht geladen werden:", error);
+        renderFallback(container);
+      });
+  }
+
+  function sortProducts(a, b) {
+    if (a.featured !== b.featured) {
+      return a.featured ? -1 : 1;
+    }
+
+    if (a.needsReview !== b.needsReview) {
+      return a.needsReview ? 1 : -1;
+    }
+
+    return Number(a.priceOrder || 0) - Number(b.priceOrder || 0);
+  }
+
+  function renderCard(product) {
+    return '<article class="productCard">' +
+      '<a class="productCard__link" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener" data-goatcounter-click="true" data-goatcounter-title="etsy_click">' +
+        '<div class="productCard__media productCard__imgWrap">' +
+          '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
+        '</div>' +
+        '<div class="productCard__body">' +
+          '<p class="productCard__segment">' + escapeHtml(product.segment || product.category || "Produkt") + '</p>' +
+          '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
+          renderBadges(product) +
+          renderFacts(product) +
+          '<div class="productCard__footer">' +
+            (product.priceLabel ? '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' : "") +
+            '<span class="productCard__cta">Bei Etsy ansehen</span>' +
+          '</div>' +
+        '</div>' +
+      '</a>' +
+    '</article>';
+  }
+
+  function renderBadges(product) {
+    var badges = Array.isArray(product.badges) ? product.badges : [];
+    var materialParts = String(product.material || "").split(",").map(function (part) {
+      return part.trim();
+    }).filter(Boolean);
+
+    var filtered = badges.filter(function (badge) {
+      var value = String(badge || "");
+      var normalized = value.toLowerCase();
+      if (!value) {
+        return false;
+      }
+      if (normalized.indexOf("cm") !== -1 || normalized.indexOf("kg") !== -1) {
+        return false;
+      }
+      if (value === product.material || materialParts.indexOf(value) !== -1) {
+        return false;
+      }
+      if (value === product.sizeLabel || value === product.thicknessLabel) {
+        return false;
+      }
+      return true;
+    });
+
+    if (!filtered.length) {
+      return "";
+    }
+
+    return '<div class="productBadgeRow productCard__badges">' + filtered.slice(0, 3).map(function (badge) {
+      return '<span class="productCard__badge">' + escapeHtml(badge) + '</span>';
+    }).join("") + '</div>';
+  }
+
+  function renderFacts(product) {
+    var facts = [];
+
+    if (product.material) {
+      facts.push(["Material", product.material]);
+    }
+    if (product.category === "board" && hasMeaningfulValue(product.sizeLabel)) {
+      facts.push(["Maße", product.sizeLabel]);
+    }
+    if (product.category === "board" && product.thicknessLabel && hasMeaningfulValue(product.thicknessLabel)) {
+      facts.push(["Stärke", product.thicknessLabel]);
+    }
+    if (product.category === "accessory") {
+      facts = [
+        ["Typ", product.segment || "Küchenhelfer"],
+        ["Material", product.material || "Holz"]
+      ];
+    }
+    if (product.category === "care") {
+      facts = [
+        ["Typ", "Pflegeprodukt"],
+        ["Basis", product.material || "Öl und Wachs"]
+      ];
+    }
+
+    if (!facts.length) {
+      return "";
+    }
+
+    return '<dl class="productFacts">' + facts.slice(0, 4).map(function (fact) {
+      return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
+    }).join("") + '</dl>';
+  }
+
+  function hasMeaningfulValue(value) {
+    return value &&
+      value !== "Format laut Etsy-Export" &&
+      value !== "laut Etsy-Export" &&
+      value !== "nicht relevant";
+  }
+
+  function displayProductName(product) {
+    var name = String(product.name || "");
+
+    if (name.indexOf("|") !== -1) {
+      name = name.split("|")[0];
+    }
+
+    name = name
+      .replace(/:\s*\d{1,3}(?:[,.]\d+)?\s*[x×].*$/i, "")
+      .replace(/\s+[–-]\s*\d{1,3}(?:[,.]\d+)?\s*[x×].*$/i, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+
+    return name || product.name || "Produkt ansehen";
+  }
+
+  function renderFallback(container) {
+    container.innerHTML =
+      '<div class="productGridEmpty">' +
+        '<p>Aktuell sind für diese Auswahl keine passenden Produkte geladen.</p>' +
+        '<a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Direkt im Etsy-Shop ansehen</a>' +
+      '</div>';
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function escapeAttribute(value) {
+    return escapeHtml(value);
+  }
+
+  window.renderProductGrid = renderProductGrid;
+})();
