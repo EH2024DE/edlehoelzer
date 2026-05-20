@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initBackToTop() {
   var button = document.createElement("button");
-  var threshold = 520;
+  var threshold = 120;
   var ticking = false;
   var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
   var label = isEnglish ? "Back to top" : "Nach oben";
@@ -197,17 +197,19 @@ function initBackToTop() {
   button.className = "backToTop";
   button.setAttribute("aria-label", label);
   button.setAttribute("title", label);
-  button.innerHTML = '<span aria-hidden="true">↑</span>';
+  button.innerHTML = '<span aria-hidden="true">↑</span><span class="backToTop__label">' + label + '</span>';
 
   if (!document.getElementById("backToTopStyles")) {
     var style = document.createElement("style");
     style.id = "backToTopStyles";
     style.textContent =
-      ".backToTop{position:fixed;right:18px;bottom:18px;z-index:180;width:46px;height:46px;border:1px solid rgba(17,17,17,.12);border-radius:999px;background:rgba(255,255,255,.92);color:#111;box-shadow:0 12px 28px rgba(0,0,0,.10);backdrop-filter:blur(12px);display:grid;place-items:center;font:700 22px/1 Montserrat,system-ui,sans-serif;cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,background-color .18s ease,border-color .18s ease}" +
+      ".backToTop{position:fixed;right:18px;bottom:18px;z-index:180;min-width:46px;height:46px;padding:0 16px;border:1px solid rgba(17,17,17,.12);border-radius:999px;background:rgba(255,255,255,.94);color:#111;box-shadow:0 12px 28px rgba(0,0,0,.10);backdrop-filter:blur(12px);display:inline-flex;align-items:center;justify-content:center;gap:8px;font:800 13px/1 Montserrat,system-ui,sans-serif;cursor:pointer;opacity:.72;transform:translateY(0);pointer-events:auto;transition:opacity .18s ease,transform .18s ease,background-color .18s ease,border-color .18s ease}" +
+      ".backToTop span:first-child{font-size:20px;line-height:1}" +
+      ".backToTop__label{white-space:nowrap}" +
       ".backToTop.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}" +
       ".backToTop:hover{background:#fff;border-color:rgba(184,136,87,.42)}" +
       ".backToTop:focus-visible{outline:2px solid rgba(184,136,87,.72);outline-offset:3px}" +
-      "@media (max-width:640px){.backToTop{right:14px;bottom:14px;width:42px;height:42px;font-size:20px}}";
+      "@media (max-width:640px){.backToTop{right:14px;bottom:14px;width:42px;height:42px;min-width:42px;padding:0}.backToTop__label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}";
     document.head.appendChild(style);
   }
 
