@@ -218,8 +218,9 @@
         <h2>Erst prüfen. Dann entscheiden.</h2>
         <p class="section__lead">Nicht jeder Stamm eignet sich — das sagen wir ehrlich. Beantworte kurz diese Fragen. Du bekommst von uns eine offene Rückmeldung.</p>
       </div>
-      <form id="baumspende-flow" class="treeFlow" action="https://formspree.io/f/maqanpld" method="POST" enctype="multipart/form-data" novalidate>
+      <form id="baumspende-flow" class="treeFlow" action="https://formspree.io/f/maqanpld" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="Neue Baumspende-Anfrage über edlehoelzer.de">
+        <input type="hidden" name="_next" value="https://edlehoelzer.de/danke.html">
         <input class="treeInput" type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
         <div id="flow-hidden-fields"></div>
 
@@ -525,7 +526,6 @@
     var summary = flow.querySelector("[data-summary]");
     var reviewField = document.getElementById("flow-review");
     var formError = flow.querySelector("[data-form-error]");
-    var submitButton = flow.querySelector(".treeFlow__submit");
     var params = new URLSearchParams(window.location.search);
     var treisCheckbox = document.getElementById("treis-vormerken");
 
@@ -696,34 +696,7 @@
     });
 
     flow.addEventListener("submit", function (event) {
-      event.preventDefault();
-      if (!flow.checkValidity()) {
-        flow.reportValidity();
-        return;
-      }
       syncHiddenFields();
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = "Wird gesendet ...";
-      }
-      fetch(flow.action, {
-        method: "POST",
-        body: new FormData(flow),
-        headers: { "Accept": "application/json" }
-      }).then(function (response) {
-        if (!response.ok) throw new Error("Formspree konnte die Anfrage nicht annehmen.");
-        showStep(9, true);
-      }).catch(function () {
-        if (formError) {
-          formError.textContent = "Das hat gerade nicht geklappt. Bitte versuch es noch einmal oder schreib uns direkt per E-Mail.";
-          formError.classList.add("is-visible");
-        }
-      }).finally(function () {
-        if (submitButton && currentStep !== 9) {
-          submitButton.disabled = false;
-          submitButton.textContent = "Baum prüfen lassen";
-        }
-      });
     });
 
     updateProgress(1);
