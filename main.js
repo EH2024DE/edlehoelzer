@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function initBackToTop() {
   var button = document.createElement("button");
-  var threshold = 120;
+  var threshold = 520;
   var ticking = false;
   var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
   var label = isEnglish ? "Back to top" : "Nach oben";
@@ -203,13 +203,13 @@ function initBackToTop() {
     var style = document.createElement("style");
     style.id = "backToTopStyles";
     style.textContent =
-      ".backToTop{position:fixed;left:50%;bottom:16px;z-index:180;min-width:0;height:38px;padding:0 13px;border:1px solid rgba(17,17,17,.08);border-radius:999px;background:rgba(245,241,235,.72);color:rgba(17,17,17,.68);box-shadow:0 8px 18px rgba(0,0,0,.06);backdrop-filter:blur(10px);display:inline-flex;align-items:center;justify-content:center;gap:6px;font:700 12px/1 Montserrat,system-ui,sans-serif;cursor:pointer;opacity:.42;transform:translateX(-50%);pointer-events:auto;transition:opacity .18s ease,transform .18s ease,background-color .18s ease,border-color .18s ease,color .18s ease}" +
-      ".backToTop span:first-child{font-size:16px;line-height:1}" +
+      ".backToTop{position:fixed;left:50%;right:auto;bottom:10px;z-index:180;height:30px;padding:0 10px;border:1px solid rgba(17,17,17,.06);border-radius:999px;background:rgba(245,241,235,.46);color:rgba(17,17,17,.46);box-shadow:none;backdrop-filter:blur(8px);display:inline-flex;align-items:center;justify-content:center;gap:5px;font:700 11px/1 Montserrat,system-ui,sans-serif;cursor:pointer;opacity:0;transform:translateX(-50%) translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,background-color .18s ease,border-color .18s ease,color .18s ease}" +
+      ".backToTop span:first-child{font-size:13px;line-height:1}" +
       ".backToTop__label{white-space:nowrap}" +
-      ".backToTop.is-visible{opacity:.72;transform:translateX(-50%);pointer-events:auto}" +
-      ".backToTop:hover{opacity:1;background:rgba(255,255,255,.92);border-color:rgba(184,136,87,.28);color:#111}" +
-      ".backToTop:focus-visible{outline:2px solid rgba(184,136,87,.72);outline-offset:3px}" +
-      "@media (max-width:640px){.backToTop{bottom:12px;height:36px;padding:0 11px;font-size:11px}.backToTop span:first-child{font-size:15px}}";
+      ".backToTop.is-visible{opacity:.34;transform:translateX(-50%) translateY(0);pointer-events:auto}" +
+      ".backToTop:hover{opacity:.72;background:rgba(255,255,255,.72);border-color:rgba(184,136,87,.18);color:rgba(17,17,17,.78)}" +
+      ".backToTop:focus-visible{opacity:.9;outline:2px solid rgba(184,136,87,.42);outline-offset:3px}" +
+      "@media (max-width:640px){.backToTop{bottom:8px;height:28px;padding:0 9px;font-size:10px}.backToTop span:first-child{font-size:12px}}";
     document.head.appendChild(style);
   }
 
