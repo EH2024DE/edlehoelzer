@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baumspende | Aus deinem Baum wird ein Unikat – Edle Hölzer</title>
+  <meta name="description" content="Wenn ein besonderer Baum aus deinem Garten weichen muss, prüfen wir, ob daraus ein handgefertigtes Brett, ein Couchtisch oder ein Esstisch entstehen kann.">
+  <link rel="canonical" href="https://edlehoelzer.de/baumspende.html">
+  <link rel="alternate" hreflang="de" href="https://edlehoelzer.de/baumspende.html">
+  <meta property="og:title" content="Baumspende | Edle Hölzer">
+  <meta property="og:description" content="Aus einem besonderen Baum kann ein handgefertigtes Erinnerungsstück entstehen: Schneidebrett, Servierbrett, Couchtisch oder Esstisch.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://edlehoelzer.de/baumspende.html">
+  <meta property="og:image" content="https://edlehoelzer.de/assets/workshop1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script>const freePlaetze = 6;</script>
+  <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <style>
+    .treeHero{background:linear-gradient(180deg,#f7f2ea 0%,#fff 100%);padding:clamp(84px,12vw,142px) 0 clamp(62px,9vw,110px);border-bottom:1px solid var(--line)}
+    .treeHero__grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,.72fr);gap:clamp(28px,5vw,72px);align-items:center}
+    .treeHero h1{max-width:11ch;margin:0 0 22px;font-size:clamp(48px,8vw,98px);line-height:.92;letter-spacing:-.04em}
+    .treeHero__lead{max-width:760px;margin:0;color:rgba(17,17,17,.72);font-size:clamp(18px,2.2vw,24px);line-height:1.55}
+    .treeHero__note{margin:18px 0 0;color:rgba(17,17,17,.58);font-size:14px;font-weight:700}
+    .treeHero__panel{border:1px solid rgba(184,136,87,.25);background:#fff;border-radius:8px;padding:28px;box-shadow:0 20px 48px rgba(52,35,22,.08)}
+    .treeHero__panelTitle{margin:0 0 8px;font-size:18px;font-weight:800}
+    .treeHero__panel p{margin:0;color:rgba(17,17,17,.66);line-height:1.65}
+    .treeSection{padding:clamp(62px,8vw,104px) 0}
+    .treeSection--sand{background:var(--sand)}
+    .treeWrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
+    .treeNarrow{width:min(860px,calc(100% - 36px));margin:0 auto}
+    .treeText{display:grid;gap:18px;color:rgba(17,17,17,.72);font-size:18px;line-height:1.75}
+    .treeText p{margin:0}
+    .treeCallout{border:1px solid rgba(184,136,87,.30);border-left:6px solid var(--accent);background:var(--sand);border-radius:8px;padding:clamp(24px,4vw,42px);box-shadow:0 16px 34px rgba(52,35,22,.06)}
+    .treeCallout ul{margin:18px 0 0;padding-left:22px;color:rgba(17,17,17,.74);line-height:1.75}
+    .treeSmall{margin:12px 0 0;color:rgba(17,17,17,.52);font-size:13px;font-weight:700}
+    .treeCounter{display:grid;grid-template-columns:minmax(0,.72fr) minmax(240px,.28fr);gap:28px;align-items:center;border:1px solid rgba(184,136,87,.24);border-radius:8px;background:#fff;padding:clamp(24px,4vw,44px)}
+    .treeCounter__number{display:grid;place-items:center;min-height:190px;border-radius:8px;background:var(--sand);color:var(--accent);font-size:clamp(72px,11vw,128px);font-weight:800;line-height:1}
+    .treeFlow{display:grid;gap:16px}
+    .treeQuestion{border:1px solid var(--line);border-radius:8px;background:#fff;padding:22px}
+    .treeQuestion h3{margin:0 0 14px;font-size:18px}
+    .treeOptions{display:flex;flex-wrap:wrap;gap:10px}
+    .treeOption{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:10px 13px;border:1px solid rgba(17,17,17,.12);border-radius:8px;background:#fbf8f4;font-weight:700;cursor:pointer}
+    .treeOption input{accent-color:var(--accent)}
+    .treeSelect,.treeInput,.treeTextarea{width:100%;min-height:48px;border:1px solid rgba(17,17,17,.14);border-radius:8px;background:#fff;padding:12px 14px;font:inherit;color:var(--ink)}
+    .treeTextarea{min-height:150px;resize:vertical;line-height:1.55}
+    .treeHint{display:none;margin:14px 0 0;padding:12px 14px;border-left:4px solid var(--accent);border-radius:6px;background:var(--sand);color:rgba(17,17,17,.72);font-size:14px;font-weight:700;line-height:1.5}
+    .treeHint.is-visible{display:block}
+    .treeHint--always{display:block}
+    .treeSuboptions{display:none;margin-top:14px}
+    .treeSuboptions.is-visible{display:block}
+    .treeSteps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;counter-reset:tree-step}
+    .treeStep{counter-increment:tree-step;border:1px solid var(--line);border-radius:8px;background:#fff;padding:22px;display:grid;gap:10px}
+    .treeStep::before{content:counter(tree-step,decimal-leading-zero);width:42px;height:42px;border-radius:999px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800}
+    .treeStep h3{margin:0;font-size:18px}
+    .treeStep p{margin:0;color:rgba(17,17,17,.68);line-height:1.65}
+    .treePrice{width:100%;border-collapse:collapse;border:1px solid var(--line);background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 14px 30px rgba(52,35,22,.05)}
+    .treePrice th,.treePrice td{padding:18px;border-bottom:1px solid var(--line);text-align:left}
+    .treePrice th{background:#f8f3ec;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.60)}
+    .treePrice tr:last-child td{border-bottom:0}
+    .treeForm{display:grid;gap:16px;border:1px solid rgba(184,136,87,.25);border-radius:8px;background:#fff;padding:clamp(22px,4vw,38px);box-shadow:0 18px 42px rgba(52,35,22,.07)}
+    .treeForm__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .treeField{display:grid;gap:7px}
+    .treeField label,.treeField span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.56)}
+    .treeField--full{grid-column:1/-1}
+    .treeConsent{display:flex;gap:10px;align-items:flex-start;color:rgba(17,17,17,.70);font-weight:700;line-height:1.45}
+    .treeConsent input{margin-top:3px;accent-color:var(--accent)}
+    .treeLinks{border:1px solid rgba(17,17,17,.10);border-radius:8px;background:#fbf8f4;padding:22px;display:grid;gap:8px}
+    .treeLinks p{margin:0;color:rgba(17,17,17,.62)}
+    .treeLinks a{font-weight:800}
+    @media (max-width:840px){
+      .treeHero__grid,.treeCounter,.treeSteps,.treeForm__grid{grid-template-columns:1fr}
+      .treeHero h1{max-width:9ch}
+      .treeCounter__number{min-height:140px}
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar__inner">
+    <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    <a href="./index.html" class="brand" aria-label="Edle Hölzer Startseite">
+      <img src="./assets/logo.jpg" alt="Edle Hölzer Logo" class="brand__logo" width="756" height="756">
+      <span class="brand__text">Edle Hölzer</span>
+    </a>
+    <div class="topbar__right">
+      <div class="lang"><a href="./baumspende.html" class="is-active">DE</a></div>
+      <a href="#kontakt" class="btn btn--small">Baum prüfen lassen</a>
+    </div>
+  </div>
+  <nav class="mobileMenu" id="mobileMenu">
+    <div class="mobileMenu__head">
+      <div class="mobileMenu__lang"><a href="./baumspende.html" class="is-active">DE</a></div>
+      <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
+    </div>
+    <a href="./index.html">Startseite</a>
+    <a href="./produkte.html#produktfinder">Produktfinder</a>
+    <a href="./produkte.html#produkte-grid">Produkte</a>
+    <a href="./pflege.html">Pflege</a>
+    <a href="./schneidebrett-aufbereiten/">Aufbereitung</a>
+    <a href="./baumspende.html">Baumspende</a>
+    <a href="./b2b.html">B2B</a>
+  </nav>
+  <div class="menuBackdrop" id="menuBackdrop"></div>
+</header>
+
+<main>
+  <section class="treeHero">
+    <div class="container treeHero__grid">
+      <div>
+        <p class="eyebrow eyebrow--dark">Baumspende</p>
+        <h1>Dein Baum. Handgefertigt weitergedacht.</h1>
+        <p class="treeHero__lead">Wenn ein besonderer Baum aus deinem Garten weichen muss, muss seine Geschichte nicht verschwinden. Wir prüfen, ob daraus ein handgefertigtes Schneidebrett, Servierbrett, Couchtisch oder Esstisch entstehen kann — von Hand, in Mittelhessen, mit über 20 Jahren Erfahrung.</p>
+        <p class="treeHero__note">Wir nehmen pro Saison maximal 8 Baumspenden-Projekte an.</p>
+        <div class="ctaRow" style="margin-top:28px">
+          <a href="#kontakt" class="btn">Baum jetzt prüfen lassen →</a>
+        </div>
+      </div>
+      <aside class="treeHero__panel" aria-label="Projektkapazität">
+        <p class="treeHero__panelTitle">Saison 2025</p>
+        <p>Regionale Baumspenden, individuelle Prüfung und handwerkliche Verarbeitung. Kein Standardprozess, kein Schnellschuss.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="treeSection">
+    <div class="treeNarrow treeText">
+      <h2>Manche Bäume sind mehr als Holz.</h2>
+      <p>Sie spenden Jahrzehnte lang Schatten, tragen Früchte, gehören irgendwann selbstverständlich zum Zuhause dazu.</p>
+      <p>Doch manchmal müssen auch besondere Bäume weichen — durch Krankheit, Alter, Sturm oder Veränderungen im Garten. Wertvolles Holz endet dann meist als Brennholz oder Entsorgung.</p>
+      <p>Wir finden: Manche Stämme verdienen mehr.</p>
+    </div>
+  </section>
+
+  <section class="treeSection treeSection--sand">
+    <div class="treeWrap treeCallout">
+      <p class="eyebrow eyebrow--dark">Live-Beispiel</p>
+      <h2>Gerade entsteht etwas — Walnuss aus Treis.</h2>
+      <div class="treeText">
+        <p>Im Frühjahr 2025 haben wir einen Walnussstamm aus Treis gespendet bekommen. Kräftig. Charaktervoll. Er trocknet gerade.</p>
+        <p>Wenn er so weit ist, entstehen daraus:</p>
+      </div>
+      <ul>
+        <li>Ein massiver Esstisch</li>
+        <li>Ein Couchtisch</li>
+        <li>Was das Holz an den Rändern noch hergibt: vielleicht ein oder zwei Schneidebretter</li>
+      </ul>
+      <div class="treeText" style="margin-top:18px">
+        <p>Wer sich für eines dieser Stücke vormerken lassen möchte, kann das jetzt tun — unverbindlich, ohne Verpflichtung. Wir melden uns, sobald die Verarbeitung beginnt.</p>
+      </div>
+      <div class="ctaRow" style="margin-top:24px">
+        <a href="./baumspende.html?vormerken=true#kontakt" class="btn btn--ghost-dark">Für Treis-Walnuss vormerken →</a>
+      </div>
+      <p class="treeSmall">Voraussichtliche Fertigstellung: 2026–2027.</p>
+    </div>
+  </section>
+
+  <section class="treeSection">
+    <div class="treeWrap treeCounter">
+      <div>
+        <p class="eyebrow eyebrow--dark">Kapazität</p>
+        <h2>Noch <span data-free-plaetze>6</span> von 8 Plätzen frei — Saison 2025.</h2>
+        <div class="treeText">
+          <p>Wir haben keine Fabrik. Wir haben zwei Hände, über 20 Jahre Erfahrung, und den Anspruch, jedes Projekt so zu behandeln, wie es verdient.</p>
+          <p>Deshalb nehmen wir pro Saison maximal 8 Baumspenden-Projekte an. Wer früh anfrägt, gibt seinem Projekt die beste Chance.</p>
+        </div>
+      </div>
+      <div class="treeCounter__number" aria-label="Freie Plätze">
+        <span data-free-plaetze>6</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="treeSection treeSection--sand">
+    <div class="treeNarrow treeText">
+      <h2>Zeit ist kein Nachteil. Sie ist das Fundament.</h2>
+      <p>Holz, das jahrelang gewachsen ist, braucht Zeit zum Trocknen. Dieser Schritt entscheidet über alles, was danach kommt — Stabilität, Charakter, Langlebigkeit.</p>
+      <p>Wir trocknen besondere Stämme im professionellen Trockenraum: kontrolliert, schonend, auf das Endprodukt abgestimmt. Je nach Holzart und Stärke dauert das einige Wochen bis mehrere Monate — diese Zeit ist in jedem Projekt bereits eingeplant und eingepreist.</p>
+      <p>Du bekommst dein Stück, wenn es wirklich fertig ist. Nicht früher.</p>
+    </div>
+  </section>
+
+  <section class="treeSection">
+    <div class="treeWrap">
+      <div class="sectionIntro">
+        <p class="eyebrow eyebrow--dark">Qualifizierung</p>
+        <h2>Erst prüfen. Dann entscheiden.</h2>
+        <p class="section__lead">Nicht jeder Stamm eignet sich — das sagen wir ehrlich. Beantworte kurz diese Fragen. Du bekommst von uns eine offene Rückmeldung.</p>
+      </div>
+      <div class="treeFlow" aria-label="Frage-Flow zur Baumspende">
+        <article class="treeQuestion">
+          <h3>Wo steht dein Baum?</h3>
+          <div class="treeOptions">
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="region" value="Mittelhessen"> Mittelhessen</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="region" value="Außerhalb Mittelhessen" data-show-hint="region-outside"> Außerhalb Mittelhessen</label>
+          </div>
+          <p class="treeHint" id="region-outside">Aktuell begleiten wir Projekte ausschließlich regional in Mittelhessen.</p>
+        </article>
+
+        <article class="treeQuestion">
+          <h3>Welche Baumart ist es?</h3>
+          <select form="baumspende-form" class="treeSelect" name="baumart" aria-label="Baumart auswählen">
+            <option value="">Bitte auswählen</option>
+            <option>Walnuss / Nussbaum</option>
+            <option>Kirsche</option>
+            <option>Zwetschge</option>
+            <option>Apfel</option>
+            <option>Birne</option>
+            <option>Ahorn</option>
+            <option>Eiche</option>
+            <option>Kastanie</option>
+            <option>Esche</option>
+            <option>Lärche</option>
+            <option>Unbekannt</option>
+          </select>
+        </article>
+
+        <article class="treeQuestion">
+          <h3>Wie stark ist der Stamm ungefähr?</h3>
+          <div class="treeOptions">
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="50–70 cm"> 50–70 cm</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="70–100 cm"> 70–100 cm</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="Über 100 cm"> Über 100 cm</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="Unsicher"> Unsicher</label>
+          </div>
+          <p class="treeHint treeHint--always">Für die meisten Projekte benötigen wir einen Stammdurchmesser von mindestens ca. 50 cm.</p>
+        </article>
+
+        <article class="treeQuestion">
+          <h3>Ist der Stamm bereits gefällt?</h3>
+          <div class="treeOptions">
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="gefaellt" value="Ja" data-show-suboptions="holz-liegt"> Ja</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="gefaellt" value="Nein"> Nein</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="gefaellt" value="Teilweise"> Teilweise</label>
+          </div>
+          <div class="treeSuboptions" id="holz-liegt">
+            <h3>Wie lange liegt das Holz bereits?</h3>
+            <div class="treeOptions">
+              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="Unter 3 Monate"> Unter 3 Monate</label>
+              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="3–12 Monate"> 3–12 Monate</label>
+              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="Länger"> Länger</label>
+              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="Unsicher"> Unsicher</label>
+            </div>
+          </div>
+        </article>
+
+        <article class="treeQuestion">
+          <h3>Warum muss der Baum weichen?</h3>
+          <div class="treeOptions">
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Krankheit / abgestorben"> Krankheit / abgestorben</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Sturm- oder Bruchschaden"> Sturm- oder Bruchschaden</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Sicherheitsgründe"> Sicherheitsgründe</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Umbau / Gartenprojekt"> Umbau / Gartenprojekt</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Bereits gefällt"> Bereits gefällt</label>
+            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Eigentlich gesund" data-show-hint="healthy-tree"> Eigentlich gesund</label>
+          </div>
+          <p class="treeHint" id="healthy-tree">Meld dich trotzdem kurz — manchmal gibt es Gründe, die wir gemeinsam einschätzen können.</p>
+        </article>
+
+        <article class="treeQuestion">
+          <h3>Was soll entstehen?</h3>
+          <div class="treeOptions">
+            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Schneidebrett"> Schneidebrett</label>
+            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Servierbrett"> Servierbrett</label>
+            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Couchtisch"> Couchtisch</label>
+            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Esstisch"> Esstisch</label>
+            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Erinnerungsstück"> Erinnerungsstück</label>
+            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Beratung gewünscht"> Beratung gewünscht</label>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="treeSection treeSection--sand">
+    <div class="treeWrap">
+      <div class="sectionIntro">
+        <p class="eyebrow eyebrow--dark">Prozess</p>
+        <h2>Der Weg vom Stamm zum Stück.</h2>
+      </div>
+      <div class="treeSteps">
+        <article class="treeStep"><h3>Anfrage</h3><p>Du beantwortest die Fragen oben und lädst erste Fotos hoch.</p></article>
+        <article class="treeStep"><h3>Erste Einschätzung</h3><p>Wir prüfen, ob das Holz grundsätzlich für eine Weiterverarbeitung in Frage kommt.</p></article>
+        <article class="treeStep"><h3>Persönliche Rücksprache</h3><p>Wenn das Projekt Sinn ergibt, sprechen wir telefonisch über Ablauf, Zeitrahmen und Preis — transparent, bevor irgendwas entschieden wird.</p></article>
+        <article class="treeStep"><h3>Fällung &amp; Vorbereitung</h3><p>Der Baum wird durch dich oder eine Fachfirma gefällt. Bei Bedarf vermitteln wir regionale Kontakte.</p></article>
+        <article class="treeStep"><h3>Trocknung</h3><p>Das Holz trocknet im professionellen Trockenraum — kontrolliert und schonend, bis es die optimale Verarbeitungsfeuchte erreicht hat. Dieser Schritt ist Teil jedes Projekts und bereits im Preis enthalten.</p></article>
+        <article class="treeStep"><h3>Verarbeitung</h3><p>Das Holz wird von Hand bearbeitet. Kein Stück wie das andere.</p></article>
+        <article class="treeStep"><h3>Übergabe</h3><p>Du erhältst dein Stück — mit der Geschichte deines Baums.</p></article>
+        <article class="treeStep"><h3>Langzeitpflege</h3><p>Wer einen Couchtisch oder Esstisch in Auftrag gibt, kann nach dem ersten Jahr einen Vor-Ort-Pflegeservice dazubuchen: Özgür kommt persönlich, behandelt und pflegt dein Stück. Empfohlener Rhythmus: alle zwei Jahre. So hält dein Tisch nicht nur eine Generation.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="treeSection">
+    <div class="treeWrap">
+      <div class="sectionIntro">
+        <p class="eyebrow eyebrow--dark">Preise</p>
+        <h2>Kein Rätselraten über den Preis.</h2>
+        <p class="section__lead">Das Holz kommt von dir. Handwerk, Zeit und Ergebnis kommen von uns.</p>
+      </div>
+      <table class="treePrice">
+        <thead>
+        <tr><th>Was entsteht</th><th>Preis ab</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Schneidebrett (ca. 30×30 cm, 4,5 cm)</td><td>ab 200 €</td></tr>
+        <tr><td>Servierbrett</td><td>auf Anfrage</td></tr>
+        <tr><td>Couchtisch</td><td>ab 600 €</td></tr>
+        <tr><td>Esstisch — nur Platte</td><td>ab 1.500 €</td></tr>
+        <tr><td>Esstisch — mit Tischbeinen</td><td>ab 2.000 €</td></tr>
+        <tr><td>Vor-Ort-Pflegeservice (alle 2 Jahre)</td><td>auf Anfrage</td></tr>
+        </tbody>
+      </table>
+      <p class="treeSmall">Jedes Projekt ist anders. Der genaue Preis ergibt sich aus Holzart, Stammgröße und Endprodukt. Wir kalkulieren offen — bevor irgendwas entschieden wird.</p>
+    </div>
+  </section>
+
+  <section class="treeSection treeSection--sand">
+    <div class="treeNarrow treeText">
+      <h2>Diese Hölzer interessieren uns besonders.</h2>
+      <p>Walnuss, Kirsche, Zwetschge, Apfel, Birne, Ahorn, Eiche, Kastanie, Esche, Lärche — charakterstarke regionale Laub- und Obsthölzer mit ausreichend Stammstärke. Für die meisten Projekte benötigen wir einen Stammdurchmesser von mindestens ca. 50 cm.</p>
+      <p>Nicht sicher, was bei dir im Garten steht? Einfach anfragen. Wir schauen gemeinsam.</p>
+    </div>
+  </section>
+
+  <section class="treeSection" id="kontakt">
+    <div class="treeWrap">
+      <div class="sectionIntro">
+        <p class="eyebrow eyebrow--dark">Kontakt</p>
+        <h2>Dein Baum. Unverbindlich prüfen lassen.</h2>
+      </div>
+      <form id="baumspende-form" class="treeForm" action="https://formspree.io/f/maqanpld" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="Neue Baumspende-Anfrage über edlehoelzer.de">
+        <input type="hidden" name="_next" value="https://edlehoelzer.de/danke.html">
+        <input class="treeInput" type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <div class="treeForm__grid">
+          <div class="treeField">
+            <label for="name">Vorname &amp; Nachname</label>
+            <input class="treeInput" id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="treeField">
+            <label for="email">E-Mail-Adresse</label>
+            <input class="treeInput" id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="treeField">
+            <label for="telefon">Telefonnummer</label>
+            <input class="treeInput" id="telefon" name="telefon" type="tel" autocomplete="tel">
+          </div>
+          <div class="treeField">
+            <label for="ort">Ort / PLZ</label>
+            <input class="treeInput" id="ort" name="ort_plz" type="text" autocomplete="postal-code" required>
+          </div>
+          <div class="treeField treeField--full">
+            <label for="fotos">Fotos hochladen</label>
+            <input class="treeInput" id="fotos" name="fotos" type="file" accept="image/*" multiple>
+          </div>
+          <div class="treeField treeField--full">
+            <label for="infos">Zusätzliche Informationen</label>
+            <textarea class="treeTextarea" id="infos" name="informationen" placeholder="Baumart, Standort, ungefährer Durchmesser, Zustand, gewünschtes Stück oder alles, was du schon weißt."></textarea>
+          </div>
+          <label class="treeConsent treeField--full">
+            <input id="treis-vormerken" type="checkbox" name="treis_walnuss_vormerken" value="Ja">
+            <span>Ich möchte mich für die Treis-Walnuss vormerken lassen</span>
+          </label>
+        </div>
+        <div>
+          <button type="submit" class="btn" data-goatcounter-click="true" data-goatcounter-title="baumspende_form_submit">Baum prüfen lassen</button>
+          <p class="treeSmall">Wir begleiten ausschließlich Projekte in Mittelhessen. Pro Saison maximal 8 Projekte. Du bekommst von uns eine ehrliche Rückmeldung — auch wenn es ein Nein ist.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="treeSection treeSection--sand">
+    <div class="treeNarrow treeText">
+      <h2>Manche Bäume verschwinden. Andere bekommen ein zweites Leben.</h2>
+      <p>Nicht jeder Stamm wird zu einem Projekt. Das sagen wir offen.</p>
+      <p>Aber wenn Holz, Geschichte und Möglichkeit zusammenpassen, entsteht daraus etwas, das Jahrzehnte hält — handgefertigt, mit deiner Geschichte, von Özgür.</p>
+      <div class="ctaRow" style="margin-top:8px">
+        <a href="#kontakt" class="btn">Jetzt unverbindlich anfragen →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="treeSection">
+    <div class="treeNarrow treeLinks">
+      <p>Kein eigener Baum, aber Interesse an außergewöhnlichem Holz?</p>
+      <a href="/stirnholz-schneidebrett/">Unsere Stirnholz-Schneidebretter aus Eiche-Fachwerksbalken →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <div class="footer__brand">Edle Hölzer</div>
+      <div class="footer__meta">Handgefertigt in Mittelhessen.</div>
+      <div class="footerSocial" aria-label="Social Media und Kontakt">
+        <a href="https://www.instagram.com/edle.hoelzer/" target="_blank" rel="noopener" aria-label="Edle Hölzer auf Instagram" data-goatcounter-click="true" data-goatcounter-title="instagram_click"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"></rect><circle cx="12" cy="12" r="3.5"></circle><circle cx="16.5" cy="7.5" r="1"></circle></svg><span>Instagram</span></a>
+        <a href="https://www.pinterest.de/edlehoelzer/" target="_blank" rel="noopener" aria-label="Edle Hölzer auf Pinterest" data-goatcounter-click="true" data-goatcounter-title="pinterest_click"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="socialIconFill" d="M12.2 4.5c-4 0-6.2 2.7-6.2 5.8 0 2 .9 3.6 2.4 4.2.3.1.5 0 .6-.3l.2-.9c.1-.3.1-.4-.1-.7-.5-.6-.8-1.3-.8-2.2 0-2.4 1.8-4.2 4.5-4.2 2.4 0 3.8 1.5 3.8 3.7 0 2.7-1.2 4.7-2.9 4.7-.9 0-1.6-.8-1.4-1.8.3-1.1.8-2.3.8-3.1 0-.7-.4-1.3-1.2-1.3-.9 0-1.7 1-1.7 2.3 0 .8.3 1.4.3 1.4l-1.2 5.1c-.3 1.3-.2 2.8-.1 3.8.1.3.5.3.6.1.5-.8 1.2-2.2 1.5-3.5l.6-2.3c.4.7 1.4 1.3 2.4 1.3 3.1 0 5.3-2.8 5.3-6.7 0-3.2-2.7-5.4-6.2-5.4Z"></path></svg><span>Pinterest</span></a>
+        <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Edle%20Hoelzer" aria-label="Edle Hölzer per E-Mail kontaktieren" data-goatcounter-click="true" data-goatcounter-title="mailto_click"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect><path d="m5 8 7 5 7-5"></path></svg><span>E-Mail</span></a>
+      </div>
+    </div>
+    <nav class="footer__nav" aria-label="Footer-Navigation">
+      <div class="footer__group">
+        <div class="footer__groupTitle">Produkte</div>
+        <a href="/produkte.html#produktfinder">Produktfinder</a>
+        <a href="/produkte.html#produkte-grid">Alle Produkte</a>
+        <a href="/schneidebretter-massivholz/">Schneidebretter aus Massivholz</a>
+        <a href="/schneidebrett-eiche/">Schneidebrett Eiche</a>
+        <a href="/schneidebrett-nussbaum/">Schneidebrett Nussbaum</a>
+        <a href="/schneidebrett-mit-gravur/">Schneidebrett mit Gravur</a>
+        <a href="/schneidebrett-nach-mass/">Schneidebrett nach Maß</a>
+        <a href="/stirnholz-schneidebrett/">Stirnholz Schneidebrett</a>
+      </div>
+      <div class="footer__group">
+        <div class="footer__groupTitle">Geschenke &amp; Anlässe</div>
+        <a href="/hochwertige-geschenke-holz/">Hochwertige Geschenke aus Holz</a>
+        <a href="/geschenk-fuer-maenner-holz/">Geschenk für Männer</a>
+        <a href="/geschenk-fuer-frauen-holz/">Geschenk für Frauen</a>
+        <a href="/barbecue-geschenk/">Barbecue Geschenk</a>
+        <a href="/b2b.html">Firmengeschenke aus Holz</a>
+        <a href="/baumspende.html">Baumspende</a>
+      </div>
+      <div class="footer__group">
+        <div class="footer__groupTitle">Küche &amp; Ratgeber</div>
+        <a href="/hochwertige-kuechenaccessoires/">Hochwertige Küchenaccessoires</a>
+        <a href="/pflege.html" data-goatcounter-click="true" data-goatcounter-title="pflege_cta_click">Schneidebrett richtig pflegen</a>
+        <a href="/welches-oel-schneidebrett/">Welches Öl fürs Schneidebrett?</a>
+        <a href="/schneidebrett-aufbereiten/">Schneidebrett aufbereiten</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="mailto:info@edlehoelzer.de" data-goatcounter-click="true" data-goatcounter-title="mailto_click">E-Mail</a>
+        <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Shop</a>
+      </div>
+    </nav>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
+<script>
+  document.querySelectorAll("[data-free-plaetze]").forEach(function (node) {
+    node.textContent = freePlaetze;
+  });
+
+  document.querySelectorAll("input[type='radio']").forEach(function (input) {
+    input.addEventListener("change", function () {
+      var group = document.querySelectorAll("input[name='" + input.name + "']");
+      group.forEach(function (item) {
+        var hintId = item.getAttribute("data-show-hint");
+        var subId = item.getAttribute("data-show-suboptions");
+        if (hintId) {
+          document.getElementById(hintId).classList.toggle("is-visible", item.checked);
+        }
+        if (subId) {
+          document.getElementById(subId).classList.toggle("is-visible", item.checked);
+        }
+      });
+    });
+  });
+
+  var params = new URLSearchParams(window.location.search);
+  var treisCheckbox = document.getElementById("treis-vormerken");
+  if (treisCheckbox && (params.get("vormerken") === "true" || window.location.hash === "#treis-vormerken")) {
+    treisCheckbox.checked = true;
+  }
+</script>
+</body>
+</html>
