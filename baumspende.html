@@ -218,7 +218,7 @@
         <h2>Erst prüfen. Dann entscheiden.</h2>
         <p class="section__lead">Nicht jeder Stamm eignet sich — das sagen wir ehrlich. Beantworte kurz diese Fragen. Du bekommst von uns eine offene Rückmeldung.</p>
       </div>
-      <form id="baumspende-flow" class="treeFlow" action="https://formspree.io/f/mvzyawjz" method="POST" enctype="multipart/form-data">
+      <form id="baumspende-flow" class="treeFlow" action="https://formspree.io/f/mvzyawjz" method="POST">
         <input type="hidden" name="_subject" value="Neue Baumspende-Anfrage über edlehoelzer.de">
         <input type="hidden" name="_next" value="https://edlehoelzer.de/danke.html">
         <input class="treeInput" type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
@@ -355,12 +355,8 @@
                 <input class="treeInput" id="ort" name="ort_plz" type="text" autocomplete="postal-code" required>
               </div>
               <div class="treeField treeField--full">
-                <label for="fotos">Fotos hochladen</label>
-                <input class="treeInput" id="fotos" name="fotos" type="file" accept="image/*" multiple>
-              </div>
-              <div class="treeField treeField--full">
                 <label for="infos">Noch etwas, das wir wissen sollten?</label>
-                <textarea class="treeTextarea" id="infos" name="informationen"></textarea>
+                <textarea class="treeTextarea" id="infos" name="informationen" placeholder="Wenn du Fotos hast, schreib kurz dazu, dass wir sie anfordern sollen. Du kannst sie uns nach unserer Rückmeldung per E-Mail senden."></textarea>
               </div>
               <label class="treeConsent treeField--full">
                 <input id="treis-vormerken" type="checkbox" name="treis_walnuss_vormerken" value="Ja">
