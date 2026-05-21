@@ -24,8 +24,9 @@
     return catalogPromise;
   }
 
-  function renderProductGrid(containerId, filterFn) {
+  function renderProductGrid(containerId, filterFn, options) {
     var container = document.getElementById(containerId);
+    var maxItems = options && Number(options.maxItems);
     if (!container) {
       return;
     }
@@ -45,6 +46,10 @@
             return product.image && product.etsyUrl;
           })
           .sort(sortProducts);
+
+        if (maxItems > 0) {
+          filtered = filtered.slice(0, maxItems);
+        }
 
         if (!filtered.length) {
           renderFallback(container);
