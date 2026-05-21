@@ -41,19 +41,42 @@
     .treeSmall{margin:12px 0 0;color:rgba(17,17,17,.52);font-size:13px;font-weight:700}
     .treeCounter{display:grid;grid-template-columns:minmax(0,.72fr) minmax(240px,.28fr);gap:28px;align-items:center;border:1px solid rgba(184,136,87,.24);border-radius:8px;background:#fff;padding:clamp(24px,4vw,44px)}
     .treeCounter__number{display:grid;place-items:center;min-height:190px;border-radius:8px;background:var(--sand);color:var(--accent);font-size:clamp(72px,11vw,128px);font-weight:800;line-height:1}
-    .treeFlow{display:grid;gap:16px}
-    .treeQuestion{border:1px solid var(--line);border-radius:8px;background:#fff;padding:22px}
-    .treeQuestion h3{margin:0 0 14px;font-size:18px}
-    .treeOptions{display:flex;flex-wrap:wrap;gap:10px}
-    .treeOption{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:10px 13px;border:1px solid rgba(17,17,17,.12);border-radius:8px;background:#fbf8f4;font-weight:700;cursor:pointer}
-    .treeOption input{accent-color:var(--accent)}
+    .treeFlow{position:relative;overflow:hidden;border:1px solid rgba(184,136,87,.28);border-radius:8px;background:#fff;padding:clamp(22px,4vw,38px);box-shadow:0 18px 42px rgba(52,35,22,.07)}
+    .treeFlow.is-done .treeFlow__head{display:none}
+    .treeFlow__head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+    .treeFlow__eyebrow{margin:0;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.52)}
+    .treeFlow__progress{color:var(--accent);font-size:13px;font-weight:800;white-space:nowrap}
+    .treeFlow__steps{position:relative}
+    .treeFlowStep{display:none;opacity:0;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease}
+    .treeFlowStep.is-active{display:block;opacity:1;transform:translateY(0)}
+    .treeFlowStep h3{margin:0 0 18px;font-size:clamp(24px,4vw,38px);line-height:1.12}
+    .treeFlowStep__lead{margin:-6px 0 20px;color:rgba(17,17,17,.66);line-height:1.65}
+    .treeFlowStep--abort,.treeFlowStep--done{max-width:760px}
+    .treeFlowStep--abort p,.treeFlowStep--done p{margin:0 0 18px;color:rgba(17,17,17,.68);font-size:18px;line-height:1.65}
+    .treeChoiceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+    .treeChoiceGrid--compact{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .treeChoice{min-height:52px;border:1px solid var(--accent);border-radius:8px;background:#fff;color:var(--ink);padding:13px 16px;font:inherit;font-weight:800;text-align:left;cursor:pointer;transition:background-color .16s ease,color .16s ease,border-color .16s ease,box-shadow .16s ease}
+    .treeChoice:hover,.treeChoice:focus-visible{border-color:var(--accent-deep);box-shadow:0 8px 18px rgba(52,35,22,.08);outline:none}
+    .treeChoice.is-selected{background:var(--accent);border-color:var(--accent);color:#fff}
+    .treeFlow__next,.treeFlow__submit{width:100%;margin-top:22px}
+    .treeFlow__next:disabled{display:none}
+    .treeBackLink,.treeTextLink{display:inline-flex;margin-top:18px;border:0;background:transparent;padding:0;color:rgba(17,17,17,.62);font:inherit;font-size:13px;font-weight:800;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+    .treeTextLink{color:var(--accent)}
+    .treeFlow__question{margin:18px 0 0;color:rgba(17,17,17,.66);font-weight:800}
     .treeSelect,.treeInput,.treeTextarea{width:100%;min-height:48px;border:1px solid rgba(17,17,17,.14);border-radius:8px;background:#fff;padding:12px 14px;font:inherit;color:var(--ink)}
     .treeTextarea{min-height:150px;resize:vertical;line-height:1.55}
     .treeHint{display:none;margin:14px 0 0;padding:12px 14px;border-left:4px solid var(--accent);border-radius:6px;background:var(--sand);color:rgba(17,17,17,.72);font-size:14px;font-weight:700;line-height:1.5}
     .treeHint.is-visible{display:block}
     .treeHint--always{display:block}
-    .treeSuboptions{display:none;margin-top:14px}
-    .treeSuboptions.is-visible{display:block}
+    .treeSubquestion{display:none;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+    .treeSubquestion.is-visible{display:block}
+    .treeSubquestion h4{margin:0 0 12px;font-size:16px}
+    .treeSummary{display:grid;grid-template-columns:minmax(140px,.34fr) minmax(0,1fr);gap:10px 18px;margin:0;padding:18px;border:1px solid var(--line);border-radius:8px;background:#fbf8f4}
+    .treeSummary dt{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.50)}
+    .treeSummary dd{margin:0;color:rgba(17,17,17,.76);font-weight:700}
+    .treeReview{margin:0 0 18px;padding:18px;border:1px solid rgba(184,136,87,.24);border-radius:8px;background:#fbf8f4}
+    .treeReview label{display:block;margin:0 0 8px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.56)}
+    .treeReviewText{min-height:190px;background:#fff;color:rgba(17,17,17,.78);font-weight:700}
     .treeSteps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;counter-reset:tree-step}
     .treeStep{counter-increment:tree-step;border:1px solid var(--line);border-radius:8px;background:#fff;padding:22px;display:grid;gap:10px}
     .treeStep::before{content:counter(tree-step,decimal-leading-zero);width:42px;height:42px;border-radius:999px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800}
@@ -63,20 +86,23 @@
     .treePrice th,.treePrice td{padding:18px;border-bottom:1px solid var(--line);text-align:left}
     .treePrice th{background:#f8f3ec;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.60)}
     .treePrice tr:last-child td{border-bottom:0}
-    .treeForm{display:grid;gap:16px;border:1px solid rgba(184,136,87,.25);border-radius:8px;background:#fff;padding:clamp(22px,4vw,38px);box-shadow:0 18px 42px rgba(52,35,22,.07)}
     .treeForm__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
     .treeField{display:grid;gap:7px}
     .treeField label,.treeField span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.56)}
     .treeField--full{grid-column:1/-1}
     .treeConsent{display:flex;gap:10px;align-items:flex-start;color:rgba(17,17,17,.70);font-weight:700;line-height:1.45}
     .treeConsent input{margin-top:3px;accent-color:var(--accent)}
+    .treeFormError{display:none;margin:16px 0 0;color:#8a2f1a;font-size:14px;font-weight:800}
+    .treeFormError.is-visible{display:block}
     .treeLinks{border:1px solid rgba(17,17,17,.10);border-radius:8px;background:#fbf8f4;padding:22px;display:grid;gap:8px}
     .treeLinks p{margin:0;color:rgba(17,17,17,.62)}
     .treeLinks a{font-weight:800}
     @media (max-width:840px){
-      .treeHero__grid,.treeCounter,.treeSteps,.treeForm__grid{grid-template-columns:1fr}
+      .treeHero__grid,.treeCounter,.treeSteps,.treeForm__grid,.treeChoiceGrid,.treeChoiceGrid--compact,.treeSummary{grid-template-columns:1fr}
       .treeHero h1{max-width:9ch}
       .treeCounter__number{min-height:140px}
+      .treeFlow__head{align-items:flex-start}
+      .treeChoice{width:100%}
     }
   </style>
 </head>
@@ -185,95 +211,173 @@
     </div>
   </section>
 
-  <section class="treeSection">
+  <section class="treeSection" id="kontakt">
     <div class="treeWrap">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Qualifizierung</p>
         <h2>Erst prüfen. Dann entscheiden.</h2>
         <p class="section__lead">Nicht jeder Stamm eignet sich — das sagen wir ehrlich. Beantworte kurz diese Fragen. Du bekommst von uns eine offene Rückmeldung.</p>
       </div>
-      <div class="treeFlow" aria-label="Frage-Flow zur Baumspende">
-        <article class="treeQuestion">
-          <h3>Wo steht dein Baum?</h3>
-          <div class="treeOptions">
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="region" value="Mittelhessen"> Mittelhessen</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="region" value="Außerhalb Mittelhessen" data-show-hint="region-outside"> Außerhalb Mittelhessen</label>
-          </div>
-          <p class="treeHint" id="region-outside">Aktuell begleiten wir Projekte ausschließlich regional in Mittelhessen.</p>
-        </article>
+      <form id="baumspende-flow" class="treeFlow" action="https://formspree.io/f/maqanpld" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="_subject" value="Neue Baumspende-Anfrage über edlehoelzer.de">
+        <input class="treeInput" type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <div id="flow-hidden-fields"></div>
 
-        <article class="treeQuestion">
-          <h3>Welche Baumart ist es?</h3>
-          <select form="baumspende-form" class="treeSelect" name="baumart" aria-label="Baumart auswählen">
-            <option value="">Bitte auswählen</option>
-            <option>Walnuss / Nussbaum</option>
-            <option>Kirsche</option>
-            <option>Zwetschge</option>
-            <option>Apfel</option>
-            <option>Birne</option>
-            <option>Ahorn</option>
-            <option>Eiche</option>
-            <option>Kastanie</option>
-            <option>Esche</option>
-            <option>Lärche</option>
-            <option>Unbekannt</option>
-          </select>
-        </article>
+        <div class="treeFlow__head">
+          <p class="treeFlow__eyebrow">Baumspende anfragen</p>
+          <span class="treeFlow__progress" data-flow-progress>Schritt 1 von 9</span>
+        </div>
 
-        <article class="treeQuestion">
-          <h3>Wie stark ist der Stamm ungefähr?</h3>
-          <div class="treeOptions">
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="50–70 cm"> 50–70 cm</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="70–100 cm"> 70–100 cm</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="Über 100 cm"> Über 100 cm</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="stammstaerke" value="Unsicher"> Unsicher</label>
-          </div>
-          <p class="treeHint treeHint--always">Für die meisten Projekte benötigen wir einen Stammdurchmesser von mindestens ca. 50 cm.</p>
-        </article>
-
-        <article class="treeQuestion">
-          <h3>Ist der Stamm bereits gefällt?</h3>
-          <div class="treeOptions">
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="gefaellt" value="Ja" data-show-suboptions="holz-liegt"> Ja</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="gefaellt" value="Nein"> Nein</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="gefaellt" value="Teilweise"> Teilweise</label>
-          </div>
-          <div class="treeSuboptions" id="holz-liegt">
-            <h3>Wie lange liegt das Holz bereits?</h3>
-            <div class="treeOptions">
-              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="Unter 3 Monate"> Unter 3 Monate</label>
-              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="3–12 Monate"> 3–12 Monate</label>
-              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="Länger"> Länger</label>
-              <label class="treeOption"><input form="baumspende-form" type="radio" name="liegezeit" value="Unsicher"> Unsicher</label>
+        <div class="treeFlow__steps">
+          <section class="treeFlowStep is-active" data-step="1" aria-labelledby="baum-step-1">
+            <h3 id="baum-step-1">Wo steht dein Baum?</h3>
+            <div class="treeChoiceGrid">
+              <button type="button" class="treeChoice" data-field="standort" data-value="Mittelhessen" data-next="2">Mittelhessen</button>
+              <button type="button" class="treeChoice" data-field="standort" data-value="Außerhalb Mittelhessen" data-abort="true">Außerhalb Mittelhessen</button>
             </div>
-          </div>
-        </article>
+          </section>
 
-        <article class="treeQuestion">
-          <h3>Warum muss der Baum weichen?</h3>
-          <div class="treeOptions">
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Krankheit / abgestorben"> Krankheit / abgestorben</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Sturm- oder Bruchschaden"> Sturm- oder Bruchschaden</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Sicherheitsgründe"> Sicherheitsgründe</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Umbau / Gartenprojekt"> Umbau / Gartenprojekt</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Bereits gefällt"> Bereits gefällt</label>
-            <label class="treeOption"><input form="baumspende-form" type="radio" name="grund" value="Eigentlich gesund" data-show-hint="healthy-tree"> Eigentlich gesund</label>
-          </div>
-          <p class="treeHint" id="healthy-tree">Meld dich trotzdem kurz — manchmal gibt es Gründe, die wir gemeinsam einschätzen können.</p>
-        </article>
+          <section class="treeFlowStep treeFlowStep--abort" data-step="abort" aria-labelledby="baum-step-abort">
+            <h3 id="baum-step-abort">Aktuell nur in Mittelhessen.</h3>
+            <p>Aktuell begleiten wir Projekte ausschließlich regional in Mittelhessen. Meld dich gerne trotzdem — vielleicht ändert sich das.</p>
+            <button type="button" class="treeTextLink" data-contact-anyway>Trotzdem Nachricht senden</button>
+            <button type="button" class="treeBackLink" data-back>Zurück</button>
+          </section>
 
-        <article class="treeQuestion">
-          <h3>Was soll entstehen?</h3>
-          <div class="treeOptions">
-            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Schneidebrett"> Schneidebrett</label>
-            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Servierbrett"> Servierbrett</label>
-            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Couchtisch"> Couchtisch</label>
-            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Esstisch"> Esstisch</label>
-            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Erinnerungsstück"> Erinnerungsstück</label>
-            <label class="treeOption"><input form="baumspende-form" type="checkbox" name="produktwunsch" value="Beratung gewünscht"> Beratung gewünscht</label>
-          </div>
-        </article>
-      </div>
+          <section class="treeFlowStep" data-step="2" aria-labelledby="baum-step-2">
+            <h3 id="baum-step-2">Welche Baumart ist es?</h3>
+            <div class="treeChoiceGrid treeChoiceGrid--compact">
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Walnuss / Nussbaum" data-next="3">Walnuss / Nussbaum</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Kirsche" data-next="3">Kirsche</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Zwetschge" data-next="3">Zwetschge</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Apfel" data-next="3">Apfel</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Birne" data-next="3">Birne</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Ahorn" data-next="3">Ahorn</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Eiche" data-next="3">Eiche</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Kastanie" data-next="3">Kastanie</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Esche" data-next="3">Esche</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Lärche" data-next="3">Lärche</button>
+              <button type="button" class="treeChoice" data-field="baumart" data-value="Unbekannt" data-next="3">Unbekannt</button>
+            </div>
+            <button type="button" class="treeBackLink" data-back>Zurück</button>
+          </section>
+
+          <section class="treeFlowStep" data-step="3" aria-labelledby="baum-step-3">
+            <h3 id="baum-step-3">Wie stark ist der Stamm ungefähr?</h3>
+            <div class="treeChoiceGrid">
+              <button type="button" class="treeChoice" data-field="stammstaerke" data-value="50–70 cm" data-next="4">50–70 cm</button>
+              <button type="button" class="treeChoice" data-field="stammstaerke" data-value="70–100 cm" data-next="4">70–100 cm</button>
+              <button type="button" class="treeChoice" data-field="stammstaerke" data-value="Über 100 cm" data-next="4">Über 100 cm</button>
+              <button type="button" class="treeChoice" data-field="stammstaerke" data-value="Unsicher" data-next="4">Unsicher</button>
+            </div>
+            <p class="treeHint treeHint--always">Für die meisten Projekte benötigen wir einen Stammdurchmesser von mindestens ca. 50 cm.</p>
+            <button type="button" class="treeBackLink" data-back>Zurück</button>
+          </section>
+
+          <section class="treeFlowStep" data-step="4" aria-labelledby="baum-step-4">
+            <h3 id="baum-step-4">Ist der Stamm bereits gefällt?</h3>
+            <div class="treeChoiceGrid">
+              <button type="button" class="treeChoice" data-field="stamm_gefaellt" data-value="Ja" data-show-liegedauer>Ja</button>
+              <button type="button" class="treeChoice" data-field="stamm_gefaellt" data-value="Nein" data-next="5">Nein</button>
+              <button type="button" class="treeChoice" data-field="stamm_gefaellt" data-value="Teilweise" data-next="5">Teilweise</button>
+            </div>
+            <div class="treeSubquestion" data-liegedauer>
+              <h4>Wie lange liegt das Holz bereits?</h4>
+              <div class="treeChoiceGrid treeChoiceGrid--compact">
+                <button type="button" class="treeChoice" data-field="liegedauer" data-value="Unter 3 Monate" data-next="5">Unter 3 Monate</button>
+                <button type="button" class="treeChoice" data-field="liegedauer" data-value="3–12 Monate" data-next="5">3–12 Monate</button>
+                <button type="button" class="treeChoice" data-field="liegedauer" data-value="Länger" data-next="5">Länger</button>
+                <button type="button" class="treeChoice" data-field="liegedauer" data-value="Unsicher" data-next="5">Unsicher</button>
+              </div>
+            </div>
+            <button type="button" class="treeBackLink" data-back>Zurück</button>
+          </section>
+
+          <section class="treeFlowStep" data-step="5" aria-labelledby="baum-step-5">
+            <h3 id="baum-step-5">Warum muss der Baum weichen?</h3>
+            <div class="treeChoiceGrid treeChoiceGrid--compact">
+              <button type="button" class="treeChoice" data-field="grund" data-value="Krankheit / abgestorben" data-next="6">Krankheit / abgestorben</button>
+              <button type="button" class="treeChoice" data-field="grund" data-value="Sturm- oder Bruchschaden" data-next="6">Sturm- oder Bruchschaden</button>
+              <button type="button" class="treeChoice" data-field="grund" data-value="Sicherheitsgründe" data-next="6">Sicherheitsgründe</button>
+              <button type="button" class="treeChoice" data-field="grund" data-value="Umbau / Gartenprojekt" data-next="6">Umbau / Gartenprojekt</button>
+              <button type="button" class="treeChoice" data-field="grund" data-value="Bereits gefällt" data-next="6">Bereits gefällt</button>
+              <button type="button" class="treeChoice" data-field="grund" data-value="Eigentlich gesund" data-next="6" data-healthy-hint>Eigentlich gesund</button>
+            </div>
+            <p class="treeHint" data-healthy-message>Meld dich trotzdem kurz — manchmal gibt es Gründe, die wir gemeinsam einschätzen können.</p>
+            <button type="button" class="treeBackLink" data-back>Zurück</button>
+          </section>
+
+          <section class="treeFlowStep" data-step="6" aria-labelledby="baum-step-6">
+            <h3 id="baum-step-6">Was soll entstehen?</h3>
+            <div class="treeChoiceGrid treeChoiceGrid--compact" data-multi="produktwunsch">
+              <button type="button" class="treeChoice" data-toggle-value="Schneidebrett">Schneidebrett</button>
+              <button type="button" class="treeChoice" data-toggle-value="Servierbrett">Servierbrett</button>
+              <button type="button" class="treeChoice" data-toggle-value="Couchtisch">Couchtisch</button>
+              <button type="button" class="treeChoice" data-toggle-value="Esstisch">Esstisch</button>
+              <button type="button" class="treeChoice" data-toggle-value="Erinnerungsstück">Erinnerungsstück</button>
+              <button type="button" class="treeChoice" data-toggle-value="Beratung gewünscht">Beratung gewünscht</button>
+            </div>
+            <button type="button" class="btn treeFlow__next" data-next-step="7" disabled>Weiter →</button>
+            <button type="button" class="treeBackLink" data-back>Zurück</button>
+          </section>
+
+          <section class="treeFlowStep" data-step="7" aria-labelledby="baum-step-7">
+            <h3 id="baum-step-7">Kurze Zusammenfassung.</h3>
+            <dl class="treeSummary" data-summary></dl>
+            <p class="treeFlow__question">Passt das so?</p>
+            <button type="button" class="btn treeFlow__next" data-next-step="8">Ja, weiter →</button>
+            <button type="button" class="treeTextLink" data-edit-start>Etwas ändern</button>
+          </section>
+
+          <section class="treeFlowStep" data-step="8" aria-labelledby="baum-step-8">
+            <h3 id="baum-step-8">Fast geschafft. Wir haben deine Prüfung vorbereitet.</h3>
+            <p class="treeFlowStep__lead">Deine Antworten stehen schon in der Anfrage. Ergänze nur noch deine Kontaktdaten und lade bei Bedarf Fotos hoch.</p>
+            <div class="treeReview">
+              <label for="flow-review">Deine Angaben aus der Prüfung</label>
+              <textarea class="treeTextarea treeReviewText" id="flow-review" name="pruefung_zusammenfassung" readonly></textarea>
+            </div>
+            <div class="treeForm__grid">
+              <div class="treeField">
+                <label for="name">Vorname &amp; Nachname</label>
+                <input class="treeInput" id="name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="treeField">
+                <label for="email">E-Mail-Adresse</label>
+                <input class="treeInput" id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="treeField">
+                <label for="telefon">Telefonnummer</label>
+                <input class="treeInput" id="telefon" name="telefon" type="tel" autocomplete="tel">
+              </div>
+              <div class="treeField">
+                <label for="ort">Ort / PLZ</label>
+                <input class="treeInput" id="ort" name="ort_plz" type="text" autocomplete="postal-code" required>
+              </div>
+              <div class="treeField treeField--full">
+                <label for="fotos">Fotos hochladen</label>
+                <input class="treeInput" id="fotos" name="fotos" type="file" accept="image/*" multiple>
+              </div>
+              <div class="treeField treeField--full">
+                <label for="infos">Noch etwas, das wir wissen sollten?</label>
+                <textarea class="treeTextarea" id="infos" name="informationen"></textarea>
+              </div>
+              <label class="treeConsent treeField--full">
+                <input id="treis-vormerken" type="checkbox" name="treis_walnuss_vormerken" value="Ja">
+                <span>Ich möchte mich für die Treis-Walnuss vormerken lassen</span>
+              </label>
+            </div>
+            <p class="treeFormError" data-form-error role="alert"></p>
+            <button type="submit" class="btn treeFlow__submit" data-goatcounter-click="true" data-goatcounter-title="baumspende_form_submit">Baum prüfen lassen</button>
+            <p class="treeSmall">Wir begleiten ausschließlich Projekte in Mittelhessen. Pro Saison maximal 8 Projekte. Du bekommst von uns eine ehrliche Rückmeldung — auch wenn es ein Nein ist.</p>
+            <button type="button" class="treeBackLink" data-back>Zurück</button>
+          </section>
+
+          <section class="treeFlowStep treeFlowStep--done" data-step="9" aria-labelledby="baum-step-9">
+            <h3 id="baum-step-9">Danke. Wir melden uns.</h3>
+            <p>Deine Anfrage ist bei uns. Wir prüfen, ob dein Projekt in Frage kommt, und melden uns direkt bei dir — ehrlich und ohne Umwege.</p>
+          </section>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -325,54 +429,6 @@
       <h2>Diese Hölzer interessieren uns besonders.</h2>
       <p>Walnuss, Kirsche, Zwetschge, Apfel, Birne, Ahorn, Eiche, Kastanie, Esche, Lärche — charakterstarke regionale Laub- und Obsthölzer mit ausreichend Stammstärke. Für die meisten Projekte benötigen wir einen Stammdurchmesser von mindestens ca. 50 cm.</p>
       <p>Nicht sicher, was bei dir im Garten steht? Einfach anfragen. Wir schauen gemeinsam.</p>
-    </div>
-  </section>
-
-  <section class="treeSection" id="kontakt">
-    <div class="treeWrap">
-      <div class="sectionIntro">
-        <p class="eyebrow eyebrow--dark">Kontakt</p>
-        <h2>Dein Baum. Unverbindlich prüfen lassen.</h2>
-      </div>
-      <form id="baumspende-form" class="treeForm" action="https://formspree.io/f/maqanpld" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_subject" value="Neue Baumspende-Anfrage über edlehoelzer.de">
-        <input type="hidden" name="_next" value="https://edlehoelzer.de/danke.html">
-        <input class="treeInput" type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-        <div class="treeForm__grid">
-          <div class="treeField">
-            <label for="name">Vorname &amp; Nachname</label>
-            <input class="treeInput" id="name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="treeField">
-            <label for="email">E-Mail-Adresse</label>
-            <input class="treeInput" id="email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="treeField">
-            <label for="telefon">Telefonnummer</label>
-            <input class="treeInput" id="telefon" name="telefon" type="tel" autocomplete="tel">
-          </div>
-          <div class="treeField">
-            <label for="ort">Ort / PLZ</label>
-            <input class="treeInput" id="ort" name="ort_plz" type="text" autocomplete="postal-code" required>
-          </div>
-          <div class="treeField treeField--full">
-            <label for="fotos">Fotos hochladen</label>
-            <input class="treeInput" id="fotos" name="fotos" type="file" accept="image/*" multiple>
-          </div>
-          <div class="treeField treeField--full">
-            <label for="infos">Zusätzliche Informationen</label>
-            <textarea class="treeTextarea" id="infos" name="informationen" placeholder="Baumart, Standort, ungefährer Durchmesser, Zustand, gewünschtes Stück oder alles, was du schon weißt."></textarea>
-          </div>
-          <label class="treeConsent treeField--full">
-            <input id="treis-vormerken" type="checkbox" name="treis_walnuss_vormerken" value="Ja">
-            <span>Ich möchte mich für die Treis-Walnuss vormerken lassen</span>
-          </label>
-        </div>
-        <div>
-          <button type="submit" class="btn" data-goatcounter-click="true" data-goatcounter-title="baumspende_form_submit">Baum prüfen lassen</button>
-          <p class="treeSmall">Wir begleiten ausschließlich Projekte in Mittelhessen. Pro Saison maximal 8 Projekte. Du bekommst von uns eine ehrliche Rückmeldung — auch wenn es ein Nein ist.</p>
-        </div>
-      </form>
     </div>
   </section>
 
@@ -448,27 +504,230 @@
     node.textContent = freePlaetze;
   });
 
-  document.querySelectorAll("input[type='radio']").forEach(function (input) {
-    input.addEventListener("change", function () {
-      var group = document.querySelectorAll("input[name='" + input.name + "']");
-      group.forEach(function (item) {
-        var hintId = item.getAttribute("data-show-hint");
-        var subId = item.getAttribute("data-show-suboptions");
-        if (hintId) {
-          document.getElementById(hintId).classList.toggle("is-visible", item.checked);
+  (function () {
+    var flow = document.getElementById("baumspende-flow");
+    if (!flow) return;
+
+    var state = {
+      standort: "",
+      ausserhalb: "false",
+      baumart: "",
+      stammstaerke: "",
+      stamm_gefaellt: "",
+      liegedauer: "",
+      grund: "",
+      produktwunsch: []
+    };
+    var history = [1];
+    var currentStep = 1;
+    var progress = flow.querySelector("[data-flow-progress]");
+    var hiddenFields = document.getElementById("flow-hidden-fields");
+    var summary = flow.querySelector("[data-summary]");
+    var reviewField = document.getElementById("flow-review");
+    var formError = flow.querySelector("[data-form-error]");
+    var submitButton = flow.querySelector(".treeFlow__submit");
+    var params = new URLSearchParams(window.location.search);
+    var treisCheckbox = document.getElementById("treis-vormerken");
+
+    if (treisCheckbox && params.get("vormerken") === "true") {
+      treisCheckbox.checked = true;
+    }
+
+    function updateProgress(step) {
+      if (!progress) return;
+      if (step === "abort") {
+        progress.textContent = "Schritt 1 von 9";
+        return;
+      }
+      progress.textContent = "Schritt " + step + " von 9";
+    }
+
+    function showStep(step, pushHistory) {
+      currentStep = step;
+      flow.classList.toggle("is-done", step === 9);
+      flow.querySelectorAll(".treeFlowStep").forEach(function (node) {
+        node.classList.toggle("is-active", node.dataset.step === String(step));
+      });
+      if (pushHistory) history.push(step);
+      updateProgress(step);
+      if (step === 7) renderSummary();
+      if (step === 8) {
+        renderReviewField();
+        syncHiddenFields();
+      }
+      if (formError) formError.classList.remove("is-visible");
+      flow.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function selectSingle(field, value) {
+      state[field] = value;
+      flow.querySelectorAll("[data-field='" + field + "']").forEach(function (button) {
+        button.classList.toggle("is-selected", button.dataset.value === value);
+      });
+    }
+
+    function toggleProduct(value, button) {
+      var index = state.produktwunsch.indexOf(value);
+      if (index === -1) {
+        state.produktwunsch.push(value);
+        button.classList.add("is-selected");
+      } else {
+        state.produktwunsch.splice(index, 1);
+        button.classList.remove("is-selected");
+      }
+      var next = flow.querySelector("[data-step='6'] [data-next-step='7']");
+      if (next) next.disabled = state.produktwunsch.length === 0;
+    }
+
+    function getSummaryRows() {
+      return [
+        ["Standort", state.standort || "Noch offen"],
+        ["Außerhalb Mittelhessen", state.ausserhalb === "true" ? "Ja" : "Nein"],
+        ["Baumart", state.baumart || "Noch offen"],
+        ["Stammstärke", state.stammstaerke || "Noch offen"],
+        ["Bereits gefällt", state.stamm_gefaellt || "Noch offen"],
+        ["Liegedauer", state.liegedauer || "Nicht relevant"],
+        ["Grund", state.grund || "Noch offen"],
+        ["Soll entstehen", state.produktwunsch.length ? state.produktwunsch.join(", ") : "Noch offen"]
+      ];
+    }
+
+    function renderSummary() {
+      if (!summary) return;
+      var rows = getSummaryRows();
+      summary.innerHTML = rows.map(function (row) {
+        return "<dt>" + row[0] + "</dt><dd>" + row[1] + "</dd>";
+      }).join("");
+    }
+
+    function renderReviewField() {
+      if (!reviewField) return;
+      reviewField.value = getSummaryRows().map(function (row) {
+        return row[0] + ": " + row[1];
+      }).join("\n");
+    }
+
+    function syncHiddenFields() {
+      if (!hiddenFields) return;
+      renderReviewField();
+      hiddenFields.innerHTML = "";
+      Object.keys(state).forEach(function (key) {
+        var value = Array.isArray(state[key]) ? state[key].join(", ") : state[key];
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value;
+        hiddenFields.appendChild(input);
+      });
+    }
+
+    flow.addEventListener("click", function (event) {
+      var choice = event.target.closest(".treeChoice");
+      var back = event.target.closest("[data-back]");
+      var next = event.target.closest("[data-next-step]");
+      var editStart = event.target.closest("[data-edit-start]");
+      var contactAnyway = event.target.closest("[data-contact-anyway]");
+
+      if (choice) {
+        var field = choice.dataset.field;
+        if (choice.dataset.toggleValue) {
+          toggleProduct(choice.dataset.toggleValue, choice);
+          return;
         }
-        if (subId) {
-          document.getElementById(subId).classList.toggle("is-visible", item.checked);
+        if (field) selectSingle(field, choice.dataset.value);
+        if (choice.dataset.abort === "true") {
+          state.ausserhalb = "true";
+          showStep("abort", true);
+          return;
+        }
+        if (choice.dataset.showLiegedauer !== undefined) {
+          state.liegedauer = "";
+          var subquestion = flow.querySelector("[data-liegedauer]");
+          if (subquestion) subquestion.classList.add("is-visible");
+          return;
+        }
+        if (field === "stamm_gefaellt") {
+          state.liegedauer = "";
+          var liegedauer = flow.querySelector("[data-liegedauer]");
+          if (liegedauer) liegedauer.classList.remove("is-visible");
+          flow.querySelectorAll("[data-field='liegedauer']").forEach(function (button) {
+            button.classList.remove("is-selected");
+          });
+        }
+        if (choice.dataset.healthyHint !== undefined) {
+          var healthyMessage = flow.querySelector("[data-healthy-message]");
+          if (healthyMessage) healthyMessage.classList.add("is-visible");
+          window.setTimeout(function () {
+            showStep(6, true);
+          }, 900);
+          return;
+        }
+        if (field === "grund" && choice.dataset.healthyHint === undefined) {
+          var message = flow.querySelector("[data-healthy-message]");
+          if (message) message.classList.remove("is-visible");
+        }
+        if (choice.dataset.next) showStep(Number(choice.dataset.next), true);
+        return;
+      }
+
+      if (back) {
+        if (history.length > 1) {
+          history.pop();
+          showStep(history[history.length - 1], false);
+        }
+        return;
+      }
+
+      if (next) {
+        showStep(Number(next.dataset.nextStep), true);
+        return;
+      }
+
+      if (editStart) {
+        history = [1];
+        showStep(1, false);
+        return;
+      }
+
+      if (contactAnyway) {
+        state.ausserhalb = "true";
+        showStep(8, true);
+      }
+    });
+
+    flow.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!flow.checkValidity()) {
+        flow.reportValidity();
+        return;
+      }
+      syncHiddenFields();
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Wird gesendet ...";
+      }
+      fetch(flow.action, {
+        method: "POST",
+        body: new FormData(flow),
+        headers: { "Accept": "application/json" }
+      }).then(function (response) {
+        if (!response.ok) throw new Error("Formspree konnte die Anfrage nicht annehmen.");
+        showStep(9, true);
+      }).catch(function () {
+        if (formError) {
+          formError.textContent = "Das hat gerade nicht geklappt. Bitte versuch es noch einmal oder schreib uns direkt per E-Mail.";
+          formError.classList.add("is-visible");
+        }
+      }).finally(function () {
+        if (submitButton && currentStep !== 9) {
+          submitButton.disabled = false;
+          submitButton.textContent = "Baum prüfen lassen";
         }
       });
     });
-  });
 
-  var params = new URLSearchParams(window.location.search);
-  var treisCheckbox = document.getElementById("treis-vormerken");
-  if (treisCheckbox && (params.get("vormerken") === "true" || window.location.hash === "#treis-vormerken")) {
-    treisCheckbox.checked = true;
-  }
+    updateProgress(1);
+  })();
 </script>
 </body>
 </html>
