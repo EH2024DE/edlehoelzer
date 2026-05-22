@@ -351,7 +351,7 @@ function initCardWelcome() {
     banner.innerHTML =
       '<button class="cardWelcome__close" type="button" aria-label="Hinweis schließen">×</button>' +
       '<p class="cardWelcome__kicker">Persönliche Empfehlung</p>' +
-      '<h2>Schön, dass Sie hier sind.</h2>' +
+      '<h2>Schön, dass du hier bist.</h2>' +
       '<p>Diese Karte geben wir nicht beliebig weiter. Sie ist für Menschen gedacht, bei denen wir glauben, dass echtes Handwerk, gutes Material und persönliche Beratung geschätzt werden.</p>' +
       '<ul class="cardWelcome__facts">' +
         '<li>Handgefertigt in Mittelhessen</li>' +
@@ -799,7 +799,7 @@ function initProductsPage() {
     },
     {
       id: "space",
-      title: "Wie viel Platz haben Sie in der Küche?",
+      title: "Wie viel Platz hast du in der Küche?",
       options: [
         {
           value: "small",
@@ -847,7 +847,7 @@ function initProductsPage() {
     },
     {
       id: "haptics",
-      title: "Welche Haptik und Stärke passt besser zu Ihnen?",
+      title: "Welche Haptik und Stärke passt besser zu dir?",
       options: [
         {
           value: "smooth",
@@ -871,7 +871,7 @@ function initProductsPage() {
     },
     {
       id: "priority",
-      title: "Was ist Ihnen am wichtigsten?",
+      title: "Was ist dir am wichtigsten?",
       options: [
         {
           value: "daily",
@@ -1111,7 +1111,7 @@ function initProductsPage() {
 
     if (!main) {
       resultRoot.hidden = false;
-      resultRoot.innerHTML = '<h2>Das dürfte am besten zu Ihrem Alltag passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">Schneidebrett anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
+      resultRoot.innerHTML = '<h2>Das dürfte am besten zu deinem Alltag passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">Schneidebrett anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
       bindReset(resultRoot);
       return;
     }
@@ -1124,7 +1124,7 @@ function initProductsPage() {
     resultRoot.innerHTML =
       '<div class="finderResult__head">' +
         '<p class="eyebrow eyebrow--dark">Empfehlung</p>' +
-        '<h2>Das dürfte am besten zu Ihrem Alltag passen</h2>' +
+        '<h2>Das dürfte am besten zu deinem Alltag passen</h2>' +
         '<p>' + escapeHtml(buildReason(main)) + '</p>' +
       '</div>' +
       '<div class="recommendationCard">' +
@@ -1329,11 +1329,11 @@ function initProductsPage() {
 
     if (space && movement) {
       if (space.value === "small" || movement.value === "portable") {
-        parts.push("Sie haben wenig Platz oder möchten das Brett häufiger bewegen. Deshalb passt ein kompaktes, leichteres Brett besser als ein schweres Stirnholzbrett.");
+        parts.push("Du hast wenig Platz oder möchtest das Brett häufiger bewegen. Deshalb passt ein kompaktes, leichteres Brett besser als ein schweres Stirnholzbrett.");
       } else if (space.value === "large" || movement.value === "stationary") {
-        parts.push("Sie haben genug Arbeitsfläche und das Brett darf dauerhaft satt liegen. Deshalb kann ein größeres, schwereres Brett sinnvoll sein.");
+        parts.push("Du hast genug Arbeitsfläche und das Brett darf dauerhaft satt liegen. Deshalb kann ein größeres, schwereres Brett sinnvoll sein.");
       } else {
-        parts.push("Sie suchen ein ausgewogenes Brett, das stabil liegt und trotzdem noch gut bewegt werden kann.");
+        parts.push("Du suchst ein ausgewogenes Brett, das stabil liegt und trotzdem noch gut bewegt werden kann.");
       }
     }
 
@@ -1350,7 +1350,7 @@ function initProductsPage() {
     }
 
     if (haptics && priority) {
-      parts.push("Ihre Auswahl bei Haptik und Priorität spricht für " + product.sizeLabel + ", " + product.thicknessLabel + " und " + product.material + ".");
+      parts.push("Deine Auswahl bei Haptik und Priorität spricht für " + product.sizeLabel + ", " + product.thicknessLabel + " und " + product.material + ".");
     }
 
     return parts.join(" ");
