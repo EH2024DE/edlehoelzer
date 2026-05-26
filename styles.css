@@ -63,6 +63,8 @@ img,video{display:block;max-width:100%}
 .btn--small{min-height:42px;padding:10px 16px;font-size:14px}
 .btn--ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);box-shadow:none}
 .btn--ghost:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.34);box-shadow:none}
+.btn--primary{background:var(--accent);color:#fff;border-color:rgba(17,17,17,.14)}
+.btn--primary:hover{background:var(--accent-deep);color:#fff}
 .btn--ghost-dark{background:transparent;color:var(--ink);border:1px solid rgba(17,17,17,.14);box-shadow:none}
 .btn--ghost-dark:hover{background:rgba(17,17,17,.03);border-color:rgba(17,17,17,.22);box-shadow:none}
 h1,h2,h3{margin:0;letter-spacing:-.03em;line-height:1.04}
@@ -585,10 +587,14 @@ section[id]{scroll-margin-top:88px}
 .productCard__cta{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 12px;border:1px solid rgba(17,17,17,.12);border-radius:8px;background:var(--accent);color:#fff;font-size:13px;font-weight:800;line-height:1;white-space:nowrap}
 .productCard__link:hover .productCard__cta{background:var(--accent-deep)}
 .productCard__buy,.etsyBuyBlock{display:flex;flex-direction:column;align-items:stretch;gap:6px}
-.productCard__trust,.etsyTrust{display:block;color:rgba(17,17,17,.54);font-size:11px;font-weight:600;line-height:1.35;text-align:left}
+.productCard__trust,.etsyTrust,.trust-badge{display:block;color:rgba(17,17,17,.54);font-size:11px;font-weight:600;line-height:1.35;text-align:left}
+.trust-badge{margin:6px 0 0}
 .etsyBuyBlock .btn{width:100%;background:var(--accent);color:#fff;border-color:rgba(17,17,17,.14)}
 .etsyBuyBlock .btn:hover{background:var(--accent-deep);color:#fff}
 .productGridEmpty{grid-column:1 / -1;background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px;color:rgba(17,17,17,.70)}
+.redirect-notice{background:#f5f1eb;border-top:1px solid #e0d8cc;border-bottom:1px solid #e0d8cc;color:#6b6b6b;font-size:14px;line-height:1.5;padding:12px 20px;text-align:center}
+.redirect-notice p{margin:0}
+.redirect-notice a{color:#1a1a1a;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .productGridEmpty p{margin:0}
 .productGridEmpty a{display:inline-flex;margin-top:12px;text-decoration:underline;text-underline-offset:3px;font-weight:800}
 .comparisonTable{display:block;width:100%;max-width:100%;border-collapse:separate;border-spacing:0;margin:24px 0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow-x:auto;box-shadow:var(--shadow);-webkit-overflow-scrolling:touch}
