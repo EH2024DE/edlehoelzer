@@ -1453,9 +1453,22 @@ function initProductsPage() {
       '</div>';
     }
 
-    return '<div class="productCard__media">' +
+    return '<div class="productCard__media"' + productImageStyle(product) + '>' +
       '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
     '</div>';
+  }
+
+  function productImageStyle(product) {
+    var x = product.imagePositionX || product.imageX;
+    var y = product.imagePositionY || product.imageY;
+    var fit = product.imageFit;
+    var styles = [];
+
+    if (x) styles.push("--product-image-x:" + escapeAttribute(String(x)));
+    if (y) styles.push("--product-image-y:" + escapeAttribute(String(y)));
+    if (fit) styles.push("--product-image-fit:" + escapeAttribute(String(fit)));
+
+    return styles.length ? ' style="' + styles.join(";") + '"' : "";
   }
 
   function buildFeatureBadges(product) {
