@@ -79,19 +79,22 @@
   function renderCard(product) {
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
 
-    return '<article class="productCard">' +
-      '<a class="productCard__link" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener" data-goatcounter-click="true" data-goatcounter-title="etsy_click">' +
+    return '<article class="productCard seo-product-card">' +
+      '<a class="productCard__link" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">' +
         '<div class="productCard__media productCard__imgWrap">' +
           '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
         '</div>' +
         '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(product.segment || product.category || "Produkt") + '</p>' +
-          '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
+          '<h3 class="productCard__name">' + escapeHtml(product.displayName || displayProductName(product)) + '</h3>' +
           renderBadges(product) +
           renderFacts(product) +
           '<div class="productCard__footer">' +
             (product.priceLabel ? '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' : "") +
-            '<span class="productCard__cta">Bei Etsy ansehen</span>' +
+            '<span class="productCard__buy">' +
+              '<span class="productCard__cta">Dieses Brett kaufen</span>' +
+              '<span class="productCard__trust">🔒 Sicher über Etsy · Käuferschutz inklusive</span>' +
+            '</span>' +
           '</div>' +
         '</div>' +
       '</a>' +
@@ -160,7 +163,7 @@
       return "";
     }
 
-    return '<dl class="productFacts">' + facts.slice(0, 4).map(function (fact) {
+    return '<dl class="productFacts spec-tiles">' + facts.slice(0, 4).map(function (fact) {
       return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
     }).join("") + '</dl>';
   }
@@ -206,7 +209,7 @@
     container.innerHTML =
       '<div class="productGridEmpty">' +
         '<p>Aktuell sind für diese Auswahl keine passenden Produkte geladen.</p>' +
-        '<a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Direkt im Etsy-Shop ansehen</a>' +
+        '<a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Direkt im Etsy-Shop ansehen</a>' +
       '</div>';
   }
 

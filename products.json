@@ -66,7 +66,9 @@
       ],
       "notIdealFor": [
         "Haupt-Schneidebrett"
-      ]
+      ],
+      "displayName": "Teigschaber – Massivholz-Mix",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-02-schneidebrett-buche-stirnholz-handgefertigt-besondere-jahresring-struktu",
@@ -134,7 +136,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Buche Stirnholz – Jahresring-Struktur",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-03-schneidebrett-bambus-und-buche-kompaktes-fruhstucksbrett-im-din-a4-forma",
@@ -201,7 +205,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Bambus & Buche – Frühstücksbrett",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
@@ -271,7 +277,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Eiche Stirnholz – XXL mit Saftrille",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-05-stirnholz-schneidebrett-aus-sibirischer-larche-massiv-handgefertigt-und",
@@ -340,7 +348,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Lärche Stirnholz – Kompakt",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-06-schneidebrett-mahagoni-stirnholz-massiv-handgearbeitet-personalisierbar",
@@ -407,7 +417,9 @@
       ],
       "notIdealFor": [
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Mahagoni Stirnholz – Ruhiger Block",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-07-schneidebrett-halter-eiche-oder-buche-minimalistisch-massiv-passgenau",
@@ -470,7 +482,9 @@
       ],
       "notIdealFor": [
         "Haupt-Schneidebrett"
-      ]
+      ],
+      "displayName": "Bretthalter – Eiche oder Buche",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-08-untersetzer-set-aus-holz-mit-halter-stirnholz-oder-langholz-eiche-nussba",
@@ -534,7 +548,9 @@
       ],
       "notIdealFor": [
         "Haupt-Schneidebrett"
-      ]
+      ],
+      "displayName": "Untersetzer-Set – Holz mit Halter",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-09-schneidebrett-kariert-stirnholz-wenge-nussbaum-und-eiche-unikat",
@@ -603,7 +619,9 @@
       ],
       "notIdealFor": [
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Wenge Nussbaum Eiche – Kariert",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-10-stirnholz-schneidebrett-nach-ma-massives-xxl-kuchenbrett-mit-anschlagkan",
@@ -613,7 +631,7 @@
       "category": "board",
       "segment": "Stirnholz",
       "priceLabel": "1199 EUR",
-      "priceOrder": 1199.0,
+      "priceOrder": 1199,
       "stock": 6,
       "shortDescription": "Stirnholz, Eiche, Nussbaum, Buche, Esche und weitere, 75 x 60 x 5 cm.",
       "longDescription": "Ein Brett, das bleibt. Gefertigt für Küchen, in denen gearbeitet wird – nicht dekoriert. Massiv, schwer und auf Maß gebaut. Kein Serienprodukt, sondern ein festes Element deiner Arbeitsfläche. Gefertigt aus einem Holz deiner Wahl, ohne visuelle Unruhe, ohne Mischoptik. Reduziert auf Material, Funktion und Präsenz. Mit einer Stärke von ca. 5–5,5 cm und einer.",
@@ -672,7 +690,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "XXL Stirnholz – Nach Maß",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-11-xxl-schneidebrett-aus-thermobambus-und-birke-massives-streifenbrett-hand",
@@ -719,7 +739,7 @@
       "material": "Thermobambus, Bambus, Birke",
       "woodCut": "edge",
       "sizeLabel": "44,7 x 31 cm",
-      "thicknessLabel": "massiv",
+      "thicknessLabel": "3,6 cm",
       "sizeProfile": "large",
       "weightClass": "heavy",
       "portability": "stationary",
@@ -744,7 +764,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "XXL Streifenbrett – Thermobambus & Birke",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-12-eiche-stirnholz-schneidebrett-xxl-mit-griff-59-5384-9-cm-7-9-kg-massivbl",
@@ -816,7 +838,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Eiche Stirnholz – Premium Hackblock",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-13-schneidebrett-pflegebalsam-holzpflege-paket-lebensmittelecht-mit-bienenw",
@@ -877,7 +901,9 @@
       ],
       "notIdealFor": [
         "Hauptempfehlung im Produktfinder"
-      ]
+      ],
+      "displayName": "Pflegebalsam – Leinöl & Bienenwachs",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-14-schneidebrett-kambala-holz-kompakt-personalisierbar-handgefertigt",
@@ -945,7 +971,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Kambala Schneidebrett – Kompakt",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
@@ -1010,7 +1038,9 @@
       ],
       "notIdealFor": [
         "Haupt-Schneidebrett"
-      ]
+      ],
+      "displayName": "Pfannenwender – Massivholz-Mix",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-16-servierbrett-set-aus-massivholz-mit-halter-3-teilig-handgefertigtes-tapa",
@@ -1076,7 +1106,9 @@
       "notIdealFor": [
         "kräftiges Schneiden",
         "BBQ-Hackarbeiten"
-      ]
+      ],
+      "displayName": "Servierbrett-Set – Dreiteilig",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-17-schneidebrett-nussbaum-holz-flankenholz-design-personalisierbar-minimale",
@@ -1144,7 +1176,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Nussbaum Langholz – Flankenoptik",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
@@ -1215,7 +1249,9 @@
         "kleine Arbeitsflaechen",
         "haeufiges Tragen",
         "leichtes Handling"
-      ]
+      ],
+      "displayName": "3D Stirnholz – Walnuss & Wenge",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-19-servierbrett-eiche-mit-doppelgriff-90-cm-aus-massivem-eichenholz-handgef",
@@ -1284,7 +1320,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Eiche Servierbrett – Doppelgriff",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-20-servierbrett-set-aus-massivholz-in-schwert-form-aus-eiche-esche-oder-nus",
@@ -1349,7 +1387,9 @@
       ],
       "notIdealFor": [
         "Nutzer, die ein anderes Format suchen"
-      ]
+      ],
+      "displayName": "Servierbrett-Set – Schwertform",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-21-schneidebrett-holz-schachbrett-aus-padouk-und-eiche-kariertes-stirnholz",
@@ -1418,7 +1458,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Padouk & Eiche – Kompakt kariert",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-22-schneidebrett-holz-schachbrett-aus-padouk-und-eiche-kariertes-stirnholz",
@@ -1488,7 +1530,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Padouk & Eiche – Großformat kariert",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-23-stirnholz-schneidebrett-eiche-ahorn-thermobambus-massivholz-brett-fachwe",
@@ -1555,7 +1599,9 @@
       ],
       "notIdealFor": [
         "Nutzer, die ein anderes Format suchen"
-      ]
+      ],
+      "displayName": "Fachwerk-Stirnholz – Eiche & Ahorn",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-24-servierbrett-aus-buche-mit-rahmen-aus-mohreiche-handgefertigtes-holzbret",
@@ -1623,7 +1669,9 @@
       ],
       "notIdealFor": [
         "Nutzer, die ein anderes Format suchen"
-      ]
+      ],
+      "displayName": "Buche & Mooreiche – Servierbrett",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-25-schneidebrett-eiche-mit-kambala-streifen-quadratisches-design-28-528-54",
@@ -1691,7 +1739,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Eiche & Kambala – Quadrat",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-26-stirnholz-schneidebrett-aus-esche-41-x-40-x-4-8-cm-5-8-kg-massiver-hackb",
@@ -1762,7 +1812,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Esche Stirnholz – BBQ Hackblock",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-27-stirnholz-schneidebrett-aus-tropenholz-massivholzbrett-mit-praktischen-g",
@@ -1832,7 +1884,9 @@
       ],
       "notIdealFor": [
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Tropenholz Stirnholz – Mit Griffen",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-28-stirnholz-schneidebrett-nussbaum-und-ahorn-massives-kuchenbrett-mit-ahor",
@@ -1900,7 +1954,9 @@
       ],
       "notIdealFor": [
         "Nutzer, die ein anderes Format suchen"
-      ]
+      ],
+      "displayName": "Nussbaum & Ahorn – Streifenbrett",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-29-stirnholz-schneidebrett-stockbuche-in-schachbrettmuster-groformat-massiv",
@@ -1969,7 +2025,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Stockbuche Stirnholz – Schachbrett",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-30-schneidebrett-holz-schachbrett-aus-buche-und-kambala-massiv-personalisie",
@@ -2039,7 +2097,9 @@
       ],
       "notIdealFor": [
         "Nutzer, die ein anderes Format suchen"
-      ]
+      ],
+      "displayName": "Buche & Kambala – Schachbrett",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-31-schneidebrett-holz-stirnholz-nussbaum-46-x-36-x-4-6-cm-massivholz-handge",
@@ -2110,7 +2170,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Nussbaum Stirnholz – Mit Saftrille",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-32-stirnholz-schneidebrett-3d-design-eiche-buche-wenge-handgefertigtes-prem",
@@ -2180,7 +2242,9 @@
         "kleine Arbeitsflaechen",
         "haeufiges Tragen",
         "leichtes Handling"
-      ]
+      ],
+      "displayName": "3D Stirnholz – Eiche Buche Wenge",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-33-stirnholz-schneidebrett-stockbuche-einzigartige-maserung-durch-naturfarb",
@@ -2247,7 +2311,9 @@
       ],
       "notIdealFor": [
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Stockbuche Stirnholz – Naturmaserung",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-34-schneidebrett-buche-stirnholz-mit-saftrille-massiv-handgefertigt-groform",
@@ -2317,7 +2383,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Buche Stirnholz – Mit Saftrille",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-35-schneidebrett-aus-eiche-langholz-minimalistisches-design-mit-schweizer-k",
@@ -2383,7 +2451,9 @@
       ],
       "notIdealFor": [
         "Nutzer, die ein anderes Format suchen"
-      ]
+      ],
+      "displayName": "Eiche Langholz – Schweizer Kante",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-36-stirnholz-schneidebrett-schachbrettmuster-aus-eiche-und-wenge-personalis",
@@ -2452,7 +2522,9 @@
       ],
       "notIdealFor": [
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Eiche & Wenge – Schachbrett",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-37-stirnholz-schneidebrett-aus-eiche-und-buche-kompaktes-massivholzbrett-mi",
@@ -2520,7 +2592,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Eiche & Buche – Kompakt mit Astloch",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-38-schneidebrett-walnuss-mit-eiche-rahmen-massives-stirnholzbrett-fur-hobby",
@@ -2592,7 +2666,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Walnuss & Eiche – Rahmenbrett",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-39-stirnholz-schneidebrett-eiche-minimalistisch-schmales-design-handgeferti",
@@ -2661,7 +2737,9 @@
       ],
       "notIdealFor": [
         "sehr grosse BBQ-Arbeiten"
-      ]
+      ],
+      "displayName": "Eiche Stirnholz – Schmales Design",
+      "deliveryDays": "2–3 Werktage"
     },
     {
       "id": "etsy-export-40-schneidebrett-aus-eiche-esche-und-buche-stirnholz-design-mit-saftrille-h",
@@ -2733,7 +2811,9 @@
       "notIdealFor": [
         "kleine Arbeitsflaechen",
         "haeufiges Tragen"
-      ]
+      ],
+      "displayName": "Eiche Esche Buche – Mit Saftrille",
+      "deliveryDays": "2–3 Werktage"
     }
   ]
 }

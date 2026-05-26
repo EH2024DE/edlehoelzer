@@ -974,7 +974,7 @@ function initProductsPage() {
     .catch(function (error) {
       console.warn("[Edle Hölzer] Produktdaten konnten nicht initialisiert werden:", error);
       if (gridRoot) {
-        gridRoot.innerHTML = '<p class="productEmpty">Die Auswahl konnte gerade nicht geladen werden. Bitte direkt im <a href="https://edlehoelzervonkoc.etsy.com">Etsy-Shop</a> ansehen.</p>';
+        gridRoot.innerHTML = '<p class="productEmpty">Die Auswahl konnte gerade nicht geladen werden. Bitte direkt im <a href="https://edlehoelzervonkoc.etsy.com" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">Etsy-Shop</a> ansehen.</p>';
       }
     });
 
@@ -1136,14 +1136,14 @@ function initProductsPage() {
           buildProductFacts(main) +
           '<p class="productCard__price">' + escapeHtml(main.priceLabel) + '</p>' +
           '<div class="ctaRow">' +
-            '<a class="btn" href="' + escapeAttribute(main.etsyUrl) + '" target="_blank" rel="noopener">' + escapeHtml(etsyActionLabel(main)) + '</a>' +
+            '<span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(main.etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">' + escapeHtml(etsyActionLabel(main)) + '</a><span class="etsyTrust">🔒 Sicher über Etsy · Käuferschutz inklusive</span></span>' +
             '<a class="btn btn--ghost-dark" href="#produkte-grid">Produktgrid ansehen</a>' +
             '<button class="btn btn--ghost-dark" type="button" data-finder-reset>Neu starten</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
       (alternatives.length ? '<div class="alternativeList"><h3>Alternativen</h3><div class="alternativeGrid">' + alternatives.map(function (product) {
-        return '<a class="alternativeCard" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">' +
+        return '<a class="alternativeCard" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">' +
           buildProductMedia(product) +
           '<span class="alternativeCard__body">' +
             '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
@@ -1566,11 +1566,11 @@ function initProductsPage() {
     }
 
     var primaryLabel = etsyActionLabel(product);
-    return '<div class="ctaRow"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener">' + primaryLabel + '</a></div>';
+    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">' + primaryLabel + '</a><span class="etsyTrust">🔒 Sicher über Etsy · Käuferschutz inklusive</span></span></div>';
   }
 
   function etsyActionLabel(product) {
-    return "Bei Etsy ansehen";
+    return "Dieses Brett kaufen";
   }
 
   function labelFor(value) {
