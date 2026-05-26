@@ -1436,7 +1436,7 @@ function initProductsPage() {
         buildProductMedia(product) +
         '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(product.segment) + '</p>' +
-          '<h3>' + escapeHtml(displayProductName(product)) + '</h3>' +
+          '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
           buildFeatureBadges(product) +
           buildProductFacts(product) +
           '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' +
@@ -1545,6 +1545,10 @@ function initProductsPage() {
   }
 
   function displayProductName(product) {
+    if (product.displayName) {
+      return product.displayName;
+    }
+
     var name = String(product.name || "");
 
     if (name.indexOf("|") !== -1) {
