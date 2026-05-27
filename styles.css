@@ -676,7 +676,8 @@ section[id]{scroll-margin-top:88px}
 @media (max-width:767px){
   .nav-desktop-only{display:none}
   .seo-products-carousel,
-  .landingProductGrid{
+  .landingProductGrid,
+  .erbstueckGallery{
     display:flex;
     overflow-x:scroll;
     scroll-snap-type:x mandatory;
@@ -688,11 +689,13 @@ section[id]{scroll-margin-top:88px}
     overscroll-behavior-x:contain;
   }
   .seo-products-carousel::-webkit-scrollbar,
-  .landingProductGrid::-webkit-scrollbar{
+  .landingProductGrid::-webkit-scrollbar,
+  .erbstueckGallery::-webkit-scrollbar{
     display:none;
   }
   .seo-product-card,
-  .landingProductGrid .productCard{
+  .landingProductGrid .productCard,
+  .erbstueckGallery figure{
     flex:0 0 80vw;
     scroll-snap-align:start;
   }
