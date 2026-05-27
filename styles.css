@@ -505,6 +505,11 @@ section[id]{scroll-margin-top:88px}
 .noteGrid article{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:var(--shadow)}
 .noteGrid h3{font-size:20px;margin:0 0 8px;letter-spacing:0}
 .noteGrid p{margin:0;color:rgba(17,17,17,.72)}
+.erbstueckGallerySection{padding-top:64px}
+.erbstueckGallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.erbstueckGallery figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.erbstueckGallery img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;object-position:center;background:#ece3d8}
+.erbstueckGallery figcaption{padding:13px 14px 15px;color:rgba(17,17,17,.66);font-size:13px;line-height:1.45}
 .service-hero{padding:104px 0 74px;background:linear-gradient(180deg,#fff,var(--sand))}
 .service-hero h1{max-width:920px;font-size:clamp(42px,6.4vw,76px);letter-spacing:0}
 .service-label,.service-section__label,.tier-label{display:inline-flex;align-items:center;width:max-content;max-width:100%;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.10em;line-height:1;text-transform:uppercase}
@@ -666,7 +671,7 @@ section[id]{scroll-margin-top:88px}
 .productsSupport{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
 @media (max-width:1100px){.topicLinks{grid-template-columns:repeat(2,minmax(0,1fr))}.seoHero__grid,.seoContent,.noteGrid,.process-steps,.service-tier--with-media{grid-template-columns:1fr}.seoAside{position:static}.process-steps li{min-height:auto}.tier-media{max-width:560px}}
-@media (max-width:900px){.footer__inner{grid-template-columns:1fr}.footer__nav,.topicLinks,.service-cards{grid-template-columns:1fr}.seoHero,.service-hero{padding:86px 0 54px}.seoHero__lead,.service-intro{font-size:17px}.service-section__cta{align-items:flex-start;flex-direction:column}}
+@media (max-width:900px){.footer__inner{grid-template-columns:1fr}.footer__nav,.topicLinks,.service-cards,.erbstueckGallery{grid-template-columns:1fr}.seoHero,.service-hero{padding:86px 0 54px}.seoHero__lead,.service-intro{font-size:17px}.service-section__cta{align-items:flex-start;flex-direction:column}}
 
 @media (max-width:767px){
   .nav-desktop-only{display:none}
