@@ -203,13 +203,13 @@ function initBackToTop() {
     var style = document.createElement("style");
     style.id = "backToTopStyles";
     style.textContent =
-      ".backToTop{position:fixed;left:50%;right:auto;bottom:10px;z-index:180;height:30px;padding:0 10px;border:1px solid rgba(17,17,17,.06);border-radius:999px;background:rgba(245,241,235,.46);color:rgba(17,17,17,.46);box-shadow:none;backdrop-filter:blur(8px);display:inline-flex;align-items:center;justify-content:center;gap:5px;font:700 11px/1 Montserrat,system-ui,sans-serif;cursor:pointer;opacity:0;transform:translateX(-50%) translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,background-color .18s ease,border-color .18s ease,color .18s ease}" +
+      ".backToTop{position:fixed;left:auto;right:18px;bottom:18px;z-index:180;height:34px;padding:0 12px;border:1px solid rgba(184,136,87,.20);border-radius:999px;background:rgba(245,241,235,.74);color:rgba(17,17,17,.62);box-shadow:0 6px 18px rgba(52,35,22,.08);backdrop-filter:blur(10px);display:inline-flex;align-items:center;justify-content:center;gap:5px;font:700 11px/1 Montserrat,system-ui,sans-serif;cursor:pointer;opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease,background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease}" +
       ".backToTop span:first-child{font-size:13px;line-height:1}" +
       ".backToTop__label{white-space:nowrap}" +
-      ".backToTop.is-visible{opacity:.34;transform:translateX(-50%) translateY(0);pointer-events:auto}" +
-      ".backToTop:hover{opacity:.72;background:rgba(255,255,255,.72);border-color:rgba(184,136,87,.18);color:rgba(17,17,17,.78)}" +
+      ".backToTop.is-visible{opacity:.58;transform:translateY(0);pointer-events:auto}" +
+      ".backToTop:hover{opacity:.88;background:rgba(255,255,255,.86);border-color:rgba(184,136,87,.34);color:rgba(17,17,17,.82);box-shadow:0 8px 22px rgba(52,35,22,.12)}" +
       ".backToTop:focus-visible{opacity:.9;outline:2px solid rgba(184,136,87,.42);outline-offset:3px}" +
-      "@media (max-width:640px){.backToTop{bottom:8px;height:28px;padding:0 9px;font-size:10px}.backToTop span:first-child{font-size:12px}}";
+      "@media (max-width:640px){.backToTop{right:12px;bottom:calc(12px + env(safe-area-inset-bottom));height:32px;padding:0 10px;font-size:10px}.backToTop span:first-child{font-size:12px}}";
     document.head.appendChild(style);
   }
 
