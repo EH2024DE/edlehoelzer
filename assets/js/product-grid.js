@@ -78,9 +78,15 @@
 
   function renderCard(product) {
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
+    var buyButtonText = product.directListingUrlVerified
+      ? "Dieses Brett kaufen"
+      : "Im Shop entdecken";
+    var buyButtonUrl = product.directListingUrlVerified
+      ? (product.etsyListingUrl || product.etsyUrl)
+      : "https://edlehoelzervonkoc.etsy.com";
 
     return '<article class="productCard seo-product-card">' +
-      '<a class="productCard__link" href="' + escapeAttribute(product.etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">' +
+      '<a class="productCard__link" href="' + escapeAttribute(buyButtonUrl) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">' +
         '<div class="productCard__media productCard__imgWrap"' + productImageStyle(product) + '>' +
           '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
         '</div>' +
@@ -92,7 +98,7 @@
           '<div class="productCard__footer">' +
             (product.priceLabel ? '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' : "") +
             '<span class="productCard__buy">' +
-              '<span class="productCard__cta">Dieses Brett kaufen</span>' +
+              '<span class="productCard__cta">' + escapeHtml(buyButtonText) + '</span>' +
               '<span class="productCard__trust">🔒 Sicher über Etsy · Käuferschutz inklusive</span>' +
             '</span>' +
           '</div>' +
