@@ -534,11 +534,11 @@ section[id]{scroll-margin-top:88px}
 .erbstueckProcess h3{font-size:21px;letter-spacing:0}
 .erbstueckProcess p{margin:0;color:rgba(17,17,17,.68);font-size:14px;line-height:1.55}
 .erbstueckGallerySection{background:linear-gradient(180deg,#f5f1eb,#e6d9ca);color:#111}
-.erbstueckGallery{display:grid;grid-template-columns:1.18fr .91fr .91fr;gap:16px;align-items:stretch}
+.erbstueckGallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
 .erbstueckGallery figure{display:flex;flex-direction:column;margin:0;background:#1d1510;border:1px solid rgba(255,255,255,.08);border-radius:8px;overflow:hidden;box-shadow:0 22px 54px rgba(52,35,22,.16)}
 .erbstueckGallery img{display:block;width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;object-position:center;background:#2b2118}
-.erbstueckGallery__featured img{aspect-ratio:4/3}
-.erbstueckGallery figcaption{padding:14px 15px 16px;color:rgba(245,241,235,.72);font-size:13px;line-height:1.5}
+.erbstueckGallery__featured img{aspect-ratio:3/2}
+.erbstueckGallery figcaption{min-height:86px;padding:14px 15px 16px;color:rgba(245,241,235,.72);font-size:13px;line-height:1.5}
 .erbstueckGallery figcaption strong{display:block;margin-bottom:4px;color:#f5f1eb;font-size:12px;letter-spacing:.10em;text-transform:uppercase}
 .erbstueckTestimonial{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr);gap:36px;align-items:center;margin-top:36px;padding:28px;background:rgba(255,255,255,.66);border:1px solid rgba(52,35,22,.10);border-radius:8px;box-shadow:0 20px 44px rgba(52,35,22,.08)}
 .erbstueckTestimonial h2{font-size:clamp(30px,4.2vw,48px);letter-spacing:-.04em}
