@@ -540,6 +540,11 @@ section[id]{scroll-margin-top:88px}
 .erbstueckGallery__featured img{aspect-ratio:4/3}
 .erbstueckGallery figcaption{padding:14px 15px 16px;color:rgba(245,241,235,.72);font-size:13px;line-height:1.5}
 .erbstueckGallery figcaption strong{display:block;margin-bottom:4px;color:#f5f1eb;font-size:12px;letter-spacing:.10em;text-transform:uppercase}
+.erbstueckTestimonial{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr);gap:36px;align-items:center;margin-top:36px;padding:28px;background:rgba(255,255,255,.66);border:1px solid rgba(52,35,22,.10);border-radius:8px;box-shadow:0 20px 44px rgba(52,35,22,.08)}
+.erbstueckTestimonial h2{font-size:clamp(30px,4.2vw,48px);letter-spacing:-.04em}
+.erbstueckTestimonial figure{margin:0}
+.erbstueckTestimonial blockquote{margin:0;color:rgba(17,17,17,.76);font-size:clamp(17px,2vw,23px);font-weight:650;line-height:1.55;letter-spacing:-.01em}
+.erbstueckTestimonial figcaption{margin-top:14px;color:rgba(17,17,17,.56);font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .erbstueckOptionGrid{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .erbstueckOptionGrid span{display:inline-flex;align-items:center;border:1px solid rgba(184,136,87,.28);border-radius:999px;background:#fff;color:rgba(17,17,17,.76);padding:9px 12px;font-size:13px;font-weight:800}
 .erbstueckLimitSection{position:relative;overflow:hidden;background:#17110d;color:#f5f1eb}
@@ -1205,12 +1210,18 @@ section[id]{scroll-margin-top:88px}
   }
 
   .erbstueckProcess,
-  .erbstueckAudience{
+  .erbstueckAudience,
+  .erbstueckTestimonial{
     grid-template-columns:1fr;
   }
 
   .erbstueckProcess article{
     min-height:auto;
+  }
+
+  .erbstueckTestimonial{
+    gap:18px;
+    padding:22px;
   }
 }
 
