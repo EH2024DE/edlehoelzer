@@ -53,7 +53,7 @@ Optisch startet Eiche hell-beige bis warmbraun und entwickelt über Jahre einen 
 | Altert mit Charakter | ✓ | ✓ | – | – |
 | Heimisch in Deutschland | ✓ | ✓ | ✓ | ✗ |
 
-**Zu Buche:** Buche ist robust und günstiger als Eiche. Sie neigt bei häufiger Feuchte aber schneller zu Verzug, hat keine Tannine und sieht mit den Jahren neutraler aus. Funktional – kein Hingucker.
+**Zu Buche:** Buche ist robust und günstiger als Eiche. Bei häufiger Feuchte neigt Buche aber schneller zu Verzug, hat keine Tannine und sieht mit den Jahren neutraler aus. Funktional – kein Hingucker.
 
 **Zu Bambus:** Kein Holz, sondern ein Gras. Sehr hart, günstig, spülmaschinenfest. Aber genau diese Härte macht es messerfeindlich. Für gute Küchenmesser ein ungünstiges Material.
 
@@ -71,7 +71,7 @@ Optisch startet Eiche hell-beige bis warmbraun und entwickelt über Jahre einen 
 
 **Geschenk:** Eiche wirkt hochwertig ohne übertrieben formal zu sein. Mit einer kleinen Gravur wird ein gutes Brett persönlich.
 
-**Helle, natürlich eingerichtete Küchen:** Eiche fügt sich ein, ohne zu dominieren. Sie verstärkt warme, natürliche Räume und setzt in modernen, hellen Küchen einen klaren Holzakzent.
+**Helle, natürlich eingerichtete Küchen:** Eiche fügt sich ein, ohne zu dominieren. Das Holz verstärkt warme, natürliche Räume und setzt in modernen, hellen Küchen einen klaren Holzakzent.
 
 ---
 
@@ -691,10 +691,10 @@ Ein Holzgeschenk darf ruhig, nützlich und schön zugleich sein. Für Menschen m
 
 ### H2: Was wirklich passt – vier konkrete Profile
 
-**Sie kocht täglich und bewusst:**
+**Tägliches, bewusstes Kochen:**
 Ein mittleres Brett aus Eiche oder Nussbaum, 35 × 25 cm, 3 cm stark. Täglich auf der Arbeitsfläche, sichtbar und nutzbar. Keine Deko – Werkzeug mit schöner Oberfläche.
 
-**Sie empfängt gern Gäste:**
+**Gern Gäste empfangen:**
 Servierbrett Nussbaum, ca. 35 × 22 cm. Käse, Brot, Wurst, Früchte – Nussbaum sieht auf dem gedeckten Tisch sofort hochwertig aus.
 
 **Design ist ihr wichtig:**
