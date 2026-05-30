@@ -139,6 +139,7 @@ section[id]{scroll-margin-top:88px}
 }
 .mobileCard img{
   width:100%;
+  height:auto;
   aspect-ratio:5/6;
   object-fit:cover;
   background:#ece3d8;
@@ -148,7 +149,7 @@ section[id]{scroll-margin-top:88px}
 
 .workshopIntro{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;margin-bottom:28px}
 .workshopIntro__lead{max-width:62ch}
-.workshopGrid{display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:22px;align-items:start}
+.workshopGrid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px;align-items:start;width:min(100%,1040px);margin:0 auto}
 .workshopGrid__item{margin:0}
 .workshopGrid__item img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px;box-shadow:var(--shadow)}
 .workshopGrid__item--wide img{aspect-ratio:4/5}
@@ -966,8 +967,12 @@ section[id]{scroll-margin-top:88px}
   }
 
   .mobileCard{
-    min-width:72%;
-    max-width:72%;
+    min-width:68%;
+    max-width:68%;
+  }
+
+  .mobileCard img{
+    aspect-ratio:1/1;
   }
 
   .mobileCard__text{
