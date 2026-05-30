@@ -352,7 +352,7 @@ function initCardWelcome() {
       '<button class="cardWelcome__close" type="button" aria-label="Hinweis schließen">×</button>' +
       '<p class="cardWelcome__kicker">Persönliche Empfehlung</p>' +
       '<h2>Schön, dass du hier bist.</h2>' +
-      '<p>Diese Karte geben wir nicht beliebig weiter. Sie ist für Menschen gedacht, bei denen wir glauben, dass echtes Handwerk, gutes Material und persönliche Beratung geschätzt werden.</p>' +
+      '<p>Diese Karte geben wir nicht beliebig weiter. Gedacht ist sie für Menschen, bei denen wir glauben, dass echtes Handwerk, gutes Material und persönliche Beratung geschätzt werden.</p>' +
       '<ul class="cardWelcome__facts">' +
         '<li>Handgefertigt in Mittelhessen</li>' +
         '<li>Massivholz statt Serienware</li>' +
@@ -1217,7 +1217,13 @@ function initProductsPage() {
         }
 
         state.answers[question.id] = selected;
-        renderFinder();
+        if (state.currentStep < questions.length - 1) {
+          state.currentStep += 1;
+          renderFinder();
+        } else {
+          renderFinder();
+          showFinderResult();
+        }
       });
     });
 

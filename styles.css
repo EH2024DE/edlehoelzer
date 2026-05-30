@@ -656,8 +656,10 @@ section[id]{scroll-margin-top:88px}
 .recommendationCard__body{display:flex;flex:1 1 0;flex-direction:column;justify-content:center;gap:12px;min-width:0}
 .recommendationCard__body h3{overflow-wrap:anywhere}
 .recommendationCard__body .productFacts{min-width:0}
-.recommendationCard__body .ctaRow{align-items:stretch}
-.recommendationCard__body .ctaRow .btn{flex:1 1 170px;max-width:100%}
+.recommendationCard__body .ctaRow{align-items:flex-start;margin-top:14px}
+.recommendationCard__body .ctaRow .btn{flex:0 0 auto;max-width:100%}
+.recommendationCard__body .etsyBuyBlock{align-items:flex-start;flex:0 1 auto;max-width:100%}
+.recommendationCard__body .etsyBuyBlock .btn{width:auto;min-width:190px}
 .alternativeList{display:grid;gap:14px;margin-top:24px}
 .alternativeList h3{font-size:22px;letter-spacing:0}
 .alternativeGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -1092,6 +1094,17 @@ section[id]{scroll-margin-top:88px}
     flex:none;
     width:100%;
     max-width:100%;
+    min-width:0;
+  }
+
+  .recommendationCard__body .ctaRow{
+    align-items:stretch;
+  }
+
+  .recommendationCard__body .ctaRow>.btn,
+  .recommendationCard__body .etsyBuyBlock,
+  .recommendationCard__body .etsyBuyBlock .btn{
+    width:100%;
     min-width:0;
   }
 
