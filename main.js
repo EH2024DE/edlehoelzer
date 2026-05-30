@@ -766,7 +766,11 @@ function initProductsPage() {
     highlightedIds: []
   };
 
-  var questions = [
+  var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var gridAnchor = isEnglish ? "#products-grid" : "#produkte-grid";
+  var shopTitle = isEnglish ? "You are leaving for the Edle Hölzer Etsy shop" : "Du wechselst jetzt zum Etsy-Shop von Edle Hölzer";
+
+  var questionsDe = [
     {
       id: "use",
       title: "Wofür soll das Brett hauptsächlich eingesetzt werden?",
@@ -901,6 +905,143 @@ function initProductsPage() {
     }
   ];
 
+  var questionsEn = [
+    {
+      id: "use",
+      title: "What will you mainly use the board for?",
+      options: [
+        {
+          value: "daily",
+          title: "Daily cutting",
+          description: "For vegetables, bread and everything that happens in everyday kitchen use.",
+          attributes: "practical · simple · reliable"
+        },
+        {
+          value: "bbq",
+          title: "BBQ / heavier cutting",
+          description: "For meat, grilling and work where stability matters more than low weight.",
+          attributes: "stable · solid · resilient"
+        },
+        {
+          value: "serving",
+          title: "Serving and plating",
+          description: "For bread, cheese, steak, bar or table situations where the board stays visible.",
+          attributes: "presentable · calm · serving-ready"
+        },
+        {
+          value: "gift",
+          title: "Gift / special piece",
+          description: "For people who use a high-quality wood product consciously or leave it out in the kitchen.",
+          attributes: "valuable · personal · durable"
+        }
+      ]
+    },
+    {
+      id: "space",
+      title: "How much space do you have in the kitchen?",
+      options: [
+        {
+          value: "small",
+          title: "Limited space, small kitchen",
+          description: "The board should work without permanently taking over the worktop.",
+          attributes: "compact · movable · space-saving"
+        },
+        {
+          value: "normal",
+          title: "Regular worktop space",
+          description: "It may have substance, but should still stay flexible in daily use.",
+          attributes: "balanced · medium-sized · versatile"
+        },
+        {
+          value: "large",
+          title: "Plenty of space, board can stay out",
+          description: "For large worktops and users who value stability more than mobility.",
+          attributes: "heavy · stable · present"
+        }
+      ]
+    },
+    {
+      id: "movement",
+      title: "Will you move the board often?",
+      options: [
+        {
+          value: "portable",
+          title: "Yes, it should be easy to carry",
+          description: "For users who often take the board out, clean it or put it away.",
+          attributes: "light · handy · flexible"
+        },
+        {
+          value: "balanced",
+          title: "Sometimes, balanced weight is ideal",
+          description: "The board should lie solidly but still be easy to handle in everyday use.",
+          attributes: "balanced · grippy · practical"
+        },
+        {
+          value: "stationary",
+          title: "No, it can stay firmly in place",
+          description: "For fixed places, large kitchen islands and users looking for a substantial work board.",
+          attributes: "stationary · solid · calm"
+        }
+      ]
+    },
+    {
+      id: "haptics",
+      title: "Which feel and thickness suits you better?",
+      options: [
+        {
+          value: "smooth",
+          title: "Thinner, lighter, more flexible",
+          description: "For quick use, lower weight and uncomplicated handling.",
+          attributes: "slim · smooth · movable"
+        },
+        {
+          value: "solid",
+          title: "Solid and practical",
+          description: "A balanced mix of substance, handling and daily usability.",
+          attributes: "solid · balanced · grippy"
+        },
+        {
+          value: "substantial",
+          title: "Thick, heavy and very present",
+          description: "For users who deliberately want weight, thickness and a strong material feel.",
+          attributes: "thick · heavy · characterful"
+        }
+      ]
+    },
+    {
+      id: "priority",
+      title: "What matters most to you?",
+      options: [
+        {
+          value: "daily",
+          title: "Everyday practicality",
+          description: "The board should be useful every day without needing unnecessary attention.",
+          attributes: "practical · robust · ready to use"
+        },
+        {
+          value: "knifeFeel",
+          title: "Knife feel",
+          description: "A calm, substantial cutting surface matters more than the lowest possible weight.",
+          attributes: "calm cut · stable · tactile"
+        },
+        {
+          value: "serving",
+          title: "Serving appearance",
+          description: "The board should not only cut well, but also look good when plating or serving.",
+          attributes: "visible · elegant · hosting-ready"
+        },
+        {
+          value: "premium",
+          title: "Maximum presence",
+          description: "You are looking for a board with special presence, feel and material depth.",
+          attributes: "premium · solid · special"
+        }
+      ]
+    }
+  ];
+
+  var questions = isEnglish ? questionsEn : questionsDe;
+
   var requiredFields = [
     "id",
     "name",
@@ -974,7 +1115,9 @@ function initProductsPage() {
     .catch(function (error) {
       console.warn("[Edle Hölzer] Produktdaten konnten nicht initialisiert werden:", error);
       if (gridRoot) {
-        gridRoot.innerHTML = '<p class="productEmpty">Die Auswahl konnte gerade nicht geladen werden. Bitte direkt im <a href="https://edlehoelzervonkoc.etsy.com" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">Etsy-Shop</a> ansehen.</p>';
+        gridRoot.innerHTML = isEnglish
+          ? '<p class="productEmpty">The selection could not be loaded right now. Please view the products directly in the <a href="https://edlehoelzervonkoc.etsy.com" data-etsy-link title="' + shopTitle + '">Etsy shop</a>.</p>'
+          : '<p class="productEmpty">Die Auswahl konnte gerade nicht geladen werden. Bitte direkt im <a href="https://edlehoelzervonkoc.etsy.com" data-etsy-link title="' + shopTitle + '">Etsy-Shop</a> ansehen.</p>';
       }
     });
 
@@ -1042,7 +1185,7 @@ function initProductsPage() {
       return;
     }
 
-    stepLabel.textContent = "Schritt " + (state.currentStep + 1) + " von " + questions.length;
+    stepLabel.textContent = (isEnglish ? "Step " : "Schritt ") + (state.currentStep + 1) + (isEnglish ? " of " : " von ") + questions.length;
     questionNode.textContent = question.title;
     progressNode.style.width = (((state.currentStep + 1) / questions.length) * 100) + "%";
     optionsNode.innerHTML = question.options
@@ -1058,7 +1201,9 @@ function initProductsPage() {
 
     prevButton.disabled = state.currentStep === 0;
     nextButton.disabled = !state.answers[question.id];
-    nextButton.textContent = state.currentStep === questions.length - 1 ? "Ergebnis anzeigen" : "Weiter";
+    nextButton.textContent = state.currentStep === questions.length - 1
+      ? (isEnglish ? "Show result" : "Ergebnis anzeigen")
+      : (isEnglish ? "Next" : "Weiter");
 
     optionsNode.querySelectorAll("[data-option]").forEach(function (button) {
       button.addEventListener("click", function () {
@@ -1111,7 +1256,9 @@ function initProductsPage() {
 
     if (!main) {
       resultRoot.hidden = false;
-      resultRoot.innerHTML = '<h2>Das dürfte am besten zu deinem Alltag passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">Schneidebrett anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
+      resultRoot.innerHTML = isEnglish
+        ? '<h2>This is probably the best direction for your everyday use</h2><p>For this combination, a short personal check makes sense so format, wood and use really fit together.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Cutting%20board%20inquiry">Ask about a board</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Restart finder</button></div>'
+        : '<h2>Das dürfte am besten zu deinem Alltag passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">Schneidebrett anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
       bindReset(resultRoot);
       return;
     }
@@ -1123,8 +1270,8 @@ function initProductsPage() {
     resultRoot.hidden = false;
     resultRoot.innerHTML =
       '<div class="finderResult__head">' +
-        '<p class="eyebrow eyebrow--dark">Empfehlung</p>' +
-        '<h2>Das dürfte am besten zu deinem Alltag passen</h2>' +
+        '<p class="eyebrow eyebrow--dark">' + (isEnglish ? "Recommendation" : "Empfehlung") + '</p>' +
+        '<h2>' + (isEnglish ? "This is probably the best direction for your everyday use" : "Das dürfte am besten zu deinem Alltag passen") + '</h2>' +
         '<p>' + escapeHtml(buildReason(main)) + '</p>' +
       '</div>' +
       '<div class="recommendationCard">' +
@@ -1136,14 +1283,14 @@ function initProductsPage() {
           buildProductFacts(main) +
           '<p class="productCard__price">' + escapeHtml(main.priceLabel) + '</p>' +
           '<div class="ctaRow">' +
-            '<span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(etsyActionUrl(main)) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">' + escapeHtml(etsyActionLabel(main)) + '</a><span class="etsyTrust">🔒 Sicher über Etsy · Käuferschutz inklusive</span></span>' +
-            '<a class="btn btn--ghost-dark" href="#produkte-grid">Produktgrid ansehen</a>' +
-            '<button class="btn btn--ghost-dark" type="button" data-finder-reset>Neu starten</button>' +
+            '<span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(etsyActionUrl(main)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + escapeHtml(etsyActionLabel(main)) + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span>' +
+            '<a class="btn btn--ghost-dark" href="' + gridAnchor + '">' + (isEnglish ? "View product grid" : "Produktgrid ansehen") + '</a>' +
+            '<button class="btn btn--ghost-dark" type="button" data-finder-reset>' + (isEnglish ? "Restart" : "Neu starten") + '</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
-      (alternatives.length ? '<div class="alternativeList"><h3>Alternativen</h3><div class="alternativeGrid">' + alternatives.map(function (product) {
-        return '<a class="alternativeCard" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">' +
+      (alternatives.length ? '<div class="alternativeList"><h3>' + (isEnglish ? "Alternatives" : "Alternativen") + '</h3><div class="alternativeGrid">' + alternatives.map(function (product) {
+        return '<a class="alternativeCard" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' +
           buildProductMedia(product) +
           '<span class="alternativeCard__body">' +
             '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
@@ -1329,28 +1476,28 @@ function initProductsPage() {
 
     if (space && movement) {
       if (space.value === "small" || movement.value === "portable") {
-        parts.push("Du hast wenig Platz oder möchtest das Brett häufiger bewegen. Deshalb passt ein kompaktes, leichteres Brett besser als ein schweres Stirnholzbrett.");
+        parts.push(isEnglish ? "You have limited space or want to move the board often. A compact, lighter board therefore fits better than a heavy end-grain board." : "Du hast wenig Platz oder möchtest das Brett häufiger bewegen. Deshalb passt ein kompaktes, leichteres Brett besser als ein schweres Stirnholzbrett.");
       } else if (space.value === "large" || movement.value === "stationary") {
-        parts.push("Du hast genug Arbeitsfläche und das Brett darf dauerhaft satt liegen. Deshalb kann ein größeres, schwereres Brett sinnvoll sein.");
+        parts.push(isEnglish ? "You have enough worktop space and the board can stay firmly in place. A larger, heavier board can make sense." : "Du hast genug Arbeitsfläche und das Brett darf dauerhaft satt liegen. Deshalb kann ein größeres, schwereres Brett sinnvoll sein.");
       } else {
-        parts.push("Du suchst ein ausgewogenes Brett, das stabil liegt und trotzdem noch gut bewegt werden kann.");
+        parts.push(isEnglish ? "You are looking for a balanced board that lies steadily but can still be moved easily." : "Du suchst ein ausgewogenes Brett, das stabil liegt und trotzdem noch gut bewegt werden kann.");
       }
     }
 
     if (use) {
       if (use.value === "bbq") {
-        parts.push("Für BBQ und kräftiges Schneiden zählt Stabilität stärker als geringes Gewicht.");
+        parts.push(isEnglish ? "For BBQ and heavier cutting, stability matters more than low weight." : "Für BBQ und kräftiges Schneiden zählt Stabilität stärker als geringes Gewicht.");
       } else if (use.value === "serving") {
-        parts.push("Da das Brett auch sichtbar beim Servieren genutzt wird, spielen Maserung, Format und Haptik stärker mit.");
+        parts.push(isEnglish ? "Because the board is also visible when serving, grain, format and feel matter more." : "Da das Brett auch sichtbar beim Servieren genutzt wird, spielen Maserung, Format und Haptik stärker mit.");
       } else if (use.value === "gift") {
-        parts.push("Als Geschenk sollte das Brett nicht nur praktisch sein, sondern auch eine klare Materialwirkung haben.");
+        parts.push(isEnglish ? "As a gift, the board should be practical and still have a clear material presence." : "Als Geschenk sollte das Brett nicht nur praktisch sein, sondern auch eine klare Materialwirkung haben.");
       } else {
-        parts.push("Für tägliches Schneiden ist ein unkompliziertes, gut führbares Format entscheidend.");
+        parts.push(isEnglish ? "For daily cutting, an uncomplicated, easy-to-handle format is decisive." : "Für tägliches Schneiden ist ein unkompliziertes, gut führbares Format entscheidend.");
       }
     }
 
     if (haptics && priority) {
-      parts.push("Deine Auswahl bei Haptik und Priorität spricht für " + product.sizeLabel + ", " + product.thicknessLabel + " und " + product.material + ".");
+      parts.push((isEnglish ? "Your choices around feel and priority point toward " : "Deine Auswahl bei Haptik und Priorität spricht für ") + product.sizeLabel + ", " + product.thicknessLabel + (isEnglish ? " and " : " und ") + product.material + ".");
     }
 
     return parts.join(" ");
@@ -1425,7 +1572,7 @@ function initProductsPage() {
       });
 
     if (!products.length) {
-      gridRoot.innerHTML = '<p class="productEmpty">Für diese Filterkombination gibt es aktuell keine passenden Produkte.</p>';
+      gridRoot.innerHTML = '<p class="productEmpty">' + (isEnglish ? "There are currently no matching products for this filter combination." : "Für diese Filterkombination gibt es aktuell keine passenden Produkte.") + '</p>';
       return;
     }
 
@@ -1449,7 +1596,7 @@ function initProductsPage() {
   function buildProductMedia(product) {
     if (!product.image || product.imageVerified !== true) {
       return '<div class="productCard__media productCard__media--pending">' +
-        '<span>Produktbild folgt</span>' +
+        '<span>' + (isEnglish ? "Product image coming soon" : "Produktbild folgt") + '</span>' +
       '</div>';
     }
 
@@ -1512,32 +1659,32 @@ function initProductsPage() {
     var facts = [];
 
     if (product.material) {
-      facts.push(["Material", product.material]);
+      facts.push([isEnglish ? "Material" : "Material", product.material]);
     }
 
     if (product.category === "board" && hasMeaningfulValue(product.sizeLabel)) {
-      facts.push(["Maße", product.sizeLabel]);
+      facts.push([isEnglish ? "Size" : "Maße", product.sizeLabel]);
     }
 
     if (product.category === "board" && product.weightClass) {
-      facts.push(["Gewicht", labelFor(product.weightClass)]);
+      facts.push([isEnglish ? "Weight" : "Gewicht", labelFor(product.weightClass)]);
     }
 
     if (product.category === "board" && product.portability) {
-      facts.push(["Handling", labelFor(product.portability)]);
+      facts.push([isEnglish ? "Handling" : "Handling", labelFor(product.portability)]);
     }
 
     if (product.category === "care") {
       facts = [
-        ["Typ", "Pflegeprodukt"],
-        ["Basis", product.material || "Bienenwachs und Öl"]
+        [isEnglish ? "Type" : "Typ", isEnglish ? "Care product" : "Pflegeprodukt"],
+        [isEnglish ? "Base" : "Basis", product.material || (isEnglish ? "Beeswax and oil" : "Bienenwachs und Öl")]
       ];
     }
 
     if (product.category === "accessory") {
       facts = [
-        ["Typ", product.productType === "accessory" ? "Küchenhelfer" : product.segment],
-        ["Material", product.material || "Holz"]
+        [isEnglish ? "Type" : "Typ", product.productType === "accessory" ? (isEnglish ? "Kitchen tool" : "Küchenhelfer") : product.segment],
+        [isEnglish ? "Material" : "Material", product.material || (isEnglish ? "Wood" : "Holz")]
       ];
     }
 
@@ -1579,14 +1726,18 @@ function initProductsPage() {
 
   function buildProductActions(product) {
     if (product.needsReview || !product.etsyUrl) {
-      return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Produkt">Produkt anfragen</a></div>';
+      return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=' + (isEnglish ? "Product%20inquiry" : "Anfrage%20Produkt") + '">' + (isEnglish ? "Ask about this product" : "Produkt anfragen") + '</a></div>';
     }
 
     var primaryLabel = etsyActionLabel(product);
-    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer">' + primaryLabel + '</a><span class="etsyTrust">🔒 Sicher über Etsy · Käuferschutz inklusive</span></span></div>';
+    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + primaryLabel + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span></div>';
   }
 
   function etsyActionLabel(product) {
+    if (isEnglish) {
+      return product.directListingUrlVerified ? "Buy this board" : "Discover in shop";
+    }
+
     return product.directListingUrlVerified ? "Dieses Brett kaufen" : "Im Shop entdecken";
   }
 
@@ -1599,7 +1750,14 @@ function initProductsPage() {
   }
 
   function labelFor(value) {
-    var labels = {
+    var labels = isEnglish ? {
+      light: "light",
+      medium: "medium",
+      heavy: "heavy",
+      portable: "portable",
+      balanced: "balanced",
+      stationary: "stationary"
+    } : {
       light: "leicht",
       medium: "mittel",
       heavy: "schwer",
