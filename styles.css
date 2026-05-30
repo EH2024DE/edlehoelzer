@@ -150,7 +150,7 @@ section[id]{scroll-margin-top:88px}
 .workshopIntro__lead{max-width:62ch}
 .workshopGrid{display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:22px;align-items:start}
 .workshopGrid__item{margin:0}
-.workshopGrid__item img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;box-shadow:var(--shadow)}
+.workshopGrid__item img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:18px;box-shadow:var(--shadow)}
 .workshopGrid__item--wide img{aspect-ratio:4/5}
 .workshopGrid__item figcaption,.workshopSlider__item figcaption{margin-top:12px;color:rgba(17,17,17,.68);font-size:14px;line-height:1.55}
 
@@ -177,6 +177,7 @@ section[id]{scroll-margin-top:88px}
 }
 .workshopSlider__item img{
   width:100%;
+  height:auto;
   aspect-ratio:4/5;
   object-fit:cover;
   border-radius:16px;
