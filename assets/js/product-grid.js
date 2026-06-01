@@ -78,9 +78,8 @@
 
   function renderCard(product) {
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
-    var buyButtonText = product.directListingUrlVerified
-      ? "Dieses Brett kaufen"
-      : "Im Shop entdecken";
+    var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+    var buyButtonText = buyLabelFor(product, isEnglish);
     var buyButtonUrl = product.directListingUrlVerified
       ? (product.etsyListingUrl || product.etsyUrl)
       : "https://edlehoelzervonkoc.etsy.com";
@@ -105,6 +104,18 @@
         '</div>' +
       '</a>' +
     '</article>';
+  }
+
+  function buyLabelFor(product, isEnglish) {
+    if (product.category === "care") {
+      return isEnglish ? "Buy care balm" : "Pflegebalsam kaufen";
+    }
+
+    if (product.category && product.category !== "board") {
+      return isEnglish ? "Buy this product" : "Dieses Produkt kaufen";
+    }
+
+    return isEnglish ? "Buy this board" : "Dieses Brett kaufen";
   }
 
   function renderBadges(product) {
@@ -215,7 +226,7 @@
     container.innerHTML =
       '<div class="productGridEmpty">' +
         '<p>Aktuell sind für diese Auswahl keine passenden Produkte geladen.</p>' +
-        '<a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Direkt im Etsy-Shop ansehen</a>' +
+        '<a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Dieses Brett kaufen</a>' +
       '</div>';
   }
 
