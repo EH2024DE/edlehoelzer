@@ -1740,11 +1740,19 @@ function initProductsPage() {
   }
 
   function etsyActionLabel(product) {
-    if (isEnglish) {
-      return product.directListingUrlVerified ? "Buy this board" : "Discover in shop";
+    if (product.category === "care") {
+      return isEnglish ? "Buy care balm" : "Pflegebalsam kaufen";
     }
 
-    return product.directListingUrlVerified ? "Dieses Brett kaufen" : "Im Shop entdecken";
+    if (product.category && product.category !== "board") {
+      return isEnglish ? "Buy this product" : "Dieses Produkt kaufen";
+    }
+
+    if (isEnglish) {
+      return "Buy this board";
+    }
+
+    return "Dieses Brett kaufen";
   }
 
   function etsyActionUrl(product) {
