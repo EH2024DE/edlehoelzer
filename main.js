@@ -1607,7 +1607,7 @@ function initProductsPage() {
     }
 
     return '<div class="productCard__media"' + productImageStyle(product) + '>' +
-      '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(product.name) + '" loading="lazy" decoding="async">' +
+      '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
     '</div>';
   }
 
@@ -1728,6 +1728,55 @@ function initProductsPage() {
       .trim();
 
     return name || product.name;
+  }
+
+  function productImageAlt(product) {
+    if (product.category === "care") {
+      return "Holzpflege für Schneidebretter mit Pflegebalsam, Pflegetuch und Pflegeanleitung";
+    }
+
+    if (product.category === "accessory") {
+      var accessoryName = displayProductName(product);
+      if (/pfannenwender/i.test(accessoryName) || /wender/i.test(accessoryName)) {
+        return "Pfannenwender aus Holz als handgefertigtes Küchenaccessoire aus Mittelhessen";
+      }
+      if (/teigschaber/i.test(accessoryName) || /schaber/i.test(accessoryName)) {
+        return "Teigschaber aus Holz für Pizzateig und Backarbeiten in der Küche";
+      }
+      return "Handgefertigtes Küchenaccessoire aus Holz mit sichtbarer Maserung";
+    }
+
+    var material = cleanAltPart(product.material) || "Massivholz";
+    var source = String(product.segment || product.woodCut || product.name || "");
+    var isEndGrain = /stirnholz|hirnholz|end/i.test(source);
+    var boardType = isEndGrain ? "Stirnholz Schneidebrett" : "handgefertigtes Schneidebrett";
+    var features = [];
+
+    if (hasBadge(product, "Saftrille")) {
+      features.push("Saftrille");
+    }
+    if (hasBadge(product, "personalisierbar")) {
+      features.push("Personalisierung");
+    }
+    if (product.sizeProfile === "large" || product.weightClass === "heavy") {
+      features.push("massiver Verarbeitung");
+    }
+
+    var suffix = features.length ? " mit " + features.slice(0, 2).join(" und ") : " mit sichtbarer Maserung";
+    return boardType + " aus " + material + suffix;
+  }
+
+  function cleanAltPart(value) {
+    return String(value || "")
+      .replace(/\s+/g, " ")
+      .replace(/\s*,\s*/g, ", ")
+      .trim();
+  }
+
+  function hasBadge(product, term) {
+    return Array.isArray(product.badges) && product.badges.some(function (badge) {
+      return String(badge || "").toLowerCase().indexOf(term.toLowerCase()) !== -1;
+    });
   }
 
   function buildProductActions(product) {
