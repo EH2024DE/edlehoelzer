@@ -507,6 +507,51 @@ section[id]{scroll-margin-top:88px}
 .noteGrid article{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:var(--shadow)}
 .noteGrid h3{font-size:20px;margin:0 0 8px;letter-spacing:0}
 .noteGrid p{margin:0;color:rgba(17,17,17,.72)}
+.refurbHero{padding:96px 0 64px;background:linear-gradient(180deg,#fff,var(--sand))}
+.refurbHero__grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(360px,.82fr);gap:42px;align-items:center}
+.refurbHero h1{max-width:900px;font-size:clamp(42px,6.4vw,76px);letter-spacing:-.04em}
+.refurbLead{max-width:66ch;margin:18px 0 0;color:rgba(17,17,17,.74);font-size:18px;line-height:1.7}
+.refurbActions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.refurbCompare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;align-self:stretch}
+.refurbCompare div{position:relative;min-height:420px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#ece3d8;box-shadow:var(--shadow)}
+.refurbCompare img{width:100%;height:100%;object-fit:cover;object-position:center 46%}
+.refurbCompare span{position:absolute;left:12px;bottom:12px;border-radius:999px;background:rgba(17,17,17,.76);color:#fff;padding:7px 10px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;backdrop-filter:blur(8px)}
+.quickFacts{padding:0 0 58px;background:var(--sand)}
+.quickFacts__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.quickFacts article{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:var(--shadow)}
+.quickFacts span{display:block;margin-bottom:7px;color:rgba(17,17,17,.48);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.10em}
+.quickFacts strong{display:block;color:var(--ink);font-size:17px;line-height:1.35}
+.refurbSection{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:42px;align-items:start}
+.refurbSection__text p:not(.eyebrow){margin:16px 0 0;color:rgba(17,17,17,.72);font-size:17px;line-height:1.75}
+.resultGallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.resultGallery figure,.beforeAfterGallery figure,.refurbStep figure{margin:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.resultGallery img{width:100%;height:520px;object-fit:cover;object-position:center 47%;background:#ece3d8}
+.resultGallery figcaption,.beforeAfterGallery figcaption{padding:12px 14px;color:rgba(17,17,17,.64);font-size:13px;line-height:1.45;background:#fff}
+.refurbDecisionGrid,.toolGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.refurbDecisionGrid article,.toolGrid article,.tipBox{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;box-shadow:var(--shadow)}
+.refurbDecisionGrid h3,.toolGrid h3,.tipBox h3{font-size:clamp(24px,3vw,34px);letter-spacing:0}
+.refurbDecisionGrid ul,.toolGrid ul{margin:16px 0 0;padding-left:20px;color:rgba(17,17,17,.72)}
+.refurbDecisionGrid li+li,.toolGrid li+li{margin-top:6px}
+.toolGrid p,.tipBox p{margin:12px 0 0;color:rgba(17,17,17,.72);line-height:1.7}
+.refurbSteps{display:grid;gap:16px}
+.refurbStep{display:grid;grid-template-columns:minmax(0,1fr);background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}
+.refurbStep--media{grid-template-columns:minmax(280px,.7fr) minmax(0,1fr)}
+.refurbStep--media:nth-child(even) figure{order:2}
+.refurbStep figure{border:0;border-radius:0;box-shadow:none;background:#ece3d8}
+.refurbStep img{width:100%;height:100%;min-height:420px;object-fit:cover;object-position:center 48%}
+.refurbStep__copy{display:grid;align-content:center;gap:12px;padding:26px}
+.refurbStep__copy span{color:var(--accent-deep);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+.refurbStep__copy h3{font-size:clamp(24px,3vw,38px);letter-spacing:0}
+.refurbStep__copy p{margin:0;color:rgba(17,17,17,.72);font-size:16px;line-height:1.7}
+.refurbStep__copy a{text-decoration:underline;text-underline-offset:3px;font-weight:800}
+.tipBox{margin-top:18px;background:#fff7ee;border-color:rgba(184,136,87,.28)}
+.beforeAfterGallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.beforeAfterGallery img{width:100%;height:360px;object-fit:cover;object-position:center 47%;background:#ece3d8}
+.refurbService{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:42px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px;box-shadow:var(--shadow)}
+.refurbService p{margin:0 0 14px;color:rgba(17,17,17,.72);font-size:17px;line-height:1.72}
+.refurbService .trust-badge{margin-top:10px}
+.closingCta{text-align:center}
+.closingCta p{margin:16px auto 24px;max-width:66ch;color:rgba(17,17,17,.72);font-size:17px;line-height:1.72}
 .erbstueckPage{background:#17110d;color:#f5f1eb}
 .erbstueckPage .btn{box-shadow:0 14px 30px rgba(0,0,0,.22)}
 .erbstueckHero{position:relative;min-height:calc(100vh - 78px);display:flex;align-items:flex-end;overflow:hidden;background:#17110d}
@@ -729,8 +774,8 @@ section[id]{scroll-margin-top:88px}
 .decisionGrid p:not(.eyebrow),.productsSupport p:not(.eyebrow){color:rgba(17,17,17,.72)}
 .productsSupport{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
-@media (max-width:1100px){.topicLinks{grid-template-columns:repeat(2,minmax(0,1fr))}.seoHero__grid,.seoContent,.noteGrid,.process-steps,.service-tier--with-media{grid-template-columns:1fr}.seoAside{position:static}.process-steps li{min-height:auto}.tier-media{max-width:560px}}
-@media (max-width:900px){.footer__inner{grid-template-columns:1fr}.footer__nav,.topicLinks,.service-cards,.erbstueckGallery{grid-template-columns:1fr}.seoHero,.service-hero{padding:86px 0 54px}.seoHero__lead,.service-intro{font-size:17px}.service-section__cta{align-items:flex-start;flex-direction:column}}
+@media (max-width:1100px){.topicLinks{grid-template-columns:repeat(2,minmax(0,1fr))}.seoHero__grid,.seoContent,.noteGrid,.process-steps,.service-tier--with-media,.refurbHero__grid,.refurbSection,.refurbService{grid-template-columns:1fr}.seoAside{position:static}.process-steps li{min-height:auto}.tier-media{max-width:560px}.refurbCompare{min-height:520px}.refurbStep--media,.refurbStep--media:nth-child(even){grid-template-columns:1fr}.refurbStep--media:nth-child(even) figure{order:0}.beforeAfterGallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.footer__inner{grid-template-columns:1fr}.footer__nav,.topicLinks,.service-cards,.erbstueckGallery,.quickFacts__grid,.refurbDecisionGrid,.toolGrid,.resultGallery{grid-template-columns:1fr}.seoHero,.service-hero,.refurbHero{padding:86px 0 54px}.seoHero__lead,.service-intro,.refurbLead{font-size:17px}.service-section__cta{align-items:flex-start;flex-direction:column}.refurbCompare{min-height:auto}.refurbCompare div{min-height:380px}.refurbStep img{min-height:360px}.beforeAfterGallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 @media (max-width:900px){
   .landingProductGrid .productCard__footer,
@@ -752,7 +797,8 @@ section[id]{scroll-margin-top:88px}
   .nav-desktop-only{display:none}
   .seo-products-carousel,
   .landingProductGrid,
-  .erbstueckGallery{
+  .erbstueckGallery,
+  .beforeAfterGallery{
     display:flex;
     overflow-x:scroll;
     scroll-snap-type:x mandatory;
@@ -831,6 +877,74 @@ section[id]{scroll-margin-top:88px}
     align-items:flex-start;
     padding:10px 16px;
     font-size:13px;
+  }
+}
+
+@media (max-width:767px){
+  .refurbHero h1{
+    font-size:clamp(32px,9.8vw,46px);
+  }
+
+  .refurbHero{
+    padding-top:38px;
+  }
+
+  .refurbHero__grid{
+    gap:26px;
+  }
+
+  .refurbActions{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .refurbActions .btn{
+    width:100%;
+  }
+
+  .refurbCompare{
+    order:-1;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-left:-12px;
+    margin-right:-12px;
+  }
+
+  .refurbCompare div{
+    min-height:260px;
+    border-radius:8px;
+  }
+
+  .quickFacts{
+    padding-bottom:42px;
+  }
+
+  .resultGallery img{
+    height:420px;
+  }
+
+  .refurbStep__copy{
+    padding:22px;
+  }
+
+  .beforeAfterGallery{
+    margin-left:-12px;
+    margin-right:-12px;
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .beforeAfterGallery figure{
+    flex:0 0 82vw;
+    scroll-snap-align:start;
+  }
+
+  .beforeAfterGallery img{
+    height:430px;
+  }
+
+  .refurbService{
+    padding:22px;
   }
 }
 
