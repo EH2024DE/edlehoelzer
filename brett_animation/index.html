@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f1eb">
-  <title>Edle Hölzer - Interaktives Schneidebrett</title>
+  <title>Edle Hölzer - Schneidebrett im Detail</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       color-scheme: light;
       --bronze: #b88857;
       --bronze-dark: #956b40;
       --cream: #f5f1eb;
-      --cream-deep: #ede8e1;
+      --cream-deep: #ebe4da;
       --ink: #1a1a1a;
+      --muted: #6b6b6b;
       --white: #ffffff;
     }
 
@@ -27,179 +28,256 @@
       padding: 0;
     }
 
-    html,
-    body {
-      min-height: 100%;
+    html {
+      background: var(--cream);
+      scroll-behavior: smooth;
     }
 
     body {
       min-width: 320px;
-      min-height: 100vh;
       overflow-x: hidden;
       background: var(--cream);
       color: var(--ink);
       font-family: "Montserrat", sans-serif;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .story {
+      position: relative;
+      height: 430vh;
+      background:
+        radial-gradient(circle at 34% 42%, rgba(255, 255, 255, 0.88), transparent 38%),
+        linear-gradient(135deg, #f7f4ef 0%, var(--cream) 54%, #eee8e0 100%);
+    }
+
+    .story__sticky {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      min-height: 640px;
+      overflow: hidden;
+    }
+
     .site-header {
-      min-height: 68px;
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
       display: flex;
       align-items: center;
-      padding: 20px clamp(20px, 4vw, 48px);
-      border-bottom: 1px solid rgba(184, 136, 87, 0.2);
+      padding: 0 clamp(24px, 4vw, 72px);
+      border-bottom: 1px solid rgba(184, 136, 87, 0.18);
+      background: rgba(245, 241, 235, 0.72);
+      backdrop-filter: blur(12px);
     }
 
     .brand-label {
       color: var(--bronze);
       font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.4em;
+      font-weight: 600;
+      letter-spacing: 0.42em;
       line-height: 1;
       text-transform: uppercase;
     }
 
-    .hero-animation {
-      width: min(1200px, 100%);
-      min-height: calc(100vh - 68px);
+    .story__layout {
+      width: min(1600px, 100%);
+      height: 100%;
       margin: 0 auto;
-      padding: clamp(42px, 7vw, 82px) clamp(24px, 5vw, 60px);
+      padding: 70px clamp(28px, 4.5vw, 76px) 0;
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.82fr);
-      align-items: center;
-      gap: clamp(48px, 7vw, 86px);
+      grid-template-columns: minmax(0, 1.55fr) minmax(330px, 0.62fr);
+      align-items: stretch;
+      gap: clamp(32px, 4vw, 76px);
     }
 
-    .canvas-wrapper {
+    .visual {
       position: relative;
-      width: 100%;
       min-width: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      width: min(68vw, 980px);
+      aspect-ratio: 1.45 / 1;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 70%);
+      filter: blur(8px);
+      opacity: 0.78;
+    }
+
+    .board-stage {
+      position: relative;
+      z-index: 1;
+      width: min(68vw, 1060px);
+      height: min(72vh, 720px);
+      min-height: 460px;
+      display: grid;
+      place-items: center;
       isolation: isolate;
     }
 
-    .canvas-stage {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 5 / 4;
-      min-height: 340px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.88) 0%, rgba(245, 241, 235, 0.7) 42%, rgba(237, 232, 225, 0.58) 100%);
-    }
-
-    #brett-canvas {
+    .board-frame {
       position: absolute;
       inset: 0;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transform: translate3d(0, 18px, 0) scale(0.94);
+      will-change: opacity, transform;
+      pointer-events: none;
+    }
+
+    .board-frame canvas {
       width: 100%;
       height: 100%;
       display: block;
-      cursor: grab;
-      outline: none;
-      touch-action: none;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 30px 28px rgba(83, 49, 23, 0.15))
+        drop-shadow(0 8px 10px rgba(83, 49, 23, 0.09));
     }
 
-    #brett-canvas:active {
-      cursor: grabbing;
-    }
-
-    #brett-canvas:focus-visible {
-      box-shadow: inset 0 0 0 1px var(--bronze);
-    }
-
-    .loading-state {
+    .board-shadow {
       position: absolute;
-      inset: 0;
       z-index: -1;
-      display: grid;
-      place-items: center;
+      left: 12%;
+      right: 8%;
+      bottom: 17%;
+      height: 15%;
+      border-radius: 50%;
+      background: rgba(92, 56, 28, 0.13);
+      filter: blur(28px);
+      transform: scaleX(var(--shadow-scale, 1));
+      opacity: var(--shadow-opacity, 0.72);
+      will-change: transform, opacity;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      z-index: 8;
+      bottom: clamp(22px, 4vh, 42px);
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       color: rgba(26, 26, 26, 0.42);
       font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      transition: opacity 300ms ease;
-    }
-
-    .is-ready .loading-state {
-      opacity: 0;
-    }
-
-    .drag-hint {
-      margin-top: 14px;
-      color: rgba(26, 26, 26, 0.36);
-      font-size: 9px;
-      font-weight: 500;
       letter-spacing: 0.2em;
-      line-height: 1.4;
-      text-align: center;
+      line-height: 1;
       text-transform: uppercase;
-      animation: fade-in 700ms ease 1.4s both;
+      transform: translateX(-50%);
+      transition: opacity 220ms ease;
     }
 
-    .canvas-wrapper::after {
+    .scroll-cue::after {
       content: "";
-      display: block;
-      width: 40px;
+      width: 42px;
       height: 1px;
-      margin: 18px auto 0;
       background: var(--bronze);
-      opacity: 0.52;
+      transform-origin: left;
+      animation: cue-line 1.8s ease-in-out infinite;
     }
 
-    .product-info {
+    .copy {
+      position: relative;
       min-width: 0;
-      max-width: 390px;
+      display: flex;
+      align-items: center;
+      padding: clamp(34px, 6vh, 76px) 0;
+    }
+
+    .copy__inner {
+      width: 100%;
+      max-width: 440px;
+      padding-left: 42px;
+    }
+
+    .copy__panels {
+      position: relative;
+      min-height: clamp(370px, 49vh, 430px);
+    }
+
+    .copy-panel {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translate3d(0, 22px, 0);
+      transition:
+        opacity 280ms ease,
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+
+    .copy-panel.is-active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
     }
 
     .eyebrow {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       color: var(--bronze);
       font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.28em;
+      font-weight: 600;
+      letter-spacing: 0.3em;
       line-height: 1.55;
       text-transform: uppercase;
-      animation: fade-up 700ms ease 180ms both;
     }
 
-    h1 {
-      margin-bottom: 20px;
+    h1,
+    h2 {
+      max-width: 12ch;
+      margin-bottom: 22px;
       color: var(--ink);
       font-family: "Playfair Display", serif;
-      font-size: clamp(34px, 4vw, 46px);
+      font-size: clamp(40px, 3.7vw, 58px);
       font-weight: 400;
       letter-spacing: 0;
-      line-height: 1.08;
-      animation: fade-up 700ms ease 320ms both;
+      line-height: 0.98;
     }
 
     .subtext {
-      max-width: 36ch;
-      margin-bottom: 32px;
-      color: rgba(26, 26, 26, 0.66);
-      font-size: 14px;
+      max-width: 38ch;
+      color: rgba(26, 26, 26, 0.64);
+      font-size: clamp(13px, 1.1vw, 15px);
       font-weight: 300;
       line-height: 1.75;
-      animation: fade-up 700ms ease 460ms both;
+    }
+
+    .actions {
+      position: relative;
+      z-index: 5;
+      margin-top: 32px;
     }
 
     .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      animation: fade-up 700ms ease 600ms both;
+      width: min(100%, 390px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 11px;
     }
 
     .btn-primary,
     .btn-secondary {
+      width: 100%;
       min-height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 12px 22px;
       border: 1px solid var(--bronze);
-      font-family: "Montserrat", sans-serif;
-      font-size: 10px;
-      font-weight: 500;
+      font-size: 9px;
+      font-weight: 600;
       letter-spacing: 0.14em;
       line-height: 1.2;
       text-align: center;
@@ -235,694 +313,554 @@
 
     .btn-primary:focus-visible,
     .btn-secondary:focus-visible {
-      outline: 2px solid rgba(184, 136, 87, 0.35);
+      outline: 2px solid rgba(184, 136, 87, 0.34);
       outline-offset: 3px;
     }
 
     .trust-note {
-      margin-top: 12px;
-      color: rgba(26, 26, 26, 0.46);
+      margin-top: 11px;
+      color: rgba(26, 26, 26, 0.43);
       font-size: 10px;
       line-height: 1.5;
-      animation: fade-up 700ms ease 740ms both;
+    }
+
+    .progress {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 18px;
+      height: 280px;
+      transform: translateY(-50%);
+    }
+
+    .progress__track,
+    .progress__fill {
+      position: absolute;
+      top: 0;
+      left: 4px;
+      width: 1px;
+      height: 100%;
+      background: rgba(184, 136, 87, 0.24);
+    }
+
+    .progress__fill {
+      background: var(--bronze);
+      transform: scaleY(var(--progress, 0));
+      transform-origin: top;
+      will-change: transform;
+    }
+
+    .progress__steps {
+      position: absolute;
+      inset: 0;
+      list-style: none;
+    }
+
+    .progress__step {
+      position: absolute;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border: 1px solid rgba(184, 136, 87, 0.48);
+      border-radius: 50%;
+      background: var(--cream);
+      transform: translateY(-50%);
+      transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .progress__step:nth-child(1) { top: 0%; }
+    .progress__step:nth-child(2) { top: 33.333%; }
+    .progress__step:nth-child(3) { top: 66.666%; }
+    .progress__step:nth-child(4) { top: 100%; }
+
+    .progress__step.is-active {
+      border-color: var(--bronze);
+      background: var(--bronze);
+      transform: translateY(-50%) scale(1.25);
+    }
+
+    .loading-state,
+    .error-state {
+      position: absolute;
+      z-index: 12;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(26, 26, 26, 0.46);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: opacity 260ms ease;
+    }
+
+    .is-ready .loading-state {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .error-state {
-      position: absolute;
-      inset: 0;
-      z-index: 4;
       display: none;
-      place-items: center;
-      padding: 30px;
-      background: var(--cream);
-      color: rgba(26, 26, 26, 0.65);
-      font-size: 12px;
-      line-height: 1.6;
+      padding: 28px;
+      line-height: 1.7;
       text-align: center;
+      text-transform: none;
+    }
+
+    .has-error .loading-state {
+      display: none;
     }
 
     .has-error .error-state {
       display: grid;
     }
 
-    @keyframes fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes cue-line {
+      0%,
+      100% { transform: scaleX(0.35); opacity: 0.42; }
+      50% { transform: scaleX(1); opacity: 1; }
     }
 
-    @keyframes fade-in {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @media (max-width: 980px) {
+      .story {
+        height: 390vh;
+      }
 
-    @media (max-width: 960px) {
-      .hero-animation {
+      .story__sticky {
+        min-height: 620px;
+      }
+
+      .story__layout {
+        padding: 62px 20px 0;
         grid-template-columns: 1fr;
-        gap: 42px;
-        min-height: auto;
-        padding-top: 34px;
+        grid-template-rows: minmax(300px, 53vh) minmax(0, 1fr);
+        gap: 0;
       }
 
-      .canvas-wrapper {
-        width: min(680px, 100%);
-        margin: 0 auto;
-      }
-
-      .product-info {
-        width: min(560px, 100%);
-        max-width: none;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      .subtext {
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .cta-group {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 600px) {
       .site-header {
-        min-height: 60px;
+        height: 62px;
         justify-content: center;
-        padding: 18px 20px;
+        padding: 0 20px;
       }
 
       .brand-label {
-        padding-left: 0.4em;
+        padding-left: 0.42em;
         font-size: 9px;
       }
 
-      .hero-animation {
-        min-height: calc(100vh - 60px);
-        gap: 34px;
-        padding: 22px 18px 40px;
+      .visual {
+        width: 100%;
       }
 
-      .canvas-stage {
-        min-height: 250px;
-        aspect-ratio: 1.12 / 1;
+      .visual::before {
+        width: 120vw;
       }
 
-      .drag-hint {
-        margin-top: 10px;
+      .board-stage {
+        width: min(112vw, 760px);
+        height: 52vh;
+        min-height: 300px;
+      }
+
+      .board-shadow {
+        bottom: 13%;
+      }
+
+      .scroll-cue {
+        bottom: 8px;
+      }
+
+      .copy {
+        align-items: flex-start;
+        padding: 20px 4px 24px;
+      }
+
+      .copy__inner {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 0 0 28px;
+      }
+
+      .copy__panels {
+        min-height: 230px;
+      }
+
+      h1,
+      h2 {
+        max-width: 14ch;
+        margin-bottom: 13px;
+        font-size: clamp(31px, 8vw, 43px);
+        line-height: 1.02;
       }
 
       .eyebrow {
-        max-width: 32ch;
-        margin-right: auto;
-        margin-left: auto;
+        margin-bottom: 10px;
         font-size: 8px;
       }
 
-      h1 {
-        margin-bottom: 16px;
-        font-size: 31px;
+      .subtext {
+        max-width: 48ch;
+        font-size: 12px;
+        line-height: 1.58;
       }
 
-      .subtext {
-        margin-bottom: 26px;
-        font-size: 13px;
-        line-height: 1.65;
+      .actions {
+        margin-top: 12px;
+      }
+
+      .progress {
+        top: 4px;
+        left: 0;
+        height: 176px;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .story__sticky {
+        min-height: 570px;
+      }
+
+      .story__layout {
+        padding-right: 14px;
+        padding-left: 14px;
+        grid-template-rows: minmax(270px, 48vh) minmax(0, 1fr);
+      }
+
+      .board-stage {
+        width: 122vw;
+        height: 48vh;
+      }
+
+      .copy {
+        padding-top: 12px;
+      }
+
+      .copy__inner {
+        padding-left: 24px;
+      }
+
+      .copy__panels {
+        min-height: 245px;
+      }
+
+      h1,
+      h2 {
+        font-size: clamp(29px, 9.2vw, 38px);
       }
 
       .cta-group {
-        width: 100%;
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
       }
 
       .btn-primary,
       .btn-secondary {
-        width: 100%;
+        min-height: 42px;
+        padding: 10px 9px;
+        font-size: 8px;
+        letter-spacing: 0.1em;
       }
 
       .trust-note {
-        text-align: left;
+        margin-top: 8px;
+        font-size: 9px;
+      }
+
+      .scroll-cue {
+        font-size: 8px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .eyebrow,
-      h1,
-      .subtext,
-      .cta-group,
-      .trust-note,
-      .drag-hint {
-        opacity: 1;
+      .story {
+        height: 100svh;
+      }
+
+      .board-frame,
+      .copy-panel,
+      .scroll-cue::after {
+        transition: none;
         animation: none;
-        transform: none;
+      }
+
+      .scroll-cue {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <span class="brand-label">Edle Hölzer</span>
-  </header>
-
   <main>
-    <section class="hero-animation" aria-labelledby="product-title">
-      <div class="canvas-wrapper" id="canvas-wrapper">
-        <div class="canvas-stage">
-          <canvas
-            id="brett-canvas"
-            tabindex="0"
-            aria-label="Interaktives 3D-Modell eines handgefertigten Stirnholz-Schneidebretts. Ziehen dreht das Brett."
-          ></canvas>
-          <div class="loading-state" aria-live="polite">Brett wird geladen</div>
-          <div class="error-state">
-            Die 3D-Ansicht konnte nicht geladen werden. Bitte prüfe deine Internetverbindung und öffne die Seite erneut.
+    <section class="story" id="board-story" aria-labelledby="story-title">
+      <div class="story__sticky">
+        <header class="site-header">
+          <span class="brand-label">Edle Hölzer</span>
+        </header>
+
+        <div class="story__layout">
+          <div class="visual" id="visual">
+            <div class="board-stage" id="board-stage" aria-label="Vier Ansichten eines handgefertigten Schneidebretts, gesteuert durch Scrollen">
+              <div class="board-frame" data-frame="0"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-frame" data-frame="1"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-frame" data-frame="2"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-frame" data-frame="3"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-shadow" aria-hidden="true"></div>
+              <div class="loading-state" aria-live="polite">Ansichten werden geladen</div>
+              <div class="error-state">Die Brettansichten konnten nicht geladen werden. Bitte öffne die Seite erneut.</div>
+            </div>
+            <p class="scroll-cue">Scrollen zum Drehen</p>
+          </div>
+
+          <div class="copy">
+            <div class="copy__inner">
+              <div class="progress" aria-hidden="true">
+                <div class="progress__track"></div>
+                <div class="progress__fill"></div>
+                <ol class="progress__steps">
+                  <li class="progress__step is-active"></li>
+                  <li class="progress__step"></li>
+                  <li class="progress__step"></li>
+                  <li class="progress__step"></li>
+                </ol>
+              </div>
+
+              <div class="copy__panels" aria-live="polite">
+                <article class="copy-panel is-active" data-copy="0">
+                  <p class="eyebrow">Erbstück · Bereits vergeben · Unikat</p>
+                  <h1 id="story-title">Ein Erbstück aus historischem Holz.</h1>
+                  <p class="subtext">Dieses Brett ist bereits verkauft. Es zeigt, welche Richtung aus einem vorhandenen Balken entstehen kann, ohne zur Vorlage für eine Serie zu werden.</p>
+                </article>
+
+                <article class="copy-panel" data-copy="1">
+                  <p class="eyebrow">Historisches Material</p>
+                  <h2>Der Balken gibt die Richtung vor.</h2>
+                  <p class="subtext">Maserung, alte Spuren und nutzbare Substanz bestimmen das spätere Format. Genau deshalb kann dieses Brett nicht noch einmal identisch entstehen.</p>
+                </article>
+
+                <article class="copy-panel" data-copy="2">
+                  <p class="eyebrow">Kante und Aufbau</p>
+                  <h2>Alte Substanz, neu aufgebaut.</h2>
+                  <p class="subtext">Die niedrige Perspektive macht Stärke, Kantenverlauf und Griffmulde sichtbar. Die hellen Einlagen setzen eine klare Linie, ohne die Geschichte des Holzes zu überdecken.</p>
+                </article>
+
+                <article class="copy-panel" data-copy="3">
+                  <p class="eyebrow">Ein vergebenes Erbstück</p>
+                  <h2>Keine Vorlage. Eher eine Richtung.</h2>
+                  <p class="subtext">Dieses Stück hat seinen Besitzer bereits gefunden. Für ein neues Erbstück suchen wir gemeinsam ein verfügbares Holz, das seinen eigenen Charakter mitbringt.</p>
+                </article>
+              </div>
+
+              <div class="actions">
+                <div class="cta-group">
+                  <a
+                    href="mailto:info@edlehoelzer.de?subject=Anfrage%20Erbstueck"
+                    class="btn-primary"
+                  >
+                    Erbstück anfragen
+                  </a>
+                  <a href="https://edlehoelzer.de/erbstueck/" class="btn-secondary">
+                    Erbstück-Serie ansehen
+                  </a>
+                </div>
+                <p class="trust-note">Auf Anfrage · Einzelanfertigung · abhängig vom verfügbaren Holz</p>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="drag-hint">Ziehen zum Drehen</p>
-      </div>
-
-      <div class="product-info">
-        <p class="eyebrow">Stirnholz · Handgefertigt · Unikat</p>
-        <h1 id="product-title">Schneidebrett aus Eiche</h1>
-        <p class="subtext">
-          Gefertigt in Mittelhessen. Messerschonend, formstabil und für viele Jahre gemacht.
-        </p>
-        <div class="cta-group">
-          <a
-            href="https://edlehoelzervonkoc.etsy.com"
-            class="btn-primary"
-            target="_blank"
-            rel="noopener"
-            title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer"
-          >
-            Dieses Brett kaufen
-          </a>
-          <a href="https://edlehoelzer.de/produkte.html" class="btn-secondary">
-            Alle Bretter ansehen
-          </a>
-        </div>
-        <p class="trust-note">🔒 Sicher über Etsy · Käuferschutz inklusive</p>
       </div>
     </section>
   </main>
 
-  <img id="brett-source" src="./brett_render.png" alt="" hidden>
-  <img id="render-audit" alt="" hidden>
+  <img id="board-source" src="./brett_render.png" alt="" hidden>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
     (() => {
       "use strict";
 
-      const canvas = document.getElementById("brett-canvas");
-      const wrapper = document.getElementById("canvas-wrapper");
-      const stage = canvas.parentElement;
-      const sourceImage = document.getElementById("brett-source");
-      const renderAuditImage = document.getElementById("render-audit");
+      const story = document.getElementById("board-story");
+      const stage = document.getElementById("board-stage");
+      const source = document.getElementById("board-source");
+      const frames = Array.from(document.querySelectorAll(".board-frame"));
+      const panels = Array.from(document.querySelectorAll(".copy-panel"));
+      const steps = Array.from(document.querySelectorAll(".progress__step"));
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const staticPreview = new URLSearchParams(window.location.search).has("static");
 
-      if (!window.THREE) {
-        wrapper.classList.add("has-error");
-        return;
+      const views = [
+        { quadrant: [0, 0], crop: [0.015, 0.14, 0.97, 0.64], scale: 1.05, rotate: -0.6, x: -1.5, y: 0 },
+        { quadrant: [0, 1], crop: [0.045, 0.035, 0.91, 0.90], scale: 0.94, rotate: 0, x: -1, y: -1 },
+        { quadrant: [1, 0], crop: [0.01, 0.17, 0.98, 0.62], scale: 1.06, rotate: 0.5, x: 1, y: 0 },
+        { quadrant: [1, 1], crop: [0.005, 0.18, 0.99, 0.70], scale: 1.03, rotate: -0.35, x: 1.5, y: 0 }
+      ];
+
+      let activeIndex = 0;
+      let ticking = false;
+
+      function clamp(value, minimum, maximum) {
+        return Math.min(maximum, Math.max(minimum, value));
       }
 
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        alpha: true,
-        antialias: true,
-        preserveDrawingBuffer: true,
-        powerPreference: "high-performance"
-      });
+      function smoothStep(value) {
+        return value * value * (3 - 2 * value);
+      }
 
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.outputEncoding = THREE.sRGBEncoding;
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.02;
-      renderer.setClearColor(0xf5f1eb, 0);
+      function framePositionWithHolds(progress) {
+        const segmentCount = frames.length - 1;
+        if (progress >= 1) return segmentCount;
 
-      const keyLight = new THREE.DirectionalLight(0xfff8f0, 1.6);
-      keyLight.position.set(-3, 5, 3);
-      scene.add(keyLight);
+        const rawPosition = progress * segmentCount;
+        const segmentIndex = Math.floor(rawPosition);
+        const localProgress = rawPosition - segmentIndex;
+        const hold = 0.28;
 
-      const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
-      fillLight.position.set(4, 1, 2);
-      scene.add(fillLight);
+        if (localProgress <= hold) return segmentIndex;
+        if (localProgress >= 1 - hold) return segmentIndex + 1;
 
-      const rimLight = new THREE.DirectionalLight(0xfff0e0, 0.3);
-      rimLight.position.set(0, 3, -4);
-      scene.add(rimLight);
+        const transitionProgress = (localProgress - hold) / (1 - hold * 2);
+        return segmentIndex + smoothStep(transitionProgress);
+      }
 
-      const ambient = new THREE.AmbientLight(0xffffff, 0.6);
-      scene.add(ambient);
-
-      const environmentCanvas = document.createElement("canvas");
-      environmentCanvas.width = 256;
-      environmentCanvas.height = 128;
-      const environmentContext = environmentCanvas.getContext("2d");
-      const environmentGradient = environmentContext.createLinearGradient(0, 0, 0, 128);
-      environmentGradient.addColorStop(0, "#fffaf4");
-      environmentGradient.addColorStop(0.48, "#f1e9df");
-      environmentGradient.addColorStop(1, "#bfa98f");
-      environmentContext.fillStyle = environmentGradient;
-      environmentContext.fillRect(0, 0, 256, 128);
-      environmentContext.fillStyle = "rgba(255,255,255,0.8)";
-      environmentContext.fillRect(22, 14, 72, 42);
-      environmentContext.fillStyle = "rgba(184,136,87,0.18)";
-      environmentContext.fillRect(174, 28, 50, 64);
-
-      const environmentTexture = new THREE.CanvasTexture(environmentCanvas);
-      environmentTexture.mapping = THREE.EquirectangularReflectionMapping;
-      environmentTexture.encoding = THREE.sRGBEncoding;
-      const pmremGenerator = new THREE.PMREMGenerator(renderer);
-      const environmentMap = pmremGenerator.fromEquirectangular(environmentTexture).texture;
-      scene.environment = environmentMap;
-      environmentTexture.dispose();
-      pmremGenerator.dispose();
-
-      const groundMirror = new THREE.Mesh(
-        new THREE.PlaneGeometry(10, 10),
-        new THREE.MeshStandardMaterial({
-          color: 0xede8e1,
-          roughness: 0.1,
-          metalness: 0.3,
-          opacity: 0.4,
-          transparent: true
-        })
-      );
-      groundMirror.rotation.x = -Math.PI / 2;
-      groundMirror.position.y = -0.72;
-      scene.add(groundMirror);
-
-      const contactCanvas = document.createElement("canvas");
-      contactCanvas.width = 512;
-      contactCanvas.height = 256;
-      const contactContext = contactCanvas.getContext("2d");
-      const contactGradient = contactContext.createRadialGradient(256, 128, 12, 256, 128, 210);
-      contactGradient.addColorStop(0, "rgba(80,45,20,0.18)");
-      contactGradient.addColorStop(0.5, "rgba(80,45,20,0.07)");
-      contactGradient.addColorStop(1, "rgba(80,45,20,0)");
-      contactContext.fillStyle = contactGradient;
-      contactContext.fillRect(0, 0, 512, 256);
-      const contactTexture = new THREE.CanvasTexture(contactCanvas);
-      const contactPlane = new THREE.Mesh(
-        new THREE.PlaneGeometry(4.8, 2.5),
-        new THREE.MeshBasicMaterial({
-          map: contactTexture,
-          transparent: true,
-          depthWrite: false,
-          opacity: 0.65
-        })
-      );
-      contactPlane.rotation.x = -Math.PI / 2;
-      contactPlane.position.y = -0.705;
-      scene.add(contactPlane);
-
-      let board = null;
-      let reflection = null;
-      let viewCanvases = null;
-      let autoTargetY = -0.42;
-      let isDragging = false;
-      let pointerId = null;
-      let previousPointerX = 0;
-      let previousPointerY = 0;
-      let lastInteractionAt = -Infinity;
-      const maxTilt = THREE.MathUtils.degToRad(20);
-      const clock = new THREE.Clock();
-
-      function createQuadrantViews(image) {
+      function drawTransparentView(canvas, image, definition) {
         const halfWidth = image.naturalWidth / 2;
         const halfHeight = image.naturalHeight / 2;
-        const definitions = {
-          frontLeft: [0, 0],
-          frontRight: [halfWidth, 0],
-          top: [0, halfHeight],
-          rearRight: [halfWidth, halfHeight]
-        };
-        const views = {};
+        const [quadrantX, quadrantY] = definition.quadrant;
+        const [cropX, cropY, cropWidth, cropHeight] = definition.crop;
+        const sourceX = quadrantX * halfWidth + cropX * halfWidth;
+        const sourceY = quadrantY * halfHeight + cropY * halfHeight;
+        const sourceWidth = cropWidth * halfWidth;
+        const sourceHeight = cropHeight * halfHeight;
+        const outputWidth = 1400;
+        const outputHeight = Math.round(outputWidth * sourceHeight / sourceWidth);
 
-        Object.entries(definitions).forEach(([name, origin]) => {
-          const quadrant = document.createElement("canvas");
-          quadrant.width = Math.floor(halfWidth);
-          quadrant.height = Math.floor(halfHeight);
-          const context = quadrant.getContext("2d");
-          context.imageSmoothingEnabled = true;
-          context.imageSmoothingQuality = "high";
-          context.drawImage(
-            image,
-            origin[0],
-            origin[1],
-            halfWidth,
-            halfHeight,
-            0,
-            0,
-            quadrant.width,
-            quadrant.height
-          );
-          views[name] = quadrant;
-        });
-
-        return views;
-      }
-
-      function textureFromView(view, crop, width, height, mirrorX = false, mirrorY = false) {
-        const textureCanvas = document.createElement("canvas");
-        textureCanvas.width = width;
-        textureCanvas.height = height;
-        const context = textureCanvas.getContext("2d");
-        const sourceX = Math.round(view.width * crop.x);
-        const sourceY = Math.round(view.height * crop.y);
-        const sourceWidth = Math.round(view.width * crop.width);
-        const sourceHeight = Math.round(view.height * crop.height);
-
+        canvas.width = outputWidth;
+        canvas.height = outputHeight;
+        const context = canvas.getContext("2d", { willReadFrequently: true });
         context.imageSmoothingEnabled = true;
         context.imageSmoothingQuality = "high";
-        context.save();
-        context.translate(mirrorX ? width : 0, mirrorY ? height : 0);
-        context.scale(mirrorX ? -1 : 1, mirrorY ? -1 : 1);
         context.drawImage(
-          view,
+          image,
           sourceX,
           sourceY,
           sourceWidth,
           sourceHeight,
           0,
           0,
-          width,
-          height
+          outputWidth,
+          outputHeight
         );
-        context.restore();
-        extendWoodIntoWhiteAreas(context, width, height);
 
-        const texture = new THREE.CanvasTexture(textureCanvas);
-        texture.encoding = THREE.sRGBEncoding;
-        texture.wrapS = THREE.ClampToEdgeWrapping;
-        texture.wrapT = THREE.ClampToEdgeWrapping;
-        texture.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
-        texture.needsUpdate = true;
-        return texture;
-      }
-
-      function extendWoodIntoWhiteAreas(context, width, height) {
-        const imageData = context.getImageData(0, 0, width, height);
+        const imageData = context.getImageData(0, 0, outputWidth, outputHeight);
         const pixels = imageData.data;
-        const nextWoodBelow = new Int32Array(height);
 
-        const isWhite = (offset) => {
+        for (let offset = 0; offset < pixels.length; offset += 4) {
           const red = pixels[offset];
           const green = pixels[offset + 1];
           const blue = pixels[offset + 2];
-          return red > 242 && green > 242 && blue > 242 &&
-            Math.max(red, green, blue) - Math.min(red, green, blue) < 14;
-        };
+          const minimum = Math.min(red, green, blue);
+          const maximum = Math.max(red, green, blue);
+          const neutrality = maximum - minimum;
+          const whiteDistance = 255 - minimum;
 
-        for (let x = 0; x < width; x += 1) {
-          let nextWood = -1;
-
-          for (let y = height - 1; y >= 0; y -= 1) {
-            const offset = (y * width + x) * 4;
-            if (!isWhite(offset)) {
-              nextWood = y;
-            }
-            nextWoodBelow[y] = nextWood;
-          }
-
-          let previousWood = -1;
-          for (let y = 0; y < height; y += 1) {
-            const offset = (y * width + x) * 4;
-            if (!isWhite(offset)) {
-              previousWood = y;
-              continue;
-            }
-
-            const sourceY = previousWood >= 0 ? previousWood : nextWoodBelow[y];
-            if (sourceY < 0) continue;
-            const sourceOffset = (sourceY * width + x) * 4;
-            pixels[offset] = pixels[sourceOffset];
-            pixels[offset + 1] = pixels[sourceOffset + 1];
-            pixels[offset + 2] = pixels[sourceOffset + 2];
-            pixels[offset + 3] = 255;
+          if (minimum > 247 && neutrality < 10) {
+            pixels[offset + 3] = 0;
+          } else if (minimum > 225 && neutrality < 18) {
+            pixels[offset + 3] = Math.round(clamp((whiteDistance - 7) / 23, 0, 1) * 255);
           }
         }
 
         context.putImageData(imageData, 0, 0);
       }
 
-      function createMaterial(texture, opacity = 1) {
-        return new THREE.MeshStandardMaterial({
-          map: texture,
-          roughness: 0.6,
-          metalness: 0,
-          envMapIntensity: 1.2,
-          transparent: opacity < 1,
-          opacity,
-          depthWrite: opacity === 1
+      function setActivePanel(index) {
+        if (index === activeIndex && panels[index].classList.contains("is-active")) return;
+        activeIndex = index;
+        panels.forEach((panel, panelIndex) => {
+          panel.classList.toggle("is-active", panelIndex === index);
+          panel.setAttribute("aria-hidden", panelIndex === index ? "false" : "true");
+        });
+        steps.forEach((step, stepIndex) => {
+          step.classList.toggle("is-active", stepIndex <= index);
         });
       }
 
-      function buildBoard(image) {
-        viewCanvases = createQuadrantViews(image);
+      function updateStory() {
+        ticking = false;
+        if (!stage.classList.contains("is-ready")) return;
 
-        const rightTexture = textureFromView(
-          viewCanvases.frontRight,
-          { x: 0.04, y: 0.42, width: 0.93, height: 0.34 },
-          1024,
-          320
-        );
-        const leftTexture = textureFromView(
-          viewCanvases.frontLeft,
-          { x: 0.04, y: 0.40, width: 0.93, height: 0.36 },
-          1024,
-          320
-        );
-        const topTexture = textureFromView(
-          viewCanvases.top,
-          { x: 0.085, y: 0.105, width: 0.835, height: 0.75 },
-          1200,
-          780
-        );
-        const bottomTexture = textureFromView(
-          viewCanvases.top,
-          { x: 0.085, y: 0.105, width: 0.835, height: 0.75 },
-          1200,
-          780,
-          false,
-          true
-        );
-        const frontTexture = textureFromView(
-          viewCanvases.frontLeft,
-          { x: 0.045, y: 0.47, width: 0.91, height: 0.28 },
-          1200,
-          280
-        );
-        const backTexture = textureFromView(
-          viewCanvases.rearRight,
-          { x: 0.03, y: 0.46, width: 0.94, height: 0.28 },
-          1200,
-          280,
-          true,
-          false
-        );
+        const storyTop = story.getBoundingClientRect().top + window.scrollY;
+        const scrollRange = Math.max(1, story.offsetHeight - window.innerHeight);
+        const progress = reducedMotion.matches
+          ? 0
+          : clamp((window.scrollY - storyTop) / scrollRange, 0, 1);
+        const framePosition = framePositionWithHolds(progress);
+        const lowerIndex = Math.floor(framePosition);
+        const upperIndex = Math.min(frames.length - 1, lowerIndex + 1);
+        const blend = framePosition - lowerIndex;
 
-        const geometry = new THREE.BoxGeometry(3.4, 0.44, 2.2, 1, 1, 1);
-        const materials = [
-          createMaterial(rightTexture),
-          createMaterial(leftTexture),
-          createMaterial(topTexture),
-          createMaterial(bottomTexture),
-          createMaterial(frontTexture),
-          createMaterial(backTexture)
-        ];
+        frames.forEach((frame, index) => {
+          let opacity = 0;
+          if (index === lowerIndex) opacity = 1 - blend;
+          if (index === upperIndex) opacity = Math.max(opacity, blend);
 
-        board = new THREE.Mesh(geometry, materials);
-        board.rotation.set(0.15, -0.42, 0);
-        board.position.y = 0.08;
-        scene.add(board);
+          const distance = index - framePosition;
+          const view = views[index];
+          const transitionScale = 1 - Math.min(Math.abs(distance), 1) * 0.055;
+          const translateY = distance * 24;
+          const rotate = view.rotate + distance * 1.4;
 
-        reflection = new THREE.Mesh(
-          geometry.clone(),
-          materials.map((material) => createMaterial(material.map, 0.07))
-        );
-        reflection.scale.y = -1;
-        reflection.position.y = -1.34;
-        reflection.rotation.copy(board.rotation);
-        reflection.renderOrder = -1;
-        scene.add(reflection);
+          frame.style.opacity = opacity.toFixed(4);
+          frame.style.transform = [
+            `translate3d(${view.x}%, calc(${view.y}% + ${translateY}px), 0)`,
+            `scale(${(view.scale * transitionScale).toFixed(4)})`,
+            `rotate(${rotate.toFixed(3)}deg)`
+          ].join(" ");
+        });
 
-        wrapper.classList.add("is-ready");
-        canvas.dataset.rotationX = board.rotation.x.toFixed(4);
-        canvas.dataset.rotationY = board.rotation.y.toFixed(4);
+        const nearestIndex = clamp(Math.round(framePosition), 0, frames.length - 1);
+        setActivePanel(nearestIndex);
+        story.style.setProperty("--progress", progress.toFixed(4));
+        story.style.setProperty("--shadow-scale", (1 - Math.sin(progress * Math.PI) * 0.14).toFixed(4));
+        story.style.setProperty("--shadow-opacity", (0.72 - Math.sin(progress * Math.PI) * 0.16).toFixed(4));
+
+        const cue = document.querySelector(".scroll-cue");
+        cue.style.opacity = progress > 0.08 ? "0" : "1";
       }
 
-      function updateViewport() {
-        const width = Math.max(1, stage.clientWidth);
-        const height = Math.max(1, stage.clientHeight);
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.position.set(0, window.innerWidth < 768 ? 1.72 : 1.6, window.innerWidth < 768 ? 7 : 5.8);
-        camera.lookAt(0, 0.08, 0);
-        camera.updateProjectionMatrix();
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateStory);
       }
 
-      function markInteraction() {
-        lastInteractionAt = performance.now();
-      }
-
-      function publishRenderAudit() {
-        if (!board || canvas.dataset.pixelAudit === "complete") return;
-
-        const auditCanvas = document.createElement("canvas");
-        auditCanvas.width = 480;
-        auditCanvas.height = 384;
-        const auditContext = auditCanvas.getContext("2d", { willReadFrequently: true });
-        auditContext.fillStyle = "#f5f1eb";
-        auditContext.fillRect(0, 0, auditCanvas.width, auditCanvas.height);
-        auditContext.drawImage(canvas, 0, 0, auditCanvas.width, auditCanvas.height);
-        const pixels = auditContext.getImageData(0, 0, auditCanvas.width, auditCanvas.height).data;
-        let nonBackgroundPixels = 0;
-        let luminanceSum = 0;
-        let luminanceSquaredSum = 0;
-        const pixelCount = pixels.length / 4;
-
-        for (let index = 0; index < pixels.length; index += 4) {
-          const red = pixels[index];
-          const green = pixels[index + 1];
-          const blue = pixels[index + 2];
-          const luminance = red * 0.2126 + green * 0.7152 + blue * 0.0722;
-          const backgroundDistance =
-            Math.abs(red - 245) +
-            Math.abs(green - 241) +
-            Math.abs(blue - 235);
-
-          if (backgroundDistance > 42) {
-            nonBackgroundPixels += 1;
-          }
-
-          luminanceSum += luminance;
-          luminanceSquaredSum += luminance * luminance;
-        }
-
-        const averageLuminance = luminanceSum / pixelCount;
-        const variance = luminanceSquaredSum / pixelCount - averageLuminance * averageLuminance;
-        canvas.dataset.nonBackgroundPixels = String(nonBackgroundPixels);
-        canvas.dataset.pixelVariance = variance.toFixed(2);
-        canvas.dataset.pixelAudit = "complete";
-        renderAuditImage.src = auditCanvas.toDataURL("image/jpeg", 0.88);
-      }
-
-      function handlePointerDown(event) {
-        if (!board) return;
-        isDragging = true;
-        pointerId = event.pointerId;
-        previousPointerX = event.clientX;
-        previousPointerY = event.clientY;
-        autoTargetY = board.rotation.y;
-        markInteraction();
-        canvas.setPointerCapture(pointerId);
-      }
-
-      function handlePointerMove(event) {
-        if (!isDragging || event.pointerId !== pointerId || !board) return;
-        const deltaX = THREE.MathUtils.clamp(event.clientX - previousPointerX, -40, 40);
-        const deltaY = THREE.MathUtils.clamp(event.clientY - previousPointerY, -30, 30);
-        previousPointerX = event.clientX;
-        previousPointerY = event.clientY;
-
-        board.rotation.y += deltaX * 0.009;
-        board.rotation.x = THREE.MathUtils.clamp(board.rotation.x + deltaY * 0.007, -maxTilt, maxTilt);
-        autoTargetY = board.rotation.y;
-        markInteraction();
-      }
-
-      function handlePointerUp(event) {
-        if (event.pointerId !== pointerId) return;
-        isDragging = false;
-        markInteraction();
-        if (canvas.hasPointerCapture(pointerId)) {
-          canvas.releasePointerCapture(pointerId);
-        }
-        pointerId = null;
-      }
-
-      canvas.addEventListener("pointerdown", handlePointerDown);
-      canvas.addEventListener("pointermove", handlePointerMove);
-      canvas.addEventListener("pointerup", handlePointerUp);
-      canvas.addEventListener("pointercancel", handlePointerUp);
-      canvas.addEventListener("contextmenu", (event) => event.preventDefault());
-
-      const resizeObserver = new ResizeObserver(updateViewport);
-      resizeObserver.observe(stage);
-      window.addEventListener("resize", updateViewport, { passive: true });
-      updateViewport();
-
-      function animate() {
-        if (!staticPreview || !board) {
-          requestAnimationFrame(animate);
-        }
-        if (!board) {
-          renderer.render(scene, camera);
-          return;
-        }
-
-        const elapsed = clock.getElapsedTime();
-        const idleFor = performance.now() - lastInteractionAt;
-        const canAutoRotate = !reducedMotion.matches && !isDragging && idleFor > 3500;
-
-        if (canAutoRotate) {
-          autoTargetY += 0.003;
-          board.rotation.y += (autoTargetY - board.rotation.y) * 0.04;
-          const targetX = Math.sin(elapsed * 0.5) * 0.06;
-          board.rotation.x += (targetX - board.rotation.x) * 0.04;
-        }
-
-        if (reducedMotion.matches && idleFor > 3500 && !isDragging) {
-          board.rotation.x += (0.15 - board.rotation.x) * 0.04;
-          board.rotation.y += (-0.42 - board.rotation.y) * 0.04;
-        }
-
-        board.position.y = reducedMotion.matches ? 0.08 : 0.08 + Math.sin(elapsed * 0.7) * 0.05;
-
-        if (reflection) {
-          reflection.rotation.x = -board.rotation.x;
-          reflection.rotation.y = board.rotation.y;
-          reflection.rotation.z = board.rotation.z;
-          reflection.position.y = -1.34 - (board.position.y - 0.08);
-        }
-
-        canvas.dataset.rotationX = board.rotation.x.toFixed(4);
-        canvas.dataset.rotationY = board.rotation.y.toFixed(4);
-        renderer.render(scene, camera);
-        publishRenderAudit();
-      }
-
-      sourceImage.addEventListener("load", () => {
+      function prepareFrames() {
         try {
-          buildBoard(sourceImage);
+          frames.forEach((frame, index) => {
+            drawTransparentView(frame.querySelector("canvas"), source, views[index]);
+          });
+          stage.classList.add("is-ready");
+          frames[0].style.opacity = "1";
+          setActivePanel(0);
+          requestUpdate();
         } catch (error) {
           console.error(error);
-          wrapper.classList.add("has-error");
+          stage.classList.add("has-error");
         }
-      });
-
-      sourceImage.addEventListener("error", () => {
-        wrapper.classList.add("has-error");
-      });
-
-      if (sourceImage.complete && sourceImage.naturalWidth) {
-        buildBoard(sourceImage);
       }
 
-      animate();
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", requestUpdate, { passive: true });
+      reducedMotion.addEventListener("change", requestUpdate);
+
+      source.addEventListener("load", prepareFrames);
+      source.addEventListener("error", () => stage.classList.add("has-error"));
+
+      if (source.complete && source.naturalWidth) {
+        prepareFrames();
+      }
     })();
   </script>
 </body>
