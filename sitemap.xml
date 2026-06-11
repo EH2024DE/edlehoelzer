@@ -96,6 +96,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://edlehoelzer.de/holz-statt-plastik/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://edlehoelzer.de/b2b.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -147,6 +152,11 @@
   </url>
   <url>
     <loc>https://edlehoelzer.de/en/wooden-dough-scraper/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://edlehoelzer.de/en/wood-instead-of-plastic/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
