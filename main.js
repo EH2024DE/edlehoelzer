@@ -1780,12 +1780,13 @@ function initProductsPage() {
   }
 
   function buildProductActions(product) {
-    if (product.needsReview || !product.etsyUrl) {
-      return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=' + (isEnglish ? "Product%20inquiry" : "Anfrage%20Produkt") + '">' + (isEnglish ? "Ask about this product" : "Produkt anfragen") + '</a></div>';
+    if (product.needsReview || !product.etsyUrl || product.directListingUrlVerified !== true) {
+      var inquirySubject = encodeURIComponent((isEnglish ? "Availability inquiry: " : "Verfügbarkeitsanfrage: ") + (product.displayName || product.name || ""));
+      return '<div class="ctaRow"><a class="btn btn--emphasis" href="mailto:info@edlehoelzer.de?subject=' + inquirySubject + '" data-umami-event="email-kontakt">' + (isEnglish ? "Ask about availability" : "Verfügbarkeit anfragen") + '</a></div>';
     }
 
     var primaryLabel = etsyActionLabel(product);
-    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + primaryLabel + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span></div>';
+    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + primaryLabel + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span></div>';
   }
 
   function etsyActionLabel(product) {

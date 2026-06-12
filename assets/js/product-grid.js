@@ -79,13 +79,22 @@
   function renderCard(product) {
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
     var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
-    var buyButtonText = buyLabelFor(product, isEnglish);
-    var buyButtonUrl = product.directListingUrlVerified
-      ? (product.etsyListingUrl || product.etsyUrl)
-      : "https://edlehoelzervonkoc.etsy.com";
+    var directListingUrl = product.etsyListingUrl || product.etsyUrl;
+    var hasDirectListing = product.directListingUrlVerified === true && Boolean(directListingUrl);
+    var actionText = hasDirectListing
+      ? buyLabelFor(product, isEnglish)
+      : (isEnglish ? "Start product finder" : "Produktfinder starten");
+    var actionUrl = hasDirectListing
+      ? directListingUrl
+      : (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder");
+    var linkAttributes = hasDirectListing
+      ? ' target="_blank" rel="noopener" data-etsy-link title="' +
+        (isEnglish ? "You are leaving for the Edle Hölzer Etsy listing" : "Du wechselst jetzt zum Etsy-Angebot von Edle Hölzer") +
+        '" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-umami-event="etsy-klick"'
+      : ' data-umami-event="produktfinder-gestartet"';
 
     return '<article class="productCard seo-product-card">' +
-      '<a class="productCard__link" href="' + escapeAttribute(buyButtonUrl) + '" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">' +
+      '<a class="productCard__link" href="' + escapeAttribute(actionUrl) + '"' + linkAttributes + '>' +
         '<div class="productCard__media productCard__imgWrap"' + productImageStyle(product) + '>' +
           '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
         '</div>' +
@@ -97,8 +106,10 @@
           '<div class="productCard__footer">' +
             (product.priceLabel ? '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' : "") +
             '<span class="productCard__buy">' +
-              '<span class="productCard__cta">' + escapeHtml(buyButtonText) + '</span>' +
-              '<span class="productCard__trust">🔒 Sicher über Etsy · Käuferschutz inklusive</span>' +
+              '<span class="productCard__cta">' + escapeHtml(actionText) + '</span>' +
+              (hasDirectListing
+                ? '<span class="productCard__trust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span>'
+                : "") +
             '</span>' +
           '</div>' +
         '</div>' +
@@ -272,10 +283,13 @@
   }
 
   function renderFallback(container) {
+    var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
     container.innerHTML =
       '<div class="productGridEmpty">' +
-        '<p>Aktuell sind für diese Auswahl keine passenden Produkte geladen.</p>' +
-        '<a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click">Dieses Brett kaufen</a>' +
+        '<p>' + (isEnglish ? "No suitable products are currently loaded for this selection." : "Aktuell sind für diese Auswahl keine passenden Produkte geladen.") + '</p>' +
+        '<a href="' + (isEnglish ? "/en/products.html#products-grid" : "/produkte.html#produkte-grid") + '">' +
+          (isEnglish ? "View all products" : "Alle Produkte ansehen") +
+        '</a>' +
       '</div>';
   }
 
