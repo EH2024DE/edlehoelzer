@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260610">
+  <link rel="stylesheet" href="/styles.css?v=20260612">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -132,8 +132,8 @@
         <p class="seo-subline">Jedes Brett ein Unikat – mit Name, Datum oder Wunschtext graviert. Handgefertigt in Mittelhessen.</p>
         <p class="seoHero__lead">Ein personalisiertes Schneidebrett ist bei ausgewählten Brettern aus unserem Sortiment möglich. Wir gravieren keine fremden Schneidebretter, sondern fertigen jedes personalisierte Schneidebrett selbst und personalisieren die Bretter, die du bei Edle Hölzer auswählst.</p>
         <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Gravur" class="btn" data-umami-event="email-kontakt">Gravur anfragen</a>
-          <div class="etsyBuyBlock"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn btn--primary" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Dieses Brett kaufen</a><p class="trust-badge">🔒 Sicher über Etsy · Käuferschutz inklusive</p></div>
+          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Gravur" class="btn btn--emphasis" data-umami-event="email-kontakt">Gravur anfragen</a>
+          <a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a>
         </div>
       </div>
       <img class="seoHero__image" src="/assets/schneidebrett-mit-gravur.jpg" alt="Handgefertigtes Schneidebrett aus Holz mit Griffmulden als Detail für Gravur" width="2001" height="3000">
@@ -175,7 +175,7 @@
           <h2>Richtiger Einstieg</h2>
           <p>Für ein einzelnes personalisiertes Schneidebrett wählst du ein gravierbares Produkt im Etsy-Shop. Für Logo, Firmenkunden oder Seriengeschenke nutzt du die B2B-Anfrage.</p>
           <div class="ctaRow">
-            <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Dieses Brett kaufen</a>
+            <a href="/produkte.html#produkte-grid" class="btn btn--emphasis">Alle Produkte ansehen</a>
             <a href="/b2b.html" class="btn btn--ghost-dark" data-umami-event="b2b-interesse">B2B-Anfrage</a>
           </div>
         </div>
@@ -202,13 +202,9 @@
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
       <div id="products-gravur" class="landingProductGrid" aria-live="polite"></div>
-      <div class="ctaRow" style="margin-top:2rem">
-        <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener"
-           class="btn btn--ghost-dark"
-           data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Dieses Brett kaufen</a>
-        <a href="/produkte.html#produktfinder" class="btn" data-umami-event="produktfinder-gestartet">
-          Passendes Brett finden
-        </a>
+      <div class="ctaRow ctaRow--product-nav">
+        <a href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Produktfinder starten</a>
+        <a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a>
       </div>
     </div>
   </section>
@@ -303,8 +299,8 @@
     </nav>
   </div>
 </footer>
-<script src="/main.js?v=20260601"></script>
-<script src="/assets/js/product-grid.js?v=20260601"></script>
+<script src="/main.js?v=20260612"></script>
+<script src="/assets/js/product-grid.js?v=20260612"></script>
 <script>
   renderProductGrid("products-gravur", function (p) {
     return Array.isArray(p.badges) && p.badges.includes("personalisierbar");

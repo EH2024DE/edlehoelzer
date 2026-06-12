@@ -187,6 +187,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function initBackToTop() {
+  if (document.querySelector(".erbstueckPage")) {
+    return;
+  }
+
   var button = document.createElement("button");
   var threshold = 520;
   var ticking = false;
@@ -359,7 +363,7 @@ function initCardWelcome() {
         '<li>Schnelle persönliche Beratung</li>' +
       '</ul>' +
       '<div class="cardWelcome__actions">' +
-        '<a class="btn" href="./produkte.html#produktfinder">Passendes Brett finden</a>' +
+        '<a class="btn" href="./produkte.html#produktfinder">Produktfinder starten</a>' +
         '<a class="btn btn--ghost-dark" href="./produkte.html#produkte-grid">Produkte ansehen</a>' +
       '</div>' +
       '<a class="cardWelcome__contact" href="mailto:info@edlehoelzer.de?subject=Frage%20zur%20Holzkarte">Frage stellen</a>';
@@ -1220,9 +1224,11 @@ function initProductsPage() {
         if (state.currentStep < questions.length - 1) {
           state.currentStep += 1;
           renderFinder();
+          keepFinderQuestionVisible();
         } else {
           renderFinder();
           showFinderResult();
+          keepFinderQuestionVisible(true);
         }
       });
     });
@@ -1231,6 +1237,7 @@ function initProductsPage() {
       if (state.currentStep > 0) {
         state.currentStep -= 1;
         renderFinder();
+        keepFinderQuestionVisible();
       }
     };
 
@@ -1242,10 +1249,28 @@ function initProductsPage() {
       if (state.currentStep < questions.length - 1) {
         state.currentStep += 1;
         renderFinder();
+        keepFinderQuestionVisible();
       } else {
         showFinderResult();
+        keepFinderQuestionVisible(true);
       }
     };
+  }
+
+  function keepFinderQuestionVisible(showResult) {
+    if (!window.matchMedia("(max-width: 767px)").matches) {
+      return;
+    }
+
+    window.setTimeout(function () {
+      var target = showResult
+        ? document.querySelector("[data-finder-result]")
+        : finderRoot.querySelector("[data-finder-question]");
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 40);
   }
 
   function showFinderResult() {
@@ -1288,23 +1313,14 @@ function initProductsPage() {
           buildFeatureBadges(main) +
           buildProductFacts(main) +
           '<p class="productCard__price">' + escapeHtml(main.priceLabel) + '</p>' +
-          '<div class="ctaRow">' +
-            '<span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(etsyActionUrl(main)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + escapeHtml(etsyActionLabel(main)) + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span>' +
+          buildProductActions(main) +
+          '<div class="ctaRow finderResult__secondaryActions">' +
             '<a class="btn btn--ghost-dark" href="' + gridAnchor + '">' + (isEnglish ? "View product grid" : "Produktgrid ansehen") + '</a>' +
             '<button class="btn btn--ghost-dark" type="button" data-finder-reset>' + (isEnglish ? "Restart" : "Neu starten") + '</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
-      (alternatives.length ? '<div class="alternativeList"><h3>' + (isEnglish ? "Alternatives" : "Alternativen") + '</h3><div class="alternativeGrid">' + alternatives.map(function (product) {
-        return '<a class="alternativeCard" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' +
-          buildProductMedia(product) +
-          '<span class="alternativeCard__body">' +
-            '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
-            '<strong>' + escapeHtml(displayProductName(product)) + '</strong>' +
-            '<span>' + escapeHtml(product.priceLabel) + '</span>' +
-          '</span>' +
-        '</a>';
-      }).join("") + '</div></div>' : "");
+      (alternatives.length ? '<div class="alternativeList"><h3>' + (isEnglish ? "Alternatives" : "Alternativen") + '</h3><div class="alternativeGrid">' + alternatives.map(buildAlternativeCard).join("") + '</div></div>' : "");
 
     bindReset(resultRoot);
     renderGrid();
@@ -1780,12 +1796,30 @@ function initProductsPage() {
   }
 
   function buildProductActions(product) {
-    if (product.needsReview || !product.etsyUrl) {
-      return '<div class="ctaRow"><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=' + (isEnglish ? "Product%20inquiry" : "Anfrage%20Produkt") + '">' + (isEnglish ? "Ask about this product" : "Produkt anfragen") + '</a></div>';
+    if (product.needsReview || !product.etsyUrl || product.directListingUrlVerified !== true) {
+      var inquirySubject = encodeURIComponent((isEnglish ? "Availability inquiry: " : "Verfügbarkeitsanfrage: ") + (product.displayName || product.name || ""));
+      return '<div class="ctaRow"><a class="btn btn--emphasis" href="mailto:info@edlehoelzer.de?subject=' + inquirySubject + '" data-umami-event="email-kontakt">' + (isEnglish ? "Ask about availability" : "Verfügbarkeit anfragen") + '</a></div>';
     }
 
     var primaryLabel = etsyActionLabel(product);
-    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + primaryLabel + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span></div>';
+    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + primaryLabel + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span></div>';
+  }
+
+  function buildAlternativeCard(product) {
+    var content =
+      buildProductMedia(product) +
+      '<span class="alternativeCard__body">' +
+        '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
+        '<strong>' + escapeHtml(displayProductName(product)) + '</strong>' +
+        '<span>' + escapeHtml(product.priceLabel) + '</span>' +
+      '</span>';
+
+    if (product.directListingUrlVerified === true && product.etsyUrl) {
+      return '<a class="alternativeCard" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + content + '</a>';
+    }
+
+    var subject = encodeURIComponent((isEnglish ? "Availability inquiry: " : "Verfügbarkeitsanfrage: ") + (product.displayName || product.name || ""));
+    return '<a class="alternativeCard" href="mailto:info@edlehoelzer.de?subject=' + subject + '" data-umami-event="email-kontakt">' + content + '</a>';
   }
 
   function etsyActionLabel(product) {

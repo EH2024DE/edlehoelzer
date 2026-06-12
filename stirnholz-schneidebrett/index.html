@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260610">
+  <link rel="stylesheet" href="/styles.css?v=20260612">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -132,8 +132,8 @@
         <p class="seo-subline">Besonders messerschonend – die Holzfasern werden beim Schneiden geteilt, nicht durchtrennt. Messer bleiben länger scharf.</p>
         <p class="seoHero__lead">Ein Stirnholzbrett ist kein gewöhnliches Schneidebrett. Es sieht anders aus, fühlt sich anders an – und ist besonders messerschonend, weil die Klinge zwischen die senkrechten Fasern gleitet. Genau dieses messerschonende Prinzip macht es für gute Küchenmesser und intensive Nutzung so stark. Das ist der Grund, warum Profiköche und Metzgereien seit Jahrhunderten auf Hirnholz setzen.</p>
         <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett" class="btn" data-umami-event="email-kontakt">Stirnholzbrett anfragen</a>
-          <div class="etsyBuyBlock"><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" class="btn btn--primary" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Dieses Brett kaufen</a><p class="trust-badge">🔒 Sicher über Etsy · Käuferschutz inklusive</p></div>
+          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett" class="btn btn--emphasis" data-umami-event="email-kontakt">Stirnholzbrett anfragen</a>
+          <a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a>
         </div>
       </div>
       <img class="seoHero__image" src="/assets/stirnholz-schneidebrett.jpg" alt="Stirnholz Schneidebrett aus Massivholz mit charaktervoller Hirnholz-Struktur" width="2001" height="3000">
@@ -213,13 +213,9 @@
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
       <div id="products-stirnholz" class="landingProductGrid" aria-live="polite"></div>
-      <div class="ctaRow" style="margin-top:2rem">
-        <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener"
-           class="btn btn--ghost-dark"
-           data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Dieses Brett kaufen</a>
-        <a href="/produkte.html#produktfinder" class="btn" data-umami-event="produktfinder-gestartet">
-          Passendes Brett finden
-        </a>
+      <div class="ctaRow ctaRow--product-nav">
+        <a href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Produktfinder starten</a>
+        <a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a>
       </div>
     </div>
   </section>
@@ -314,8 +310,8 @@
     </nav>
   </div>
 </footer>
-<script src="/main.js?v=20260601"></script>
-<script src="/assets/js/product-grid.js?v=20260601"></script>
+<script src="/main.js?v=20260612"></script>
+<script src="/assets/js/product-grid.js?v=20260612"></script>
 <script>
   renderProductGrid("products-stirnholz", function (p) {
     return p.woodCut === "end";
