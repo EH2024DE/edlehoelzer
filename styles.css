@@ -510,17 +510,38 @@ section[id]{scroll-margin-top:88px}
   object-fit: cover;
   background: #ece3d8;
 }
+.seoHero__image--portrait {
+  width: min(100%, 430px);
+  height: auto;
+  max-height: 650px;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  object-position: center;
+}
 @media (max-width: 1100px) {
   .seoHero__image {
     width: 100%;
     height: clamp(280px, 45vw, 420px);
     justify-self: stretch;
   }
+  .seoHero__image--portrait {
+    width: min(100%, 390px);
+    height: auto;
+    max-height: 580px;
+    justify-self: center;
+  }
 }
 
 @media (max-width: 640px) {
   .seoHero__image {
     height: clamp(220px, 62vw, 300px);
+    border-radius: 14px;
+  }
+  .seoHero__image--portrait {
+    width: min(100%, 340px);
+    height: auto;
+    max-height: none;
+    aspect-ratio: 2 / 3;
     border-radius: 14px;
   }
 }
@@ -627,6 +648,11 @@ section[id]{scroll-margin-top:88px}
 .erbstueckGallery__featured img{aspect-ratio:3/2}
 .erbstueckGallery figcaption{min-height:86px;padding:14px 15px 16px;color:rgba(245,241,235,.72);font-size:13px;line-height:1.5}
 .erbstueckGallery figcaption strong{display:block;margin-bottom:4px;color:#f5f1eb;font-size:12px;letter-spacing:.10em;text-transform:uppercase}
+.erbstueckGallery__available{border-color:rgba(184,136,87,.62)!important}
+.erbstueckGallery__available figcaption{display:grid;align-content:start;gap:10px;min-height:190px}
+.erbstueckGalleryBuy{display:grid;gap:7px;margin-top:auto;padding-top:4px}
+.erbstueckGalleryBuy .btn{width:100%}
+.erbstueckGalleryBuy .etsyTrust{color:rgba(245,241,235,.62);font-size:10px;line-height:1.4}
 .erbstueckTestimonial{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr);gap:36px;align-items:center;margin-top:36px;padding:28px;background:rgba(255,255,255,.66);border:1px solid rgba(52,35,22,.10);border-radius:8px;box-shadow:0 20px 44px rgba(52,35,22,.08)}
 .erbstueckTestimonial h2{font-size:clamp(30px,4.2vw,48px);letter-spacing:-.04em}
 .erbstueckTestimonial figure{margin:0}
@@ -720,6 +746,7 @@ section[id]{scroll-margin-top:88px}
 .sectionIntro--split{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,520px);gap:28px;align-items:end}
 .productsFinderSection{background:#f8f5f0}
 .finderShell{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:26px}
+.finderShell [data-finder-question],.finderResult{scroll-margin-top:96px}
 .finderShell__top{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:22px;align-items:start;margin-bottom:22px}
 .finderStepLabel{display:block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.10em;color:rgba(17,17,17,.52);margin-bottom:8px}
 .finderProgress{height:6px;border-radius:999px;background:#efe8de;overflow:hidden;margin-top:10px}
@@ -731,6 +758,7 @@ section[id]{scroll-margin-top:88px}
 .finderOption__title{font-weight:800;font-size:18px;line-height:1.25}
 .finderOption__description{font-size:14px;line-height:1.55;color:rgba(17,17,17,.68)}
 .finderOption__attributes{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(164,119,76,.86)}
+.finderResult__secondaryActions{margin-top:10px}
 .finderNav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
 .finderNav button:disabled{opacity:.45;cursor:not-allowed}
 .finderResult{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:26px;scroll-margin-top:100px;overflow:hidden}
@@ -873,6 +901,37 @@ section[id]{scroll-margin-top:88px}
     height:100%;
     object-fit:var(--product-image-fit, cover);
     object-position:var(--product-image-x, 50%) var(--product-image-y, 50%);
+  }
+
+  .finderShell{
+    padding:18px 14px;
+  }
+
+  .finderOptions{
+    gap:9px;
+  }
+
+  .finderOption{
+    gap:5px;
+    padding:13px;
+  }
+
+  .finderOption__title{
+    font-size:16px;
+  }
+
+  .finderOption__description{
+    font-size:13px;
+    line-height:1.4;
+  }
+
+  .finderOption__attributes{
+    font-size:10px;
+    line-height:1.35;
+  }
+
+  [data-finder-next]{
+    display:none;
   }
   .landingProductGrid .productCard__body{
     gap:10px;
