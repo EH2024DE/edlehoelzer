@@ -1,0 +1,647 @@
+{
+  "assets/pflegebalsam_thumbnail.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/pflegebalsam_thumbnail-800.jpg",
+        800
+      ],
+      [
+        "assets/pflegebalsam_thumbnail-1200.jpg",
+        1200
+      ],
+      [
+        "assets/pflegebalsam_thumbnail-1600.jpg",
+        1600
+      ]
+    ],
+    "current": [
+      "assets/pflegebalsam_thumbnail.jpg",
+      1800
+    ],
+    "width": 1800,
+    "height": 1200
+  },
+  "assets/board_b2b.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/board_b2b-800.jpg",
+        800
+      ],
+      [
+        "assets/board_b2b-1200.jpg",
+        1200
+      ]
+    ],
+    "current": [
+      "assets/board_b2b.jpg",
+      1600
+    ],
+    "width": 1600,
+    "height": 1066
+  },
+  "assets/giftbox_b2b.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/giftbox_b2b-800.jpg",
+        800
+      ],
+      [
+        "assets/giftbox_b2b-1200.jpg",
+        1200
+      ]
+    ],
+    "current": [
+      "assets/giftbox_b2b.jpg",
+      1600
+    ],
+    "width": 1600,
+    "height": 1066
+  },
+  "assets/hochwertige-geschenke-holz.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/hochwertige-geschenke-holz-800.jpg",
+        800
+      ],
+      [
+        "assets/hochwertige-geschenke-holz-1200.jpg",
+        1200
+      ]
+    ],
+    "current": [
+      "assets/hochwertige-geschenke-holz.jpg",
+      1600
+    ],
+    "width": 1600,
+    "height": 1066
+  },
+  "assets/barbecue-geschenk.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/barbecue-geschenk-800.jpg",
+        598
+      ],
+      [
+        "assets/barbecue-geschenk-1200.jpg",
+        897
+      ]
+    ],
+    "current": [
+      "assets/barbecue-geschenk.jpg",
+      1197
+    ],
+    "width": 1197,
+    "height": 1600
+  },
+  "assets/schneidebrett-mit-gravur.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/schneidebrett-mit-gravur-800.jpg",
+        600
+      ],
+      [
+        "assets/schneidebrett-mit-gravur-1200.jpg",
+        900
+      ]
+    ],
+    "current": [
+      "assets/schneidebrett-mit-gravur.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1600
+  },
+  "assets/Brotzeitbrett.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/Brotzeitbrett-800.jpg",
+        600
+      ],
+      [
+        "assets/Brotzeitbrett-1200.jpg",
+        900
+      ]
+    ],
+    "current": [
+      "assets/Brotzeitbrett.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1600
+  },
+  "assets/workshop1.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/workshop1-800.jpg",
+        533
+      ],
+      [
+        "assets/workshop1-1200.jpg",
+        800
+      ],
+      [
+        "assets/workshop1-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "assets/workshop1.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "assets/workshop2.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/workshop2-800.jpg",
+        533
+      ],
+      [
+        "assets/workshop2-1200.jpg",
+        800
+      ]
+    ],
+    "current": [
+      "assets/workshop2.jpg",
+      1066
+    ],
+    "width": 1066,
+    "height": 1600
+  },
+  "assets/workshop3.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/workshop3-800.jpg",
+        533
+      ],
+      [
+        "assets/workshop3-1200.jpg",
+        800
+      ],
+      [
+        "assets/workshop3-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "assets/workshop3.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "assets/schneidebrett-eiche.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/schneidebrett-eiche-800.jpg",
+        533
+      ],
+      [
+        "assets/schneidebrett-eiche-1200.jpg",
+        800
+      ],
+      [
+        "assets/schneidebrett-eiche-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "assets/schneidebrett-eiche.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "assets/stirnholz-schneidebrett.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/stirnholz-schneidebrett-800.jpg",
+        533
+      ],
+      [
+        "assets/stirnholz-schneidebrett-1200.jpg",
+        800
+      ],
+      [
+        "assets/stirnholz-schneidebrett-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "assets/stirnholz-schneidebrett.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "assets/hochwertige-kuechenaccessoires.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/hochwertige-kuechenaccessoires-800.jpg",
+        533
+      ],
+      [
+        "assets/hochwertige-kuechenaccessoires-1200.jpg",
+        800
+      ],
+      [
+        "assets/hochwertige-kuechenaccessoires-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "assets/hochwertige-kuechenaccessoires.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "assets/schneidebrett-nussbaum.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/schneidebrett-nussbaum-800.jpg",
+        800
+      ],
+      [
+        "assets/schneidebrett-nussbaum-1200.jpg",
+        1200
+      ]
+    ],
+    "current": [
+      "assets/schneidebrett-nussbaum.jpg",
+      1600
+    ],
+    "width": 1600,
+    "height": 1067
+  },
+  "assets/Erbstueck3.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/Erbstueck3-800.jpg",
+        800
+      ],
+      [
+        "assets/Erbstueck3-1200.jpg",
+        1200
+      ]
+    ],
+    "current": [
+      "assets/Erbstueck3.jpg",
+      1600
+    ],
+    "width": 1600,
+    "height": 1066
+  },
+  "assets/schneidebretter-massivholz.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/schneidebretter-massivholz-800.jpg",
+        533
+      ],
+      [
+        "assets/schneidebretter-massivholz-1200.jpg",
+        800
+      ]
+    ],
+    "current": [
+      "assets/schneidebretter-massivholz.jpg",
+      1066
+    ],
+    "width": 1066,
+    "height": 1600
+  },
+  "assets/holzbrett-restaurieren-nachher-gepflegte-oberflaeche.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/holzbrett-restaurieren-nachher-gepflegte-oberflaeche-800.jpg",
+        537
+      ],
+      [
+        "assets/holzbrett-restaurieren-nachher-gepflegte-oberflaeche-1200.jpg",
+        806
+      ]
+    ],
+    "current": [
+      "assets/holzbrett-restaurieren-nachher-gepflegte-oberflaeche.jpg",
+      941
+    ],
+    "width": 941,
+    "height": 1400
+  },
+  "assets/schneidebrett-aufbereiten-nachher-geoelte-holzstruktur.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/schneidebrett-aufbereiten-nachher-geoelte-holzstruktur-800.jpg",
+        538
+      ],
+      [
+        "assets/schneidebrett-aufbereiten-nachher-geoelte-holzstruktur-1200.jpg",
+        807
+      ]
+    ],
+    "current": [
+      "assets/schneidebrett-aufbereiten-nachher-geoelte-holzstruktur.jpg",
+      1076
+    ],
+    "width": 1076,
+    "height": 1600
+  },
+  "assets/schneidebrett-nach-mass.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/schneidebrett-nach-mass-800.jpg",
+        800
+      ],
+      [
+        "assets/schneidebrett-nach-mass-1200.jpg",
+        1200
+      ]
+    ],
+    "current": [
+      "assets/schneidebrett-nach-mass.jpg",
+      1600
+    ],
+    "width": 1600,
+    "height": 1069
+  },
+  "assets/schneidebrett-oelen-leinoelfirnis-restaurierung.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/schneidebrett-oelen-leinoelfirnis-restaurierung-800.jpg",
+        538
+      ],
+      [
+        "assets/schneidebrett-oelen-leinoelfirnis-restaurierung-1200.jpg",
+        807
+      ]
+    ],
+    "current": [
+      "assets/schneidebrett-oelen-leinoelfirnis-restaurierung.jpg",
+      1076
+    ],
+    "width": 1076,
+    "height": 1600
+  },
+  "assets/hackblock.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "assets/hackblock-800.jpg",
+        800
+      ],
+      [
+        "assets/hackblock-1200.jpg",
+        1200
+      ]
+    ],
+    "current": [
+      "assets/hackblock.jpg",
+      1600
+    ],
+    "width": 1600,
+    "height": 1067
+  },
+  "teigschaber-sauerteig/img/teigschaber-sauerteig-hand.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "teigschaber-sauerteig/img/teigschaber-sauerteig-hand-800.jpg",
+        533
+      ],
+      [
+        "teigschaber-sauerteig/img/teigschaber-sauerteig-hand-1200.jpg",
+        800
+      ],
+      [
+        "teigschaber-sauerteig/img/teigschaber-sauerteig-hand-1600.jpg",
+        1067
+      ]
+    ],
+    "current": [
+      "teigschaber-sauerteig/img/teigschaber-sauerteig-hand.jpg",
+      1201
+    ],
+    "width": 1201,
+    "height": 1800
+  },
+  "teigschaber-sauerteig/img/teigschaber-eiche-licht.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "teigschaber-sauerteig/img/teigschaber-eiche-licht-800.jpg",
+        533
+      ],
+      [
+        "teigschaber-sauerteig/img/teigschaber-eiche-licht-1200.jpg",
+        800
+      ]
+    ],
+    "current": [
+      "teigschaber-sauerteig/img/teigschaber-eiche-licht.jpg",
+      1067
+    ],
+    "width": 1067,
+    "height": 1600
+  },
+  "teigschaber-sauerteig/img/teigschaber-sortiment.jpg": {
+    "max": 1600,
+    "variants": [
+      [
+        "teigschaber-sauerteig/img/teigschaber-sortiment-800.jpg",
+        533
+      ],
+      [
+        "teigschaber-sauerteig/img/teigschaber-sortiment-1200.jpg",
+        799
+      ]
+    ],
+    "current": [
+      "teigschaber-sauerteig/img/teigschaber-sortiment.jpg",
+      1066
+    ],
+    "width": 1066,
+    "height": 1600
+  },
+  "assets/businesscard_b2b.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/businesscard_b2b-800.jpg",
+        800
+      ],
+      [
+        "assets/businesscard_b2b-1200.jpg",
+        1200
+      ],
+      [
+        "assets/businesscard_b2b-1600.jpg",
+        1600
+      ]
+    ],
+    "current": [
+      "assets/businesscard_b2b.jpg",
+      1800
+    ],
+    "width": 1800,
+    "height": 1201
+  },
+  "product/board1.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "product/board1-800.jpg",
+        533
+      ],
+      [
+        "product/board1-1200.jpg",
+        800
+      ],
+      [
+        "product/board1-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "product/board1.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "product/board3.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "product/board3-800.jpg",
+        533
+      ],
+      [
+        "product/board3-1200.jpg",
+        800
+      ],
+      [
+        "product/board3-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "product/board3.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "product/board4.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "product/board4-800.jpg",
+        533
+      ],
+      [
+        "product/board4-1200.jpg",
+        800
+      ],
+      [
+        "product/board4-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "product/board4.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "product/board5.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "product/board5-800.jpg",
+        533
+      ],
+      [
+        "product/board5-1200.jpg",
+        800
+      ],
+      [
+        "product/board5-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "product/board5.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "product/board8.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "product/board8-800.jpg",
+        533
+      ],
+      [
+        "product/board8-1200.jpg",
+        800
+      ],
+      [
+        "product/board8-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "product/board8.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  },
+  "assets/board4.jpg": {
+    "max": 1800,
+    "variants": [
+      [
+        "assets/board4-800.jpg",
+        533
+      ],
+      [
+        "assets/board4-1200.jpg",
+        800
+      ],
+      [
+        "assets/board4-1600.jpg",
+        1066
+      ]
+    ],
+    "current": [
+      "assets/board4.jpg",
+      1200
+    ],
+    "width": 1200,
+    "height": 1800
+  }
+}

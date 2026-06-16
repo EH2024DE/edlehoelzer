@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "audit:assets": "node scripts/audit-assets.js",
+    "audit:indexability": "node scripts/check-indexability.mjs"
+  }
+}

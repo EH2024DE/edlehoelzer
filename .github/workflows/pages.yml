@@ -28,6 +28,9 @@ jobs:
       - name: Validate indexability signals
         run: node scripts/check-indexability.mjs
 
+      - name: Audit public assets
+        run: node scripts/audit-assets.js
+
       - name: Prepare static site
         run: |
           mkdir -p "${RUNNER_TEMP}/site"
