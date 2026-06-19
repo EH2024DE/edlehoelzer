@@ -549,10 +549,18 @@ section[id]{scroll-margin-top:88px}
 .seoContent{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:42px;align-items:start}
 .seoText{max-width:none;min-width:0}
 .seoText p,.seoText li{color:rgba(17,17,17,.74)}
-.seoText p{margin:14px 0 0}
-.seoText h2{font-size:clamp(28px,4vw,42px);margin-top:34px;letter-spacing:0}
+.seoText p{margin:16px 0 0;line-height:1.72}
+.seoText h2{font-size:clamp(30px,4vw,42px);line-height:1.12;margin:46px 0 18px;letter-spacing:0}
 .seoText h2:first-child{margin-top:0}
+.seoText h2+p{margin-top:0}
+.seoText h3{font-family:Montserrat,system-ui,sans-serif;font-size:clamp(21px,2.3vw,28px);line-height:1.2;margin:26px 0 10px;letter-spacing:0}
+.seoText h3+p{margin-top:0}
 .seoText ul{margin:16px 0 0;padding-left:20px}
+.compactInfoGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0 18px}
+.compactInfoCard{display:flex;flex-direction:column;gap:10px;min-width:0;padding:18px 18px 20px;border:1px solid rgba(17,17,17,.10);border-radius:8px;background:#fff;box-shadow:0 10px 26px rgba(66,42,20,.045)}
+.compactInfoCard h3{margin:0;font-size:clamp(20px,2vw,24px)}
+.compactInfoCard p{margin:0;font-size:15px;line-height:1.58;color:rgba(17,17,17,.70)}
+.compactInfoCard a{margin-top:auto;color:var(--accent-deep);font-size:13px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
 .seoAside{position:sticky;top:104px;display:grid;gap:14px}
 .seoAside__box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px;box-shadow:var(--shadow)}
 .seoAside__box h2,.seoAside__box h3{font-size:22px;margin:0 0 10px;letter-spacing:0}
@@ -844,7 +852,7 @@ section[id]{scroll-margin-top:88px}
 .productsSupport{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
 @media (max-width:1100px){.topicLinks{grid-template-columns:repeat(2,minmax(0,1fr))}.seoHero__grid,.seoContent,.noteGrid,.process-steps,.service-tier--with-media,.refurbHero__grid,.refurbSection,.refurbService{grid-template-columns:1fr}.seoAside{position:static}.process-steps li{min-height:auto}.tier-media{max-width:560px}.refurbCompare{min-height:520px}.refurbStep--media,.refurbStep--media:nth-child(even){grid-template-columns:1fr}.refurbStep--media:nth-child(even) figure{order:0}.beforeAfterGallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:900px){.footer__inner{grid-template-columns:1fr}.footer__nav,.topicLinks,.service-cards,.erbstueckGallery,.quickFacts__grid,.refurbDecisionGrid,.toolGrid,.resultGallery{grid-template-columns:1fr}.seoHero,.service-hero,.refurbHero{padding:86px 0 54px}.seoHero__lead,.service-intro,.refurbLead{font-size:17px}.service-section__cta{align-items:flex-start;flex-direction:column}.refurbCompare{min-height:auto}.refurbCompare div{min-height:380px}.refurbStep img{min-height:360px}.beforeAfterGallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.footer__inner{grid-template-columns:1fr}.footer__nav,.topicLinks,.service-cards,.erbstueckGallery,.quickFacts__grid,.refurbDecisionGrid,.toolGrid,.resultGallery{grid-template-columns:1fr}.compactInfoGrid{grid-template-columns:1fr 1fr}.seoHero,.service-hero,.refurbHero{padding:86px 0 54px}.seoHero__lead,.service-intro,.refurbLead{font-size:17px}.service-section__cta{align-items:flex-start;flex-direction:column}.refurbCompare{min-height:auto}.refurbCompare div{min-height:380px}.refurbStep img{min-height:360px}.beforeAfterGallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 @media (max-width:900px){
   .landingProductGrid .productCard__footer,
@@ -864,6 +872,36 @@ section[id]{scroll-margin-top:88px}
 
 @media (max-width:767px){
   .nav-desktop-only{display:none}
+  .seoText h2{
+    font-size:clamp(30px,8vw,38px);
+    line-height:1.08;
+    margin:40px 0 14px;
+  }
+  .seoText h3{
+    font-size:22px;
+    margin:22px 0 8px;
+  }
+  .seoText p{
+    margin-top:14px;
+    line-height:1.66;
+  }
+  .compactInfoGrid{
+    grid-template-columns:1fr;
+    gap:10px;
+    margin:16px 0 18px;
+  }
+  .compactInfoCard{
+    gap:8px;
+    padding:16px 16px 17px;
+    box-shadow:0 8px 20px rgba(66,42,20,.04);
+  }
+  .compactInfoCard h3{
+    font-size:21px;
+  }
+  .compactInfoCard p{
+    font-size:14.5px;
+    line-height:1.55;
+  }
   .seo-products-carousel,
   .landingProductGrid,
   .erbstueckGallery,
@@ -1182,7 +1220,7 @@ section[id]{scroll-margin-top:88px}
   }
 
   .section{
-    padding:76px 0;
+    padding:64px 0;
   }
 
   .section__lead{
@@ -2322,7 +2360,7 @@ section[id]{scroll-margin-top:88px}
 
   .comparison-table tbody{
     display:grid;
-    gap:14px;
+    gap:10px;
   }
 
   .comparison-table tr{
@@ -2348,17 +2386,18 @@ section[id]{scroll-margin-top:88px}
 
   .comparison-table tbody th{
     width:100%;
-    padding:18px 20px;
+    padding:14px 16px;
     border-bottom:1px solid rgba(17,17,17,.08);
     background:#f5f1eb;
     color:var(--ink);
-    font-size:16px;
+    font-size:15px;
   }
 
   .comparison-table td{
-    padding:17px 20px;
+    padding:13px 16px;
     color:rgba(17,17,17,.72);
-    font-size:15px;
+    font-size:14px;
+    line-height:1.5;
   }
 
   .comparison-table td+td{
