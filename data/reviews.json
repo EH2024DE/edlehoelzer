@@ -1,5 +1,38 @@
 [
   {
+    "id": "etsy-review-202606-heike-service",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Exzellenter Kundenservice, hochwertige und ausgefallene/individualisierte Ware. Ich bin hocherfreut und kaufe jederzeit wieder gerne!",
+    "product": "Sonderanfertigung aus Holz",
+    "reviewerName": "Heike",
+    "date": "2026-06",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-202606-marc-pfannenwender",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Alles super. Lässt sich gut mit arbeiten.",
+    "product": "Pfannenwender aus Holz",
+    "reviewerName": "Marc",
+    "date": "2026-06",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-202605-nick-teigschaber",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Für meine Backvorhaben habe ich ein Werkzeug gesucht, das nicht aus Kunststoff ist sondern etwas Besonderes aus Holz, das gut aussieht und Spaß macht zu benutzen. Der Teigschaber hat meine Erwartungen vollständig erfüllt.",
+    "product": "Teigschaber aus Holz",
+    "reviewerName": "Nick",
+    "date": "2026-05",
+    "featured": true,
+    "needsReview": false
+  },
+  {
     "id": "etsy-review-001",
     "source": "Etsy",
     "rating": 5,

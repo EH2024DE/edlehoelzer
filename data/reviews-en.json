@@ -1,5 +1,38 @@
 [
   {
+    "id": "etsy-review-en-202606-heike-service",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Excellent customer service, high-quality and unusual/customized products. I am delighted and would gladly buy again anytime!",
+    "product": "Custom wooden piece",
+    "reviewerName": "Heike",
+    "date": "2026-06",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-202606-marc-pfannenwender",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Everything was great. It is good to work with.",
+    "product": "Wooden spatula",
+    "reviewerName": "Marc",
+    "date": "2026-06",
+    "featured": true,
+    "needsReview": false
+  },
+  {
+    "id": "etsy-review-en-202605-nick-teigschaber",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "For my baking projects I wanted a tool that was not made of plastic, but something special in wood that looks good and is enjoyable to use. The dough scraper fully met my expectations.",
+    "product": "Wooden dough scraper",
+    "reviewerName": "Nick",
+    "date": "2026-05",
+    "featured": true,
+    "needsReview": false
+  },
+  {
     "id": "etsy-review-en-001",
     "source": "Etsy",
     "rating": 5,
