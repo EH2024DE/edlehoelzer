@@ -613,14 +613,13 @@ function initReviewTrustStrips() {
 
   function buildReviewCard(review) {
     var rating = Math.max(1, Math.min(5, Math.round(Number(review.rating))));
-    var cardClass = "reviewCard" + (review.highlighted === true ? " reviewCard--highlight" : "");
     var labelParts = [
       review.reviewerName,
       formatReviewDate(review.date),
       review.product
     ].filter(Boolean);
 
-    return '<article class="' + cardClass + '">' +
+    return '<article class="reviewCard">' +
       '<div class="reviewCard__stars" aria-label="' + escapeAttribute(rating + config.copy.ratingLabelSuffix) + '">' + buildStars(rating) + '</div>' +
       '<p class="reviewCard__text">“' + escapeHtml(review.text) + '”</p>' +
       '<p class="reviewCard__meta">' + escapeHtml(labelParts.join(config.copy.metaSeparator)) + '</p>' +
