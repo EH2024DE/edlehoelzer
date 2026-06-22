@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initHeroVideo();
   initReviewTrustStrips();
   initBackToTop();
+  initStickyMobileCta();
 
   if (window.innerWidth <= 900) {
     return;
@@ -185,6 +186,75 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
+
+function initStickyMobileCta() {
+  var isGerman = (document.documentElement.lang || "de").toLowerCase().indexOf("en") !== 0;
+  var path = window.location.pathname;
+  var current = path === "/index.html" ? "/" : path;
+  var ctas = {
+    "/": { label: "Produktfinder starten", href: "/produkte.html#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "produktfinder-gestartet" },
+    "/produkte.html": { label: "Produktfinder starten", href: "#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "#produkte-grid", event: "produktfinder-gestartet" },
+    "/schneidebretter-massivholz/": { label: "Schneidebretter ansehen", href: "#products-massivholz", secondary: "Individuelles Brett anfragen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett", event: null },
+    "/schneidebrett-nach-mass/": { label: "Maßanfertigung anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Ma%C3%9F", secondary: "Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "email-kontakt" },
+    "/schneidebrett-mit-gravur/": { label: "Gravierbares Brett ansehen", href: "#products-gravur", secondary: "B2B-Gravur anfragen", secondaryHref: "/b2b.html", event: null },
+    "/erbstueck/": { label: "Erbstück anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Erbst%C3%BCck", secondary: "Verfügbare Stücke ansehen", secondaryHref: "#verfuegbare-hoelzer", event: "email-kontakt" },
+    "/barbecue-geschenk/": { label: "BBQ-Brett ansehen", href: "#products-bbq", secondary: "Gravur anfragen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
+    "/hochwertige-geschenke-holz/": { label: "Geschenk finden", href: "#products-geschenke", secondary: "Gravur ansehen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
+    "/pflege.html": { label: "Pflegebalsam ansehen", href: "/produkte.html#produkte-grid", secondary: "Aufbereitung prüfen", secondaryHref: "/schneidebrett-aufbereiten/", event: null },
+    "/welches-oel-schneidebrett/": { label: "Pflegebalsam ansehen", href: "/produkte.html#produkte-grid", secondary: "Pflegeanleitung lesen", secondaryHref: "/pflege.html", event: null }
+  };
+
+  if (!isGerman || !ctas[current] || !window.matchMedia("(max-width: 768px)").matches) {
+    return;
+  }
+
+  var config = ctas[current];
+  var hero = document.querySelector(".hero, .seoHero, .productsHero, .erbstueckHero, .materialGuideHero, .teigschaberHero, .refurbHero");
+  var footer = document.querySelector(".footer");
+  var bar = document.createElement("nav");
+  var primaryEvent = config.event ? ' data-umami-event="' + config.event + '"' : "";
+  var secondaryEvent = config.secondaryHref && config.secondaryHref.indexOf("mailto:") === 0 ? ' data-umami-event="email-kontakt"' : "";
+  var ticking = false;
+
+  bar.className = "mobileStickyCta";
+  bar.setAttribute("aria-label", "Schnellzugriff");
+  bar.innerHTML =
+    '<a class="mobileStickyCta__primary" href="' + config.href + '"' + primaryEvent + ">" + config.label + "</a>" +
+    '<a class="mobileStickyCta__secondary" href="' + config.secondaryHref + '"' + secondaryEvent + ">" + config.secondary + "</a>";
+
+  document.body.appendChild(bar);
+  document.body.classList.add("has-mobile-sticky-cta");
+
+  function isHeroVisible() {
+    if (!hero) {
+      return window.scrollY < 360;
+    }
+
+    return hero.getBoundingClientRect().bottom > 96;
+  }
+
+  function isFooterVisible() {
+    return footer && footer.getBoundingClientRect().top < window.innerHeight - 24;
+  }
+
+  function update() {
+    bar.classList.toggle("is-visible", !isHeroVisible() && !isFooterVisible());
+    ticking = false;
+  }
+
+  function requestUpdate() {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  update();
+}
 
 function initBackToTop() {
   if (document.querySelector(".erbstueckPage")) {
