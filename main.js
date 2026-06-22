@@ -1866,9 +1866,12 @@ function initProductsPage() {
   }
 
   function buildProductActions(product) {
-    if (product.needsReview || !product.etsyUrl || product.directListingUrlVerified !== true) {
-      var inquirySubject = encodeURIComponent((isEnglish ? "Availability inquiry: " : "Verfügbarkeitsanfrage: ") + (product.displayName || product.name || ""));
-      return '<div class="ctaRow"><a class="btn btn--emphasis" href="mailto:info@edlehoelzer.de?subject=' + inquirySubject + '" data-umami-event="email-kontakt">' + (isEnglish ? "Ask about availability" : "Verfügbarkeit anfragen") + '</a></div>';
+    if (!hasVerifiedListing(product)) {
+      return '<div class="ctaRow ctaRow--stacked"><span class="productCard__availability">' +
+        (isEnglish ? "Currently not available as a direct Etsy listing." : "Aktuell nicht als direktes Etsy-Angebot verfügbar.") +
+        '</span><a class="btn btn--secondary" href="' + (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder") + '" data-umami-event="produktfinder-gestartet">' +
+        (isEnglish ? "Find a similar board" : "Ähnliches Brett finden") +
+        '</a></div>';
     }
 
     var primaryLabel = etsyActionLabel(product);
@@ -1884,12 +1887,15 @@ function initProductsPage() {
         '<span>' + escapeHtml(product.priceLabel) + '</span>' +
       '</span>';
 
-    if (product.directListingUrlVerified === true && product.etsyUrl) {
+    if (hasVerifiedListing(product)) {
       return '<a class="alternativeCard" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + content + '</a>';
     }
 
-    var subject = encodeURIComponent((isEnglish ? "Availability inquiry: " : "Verfügbarkeitsanfrage: ") + (product.displayName || product.name || ""));
-    return '<a class="alternativeCard" href="mailto:info@edlehoelzer.de?subject=' + subject + '" data-umami-event="email-kontakt">' + content + '</a>';
+    return '<a class="alternativeCard" href="' + (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder") + '" data-umami-event="produktfinder-gestartet">' + content + '</a>';
+  }
+
+  function hasVerifiedListing(product) {
+    return Boolean(product && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
   }
 
   function etsyActionLabel(product) {
@@ -1909,11 +1915,11 @@ function initProductsPage() {
   }
 
   function etsyActionUrl(product) {
-    if (product.directListingUrlVerified) {
+    if (hasVerifiedListing(product)) {
       return product.etsyListingUrl || product.etsyUrl;
     }
 
-    return "https://edlehoelzervonkoc.etsy.com";
+    return isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder";
   }
 
   function labelFor(value) {

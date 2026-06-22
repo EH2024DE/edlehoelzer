@@ -356,6 +356,7 @@ section[id]{scroll-margin-top:88px}
 .closingHero__content{position:relative;z-index:2;min-height:72vh;display:flex;flex-direction:column;justify-content:center;color:#fff;max-width:760px}
 .closingHero__content p:not(.eyebrow){max-width:34ch;color:rgba(255,255,255,.88)}
 .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.ctaRow--stacked{align-items:flex-start;flex-direction:column;gap:10px}
 .ctaRow--product-nav{margin-top:2rem}
 .cardWelcome{
   position:fixed;
@@ -861,6 +862,7 @@ section[id]{scroll-margin-top:88px}
 .productCard__desc{margin:0;color:rgba(17,17,17,.68)}
 .productCard__footer{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:auto;padding-top:2px}
 .productCard__cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;border:1px solid var(--accent);border-radius:2px;background:#fff;color:var(--accent-deep);font-size:11px;font-weight:800;letter-spacing:.06em;line-height:1;text-transform:uppercase;white-space:nowrap}
+.productCard__availability{color:var(--muted);font-size:.88rem;line-height:1.45}
 .productCard__link:hover .productCard__cta{border-color:var(--accent-deep);background:var(--accent);color:#fff}
 .productCard__buy,.etsyBuyBlock{display:flex;flex-direction:column;align-items:stretch;gap:6px}
 .productCard__trust,.etsyTrust,.trust-badge{display:block;color:rgba(17,17,17,.54);font-size:11px;font-weight:600;line-height:1.35;text-align:left}
