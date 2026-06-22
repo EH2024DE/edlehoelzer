@@ -74,7 +74,7 @@
     },
     {
       "id": "etsy-export-02-schneidebrett-buche-stirnholz-handgefertigt-besondere-jahresring-struktu",
-      "listingId": "",
+      "listingId": "1841836619",
       "exportRow": 2,
       "name": "Schneidebrett Buche Stirnholz: Handgefertigt, besondere Jahresring Struktur, personalisierbar",
       "category": "board",
@@ -103,15 +103,15 @@
         "https://i.etsystatic.com/54205761/r/il/80dd4a/6499409750/il_fullxfull.6499409750_hi0v.jpg",
         "https://i.etsystatic.com/54205761/r/il/a9f5a6/6547536851/il_fullxfull.6547536851_7euz.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Buche%20Stirnholz%3A%20Handgefertigt%2C%20besondere%20Jahresring%20Struktur%2C%20personalisierbar",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1841836619/cutting-board-beech-end-grain-handmade",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Buche",
       "woodCut": "end",
@@ -140,11 +140,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Buche Stirnholz – Jahresring-Struktur",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1841836619/cutting-board-beech-end-grain-handmade"
     },
     {
       "id": "etsy-export-03-schneidebrett-bambus-und-buche-kompaktes-fruhstucksbrett-im-din-a4-forma",
-      "listingId": "",
+      "listingId": "1827805914",
       "exportRow": 3,
       "name": "Schneidebrett Bambus & Buche: Kompaktes Frühstücksbrett im DIN A4 Format, handgefertigt, ideal für Käseplatte",
       "category": "board",
@@ -172,15 +173,15 @@
         "https://i.etsystatic.com/54205761/r/il/fde4a3/6547934191/il_fullxfull.6547934191_m1k6.jpg",
         "https://i.etsystatic.com/54205761/r/il/8a95d1/6547909697/il_fullxfull.6547909697_4jka.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Bambus%20%26%20Buche%3A%20Kompaktes%20Fr%C3%BChst%C3%BCcksbrett%20im%20DIN%20A4%20Format%2C%20handgefertigt%2C%20ideal%20f%C3%BCr%20K%C3%A4seplatte",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1827805914/cutting-board-bamboo-beech-compact",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "servingBoard",
       "material": "Buche, Bambus",
       "woodCut": "edge",
@@ -209,11 +210,12 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Bambus & Buche – Frühstücksbrett",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1827805914/cutting-board-bamboo-beech-compact"
     },
     {
       "id": "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
-      "listingId": "",
+      "listingId": "1824089235",
       "exportRow": 4,
       "name": "Stirnholz Schneidebrett aus Eiche – handgefertigtes XXL Küchenbrett mit Saftrille",
       "category": "board",
@@ -242,15 +244,15 @@
         "https://i.etsystatic.com/54205761/r/il/1ecf6e/6536059997/il_fullxfull.6536059997_14wc.jpg",
         "https://i.etsystatic.com/54205761/r/il/0ac642/6487947032/il_fullxfull.6487947032_mctp.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20aus%20Eiche%20%E2%80%93%20handgefertigtes%20XXL%20K%C3%BCchenbrett%20mit%20Saftrille",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1824089235/solid-end-grain-oak-cutting-board",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche",
       "woodCut": "end",
@@ -281,11 +283,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Eiche Stirnholz – XXL mit Saftrille",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1824089235/solid-end-grain-oak-cutting-board"
     },
     {
       "id": "etsy-export-05-stirnholz-schneidebrett-aus-sibirischer-larche-massiv-handgefertigt-und",
-      "listingId": "",
+      "listingId": "1818046728",
       "exportRow": 5,
       "name": "Stirnholz Schneidebrett aus sibirischer Lärche – massiv, handgefertigt & alltagstauglich | ideal als Geschenk",
       "category": "board",
@@ -314,15 +317,15 @@
         "https://i.etsystatic.com/54205761/r/il/7e6d88/6631910375/il_fullxfull.6631910375_7lpd.jpg",
         "https://i.etsystatic.com/54205761/r/il/9ae6a1/6631909075/il_fullxfull.6631909075_aqqp.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20aus%20sibirischer%20L%C3%A4rche%20%E2%80%93%20massiv%2C%20handgefertigt%20%26%20alltagstauglich%20%7C%20ideal%20als%20Geschenk",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Esche, Laerche",
       "woodCut": "end",
@@ -352,11 +355,12 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Lärche Stirnholz – Kompakt",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian"
     },
     {
       "id": "etsy-export-06-schneidebrett-mahagoni-stirnholz-massiv-handgearbeitet-personalisierbar",
-      "listingId": "",
+      "listingId": "1886613306",
       "exportRow": 6,
       "name": "Schneidebrett Mahagoni Stirnholz: Massiv, handgearbeitet, personalisierbar",
       "category": "board",
@@ -386,15 +390,15 @@
         "https://i.etsystatic.com/54205761/r/il/8bddf7/6780012868/il_fullxfull.6780012868_6xzc.jpg",
         "https://i.etsystatic.com/54205761/r/il/125e56/6828026527/il_fullxfull.6828026527_1h2h.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Mahagoni%20Stirnholz%3A%20Massiv%2C%20handgearbeitet%2C%20personalisierbar",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1886613306/cutting-board-mahogany-end-grain-solid",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Mahagoni",
       "woodCut": "end",
@@ -421,11 +425,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Mahagoni Stirnholz – Ruhiger Block",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1886613306/cutting-board-mahogany-end-grain-solid"
     },
     {
       "id": "etsy-export-07-schneidebrett-halter-eiche-oder-buche-minimalistisch-massiv-passgenau",
-      "listingId": "",
+      "listingId": "1874454440",
       "exportRow": 7,
       "name": "Schneidebrett Halter Eiche oder Buche: Minimalistisch, massiv, passgenau",
       "category": "accessory",
@@ -452,15 +457,15 @@
         "https://i.etsystatic.com/54205761/r/il/b075bc/6765833641/il_fullxfull.6765833641_tj3s.jpg",
         "https://i.etsystatic.com/54205761/r/il/a45959/7916149821/il_fullxfull.7916149821_faqf.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Halter%20Eiche%20oder%20Buche%3A%20Minimalistisch%2C%20massiv%2C%20passgenau",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1874454440/cutting-board-holder-oak-or-beech",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "accessory",
       "material": "Eiche, Nussbaum, Buche, Zwetschge",
       "woodCut": "none",
@@ -486,11 +491,12 @@
         "Haupt-Schneidebrett"
       ],
       "displayName": "Bretthalter – Eiche oder Buche",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1874454440/cutting-board-holder-oak-or-beech"
     },
     {
       "id": "etsy-export-08-untersetzer-set-aus-holz-mit-halter-stirnholz-oder-langholz-eiche-nussba",
-      "listingId": "",
+      "listingId": "1838851839",
       "exportRow": 8,
       "name": "Untersetzer Set aus Holz mit Halter – Stirnholz oder Langholz, Eiche, Nussbaum Zwetschge oder Esche",
       "category": "accessory",
@@ -517,15 +523,15 @@
         "https://i.etsystatic.com/54205761/r/il/ca8f54/6535918303/il_fullxfull.6535918303_nt7o.jpg",
         "https://i.etsystatic.com/54205761/r/il/dd31ab/7144895870/il_fullxfull.7144895870_19o4.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Untersetzer%20Set%20aus%20Holz%20mit%20Halter%20%E2%80%93%20Stirnholz%20oder%20Langholz%2C%20Eiche%2C%20Nussbaum%20Zwetschge%20oder%20Esche",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1838851839/wooden-coaster-set-with-holder",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "accessory",
       "material": "Eiche, Nussbaum, Esche, Zwetschge",
       "woodCut": "none",
@@ -552,11 +558,12 @@
         "Haupt-Schneidebrett"
       ],
       "displayName": "Untersetzer-Set – Holz mit Halter",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1838851839/wooden-coaster-set-with-holder"
     },
     {
       "id": "etsy-export-09-schneidebrett-kariert-stirnholz-wenge-nussbaum-und-eiche-unikat",
-      "listingId": "",
+      "listingId": "1894223313",
       "exportRow": 9,
       "name": "Schneidebrett Kariert Stirnholz: Wenge, Nussbaum & Eiche, Unikat",
       "category": "board",
@@ -586,15 +593,15 @@
         "https://i.etsystatic.com/54205761/r/il/8d36bf/6746980508/il_fullxfull.6746980508_q4g9.jpg",
         "https://i.etsystatic.com/54205761/r/il/f5e0d7/6795007535/il_fullxfull.6795007535_84zj.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Kariert%20Stirnholz%3A%20Wenge%2C%20Nussbaum%20%26%20Eiche%2C%20Unikat",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1894223313/cutting-board-checkered-end-grain-wenge",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Nussbaum, Wenge",
       "woodCut": "end",
@@ -623,11 +630,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Wenge Nussbaum Eiche – Kariert",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1894223313/cutting-board-checkered-end-grain-wenge"
     },
     {
       "id": "etsy-export-10-stirnholz-schneidebrett-nach-ma-massives-xxl-kuchenbrett-mit-anschlagkan",
-      "listingId": "",
+      "listingId": "4484195050",
       "exportRow": 10,
       "name": "Stirnholz Schneidebrett nach Maß, massives XXL Küchenbrett mit Anschlagkante, 75 x 60 x 5 cm, handgefertigt in Deutschland",
       "category": "board",
@@ -656,15 +664,15 @@
         "https://i.etsystatic.com/54205761/r/il/ac1bf3/7884852398/il_fullxfull.7884852398_3m2f.jpg",
         "https://i.etsystatic.com/54205761/r/il/b6dbde/7884849924/il_fullxfull.7884849924_l9ax.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20nach%20Ma%C3%9F%2C%20massives%20XXL%20K%C3%BCchenbrett%20mit%20Anschlagkante%2C%2075%20x%2060%20x%205%20cm%2C%20handgefertigt%20in%20Deutschland",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4484195050/custom-made-end-grain-cutting-board",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Nussbaum, Buche, Esche und weitere",
       "woodCut": "end",
@@ -694,11 +702,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "XXL Stirnholz – Nach Maß",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4484195050/custom-made-end-grain-cutting-board"
     },
     {
       "id": "etsy-export-11-xxl-schneidebrett-aus-thermobambus-und-birke-massives-streifenbrett-hand",
-      "listingId": "",
+      "listingId": "4417621529",
       "exportRow": 11,
       "name": "XXL Schneidebrett aus Thermobambus & Birke – Massives Streifenbrett, handgefertigt, 44,7×31 cm, 3,6 cm stark",
       "category": "board",
@@ -728,15 +737,15 @@
         "https://i.etsystatic.com/54205761/r/il/6a59d0/7472161168/il_fullxfull.7472161168_dct3.jpg",
         "https://i.etsystatic.com/54205761/r/il/b44da9/7472161208/il_fullxfull.7472161208_4r5j.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=XXL%20Schneidebrett%20aus%20Thermobambus%20%26%20Birke%20%E2%80%93%20Massives%20Streifenbrett%2C%20handgefertigt%2C%2044%2C7%C3%9731%20cm%2C%203%2C6%20cm%20stark",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4417621529/xxl-cutting-board-made-of-thermally",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Thermobambus, Bambus, Birke",
       "woodCut": "edge",
@@ -768,7 +777,8 @@
         "haeufiges Tragen"
       ],
       "displayName": "XXL Streifenbrett – Thermobambus & Birke",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4417621529/xxl-cutting-board-made-of-thermally"
     },
     {
       "id": "etsy-export-12-eiche-stirnholz-schneidebrett-xxl-mit-griff-59-5384-9-cm-7-9-kg-massivbl",
@@ -979,7 +989,7 @@
     },
     {
       "id": "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
-      "listingId": "",
+      "listingId": "4470469056",
       "exportRow": 15,
       "name": "Pfannenwender aus Massivholz | Handgemachter Küchenhelfer aus Eiche, Nussbaum, Esche, Buche, Kambala | personalisierbar | Made in Germany",
       "category": "accessory",
@@ -1006,15 +1016,15 @@
         "https://i.etsystatic.com/54205761/r/il/994807/7795267658/il_fullxfull.7795267658_ryvi.jpg",
         "https://i.etsystatic.com/54205761/r/il/1b8d25/7795272158/il_fullxfull.7795272158_qpwg.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Pfannenwender%20aus%20Massivholz%20%7C%20Handgemachter%20K%C3%BCchenhelfer%20aus%20Eiche%2C%20Nussbaum%2C%20Esche%2C%20Buche%2C%20Kambala%20%7C%20personalisierbar%20%7C%20Made%20in%20Germany",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4470469056/solid-wood-spatula-handmade-kitchen",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "accessory",
       "material": "Eiche, Nussbaum, Buche, Esche und weitere",
       "woodCut": "none",
@@ -1042,11 +1052,12 @@
         "Haupt-Schneidebrett"
       ],
       "displayName": "Pfannenwender – Massivholz-Mix",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4470469056/solid-wood-spatula-handmade-kitchen"
     },
     {
       "id": "etsy-export-16-servierbrett-set-aus-massivholz-mit-halter-3-teilig-handgefertigtes-tapa",
-      "listingId": "",
+      "listingId": "4440690649",
       "exportRow": 16,
       "name": "Servierbrett Set aus Massivholz mit Halter (3-teilig) – handgefertigtes Tapas- & Gastgeber-System",
       "category": "board",
@@ -1072,15 +1083,15 @@
         "https://i.etsystatic.com/54205761/r/il/c01c8e/7646981189/il_fullxfull.7646981189_7b1o.jpg",
         "https://i.etsystatic.com/54205761/r/il/be6a8b/7599070078/il_fullxfull.7599070078_7pms.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Servierbrett%20Set%20aus%20Massivholz%20mit%20Halter%20%283-teilig%29%20%E2%80%93%20handgefertigtes%20Tapas-%20%26%20Gastgeber-System",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4440690649/solid-wood-serving-board-set-with-holder",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "servingBoard",
       "material": "Esche, Ahorn, Mahagoni, Laerche",
       "woodCut": "none",
@@ -1110,11 +1121,12 @@
         "BBQ-Hackarbeiten"
       ],
       "displayName": "Servierbrett-Set – Dreiteilig",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4440690649/solid-wood-serving-board-set-with-holder"
     },
     {
       "id": "etsy-export-17-schneidebrett-nussbaum-holz-flankenholz-design-personalisierbar-minimale",
-      "listingId": "",
+      "listingId": "1886821275",
       "exportRow": 17,
       "name": "Schneidebrett Nussbaum Holz: Flankenholz-Design, personalisierbar, minimales Design",
       "category": "board",
@@ -1143,15 +1155,15 @@
         "https://i.etsystatic.com/54205761/r/il/b80c18/6756375863/il_fullxfull.6756375863_504a.jpg",
         "https://i.etsystatic.com/54205761/r/il/1e2208/6756375839/il_fullxfull.6756375839_2rxp.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Nussbaum%20Holz%3A%20Flankenholz-Design%2C%20personalisierbar%2C%20minimales%20Design",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1886821275/walnut-wood-cutting-board-flank-wood",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Nussbaum",
       "woodCut": "edge",
@@ -1180,11 +1192,12 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Nussbaum Langholz – Flankenoptik",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1886821275/walnut-wood-cutting-board-flank-wood"
     },
     {
       "id": "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
-      "listingId": "",
+      "listingId": "1803930088",
       "exportRow": 18,
       "name": "Schneidebrett 3D-Design Stirnholz: Walnuss Wenge Eiche Buche, Premium, personalisierbar",
       "category": "board",
@@ -1213,15 +1226,15 @@
         "https://i.etsystatic.com/54205761/r/il/016e37/6439235147/il_fullxfull.6439235147_5ytb.jpg",
         "https://i.etsystatic.com/54205761/r/il/e1db6c/6391143226/il_fullxfull.6391143226_kwyv.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%203D-Design%20Stirnholz%3A%20Walnuss%20Wenge%20Eiche%20Buche%2C%20Premium%2C%20personalisierbar",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1803930088/cutting-board-3d-design-end-grain-walnut",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Nussbaum, Buche, Wenge",
       "woodCut": "end",
@@ -1253,11 +1266,12 @@
         "leichtes Handling"
       ],
       "displayName": "3D Stirnholz – Walnuss & Wenge",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1803930088/cutting-board-3d-design-end-grain-walnut"
     },
     {
       "id": "etsy-export-19-servierbrett-eiche-mit-doppelgriff-90-cm-aus-massivem-eichenholz-handgef",
-      "listingId": "",
+      "listingId": "4398179153",
       "exportRow": 19,
       "name": "Servierbrett Eiche mit Doppelgriff 90 cm – aus massivem Eichenholz, handgefertigt – handgemachte Käseplatte",
       "category": "board",
@@ -1286,15 +1300,15 @@
         "https://i.etsystatic.com/54205761/r/il/d1f83d/7402305503/il_fullxfull.7402305503_d0ra.jpg",
         "https://i.etsystatic.com/54205761/r/il/8bb93e/7354379306/il_fullxfull.7354379306_os87.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Servierbrett%20Eiche%20mit%20Doppelgriff%2090%20cm%20%E2%80%93%20aus%20massivem%20Eichenholz%2C%20handgefertigt%20%E2%80%93%20handgemachte%20K%C3%A4seplatte",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4398179153/oak-serving-board-with-double-handles",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "servingBoard",
       "material": "Eiche",
       "woodCut": "edge",
@@ -1324,11 +1338,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Eiche Servierbrett – Doppelgriff",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4398179153/oak-serving-board-with-double-handles"
     },
     {
       "id": "etsy-export-20-servierbrett-set-aus-massivholz-in-schwert-form-aus-eiche-esche-oder-nus",
-      "listingId": "",
+      "listingId": "4389604739",
       "exportRow": 20,
       "name": "Servierbrett Set aus Massivholz in Schwert Form, aus Eiche, Esche oder Nussbaum, handgemachte  Charcuterie Boards",
       "category": "board",
@@ -1356,15 +1371,15 @@
         "https://i.etsystatic.com/54205761/r/il/fdf16f/7301977928/il_fullxfull.7301977928_303h.jpg",
         "https://i.etsystatic.com/54205761/r/il/8b0ff4/7349926985/il_fullxfull.7349926985_7qll.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Servierbrett%20Set%20aus%20Massivholz%20in%20Schwert%20Form%2C%20aus%20Eiche%2C%20Esche%20oder%20Nussbaum%2C%20handgemachte%20%20Charcuterie%20Boards",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4389604739/sword-shaped-serving-board-solid-oak-ash",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "servingBoard",
       "material": "Eiche, Nussbaum, Esche, Wenge und weitere",
       "woodCut": "edge",
@@ -1391,7 +1406,8 @@
         "Nutzer, die ein anderes Format suchen"
       ],
       "displayName": "Servierbrett-Set – Schwertform",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4389604739/sword-shaped-serving-board-solid-oak-ash"
     },
     {
       "id": "etsy-export-21-schneidebrett-holz-schachbrett-aus-padouk-und-eiche-kariertes-stirnholz",
@@ -1496,15 +1512,15 @@
         "https://i.etsystatic.com/54205761/r/il/e72f49/6688804863/il_fullxfull.6688804863_15et.jpg",
         "https://i.etsystatic.com/54205761/r/il/f361e3/6688862353/il_fullxfull.6688862353_3qcf.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Holz%20Schachbrett%20aus%20Padouk%20%26%20Eiche%3A%20Kariertes%20Stirnholz%2C%20massiv%2C%20handgefertigt%2C%20Gro%C3%9Fformat",
+      "etsyUrl": "",
       "directListingUrlVerified": false,
       "featured": false,
       "active": false,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "Etsy Live-Abgleich 2026-06-19",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "sold-not-advertised-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Padouk",
       "woodCut": "end",
@@ -1540,7 +1556,7 @@
     },
     {
       "id": "etsy-export-23-stirnholz-schneidebrett-eiche-ahorn-thermobambus-massivholz-brett-fachwe",
-      "listingId": "",
+      "listingId": "4455205567",
       "exportRow": 23,
       "name": "Stirnholz Schneidebrett Eiche Ahorn Thermobambus | Massivholz Brett | Fachwerkserie | Handgefertigt",
       "category": "board",
@@ -1569,15 +1585,15 @@
         "https://i.etsystatic.com/54205761/r/il/35b0c7/7693479270/il_fullxfull.7693479270_cwaz.jpg",
         "https://i.etsystatic.com/54205761/r/il/93f76c/7741426457/il_fullxfull.7741426457_q7v1.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20Eiche%20Ahorn%20Thermobambus%20%7C%20Massivholz%20Brett%20%7C%20Fachwerkserie%20%7C%20Handgefertigt",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4455205567/end-grain-cutting-board-oak-maple",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Ahorn, Thermobambus, Bambus",
       "woodCut": "end",
@@ -1605,11 +1621,12 @@
         "Nutzer, die ein anderes Format suchen"
       ],
       "displayName": "Fachwerk-Stirnholz – Eiche & Ahorn",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4455205567/end-grain-cutting-board-oak-maple"
     },
     {
       "id": "etsy-export-24-servierbrett-aus-buche-mit-rahmen-aus-mohreiche-handgefertigtes-holzbret",
-      "listingId": "",
+      "listingId": "4381023266",
       "exportRow": 24,
       "name": "Servierbrett aus Buche mit Rahmen aus Mohreiche – handgefertigtes Holzbrett zum Servieren & Anrichten",
       "category": "board",
@@ -1638,15 +1655,15 @@
         "https://i.etsystatic.com/54205761/r/il/b272e0/7303448355/il_fullxfull.7303448355_5kd9.jpg",
         "https://i.etsystatic.com/54205761/r/il/0f707a/7255501204/il_fullxfull.7255501204_6oi9.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Servierbrett%20aus%20Buche%20mit%20Rahmen%20aus%20Mohreiche%20%E2%80%93%20handgefertigtes%20Holzbrett%20zum%20Servieren%20%26%20Anrichten",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4381023266/beechwood-serving-board-with-wenge-frame",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "servingBoard",
       "material": "Eiche, Buche, Mohreiche",
       "woodCut": "end",
@@ -1675,11 +1692,12 @@
         "Nutzer, die ein anderes Format suchen"
       ],
       "displayName": "Buche & Mooreiche – Servierbrett",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4381023266/beechwood-serving-board-with-wenge-frame"
     },
     {
       "id": "etsy-export-25-schneidebrett-eiche-mit-kambala-streifen-quadratisches-design-28-528-54",
-      "listingId": "",
+      "listingId": "4380304814",
       "exportRow": 25,
       "name": "Schneidebrett Eiche mit Kambala-Streifen - Quadratisches Design– 28,5×28,5×4,4 cm, edler Block, handgefertigt",
       "category": "board",
@@ -1708,15 +1726,15 @@
         "https://i.etsystatic.com/54205761/r/il/8e5da2/7299676509/il_fullxfull.7299676509_axjo.jpg",
         "https://i.etsystatic.com/54205761/r/il/cbd495/7299676577/il_fullxfull.7299676577_9wiq.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Eiche%20mit%20Kambala-Streifen%20-%20Quadratisches%20Design%E2%80%93%2028%2C5%C3%9728%2C5%C3%974%2C4%20cm%2C%20edler%20Block%2C%20handgefertigt",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4380304814/oak-cutting-board-with-kambala-stripes",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Kambala",
       "woodCut": "edge",
@@ -1745,11 +1763,12 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Eiche & Kambala – Quadrat",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4380304814/oak-cutting-board-with-kambala-stripes"
     },
     {
       "id": "etsy-export-26-stirnholz-schneidebrett-aus-esche-41-x-40-x-4-8-cm-5-8-kg-massiver-hackb",
-      "listingId": "",
+      "listingId": "4380062082",
       "exportRow": 26,
       "name": "Stirnholz Schneidebrett aus Esche, 41 x 40 x 4,8 cm, 5,8 kg massiver Hackblock mit schwarzen Klammern | Extra großes BBQ & Charcuterie Board",
       "category": "board",
@@ -1779,15 +1798,15 @@
         "https://i.etsystatic.com/54205761/r/il/d60d0a/7250391284/il_fullxfull.7250391284_mgqm.jpg",
         "https://i.etsystatic.com/54205761/r/il/3f4fc9/7298345025/il_fullxfull.7298345025_3hcf.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20aus%20Esche%2C%2041%20x%2040%20x%204%2C8%20cm%2C%205%2C8%20kg%20massiver%20Hackblock%20mit%20schwarzen%20Klammern%20%7C%20Extra%20gro%C3%9Fes%20BBQ%20%26%20Charcuterie%20Board",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4380062082/end-grain-ash-wood-chopping-board-41-x",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "servingBoard",
       "material": "Esche",
       "woodCut": "end",
@@ -1818,11 +1837,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Esche Stirnholz – BBQ Hackblock",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4380062082/end-grain-ash-wood-chopping-board-41-x"
     },
     {
       "id": "etsy-export-27-stirnholz-schneidebrett-aus-tropenholz-massivholzbrett-mit-praktischen-g",
-      "listingId": "",
+      "listingId": "4451487112",
       "exportRow": 27,
       "name": "Stirnholz Schneidebrett aus Tropenholz – Massivholzbrett mit praktischen Griffen und viel Arbeitsfläche, handgefertigt, langlebig",
       "category": "board",
@@ -1851,15 +1871,15 @@
         "https://i.etsystatic.com/54205761/r/il/bf8bda/6541300831/il_fullxfull.6541300831_5aw1.jpg",
         "https://i.etsystatic.com/54205761/r/il/2e151f/6493177988/il_fullxfull.6493177988_bxfk.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20aus%20Tropenholz%20%E2%80%93%20Massivholzbrett%20mit%20praktischen%20Griffen%20und%20viel%20Arbeitsfl%C3%A4che%2C%20handgefertigt%2C%20langlebig",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4451487112/end-grain-cutting-board-made-of-tropical",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Tropenholz",
       "woodCut": "end",
@@ -1890,11 +1910,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Tropenholz Stirnholz – Mit Griffen",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4451487112/end-grain-cutting-board-made-of-tropical"
     },
     {
       "id": "etsy-export-28-stirnholz-schneidebrett-nussbaum-und-ahorn-massives-kuchenbrett-mit-ahor",
-      "listingId": "",
+      "listingId": "4450988121",
       "exportRow": 28,
       "name": "Stirnholz Schneidebrett Nussbaum & Ahorn – massives Küchenbrett mit Ahornholz / Nussbaum Streifen, handgefertigt und personalisierbar",
       "category": "board",
@@ -1924,15 +1945,15 @@
         "https://i.etsystatic.com/54205761/r/il/82cb98/7713940435/il_fullxfull.7713940435_7raf.jpg",
         "https://i.etsystatic.com/54205761/r/il/f0d297/7665982042/il_fullxfull.7665982042_qpki.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20Nussbaum%20%26%20Ahorn%20%E2%80%93%20massives%20K%C3%BCchenbrett%20mit%20Ahornholz%20/%20Nussbaum%20Streifen%2C%20handgefertigt%20und%20personalisierbar",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4450988121/end-grain-cutting-board-made-of-american",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Nussbaum, Ahorn",
       "woodCut": "end",
@@ -1960,11 +1981,12 @@
         "Nutzer, die ein anderes Format suchen"
       ],
       "displayName": "Nussbaum & Ahorn – Streifenbrett",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4450988121/end-grain-cutting-board-made-of-american"
     },
     {
       "id": "etsy-export-29-stirnholz-schneidebrett-stockbuche-in-schachbrettmuster-groformat-massiv",
-      "listingId": "",
+      "listingId": "1783359006",
       "exportRow": 29,
       "name": "Stirnholz Schneidebrett Stockbuche in Schachbrettmuster: Großformat, massiv, handgefertigt, personalisierbar",
       "category": "board",
@@ -1992,15 +2014,15 @@
         "https://i.etsystatic.com/54205761/r/il/00d32c/6317756996/il_fullxfull.6317756996_kbwc.jpg",
         "https://i.etsystatic.com/54205761/r/il/5b07e0/6684707496/il_fullxfull.6684707496_pu0b.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20Stockbuche%20in%20Schachbrettmuster%3A%20Gro%C3%9Fformat%2C%20massiv%2C%20handgefertigt%2C%20personalisierbar",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1783359006/end-grain-beechwood-cutting-board-in-a",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Buche",
       "woodCut": "end",
@@ -2031,11 +2053,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Stockbuche Stirnholz – Schachbrett",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1783359006/end-grain-beechwood-cutting-board-in-a"
     },
     {
       "id": "etsy-export-30-schneidebrett-holz-schachbrett-aus-buche-und-kambala-massiv-personalisie",
-      "listingId": "",
+      "listingId": "1783351692",
       "exportRow": 30,
       "name": "Schneidebrett Holz Schachbrett aus Buche & Kambala: Massiv, personalisierbar, quadratisches Design",
       "category": "board",
@@ -2065,15 +2088,15 @@
         "https://i.etsystatic.com/54205761/r/il/3627de/6803417219/il_fullxfull.6803417219_662y.jpg",
         "https://i.etsystatic.com/54205761/r/il/8a4e93/6684705946/il_fullxfull.6684705946_1fqa.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Holz%20Schachbrett%20aus%20Buche%20%26%20Kambala%3A%20Massiv%2C%20personalisierbar%2C%20quadratisches%20Design",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1783351692/cutting-board-wooden-chessboard-made-of",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Buche, Kambala",
       "woodCut": "end",
@@ -2103,7 +2126,8 @@
         "Nutzer, die ein anderes Format suchen"
       ],
       "displayName": "Buche & Kambala – Schachbrett",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1783351692/cutting-board-wooden-chessboard-made-of"
     },
     {
       "id": "etsy-export-31-schneidebrett-holz-stirnholz-nussbaum-46-x-36-x-4-6-cm-massivholz-handge",
@@ -2180,7 +2204,7 @@
     },
     {
       "id": "etsy-export-32-stirnholz-schneidebrett-3d-design-eiche-buche-wenge-handgefertigtes-prem",
-      "listingId": "",
+      "listingId": "1776273564",
       "exportRow": 32,
       "name": "Stirnholz Schneidebrett 3D-Design Eiche Buche Wenge: Handgefertigtes Premium Holzbrett für Koch",
       "category": "board",
@@ -2208,15 +2232,15 @@
         "https://i.etsystatic.com/54205761/r/il/dee57d/6803315341/il_fullxfull.6803315341_527d.jpg",
         "https://i.etsystatic.com/54205761/r/il/2f5260/6255404122/il_fullxfull.6255404122_ckry.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%203D-Design%20Eiche%20Buche%20Wenge%3A%20Handgefertigtes%20Premium%20Holzbrett%20f%C3%BCr%20Koch",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1776273564/end-grain-cutting-board-3d-design-oak",
+      "directListingUrlVerified": true,
       "featured": true,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Buche, Wenge",
       "woodCut": "end",
@@ -2248,11 +2272,12 @@
         "leichtes Handling"
       ],
       "displayName": "3D Stirnholz – Eiche Buche Wenge",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1776273564/end-grain-cutting-board-3d-design-oak"
     },
     {
       "id": "etsy-export-33-stirnholz-schneidebrett-stockbuche-einzigartige-maserung-durch-naturfarb",
-      "listingId": "",
+      "listingId": "4370784882",
       "exportRow": 33,
       "name": "Stirnholz Schneidebrett Stockbuche – Einzigartige Maserung durch Naturfarben, handgefertigtes Unikat ideal als Geschenk",
       "category": "board",
@@ -2282,15 +2307,15 @@
         "https://i.etsystatic.com/54205761/r/il/633b2e/7204561778/il_fullxfull.7204561778_7a9p.jpg",
         "https://i.etsystatic.com/54205761/r/il/61ba09/7252540839/il_fullxfull.7252540839_hc73.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20Stockbuche%20%E2%80%93%20Einzigartige%20Maserung%20durch%20Naturfarben%2C%20handgefertigtes%20Unikat%20ideal%20als%20Geschenk",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4370784882/end-grain-cutting-board-stock-beech",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Buche, Esche",
       "woodCut": "end",
@@ -2317,11 +2342,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Stockbuche Stirnholz – Naturmaserung",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4370784882/end-grain-cutting-board-stock-beech"
     },
     {
       "id": "etsy-export-34-schneidebrett-buche-stirnholz-mit-saftrille-massiv-handgefertigt-groform",
-      "listingId": "",
+      "listingId": "1830530996",
       "exportRow": 34,
       "name": "Schneidebrett Buche Stirnholz: Mit Saftrille, massiv, handgefertigt, Großformat",
       "category": "board",
@@ -2350,15 +2376,15 @@
         "https://i.etsystatic.com/54205761/r/il/ac13ae/6507621384/il_fullxfull.6507621384_oue8.jpg",
         "https://i.etsystatic.com/54205761/r/il/f3fefd/6509983222/il_fullxfull.6509983222_202w.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Buche%20Stirnholz%3A%20Mit%20Saftrille%2C%20massiv%2C%20handgefertigt%2C%20Gro%C3%9Fformat",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1830530996/cutting-board-beech-end-grain-with-juice",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Buche",
       "woodCut": "end",
@@ -2389,11 +2415,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Buche Stirnholz – Mit Saftrille",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1830530996/cutting-board-beech-end-grain-with-juice"
     },
     {
       "id": "etsy-export-35-schneidebrett-aus-eiche-langholz-minimalistisches-design-mit-schweizer-k",
-      "listingId": "",
+      "listingId": "1774262638",
       "exportRow": 35,
       "name": "Schneidebrett aus Eiche Langholz: Minimalistisches Design mit Schweizer Kante",
       "category": "board",
@@ -2422,15 +2449,15 @@
         "https://i.etsystatic.com/54205761/r/il/9e730e/6755478320/il_fullxfull.6755478320_e9rg.jpg",
         "https://i.etsystatic.com/54205761/r/il/9cf232/6803488543/il_fullxfull.6803488543_1t90.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20aus%20Eiche%20Langholz%3A%20Minimalistisches%20Design%20mit%20Schweizer%20Kante",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1774262638/large-oak-chopping-board-minimalist",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche",
       "woodCut": "edge",
@@ -2457,11 +2484,12 @@
         "Nutzer, die ein anderes Format suchen"
       ],
       "displayName": "Eiche Langholz – Schweizer Kante",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1774262638/large-oak-chopping-board-minimalist"
     },
     {
       "id": "etsy-export-36-stirnholz-schneidebrett-schachbrettmuster-aus-eiche-und-wenge-personalis",
-      "listingId": "",
+      "listingId": "4299097497",
       "exportRow": 36,
       "name": "Stirnholz Schneidebrett Schachbrettmuster aus Eiche und Wenge: Personalisierbares Holzbrett, Handgefertigt",
       "category": "board",
@@ -2491,15 +2519,15 @@
         "https://i.etsystatic.com/54205761/r/il/f0c9d5/6878284209/il_fullxfull.6878284209_9655.jpg",
         "https://i.etsystatic.com/54205761/r/il/d5550d/6830310388/il_fullxfull.6830310388_7r2e.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20Schachbrettmuster%20aus%20Eiche%20und%20Wenge%3A%20Personalisierbares%20Holzbrett%2C%20Handgefertigt",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4299097497/end-grain-cutting-board-checkerboard",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Wenge",
       "woodCut": "end",
@@ -2528,11 +2556,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Eiche & Wenge – Schachbrett",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4299097497/end-grain-cutting-board-checkerboard"
     },
     {
       "id": "etsy-export-37-stirnholz-schneidebrett-aus-eiche-und-buche-kompaktes-massivholzbrett-mi",
-      "listingId": "",
+      "listingId": "1855639262",
       "exportRow": 37,
       "name": "Stirnholz Schneidebrett aus Eiche & Buche – kompaktes Massivholzbrett mit Astloch, handgefertigt",
       "category": "board",
@@ -2561,15 +2590,15 @@
         "https://i.etsystatic.com/54205761/r/il/fb2291/6622408510/il_fullxfull.6622408510_hiqr.jpg",
         "https://i.etsystatic.com/54205761/r/il/604c52/6878308017/il_fullxfull.6878308017_nn1p.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20aus%20Eiche%20%26%20Buche%20%E2%80%93%20kompaktes%20Massivholzbrett%20mit%20Astloch%2C%20handgefertigt",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/1855639262/end-grain-cutting-board-made-of-oak",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Buche",
       "woodCut": "end",
@@ -2598,11 +2627,12 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Eiche & Buche – Kompakt mit Astloch",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1855639262/end-grain-cutting-board-made-of-oak"
     },
     {
       "id": "etsy-export-38-schneidebrett-walnuss-mit-eiche-rahmen-massives-stirnholzbrett-fur-hobby",
-      "listingId": "",
+      "listingId": "4297472161",
       "exportRow": 38,
       "name": "Schneidebrett Walnuss mit Eiche-Rahmen: Massives Stirnholzbrett für Hobbyköche",
       "category": "board",
@@ -2632,15 +2662,15 @@
         "https://i.etsystatic.com/54205761/r/il/681afa/6870100683/il_fullxfull.6870100683_ix9h.jpg",
         "https://i.etsystatic.com/54205761/r/il/cf9121/6822118350/il_fullxfull.6822118350_law2.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Schneidebrett%20Walnuss%20mit%20Eiche-Rahmen%3A%20Massives%20Stirnholzbrett%20f%C3%BCr%20Hobbyk%C3%B6che",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4297472161/walnut-cutting-board-with-oak-frame",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche, Nussbaum",
       "woodCut": "end",
@@ -2672,11 +2702,12 @@
         "haeufiges Tragen"
       ],
       "displayName": "Walnuss & Eiche – Rahmenbrett",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4297472161/walnut-cutting-board-with-oak-frame"
     },
     {
       "id": "etsy-export-39-stirnholz-schneidebrett-eiche-minimalistisch-schmales-design-handgeferti",
-      "listingId": "",
+      "listingId": "4358136560",
       "exportRow": 39,
       "name": "Stirnholz Schneidebrett Eiche - Minimalistisch schmales Design, Handgefertigt personalisiert - 32.8 × 15.8 cm",
       "category": "board",
@@ -2706,15 +2737,15 @@
         "https://i.etsystatic.com/54205761/r/il/e839c8/7188565031/il_fullxfull.7188565031_i5g8.jpg",
         "https://i.etsystatic.com/54205761/r/il/6f491f/7140584046/il_fullxfull.7140584046_a37z.jpg"
       ],
-      "etsyUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc?search_query=Stirnholz%20Schneidebrett%20Eiche%20-%20Minimalistisch%20schmales%20Design%2C%20Handgefertigt%20personalisiert%20-%2032.8%20%C3%97%2015.8%20cm",
-      "directListingUrlVerified": false,
+      "etsyUrl": "https://www.etsy.com/de/listing/4358136560/end-grain-oak-cutting-board-minimalist",
+      "directListingUrlVerified": true,
       "featured": false,
       "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "20260422_Etsy_Shop_Listings.csv",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
       "material": "Eiche",
       "woodCut": "end",
@@ -2743,7 +2774,8 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Eiche Stirnholz – Schmales Design",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4358136560/end-grain-oak-cutting-board-minimalist"
     },
     {
       "id": "etsy-export-40-schneidebrett-aus-eiche-esche-und-buche-stirnholz-design-mit-saftrille-h",
