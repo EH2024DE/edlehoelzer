@@ -295,7 +295,7 @@
       "segment": "Stirnholz",
       "priceLabel": "ab 59,99 EUR",
       "priceOrder": 59.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "Stirnholz, Esche, Laerche, 28 x 26 x 3,3 cm.",
       "longDescription": "Stirnholz Schneidebrett aus sibirischer Lärche – kompakt, massiv, für den täglichen Einsatz Dieses Stirnholz-Schneidebrett aus sibirischer Lärche ist bewusst auf Funktion und Material reduziert. Massiv gefertigt, kompakt im Format und zuverlässig im Alltag – für Küchen, in denen regelmäßig gearbeitet wird. Die sibirische Lärche wächst unter rauen.",
       "badges": [
@@ -318,14 +318,14 @@
         "https://i.etsystatic.com/54205761/r/il/9ae6a1/6631909075/il_fullxfull.6631909075_aqqp.jpg"
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian",
-      "directListingUrlVerified": true,
-      "featured": true,
-      "active": true,
+      "directListingUrlVerified": false,
+      "featured": false,
+      "active": false,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
       "dataVerifiedAt": "2026-06-22",
-      "source": "etsy-shop-live-20260622",
+      "source": "Etsy Verfuegbarkeitsabgleich 2026-06-22",
       "productType": "cuttingBoard",
       "material": "Esche, Laerche",
       "woodCut": "end",
@@ -356,7 +356,8 @@
       ],
       "displayName": "Lärche Stirnholz – Kompakt",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian",
+      "availabilityNote": "Am 2026-06-22 als ausverkauft/nicht kaufbar markiert und deshalb nicht mehr aktiv beworben."
     },
     {
       "id": "etsy-export-06-schneidebrett-mahagoni-stirnholz-massiv-handgearbeitet-personalisierbar",
@@ -2982,7 +2983,7 @@
       "segment": "Zubehoer",
       "priceLabel": "ab 46,99 EUR",
       "priceOrder": 46.99,
-      "stock": 3,
+      "stock": 0,
       "shortDescription": "Set aus zwei oder drei handgemachten Teigschabern aus Massivholz für Backen, Sauerteig und Küche.",
       "longDescription": "Ein Set aus handgemachten Holz-Teigschabern für Menschen, die regelmäßig backen oder ein kleines, sinnvolles Geschenk für Brot- und Sauerteigfans suchen. Die Schaber liegen warm in der Hand und kommen ohne Kunststoff aus.",
       "badges": [
@@ -2996,14 +2997,14 @@
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/4493690534/holz-teigschaber-set-2er-3er",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4493690534/holz-teigschaber-set-2er-3er",
-      "directListingUrlVerified": true,
-      "featured": true,
-      "active": true,
+      "directListingUrlVerified": false,
+      "featured": false,
+      "active": false,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
-      "dataVerifiedAt": "2026-06-19",
-      "source": "Etsy Live-Abgleich 2026-06-19",
+      "dataVerifiedAt": "2026-06-22",
+      "source": "Etsy Verfuegbarkeitsabgleich 2026-06-22",
       "productType": "accessory",
       "material": "Massivholz",
       "woodCut": "none",
@@ -3031,7 +3032,8 @@
         "Haupt-Schneidebrett"
       ],
       "displayName": "Teigschaber-Set – 2er oder 3er",
-      "deliveryDays": "laut Etsy"
+      "deliveryDays": "laut Etsy",
+      "availabilityNote": "Nicht mehr als separates Set-Listing verfügbar; Mengenwahl läuft über das Einzel-Teigschaber-Listing 4471048251."
     }
   ]
 }
