@@ -847,103 +847,103 @@ function initProductsPage() {
   var questionsDe = [
     {
       id: "use",
-      title: "Wofür soll das Brett hauptsächlich eingesetzt werden?",
+      title: "Wofür soll dein Brett da sein?",
       options: [
         {
           value: "daily",
-          title: "Tägliches Schneiden",
-          description: "Für Gemüse, Brot und alles, was im Küchenalltag regelmäßig anfällt.",
-          attributes: "alltagstauglich · unkompliziert · verlässlich"
+          title: "Täglich kochen",
+          description: "Für Gemüse, Brot und die Arbeitsfläche, auf der jeden Tag geschnitten wird.",
+          attributes: "ruhig liegend · gut führbar · täglich"
         },
         {
           value: "bbq",
-          title: "BBQ / kräftiges Schneiden",
-          description: "Für Fleisch, Grillabende und Arbeiten, bei denen Stabilität wichtiger ist als geringes Gewicht.",
-          attributes: "stabil · massiv · belastbar"
+          title: "Am Grill servieren",
+          description: "Für Fleisch, Grillabende und den Moment, in dem geschnitten, gesalzen und serviert wird.",
+          attributes: "Fläche · Gewicht · Saftrille"
         },
         {
           value: "serving",
-          title: "Servieren und Anrichten",
-          description: "Für Brotzeit, Käse, Steak, Bar oder Tischsituationen, in denen das Brett sichtbar wird.",
-          attributes: "repräsentativ · ruhig · servierfähig"
+          title: "Am Tisch sichtbar bleiben",
+          description: "Für Brotzeit, Käse, Steak oder Tischsituationen, in denen das Brett nicht sofort weggeräumt wird.",
+          attributes: "Maserung · Haptik · Tischmoment"
         },
         {
           value: "gift",
-          title: "Geschenk / besonderes Stück",
-          description: "Für Menschen, die ein hochwertiges Holzprodukt bewusst nutzen oder offen liegen lassen.",
-          attributes: "wertig · persönlich · langlebig"
+          title: "Sichtbar schenken",
+          description: "Für Menschen, die ein Geschenk benutzen, pflegen und offen liegen lassen.",
+          attributes: "Gravur · Material · Erinnerung"
         }
       ]
     },
     {
       id: "space",
-      title: "Wie viel Platz hast du in der Küche?",
+      title: "Wo soll das Brett später liegen?",
       options: [
         {
           value: "small",
-          title: "Wenig Platz, kleine Küche",
+          title: "Es wird oft weggeräumt",
           description: "Das Brett soll funktionieren, ohne dauerhaft viel Arbeitsfläche zu blockieren.",
           attributes: "kompakt · beweglich · platzsparend"
         },
         {
           value: "normal",
-          title: "Normaler Arbeitsbereich",
-          description: "Es darf spürbar sein, soll aber noch flexibel auf der Arbeitsfläche bleiben.",
-          attributes: "ausgewogen · mittelgroß · vielseitig"
+          title: "Auf normaler Arbeitsfläche",
+          description: "Es darf spürbar sein, soll aber noch gut zu reinigen und zu bewegen bleiben.",
+          attributes: "ausgewogen · mittelgroß · nutzbar"
         },
         {
           value: "large",
-          title: "Viel Platz, Brett darf präsent liegen",
-          description: "Für große Arbeitsflächen und Nutzer, die Stabilität wichtiger finden als Mobilität.",
-          attributes: "schwer · stabil · präsent"
+          title: "Es darf sichtbar liegen bleiben",
+          description: "Für große Arbeitsflächen, Kücheninseln und feste Plätze am Grill oder Tisch.",
+          attributes: "schwerer · ruhiger · sichtbar"
         }
       ]
     },
     {
       id: "movement",
-      title: "Soll das Brett häufig bewegt werden?",
+      title: "Wie oft willst du es anheben?",
       options: [
         {
           value: "portable",
-          title: "Ja, es soll leicht tragbar sein",
-          description: "Für Nutzer, die das Brett häufig herausnehmen, reinigen oder wegstellen.",
+          title: "Oft",
+          description: "Wenn du das Brett regelmäßig herausnimmst, reinigst und wieder wegstellst.",
           attributes: "leicht · handlich · flexibel"
         },
         {
           value: "balanced",
-          title: "Gelegentlich, ausgewogenes Gewicht ist ideal",
-          description: "Das Brett soll satt liegen, aber im Alltag noch gut bewegt werden können.",
+          title: "Gelegentlich",
+          description: "Das Brett soll ruhig liegen, aber im Alltag noch gut bewegt werden können.",
           attributes: "balanciert · griffig · alltagstauglich"
         },
         {
           value: "stationary",
-          title: "Nein, es darf dauerhaft satt liegen",
-          description: "Für feste Plätze, große Kücheninseln und Nutzer, die ein präsentes Arbeitsbrett suchen.",
+          title: "Selten",
+          description: "Für feste Plätze, große Kücheninseln und Menschen, die eine sichtbare Arbeitsfläche suchen.",
           attributes: "stationär · massiv · ruhig liegend"
         }
       ]
     },
     {
       id: "haptics",
-      title: "Welche Haptik und Stärke passt besser zu dir?",
+      title: "Welches Gefühl passt besser zu dir?",
       options: [
         {
           value: "smooth",
-          title: "Dünner, leichter, flexibler",
+          title: "Leichter und schneller geführt",
           description: "Für schnelle Nutzung, wenig Gewicht und möglichst unkompliziertes Handling.",
           attributes: "schlank · glatt · beweglich"
         },
         {
           value: "solid",
-          title: "Solide und alltagstauglich",
+          title: "Spürbar, aber alltagstauglich",
           description: "Ein ausgewogenes Verhältnis aus Substanz, Handling und täglicher Nutzbarkeit.",
           attributes: "solide · ausgewogen · griffig"
         },
         {
           value: "substantial",
-          title: "Dick, massiv und sehr präsent",
-          description: "Für Nutzer, die Gewicht, Stärke und eine klare Materialwirkung bewusst möchten.",
-          attributes: "dick · schwer · charakterstark"
+          title: "Schwerer und sichtbar",
+          description: "Für Nutzer, die Gewicht, Stärke und klare Materialwirkung bewusst möchten.",
+          attributes: "dick · schwer · materialstark"
         }
       ]
     },
@@ -954,8 +954,8 @@ function initProductsPage() {
         {
           value: "daily",
           title: "Alltagstauglichkeit",
-          description: "Das Brett soll jeden Tag praktisch sein und nicht mehr Aufmerksamkeit brauchen als nötig.",
-          attributes: "praktisch · robust · direkt nutzbar"
+          description: "Das Brett soll jeden Tag funktionieren und nicht mehr Aufmerksamkeit brauchen als nötig.",
+          attributes: "praktisch · gut beweglich · direkt nutzbar"
         },
         {
           value: "knifeFeel",
@@ -966,14 +966,14 @@ function initProductsPage() {
         {
           value: "serving",
           title: "Optik beim Servieren",
-          description: "Das Brett soll nicht nur schneiden, sondern beim Anrichten sichtbar überzeugen.",
-          attributes: "sichtbar · elegant · gastfreundlich"
+          description: "Das Brett soll nicht nur schneiden, sondern beim Anrichten sichtbar bleiben.",
+          attributes: "sichtbar · ruhig · am Tisch"
         },
         {
           value: "premium",
-          title: "Maximale Wertigkeit",
-          description: "Gesucht ist ein Brett mit besonderer Präsenz, Haptik und Materialwirkung.",
-          attributes: "Premium · massiv · besonders"
+          title: "Maximale Materialwirkung",
+          description: "Gesucht ist ein Brett mit viel Präsenz, Haptik und spürbarer Stärke.",
+          attributes: "Gewicht · Stärke · Maserung"
         }
       ]
     }
@@ -982,103 +982,103 @@ function initProductsPage() {
   var questionsEn = [
     {
       id: "use",
-      title: "What will you mainly use the board for?",
+      title: "What moment is the board for?",
       options: [
         {
           value: "daily",
-          title: "Daily cutting",
-          description: "For vegetables, bread and everything that happens in everyday kitchen use.",
-          attributes: "practical · simple · reliable"
+          title: "Daily cooking",
+          description: "For vegetables, bread and the worktop where you cut every day.",
+          attributes: "steady · easy to handle · daily"
         },
         {
           value: "bbq",
-          title: "BBQ / heavier cutting",
-          description: "For meat, grilling and work where stability matters more than low weight.",
-          attributes: "stable · solid · resilient"
+          title: "Serving at the grill",
+          description: "For meat, grilling and the moment when food is sliced, seasoned and served.",
+          attributes: "surface · weight · juice groove"
         },
         {
           value: "serving",
-          title: "Serving and plating",
-          description: "For bread, cheese, steak, bar or table situations where the board stays visible.",
-          attributes: "presentable · calm · serving-ready"
+          title: "Staying visible at the table",
+          description: "For bread, cheese, steak or table situations where the board is not put away immediately.",
+          attributes: "grain · feel · table moment"
         },
         {
           value: "gift",
-          title: "Gift / special piece",
-          description: "For people who use a high-quality wood product consciously or leave it out in the kitchen.",
-          attributes: "valuable · personal · durable"
+          title: "A visible gift",
+          description: "For people who will use, care for and keep the gift visible.",
+          attributes: "engraving · material · memory"
         }
       ]
     },
     {
       id: "space",
-      title: "How much space do you have in the kitchen?",
+      title: "Where will the board live?",
       options: [
         {
           value: "small",
-          title: "Limited space, small kitchen",
+          title: "It will often be put away",
           description: "The board should work without permanently taking over the worktop.",
           attributes: "compact · movable · space-saving"
         },
         {
           value: "normal",
-          title: "Regular worktop space",
-          description: "It may have substance, but should still stay flexible in daily use.",
-          attributes: "balanced · medium-sized · versatile"
+          title: "On a regular worktop",
+          description: "It may have substance, but should still be easy to clean and move.",
+          attributes: "balanced · medium-sized · useful"
         },
         {
           value: "large",
-          title: "Plenty of space, board can stay out",
-          description: "For large worktops and users who value stability more than mobility.",
-          attributes: "heavy · stable · present"
+          title: "It can stay visible",
+          description: "For large worktops, kitchen islands and fixed places at the grill or table.",
+          attributes: "heavier · calmer · visible"
         }
       ]
     },
     {
       id: "movement",
-      title: "Will you move the board often?",
+      title: "How often do you want to lift it?",
       options: [
         {
           value: "portable",
-          title: "Yes, it should be easy to carry",
-          description: "For users who often take the board out, clean it or put it away.",
+          title: "Often",
+          description: "If you often take the board out, clean it and put it away again.",
           attributes: "light · handy · flexible"
         },
         {
           value: "balanced",
-          title: "Sometimes, balanced weight is ideal",
+          title: "Sometimes",
           description: "The board should lie solidly but still be easy to handle in everyday use.",
           attributes: "balanced · grippy · practical"
         },
         {
           value: "stationary",
-          title: "No, it can stay firmly in place",
-          description: "For fixed places, large kitchen islands and users looking for a substantial work board.",
+          title: "Rarely",
+          description: "For fixed places, large kitchen islands and people looking for a visible work surface.",
           attributes: "stationary · solid · calm"
         }
       ]
     },
     {
       id: "haptics",
-      title: "Which feel and thickness suits you better?",
+      title: "Which feel suits you better?",
       options: [
         {
           value: "smooth",
-          title: "Thinner, lighter, more flexible",
+          title: "Lighter and easier to handle",
           description: "For quick use, lower weight and uncomplicated handling.",
           attributes: "slim · smooth · movable"
         },
         {
           value: "solid",
-          title: "Solid and practical",
+          title: "Tactile, but practical",
           description: "A balanced mix of substance, handling and daily usability.",
           attributes: "solid · balanced · grippy"
         },
         {
           value: "substantial",
-          title: "Thick, heavy and very present",
+          title: "Heavier and visible",
           description: "For users who deliberately want weight, thickness and a strong material feel.",
-          attributes: "thick · heavy · characterful"
+          attributes: "thick · heavy · material-rich"
         }
       ]
     },
@@ -1089,8 +1089,8 @@ function initProductsPage() {
         {
           value: "daily",
           title: "Everyday practicality",
-          description: "The board should be useful every day without needing unnecessary attention.",
-          attributes: "practical · robust · ready to use"
+          description: "The board should work every day without needing unnecessary attention.",
+          attributes: "practical · movable · ready to use"
         },
         {
           value: "knifeFeel",
@@ -1101,14 +1101,14 @@ function initProductsPage() {
         {
           value: "serving",
           title: "Serving appearance",
-          description: "The board should not only cut well, but also look good when plating or serving.",
-          attributes: "visible · elegant · hosting-ready"
+          description: "The board should not only cut, but stay visible when plating or serving.",
+          attributes: "visible · calm · table-ready"
         },
         {
           value: "premium",
-          title: "Maximum presence",
-          description: "You are looking for a board with special presence, feel and material depth.",
-          attributes: "premium · solid · special"
+          title: "Maximum material presence",
+          description: "You are looking for a board with weight, feel and visible thickness.",
+          attributes: "weight · thickness · grain"
         }
       ]
     }
@@ -1372,8 +1372,8 @@ function initProductsPage() {
     resultRoot.innerHTML =
       '<div class="finderResult__head">' +
         '<p class="eyebrow eyebrow--dark">' + (isEnglish ? "Recommendation" : "Empfehlung") + '</p>' +
-        '<h2>' + (isEnglish ? "This is probably the best direction for your everyday use" : "Das dürfte am besten zu deinem Alltag passen") + '</h2>' +
-        '<p>' + escapeHtml(buildReason(main)) + '</p>' +
+        '<h2>' + (isEnglish ? "This is probably the best direction for your moment" : "Das dürfte am besten zu deinem Moment passen") + '</h2>' +
+        '<p><strong>' + (isEnglish ? "This board fits because: " : "Dieses Brett passt, weil: ") + '</strong>' + escapeHtml(buildReason(main)) + '</p>' +
       '</div>' +
       '<div class="recommendationCard">' +
         buildProductMedia(main) +
