@@ -81,12 +81,10 @@
     var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
     var directListingUrl = product.etsyListingUrl || product.etsyUrl;
     var hasDirectListing = product.directListingUrlVerified === true && Boolean(directListingUrl);
-    var actionText = hasDirectListing
-      ? buyLabelFor(product, isEnglish)
-      : (isEnglish ? "Start product finder" : "Produktfinder starten");
-    var actionUrl = hasDirectListing
-      ? directListingUrl
-      : (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder");
+    var detailsText = isEnglish ? "View details" : "Details ansehen";
+    var compareText = isEnglish ? "Compare" : "Vergleichen";
+    var actionText = hasDirectListing ? buyLabelFor(product, isEnglish) : (isEnglish ? "Find similar board" : "Ähnliches Brett finden");
+    var actionUrl = hasDirectListing ? directListingUrl : (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder");
     var linkAttributes = hasDirectListing
       ? ' target="_blank" rel="noopener" data-etsy-link title="' +
         (isEnglish ? "You are leaving for the Edle Hölzer Etsy listing" : "Du wechselst jetzt zum Etsy-Angebot von Edle Hölzer") +
@@ -94,11 +92,12 @@
       : ' data-umami-event="produktfinder-gestartet"';
 
     return '<article class="productCard seo-product-card">' +
-      '<a class="productCard__link" href="' + escapeAttribute(actionUrl) + '"' + linkAttributes + '>' +
-        '<div class="productCard__media productCard__imgWrap"' + productImageStyle(product) + '>' +
+      '<button class="productCard__link productCard__previewLink" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' +
+        '<span class="productCard__media productCard__imgWrap"' + productImageStyle(product) + '>' +
           '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
-        '</div>' +
-        '<div class="productCard__body">' +
+        '</span>' +
+      '</button>' +
+      '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(product.segment || product.category || "Produkt") + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(product.displayName || displayProductName(product)) + '</h3>' +
           renderBadges(product) +
@@ -106,14 +105,15 @@
           '<div class="productCard__footer">' +
             (product.priceLabel ? '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' : "") +
             '<span class="productCard__buy">' +
-              '<span class="productCard__cta">' + escapeHtml(actionText) + '</span>' +
+              '<button class="productCard__cta" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(detailsText) + '</button>' +
+              '<button class="productCard__cta productCard__cta--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(compareText) + '</button>' +
+              '<a class="productCard__cta productCard__cta--etsy" href="' + escapeAttribute(actionUrl) + '"' + linkAttributes + '>' + escapeHtml(actionText) + '</a>' +
               (hasDirectListing
-                ? '<span class="productCard__trust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span>'
+                ? '<span class="productCard__trust">' + (isEnglish ? "Checkout via Etsy · Buyer protection available there" : "Checkout über Etsy · Käuferschutz dort verfügbar") + '</span>'
                 : "") +
             '</span>' +
           '</div>' +
         '</div>' +
-      '</a>' +
     '</article>';
   }
 
