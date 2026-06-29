@@ -150,7 +150,7 @@
     }
 
     return '<div class="productBadgeRow productCard__badges">' + filtered.slice(0, 3).map(function (badge) {
-      return '<span class="productCard__badge">' + escapeHtml(badge) + '</span>';
+      return '<span class="productCard__badge">' + escapeHtml(normalizeConstructionTerms(badge)) + '</span>';
     }).join("") + '</div>';
   }
 
@@ -160,8 +160,8 @@
     if (product.material) {
       facts.push(["Material", product.material]);
     }
-    if (product.category === "board" && hasMeaningfulValue(product.sizeLabel)) {
-      facts.push(["Maße", product.sizeLabel]);
+    if (product.category === "board" && dimensionLabel(product)) {
+      facts.push(["Maße", dimensionLabel(product)]);
     }
     if (product.category === "board" && product.thicknessLabel && hasMeaningfulValue(product.thicknessLabel)) {
       facts.push(["Stärke", product.thicknessLabel]);
@@ -189,10 +189,50 @@
   }
 
   function hasMeaningfulValue(value) {
-    return value &&
-      value !== "Format laut Etsy-Export" &&
-      value !== "laut Etsy-Export" &&
-      value !== "nicht relevant";
+    if (!value) {
+      return "";
+    }
+    var text = String(value).trim();
+    if (!text || /Format laut Etsy|laut Etsy-Export|laut Etsy-Listing|Set laut|nicht relevant/i.test(text)) {
+      return "";
+    }
+    return text;
+  }
+
+  function dimensionLabel(product) {
+    return hasMeaningfulValue(product.sizeLabel) ? product.sizeLabel :
+      hasMeaningfulValue(product.dimensions) ? product.dimensions :
+      extractDimensionsFromText([
+        product.displayName,
+        product.name,
+        product.title,
+        product.shortDescription,
+        product.longDescription
+      ].join(" "));
+  }
+
+  function extractDimensionsFromText(text) {
+    if (!text) {
+      return "";
+    }
+    var normalized = String(text)
+      .replace(/×/g, "x")
+      .replace(/\s+/g, " ");
+    var match = normalized.match(/(?:maße|masse|größe|format)?\s*:?\s*(ca\.\s*)?(\d{1,3}(?:[,.]\d+)?)\s*x\s*(\d{1,3}(?:[,.]\d+)?)(?:\s*x\s*(\d{1,3}(?:[,.]\d+)?))?\s*cm\b/i);
+    if (!match) {
+      return "";
+    }
+    var prefix = match[1] ? "ca. " : "";
+    var values = [match[2], match[3], match[4]].filter(Boolean).map(function (value) {
+      return value.replace(".", ",");
+    });
+    return prefix + values.join(" × ") + " cm";
+  }
+
+  function normalizeConstructionTerms(value) {
+    return String(value || "")
+      .replace(/Face\s*Grain|Edge\s*Grain|Long\s*Grain/gi, "Langholz")
+      .replace(/Flankenholz|Längsholz/gi, "Langholz");
   }
 
   function hasMinimumBoardSize(product, minCm) {

@@ -862,6 +862,10 @@ function initProductExperience() {
     compareOneText: "Add a second board to see differences in wood, size, price and use.",
     compareTwoTitle: "Two boards in comparison",
     compareTwoText: "Do not choose from ten options. Decide between the two boards that really matter.",
+    compareNoneStatus: "No product in comparison yet",
+    compareOneStatus: "1 of 2 products selected",
+    compareTwoStatus: "2 of 2 products selected",
+    openCompare: "Open comparison",
     browseProducts: "View products",
     compareSlotTitle: "One place is free.",
     compareSlotText: "Choose a second product to complete the comparison again.",
@@ -914,6 +918,10 @@ function initProductExperience() {
     compareOneText: "Füge ein zweites Brett hinzu, um Unterschiede bei Holz, Größe, Preis und Nutzung zu sehen.",
     compareTwoTitle: "Zwei Bretter im Vergleich",
     compareTwoText: "Wähle nicht aus zehn Optionen. Entscheide zwischen den zwei Brettern, die wirklich infrage kommen.",
+    compareNoneStatus: "Noch kein Produkt im Vergleich",
+    compareOneStatus: "1 von 2 Produkten ausgewählt",
+    compareTwoStatus: "2 von 2 Produkten ausgewählt",
+    openCompare: "Vergleich öffnen",
     browseProducts: "Produkte ansehen",
     compareSlotTitle: "Ein Platz ist frei.",
     compareSlotText: "Wähle ein zweites Produkt aus, um den Vergleich wieder vollständig zu machen.",
@@ -1082,6 +1090,11 @@ function initProductExperience() {
 
       previousFocus = trigger || document.activeElement;
       renderOverlay(renderProductPreview(product, source, reason), "product-preview", source);
+      if (activeOverlay) {
+        activeOverlay.setAttribute("data-current-product-id", product.id);
+        activeOverlay.setAttribute("data-current-product-source", source || "preview");
+        activeOverlay.setAttribute("data-current-product-reason", reason || "");
+      }
       track("product_preview_open", product, { source: source });
     }).catch(function (error) {
       console.warn("[Edle Hölzer] Produktvorschau konnte nicht geöffnet werden:", error);
@@ -1124,7 +1137,7 @@ function initProductExperience() {
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + ' <a href="' + (isEnglish ? "/en/care.html" : "/pflege.html") + '">' + escapeHtml(labels.careLink) + '</a></p></section>' +
         '<div class="productPreview__actions">' +
           (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a><p class="productPreview__trust">' + escapeHtml(labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.checkOnEtsy) + '</p>') +
-          '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(compareButtonLabel(product.id)) + '</button>' +
+          renderPreviewCompareControls(product, source || "preview") +
           '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
         '</div>' +
         (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
@@ -1163,6 +1176,14 @@ function initProductExperience() {
       compareIds.push(productId);
       writeCompareState();
       updateCompareBar();
+      if (activeOverlay && activeOverlay.getAttribute("data-product-experience-type") === "product-preview") {
+        if (compareIds.length === 2) {
+          openCompareView(trigger);
+          track("compare_add", productMap[productId], { source: source, compare_count: compareIds.length });
+          return;
+        }
+        refreshProductPreviewOverlay();
+      }
       refreshCompareOverlay();
       track("compare_add", productMap[productId], { source: source, compare_count: compareIds.length });
     });
@@ -1181,6 +1202,7 @@ function initProductExperience() {
     if (productMap[productId]) {
       track("compare_remove", productMap[productId], { compare_count: compareIds.length });
     }
+    refreshProductPreviewOverlay();
     refreshCompareOverlay();
   }
 
@@ -1278,7 +1300,7 @@ function initProductExperience() {
     var hasCare = a.category === "care" || b.category === "care";
     var rows = [
       [labels.price, displayValue(a.priceLabel), displayValue(b.priceLabel)],
-      [hasCare ? (isEnglish ? "Use" : "Einsatz") : labels.dimensions, hasCare ? productUseLabel(a) : meaningful(a.sizeLabel), hasCare ? productUseLabel(b) : meaningful(b.sizeLabel)],
+      [hasCare ? (isEnglish ? "Use" : "Einsatz") : labels.dimensions, hasCare ? productUseLabel(a) : dimensionLabel(a), hasCare ? productUseLabel(b) : dimensionLabel(b)],
       [hasCare ? (isEnglish ? "Application" : "Anwendungsfall") : labels.wood, hasCare ? productApplication(a) : displayValue(a.material), hasCare ? productApplication(b) : displayValue(b.material)],
       [bothBoards ? labels.construction : "", bothBoards ? constructionLabel(a) : "", bothBoards ? constructionLabel(b) : ""],
       [bothBoards ? labels.thickness : "", bothBoards ? meaningful(a.thicknessLabel) : "", bothBoards ? meaningful(b.thicknessLabel) : ""],
@@ -1395,7 +1417,9 @@ function initProductExperience() {
 
       var isActive = compareIds.indexOf(id) !== -1;
       button.classList.toggle("is-in-compare", isActive);
-      button.textContent = isActive ? labels.removeCompare : (compareIds.length >= 2 ? labels.replaceCompare : labels.compare);
+      button.textContent = button.closest(".productPreview__compareControls")
+        ? compareButtonLabel(id)
+        : (isActive ? labels.removeCompare : (compareIds.length >= 2 ? labels.replaceCompare : labels.compare));
       button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   }
@@ -1426,6 +1450,23 @@ function initProductExperience() {
     activeOverlay.querySelector(".productExperienceOverlay__scroll").innerHTML = renderCompareView();
     activeDialog = activeOverlay.querySelector('[role="dialog"]');
     focusDialog();
+  }
+
+  function refreshProductPreviewOverlay() {
+    if (!activeOverlay || activeOverlay.getAttribute("data-product-experience-type") !== "product-preview") {
+      return;
+    }
+
+    var productId = activeOverlay.getAttribute("data-current-product-id");
+    var product = productMap[productId];
+    if (!product) {
+      return;
+    }
+
+    var source = activeOverlay.getAttribute("data-current-product-source") || "preview";
+    var reason = activeOverlay.getAttribute("data-current-product-reason") || "";
+    activeOverlay.querySelector(".productExperienceOverlay__scroll").innerHTML = renderProductPreview(product, source, reason);
+    activeDialog = activeOverlay.querySelector('[role="dialog"]');
   }
 
   function closeOverlay(restoreFocus) {
@@ -1549,6 +1590,34 @@ function initProductExperience() {
     return '<button class="productPreview__thumb' + (index === 0 ? " is-active" : "") + '" type="button" data-preview-media="' + index + '" data-preview-type="' + escapeAttribute(item.type || "image") + '" data-preview-src="' + escapeAttribute(item.src) + '" data-preview-poster="' + escapeAttribute(poster) + '" data-preview-alt="' + escapeAttribute(item.alt) + '"><img src="' + escapeAttribute(poster) + '" alt="" loading="lazy" decoding="async">' + (item.type === "video" ? '<span class="productPreview__videoBadge">Video</span>' : "") + '</button>';
   }
 
+  function renderPreviewCompareControls(product, source) {
+    var isActive = compareIds.indexOf(product.id) !== -1;
+    var status = compareIds.length === 0 ? labels.compareNoneStatus : (compareIds.length === 1 ? labels.compareOneStatus : labels.compareTwoStatus);
+    var controls = '<div class="productPreview__compareControls"><p>' + escapeHtml(status) + '</p>';
+
+    if (compareIds.length === 2) {
+      controls += '<button class="btn btn--ghost-dark" type="button" data-compare-open>' + escapeHtml(labels.openCompare) + '</button>';
+      if (isActive) {
+        controls += '<button class="btn btn--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.removeCompare) + '</button>';
+      } else {
+        controls += '<button class="btn btn--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.replaceCompare) + '</button>';
+      }
+      return controls + '</div>';
+    }
+
+    if (isActive) {
+      controls += '<button class="btn btn--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.removeCompare) + '</button>';
+    } else {
+      controls += '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.addCompare) + '</button>';
+    }
+
+    if (compareIds.length > 0) {
+      controls += '<button class="btn btn--secondary" type="button" data-compare-open>' + escapeHtml(labels.openCompare) + '</button>';
+    }
+
+    return controls + '</div>';
+  }
+
   function relatedProducts(product) {
     return products.filter(function (candidate) {
       if (!candidate || candidate.id === product.id || candidate.active === false || !candidate.image) {
@@ -1577,7 +1646,7 @@ function initProductExperience() {
     var facts = [];
     pushFact(facts, labels.wood, product.material);
     pushFact(facts, labels.construction, constructionLabel(product));
-    pushFact(facts, labels.dimensions, meaningful(product.sizeLabel));
+    pushFact(facts, labels.dimensions, dimensionLabel(product));
     pushFact(facts, labels.thickness, meaningful(product.thicknessLabel));
     pushFact(facts, labels.weight, weightLabel(product));
     pushFact(facts, labels.price, product.priceLabel);
@@ -1597,14 +1666,14 @@ function initProductExperience() {
     if (Array.isArray(product.badges)) {
       product.badges.forEach(function (badge) {
         if (badge && highlights.length < 5 && !/cm|kg|Format laut/i.test(String(badge))) {
-          highlights.push(badge);
+          highlights.push(normalizeConstructionTerms(badge));
         }
       });
     }
     if (product.material && highlights.indexOf(product.material) === -1) {
       highlights.unshift(product.material);
     }
-    if (product.woodCut === "end") {
+    if (isEndGrain(product)) {
       highlights.push(isEnglish ? "end-grain construction" : "Stirnholz-Aufbau");
     }
     return unique(highlights).slice(0, 5);
@@ -1621,7 +1690,7 @@ function initProductExperience() {
     if (/erbst/.test(text)) {
       return isEnglish ? "For people who do not want a reproducible standard product." : "Für Menschen, die kein reproduzierbares Serienprodukt suchen.";
     }
-    if (product.woodCut === "end") {
+    if (isEndGrain(product)) {
       return isEnglish ? "For intensive kitchen work with good knives." : "Für intensive Küchenarbeit mit guten Messern.";
     }
     if (Array.isArray(product.useCases) && product.useCases.indexOf("bbq") !== -1) {
@@ -1635,9 +1704,9 @@ function initProductExperience() {
 
   function productProof(product) {
     if (product.longDescription) {
-      return product.longDescription;
+      return normalizeConstructionTerms(product.longDescription);
     }
-    if (product.woodCut === "end") {
+    if (isEndGrain(product)) {
       return isEnglish ? "Standing wood fibres make end grain more involved to produce and give it its dense, substantial character." : "Stehende Holzfasern machen Stirnholz aufwendiger in der Fertigung und geben dem Brett seinen dichten, massiven Charakter.";
     }
     if (product.material) {
@@ -1690,7 +1759,7 @@ function initProductExperience() {
     if (/brotzeit|frühstück|breakfast|snack/.test(text)) {
       return isEnglish ? "Choose this board if you want a smaller board for breakfast, snacks and serving at the table, not a heavy work board." : "Wähle dieses Brett, wenn du ein kleineres Brett für Frühstück, Brotzeit und Servieren am Tisch suchst, nicht als schweres Arbeitsbrett.";
     }
-    if (product.woodCut === "end") {
+    if (isEndGrain(product)) {
       if (hasBadge(product, "Saftrille")) {
         return isEnglish ? "Choose this board if you want a substantial work board for repeated cutting, serving and liquids from meat, fruit or vegetables." : "Wähle dieses Brett, wenn du ein massives Arbeitsbrett für intensives Schneiden, Servieren und austretende Flüssigkeit suchst.";
       }
@@ -1715,13 +1784,58 @@ function initProductExperience() {
   }
 
   function constructionLabel(product) {
-    if (product.woodCut === "end") {
-      return isEnglish ? "End grain" : "Stirnholz";
+    if (!product || product.category !== "board") {
+      return "";
     }
-    if (product.woodCut === "long") {
-      return isEnglish ? "Long grain" : "Längsholz";
+    return isEndGrain(product) ? "Stirnholz" : "Langholz";
+  }
+
+  function isEndGrain(product) {
+    var text = [
+      product.woodCut,
+      product.name,
+      product.displayName,
+      product.title,
+      product.shortDescription,
+      product.longDescription
+    ].join(" ").toLowerCase();
+    return product.woodCut === "end" || /stirnholz|end\s*grain/.test(text);
+  }
+
+  function dimensionLabel(product) {
+    return meaningful(product.sizeLabel) ||
+      meaningful(product.dimensions) ||
+      extractDimensionsFromText([
+        product.displayName,
+        product.name,
+        product.title,
+        product.shortDescription,
+        product.longDescription
+      ].join(" "));
+  }
+
+  function extractDimensionsFromText(text) {
+    if (!text) {
+      return "";
     }
-    return meaningful(product.woodCut);
+    var normalized = String(text)
+      .replace(/×/g, "x")
+      .replace(/\s+/g, " ");
+    var match = normalized.match(/(?:maße|masse|größe|format)?\s*:?\s*(ca\.\s*)?(\d{1,3}(?:[,.]\d+)?)\s*x\s*(\d{1,3}(?:[,.]\d+)?)(?:\s*x\s*(\d{1,3}(?:[,.]\d+)?))?\s*cm\b/i);
+    if (!match) {
+      return "";
+    }
+    var prefix = match[1] ? "ca. " : "";
+    var values = [match[2], match[3], match[4]].filter(Boolean).map(function (value) {
+      return value.replace(".", ",");
+    });
+    return prefix + values.join(" × ") + " cm";
+  }
+
+  function normalizeConstructionTerms(value) {
+    return String(value || "")
+      .replace(/Face\s*Grain|Edge\s*Grain|Long\s*Grain/gi, "Langholz")
+      .replace(/Flankenholz|Längsholz/gi, "Langholz");
   }
 
   function weightLabel(product) {
@@ -1851,7 +1965,7 @@ function initProductExperience() {
       return "";
     }
     var text = String(value);
-    if (/Format laut Etsy-Export|laut Etsy-Export|nicht relevant/i.test(text)) {
+    if (/Format laut Etsy|laut Etsy-Export|laut Etsy-Listing|Set laut|nicht relevant/i.test(text)) {
       return "";
     }
     return text;
@@ -2654,10 +2768,8 @@ function initProductsPage() {
   }
 
   function hasConcreteFinderData(product) {
-    return product.sizeLabel &&
-      product.sizeLabel !== "Format laut Etsy-Export" &&
-      product.thicknessLabel &&
-      product.thicknessLabel !== "laut Etsy-Export";
+    return dimensionLabel(product) &&
+      hasMeaningfulValue(product.thicknessLabel);
   }
 
   function buildReason(product) {
@@ -2691,7 +2803,10 @@ function initProductsPage() {
     }
 
     if (haptics && priority) {
-      parts.push((isEnglish ? "Your choices around feel and priority point toward " : "Deine Auswahl bei Haptik und Priorität spricht für ") + product.sizeLabel + ", " + product.thicknessLabel + (isEnglish ? " and " : " und ") + product.material + ".");
+      var facts = [dimensionLabel(product), hasMeaningfulValue(product.thicknessLabel), product.material].filter(Boolean);
+      if (facts.length) {
+        parts.push((isEnglish ? "Your choices around feel and priority point toward " : "Deine Auswahl bei Haptik und Priorität spricht für ") + facts.join(isEnglish ? ", " : ", ") + ".");
+      }
     }
 
     return parts.join(" ");
@@ -2851,7 +2966,7 @@ function initProductsPage() {
     }
 
     return '<div class="productBadgeRow">' + filtered.slice(0, 3).map(function (badge) {
-      return '<span>' + escapeHtml(badge) + '</span>';
+      return '<span>' + escapeHtml(normalizeConstructionTerms(badge)) + '</span>';
     }).join("") + '</div>';
   }
 
@@ -2862,8 +2977,8 @@ function initProductsPage() {
       facts.push([isEnglish ? "Material" : "Material", product.material]);
     }
 
-    if (product.category === "board" && hasMeaningfulValue(product.sizeLabel)) {
-      facts.push([isEnglish ? "Size" : "Maße", product.sizeLabel]);
+    if (product.category === "board" && dimensionLabel(product)) {
+      facts.push([isEnglish ? "Size" : "Maße", dimensionLabel(product)]);
     }
 
     if (product.category === "board" && product.weightClass) {
@@ -2898,10 +3013,14 @@ function initProductsPage() {
   }
 
   function hasMeaningfulValue(value) {
-    return value &&
-      value !== "Format laut Etsy-Export" &&
-      value !== "laut Etsy-Export" &&
-      value !== "nicht relevant";
+    if (!value) {
+      return "";
+    }
+    var text = String(value).trim();
+    if (!text || /Format laut Etsy|laut Etsy-Export|laut Etsy-Listing|Set laut|nicht relevant/i.test(text)) {
+      return "";
+    }
+    return text;
   }
 
   function displayProductName(product) {
@@ -3039,6 +3158,42 @@ function initProductsPage() {
     }
 
     return isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder";
+  }
+
+  function dimensionLabel(product) {
+    return hasMeaningfulValue(product.sizeLabel) ? product.sizeLabel :
+      hasMeaningfulValue(product.dimensions) ? product.dimensions :
+      extractDimensionsFromText([
+        product.displayName,
+        product.name,
+        product.title,
+        product.shortDescription,
+        product.longDescription
+      ].join(" "));
+  }
+
+  function extractDimensionsFromText(text) {
+    if (!text) {
+      return "";
+    }
+    var normalized = String(text)
+      .replace(/×/g, "x")
+      .replace(/\s+/g, " ");
+    var match = normalized.match(/(?:maße|masse|größe|format)?\s*:?\s*(ca\.\s*)?(\d{1,3}(?:[,.]\d+)?)\s*x\s*(\d{1,3}(?:[,.]\d+)?)(?:\s*x\s*(\d{1,3}(?:[,.]\d+)?))?\s*cm\b/i);
+    if (!match) {
+      return "";
+    }
+    var prefix = match[1] ? "ca. " : "";
+    var values = [match[2], match[3], match[4]].filter(Boolean).map(function (value) {
+      return value.replace(".", ",");
+    });
+    return prefix + values.join(" × ") + " cm";
+  }
+
+  function normalizeConstructionTerms(value) {
+    return String(value || "")
+      .replace(/Face\s*Grain|Edge\s*Grain|Long\s*Grain/gi, "Langholz")
+      .replace(/Flankenholz|Längsholz/gi, "Langholz");
   }
 
   function labelFor(value) {

@@ -46,6 +46,8 @@ Abgeleitete Daten für Preview und Vergleich:
 - Pflegehinweis
 - Related Products
 - Vergleichswerte
+- Maße aus vorhandenen Textfeldern, wenn eindeutig im Format `x ... cm` erkennbar
+- Bauweise normalisiert auf `Stirnholz` oder `Langholz`
 
 Produkte mit vollständiger Preview-Basis: alle aktiven Produkte mit `id`, Bild und verifiziertem Etsy-Link.
 
@@ -55,6 +57,7 @@ Datenlücken:
 - Verfügbarkeit wird nicht als harte Aussage auf der Website gesetzt, sondern über Etsy geprüft.
 - Lokale optimierte Produktmedien liegen nicht für alle Produktbilder vor.
 - Produktvideos sind aktuell nicht zuverlässig gepflegt. `products.json` enthält keine stabile Produktvideo-Struktur pro Listing.
+- Zwei aktive Produkte haben aktuell nur ein Bild in der Galerie.
 
 ## 3. Product Preview
 
@@ -64,6 +67,8 @@ Umgesetzt:
 - Mobile: Fullscreen/Bottom-Sheet-artige Darstellung mit Safe-Area-Abstand.
 - Galerie aus `gallery`/`image`.
 - Optionales Video-Rendering ist vorbereitet, falls später ein belastbares `media`-Array mit `type: "video"`, `src` und optionalem `poster` gepflegt wird.
+- Thumbnails stehen direkt unter dem Hauptbild.
+- Hauptbilder werden mit `object-fit: contain` gezeigt, damit Produkte nicht zufällig abgeschnitten werden.
 - Key Facts aus vorhandenen Produktdaten.
 - Highlights aus Badges und Materialdaten.
 - Moment- und Proof-Copy aus vorhandenen Produktmerkmalen abgeleitet.
@@ -87,6 +92,7 @@ Angepasst:
 - Direkte Etsy-Links bleiben als tertiäre Aktion `Auf Etsy ansehen` bestehen.
 - `Dieses Brett kaufen` erscheint nicht mehr im Grid, sondern bleibt der stärkeren Product-Preview-Aktion vorbehalten.
 - Landingpage-Produktgrids nutzen dieselbe Preview-/Compare-Logik über `data-product-preview` und `data-product-compare`.
+- Maße in Product Cards nutzen `sizeLabel`, `dimensions` oder eine eindeutige Extraktion aus vorhandenen Textfeldern.
 
 Direkte Etsy-Links bleiben dort erhalten, wo der Button ausdrücklich als Kauf-/Etsy-Aktion erkennbar ist.
 
@@ -114,6 +120,8 @@ Regeln:
 - Kein automatisches Ersetzen.
 - Vergleich kann geleert werden.
 - Wenn im Compare View ein Produkt entfernt wird, bleibt der Nutzer im Overlay und bekommt direkt passende Vorschläge für den freien zweiten Slot.
+- Wenn aus der Product Preview heraus das zweite Produkt hinzugefügt wird, öffnet sich der Compare View direkt.
+- Die Product Preview zeigt den Compare-Status im CTA-Bereich: kein Produkt, `1 von 2`, `2 von 2`.
 
 Vergleichsanzeige:
 
@@ -129,6 +137,37 @@ Ausgeblendete Felder:
 - Zeilen ohne Daten werden nicht angezeigt oder als `nicht angegeben` markiert, wenn nur ein Produkt einen Wert hat.
 - `weightClass`, Verfügbarkeit und Pflegelevel werden im Vergleich nicht angezeigt.
 - Interne Werte wie `low`, `medium`, `heavy` werden in der deutschen Vergleichs-UI nicht ausgegeben.
+- Bauweise wird im Frontend nur als `Stirnholz` oder `Langholz` angezeigt. Begriffe wie `Edge Grain`, `Face Grain`, `Long Grain`, `Flankenholz` und `Längsholz` werden in der Produkt-Experience normalisiert.
+
+## 6.1 Produktmedien-Lücken
+
+Aktive Produkte: 39
+
+Produkte mit mehreren Galeriebildern: 37
+
+Produkte mit nur einem Bild:
+
+| Produkt ID | Produktname | Etsy-Link vorhanden | Gallery-Länge | Empfohlene nächste Aktion |
+|---|---|---:|---:|---|
+| `etsy-live-20260619-schneidebrett-buche-massiv-griffmulden` | Buche Massiv – Mit Griffmulden | ja | 1 | Lokale optimierte Galeriebilder aus Listing/Produktshooting ergänzen |
+| `etsy-live-20260619-schneidebrett-eiche-massiv-astloch` | Eiche Massiv – Astloch & Kante | ja | 1 | Lokale optimierte Galeriebilder aus Listing/Produktshooting ergänzen |
+
+Keine zusätzlichen Etsy-Bild-Hotlinks wurden ergänzt. Fehlende Galerien bleiben Phase 2: Etsy-Media-Sync, manueller Export oder lokale optimierte Kopien.
+
+## 6.2 Abgeleitete Maße
+
+Die Funktion `dimensionLabel(product)` nutzt:
+
+1. `sizeLabel`
+2. `dimensions`
+3. eindeutige Maße aus `displayName`, `name`, `title`, `shortDescription`, `longDescription`
+
+Aktueller Audit-Stand:
+
+- Produkte mit vorhandenen aktiven Daten: 39
+- Aus Text neu abgeleitete Maße: 0
+- Grund: Produkte ohne belastbares `sizeLabel` enthalten im aktuellen Export kein eindeutiges `x ... cm`-Pattern.
+- Bretter ohne eindeutige Maße bleiben leer bzw. `nicht angegeben`; es werden keine Maße geraten.
 
 ## 7. Accessibility
 
