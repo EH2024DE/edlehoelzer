@@ -25,6 +25,7 @@ Genutzte Felder:
 - `sizeLabel`
 - `thicknessLabel`
 - `weightClass`
+- `weight` / `weightLabel`, falls mit echter Einheit gepflegt
 - `badges`
 - `useCases`
 - `servingSuitable`
@@ -53,7 +54,7 @@ Datenlücken:
 - Exakte Gewichte sind nicht für alle Produkte gepflegt.
 - Verfügbarkeit wird nicht als harte Aussage auf der Website gesetzt, sondern über Etsy geprüft.
 - Lokale optimierte Produktmedien liegen nicht für alle Produktbilder vor.
-- Videos sind im aktuellen Produktdatenmodell nicht zuverlässig gepflegt.
+- Produktvideos sind aktuell nicht zuverlässig gepflegt. `products.json` enthält keine stabile Produktvideo-Struktur pro Listing.
 
 ## 3. Product Preview
 
@@ -62,6 +63,7 @@ Umgesetzt:
 - Desktop: modales Produktpanel mit Galerie links und Details rechts.
 - Mobile: Fullscreen/Bottom-Sheet-artige Darstellung mit Safe-Area-Abstand.
 - Galerie aus `gallery`/`image`.
+- Optionales Video-Rendering ist vorbereitet, falls später ein belastbares `media`-Array mit `type: "video"`, `src` und optionalem `poster` gepflegt wird.
 - Key Facts aus vorhandenen Produktdaten.
 - Highlights aus Badges und Materialdaten.
 - Moment- und Proof-Copy aus vorhandenen Produktmerkmalen abgeleitet.
@@ -72,7 +74,7 @@ Umgesetzt:
 
 Nicht umgesetzt in Phase 1:
 
-- Produktvideos, weil keine stabile lokale Video-Datenbasis pro Produkt vorhanden ist.
+- Produktvideos im Live-Betrieb, weil keine stabile lokale Video-Datenbasis pro Produkt vorhanden ist. Es werden keine leeren Video-Plätze angezeigt.
 - Eigene Produktdetail-URLs.
 - Product Schema pro Produkt.
 
@@ -82,7 +84,8 @@ Angepasst:
 
 - Produktbild und `Details ansehen` öffnen die Product Preview.
 - `Vergleichen` ist als eigener Button vorhanden.
-- Direkte Etsy-Links bleiben als Checkout-Aktion bestehen.
+- Direkte Etsy-Links bleiben als tertiäre Aktion `Auf Etsy ansehen` bestehen.
+- `Dieses Brett kaufen` erscheint nicht mehr im Grid, sondern bleibt der stärkeren Product-Preview-Aktion vorbehalten.
 - Landingpage-Produktgrids nutzen dieselbe Preview-/Compare-Logik über `data-product-preview` und `data-product-compare`.
 
 Direkte Etsy-Links bleiben dort erhalten, wo der Button ausdrücklich als Kauf-/Etsy-Aktion erkennbar ist.
@@ -107,20 +110,25 @@ State:
 Regeln:
 
 - Maximal zwei Produkte im Vergleich.
-- Bei drittem Produkt erscheint ein Replacement-Dialog.
+- Bei drittem Produkt erscheint ein vereinfachter Replacement-Dialog mit der Frage `Welches Produkt soll raus?`.
 - Kein automatisches Ersetzen.
 - Vergleich kann geleert werden.
+- Wenn im Compare View ein Produkt entfernt wird, bleibt der Nutzer im Overlay und bekommt direkt passende Vorschläge für den freien zweiten Slot.
 
 Vergleichsanzeige:
 
 - Empty State.
-- 1-Produkt-State.
-- 2-Produkt-Vergleich mit Bild, Moment, Preis, Maße, Holzart, Bauweise, Stärke, Gewichtsklasse, Saftrille, Gravur, Verfügbarkeitshinweis, Pflege und Entscheidungshilfe.
+- 1-Produkt-State mit Vorschlägen.
+- 2-Produkt-Vergleich als stabile Matrix mit Bild, Moment, Preis, Maße, Material, Bauweise, Stärke, Saftrille, Gravur und Entscheidungshilfe.
+- Gewicht wird nur angezeigt, wenn eine echte Einheit wie `kg` oder `g` gepflegt ist.
+- Unterschiedliche Produkttypen erhalten einen Kontext-Hinweis.
 
 Ausgeblendete Felder:
 
 - Werte ohne belastbare Daten werden nicht erfunden.
 - Zeilen ohne Daten werden nicht angezeigt oder als `nicht angegeben` markiert, wenn nur ein Produkt einen Wert hat.
+- `weightClass`, Verfügbarkeit und Pflegelevel werden im Vergleich nicht angezeigt.
+- Interne Werte wie `low`, `medium`, `heavy` werden in der deutschen Vergleichs-UI nicht ausgegeben.
 
 ## 7. Accessibility
 
@@ -144,6 +152,7 @@ Umgesetzt:
 - Preview und Compare verwenden `100dvh`/`100svh`.
 - Safe-Area-Abstand über `env(safe-area-inset-bottom)`.
 - Mobile Compare View stapelt Inhalte statt zwei enge Spalten zu erzwingen.
+- Desktop Compare View nutzt eine Matrix mit stabiler Label-, Produkt-A- und Produkt-B-Spalte.
 - Sticky Compare Bar sitzt oberhalb der Safe Area.
 - Product Preview hat eigenen sticky CTA-Bereich und überdeckt keine externe Etsy-Aktion.
 - Body Scroll Lock bei offenem Dialog.
@@ -162,6 +171,7 @@ Umgesetzt:
 - Galerie nutzt vorhandene Bilder und lädt Thumbnails lazy.
 - Compare View nutzt nur Hauptbilder.
 - Video wird nicht initial geladen.
+- Wenn später Produktvideos gepflegt werden, werden sie mit `controls`, `playsinline` und `preload="none"` ausgegeben.
 - Preview-Code ist in `main.js`, wird aber erst bei Interaktion sichtbar.
 
 Risiken:
@@ -203,4 +213,6 @@ Es werden keine personenbezogenen Daten gespeichert.
 - Sharebare Vergleichs-URL, z. B. `/vergleich/?a=produkt-a&b=produkt-b`.
 - Product Schema nur mit verlässlichen Preis-, Verfügbarkeits- und Produktdaten.
 - Videos pro Produkt mit Posterbildern und komprimierten Web-Versionen.
+- Stabiles Produktmedienmodell:
+  `media: [{ type: "image", src, alt }, { type: "video", src, poster, alt }]`.
 - Manuelle iPhone-Safari-Prüfung.

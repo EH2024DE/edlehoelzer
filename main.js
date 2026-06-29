@@ -839,7 +839,7 @@ function initProductExperience() {
     addCompare: "Add to comparison",
     removeCompare: "Remove from comparison",
     inCompare: "In comparison",
-    replaceCompare: "Replace comparison board",
+    replaceCompare: "Swap in comparison",
     continueBrowsing: "Keep browsing",
     buyBoard: "Buy this board on Etsy",
     buyProduct: "Buy this product on Etsy",
@@ -863,8 +863,12 @@ function initProductExperience() {
     compareTwoTitle: "Two boards in comparison",
     compareTwoText: "Do not choose from ten options. Decide between the two boards that really matter.",
     browseProducts: "View products",
-    replaceTitle: "You can compare two boards.",
-    replaceText: "To keep the decision clear, the comparison always shows only two boards. Replace one of them or cancel.",
+    compareSlotTitle: "One place is free.",
+    compareSlotText: "Choose a second product to complete the comparison again.",
+    categoryMismatchTitle: "These products do different jobs.",
+    categoryMismatchText: "The comparison therefore shows less better or worse, and more what each product is made for.",
+    replaceTitle: "Which product should go?",
+    replaceText: "You can always compare two products. Choose which product should be replaced by this one.",
     cancel: "Cancel",
     replace: "replace",
     notSpecified: "not specified",
@@ -877,7 +881,6 @@ function initProductExperience() {
     weight: "Weight",
     juiceGroove: "Juice groove",
     engraving: "Engraving",
-    availability: "Availability",
     decision: "Decision hint",
     finderReason: "Why this fits"
   } : {
@@ -888,7 +891,7 @@ function initProductExperience() {
     addCompare: "Zum Vergleich hinzufügen",
     removeCompare: "Aus Vergleich entfernen",
     inCompare: "Im Vergleich",
-    replaceCompare: "Mit einem Vergleichsbrett ersetzen",
+    replaceCompare: "Im Vergleich austauschen",
     continueBrowsing: "Weiterstöbern",
     buyBoard: "Dieses Brett auf Etsy kaufen",
     buyProduct: "Dieses Produkt auf Etsy kaufen",
@@ -912,8 +915,12 @@ function initProductExperience() {
     compareTwoTitle: "Zwei Bretter im Vergleich",
     compareTwoText: "Wähle nicht aus zehn Optionen. Entscheide zwischen den zwei Brettern, die wirklich infrage kommen.",
     browseProducts: "Produkte ansehen",
-    replaceTitle: "Du kannst zwei Bretter vergleichen.",
-    replaceText: "Damit die Entscheidung klar bleibt, zeigt der Vergleich immer nur zwei Bretter. Ersetze eines davon oder brich ab.",
+    compareSlotTitle: "Ein Platz ist frei.",
+    compareSlotText: "Wähle ein zweites Produkt aus, um den Vergleich wieder vollständig zu machen.",
+    categoryMismatchTitle: "Diese Produkte erfüllen unterschiedliche Aufgaben.",
+    categoryMismatchText: "Der Vergleich zeigt dir deshalb weniger besser oder schlechter, sondern wofür welches Produkt gedacht ist.",
+    replaceTitle: "Welches Produkt soll raus?",
+    replaceText: "Du kannst immer zwei Produkte vergleichen. Wähle, welches Produkt durch dieses ersetzt werden soll.",
     cancel: "Abbrechen",
     replace: "ersetzen",
     notSpecified: "nicht angegeben",
@@ -926,7 +933,6 @@ function initProductExperience() {
     weight: "Gewicht",
     juiceGroove: "Saftrille",
     engraving: "Gravur",
-    availability: "Verfügbarkeit",
     decision: "Entscheidungshilfe",
     finderReason: "Warum das passt"
   };
@@ -1096,10 +1102,10 @@ function initProductExperience() {
       '<button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button>' +
       '<div class="productPreview__media">' +
         '<div class="productPreview__mainMedia">' +
-          (main ? '<img data-preview-main src="' + escapeAttribute(main.src) + '" alt="' + escapeAttribute(main.alt) + '" decoding="async">' : '<div class="productPreview__placeholder">' + escapeHtml(labels.previewTitle) + '</div>') +
+          renderPreviewMainMedia(main) +
         '</div>' +
         (media.length > 1 ? '<div class="productPreview__thumbs" aria-label="' + escapeAttribute(labels.previewTitle) + '">' + media.map(function (item, index) {
-          return '<button class="productPreview__thumb' + (index === 0 ? " is-active" : "") + '" type="button" data-preview-media="' + index + '" data-preview-src="' + escapeAttribute(item.src) + '" data-preview-alt="' + escapeAttribute(item.alt) + '"><img src="' + escapeAttribute(item.src) + '" alt="" loading="lazy" decoding="async"></button>';
+          return renderPreviewThumb(item, index);
         }).join("") + '</div>' : "") +
       '</div>' +
       '<div class="productPreview__content">' +
@@ -1157,6 +1163,7 @@ function initProductExperience() {
       compareIds.push(productId);
       writeCompareState();
       updateCompareBar();
+      refreshCompareOverlay();
       track("compare_add", productMap[productId], { source: source, compare_count: compareIds.length });
     });
   }
@@ -1174,6 +1181,7 @@ function initProductExperience() {
     if (productMap[productId]) {
       track("compare_remove", productMap[productId], { compare_count: compareIds.length });
     }
+    refreshCompareOverlay();
   }
 
   function replaceCompare(oldId, newId) {
@@ -1187,6 +1195,13 @@ function initProductExperience() {
     updateCompareBar();
     updateCompareButtons();
     track("compare_replace_confirm", productMap[newId], { replaced_product_id: oldId, compare_count: compareIds.length });
+    if (activeOverlay && activeOverlay.getAttribute("data-product-experience-type") === "compare-replace") {
+      window.setTimeout(function () {
+        openCompareView(previousFocus || document.activeElement);
+      }, 0);
+    } else {
+      refreshCompareOverlay();
+    }
   }
 
   function clearCompare() {
@@ -1195,6 +1210,7 @@ function initProductExperience() {
     updateCompareBar();
     updateCompareButtons();
     track("compare_clear", null, { compare_count: 0 });
+    refreshCompareOverlay();
   }
 
   function openCompareView(trigger) {
@@ -1215,18 +1231,27 @@ function initProductExperience() {
     }
 
     if (selected.length === 1) {
-      return '<section class="compareView compareView--empty" role="dialog" aria-modal="true" aria-labelledby="compare-title"><button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button><h2 id="compare-title">' + escapeHtml(labels.compareOneTitle) + '</h2><p>' + escapeHtml(labels.compareOneText) + '</p>' + renderCompareProductCard(selected[0]) + '<a class="btn btn--secondary" href="' + (isEnglish ? "/en/products.html" : "/produkte.html") + '">' + escapeHtml(labels.continueBrowsing) + '</a></section>';
+      return '<section class="compareView compareView--single" role="dialog" aria-modal="true" aria-labelledby="compare-title"><button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button><h2 id="compare-title">' + escapeHtml(labels.compareOneTitle) + '</h2><p>' + escapeHtml(labels.compareOneText) + '</p><div class="compareView__singleProduct">' + renderCompareProductCard(selected[0]) + '</div>' + renderCompareSuggestions(selected[0]) + '<a class="btn btn--secondary" href="' + (isEnglish ? "/en/products.html" : "/produkte.html") + '">' + escapeHtml(labels.continueBrowsing) + '</a></section>';
     }
 
     var rows = compareRows(selected[0], selected[1]);
+    var categoryNotice = selected[0].category !== selected[1].category
+      ? '<div class="compareView__notice"><h3>' + escapeHtml(labels.categoryMismatchTitle) + '</h3><p>' + escapeHtml(labels.categoryMismatchText) + '</p></div>'
+      : "";
 
     return '<section class="compareView" role="dialog" aria-modal="true" aria-labelledby="compare-title">' +
       '<button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button>' +
       '<div class="compareView__head"><p class="productPreview__eyebrow">' + escapeHtml(labels.comparison) + '</p><h2 id="compare-title">' + escapeHtml(labels.compareTwoTitle) + '</h2><p>' + escapeHtml(labels.compareTwoText) + '</p></div>' +
-      '<div class="compareView__products">' + selected.map(renderCompareProductCard).join("") + '</div>' +
-      '<div class="compareView__rows">' + rows.map(function (row) {
-        return '<section class="compareRow"><h3>' + escapeHtml(row.label) + '</h3><div><p>' + escapeHtml(row.a) + '</p><p>' + escapeHtml(row.b) + '</p></div></section>';
-      }).join("") + '</div>' +
+      categoryNotice +
+      '<div class="compareView__matrix" role="table" aria-label="' + escapeAttribute(labels.comparison) + '">' +
+        '<div class="compareView__corner" aria-hidden="true"></div>' +
+        selected.map(function (product) {
+          return '<div class="compareView__productCell" role="columnheader">' + renderCompareProductCard(product) + '</div>';
+        }).join("") +
+        rows.map(function (row) {
+          return '<div class="compareRowLabel" role="rowheader">' + escapeHtml(row.label) + '</div><div class="compareRowValue" role="cell"><strong class="compareRowValue__mobileName">' + escapeHtml(displayProductName(selected[0])) + '</strong>' + escapeHtml(row.a) + '</div><div class="compareRowValue" role="cell"><strong class="compareRowValue__mobileName">' + escapeHtml(displayProductName(selected[1])) + '</strong>' + escapeHtml(row.b) + '</div>';
+        }).join("") +
+      '</div>' +
       '<div class="compareView__actions"><button class="btn btn--ghost-dark" type="button" data-compare-clear>' + escapeHtml(labels.clear) + '</button></div>' +
     '</section>';
   }
@@ -1248,25 +1273,63 @@ function initProductExperience() {
   }
 
   function compareRows(a, b) {
+    var bothBoards = a.category === "board" && b.category === "board";
+    var hasAccessory = a.category === "accessory" || b.category === "accessory";
+    var hasCare = a.category === "care" || b.category === "care";
     var rows = [
       [labels.price, displayValue(a.priceLabel), displayValue(b.priceLabel)],
-      [labels.dimensions, meaningful(a.sizeLabel), meaningful(b.sizeLabel)],
-      [labels.wood, displayValue(a.material), displayValue(b.material)],
-      [labels.construction, constructionLabel(a), constructionLabel(b)],
-      [labels.thickness, meaningful(a.thicknessLabel), meaningful(b.thicknessLabel)],
-      [labels.weight, weightLabel(a), weightLabel(b)],
-      [labels.juiceGroove, booleanLabel(hasBadge(a, "Saftrille")), booleanLabel(hasBadge(b, "Saftrille"))],
-      [labels.engraving, engravingLabel(a), engravingLabel(b)],
-      [labels.availability, labels.checkOnEtsy, labels.checkOnEtsy],
-      [labels.care, careLevel(a), careLevel(b)],
-      [labels.decision, decisionHint(a), decisionHint(b)]
+      [hasCare ? (isEnglish ? "Use" : "Einsatz") : labels.dimensions, hasCare ? productUseLabel(a) : meaningful(a.sizeLabel), hasCare ? productUseLabel(b) : meaningful(b.sizeLabel)],
+      [hasCare ? (isEnglish ? "Application" : "Anwendungsfall") : labels.wood, hasCare ? productApplication(a) : displayValue(a.material), hasCare ? productApplication(b) : displayValue(b.material)],
+      [bothBoards ? labels.construction : "", bothBoards ? constructionLabel(a) : "", bothBoards ? constructionLabel(b) : ""],
+      [bothBoards ? labels.thickness : "", bothBoards ? meaningful(a.thicknessLabel) : "", bothBoards ? meaningful(b.thicknessLabel) : ""],
+      [labels.weight, exactWeightLabel(a), exactWeightLabel(b)],
+      [bothBoards ? labels.juiceGroove : "", bothBoards ? booleanLabel(hasBadge(a, "Saftrille")) : "", bothBoards ? booleanLabel(hasBadge(b, "Saftrille")) : ""],
+      [bothBoards || hasAccessory ? labels.engraving : "", bothBoards || hasAccessory ? engravingLabel(a) : "", bothBoards || hasAccessory ? engravingLabel(b) : ""],
+      [hasAccessory ? (isEnglish ? "Role" : "Rolle") : "", hasAccessory ? productRole(a) : "", hasAccessory ? productRole(b) : ""],
+      [labels.decision, decisionHint(a, b), decisionHint(b, a)]
     ];
 
     return rows.filter(function (row) {
-      return row[1] || row[2];
+      return row[0] && (row[1] || row[2]);
     }).map(function (row) {
       return { label: row[0], a: row[1] || labels.notSpecified, b: row[2] || labels.notSpecified };
     });
+  }
+
+  function renderCompareSuggestions(baseProduct) {
+    var suggestions = compareSuggestions(baseProduct);
+    if (!suggestions.length) {
+      return "";
+    }
+
+    return '<section class="compareSuggestions"><h3>' + escapeHtml(labels.compareSlotTitle) + '</h3><p>' + escapeHtml(labels.compareSlotText) + '</p><div class="compareSuggestions__grid">' + suggestions.map(function (product) {
+      return '<article class="compareSuggestion"><img src="' + escapeAttribute(primaryImage(product)) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(product)) + '</strong><span>' + escapeHtml(productMoment(product)) + '</span><div><button type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="compare">' + escapeHtml(labels.compare) + '</button><button type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="compare">' + escapeHtml(labels.details) + '</button></div></article>';
+    }).join("") + '</div></section>';
+  }
+
+  function compareSuggestions(baseProduct) {
+    return products.filter(function (candidate) {
+      return candidate && candidate.id !== baseProduct.id && compareIds.indexOf(candidate.id) === -1 && candidate.active !== false && candidate.image;
+    }).sort(function (a, b) {
+      return suggestionScore(b, baseProduct) - suggestionScore(a, baseProduct);
+    }).slice(0, 6);
+  }
+
+  function suggestionScore(candidate, baseProduct) {
+    var score = 0;
+    if (candidate.category === baseProduct.category) score += 12;
+    if (candidate.directListingUrlVerified === true) score += 6;
+    if (candidate.material && baseProduct.material && candidate.material !== baseProduct.material) score += 4;
+    if (candidate.woodCut && baseProduct.woodCut && candidate.woodCut !== baseProduct.woodCut) score += 4;
+    if (Array.isArray(candidate.useCases) && Array.isArray(baseProduct.useCases)) {
+      candidate.useCases.forEach(function (useCase) {
+        if (baseProduct.useCases.indexOf(useCase) !== -1) {
+          score += 3;
+        }
+      });
+    }
+    if (candidate.featured) score += 2;
+    return score;
   }
 
   function renderReplacementDialog(newProductId) {
@@ -1332,7 +1395,7 @@ function initProductExperience() {
 
       var isActive = compareIds.indexOf(id) !== -1;
       button.classList.toggle("is-in-compare", isActive);
-      button.textContent = isActive ? labels.removeCompare : labels.compare;
+      button.textContent = isActive ? labels.removeCompare : (compareIds.length >= 2 ? labels.replaceCompare : labels.compare);
       button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   }
@@ -1341,6 +1404,7 @@ function initProductExperience() {
     closeOverlay(false);
     activeOverlay = document.createElement("div");
     activeOverlay.className = "productExperienceOverlay productExperienceOverlay--" + type;
+    activeOverlay.setAttribute("data-product-experience-type", type);
     activeOverlay.setAttribute("data-product-experience-backdrop", "");
     activeOverlay.innerHTML = '<div class="productExperienceOverlay__scroll">' + content + '</div>';
     document.body.appendChild(activeOverlay);
@@ -1352,6 +1416,16 @@ function initProductExperience() {
       activeOverlay.classList.add("is-open");
       focusDialog();
     }, 0);
+  }
+
+  function refreshCompareOverlay() {
+    if (!activeOverlay || !activeOverlay.querySelector(".compareView")) {
+      return;
+    }
+
+    activeOverlay.querySelector(".productExperienceOverlay__scroll").innerHTML = renderCompareView();
+    activeDialog = activeOverlay.querySelector('[role="dialog"]');
+    focusDialog();
   }
 
   function closeOverlay(restoreFocus) {
@@ -1410,19 +1484,37 @@ function initProductExperience() {
   }
 
   function switchPreviewMedia(button) {
-    var main = activeOverlay && activeOverlay.querySelector("[data-preview-main]");
+    var main = activeOverlay && activeOverlay.querySelector(".productPreview__mainMedia");
     if (!main) {
       return;
     }
 
-    main.src = button.getAttribute("data-preview-src") || main.src;
-    main.alt = button.getAttribute("data-preview-alt") || main.alt;
+    var item = {
+      type: button.getAttribute("data-preview-type") || "image",
+      src: button.getAttribute("data-preview-src") || "",
+      poster: button.getAttribute("data-preview-poster") || "",
+      alt: button.getAttribute("data-preview-alt") || ""
+    };
+    main.innerHTML = renderPreviewMainMedia(item);
     activeOverlay.querySelectorAll("[data-preview-media]").forEach(function (item) {
       item.classList.toggle("is-active", item === button);
     });
   }
 
   function productMedia(product) {
+    if (Array.isArray(product.media) && product.media.length) {
+      return product.media.filter(function (item) {
+        return item && item.src && (item.type === "image" || item.type === "video");
+      }).slice(0, 6).map(function (item) {
+        return {
+          type: item.type || "image",
+          src: item.src,
+          poster: item.poster || item.src,
+          alt: item.alt || productImageAlt(product)
+        };
+      });
+    }
+
     var urls = [];
     if (Array.isArray(product.gallery)) {
       urls = product.gallery.filter(Boolean);
@@ -1434,9 +1526,27 @@ function initProductExperience() {
       return {
         type: "image",
         src: url,
+        poster: url,
         alt: productImageAlt(product)
       };
     });
+  }
+
+  function renderPreviewMainMedia(item) {
+    if (!item || !item.src) {
+      return '<div class="productPreview__placeholder">' + escapeHtml(labels.previewTitle) + '</div>';
+    }
+
+    if (item.type === "video") {
+      return '<video data-preview-main controls playsinline preload="none"' + (item.poster ? ' poster="' + escapeAttribute(item.poster) + '"' : "") + ' aria-label="' + escapeAttribute(item.alt || labels.previewTitle) + '"><source src="' + escapeAttribute(item.src) + '" type="video/mp4"></video>';
+    }
+
+    return '<img data-preview-main src="' + escapeAttribute(item.src) + '" alt="' + escapeAttribute(item.alt) + '" decoding="async">';
+  }
+
+  function renderPreviewThumb(item, index) {
+    var poster = item.poster || item.src;
+    return '<button class="productPreview__thumb' + (index === 0 ? " is-active" : "") + '" type="button" data-preview-media="' + index + '" data-preview-type="' + escapeAttribute(item.type || "image") + '" data-preview-src="' + escapeAttribute(item.src) + '" data-preview-poster="' + escapeAttribute(poster) + '" data-preview-alt="' + escapeAttribute(item.alt) + '"><img src="' + escapeAttribute(poster) + '" alt="" loading="lazy" decoding="async">' + (item.type === "video" ? '<span class="productPreview__videoBadge">Video</span>' : "") + '</button>';
   }
 
   function relatedProducts(product) {
@@ -1473,7 +1583,6 @@ function initProductExperience() {
     pushFact(facts, labels.price, product.priceLabel);
     pushFact(facts, labels.juiceGroove, booleanLabel(hasBadge(product, "Saftrille")));
     pushFact(facts, labels.engraving, engravingLabel(product));
-    pushFact(facts, labels.availability, hasVerifiedListing(product) ? labels.checkOnEtsy : "");
     return facts.slice(0, 8);
   }
 
@@ -1557,20 +1666,52 @@ function initProductExperience() {
     return isEnglish ? "Wood should not go into the dishwasher. Let it dry after cleaning and care for it when the surface becomes dry." : "Holz gehört nicht in die Spülmaschine. Nach dem Reinigen trocknen lassen und pflegen, wenn die Oberfläche trocken wirkt.";
   }
 
-  function decisionHint(product) {
+  function decisionHint(product, comparedTo) {
     if (product.decisionHint) {
       return product.decisionHint;
     }
+    var text = [
+      product.name,
+      product.displayName,
+      product.segment,
+      product.shortDescription,
+      product.material
+    ].join(" ").toLowerCase();
+
+    if (product.category === "care") {
+      return isEnglish ? "Choose this product if your wooden board looks dry and you want to refresh the surface." : "Wähle dieses Produkt, wenn dein Holzbrett trocken wirkt und du die Oberfläche nachpflegen möchtest.";
+    }
+    if (product.category === "accessory") {
+      if (/teigschaber|dough|scraper/.test(text)) {
+        return isEnglish ? "Choose this product if you work with dough regularly and want a simple wooden tool instead of plastic." : "Wähle dieses Produkt, wenn du regelmäßig mit Teig arbeitest und ein einfaches Holzwerkzeug statt Kunststoff in der Küche möchtest.";
+      }
+      return isEnglish ? "Choose this product if you want a smaller wooden kitchen tool rather than another cutting board." : "Wähle dieses Produkt, wenn du ein kleineres Holzwerkzeug für die Küche suchst und kein weiteres Schneidebrett.";
+    }
+    if (/brotzeit|frühstück|breakfast|snack/.test(text)) {
+      return isEnglish ? "Choose this board if you want a smaller board for breakfast, snacks and serving at the table, not a heavy work board." : "Wähle dieses Brett, wenn du ein kleineres Brett für Frühstück, Brotzeit und Servieren am Tisch suchst, nicht als schweres Arbeitsbrett.";
+    }
     if (product.woodCut === "end") {
-      return isEnglish ? "Choose this board if you want a substantial work board for repeated cutting." : "Wähle dieses Brett, wenn du ein massives Arbeitsbrett für intensiveres Schneiden suchst.";
+      if (hasBadge(product, "Saftrille")) {
+        return isEnglish ? "Choose this board if you want a substantial work board for repeated cutting, serving and liquids from meat, fruit or vegetables." : "Wähle dieses Brett, wenn du ein massives Arbeitsbrett für intensives Schneiden, Servieren und austretende Flüssigkeit suchst.";
+      }
+      return isEnglish ? "Choose this board if you cut regularly, use good knives and accept a heavier work board." : "Wähle dieses Brett, wenn du regelmäßig schneidest, gute Messer nutzt und ein schwereres Arbeitsbrett akzeptierst.";
     }
     if (/nussbaum|walnut/i.test(String(product.material || product.name))) {
-      return isEnglish ? "Choose this board if dark appearance and serving presence matter to you." : "Wähle dieses Brett, wenn dir dunkle Optik und Servierwirkung wichtig sind.";
+      return isEnglish ? "Choose this board if dark appearance and table presence matter more than a brighter everyday look." : "Wähle dieses Brett, wenn dir dunkle Optik und Wirkung am Tisch wichtiger sind als ein helleres Alltagsbild.";
     }
     if (/eiche|oak/i.test(String(product.material || product.name))) {
-      return isEnglish ? "Choose this board if you want a brighter, robust everyday board." : "Wähle dieses Brett, wenn du ein helleres, robust wirkendes Alltagsbrett suchst.";
+      return isEnglish ? "Choose this board if you want a brighter everyday board that feels less massive than end grain." : "Wähle dieses Brett, wenn du ein helleres Alltagsbrett suchst, das weniger wuchtig wirkt als Stirnholz.";
     }
-    return isEnglish ? "Choose this product if its material, format and use fit your everyday routine." : "Wähle dieses Produkt, wenn Material, Format und Nutzung zu deinem Alltag passen.";
+    if (/bambus|birke|bamboo|birch/.test(text)) {
+      return isEnglish ? "Choose this board if you want a larger work surface and a brighter, more graphic material look." : "Wähle dieses Brett, wenn du eine größere Arbeitsfläche und ein helleres, grafisches Materialbild suchst.";
+    }
+    if (Array.isArray(product.useCases) && product.useCases.indexOf("bbq") !== -1) {
+      return isEnglish ? "Choose this board if you mainly carve, season and serve after grilling." : "Wähle dieses Brett, wenn du vor allem nach dem Grillen tranchierst, würzt und servierst.";
+    }
+    if (comparedTo && product.category !== comparedTo.category) {
+      return isEnglish ? "Choose this if this product type matches the task you actually need." : "Wähle dieses Produkt, wenn genau diese Produktart zu deiner eigentlichen Aufgabe passt.";
+    }
+    return "";
   }
 
   function constructionLabel(product) {
@@ -1600,14 +1741,48 @@ function initProductExperience() {
     return "";
   }
 
-  function careLevel(product) {
-    if (product.careIntensity) {
-      return product.careIntensity;
+  function exactWeightLabel(product) {
+    var weight = product.weight || product.weightLabel || "";
+    if (/(^|\s)(ca\.\s*)?\d+(?:[,.]\d+)?\s*(kg|g)\b/i.test(String(weight))) {
+      return String(weight);
     }
-    if (product.woodCut === "end") {
-      return isEnglish ? "normal, regular oiling" : "normal, regelmäßig ölen";
+    return "";
+  }
+
+  function productUseLabel(product) {
+    if (product.category === "care") {
+      return isEnglish ? "Care for wood surfaces" : "Pflege von Holzoberflächen";
     }
-    return product.category === "board" ? (isEnglish ? "normal" : "normal") : "";
+    if (product.category === "accessory") {
+      return isEnglish ? "Kitchen tool" : "Küchenwerkzeug";
+    }
+    if (product.category === "board") {
+      return isEnglish ? "Cutting and serving" : "Schneiden und Servieren";
+    }
+    return product.segment || "";
+  }
+
+  function productApplication(product) {
+    if (product.category === "care") {
+      return isEnglish ? "Refreshing dry or matte wood" : "Trockene oder matte Holzoberflächen auffrischen";
+    }
+    if (product.category === "accessory") {
+      return productMoment(product);
+    }
+    return productExperienceText(product);
+  }
+
+  function productRole(product) {
+    if (product.category === "accessory") {
+      return isEnglish ? "tool" : "Werkzeug";
+    }
+    if (product.category === "care") {
+      return isEnglish ? "care product" : "Pflegeprodukt";
+    }
+    if (product.giftable) {
+      return isEnglish ? "board and gift" : "Brett und Geschenk";
+    }
+    return isEnglish ? "board" : "Brett";
   }
 
   function engravingLabel(product) {
@@ -2814,7 +2989,7 @@ function initProductsPage() {
         '</a></div>';
     }
 
-    var primaryLabel = etsyActionLabel(product);
+    var primaryLabel = source === "preview" ? etsyActionLabel(product) : (isEnglish ? "View on Etsy" : "Auf Etsy ansehen");
     return '<div class="ctaRow ctaRow--product-card">' +
       detailButton +
       compareButton +

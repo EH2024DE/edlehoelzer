@@ -118,15 +118,7 @@
   }
 
   function buyLabelFor(product, isEnglish) {
-    if (product.category === "care") {
-      return isEnglish ? "Buy care balm" : "Pflegebalsam kaufen";
-    }
-
-    if (product.category && product.category !== "board") {
-      return isEnglish ? "Buy this product" : "Dieses Produkt kaufen";
-    }
-
-    return isEnglish ? "Buy this board" : "Dieses Brett kaufen";
+    return isEnglish ? "View on Etsy" : "Auf Etsy ansehen";
   }
 
   function renderBadges(product) {
