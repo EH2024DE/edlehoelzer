@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20260629">
+<link rel="stylesheet" href="/styles.css?v=20260702-home-reveal">
   <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
 <script defer src="https://cloud.umami.is/script.js"
@@ -68,28 +68,29 @@
     </button>
     <div class="container hero__content">
       <div class="hero__copy">
-        <p class="eyebrow">Von Hand gefertigt in Mittelhessen</p>
-        <h1>Schneidebretter mit Gewicht und Charakter.</h1>
-        <p class="hero__lead">Massives Hartholz, geschliffene Kanten und geölte Oberflächen für Küche, BBQ und Geschenke.</p>
+        <p class="eyebrow">Handgefertigt in Mittelhessen</p>
+        <h1>Für Küchenmomente mit Gewicht.</h1>
+        <p class="hero__lead">Handgefertigte Schneidebretter und Holzprodukte – zum Schneiden, Servieren, Schenken und Behalten.</p>
         <div class="hero__actions">
           <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Produktfinder starten</a>
-          <a href="./produkte.html#produkte-grid" class="btn btn--ghost">Alle Produkte ansehen</a>
+          <a href="./produkte.html#produkte-grid" class="btn btn--ghost">Produkte ansehen</a>
         </div>
+        <a class="hero__tertiary" href="#lead-pfade">Sonderanfertigung oder Firmenanfrage</a>
         <ul class="heroProofChips" aria-label="Material- und Vertrauensbelege">
-          <li>massive Harthölzer</li>
-          <li>geschliffen &amp; geölt</li>
-          <li>sichtbare Maserung</li>
-          <li>5-Sterne-Bewertungen auf Etsy</li>
+          <li>Massive Harthölzer</li>
+          <li>Handgefertigt in Mittelhessen</li>
+          <li>Kauf über Etsy</li>
+          <li>Bewertungen &amp; Käuferschutz</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <div class="delivery-badge">
+  <div class="delivery-badge reveal-on-scroll">
     <span>Jedes verfügbare Brett wird vor dem Versand geprüft, frisch gepflegt und mit Pflegehinweis verschickt.</span>
   </div>
 
-  <section id="bewertungen" class="reviewTrust section" data-review-trust-strip>
+  <section id="bewertungen" class="reviewTrust section reveal-on-scroll" data-review-trust-strip>
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Kundenstimmen</p>
@@ -103,12 +104,12 @@
     </div>
   </section>
 
-  <section class="section section--sand findYourBoard">
+  <section class="section section--sand findYourBoard reveal-on-scroll">
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Orientierung</p>
         <h2>Was suchst du?</h2>
-        <p class="section__lead">Wähle zuerst den Moment, nicht die Holzart: tägliches Kochen, Grillabend, Geschenk, Maß, Erbstück oder Pflege.</p>
+        <p class="section__lead">Wähle zuerst den Moment, nicht die Holzart. So wird schneller klar, ob ein verfügbares Brett, eine Anfrage oder ein Erbstück der richtige Einstieg ist.</p>
       </div>
       <div class="premiumCardGrid">
         <a class="premiumCard" href="/schneidebretter-massivholz/" aria-label="Brett für tägliches Kochen ansehen"><strong>Täglich kochen</strong><span>Ein Brett, das ruhig liegt, Messer begleitet und auf der Arbeitsfläche bleiben darf.</span><span class="premiumCard__link">Bretter ansehen</span></a>
@@ -116,20 +117,53 @@
         <a class="premiumCard" href="/hochwertige-geschenke-holz/" aria-label="Geschenk aus Holz finden"><strong>Sichtbar schenken</strong><span>Ein Geschenk, das benutzt wird und länger erinnert als Gutschein oder Flasche.</span><span class="premiumCard__link">Geschenk finden</span></a>
         <a class="premiumCard" href="/schneidebrett-nach-mass/" aria-label="Maßanfertigung anfragen"><strong>Nach Maß arbeiten</strong><span>Wenn Ort, Größe und Nutzung wichtiger sind als Standardmaße.</span><span class="premiumCard__link">Maß anfragen</span></a>
         <a class="premiumCard" href="/erbstueck/" aria-label="Erbstück-Serie ansehen"><strong>Etwas Einmaliges besitzen</strong><span>Historisches Holz, begrenzt durch Material und nur auf Anfrage gefertigt.</span><span class="premiumCard__link">Erbstücke ansehen</span></a>
-        <a class="premiumCard" href="/pflege.html" aria-label="Pflege für Holzbrett lesen"><strong>Pflegen statt ersetzen</strong><span>Ölen, schleifen, aufarbeiten – Massivholz darf bleiben.</span><span class="premiumCard__link">Pflege lesen</span></a>
       </div>
     </div>
   </section>
 
-  <section id="philosophie" class="section section--white">
-    <div class="container container--narrow">
-      <p class="eyebrow eyebrow--dark">Philosophie</p>
-      <h2>Gutes Handwerk braucht keine Show.</h2>
-      <p class="section__lead">Viele Produkte versuchen über Lautstärke zu wirken. Viel Oberfläche, viele Effekte, viele Versprechen. Wir verfolgen einen anderen Ansatz. Ein gutes Brett entsteht aus ausgewähltem Holz, sauberer Verarbeitung und Proportionen, die im Alltag funktionieren.</p>
+  <section id="produktfinder-start" class="section section--white homepageConversion reveal-on-scroll">
+    <div class="container homepageConversion__inner">
+      <div>
+        <p class="eyebrow eyebrow--dark">Produktfinder</p>
+        <h2>Finde das Brett, das zu deinem Alltag passt.</h2>
+        <p class="section__lead">Ob Küche, Grill, Geschenk oder Sondermaß – der Produktfinder führt dich schneller zur passenden Richtung.</p>
+      </div>
+      <div class="homepageConversion__actions">
+        <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Produktfinder starten</a>
+        <a href="./produkte.html#produkte-grid" class="textLink">Alle Produkte ansehen</a>
+      </div>
     </div>
   </section>
 
-  <section class="section section--sand materialProofBlock">
+  <section id="lead-pfade" class="section section--sand reveal-on-scroll">
+    <div class="container">
+      <div class="sectionIntro">
+        <p class="eyebrow eyebrow--dark">Anfragen</p>
+        <h2>Nicht jedes Brett beginnt im Shop.</h2>
+        <p class="section__lead">Manche Stücke entstehen aus einem bestimmten Maß, einer Gravur, einem Anlass oder einer Firmenidee. Dafür ist eine Anfrage oft sinnvoller als ein direkter Kauf.</p>
+      </div>
+      <div class="premiumCardGrid premiumCardGrid--three">
+        <a class="premiumCard" href="/schneidebrett-nach-mass/" aria-label="Maßanfertigung anfragen"><strong>Maßanfertigung</strong><span>Wenn Größe, Holzart oder Einsatz nicht nach Standard funktionieren.</span><span class="premiumCard__link">Maßanfertigung anfragen</span></a>
+        <a class="premiumCard" href="/b2b.html" aria-label="B2B-Anfrage stellen"><strong>Firmengeschenke</strong><span>Für Unternehmen, die kein austauschbares Werbegeschenk suchen.</span><span class="premiumCard__link">B2B-Anfrage stellen</span></a>
+        <a class="premiumCard" href="/erbstueck/" aria-label="Erbstück-Serie ansehen"><strong>Erbstück-Serie</strong><span>Historisches Holz, begrenzt durch Material und nur auf Anfrage gefertigt.</span><span class="premiumCard__link">Erbstück ansehen</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="etsy-vertrauen" class="section section--white homepageConversion reveal-on-scroll">
+    <div class="container homepageConversion__inner">
+      <div>
+        <p class="eyebrow eyebrow--dark">Etsy</p>
+        <h2>Gekauft wird über Etsy. Erlebt wird hier.</h2>
+        <p class="section__lead">Du kannst Produkte auf edlehoelzer.de ansehen, vergleichen und verstehen. Der Kaufabschluss läuft bewusst über Etsy – mit Bewertungen, Käuferschutz und vertrauter Zahlungsabwicklung.</p>
+      </div>
+      <div class="homepageConversion__actions">
+        <a href="https://edlehoelzervonkoc.etsy.com" class="btn" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Shop auf Etsy ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand materialProofBlock reveal-on-scroll">
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Beweis statt Behauptung</p>
@@ -146,41 +180,7 @@
     </div>
   </section>
 
-  <section id="produktdetails" class="section section--white section--tight-bottom">
-    <div class="container desktopOnly">
-      <div class="scrolly">
-        <div class="scrolly__media">
-          <div class="scrolly__frame" id="scrollyFrame">
-            <div class="scrolly__progress"><span id="scrollyProgress"></span></div>
-            <img class="scrolly__image is-active" src="./product/board3.jpg" alt="Massives Schneidebrett aus Holz in direkter Frontansicht mit ruhiger Oberfläche" width="1200" height="1800" decoding="async" srcset="./product/board3-800.jpg 533w, ./product/board3-1200.jpg 800w, ./product/board3-1600.jpg 1066w, ./product/board3.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="lazy">
-            <img class="scrolly__image" src="./product/board1.jpg" alt="Handgefertigtes Schneidebrett aus Massivholz schräg von oben fotografiert" width="1200" height="1800" decoding="async" srcset="./product/board1-800.jpg 533w, ./product/board1-1200.jpg 800w, ./product/board1-1600.jpg 1066w, ./product/board1.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="lazy">
-            <img class="scrolly__image" src="./product/board4.jpg" alt="Griffmulden an einem Schneidebrett aus Massivholz" width="1200" height="1800" decoding="async" srcset="./product/board4-800.jpg 533w, ./product/board4-1200.jpg 800w, ./product/board4-1600.jpg 1066w, ./product/board4.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="lazy">
-            <img class="scrolly__image" src="./product/board5.jpg" alt="Flache Frontansicht eines massiven Küchenbretts aus Holz mit klarer Kante" width="1200" height="1800" decoding="async" srcset="./product/board5-800.jpg 533w, ./product/board5-1200.jpg 800w, ./product/board5-1600.jpg 1066w, ./product/board5.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="lazy">
-            <img class="scrolly__image" src="./product/board8.jpg" alt="Abschlussansicht eines Schneidebretts aus Holz für den Alltag" width="1200" height="1800" decoding="async" srcset="./product/board8-800.jpg 533w, ./product/board8-1200.jpg 800w, ./product/board8-1600.jpg 1066w, ./product/board8.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="lazy">
-          </div>
-        </div>
-        <div class="scrolly__steps">
-          <article class="scrollyStep is-active" data-step="0"><p class="eyebrow eyebrow--dark">Erster Eindruck</p><h2>Ein gutes Brett wirkt ruhig.</h2><p>Bevor man ein Detail sieht, muss die Gesamtwirkung stimmen. Klare Linien, saubere Proportionen und ein Auftritt ohne unnötige Lautstärke.</p></article>
-          <article class="scrollyStep" data-step="1"><h3>Substanz statt Effekt</h3><p>Aus der schrägen Perspektive zeigt sich, ob ein Brett nur gut fotografiert ist oder ob Material, Verarbeitung und Form wirklich zusammenpassen.</p></article>
-          <article class="scrollyStep" data-step="2"><h3>Funktion, sauber gelöst</h3><p>Griffmulden gehören für uns nicht als Dekor an ein Brett. Diese Details müssen das Handling verbessern und sich stimmig in die Form einfügen.</p></article>
-          <article class="scrollyStep" data-step="3"><h3>Auch liegend überzeugend</h3><p>Ein Brett muss nicht nur aufrecht gut aussehen. Erst in der ruhigen, flachen Ansicht sieht man, ob Stärke, Fläche und Verarbeitung wirklich stimmig sind.</p></article>
-          <article class="scrollyStep" data-step="4"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und über Jahre zuverlässig funktionieren.</p><div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn" data-umami-event="produktfinder-gestartet">Produktfinder starten</a><a href="./produkte.html#produkte-grid" class="btn btn--ghost-dark">Alle Produkte ansehen</a></div></article>
-        </div>
-      </div>
-    </div>
-
-    <div class="container mobileOnly">
-      <div class="mobileGallery">
-        <article class="mobileCard"><img src="./product/board3.jpg" alt="Massives Schneidebrett aus Holz in direkter Frontansicht mit ruhiger Oberfläche" width="1200" height="1800" decoding="async" srcset="./product/board3-800.jpg 533w, ./product/board3-1200.jpg 800w, ./product/board3-1600.jpg 1066w, ./product/board3.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><div class="mobileCard__text"><p class="eyebrow eyebrow--dark">Erster Eindruck</p><h3>Ein gutes Brett wirkt ruhig.</h3><p>Bevor man ein Detail sieht, muss die Gesamtwirkung stimmen. Klare Linien, saubere Proportionen und ein Auftritt ohne unnötige Lautstärke.</p></div></article>
-        <article class="mobileCard"><img src="./product/board1.jpg" alt="Handgefertigtes Schneidebrett aus Massivholz schräg von oben fotografiert" width="1200" height="1800" decoding="async" srcset="./product/board1-800.jpg 533w, ./product/board1-1200.jpg 800w, ./product/board1-1600.jpg 1066w, ./product/board1.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><div class="mobileCard__text"><h3>Substanz statt Effekt</h3><p>Aus der schrägen Perspektive zeigt sich, ob ein Brett nur gut fotografiert ist oder ob Material, Verarbeitung und Form wirklich zusammenpassen.</p></div></article>
-        <article class="mobileCard"><img src="./product/board4.jpg" alt="Griffmulden an einem Schneidebrett aus Massivholz" width="1200" height="1800" decoding="async" srcset="./product/board4-800.jpg 533w, ./product/board4-1200.jpg 800w, ./product/board4-1600.jpg 1066w, ./product/board4.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><div class="mobileCard__text"><h3>Funktion, sauber gelöst</h3><p>Griffmulden gehören für uns nicht als Dekor an ein Brett. Diese Details müssen das Handling verbessern und sich stimmig in die Form einfügen.</p></div></article>
-        <article class="mobileCard"><img src="./product/board5.jpg" alt="Flache Frontansicht eines massiven Küchenbretts aus Holz mit klarer Kante" width="1200" height="1800" decoding="async" srcset="./product/board5-800.jpg 533w, ./product/board5-1200.jpg 800w, ./product/board5-1600.jpg 1066w, ./product/board5.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><div class="mobileCard__text"><h3>Auch liegend überzeugend</h3><p>Ein Brett muss nicht nur aufrecht gut aussehen. Erst in der ruhigen, flachen Ansicht sieht man, ob Stärke, Fläche und Verarbeitung wirklich stimmig sind.</p></div></article>
-        <article class="mobileCard"><img src="./product/board8.jpg" alt="Abschlussansicht eines Schneidebretts aus Holz für den Alltag" width="1200" height="1800" decoding="async" srcset="./product/board8-800.jpg 533w, ./product/board8-1200.jpg 800w, ./product/board8-1600.jpg 1066w, ./product/board8.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><div class="mobileCard__text"><h3>Gebaut für den Alltag</h3><p>Wir bauen keine kurzlebigen Küchenobjekte. Unsere Bretter sollen Gewicht haben, sauber altern und bei Bedarf gepflegt oder aufgearbeitet werden können.</p><div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn" data-umami-event="produktfinder-gestartet">Produktfinder starten</a><a href="./produkte.html#produkte-grid" class="btn btn--ghost-dark">Alle Produkte ansehen</a></div></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--sand ownershipMoment">
+  <section class="section section--white ownershipMoment reveal-on-scroll">
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Im Alltag</p>
@@ -195,7 +195,7 @@
     </div>
   </section>
 
-  <section id="werkstatt" class="section section--sand section--tight-top">
+  <section id="werkstatt" class="section section--sand section--tight-top reveal-on-scroll">
     <div class="container">
       <div class="workshopIntro">
         <div><p class="eyebrow eyebrow--dark">Werkstatt</p><h2>Der Unterschied entsteht im Prozess.</h2></div>
@@ -214,7 +214,7 @@
     </div>
   </section>
 
-  <section id="sonderanfertigung" class="section section--white">
+  <section id="sonderanfertigung" class="section section--white reveal-on-scroll">
     <div class="container customLayout">
       <div class="customLayout__left"><p class="eyebrow eyebrow--dark">Sonderanfertigung</p><h2>Dein Brett nach deinen Ideen.</h2><p class="section__lead">Ob Gravur, Saftrille, besondere Maße, bestimmte Hölzer oder ein individuelles Geschenk: Wir besprechen dein Wunschbrett direkt mit dir und prüfen, was sinnvoll und sauber umsetzbar ist.</p></div>
       <div class="customLayout__right">
@@ -227,7 +227,7 @@
     </div>
   </section>
 
-  <section id="service" class="service-section">
+  <section id="service" class="service-section reveal-on-scroll">
     <div class="container">
       <div class="service-section__label">Aufbereitungsservice</div>
       <h2>Brett gelitten? Wir richten es wieder.</h2>
@@ -260,7 +260,7 @@
     </div>
   </section>
 
-  <section id="ueberuns" class="section section--white">
+  <section id="ueberuns" class="section section--white reveal-on-scroll">
     <div class="container container--narrow"><p class="eyebrow eyebrow--dark">Über uns</p><h2>Wer dahintersteht.</h2><p class="section__lead">Edle Hölzer entstand aus der gemeinsamen Arbeit von Özgür und Serkan an Holz, Fotografie und Produktauftritt. In der Werkstatt werden Bretter einzeln ausgewählt, zugeschnitten, geschliffen und geölt; online zeigen wir, wie Material, Kanten und Nutzung zusammenhängen.</p></div>
     <div class="container storyGrid">
       <article class="card"><h3>Hi, ich bin Özgür.</h3><p>Ich bin Gründer von Edle Hölzer, Handwerker seit rund 20 Jahren und verantwortlich für Entwurf, Holzauswahl und Fertigung.</p><p>In Mittelhessen fertige ich Schneidebretter aus Eiche, Nussbaum, Fachwerkholz und weiteren ausgewählten Hölzern – bewusst ohne CNC.</p><p>Jedes Brett wird einzeln zugeschnitten, geschliffen und geölt. Dadurch bleiben Proportion, Griffgefühl und Oberfläche keine anonyme Serienentscheidung.</p></article>
@@ -268,16 +268,16 @@
     </div>
   </section>
 
-  <section id="b2b" class="section section--sand">
+  <section id="b2b" class="section section--sand reveal-on-scroll">
     <div class="container container--narrow"><p class="eyebrow eyebrow--dark">Für Unternehmen</p><h2>Firmengeschenke mit Substanz.</h2><p class="section__lead">Standardgeschenke landen schnell in der Schublade. Ein graviertes Holzprodukt bleibt eher sichtbar, weil es geschnitten, serviert oder auf dem Schreibtisch berührt wird. Für kleine Serien stimmen wir Format, Gravur und Budget vor der Fertigung ab.</p><div class="ctaRow"><a href="./b2b.html" class="btn" data-umami-event="b2b-interesse">B2B-Anfrage starten</a></div></div>
   </section>
 
-  <section class="closingHero">
+  <section class="closingHero reveal-on-scroll">
     <img src="./assets/hero-fallback.webp" alt="Özgür in der Werkstatt von Edle Hölzer mit warmem Gegenlicht und Gehörschutz" width="760" height="507" loading="lazy" decoding="async">
     <div class="closingHero__overlay"></div>
     <div class="container closingHero__content">
-      <p class="eyebrow">Abschluss</p><h2>Handwerk. Vertrauen. Substanz.</h2><p>Am Ende zählt nicht, wie laut ein Produkt wirkt. Sondern ob es sauber gebaut ist und im Alltag zuverlässig bleibt.</p>
-      <div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Produktfinder starten</a><a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a></div>
+      <p class="eyebrow">Nächster Schritt</p><h2>Welches Brett passt zu deinem Moment?</h2><p>Starte mit dem Produktfinder oder frage direkt an, wenn Maß, Gravur oder Anlass wichtiger sind als ein Standardprodukt.</p>
+      <div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Produktfinder starten</a><a href="/schneidebrett-nach-mass/" class="btn">Maßanfertigung anfragen</a></div>
     </div>
   </section>
 </main>
@@ -348,6 +348,6 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung, Bearbeitung oder Weitergabe ohne ausdrückliche schriftliche Genehmigung von Edle Hölzer ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="./main.js?v=20260629"></script>
+<script src="./main.js?v=20260702-home-reveal"></script>
 </body>
 </html>

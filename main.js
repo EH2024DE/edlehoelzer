@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js");
+
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
@@ -77,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initReviewTrustStrips();
   initBackToTop();
   initStickyMobileCta();
+  initHomepageReveal();
 
   if (window.innerWidth <= 900) {
     return;
@@ -187,6 +190,41 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
+
+function initHomepageReveal() {
+  var items = document.querySelectorAll(".reveal-on-scroll");
+  if (!items.length) {
+    return;
+  }
+
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      var delay = Number(entry.target.getAttribute("data-reveal-delay") || 0);
+      window.setTimeout(function () {
+        entry.target.classList.add("is-visible");
+      }, Math.min(delay, 240));
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: "0px 0px -8% 0px"
+  });
+
+  items.forEach(function (item) {
+    observer.observe(item);
+  });
+}
 
 function initStickyMobileCta() {
   var isGerman = (document.documentElement.lang || "de").toLowerCase().indexOf("en") !== 0;
@@ -834,12 +872,12 @@ function initProductExperience() {
   var labels = isEnglish ? {
     previewTitle: "Product details",
     close: "Close",
-    details: "View details",
+    details: "Discover product",
     compare: "Compare",
     addCompare: "Add to comparison",
     removeCompare: "Remove from comparison",
     inCompare: "In comparison",
-    replaceCompare: "Swap in comparison",
+    replaceCompare: "Swap",
     continueBrowsing: "Keep browsing",
     buyBoard: "Buy this board on Etsy",
     buyProduct: "Buy this product on Etsy",
@@ -876,7 +914,9 @@ function initProductExperience() {
     cancel: "Cancel",
     replace: "replace",
     notSpecified: "not specified",
-    checkOnEtsy: "Check on Etsy",
+    checkOnEtsy: "Request similar product",
+    askSimilar: "Request similar product",
+    unavailableText: "This exact product is no longer available. A similar piece can be matched by material, size and use.",
     price: "Price",
     dimensions: "Dimensions",
     wood: "Wood",
@@ -890,12 +930,12 @@ function initProductExperience() {
   } : {
     previewTitle: "Produktdetails",
     close: "Schließen",
-    details: "Details ansehen",
+    details: "Produkt entdecken",
     compare: "Vergleichen",
     addCompare: "Zum Vergleich hinzufügen",
     removeCompare: "Aus Vergleich entfernen",
     inCompare: "Im Vergleich",
-    replaceCompare: "Im Vergleich austauschen",
+    replaceCompare: "Austauschen",
     continueBrowsing: "Weiterstöbern",
     buyBoard: "Dieses Brett auf Etsy kaufen",
     buyProduct: "Dieses Produkt auf Etsy kaufen",
@@ -932,7 +972,9 @@ function initProductExperience() {
     cancel: "Abbrechen",
     replace: "ersetzen",
     notSpecified: "nicht angegeben",
-    checkOnEtsy: "Bei Etsy prüfen",
+    checkOnEtsy: "Ähnliches Produkt anfragen",
+    askSimilar: "Ähnliches Produkt anfragen",
+    unavailableText: "Dieses konkrete Produkt ist nicht mehr verfügbar. Ein ähnliches Stück können wir nach Material, Größe und Einsatz abstimmen.",
     price: "Preis",
     dimensions: "Maße",
     wood: "Holzart",
@@ -1053,7 +1095,7 @@ function initProductExperience() {
 
   function loadProducts() {
     if (!catalogPromise) {
-      catalogPromise = fetch("/products.json")
+      catalogPromise = fetch("/products.json?v=20260630")
         .then(function (response) {
           if (!response.ok) {
             throw new Error("products.json konnte nicht geladen werden.");
@@ -1070,7 +1112,7 @@ function initProductExperience() {
             }
           });
           compareIds = compareIds.filter(function (id) {
-            return productMap[id];
+            return isComparableProduct(productMap[id]);
           });
           writeCompareState();
           updateCompareBar();
@@ -1136,7 +1178,7 @@ function initProductExperience() {
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + ' <a href="' + (isEnglish ? "/en/care.html" : "/pflege.html") + '">' + escapeHtml(labels.careLink) + '</a></p></section>' +
         '<div class="productPreview__actions">' +
-          (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a><p class="productPreview__trust">' + escapeHtml(labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.checkOnEtsy) + '</p>') +
+          (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a><p class="productPreview__trust">' + escapeHtml(labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/products.html#product-finder" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
           renderPreviewCompareControls(product, source || "preview") +
           '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
         '</div>' +
@@ -1158,7 +1200,7 @@ function initProductExperience() {
 
   function addCompare(productId, source, trigger) {
     loadProducts().then(function () {
-      if (!productMap[productId]) {
+      if (!isComparableProduct(productMap[productId])) {
         return;
       }
 
@@ -1208,7 +1250,7 @@ function initProductExperience() {
 
   function replaceCompare(oldId, newId) {
     var index = compareIds.indexOf(oldId);
-    if (index === -1 || !productMap[newId]) {
+    if (index === -1 || !isComparableProduct(productMap[newId])) {
       return;
     }
 
@@ -1299,7 +1341,7 @@ function initProductExperience() {
     var hasAccessory = a.category === "accessory" || b.category === "accessory";
     var hasCare = a.category === "care" || b.category === "care";
     var rows = [
-      [labels.price, displayValue(a.priceLabel), displayValue(b.priceLabel)],
+      [labels.price, displayValue(displayPriceLabel(a)), displayValue(displayPriceLabel(b))],
       [hasCare ? (isEnglish ? "Use" : "Einsatz") : labels.dimensions, hasCare ? productUseLabel(a) : dimensionLabel(a), hasCare ? productUseLabel(b) : dimensionLabel(b)],
       [hasCare ? (isEnglish ? "Application" : "Anwendungsfall") : labels.wood, hasCare ? productApplication(a) : displayValue(a.material), hasCare ? productApplication(b) : displayValue(b.material)],
       [bothBoards ? labels.construction : "", bothBoards ? constructionLabel(a) : "", bothBoards ? constructionLabel(b) : ""],
@@ -1331,7 +1373,7 @@ function initProductExperience() {
 
   function compareSuggestions(baseProduct) {
     return products.filter(function (candidate) {
-      return candidate && candidate.id !== baseProduct.id && compareIds.indexOf(candidate.id) === -1 && candidate.active !== false && candidate.image;
+      return candidate && candidate.id !== baseProduct.id && compareIds.indexOf(candidate.id) === -1 && isComparableProduct(candidate) && candidate.image;
     }).sort(function (a, b) {
       return suggestionScore(b, baseProduct) - suggestionScore(a, baseProduct);
     }).slice(0, 6);
@@ -1591,6 +1633,10 @@ function initProductExperience() {
   }
 
   function renderPreviewCompareControls(product, source) {
+    if (!isComparableProduct(product)) {
+      return "";
+    }
+
     var isActive = compareIds.indexOf(product.id) !== -1;
     var status = compareIds.length === 0 ? labels.compareNoneStatus : (compareIds.length === 1 ? labels.compareOneStatus : labels.compareTwoStatus);
     var controls = '<div class="productPreview__compareControls"><p>' + escapeHtml(status) + '</p>';
@@ -1620,7 +1666,7 @@ function initProductExperience() {
 
   function relatedProducts(product) {
     return products.filter(function (candidate) {
-      if (!candidate || candidate.id === product.id || candidate.active === false || !candidate.image) {
+      if (!candidate || candidate.id === product.id || !isComparableProduct(candidate) || !candidate.image) {
         return false;
       }
       if (candidate.category === product.category && candidate.material === product.material) {
@@ -1648,8 +1694,8 @@ function initProductExperience() {
     pushFact(facts, labels.construction, constructionLabel(product));
     pushFact(facts, labels.dimensions, dimensionLabel(product));
     pushFact(facts, labels.thickness, meaningful(product.thicknessLabel));
-    pushFact(facts, labels.weight, weightLabel(product));
-    pushFact(facts, labels.price, product.priceLabel);
+    pushFact(facts, labels.weight, exactWeightLabel(product));
+    pushFact(facts, labels.price, displayPriceLabel(product));
     pushFact(facts, labels.juiceGroove, booleanLabel(hasBadge(product, "Saftrille")));
     pushFact(facts, labels.engraving, engravingLabel(product));
     return facts.slice(0, 8);
@@ -1863,6 +1909,13 @@ function initProductExperience() {
     return "";
   }
 
+  function displayPriceLabel(product) {
+    return String(product && product.priceLabel ? product.priceLabel : "")
+      .replace(/\s*EUR\b/g, " €")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+
   function productUseLabel(product) {
     if (product.category === "care") {
       return isEnglish ? "Care for wood surfaces" : "Pflege von Holzoberflächen";
@@ -1921,7 +1974,41 @@ function initProductExperience() {
   }
 
   function hasVerifiedListing(product) {
-    return Boolean(product && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
+    return Boolean(isAvailableProduct(product) && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
+  }
+
+  function availabilityStatus(product) {
+    if (!product) {
+      return "inactive";
+    }
+    if (product.availabilityStatus) {
+      return String(product.availabilityStatus).toLowerCase();
+    }
+    if (product.active === false) {
+      return "inactive";
+    }
+    if (product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl)) {
+      return "available";
+    }
+    return "unknown";
+  }
+
+  function isAvailableProduct(product) {
+    return availabilityStatus(product) === "available";
+  }
+
+  function isGridProduct(product) {
+    if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
+      return false;
+    }
+    if (availabilityStatus(product) === "made_to_order") {
+      return product.visibility === "grid";
+    }
+    return isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
+  }
+
+  function isComparableProduct(product) {
+    return isGridProduct(product) || product.visibility === "preview_only";
   }
 
   function etsyActionLabel(product) {
@@ -2379,7 +2466,7 @@ function initProductsPage() {
     careIntensity: ["low", "medium"]
   };
 
-  fetch("/products.json")
+  fetch("/products.json?v=20260630")
     .then(function (response) {
       if (!response.ok) {
         throw new Error("products.json konnte nicht geladen werden.");
@@ -2393,9 +2480,7 @@ function initProductsPage() {
       }
 
       state.products = products;
-      state.activeProducts = products.filter(function (product) {
-        return product.active === true;
-      });
+      state.activeProducts = products.filter(isGridProduct);
 
       validateProducts(products);
       renderFinder();
@@ -2598,7 +2683,7 @@ function initProductsPage() {
           '<h3>' + escapeHtml(displayProductName(main)) + '</h3>' +
           buildFeatureBadges(main) +
           buildProductFacts(main) +
-          '<p class="productCard__price">' + escapeHtml(main.priceLabel) + '</p>' +
+          '<p class="productCard__price">' + escapeHtml(displayPriceLabel(main)) + '</p>' +
           buildProductActions(main, "finder", buildReason(main)) +
           '<div class="ctaRow finderResult__secondaryActions">' +
             '<a class="btn btn--ghost-dark" href="' + gridAnchor + '">' + (isEnglish ? "View product grid" : "Produktgrid ansehen") + '</a>' +
@@ -2895,7 +2980,7 @@ function initProductsPage() {
           '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
           buildFeatureBadges(product) +
           buildProductFacts(product) +
-          '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' +
+          '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' +
           buildProductActions(product, "grid") +
         '</div>' +
       '</article>';
@@ -2981,14 +3066,6 @@ function initProductsPage() {
       facts.push([isEnglish ? "Size" : "Maße", dimensionLabel(product)]);
     }
 
-    if (product.category === "board" && product.weightClass) {
-      facts.push([isEnglish ? "Weight" : "Gewicht", labelFor(product.weightClass)]);
-    }
-
-    if (product.category === "board" && product.portability) {
-      facts.push([isEnglish ? "Handling" : "Handling", labelFor(product.portability)]);
-    }
-
     if (product.category === "care") {
       facts = [
         [isEnglish ? "Type" : "Typ", isEnglish ? "Care product" : "Pflegeprodukt"],
@@ -3007,7 +3084,7 @@ function initProductsPage() {
       return "";
     }
 
-    return '<dl class="productFacts">' + facts.map(function (fact) {
+    return '<dl class="productFacts productFacts--compact">' + facts.slice(0, 2).map(function (fact) {
       return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
     }).join("") + '</dl>';
   }
@@ -3093,27 +3170,33 @@ function initProductsPage() {
   }
 
   function buildProductActions(product, source, reason) {
-    var detailsLabel = isEnglish ? "View details" : "Details ansehen";
+    var detailsLabel = primaryCardCta(product);
     var compareLabel = isEnglish ? "Compare" : "Vergleichen";
     var productSource = source || "grid";
     var reasonAttribute = reason ? ' data-product-reason="' + escapeAttribute(reason) + '"' : "";
-    var detailButton = '<button class="btn btn--secondary" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '"' + reasonAttribute + '>' + detailsLabel + '</button>';
-    var compareButton = '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '">' + compareLabel + '</button>';
+    var detailButton = '<button class="btn btn--emphasis" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '"' + reasonAttribute + '>' + escapeHtml(detailsLabel) + '</button>';
+    var compareButton = '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '">' + escapeHtml(compareLabel) + '</button>';
 
     if (!hasVerifiedListing(product)) {
       return '<div class="ctaRow ctaRow--stacked">' + detailButton + compareButton + '<span class="productCard__availability">' +
-        (isEnglish ? "Currently not available as a direct Etsy listing." : "Aktuell nicht als direktes Etsy-Angebot verfügbar.") +
+        escapeHtml(labels.unavailableText) +
         '</span><a class="btn btn--secondary" href="' + (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder") + '" data-umami-event="produktfinder-gestartet">' +
-        (isEnglish ? "Find a similar board" : "Ähnliches Brett finden") +
+        escapeHtml(labels.askSimilar) +
         '</a></div>';
     }
 
-    var primaryLabel = source === "preview" ? etsyActionLabel(product) : (isEnglish ? "View on Etsy" : "Auf Etsy ansehen");
     return '<div class="ctaRow ctaRow--product-card">' +
       detailButton +
       compareButton +
-      '<span class="etsyBuyBlock"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + primaryLabel + '</a><span class="etsyTrust">' + (isEnglish ? "Checkout via Etsy · Buyer protection available there" : "Checkout über Etsy · Käuferschutz dort verfügbar") + '</span></span>' +
+      '<span class="etsyBuyBlock"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + (isEnglish ? "View on Etsy" : "Auf Etsy ansehen") + '</a><span class="etsyTrust">' + (isEnglish ? "Checkout via Etsy · Buyer protection available there" : "Checkout über Etsy · Käuferschutz dort verfügbar") + '</span></span>' +
     '</div>';
+  }
+
+  function primaryCardCta(product) {
+    if (product && product.category === "board") {
+      return isEnglish ? "Discover board" : "Brett entdecken";
+    }
+    return isEnglish ? "Discover product" : "Produkt entdecken";
   }
 
   function buildAlternativeCard(product) {
@@ -3122,7 +3205,7 @@ function initProductsPage() {
       '<span class="alternativeCard__body">' +
         '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
         '<strong>' + escapeHtml(displayProductName(product)) + '</strong>' +
-        '<span>' + escapeHtml(product.priceLabel) + '</span>' +
+        '<span>' + escapeHtml(displayPriceLabel(product)) + '</span>' +
         '<span class="alternativeCard__actions">' +
           '<button type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Details" : "Details") + '</button>' +
           '<button type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Compare" : "Vergleichen") + '</button>' +
@@ -3133,7 +3216,7 @@ function initProductsPage() {
   }
 
   function hasVerifiedListing(product) {
-    return Boolean(product && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
+    return Boolean(isAvailableProduct(product) && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
   }
 
   function etsyActionLabel(product) {
@@ -3158,6 +3241,43 @@ function initProductsPage() {
     }
 
     return isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder";
+  }
+
+  function availabilityStatus(product) {
+    if (!product) {
+      return "inactive";
+    }
+    if (product.availabilityStatus) {
+      return String(product.availabilityStatus).toLowerCase();
+    }
+    if (product.active === false) {
+      return "inactive";
+    }
+    if (product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl)) {
+      return "available";
+    }
+    return "unknown";
+  }
+
+  function isAvailableProduct(product) {
+    return availabilityStatus(product) === "available";
+  }
+
+  function isGridProduct(product) {
+    if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
+      return false;
+    }
+    if (availabilityStatus(product) === "made_to_order") {
+      return product.visibility === "grid";
+    }
+    return isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
+  }
+
+  function displayPriceLabel(product) {
+    return String(product && product.priceLabel ? product.priceLabel : "")
+      .replace(/\s*EUR\b/g, " €")
+      .replace(/\s{2,}/g, " ")
+      .trim();
   }
 
   function dimensionLabel(product) {

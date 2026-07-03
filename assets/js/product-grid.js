@@ -3,7 +3,7 @@
 
   function loadProducts() {
     if (!catalogPromise) {
-      catalogPromise = fetch("/products.json")
+      catalogPromise = fetch("/products.json?v=20260630")
         .then(function (response) {
           if (!response.ok) {
             throw new Error("products.json konnte nicht geladen werden.");
@@ -37,7 +37,7 @@
       .then(function (products) {
         var filtered = products
           .filter(function (product) {
-            return product && product.active !== false;
+            return isGridProduct(product);
           })
           .filter(function (product) {
             return typeof filterFn === "function" ? filterFn(product) : true;
@@ -80,8 +80,8 @@
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
     var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
     var directListingUrl = product.etsyListingUrl || product.etsyUrl;
-    var hasDirectListing = product.directListingUrlVerified === true && Boolean(directListingUrl);
-    var detailsText = isEnglish ? "View details" : "Details ansehen";
+    var hasDirectListing = isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(directListingUrl);
+    var detailsText = primaryCardCta(product, isEnglish);
     var compareText = isEnglish ? "Compare" : "Vergleichen";
     var actionText = hasDirectListing ? buyLabelFor(product, isEnglish) : (isEnglish ? "Find similar board" : "Ähnliches Brett finden");
     var actionUrl = hasDirectListing ? directListingUrl : (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder");
@@ -103,7 +103,7 @@
           renderBadges(product) +
           renderFacts(product) +
           '<div class="productCard__footer">' +
-            (product.priceLabel ? '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' : "") +
+            (displayPriceLabel(product) ? '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' : "") +
             '<span class="productCard__buy">' +
               '<button class="productCard__cta" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(detailsText) + '</button>' +
               '<button class="productCard__cta productCard__cta--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(compareText) + '</button>' +
@@ -183,7 +183,7 @@
       return "";
     }
 
-    return '<dl class="productFacts spec-tiles">' + facts.slice(0, 4).map(function (fact) {
+    return '<dl class="productFacts spec-tiles productFacts--compact">' + facts.slice(0, 2).map(function (fact) {
       return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
     }).join("") + '</dl>';
   }
@@ -197,6 +197,50 @@
       return "";
     }
     return text;
+  }
+
+  function primaryCardCta(product, isEnglish) {
+    if (product && product.category === "board") {
+      return isEnglish ? "Discover board" : "Brett entdecken";
+    }
+    return isEnglish ? "Discover product" : "Produkt entdecken";
+  }
+
+  function availabilityStatus(product) {
+    if (!product) {
+      return "inactive";
+    }
+    if (product.availabilityStatus) {
+      return String(product.availabilityStatus).toLowerCase();
+    }
+    if (product.active === false) {
+      return "inactive";
+    }
+    if (product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl)) {
+      return "available";
+    }
+    return "unknown";
+  }
+
+  function isAvailableProduct(product) {
+    return availabilityStatus(product) === "available";
+  }
+
+  function isGridProduct(product) {
+    if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
+      return false;
+    }
+    if (availabilityStatus(product) === "made_to_order") {
+      return product.visibility === "grid";
+    }
+    return isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
+  }
+
+  function displayPriceLabel(product) {
+    return String(product && product.priceLabel ? product.priceLabel : "")
+      .replace(/\s*EUR\b/g, " €")
+      .replace(/\s{2,}/g, " ")
+      .trim();
   }
 
   function dimensionLabel(product) {

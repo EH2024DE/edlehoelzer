@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260629">
+  <link rel="stylesheet" href="/styles.css?v=20260702-home-reveal">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,7 +129,7 @@
           <a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a>
         </div>
       </div>
-      <img class="seoHero__image" src="/assets/Schneidebrett_Saftrille2.avif" alt="Servierbrett aus Holz mit geschnittenem Steak als BBQ Geschenk für Grillfans" width="1588" height="1059" decoding="async" loading="eager" fetchpriority="high">
+      <img class="seoHero__image" src="/assets/Schneidebrett_Saftrille2.avif" alt="Schneidebrett mit Saftrille und geschnittenem Steak auf Holz" width="1588" height="1059" decoding="async" loading="eager" fetchpriority="high">
     </div>
   </section>
 
@@ -274,10 +274,13 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung, Bearbeitung oder Weitergabe ohne ausdrückliche schriftliche Genehmigung von Edle Hölzer ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="/main.js?v=20260629"></script>
-<script src="/assets/js/product-grid.js?v=20260629"></script>
+<script src="/main.js?v=20260630-ux3"></script>
+<script src="/assets/js/product-grid.js?v=20260630-ux3"></script>
 <script>
-  renderProductGrid("products-saftrille", function (p) { return p.category === "board" && ((p.name || "").toLowerCase().indexOf("saftrille") !== -1 || (Array.isArray(p.useCases) && p.useCases.indexOf("bbq") !== -1)); }, { maxItems: 6 });
+  renderProductGrid("products-saftrille", function (p) {
+    var text = ((p.name || "") + " " + (p.displayName || "")).toLowerCase();
+    return p.category === "board" && (text.indexOf("saftrille") !== -1 || text.indexOf("juice") !== -1);
+  }, { maxItems: 6 });
 </script>
 </body>
 </html>

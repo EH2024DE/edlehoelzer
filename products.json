@@ -1728,9 +1728,9 @@
         "https://i.etsystatic.com/54205761/r/il/cbd495/7299676577/il_fullxfull.7299676577_9wiq.jpg"
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/4380304814/oak-cutting-board-with-kambala-stripes",
-      "directListingUrlVerified": true,
+      "directListingUrlVerified": false,
       "featured": false,
-      "active": true,
+      "active": false,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
@@ -1765,7 +1765,12 @@
       ],
       "displayName": "Eiche & Kambala – Quadrat",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4380304814/oak-cutting-board-with-kambala-stripes"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4380304814/oak-cutting-board-with-kambala-stripes",
+      "availabilityStatus": "sold",
+      "visibility": "archive",
+      "soldReason": "Vom Nutzer am 2026-06-30 als nicht mehr verfügbar gemeldet; Etsy blockierte automatischen Live-Abruf mit 403/CAPTCHA.",
+      "replacementStrategy": "request_similar",
+      "requestUrl": "/schneidebrett-nach-mass/"
     },
     {
       "id": "etsy-export-26-stirnholz-schneidebrett-aus-esche-41-x-40-x-4-8-cm-5-8-kg-massiver-hackb",
