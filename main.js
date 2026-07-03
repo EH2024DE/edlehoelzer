@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js");
+
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
@@ -71,11 +73,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   initCardWelcome();
+  initProductExperience();
   initProductsPage();
   initHeroVideo();
   initReviewTrustStrips();
   initBackToTop();
   initStickyMobileCta();
+  initHomepageReveal();
 
   if (window.innerWidth <= 900) {
     return;
@@ -186,6 +190,41 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
+
+function initHomepageReveal() {
+  var items = document.querySelectorAll(".reveal-on-scroll");
+  if (!items.length) {
+    return;
+  }
+
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    items.forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      var delay = Number(entry.target.getAttribute("data-reveal-delay") || 0);
+      window.setTimeout(function () {
+        entry.target.classList.add("is-visible");
+      }, Math.min(delay, 240));
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.16,
+    rootMargin: "0px 0px -8% 0px"
+  });
+
+  items.forEach(function (item) {
+    observer.observe(item);
+  });
+}
 
 function initStickyMobileCta() {
   var isGerman = (document.documentElement.lang || "de").toLowerCase().indexOf("en") !== 0;
@@ -824,6 +863,1270 @@ function initReviewTrustStrips() {
   }
 }
 
+function initProductExperience() {
+  if (window.EdleProductExperience) {
+    return;
+  }
+
+  var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+  var labels = isEnglish ? {
+    previewTitle: "Product details",
+    close: "Close",
+    details: "Discover product",
+    compare: "Compare",
+    addCompare: "Add to comparison",
+    removeCompare: "Remove from comparison",
+    inCompare: "In comparison",
+    replaceCompare: "Swap",
+    continueBrowsing: "Keep browsing",
+    buyBoard: "Buy this board on Etsy",
+    buyProduct: "Buy this product on Etsy",
+    buyCare: "Buy care balm on Etsy",
+    etsyTrust: "Secure checkout via Etsy · Reviews and buyer protection available there",
+    careLink: "Understand care",
+    madeFor: "What this product is made for",
+    keyFacts: "Key facts",
+    highlights: "Highlights",
+    care: "Care",
+    related: "Similar products",
+    comparison: "Comparison",
+    open: "Open",
+    clear: "Clear",
+    selectedOne: "1 of 2 selected",
+    selectedTwo: "2 of 2 selected",
+    compareEmptyTitle: "No board in comparison yet",
+    compareEmptyText: "Add up to two boards to compare them directly.",
+    compareOneTitle: "One board selected",
+    compareOneText: "Add a second board to see differences in wood, size, price and use.",
+    compareTwoTitle: "Two boards in comparison",
+    compareTwoText: "Do not choose from ten options. Decide between the two boards that really matter.",
+    compareNoneStatus: "No product in comparison yet",
+    compareOneStatus: "1 of 2 products selected",
+    compareTwoStatus: "2 of 2 products selected",
+    openCompare: "Open comparison",
+    browseProducts: "View products",
+    compareSlotTitle: "One place is free.",
+    compareSlotText: "Choose a second product to complete the comparison again.",
+    categoryMismatchTitle: "These products do different jobs.",
+    categoryMismatchText: "The comparison therefore shows less better or worse, and more what each product is made for.",
+    replaceTitle: "Which product should go?",
+    replaceText: "You can always compare two products. Choose which product should be replaced by this one.",
+    cancel: "Cancel",
+    replace: "replace",
+    notSpecified: "not specified",
+    checkOnEtsy: "Request similar product",
+    askSimilar: "Request similar product",
+    unavailableText: "This exact product is no longer available. A similar piece can be matched by material, size and use.",
+    price: "Price",
+    dimensions: "Dimensions",
+    wood: "Wood",
+    construction: "Construction",
+    thickness: "Thickness",
+    weight: "Weight",
+    juiceGroove: "Juice groove",
+    engraving: "Engraving",
+    decision: "Decision hint",
+    finderReason: "Why this fits"
+  } : {
+    previewTitle: "Produktdetails",
+    close: "Schließen",
+    details: "Produkt entdecken",
+    compare: "Vergleichen",
+    addCompare: "Zum Vergleich hinzufügen",
+    removeCompare: "Aus Vergleich entfernen",
+    inCompare: "Im Vergleich",
+    replaceCompare: "Austauschen",
+    continueBrowsing: "Weiterstöbern",
+    buyBoard: "Dieses Brett auf Etsy kaufen",
+    buyProduct: "Dieses Produkt auf Etsy kaufen",
+    buyCare: "Pflegebalsam auf Etsy kaufen",
+    etsyTrust: "Sicherer Checkout über Etsy · Bewertungen und Käuferschutz dort verfügbar",
+    careLink: "Pflege verstehen",
+    madeFor: "Wofür dieses Produkt gemacht ist",
+    keyFacts: "Eckdaten",
+    highlights: "Highlights",
+    care: "Pflege",
+    related: "Ähnliche Produkte",
+    comparison: "Vergleich",
+    open: "Öffnen",
+    clear: "Leeren",
+    selectedOne: "1 von 2 ausgewählt",
+    selectedTwo: "2 von 2 ausgewählt",
+    compareEmptyTitle: "Noch kein Brett im Vergleich",
+    compareEmptyText: "Füge bis zu zwei Bretter hinzu, um sie direkt gegenüberzustellen.",
+    compareOneTitle: "Ein Brett ausgewählt",
+    compareOneText: "Füge ein zweites Brett hinzu, um Unterschiede bei Holz, Größe, Preis und Nutzung zu sehen.",
+    compareTwoTitle: "Zwei Bretter im Vergleich",
+    compareTwoText: "Wähle nicht aus zehn Optionen. Entscheide zwischen den zwei Brettern, die wirklich infrage kommen.",
+    compareNoneStatus: "Noch kein Produkt im Vergleich",
+    compareOneStatus: "1 von 2 Produkten ausgewählt",
+    compareTwoStatus: "2 von 2 Produkten ausgewählt",
+    openCompare: "Vergleich öffnen",
+    browseProducts: "Produkte ansehen",
+    compareSlotTitle: "Ein Platz ist frei.",
+    compareSlotText: "Wähle ein zweites Produkt aus, um den Vergleich wieder vollständig zu machen.",
+    categoryMismatchTitle: "Diese Produkte erfüllen unterschiedliche Aufgaben.",
+    categoryMismatchText: "Der Vergleich zeigt dir deshalb weniger besser oder schlechter, sondern wofür welches Produkt gedacht ist.",
+    replaceTitle: "Welches Produkt soll raus?",
+    replaceText: "Du kannst immer zwei Produkte vergleichen. Wähle, welches Produkt durch dieses ersetzt werden soll.",
+    cancel: "Abbrechen",
+    replace: "ersetzen",
+    notSpecified: "nicht angegeben",
+    checkOnEtsy: "Ähnliches Produkt anfragen",
+    askSimilar: "Ähnliches Produkt anfragen",
+    unavailableText: "Dieses konkrete Produkt ist nicht mehr verfügbar. Ein ähnliches Stück können wir nach Material, Größe und Einsatz abstimmen.",
+    price: "Preis",
+    dimensions: "Maße",
+    wood: "Holzart",
+    construction: "Bauweise",
+    thickness: "Stärke",
+    weight: "Gewicht",
+    juiceGroove: "Saftrille",
+    engraving: "Gravur",
+    decision: "Entscheidungshilfe",
+    finderReason: "Warum das passt"
+  };
+
+  var catalogPromise = null;
+  var productMap = {};
+  var products = [];
+  var compareIds = readCompareState();
+  var activeOverlay = null;
+  var activeDialog = null;
+  var previousFocus = null;
+  var previousOverflow = "";
+  var compareBar = createCompareBar();
+
+  document.body.appendChild(compareBar);
+  updateCompareBar();
+
+  document.addEventListener("click", function (event) {
+    var etsyTrigger = event.target.closest("[data-product-etsy]");
+    if (etsyTrigger) {
+      var etsyProduct = productMap[etsyTrigger.getAttribute("data-product-etsy")];
+      track("product_preview_etsy_click", etsyProduct || null, { source: "preview", target: "etsy" });
+      return;
+    }
+
+    var previewTrigger = event.target.closest("[data-product-preview]");
+    if (previewTrigger) {
+      event.preventDefault();
+      openProduct(previewTrigger.getAttribute("data-product-preview"), previewTrigger.getAttribute("data-product-source") || "page", previewTrigger, previewTrigger.getAttribute("data-product-reason") || "");
+      return;
+    }
+
+    var compareTrigger = event.target.closest("[data-product-compare]");
+    if (compareTrigger) {
+      event.preventDefault();
+      toggleCompare(compareTrigger.getAttribute("data-product-compare"), compareTrigger.getAttribute("data-product-source") || "page", compareTrigger);
+      return;
+    }
+
+    var removeTrigger = event.target.closest("[data-compare-remove]");
+    if (removeTrigger) {
+      event.preventDefault();
+      removeCompare(removeTrigger.getAttribute("data-compare-remove"));
+      return;
+    }
+
+    var replaceTrigger = event.target.closest("[data-compare-replace]");
+    if (replaceTrigger) {
+      event.preventDefault();
+      replaceCompare(replaceTrigger.getAttribute("data-compare-replace"), replaceTrigger.getAttribute("data-compare-new"));
+      closeOverlay();
+      return;
+    }
+
+    if (event.target.closest("[data-compare-open]")) {
+      event.preventDefault();
+      openCompareView(event.target.closest("[data-compare-open]"));
+      return;
+    }
+
+    if (event.target.closest("[data-compare-clear]")) {
+      event.preventDefault();
+      clearCompare();
+      return;
+    }
+
+    var mediaTrigger = event.target.closest("[data-preview-media]");
+    if (mediaTrigger) {
+      event.preventDefault();
+      switchPreviewMedia(mediaTrigger);
+      return;
+    }
+
+    if (event.target.closest("[data-product-experience-close]")) {
+      event.preventDefault();
+      closeOverlay();
+      return;
+    }
+
+    if (event.target.hasAttribute("data-product-experience-backdrop")) {
+      closeOverlay();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (!activeDialog) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeOverlay();
+      return;
+    }
+
+    if (event.key === "Tab") {
+      trapFocus(event);
+    }
+  });
+
+  window.EdleProductExperience = {
+    openProduct: openProduct,
+    addToCompare: function (id, source, trigger) {
+      addCompare(id, source || "api", trigger || document.activeElement);
+    },
+    removeFromCompare: removeCompare,
+    openCompare: openCompareView,
+    getProducts: loadProducts
+  };
+
+  function loadProducts() {
+    if (!catalogPromise) {
+      catalogPromise = fetch("/products.json?v=20260630")
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("products.json konnte nicht geladen werden.");
+          }
+
+          return response.json();
+        })
+        .then(function (data) {
+          products = (Array.isArray(data) ? data : data.products || []).filter(Boolean);
+          productMap = {};
+          products.forEach(function (product) {
+            if (product.id) {
+              productMap[product.id] = product;
+            }
+          });
+          compareIds = compareIds.filter(function (id) {
+            return isComparableProduct(productMap[id]);
+          });
+          writeCompareState();
+          updateCompareBar();
+          return products;
+        });
+    }
+
+    return catalogPromise;
+  }
+
+  function openProduct(productId, source, trigger, reason) {
+    loadProducts().then(function () {
+      var product = productMap[productId];
+      if (!product) {
+        return;
+      }
+
+      previousFocus = trigger || document.activeElement;
+      renderOverlay(renderProductPreview(product, source, reason), "product-preview", source);
+      if (activeOverlay) {
+        activeOverlay.setAttribute("data-current-product-id", product.id);
+        activeOverlay.setAttribute("data-current-product-source", source || "preview");
+        activeOverlay.setAttribute("data-current-product-reason", reason || "");
+      }
+      track("product_preview_open", product, { source: source });
+    }).catch(function (error) {
+      console.warn("[Edle Hölzer] Produktvorschau konnte nicht geöffnet werden:", error);
+    });
+  }
+
+  function renderProductPreview(product, source, reason) {
+    var media = productMedia(product);
+    var main = media[0];
+    var title = displayProductName(product);
+    var facts = productFacts(product);
+    var highlights = productHighlights(product);
+    var related = relatedProducts(product);
+    var hasEtsy = hasVerifiedListing(product);
+    var etsyUrl = etsyActionUrl(product);
+
+    return '<section class="productPreview" role="dialog" aria-modal="true" aria-labelledby="product-preview-title">' +
+      '<button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button>' +
+      '<div class="productPreview__media">' +
+        '<div class="productPreview__mainMedia">' +
+          renderPreviewMainMedia(main) +
+        '</div>' +
+        (media.length > 1 ? '<div class="productPreview__thumbs" aria-label="' + escapeAttribute(labels.previewTitle) + '">' + media.map(function (item, index) {
+          return renderPreviewThumb(item, index);
+        }).join("") + '</div>' : "") +
+      '</div>' +
+      '<div class="productPreview__content">' +
+        '<p class="productPreview__eyebrow">' + escapeHtml(product.segment || product.category || "Edle Hölzer") + '</p>' +
+        '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
+        '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
+        '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
+        (reason ? '<div class="productPreview__reason"><strong>' + escapeHtml(labels.finderReason) + '</strong><p>' + escapeHtml(reason) + '</p></div>' : "") +
+        (facts.length ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.keyFacts) + '</h3><dl class="productPreview__facts">' + facts.map(function (fact) {
+          return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
+        }).join("") + '</dl></section>' : "") +
+        (highlights.length ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.highlights) + '</h3><ul class="productPreview__chips">' + highlights.map(function (highlight) {
+          return '<li>' + escapeHtml(highlight) + '</li>';
+        }).join("") + '</ul></section>' : "") +
+        '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
+        '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + ' <a href="' + (isEnglish ? "/en/care.html" : "/pflege.html") + '">' + escapeHtml(labels.careLink) + '</a></p></section>' +
+        '<div class="productPreview__actions">' +
+          (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a><p class="productPreview__trust">' + escapeHtml(labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/products.html#product-finder" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
+          renderPreviewCompareControls(product, source || "preview") +
+          '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
+        '</div>' +
+        (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
+          return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.details) + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.compare) + '</button></div></article>';
+        }).join("") + '</div></section>' : "") +
+      '</div>' +
+    '</section>';
+  }
+
+  function toggleCompare(productId, source, trigger) {
+    if (compareIds.indexOf(productId) !== -1) {
+      removeCompare(productId);
+      return;
+    }
+
+    addCompare(productId, source, trigger);
+  }
+
+  function addCompare(productId, source, trigger) {
+    loadProducts().then(function () {
+      if (!isComparableProduct(productMap[productId])) {
+        return;
+      }
+
+      if (compareIds.indexOf(productId) !== -1) {
+        return;
+      }
+
+      if (compareIds.length >= 2) {
+        previousFocus = trigger || document.activeElement;
+        renderOverlay(renderReplacementDialog(productId), "compare-replace", source);
+        track("compare_replace_prompt", productMap[productId], { source: source, compare_count: compareIds.length });
+        return;
+      }
+
+      compareIds.push(productId);
+      writeCompareState();
+      updateCompareBar();
+      if (activeOverlay && activeOverlay.getAttribute("data-product-experience-type") === "product-preview") {
+        if (compareIds.length === 2) {
+          openCompareView(trigger);
+          track("compare_add", productMap[productId], { source: source, compare_count: compareIds.length });
+          return;
+        }
+        refreshProductPreviewOverlay();
+      }
+      refreshCompareOverlay();
+      track("compare_add", productMap[productId], { source: source, compare_count: compareIds.length });
+    });
+  }
+
+  function removeCompare(productId) {
+    var index = compareIds.indexOf(productId);
+    if (index === -1) {
+      return;
+    }
+
+    compareIds.splice(index, 1);
+    writeCompareState();
+    updateCompareBar();
+    updateCompareButtons();
+    if (productMap[productId]) {
+      track("compare_remove", productMap[productId], { compare_count: compareIds.length });
+    }
+    refreshProductPreviewOverlay();
+    refreshCompareOverlay();
+  }
+
+  function replaceCompare(oldId, newId) {
+    var index = compareIds.indexOf(oldId);
+    if (index === -1 || !isComparableProduct(productMap[newId])) {
+      return;
+    }
+
+    compareIds[index] = newId;
+    writeCompareState();
+    updateCompareBar();
+    updateCompareButtons();
+    track("compare_replace_confirm", productMap[newId], { replaced_product_id: oldId, compare_count: compareIds.length });
+    if (activeOverlay && activeOverlay.getAttribute("data-product-experience-type") === "compare-replace") {
+      window.setTimeout(function () {
+        openCompareView(previousFocus || document.activeElement);
+      }, 0);
+    } else {
+      refreshCompareOverlay();
+    }
+  }
+
+  function clearCompare() {
+    compareIds = [];
+    writeCompareState();
+    updateCompareBar();
+    updateCompareButtons();
+    track("compare_clear", null, { compare_count: 0 });
+    refreshCompareOverlay();
+  }
+
+  function openCompareView(trigger) {
+    loadProducts().then(function () {
+      previousFocus = trigger || document.activeElement;
+      renderOverlay(renderCompareView(), "compare-view", "compare_bar");
+      track("compare_open", null, { compare_count: compareIds.length });
+    });
+  }
+
+  function renderCompareView() {
+    var selected = compareIds.map(function (id) {
+      return productMap[id];
+    }).filter(Boolean);
+
+    if (!selected.length) {
+      return '<section class="compareView compareView--empty" role="dialog" aria-modal="true" aria-labelledby="compare-title"><button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button><h2 id="compare-title">' + escapeHtml(labels.compareEmptyTitle) + '</h2><p>' + escapeHtml(labels.compareEmptyText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/products.html" : "/produkte.html") + '">' + escapeHtml(labels.browseProducts) + '</a></section>';
+    }
+
+    if (selected.length === 1) {
+      return '<section class="compareView compareView--single" role="dialog" aria-modal="true" aria-labelledby="compare-title"><button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button><h2 id="compare-title">' + escapeHtml(labels.compareOneTitle) + '</h2><p>' + escapeHtml(labels.compareOneText) + '</p><div class="compareView__singleProduct">' + renderCompareProductCard(selected[0]) + '</div>' + renderCompareSuggestions(selected[0]) + '<a class="btn btn--secondary" href="' + (isEnglish ? "/en/products.html" : "/produkte.html") + '">' + escapeHtml(labels.continueBrowsing) + '</a></section>';
+    }
+
+    var rows = compareRows(selected[0], selected[1]);
+    var categoryNotice = selected[0].category !== selected[1].category
+      ? '<div class="compareView__notice"><h3>' + escapeHtml(labels.categoryMismatchTitle) + '</h3><p>' + escapeHtml(labels.categoryMismatchText) + '</p></div>'
+      : "";
+
+    return '<section class="compareView" role="dialog" aria-modal="true" aria-labelledby="compare-title">' +
+      '<button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button>' +
+      '<div class="compareView__head"><p class="productPreview__eyebrow">' + escapeHtml(labels.comparison) + '</p><h2 id="compare-title">' + escapeHtml(labels.compareTwoTitle) + '</h2><p>' + escapeHtml(labels.compareTwoText) + '</p></div>' +
+      categoryNotice +
+      '<div class="compareView__matrix" role="table" aria-label="' + escapeAttribute(labels.comparison) + '">' +
+        '<div class="compareView__corner" aria-hidden="true"></div>' +
+        selected.map(function (product) {
+          return '<div class="compareView__productCell" role="columnheader">' + renderCompareProductCard(product) + '</div>';
+        }).join("") +
+        rows.map(function (row) {
+          return '<div class="compareRowLabel" role="rowheader">' + escapeHtml(row.label) + '</div><div class="compareRowValue" role="cell"><strong class="compareRowValue__mobileName">' + escapeHtml(displayProductName(selected[0])) + '</strong>' + escapeHtml(row.a) + '</div><div class="compareRowValue" role="cell"><strong class="compareRowValue__mobileName">' + escapeHtml(displayProductName(selected[1])) + '</strong>' + escapeHtml(row.b) + '</div>';
+        }).join("") +
+      '</div>' +
+      '<div class="compareView__actions"><button class="btn btn--ghost-dark" type="button" data-compare-clear>' + escapeHtml(labels.clear) + '</button></div>' +
+    '</section>';
+  }
+
+  function renderCompareProductCard(product) {
+    var hasEtsy = hasVerifiedListing(product);
+    return '<article class="compareProduct">' +
+      '<button class="compareProduct__image" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="compare">' +
+        '<img src="' + escapeAttribute(primaryImage(product)) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
+      '</button>' +
+      '<h3>' + escapeHtml(displayProductName(product)) + '</h3>' +
+      '<p>' + escapeHtml(productMoment(product)) + '</p>' +
+      '<div class="compareProduct__actions">' +
+        (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a>' : "") +
+        '<button class="btn btn--ghost-dark" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="compare">' + escapeHtml(labels.details) + '</button>' +
+        '<button class="btn btn--secondary" type="button" data-compare-remove="' + escapeAttribute(product.id) + '">' + escapeHtml(labels.removeCompare) + '</button>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function compareRows(a, b) {
+    var bothBoards = a.category === "board" && b.category === "board";
+    var hasAccessory = a.category === "accessory" || b.category === "accessory";
+    var hasCare = a.category === "care" || b.category === "care";
+    var rows = [
+      [labels.price, displayValue(displayPriceLabel(a)), displayValue(displayPriceLabel(b))],
+      [hasCare ? (isEnglish ? "Use" : "Einsatz") : labels.dimensions, hasCare ? productUseLabel(a) : dimensionLabel(a), hasCare ? productUseLabel(b) : dimensionLabel(b)],
+      [hasCare ? (isEnglish ? "Application" : "Anwendungsfall") : labels.wood, hasCare ? productApplication(a) : displayValue(a.material), hasCare ? productApplication(b) : displayValue(b.material)],
+      [bothBoards ? labels.construction : "", bothBoards ? constructionLabel(a) : "", bothBoards ? constructionLabel(b) : ""],
+      [bothBoards ? labels.thickness : "", bothBoards ? meaningful(a.thicknessLabel) : "", bothBoards ? meaningful(b.thicknessLabel) : ""],
+      [labels.weight, exactWeightLabel(a), exactWeightLabel(b)],
+      [bothBoards ? labels.juiceGroove : "", bothBoards ? booleanLabel(hasBadge(a, "Saftrille")) : "", bothBoards ? booleanLabel(hasBadge(b, "Saftrille")) : ""],
+      [bothBoards || hasAccessory ? labels.engraving : "", bothBoards || hasAccessory ? engravingLabel(a) : "", bothBoards || hasAccessory ? engravingLabel(b) : ""],
+      [hasAccessory ? (isEnglish ? "Role" : "Rolle") : "", hasAccessory ? productRole(a) : "", hasAccessory ? productRole(b) : ""],
+      [labels.decision, decisionHint(a, b), decisionHint(b, a)]
+    ];
+
+    return rows.filter(function (row) {
+      return row[0] && (row[1] || row[2]);
+    }).map(function (row) {
+      return { label: row[0], a: row[1] || labels.notSpecified, b: row[2] || labels.notSpecified };
+    });
+  }
+
+  function renderCompareSuggestions(baseProduct) {
+    var suggestions = compareSuggestions(baseProduct);
+    if (!suggestions.length) {
+      return "";
+    }
+
+    return '<section class="compareSuggestions"><h3>' + escapeHtml(labels.compareSlotTitle) + '</h3><p>' + escapeHtml(labels.compareSlotText) + '</p><div class="compareSuggestions__grid">' + suggestions.map(function (product) {
+      return '<article class="compareSuggestion"><img src="' + escapeAttribute(primaryImage(product)) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(product)) + '</strong><span>' + escapeHtml(productMoment(product)) + '</span><div><button type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="compare">' + escapeHtml(labels.compare) + '</button><button type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="compare">' + escapeHtml(labels.details) + '</button></div></article>';
+    }).join("") + '</div></section>';
+  }
+
+  function compareSuggestions(baseProduct) {
+    return products.filter(function (candidate) {
+      return candidate && candidate.id !== baseProduct.id && compareIds.indexOf(candidate.id) === -1 && isComparableProduct(candidate) && candidate.image;
+    }).sort(function (a, b) {
+      return suggestionScore(b, baseProduct) - suggestionScore(a, baseProduct);
+    }).slice(0, 6);
+  }
+
+  function suggestionScore(candidate, baseProduct) {
+    var score = 0;
+    if (candidate.category === baseProduct.category) score += 12;
+    if (candidate.directListingUrlVerified === true) score += 6;
+    if (candidate.material && baseProduct.material && candidate.material !== baseProduct.material) score += 4;
+    if (candidate.woodCut && baseProduct.woodCut && candidate.woodCut !== baseProduct.woodCut) score += 4;
+    if (Array.isArray(candidate.useCases) && Array.isArray(baseProduct.useCases)) {
+      candidate.useCases.forEach(function (useCase) {
+        if (baseProduct.useCases.indexOf(useCase) !== -1) {
+          score += 3;
+        }
+      });
+    }
+    if (candidate.featured) score += 2;
+    return score;
+  }
+
+  function renderReplacementDialog(newProductId) {
+    var newProduct = productMap[newProductId];
+    return '<section class="compareReplaceDialog" role="dialog" aria-modal="true" aria-labelledby="replace-title">' +
+      '<button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button>' +
+      '<h2 id="replace-title">' + escapeHtml(labels.replaceTitle) + '</h2>' +
+      '<p>' + escapeHtml(labels.replaceText) + '</p>' +
+      '<div class="compareReplaceDialog__actions">' + compareIds.map(function (id) {
+        var product = productMap[id];
+        return '<button class="btn btn--secondary" type="button" data-compare-replace="' + escapeAttribute(id) + '" data-compare-new="' + escapeAttribute(newProductId) + '">' + escapeHtml(displayProductName(product)) + ' ' + escapeHtml(labels.replace) + '</button>';
+      }).join("") +
+      '<button class="btn btn--ghost-dark" type="button" data-product-experience-close>' + escapeHtml(labels.cancel) + '</button></div>' +
+      (newProduct ? '<p class="compareReplaceDialog__new">' + escapeHtml(labels.compare) + ': ' + escapeHtml(displayProductName(newProduct)) + '</p>' : "") +
+    '</section>';
+  }
+
+  function createCompareBar() {
+    var bar = document.createElement("div");
+    bar.className = "compareBar";
+    bar.setAttribute("data-compare-bar", "");
+    bar.hidden = true;
+    return bar;
+  }
+
+  function updateCompareBar() {
+    if (!compareBar) {
+      return;
+    }
+
+    loadProducts().catch(function () {});
+
+    var selected = compareIds.map(function (id) {
+      return productMap[id];
+    }).filter(Boolean);
+
+    if (!selected.length) {
+      compareBar.hidden = true;
+      compareBar.innerHTML = "";
+      updateCompareButtons();
+      return;
+    }
+
+    compareBar.hidden = false;
+    compareBar.innerHTML =
+      '<div class="compareBar__inner" role="region" aria-label="' + escapeAttribute(labels.comparison) + '">' +
+        '<div class="compareBar__summary"><strong>' + escapeHtml(labels.comparison) + '</strong><span class="sr-only">' + escapeHtml(selected.length === 1 ? labels.selectedOne : labels.selectedTwo) + '</span><span aria-hidden="true">' + selected.length + '/2</span></div>' +
+        '<div class="compareBar__chips">' + selected.map(function (product) {
+          return '<span>' + escapeHtml(displayProductName(product)) + '</span>';
+        }).join("") + '</div>' +
+        '<button class="compareBar__open" type="button" data-compare-open>' + escapeHtml(labels.open) + '</button>' +
+        '<button class="compareBar__clear" type="button" data-compare-clear>' + escapeHtml(labels.clear) + '</button>' +
+      '</div>';
+    updateCompareButtons();
+  }
+
+  function updateCompareButtons() {
+    document.querySelectorAll("[data-product-compare]").forEach(function (button) {
+      var id = button.getAttribute("data-product-compare");
+      if (!id) {
+        return;
+      }
+
+      var isActive = compareIds.indexOf(id) !== -1;
+      button.classList.toggle("is-in-compare", isActive);
+      button.textContent = button.closest(".productPreview__compareControls")
+        ? compareButtonLabel(id)
+        : (isActive ? labels.removeCompare : (compareIds.length >= 2 ? labels.replaceCompare : labels.compare));
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  }
+
+  function renderOverlay(content, type, source) {
+    closeOverlay(false);
+    activeOverlay = document.createElement("div");
+    activeOverlay.className = "productExperienceOverlay productExperienceOverlay--" + type;
+    activeOverlay.setAttribute("data-product-experience-type", type);
+    activeOverlay.setAttribute("data-product-experience-backdrop", "");
+    activeOverlay.innerHTML = '<div class="productExperienceOverlay__scroll">' + content + '</div>';
+    document.body.appendChild(activeOverlay);
+    activeDialog = activeOverlay.querySelector('[role="dialog"]');
+    previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("has-product-experience");
+    window.setTimeout(function () {
+      activeOverlay.classList.add("is-open");
+      focusDialog();
+    }, 0);
+  }
+
+  function refreshCompareOverlay() {
+    if (!activeOverlay || !activeOverlay.querySelector(".compareView")) {
+      return;
+    }
+
+    activeOverlay.querySelector(".productExperienceOverlay__scroll").innerHTML = renderCompareView();
+    activeDialog = activeOverlay.querySelector('[role="dialog"]');
+    focusDialog();
+  }
+
+  function refreshProductPreviewOverlay() {
+    if (!activeOverlay || activeOverlay.getAttribute("data-product-experience-type") !== "product-preview") {
+      return;
+    }
+
+    var productId = activeOverlay.getAttribute("data-current-product-id");
+    var product = productMap[productId];
+    if (!product) {
+      return;
+    }
+
+    var source = activeOverlay.getAttribute("data-current-product-source") || "preview";
+    var reason = activeOverlay.getAttribute("data-current-product-reason") || "";
+    activeOverlay.querySelector(".productExperienceOverlay__scroll").innerHTML = renderProductPreview(product, source, reason);
+    activeDialog = activeOverlay.querySelector('[role="dialog"]');
+  }
+
+  function closeOverlay(restoreFocus) {
+    if (!activeOverlay) {
+      return;
+    }
+
+    activeOverlay.remove();
+    activeOverlay = null;
+    activeDialog = null;
+    document.body.style.overflow = previousOverflow || "";
+    document.body.classList.remove("has-product-experience");
+    updateCompareButtons();
+
+    if (restoreFocus !== false && previousFocus && typeof previousFocus.focus === "function") {
+      previousFocus.focus();
+    }
+  }
+
+  function focusDialog() {
+    if (!activeDialog) {
+      return;
+    }
+
+    var focusable = getFocusable(activeDialog);
+    if (focusable.length) {
+      focusable[0].focus();
+    } else {
+      activeDialog.setAttribute("tabindex", "-1");
+      activeDialog.focus();
+    }
+  }
+
+  function trapFocus(event) {
+    var focusable = getFocusable(activeDialog);
+    if (!focusable.length) {
+      return;
+    }
+
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  function getFocusable(root) {
+    return Array.prototype.slice.call(root.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])')).filter(function (element) {
+      return element.offsetParent !== null;
+    });
+  }
+
+  function switchPreviewMedia(button) {
+    var main = activeOverlay && activeOverlay.querySelector(".productPreview__mainMedia");
+    if (!main) {
+      return;
+    }
+
+    var item = {
+      type: button.getAttribute("data-preview-type") || "image",
+      src: button.getAttribute("data-preview-src") || "",
+      poster: button.getAttribute("data-preview-poster") || "",
+      alt: button.getAttribute("data-preview-alt") || ""
+    };
+    main.innerHTML = renderPreviewMainMedia(item);
+    activeOverlay.querySelectorAll("[data-preview-media]").forEach(function (item) {
+      item.classList.toggle("is-active", item === button);
+    });
+  }
+
+  function productMedia(product) {
+    if (Array.isArray(product.media) && product.media.length) {
+      return product.media.filter(function (item) {
+        return item && item.src && (item.type === "image" || item.type === "video");
+      }).slice(0, 6).map(function (item) {
+        return {
+          type: item.type || "image",
+          src: item.src,
+          poster: item.poster || item.src,
+          alt: item.alt || productImageAlt(product)
+        };
+      });
+    }
+
+    var urls = [];
+    if (Array.isArray(product.gallery)) {
+      urls = product.gallery.filter(Boolean);
+    }
+    if (product.image && urls.indexOf(product.image) === -1) {
+      urls.unshift(product.image);
+    }
+    return urls.slice(0, 5).map(function (url) {
+      return {
+        type: "image",
+        src: url,
+        poster: url,
+        alt: productImageAlt(product)
+      };
+    });
+  }
+
+  function renderPreviewMainMedia(item) {
+    if (!item || !item.src) {
+      return '<div class="productPreview__placeholder">' + escapeHtml(labels.previewTitle) + '</div>';
+    }
+
+    if (item.type === "video") {
+      return '<video data-preview-main controls playsinline preload="none"' + (item.poster ? ' poster="' + escapeAttribute(item.poster) + '"' : "") + ' aria-label="' + escapeAttribute(item.alt || labels.previewTitle) + '"><source src="' + escapeAttribute(item.src) + '" type="video/mp4"></video>';
+    }
+
+    return '<img data-preview-main src="' + escapeAttribute(item.src) + '" alt="' + escapeAttribute(item.alt) + '" decoding="async">';
+  }
+
+  function renderPreviewThumb(item, index) {
+    var poster = item.poster || item.src;
+    return '<button class="productPreview__thumb' + (index === 0 ? " is-active" : "") + '" type="button" data-preview-media="' + index + '" data-preview-type="' + escapeAttribute(item.type || "image") + '" data-preview-src="' + escapeAttribute(item.src) + '" data-preview-poster="' + escapeAttribute(poster) + '" data-preview-alt="' + escapeAttribute(item.alt) + '"><img src="' + escapeAttribute(poster) + '" alt="" loading="lazy" decoding="async">' + (item.type === "video" ? '<span class="productPreview__videoBadge">Video</span>' : "") + '</button>';
+  }
+
+  function renderPreviewCompareControls(product, source) {
+    if (!isComparableProduct(product)) {
+      return "";
+    }
+
+    var isActive = compareIds.indexOf(product.id) !== -1;
+    var status = compareIds.length === 0 ? labels.compareNoneStatus : (compareIds.length === 1 ? labels.compareOneStatus : labels.compareTwoStatus);
+    var controls = '<div class="productPreview__compareControls"><p>' + escapeHtml(status) + '</p>';
+
+    if (compareIds.length === 2) {
+      controls += '<button class="btn btn--ghost-dark" type="button" data-compare-open>' + escapeHtml(labels.openCompare) + '</button>';
+      if (isActive) {
+        controls += '<button class="btn btn--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.removeCompare) + '</button>';
+      } else {
+        controls += '<button class="btn btn--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.replaceCompare) + '</button>';
+      }
+      return controls + '</div>';
+    }
+
+    if (isActive) {
+      controls += '<button class="btn btn--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.removeCompare) + '</button>';
+    } else {
+      controls += '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "preview") + '">' + escapeHtml(labels.addCompare) + '</button>';
+    }
+
+    if (compareIds.length > 0) {
+      controls += '<button class="btn btn--secondary" type="button" data-compare-open>' + escapeHtml(labels.openCompare) + '</button>';
+    }
+
+    return controls + '</div>';
+  }
+
+  function relatedProducts(product) {
+    return products.filter(function (candidate) {
+      if (!candidate || candidate.id === product.id || !isComparableProduct(candidate) || !candidate.image) {
+        return false;
+      }
+      if (candidate.category === product.category && candidate.material === product.material) {
+        return true;
+      }
+      if (candidate.category === product.category && candidate.woodCut === product.woodCut) {
+        return true;
+      }
+      return Array.isArray(candidate.useCases) && Array.isArray(product.useCases) && candidate.useCases.some(function (useCase) {
+        return product.useCases.indexOf(useCase) !== -1;
+      });
+    }).slice(0, 3);
+  }
+
+  function primaryImage(product) {
+    if (Array.isArray(product.gallery) && product.gallery[0]) {
+      return product.gallery[0];
+    }
+    return product.image || "";
+  }
+
+  function productFacts(product) {
+    var facts = [];
+    pushFact(facts, labels.wood, product.material);
+    pushFact(facts, labels.construction, constructionLabel(product));
+    pushFact(facts, labels.dimensions, dimensionLabel(product));
+    pushFact(facts, labels.thickness, meaningful(product.thicknessLabel));
+    pushFact(facts, labels.weight, exactWeightLabel(product));
+    pushFact(facts, labels.price, displayPriceLabel(product));
+    pushFact(facts, labels.juiceGroove, booleanLabel(hasBadge(product, "Saftrille")));
+    pushFact(facts, labels.engraving, engravingLabel(product));
+    return facts.slice(0, 8);
+  }
+
+  function pushFact(facts, label, value) {
+    if (value) {
+      facts.push([label, value]);
+    }
+  }
+
+  function productHighlights(product) {
+    var highlights = [];
+    if (Array.isArray(product.badges)) {
+      product.badges.forEach(function (badge) {
+        if (badge && highlights.length < 5 && !/cm|kg|Format laut/i.test(String(badge))) {
+          highlights.push(normalizeConstructionTerms(badge));
+        }
+      });
+    }
+    if (product.material && highlights.indexOf(product.material) === -1) {
+      highlights.unshift(product.material);
+    }
+    if (isEndGrain(product)) {
+      highlights.push(isEnglish ? "end-grain construction" : "Stirnholz-Aufbau");
+    }
+    return unique(highlights).slice(0, 5);
+  }
+
+  function productMoment(product) {
+    var text = [product.name, product.displayName, product.segment, product.shortDescription].join(" ").toLowerCase();
+    if (product.category === "care") {
+      return isEnglish ? "For boards that should be cared for instead of replaced." : "Für Bretter, die gepflegt statt ersetzt werden sollen.";
+    }
+    if (/teigschaber|dough|scraper/.test(text)) {
+      return isEnglish ? "For sourdough, bread dough and quiet work with real material." : "Für Sauerteig, Brotteig und ruhiges Arbeiten mit echtem Material.";
+    }
+    if (/erbst/.test(text)) {
+      return isEnglish ? "For people who do not want a reproducible standard product." : "Für Menschen, die kein reproduzierbares Serienprodukt suchen.";
+    }
+    if (isEndGrain(product)) {
+      return isEnglish ? "For intensive kitchen work with good knives." : "Für intensive Küchenarbeit mit guten Messern.";
+    }
+    if (Array.isArray(product.useCases) && product.useCases.indexOf("bbq") !== -1) {
+      return isEnglish ? "For the moment after grilling." : "Für den Moment nach dem Grillen.";
+    }
+    if (product.servingSuitable || product.giftable) {
+      return isEnglish ? "For the moment when a board does not just cut, but stays on the table." : "Für den Moment, in dem ein Brett nicht nur schneidet, sondern auf dem Tisch bleibt.";
+    }
+    return isEnglish ? "For kitchen moments where the board may stay visible." : "Für Küchenmomente, in denen das Brett sichtbar bleiben darf.";
+  }
+
+  function productProof(product) {
+    if (product.longDescription) {
+      return normalizeConstructionTerms(product.longDescription);
+    }
+    if (isEndGrain(product)) {
+      return isEnglish ? "Standing wood fibres make end grain more involved to produce and give it its dense, substantial character." : "Stehende Holzfasern machen Stirnholz aufwendiger in der Fertigung und geben dem Brett seinen dichten, massiven Charakter.";
+    }
+    if (product.material) {
+      return isEnglish ? "Material, surface and format define how this product feels in daily use." : "Material, Oberfläche und Format bestimmen, wie sich dieses Produkt im Alltag anfühlt.";
+    }
+    return isEnglish ? "The product details come from the central Edle Hölzer product data." : "Die Produktdetails stammen aus der zentralen Produktdatenbasis von Edle Hölzer.";
+  }
+
+  function productExperienceText(product) {
+    if (product.shortDescription) {
+      return product.shortDescription;
+    }
+    if (product.category === "care") {
+      return isEnglish ? "Care products support the surface when wood becomes dry, matte or rough." : "Pflegeprodukte unterstützen die Oberfläche, wenn Holz trocken, matt oder rau wird.";
+    }
+    if (product.category === "accessory") {
+      return isEnglish ? "This tool is made for regular kitchen use, not for disappearing unused in a drawer." : "Dieses Werkzeug ist für regelmäßige Küchenarbeit gedacht, nicht für die ungenutzte Schublade.";
+    }
+    return isEnglish ? "This board is made for people who want to use, care for and keep a real piece of wood." : "Dieses Brett ist für Menschen gedacht, die ein echtes Stück Holz benutzen, pflegen und behalten wollen.";
+  }
+
+  function careNote(product) {
+    if (product.category === "care") {
+      return isEnglish ? "Use care products according to their instructions and let treated wood dry openly." : "Pflegeprodukte nach Anleitung verwenden und behandeltes Holz offen trocknen lassen.";
+    }
+    return isEnglish ? "Wood should not go into the dishwasher. Let it dry after cleaning and care for it when the surface becomes dry." : "Holz gehört nicht in die Spülmaschine. Nach dem Reinigen trocknen lassen und pflegen, wenn die Oberfläche trocken wirkt.";
+  }
+
+  function decisionHint(product, comparedTo) {
+    if (product.decisionHint) {
+      return product.decisionHint;
+    }
+    var text = [
+      product.name,
+      product.displayName,
+      product.segment,
+      product.shortDescription,
+      product.material
+    ].join(" ").toLowerCase();
+
+    if (product.category === "care") {
+      return isEnglish ? "Choose this product if your wooden board looks dry and you want to refresh the surface." : "Wähle dieses Produkt, wenn dein Holzbrett trocken wirkt und du die Oberfläche nachpflegen möchtest.";
+    }
+    if (product.category === "accessory") {
+      if (/teigschaber|dough|scraper/.test(text)) {
+        return isEnglish ? "Choose this product if you work with dough regularly and want a simple wooden tool instead of plastic." : "Wähle dieses Produkt, wenn du regelmäßig mit Teig arbeitest und ein einfaches Holzwerkzeug statt Kunststoff in der Küche möchtest.";
+      }
+      return isEnglish ? "Choose this product if you want a smaller wooden kitchen tool rather than another cutting board." : "Wähle dieses Produkt, wenn du ein kleineres Holzwerkzeug für die Küche suchst und kein weiteres Schneidebrett.";
+    }
+    if (/brotzeit|frühstück|breakfast|snack/.test(text)) {
+      return isEnglish ? "Choose this board if you want a smaller board for breakfast, snacks and serving at the table, not a heavy work board." : "Wähle dieses Brett, wenn du ein kleineres Brett für Frühstück, Brotzeit und Servieren am Tisch suchst, nicht als schweres Arbeitsbrett.";
+    }
+    if (isEndGrain(product)) {
+      if (hasBadge(product, "Saftrille")) {
+        return isEnglish ? "Choose this board if you want a substantial work board for repeated cutting, serving and liquids from meat, fruit or vegetables." : "Wähle dieses Brett, wenn du ein massives Arbeitsbrett für intensives Schneiden, Servieren und austretende Flüssigkeit suchst.";
+      }
+      return isEnglish ? "Choose this board if you cut regularly, use good knives and accept a heavier work board." : "Wähle dieses Brett, wenn du regelmäßig schneidest, gute Messer nutzt und ein schwereres Arbeitsbrett akzeptierst.";
+    }
+    if (/nussbaum|walnut/i.test(String(product.material || product.name))) {
+      return isEnglish ? "Choose this board if dark appearance and table presence matter more than a brighter everyday look." : "Wähle dieses Brett, wenn dir dunkle Optik und Wirkung am Tisch wichtiger sind als ein helleres Alltagsbild.";
+    }
+    if (/eiche|oak/i.test(String(product.material || product.name))) {
+      return isEnglish ? "Choose this board if you want a brighter everyday board that feels less massive than end grain." : "Wähle dieses Brett, wenn du ein helleres Alltagsbrett suchst, das weniger wuchtig wirkt als Stirnholz.";
+    }
+    if (/bambus|birke|bamboo|birch/.test(text)) {
+      return isEnglish ? "Choose this board if you want a larger work surface and a brighter, more graphic material look." : "Wähle dieses Brett, wenn du eine größere Arbeitsfläche und ein helleres, grafisches Materialbild suchst.";
+    }
+    if (Array.isArray(product.useCases) && product.useCases.indexOf("bbq") !== -1) {
+      return isEnglish ? "Choose this board if you mainly carve, season and serve after grilling." : "Wähle dieses Brett, wenn du vor allem nach dem Grillen tranchierst, würzt und servierst.";
+    }
+    if (comparedTo && product.category !== comparedTo.category) {
+      return isEnglish ? "Choose this if this product type matches the task you actually need." : "Wähle dieses Produkt, wenn genau diese Produktart zu deiner eigentlichen Aufgabe passt.";
+    }
+    return "";
+  }
+
+  function constructionLabel(product) {
+    if (!product || product.category !== "board") {
+      return "";
+    }
+    return isEndGrain(product) ? "Stirnholz" : "Langholz";
+  }
+
+  function isEndGrain(product) {
+    var text = [
+      product.woodCut,
+      product.name,
+      product.displayName,
+      product.title,
+      product.shortDescription,
+      product.longDescription
+    ].join(" ").toLowerCase();
+    return product.woodCut === "end" || /stirnholz|end\s*grain/.test(text);
+  }
+
+  function dimensionLabel(product) {
+    return meaningful(product.sizeLabel) ||
+      meaningful(product.dimensions) ||
+      extractDimensionsFromText([
+        product.displayName,
+        product.name,
+        product.title,
+        product.shortDescription,
+        product.longDescription
+      ].join(" "));
+  }
+
+  function extractDimensionsFromText(text) {
+    if (!text) {
+      return "";
+    }
+    var normalized = String(text)
+      .replace(/×/g, "x")
+      .replace(/\s+/g, " ");
+    var match = normalized.match(/(?:maße|masse|größe|format)?\s*:?\s*(ca\.\s*)?(\d{1,3}(?:[,.]\d+)?)\s*x\s*(\d{1,3}(?:[,.]\d+)?)(?:\s*x\s*(\d{1,3}(?:[,.]\d+)?))?\s*cm\b/i);
+    if (!match) {
+      return "";
+    }
+    var prefix = match[1] ? "ca. " : "";
+    var values = [match[2], match[3], match[4]].filter(Boolean).map(function (value) {
+      return value.replace(".", ",");
+    });
+    return prefix + values.join(" × ") + " cm";
+  }
+
+  function normalizeConstructionTerms(value) {
+    return String(value || "")
+      .replace(/Face\s*Grain|Edge\s*Grain|Long\s*Grain/gi, "Langholz")
+      .replace(/Flankenholz|Längsholz/gi, "Langholz");
+  }
+
+  function weightLabel(product) {
+    var weight = product.weight || product.weightLabel;
+    if (weight) {
+      return weight;
+    }
+    if (product.weightClass === "heavy") {
+      return isEnglish ? "heavy" : "schwer";
+    }
+    if (product.weightClass === "medium") {
+      return isEnglish ? "medium" : "mittel";
+    }
+    if (product.weightClass === "light") {
+      return isEnglish ? "light" : "leicht";
+    }
+    return "";
+  }
+
+  function exactWeightLabel(product) {
+    var weight = product.weight || product.weightLabel || "";
+    if (/(^|\s)(ca\.\s*)?\d+(?:[,.]\d+)?\s*(kg|g)\b/i.test(String(weight))) {
+      return String(weight);
+    }
+    return "";
+  }
+
+  function displayPriceLabel(product) {
+    return String(product && product.priceLabel ? product.priceLabel : "")
+      .replace(/\s*EUR\b/g, " €")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+
+  function productUseLabel(product) {
+    if (product.category === "care") {
+      return isEnglish ? "Care for wood surfaces" : "Pflege von Holzoberflächen";
+    }
+    if (product.category === "accessory") {
+      return isEnglish ? "Kitchen tool" : "Küchenwerkzeug";
+    }
+    if (product.category === "board") {
+      return isEnglish ? "Cutting and serving" : "Schneiden und Servieren";
+    }
+    return product.segment || "";
+  }
+
+  function productApplication(product) {
+    if (product.category === "care") {
+      return isEnglish ? "Refreshing dry or matte wood" : "Trockene oder matte Holzoberflächen auffrischen";
+    }
+    if (product.category === "accessory") {
+      return productMoment(product);
+    }
+    return productExperienceText(product);
+  }
+
+  function productRole(product) {
+    if (product.category === "accessory") {
+      return isEnglish ? "tool" : "Werkzeug";
+    }
+    if (product.category === "care") {
+      return isEnglish ? "care product" : "Pflegeprodukt";
+    }
+    if (product.giftable) {
+      return isEnglish ? "board and gift" : "Brett und Geschenk";
+    }
+    return isEnglish ? "board" : "Brett";
+  }
+
+  function engravingLabel(product) {
+    if (product.engravingPossible === true || hasBadge(product, "Gravur") || hasBadge(product, "personalisierbar")) {
+      return isEnglish ? "on request" : "auf Anfrage";
+    }
+    return "";
+  }
+
+  function booleanLabel(value) {
+    return value ? (isEnglish ? "yes" : "ja") : "";
+  }
+
+  function compareButtonLabel(productId) {
+    if (compareIds.indexOf(productId) !== -1) {
+      return labels.removeCompare;
+    }
+    if (compareIds.length >= 2) {
+      return labels.replaceCompare;
+    }
+    return labels.addCompare;
+  }
+
+  function hasVerifiedListing(product) {
+    return Boolean(isAvailableProduct(product) && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
+  }
+
+  function availabilityStatus(product) {
+    if (!product) {
+      return "inactive";
+    }
+    if (product.availabilityStatus) {
+      return String(product.availabilityStatus).toLowerCase();
+    }
+    if (product.active === false) {
+      return "inactive";
+    }
+    if (product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl)) {
+      return "available";
+    }
+    return "unknown";
+  }
+
+  function isAvailableProduct(product) {
+    return availabilityStatus(product) === "available";
+  }
+
+  function isGridProduct(product) {
+    if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
+      return false;
+    }
+    if (availabilityStatus(product) === "made_to_order") {
+      return product.visibility === "grid";
+    }
+    return isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
+  }
+
+  function isComparableProduct(product) {
+    return isGridProduct(product) || product.visibility === "preview_only";
+  }
+
+  function etsyActionLabel(product) {
+    if (product.category === "care") {
+      return labels.buyCare;
+    }
+    if (product.category && product.category !== "board") {
+      return labels.buyProduct;
+    }
+    return labels.buyBoard;
+  }
+
+  function etsyActionUrl(product) {
+    return product.etsyListingUrl || product.etsyUrl || "";
+  }
+
+  function displayProductName(product) {
+    var name = String(product.displayName || product.name || "");
+    if (name.indexOf("|") !== -1) {
+      name = name.split("|")[0];
+    }
+    return name
+      .replace(/:\s*\d{1,3}(?:[,.]\d+)?\s*[x×].*$/i, "")
+      .replace(/\s+[–-]\s*\d{1,3}(?:[,.]\d+)?\s*[x×].*$/i, "")
+      .replace(/\s{2,}/g, " ")
+      .trim() || (isEnglish ? "View product" : "Produkt ansehen");
+  }
+
+  function productImageAlt(product) {
+    if (product.category === "care") {
+      return isEnglish ? "Wood care product for cutting boards" : "Holzpflegeprodukt für Schneidebretter";
+    }
+    if (product.category === "accessory") {
+      return isEnglish ? "Handmade wooden kitchen accessory by Edle Hölzer" : "Handgefertigtes Küchenaccessoire aus Holz von Edle Hölzer";
+    }
+    return (isEnglish ? "Wooden cutting board by Edle Hölzer" : "Schneidebrett aus Holz von Edle Hölzer") + (product.material ? " - " + product.material : "");
+  }
+
+  function meaningful(value) {
+    if (!value) {
+      return "";
+    }
+    var text = String(value);
+    if (/Format laut Etsy|laut Etsy-Export|laut Etsy-Listing|Set laut|nicht relevant/i.test(text)) {
+      return "";
+    }
+    return text;
+  }
+
+  function displayValue(value) {
+    return meaningful(value) || "";
+  }
+
+  function hasBadge(product, term) {
+    return Array.isArray(product.badges) && product.badges.some(function (badge) {
+      return String(badge || "").toLowerCase().indexOf(String(term).toLowerCase()) !== -1;
+    });
+  }
+
+  function unique(items) {
+    var seen = {};
+    return items.filter(function (item) {
+      var key = String(item || "").toLowerCase();
+      if (!key || seen[key]) {
+        return false;
+      }
+      seen[key] = true;
+      return true;
+    });
+  }
+
+  function readCompareState() {
+    try {
+      var raw = window.localStorage && window.localStorage.getItem("edleHoelzerCompareProducts");
+      var parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed.filter(Boolean).slice(0, 2) : [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function writeCompareState() {
+    try {
+      if (window.localStorage) {
+        window.localStorage.setItem("edleHoelzerCompareProducts", JSON.stringify(compareIds.slice(0, 2)));
+      }
+    } catch (error) {
+      // Vergleich funktioniert auch ohne localStorage.
+    }
+  }
+
+  function track(eventName, product, extra) {
+    var payload = Object.assign({
+      product_id: product && product.id,
+      product_title: product && displayProductName(product),
+      product_category: product && product.category,
+      wood: product && product.material
+    }, extra || {});
+
+    if (window.umami && typeof window.umami.track === "function") {
+      window.umami.track(eventName, payload);
+    }
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function escapeAttribute(value) {
+    return escapeHtml(value);
+  }
+}
+
 function initProductsPage() {
   var finderRoot = document.querySelector("[data-product-finder]");
   var gridRoot = document.querySelector("[data-products-grid]");
@@ -1163,7 +2466,7 @@ function initProductsPage() {
     careIntensity: ["low", "medium"]
   };
 
-  fetch("/products.json")
+  fetch("/products.json?v=20260630")
     .then(function (response) {
       if (!response.ok) {
         throw new Error("products.json konnte nicht geladen werden.");
@@ -1177,9 +2480,7 @@ function initProductsPage() {
       }
 
       state.products = products;
-      state.activeProducts = products.filter(function (product) {
-        return product.active === true;
-      });
+      state.activeProducts = products.filter(isGridProduct);
 
       validateProducts(products);
       renderFinder();
@@ -1376,14 +2677,14 @@ function initProductsPage() {
         '<p><strong>' + (isEnglish ? "This board fits because: " : "Dieses Brett passt, weil: ") + '</strong>' + escapeHtml(buildReason(main)) + '</p>' +
       '</div>' +
       '<div class="recommendationCard">' +
-        buildProductMedia(main) +
+        buildProductMedia(main, false) +
         '<div class="recommendationCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(main.segment) + '</p>' +
           '<h3>' + escapeHtml(displayProductName(main)) + '</h3>' +
           buildFeatureBadges(main) +
           buildProductFacts(main) +
-          '<p class="productCard__price">' + escapeHtml(main.priceLabel) + '</p>' +
-          buildProductActions(main) +
+          '<p class="productCard__price">' + escapeHtml(displayPriceLabel(main)) + '</p>' +
+          buildProductActions(main, "finder", buildReason(main)) +
           '<div class="ctaRow finderResult__secondaryActions">' +
             '<a class="btn btn--ghost-dark" href="' + gridAnchor + '">' + (isEnglish ? "View product grid" : "Produktgrid ansehen") + '</a>' +
             '<button class="btn btn--ghost-dark" type="button" data-finder-reset>' + (isEnglish ? "Restart" : "Neu starten") + '</button>' +
@@ -1552,10 +2853,8 @@ function initProductsPage() {
   }
 
   function hasConcreteFinderData(product) {
-    return product.sizeLabel &&
-      product.sizeLabel !== "Format laut Etsy-Export" &&
-      product.thicknessLabel &&
-      product.thicknessLabel !== "laut Etsy-Export";
+    return dimensionLabel(product) &&
+      hasMeaningfulValue(product.thicknessLabel);
   }
 
   function buildReason(product) {
@@ -1589,7 +2888,10 @@ function initProductsPage() {
     }
 
     if (haptics && priority) {
-      parts.push((isEnglish ? "Your choices around feel and priority point toward " : "Deine Auswahl bei Haptik und Priorität spricht für ") + product.sizeLabel + ", " + product.thicknessLabel + (isEnglish ? " and " : " und ") + product.material + ".");
+      var facts = [dimensionLabel(product), hasMeaningfulValue(product.thicknessLabel), product.material].filter(Boolean);
+      if (facts.length) {
+        parts.push((isEnglish ? "Your choices around feel and priority point toward " : "Deine Auswahl bei Haptik und Priorität spricht für ") + facts.join(isEnglish ? ", " : ", ") + ".");
+      }
     }
 
     return parts.join(" ");
@@ -1672,29 +2974,35 @@ function initProductsPage() {
       var highlighted = state.highlightedIds.indexOf(product.id) !== -1;
       var review = product.needsReview ? " is-review" : "";
       return '<article class="productCard' + (highlighted ? " is-highlighted" : "") + review + '">' +
-        buildProductMedia(product) +
+        buildProductMedia(product, "grid") +
         '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(product.segment) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
           buildFeatureBadges(product) +
           buildProductFacts(product) +
-          '<p class="productCard__price">' + escapeHtml(product.priceLabel) + '</p>' +
-          buildProductActions(product) +
+          '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' +
+          buildProductActions(product, "grid") +
         '</div>' +
       '</article>';
     }).join("");
   }
 
-  function buildProductMedia(product) {
+  function buildProductMedia(product, source) {
     if (!product.image || product.imageVerified !== true) {
       return '<div class="productCard__media productCard__media--pending">' +
         '<span>' + (isEnglish ? "Product image coming soon" : "Produktbild folgt") + '</span>' +
       '</div>';
     }
 
-    return '<div class="productCard__media"' + productImageStyle(product) + '>' +
+    if (source === false) {
+      return '<div class="productCard__media"' + productImageStyle(product) + '>' +
+        '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
+      '</div>';
+    }
+
+    return '<button class="productCard__media productCard__mediaButton" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "grid") + '"' + productImageStyle(product) + '>' +
       '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
-    '</div>';
+    '</button>';
   }
 
   function productImageStyle(product) {
@@ -1743,7 +3051,7 @@ function initProductsPage() {
     }
 
     return '<div class="productBadgeRow">' + filtered.slice(0, 3).map(function (badge) {
-      return '<span>' + escapeHtml(badge) + '</span>';
+      return '<span>' + escapeHtml(normalizeConstructionTerms(badge)) + '</span>';
     }).join("") + '</div>';
   }
 
@@ -1754,16 +3062,8 @@ function initProductsPage() {
       facts.push([isEnglish ? "Material" : "Material", product.material]);
     }
 
-    if (product.category === "board" && hasMeaningfulValue(product.sizeLabel)) {
-      facts.push([isEnglish ? "Size" : "Maße", product.sizeLabel]);
-    }
-
-    if (product.category === "board" && product.weightClass) {
-      facts.push([isEnglish ? "Weight" : "Gewicht", labelFor(product.weightClass)]);
-    }
-
-    if (product.category === "board" && product.portability) {
-      facts.push([isEnglish ? "Handling" : "Handling", labelFor(product.portability)]);
+    if (product.category === "board" && dimensionLabel(product)) {
+      facts.push([isEnglish ? "Size" : "Maße", dimensionLabel(product)]);
     }
 
     if (product.category === "care") {
@@ -1784,16 +3084,20 @@ function initProductsPage() {
       return "";
     }
 
-    return '<dl class="productFacts">' + facts.map(function (fact) {
+    return '<dl class="productFacts productFacts--compact">' + facts.slice(0, 2).map(function (fact) {
       return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
     }).join("") + '</dl>';
   }
 
   function hasMeaningfulValue(value) {
-    return value &&
-      value !== "Format laut Etsy-Export" &&
-      value !== "laut Etsy-Export" &&
-      value !== "nicht relevant";
+    if (!value) {
+      return "";
+    }
+    var text = String(value).trim();
+    if (!text || /Format laut Etsy|laut Etsy-Export|laut Etsy-Listing|Set laut|nicht relevant/i.test(text)) {
+      return "";
+    }
+    return text;
   }
 
   function displayProductName(product) {
@@ -1865,37 +3169,54 @@ function initProductsPage() {
     });
   }
 
-  function buildProductActions(product) {
+  function buildProductActions(product, source, reason) {
+    var detailsLabel = primaryCardCta(product);
+    var compareLabel = isEnglish ? "Compare" : "Vergleichen";
+    var productSource = source || "grid";
+    var reasonAttribute = reason ? ' data-product-reason="' + escapeAttribute(reason) + '"' : "";
+    var detailButton = '<button class="btn btn--emphasis" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '"' + reasonAttribute + '>' + escapeHtml(detailsLabel) + '</button>';
+    var compareButton = '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '">' + escapeHtml(compareLabel) + '</button>';
+
     if (!hasVerifiedListing(product)) {
-      return '<div class="ctaRow ctaRow--stacked"><span class="productCard__availability">' +
-        (isEnglish ? "Currently not available as a direct Etsy listing." : "Aktuell nicht als direktes Etsy-Angebot verfügbar.") +
+      return '<div class="ctaRow ctaRow--stacked">' + detailButton + compareButton + '<span class="productCard__availability">' +
+        escapeHtml(labels.unavailableText) +
         '</span><a class="btn btn--secondary" href="' + (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder") + '" data-umami-event="produktfinder-gestartet">' +
-        (isEnglish ? "Find a similar board" : "Ähnliches Brett finden") +
+        escapeHtml(labels.askSimilar) +
         '</a></div>';
     }
 
-    var primaryLabel = etsyActionLabel(product);
-    return '<div class="ctaRow"><span class="etsyBuyBlock"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + primaryLabel + '</a><span class="etsyTrust">' + (isEnglish ? "🔒 Secure via Etsy · Buyer protection included" : "🔒 Sicher über Etsy · Käuferschutz inklusive") + '</span></span></div>';
+    return '<div class="ctaRow ctaRow--product-card">' +
+      detailButton +
+      compareButton +
+      '<span class="etsyBuyBlock"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + (isEnglish ? "View on Etsy" : "Auf Etsy ansehen") + '</a><span class="etsyTrust">' + (isEnglish ? "Checkout via Etsy · Buyer protection available there" : "Checkout über Etsy · Käuferschutz dort verfügbar") + '</span></span>' +
+    '</div>';
+  }
+
+  function primaryCardCta(product) {
+    if (product && product.category === "board") {
+      return isEnglish ? "Discover board" : "Brett entdecken";
+    }
+    return isEnglish ? "Discover product" : "Produkt entdecken";
   }
 
   function buildAlternativeCard(product) {
     var content =
-      buildProductMedia(product) +
+      buildProductMedia(product, false) +
       '<span class="alternativeCard__body">' +
         '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
         '<strong>' + escapeHtml(displayProductName(product)) + '</strong>' +
-        '<span>' + escapeHtml(product.priceLabel) + '</span>' +
+        '<span>' + escapeHtml(displayPriceLabel(product)) + '</span>' +
+        '<span class="alternativeCard__actions">' +
+          '<button type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Details" : "Details") + '</button>' +
+          '<button type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Compare" : "Vergleichen") + '</button>' +
+        '</span>' +
       '</span>';
 
-    if (hasVerifiedListing(product)) {
-      return '<a class="alternativeCard" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + content + '</a>';
-    }
-
-    return '<a class="alternativeCard" href="' + (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder") + '" data-umami-event="produktfinder-gestartet">' + content + '</a>';
+    return '<article class="alternativeCard">' + content + '</article>';
   }
 
   function hasVerifiedListing(product) {
-    return Boolean(product && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
+    return Boolean(isAvailableProduct(product) && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
   }
 
   function etsyActionLabel(product) {
@@ -1920,6 +3241,79 @@ function initProductsPage() {
     }
 
     return isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder";
+  }
+
+  function availabilityStatus(product) {
+    if (!product) {
+      return "inactive";
+    }
+    if (product.availabilityStatus) {
+      return String(product.availabilityStatus).toLowerCase();
+    }
+    if (product.active === false) {
+      return "inactive";
+    }
+    if (product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl)) {
+      return "available";
+    }
+    return "unknown";
+  }
+
+  function isAvailableProduct(product) {
+    return availabilityStatus(product) === "available";
+  }
+
+  function isGridProduct(product) {
+    if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
+      return false;
+    }
+    if (availabilityStatus(product) === "made_to_order") {
+      return product.visibility === "grid";
+    }
+    return isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
+  }
+
+  function displayPriceLabel(product) {
+    return String(product && product.priceLabel ? product.priceLabel : "")
+      .replace(/\s*EUR\b/g, " €")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+
+  function dimensionLabel(product) {
+    return hasMeaningfulValue(product.sizeLabel) ? product.sizeLabel :
+      hasMeaningfulValue(product.dimensions) ? product.dimensions :
+      extractDimensionsFromText([
+        product.displayName,
+        product.name,
+        product.title,
+        product.shortDescription,
+        product.longDescription
+      ].join(" "));
+  }
+
+  function extractDimensionsFromText(text) {
+    if (!text) {
+      return "";
+    }
+    var normalized = String(text)
+      .replace(/×/g, "x")
+      .replace(/\s+/g, " ");
+    var match = normalized.match(/(?:maße|masse|größe|format)?\s*:?\s*(ca\.\s*)?(\d{1,3}(?:[,.]\d+)?)\s*x\s*(\d{1,3}(?:[,.]\d+)?)(?:\s*x\s*(\d{1,3}(?:[,.]\d+)?))?\s*cm\b/i);
+    if (!match) {
+      return "";
+    }
+    var prefix = match[1] ? "ca. " : "";
+    var values = [match[2], match[3], match[4]].filter(Boolean).map(function (value) {
+      return value.replace(".", ",");
+    });
+    return prefix + values.join(" × ") + " cm";
+  }
+
+  function normalizeConstructionTerms(value) {
+    return String(value || "")
+      .replace(/Face\s*Grain|Edge\s*Grain|Long\s*Grain/gi, "Langholz")
+      .replace(/Flankenholz|Längsholz/gi, "Langholz");
   }
 
   function labelFor(value) {

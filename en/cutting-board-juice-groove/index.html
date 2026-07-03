@@ -15,12 +15,12 @@
   <meta property="og:description" content="Solid wood cutting boards with juice groove, handcrafted in Central Hesse. For meat, steak and juicy ingredients.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://edlehoelzer.de/en/cutting-board-juice-groove/">
-  <meta property="og:image" content="https://edlehoelzer.de/assets/barbecue-geschenk.jpg">
+  <meta property="og:image" content="https://edlehoelzer.de/assets/Schneidebrett_Saftrille2.avif">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260613">
+  <link rel="stylesheet" href="/styles.css?v=20260702-home-reveal">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,7 +129,7 @@
           <a href="/en/products.html#products-grid" class="btn">View all products</a>
         </div>
       </div>
-      <img class="seoHero__image" src="/assets/barbecue-geschenk.jpg" alt="Servierbrett aus Holz mit geschnittenem Steak als BBQ Geschenk für Grillfans" width="1197" height="1600" decoding="async" srcset="/assets/barbecue-geschenk-800.jpg 598w, /assets/barbecue-geschenk-1200.jpg 897w, /assets/barbecue-geschenk.jpg 1197w" sizes="(max-width: 767px) 100vw, 50vw" loading="eager" fetchpriority="high">
+      <img class="seoHero__image" src="/assets/Schneidebrett_Saftrille2.avif" alt="Cutting board with juice groove and sliced steak on wood" width="1588" height="1059" decoding="async" loading="eager" fetchpriority="high">
     </div>
   </section>
 
@@ -270,10 +270,13 @@
     <p class="footerCopyright">All content, images, photographs, renderings, logos, text and design elements on this website are protected by copyright. Use, reproduction, editing or distribution without express written permission from Edle Hölzer is not permitted.</p>
   </div>
 </footer>
-<script src="/main.js?v=20260612"></script>
-<script src="/assets/js/product-grid.js?v=20260612"></script>
+<script src="/main.js?v=20260630-ux3"></script>
+<script src="/assets/js/product-grid.js?v=20260630-ux3"></script>
 <script>
-  renderProductGrid("products-cutting-board-juice-groove", function (p) { return p.category === "board"; }, { maxItems: 6 });
+  renderProductGrid("products-cutting-board-juice-groove", function (p) {
+    var text = ((p.name || "") + " " + (p.displayName || "")).toLowerCase();
+    return p.category === "board" && (text.indexOf("saftrille") !== -1 || text.indexOf("juice") !== -1);
+  }, { maxItems: 6 });
 </script>
 </body>
 </html>

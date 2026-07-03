@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -9,10 +10,15 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const REVIEWS_PATH = path.join(ROOT, "data", "reviews.json");
 const META_PATH = path.join(ROOT, "data", "reviews-meta.json");
+const ENV_PATH = path.join(ROOT, ".env");
+const FALLBACK_ENV_PATH = path.join(ROOT, "..", ".env");
+const LISTING_GENERATOR_ENV_PATH = path.join(ROOT, "..", "listing-generator", ".env");
 
-const API_KEY = process.env.ETSY_API_KEY;
+loadDotEnv();
+
+const API_KEY = process.env.ETSY_API_KEY_HEADER || process.env.ETSY_API_KEY || process.env.ETSY_SHARED_SECRET;
 const SHOP_ID = process.env.ETSY_SHOP_ID;
-const ACCESS_TOKEN = process.env.ETSY_ACCESS_TOKEN;
+const ACCESS_TOKEN = process.env.ETSY_ACCESS_TOKEN || process.env.ETSY_OAUTH_TOKEN;
 
 main().catch((error) => {
   console.error("[reviews:update] Abbruch:", error.message);
@@ -134,4 +140,37 @@ async function readJson(filePath, fallback) {
 async function writeJson(filePath, data) {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
   await fs.writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+}
+
+function loadDotEnv() {
+  [LISTING_GENERATOR_ENV_PATH, FALLBACK_ENV_PATH, ENV_PATH].forEach((filePath) => {
+    if (fsSync.existsSync(filePath)) {
+      loadDotEnvFile(filePath);
+    }
+  });
+}
+
+function loadDotEnvFile(filePath) {
+  const lines = fsSync.readFileSync(filePath, "utf8").split(/\r?\n/);
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) return;
+
+    const separatorIndex = trimmed.indexOf("=");
+    if (separatorIndex <= 0) return;
+
+    const key = trimmed.slice(0, separatorIndex).trim();
+    const rawValue = trimmed.slice(separatorIndex + 1).trim();
+    if (!key || process.env[key] !== undefined) return;
+
+    process.env[key] = unquote(rawValue);
+  });
+}
+
+function unquote(value) {
+  if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+    return value.slice(1, -1);
+  }
+
+  return value;
 }
