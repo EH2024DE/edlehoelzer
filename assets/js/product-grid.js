@@ -91,7 +91,7 @@
         '" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-umami-event="etsy-klick"'
       : ' data-umami-event="produktfinder-gestartet"';
 
-    return '<article class="productCard seo-product-card">' +
+    return '<article class="' + productCardClass(product) + '">' +
       '<button class="productCard__link productCard__previewLink" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' +
         '<span class="productCard__media productCard__imgWrap"' + productImageStyle(product) + '>' +
           '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
@@ -115,6 +115,22 @@
           '</div>' +
         '</div>' +
     '</article>';
+  }
+
+  function productCardClass(product) {
+    var classes = ["productCard", "seo-product-card"];
+    var category = String(product.category || "").toLowerCase();
+    var name = String((product.displayName || product.name || "")).toLowerCase();
+
+    if (category === "accessory" || /teigschaber|pfannenwender|wender|schaber/.test(name)) {
+      classes.push("productCard--accessory");
+    }
+
+    if (category === "care") {
+      classes.push("productCard--care");
+    }
+
+    return classes.join(" ");
   }
 
   function buyLabelFor(product, isEnglish) {
