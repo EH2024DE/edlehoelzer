@@ -231,8 +231,8 @@ function initStickyMobileCta() {
   var path = window.location.pathname;
   var current = path === "/index.html" ? "/" : path;
   var ctas = {
-    "/": { label: "Ritualfinder starten", href: "/produkte.html#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "produktfinder-gestartet" },
-    "/produkte.html": { label: "Ritualfinder starten", href: "#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "#produkte-grid", event: "produktfinder-gestartet" },
+    "/": { label: "Passendes Brett finden", href: "/produkte.html#produktfinder", secondary: "Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "produktfinder-gestartet" },
+    "/produkte.html": { label: "Passendes Brett finden", href: "#produktfinder", secondary: "Produkte ansehen", secondaryHref: "#produkte-grid", event: "produktfinder-gestartet" },
     "/schneidebretter-massivholz/": { label: "Schneidebretter ansehen", href: "#products-massivholz", secondary: "Individuelles Brett anfragen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett", event: null },
     "/schneidebrett-nach-mass/": { label: "Maßanfertigung anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Ma%C3%9F", secondary: "Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "email-kontakt" },
     "/schneidebrett-mit-gravur/": { label: "Gravierbares Brett ansehen", href: "#products-gravur", secondary: "B2B-Gravur anfragen", secondaryHref: "/b2b.html", event: null },
@@ -472,7 +472,7 @@ function initCardWelcome() {
         '<li>Schnelle persönliche Beratung</li>' +
       '</ul>' +
       '<div class="cardWelcome__actions">' +
-        '<a class="btn" href="./produkte.html#produktfinder">Ritualfinder starten</a>' +
+        '<a class="btn" href="./produkte.html#produktfinder">Passendes Brett finden</a>' +
         '<a class="btn btn--ghost-dark" href="./produkte.html#produkte-grid">Produkte ansehen</a>' +
       '</div>' +
       '<a class="cardWelcome__contact" href="mailto:info@edlehoelzer.de?subject=Frage%20zur%20Holzkarte">Frage stellen</a>';
