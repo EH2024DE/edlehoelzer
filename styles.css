@@ -107,10 +107,6 @@ section[id]{scroll-margin-top:88px}
 .hero h1{font-size:clamp(38px,4.85vw,62px);color:rgba(245,240,232,0.94);text-shadow:0 2px 10px rgba(0,0,0,.22),0 14px 34px rgba(0,0,0,.20)}
 .hero__lead{margin:18px 0 0 0;font-size:clamp(18px,2.05vw,25px);color:rgba(255,255,255,.92);max-width:46ch}
 .hero__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.hero__tertiary{display:inline-flex;margin-top:14px;color:rgba(255,255,255,.84);font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}
-.hero__tertiary:hover{color:#fff}
-.heroProofChips{display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 0;padding:0;list-style:none;max-width:640px}
-.heroProofChips li{padding:7px 10px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(0,0,0,.18);color:rgba(255,255,255,.82);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .hero__textlink{margin:14px 0 0;color:rgba(255,255,255,.82);font-size:14px;font-weight:700}
 .hero__textlink a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .hero .btn,
@@ -1540,25 +1536,6 @@ section[id]{scroll-margin-top:88px}
   .hero__actions{
     gap:8px;
     margin-top:34px;
-  }
-
-  .hero__tertiary{
-    margin-top:10px;
-    font-size:10px;
-    letter-spacing:.05em;
-  }
-
-  .heroProofChips{
-    gap:6px;
-    margin-top:12px;
-    max-width:34ch;
-  }
-
-  .heroProofChips li{
-    padding:5px 8px;
-    font-size:9px;
-    letter-spacing:.06em;
-    background:rgba(0,0,0,.10);
   }
 
   .hero__textlink{

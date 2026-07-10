@@ -38,7 +38,7 @@ Diese Seiten dürfen emotionaler werden, aber nicht ihre Suchintention verlieren
 Die Ritualebene sitzt auf:
 
 - Homepage
-- Produkt-/Ritualfinder
+- Produkt-/Brettfinder
 - Hub-Abschnitten
 - Geschenk- und Erbstück-Kommunikation
 - internen Entscheidungskarten
@@ -87,4 +87,3 @@ Passt ausdrücklich nicht:
 4. Produktdaten um Ritual-Tags erweitern, damit Finder und Empfehlungen nicht nur nach Kategorie, sondern nach Nutzungsmoment sortieren.
 5. FAQ und strukturierte Daten später um klare Brand-Entity-Sätze ergänzen, sobald Inhalte sichtbar vorhanden sind.
 6. Für neue Produkte vor Aufnahme prüfen: Welches Ritual begleitet es, welches bestehende Produkt ergänzt es und warum passt es zu Edle Hölzer?
-
