@@ -41,6 +41,12 @@
     "priceCurrency": "EUR",
     "availability": "https://schema.org/InStock",
     "url": "https://edlehoelzervonkoc.etsy.com/listing/4471048251",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "DE",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnUnspecified",
+      "merchantReturnLink": "https://www.etsy.com/legal/buyers/"
+    },
     "shippingDetails": {
       "@type": "OfferShippingDetails",
       "shippingDestination": {
@@ -51,6 +57,15 @@
         "@type": "MonetaryAmount",
         "value": "0",
         "currency": "EUR"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 2,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        }
       }
     }
   },
