@@ -231,8 +231,8 @@ function initStickyMobileCta() {
   var path = window.location.pathname;
   var current = path === "/index.html" ? "/" : path;
   var ctas = {
-    "/": { label: "Produktfinder starten", href: "/produkte.html#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "produktfinder-gestartet" },
-    "/produkte.html": { label: "Produktfinder starten", href: "#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "#produkte-grid", event: "produktfinder-gestartet" },
+    "/": { label: "Ritualfinder starten", href: "/produkte.html#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "produktfinder-gestartet" },
+    "/produkte.html": { label: "Ritualfinder starten", href: "#produktfinder", secondary: "Alle Produkte ansehen", secondaryHref: "#produkte-grid", event: "produktfinder-gestartet" },
     "/schneidebretter-massivholz/": { label: "Schneidebretter ansehen", href: "#products-massivholz", secondary: "Individuelles Brett anfragen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett", event: null },
     "/schneidebrett-nach-mass/": { label: "Maßanfertigung anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Ma%C3%9F", secondary: "Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "email-kontakt" },
     "/schneidebrett-mit-gravur/": { label: "Gravierbares Brett ansehen", href: "#products-gravur", secondary: "B2B-Gravur anfragen", secondaryHref: "/b2b.html", event: null },
@@ -472,7 +472,7 @@ function initCardWelcome() {
         '<li>Schnelle persönliche Beratung</li>' +
       '</ul>' +
       '<div class="cardWelcome__actions">' +
-        '<a class="btn" href="./produkte.html#produktfinder">Produktfinder starten</a>' +
+        '<a class="btn" href="./produkte.html#produktfinder">Ritualfinder starten</a>' +
         '<a class="btn btn--ghost-dark" href="./produkte.html#produkte-grid">Produkte ansehen</a>' +
       '</div>' +
       '<a class="cardWelcome__contact" href="mailto:info@edlehoelzer.de?subject=Frage%20zur%20Holzkarte">Frage stellen</a>';
@@ -2150,12 +2150,12 @@ function initProductsPage() {
   var questionsDe = [
     {
       id: "use",
-      title: "Wofür soll dein Brett da sein?",
+      title: "Welches Ritual soll dein Holzstück begleiten?",
       options: [
         {
           value: "daily",
-          title: "Täglich kochen",
-          description: "Für Gemüse, Brot und die Arbeitsfläche, auf der jeden Tag geschnitten wird.",
+          title: "Frühstück & täglich kochen",
+          description: "Für Brot, Gemüse und die Arbeitsfläche, auf der jeden Tag geschnitten, belegt oder vorbereitet wird.",
           attributes: "ruhig liegend · gut führbar · täglich"
         },
         {
@@ -2285,12 +2285,12 @@ function initProductsPage() {
   var questionsEn = [
     {
       id: "use",
-      title: "What moment is the board for?",
+      title: "What ritual should the wooden piece support?",
       options: [
         {
           value: "daily",
-          title: "Daily cooking",
-          description: "For vegetables, bread and the worktop where you cut every day.",
+          title: "Breakfast & daily cooking",
+          description: "For bread, vegetables and the worktop where you cut, prepare or serve every day.",
           attributes: "steady · easy to handle · daily"
         },
         {
@@ -2659,8 +2659,8 @@ function initProductsPage() {
     if (!main) {
       resultRoot.hidden = false;
       resultRoot.innerHTML = isEnglish
-        ? '<h2>This is probably the best direction for your everyday use</h2><p>For this combination, a short personal check makes sense so format, wood and use really fit together.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Cutting%20board%20inquiry">Ask about a board</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Restart finder</button></div>'
-        : '<h2>Das dürfte am besten zu deinem Alltag passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">Schneidebrett anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
+        ? '<h2>This is probably the best direction for your ritual</h2><p>For this combination, a short personal check makes sense so format, wood and use really fit together.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Wooden%20piece%20inquiry">Ask about a wooden piece</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Restart finder</button></div>'
+        : '<h2>Das dürfte am besten zu deinem Ritual passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Holzst%C3%BCck">Holzstück anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
       bindReset(resultRoot);
       return;
     }
@@ -2673,7 +2673,7 @@ function initProductsPage() {
     resultRoot.innerHTML =
       '<div class="finderResult__head">' +
         '<p class="eyebrow eyebrow--dark">' + (isEnglish ? "Recommendation" : "Empfehlung") + '</p>' +
-        '<h2>' + (isEnglish ? "This is probably the best direction for your moment" : "Das dürfte am besten zu deinem Moment passen") + '</h2>' +
+        '<h2>' + (isEnglish ? "This is probably the best direction for your ritual" : "Das dürfte am besten zu deinem Ritual passen") + '</h2>' +
         '<p><strong>' + (isEnglish ? "This board fits because: " : "Dieses Brett passt, weil: ") + '</strong>' + escapeHtml(buildReason(main)) + '</p>' +
       '</div>' +
       '<div class="recommendationCard">' +
