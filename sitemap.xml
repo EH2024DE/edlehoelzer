@@ -151,6 +151,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://edlehoelzer.de/en/custom-cutting-board/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://edlehoelzer.de/en/engraved-cutting-board/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://edlehoelzer.de/en/end-grain-cutting-board/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://edlehoelzer.de/en/wooden-dough-scraper/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
