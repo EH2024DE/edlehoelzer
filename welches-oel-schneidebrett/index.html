@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260703-landing-image-fix">
+  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -101,6 +101,7 @@
 <!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
 <script defer src="https://cloud.umami.is/script.js"
         data-website-id="9c072a65-fef4-48ce-a03c-6f1e9d443acc"
+        data-exclude-hash="true"
         data-domains="edlehoelzer.de,www.edlehoelzer.de"></script>
 </head>
 <body>
@@ -164,6 +165,27 @@
           </div>
           <div class="ctaRow"><a href="https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter" target="_blank" rel="noopener" class="btn btn--emphasis" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="welches-oel-schneidebrett">Pflegebalsam ansehen</a></div>
         </div>
+        <section class="careChoice careChoice--inline" aria-labelledby="oil-care-choice-title">
+          <p class="eyebrow eyebrow--dark">Öl reicht nicht immer</p>
+          <h2 id="oil-care-choice-title">Selbst pflegen oder Aufbereitung prüfen?</h2>
+          <p class="careChoice__lead">Eine matte Oberfläche braucht meist Pflege. Tiefe Schäden brauchen zuerst eine ehrliche Einschätzung.</p>
+          <div class="careChoiceGrid">
+            <article class="careChoiceCard">
+              <p class="careChoiceCard__status">Matt, trocken oder leicht rau</p>
+              <h3>Selbst pflegen</h3>
+              <p>Reinige das Brett, lass es vollständig trocknen und trage ein geeignetes Pflegeprodukt dünn auf.</p>
+              <a class="btn btn--emphasis" href="https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="care_selfservice_click" data-umami-event-source-page="welches-oel-schneidebrett" data-umami-event-position="decision-module">Pflegebalsam ansehen</a>
+            </article>
+            <article class="careChoiceCard careChoiceCard--service">
+              <p class="careChoiceCard__status">Tiefe Schnitte, starke Flecken oder Geruch</p>
+              <h3>Foto einschätzen lassen</h3>
+              <p>Öl repariert keine tiefen Schäden. Sende uns ein Foto, bevor du weiter schleifst oder ein ungeeignetes Produkt aufträgst.</p>
+              <a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0Aich%20bin%20%C3%BCber%20euren%20%C3%96l-Ratgeber%20gekommen%20und%20m%C3%B6chte%20mein%20Brett%20einsch%C3%A4tzen%20lassen.%0A%0AKurze%20Beschreibung%3A%0A%0AIch%20h%C3%A4nge%20ein%20oder%20mehrere%20Fotos%20an.%0A%0AViele%20Gr%C3%BC%C3%9Fe" data-umami-event="care_refurbishment_check_click" data-umami-event-source-page="welches-oel-schneidebrett" data-umami-event-position="decision-module">Foto zur Einschätzung senden</a>
+              <a class="careChoiceCard__textLink" href="/schneidebrett-aufbereiten/" data-umami-event="refurbishment_details_click" data-umami-event-source-page="welches-oel-schneidebrett">Wann Aufbereitung sinnvoll ist</a>
+            </article>
+          </div>
+          <p class="careChoice__note">Bei starkem Verzug, durchgehenden Rissen oder problematischen Verunreinigungen kann eine Aufbereitung ausgeschlossen sein.</p>
+        </section>
         <p>Ein Schneidebrett steht täglich in direktem Kontakt mit Lebensmitteln. Öle bleiben nicht nur auf der Oberfläche, sondern dringen tief ins Holz ein und können sich über Schnittspuren wieder lösen, vor allem bei warmem Schnittgut.</p>
         <p>Jedes Öl oder Wachs, das du auf ein Schneidebrett aufträgst, muss deshalb <strong>lebensmittelecht</strong> sein. Viele Holzpflegeprodukte aus dem Baumarkt, darunter viele Leinöl-Firnis-Produkte, enthalten metallische Trockenmittel, sogenannte Sikkative. Diese beschleunigen das Aushärten, sind aber nicht automatisch für Lebensmittelkontakt geeignet.</p>
         <p><strong>Regel:</strong> Für zu Hause ist rohes Leinöl eine ruhige, gut nachvollziehbare Wahl. Wenn du ein fertiges Produkt kaufst, muss es ausdrücklich als „lebensmittelecht” oder „food safe” für Lebensmittelkontakt geeignet sein.</p>
@@ -399,7 +421,7 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung, Bearbeitung oder Weitergabe ohne ausdrückliche schriftliche Genehmigung von Edle Hölzer ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="/main.js?v=20260630-ux3"></script>
+<script src="/main.js?v=20260715-care-conversion"></script>
 <script src="/assets/js/product-grid.js?v=20260703-landing-image-fix"></script>
 <script>
   renderProductGrid("products-care", function (p) {
