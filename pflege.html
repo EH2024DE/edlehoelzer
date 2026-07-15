@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260703-landing-image-fix">
+  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
   <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script type="application/ld+json">
 {
@@ -413,6 +413,7 @@
 <!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
 <script defer src="https://cloud.umami.is/script.js"
         data-website-id="9c072a65-fef4-48ce-a03c-6f1e9d443acc"
+        data-exclude-hash="true"
         data-domains="edlehoelzer.de,www.edlehoelzer.de"></script>
 </head>
 <body>
@@ -475,6 +476,28 @@
           </div>
           <div class="pflege-cta"><a class="pflege-btn" href="https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="pflege">Pflegebalsam ansehen</a></div>
         </div>
+
+        <section class="pflege-card careChoice" aria-labelledby="care-choice-title">
+          <p class="eyebrow eyebrow--dark">Nächster Schritt</p>
+          <h2 id="care-choice-title">Selbst pflegen oder aufarbeiten lassen?</h2>
+          <p class="careChoice__lead">Entscheidend ist nicht das Alter des Bretts, sondern der Zustand der Oberfläche. Wähle den Weg, der zu den sichtbaren Spuren passt.</p>
+          <div class="careChoiceGrid">
+            <article class="careChoiceCard">
+              <p class="careChoiceCard__status">Trocken, matt oder leicht rau</p>
+              <h3>Selbst pflegen</h3>
+              <p>Wenn keine tiefen Schäden vorhanden sind, reichen Reinigung, vollständiges Trocknen und eine dünne Schicht geeigneter Pflege meist aus.</p>
+              <a class="pflege-btn" href="https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="care_selfservice_click" data-umami-event-source-page="pflege" data-umami-event-position="decision-module">Pflegebalsam ansehen</a>
+            </article>
+            <article class="careChoiceCard careChoiceCard--service">
+              <p class="careChoiceCard__status">Tiefe Schnitte, Flecken oder alte Beschichtung</p>
+              <h3>Aufbereitung prüfen</h3>
+              <p>Schicke uns ein Foto. Wir sagen vor dem Versand ehrlich, ob Pflege zu Hause genügt, eine Aufbereitung sinnvoll ist oder das Brett nicht mehr gerettet werden sollte.</p>
+              <a class="pflege-btn pflege-btn--ghost" href="mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0Ak%C3%B6nnt%20ihr%20einsch%C3%A4tzen%2C%20ob%20mein%20Schneidebrett%20selbst%20gepflegt%20oder%20aufbereitet%20werden%20sollte%3F%0A%0AKurze%20Beschreibung%20des%20Zustands%3A%0A%0AIch%20h%C3%A4nge%20ein%20oder%20mehrere%20Fotos%20an.%0A%0AViele%20Gr%C3%BC%C3%9Fe" data-umami-event="care_refurbishment_check_click" data-umami-event-source-page="pflege" data-umami-event-position="decision-module">Foto zur Einschätzung senden</a>
+              <a class="careChoiceCard__textLink" href="/schneidebrett-aufbereiten/" data-umami-event="refurbishment_details_click" data-umami-event-source-page="pflege">Aufbereitungsservice verstehen</a>
+            </article>
+          </div>
+          <p class="careChoice__note">Durchgehende Risse, starker Verzug oder tief eingedrungene Verunreinigungen können eine Aufbereitung ausschließen.</p>
+        </section>
 
         <div class="pflege-card pflege-hub-card">
           <h2>Pflege ist einfacher, als viele denken</h2>
@@ -768,6 +791,6 @@
   </div>
 </footer>
 
-  <script src="/main.js?v=20260630-ux3"></script>
+  <script src="/main.js?v=20260715-care-conversion"></script>
 </body>
 </html>

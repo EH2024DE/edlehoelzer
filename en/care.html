@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260630-ux3">
+  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
   <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script type="application/ld+json">
 {
@@ -377,6 +377,7 @@
 <!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
 <script defer src="https://cloud.umami.is/script.js"
         data-website-id="9c072a65-fef4-48ce-a03c-6f1e9d443acc"
+        data-exclude-hash="true"
         data-domains="edlehoelzer.de,www.edlehoelzer.de"></script>
 </head>
 <body>
@@ -443,6 +444,28 @@
             <a href="/en/refurbishment/" class="pflege-btn pflege-btn--ghost">Check refurbishment</a>
           </div>
         </div>
+
+        <section class="pflege-card careChoice" aria-labelledby="en-care-choice-title">
+          <p class="eyebrow eyebrow--dark">Next step</p>
+          <h2 id="en-care-choice-title">Care for it at home or have it assessed?</h2>
+          <p class="careChoice__lead">The condition of the surface matters more than the age of the board. Choose the path that matches the marks you can see.</p>
+          <div class="careChoiceGrid">
+            <article class="careChoiceCard">
+              <p class="careChoiceCard__status">Dry, dull or slightly rough</p>
+              <h3>Care for it at home</h3>
+              <p>If there is no deep damage, cleaning, thorough drying and a thin coat of suitable care product are usually enough.</p>
+              <a class="pflege-btn" href="https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter" target="_blank" rel="noopener" data-etsy-link title="You are leaving for the Edle Hölzer Etsy listing" data-umami-event="care_selfservice_click" data-umami-event-source-page="en-care" data-umami-event-position="decision-module">View care balm</a>
+            </article>
+            <article class="careChoiceCard careChoiceCard--service">
+              <p class="careChoiceCard__status">Deep cuts, stains or an old coating</p>
+              <h3>Request a photo assessment</h3>
+              <p>Send us a photo before sanding further. We will tell you honestly whether care at home is enough or whether refurbishment within Germany may be worthwhile.</p>
+              <a class="pflege-btn pflege-btn--ghost" href="mailto:info@edlehoelzer.de?subject=Cutting%20board%20photo%20assessment&amp;body=Hello%20Edle%20H%C3%B6lzer%2C%0A%0Acould%20you%20assess%20whether%20my%20cutting%20board%20needs%20care%20at%20home%20or%20professional%20refurbishment%3F%0A%0AShort%20description%20of%20its%20condition%3A%0A%0AI%20have%20attached%20one%20or%20more%20photos.%0A%0AKind%20regards" data-umami-event="care_refurbishment_check_click" data-umami-event-source-page="en-care" data-umami-event-position="decision-module">Send photos for assessment</a>
+              <a class="careChoiceCard__textLink" href="/en/refurbishment/" data-umami-event="refurbishment_details_click" data-umami-event-source-page="en-care">Understand the refurbishment service</a>
+            </article>
+          </div>
+          <p class="careChoice__note">Cracks through the board, severe warping or deeply absorbed contamination may rule out refurbishment. The workshop service is currently available only within Germany.</p>
+        </section>
       </div>
     </section>
 
@@ -677,6 +700,6 @@
   </div>
 </footer>
 
-  <script src="/main.js?v=20260630-ux3"></script>
+  <script src="/main.js?v=20260715-care-conversion"></script>
 </body>
 </html>

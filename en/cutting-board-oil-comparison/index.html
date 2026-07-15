@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260703-landing-image-fix">
+  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -85,6 +85,7 @@
 <!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
 <script defer src="https://cloud.umami.is/script.js"
         data-website-id="9c072a65-fef4-48ce-a03c-6f1e9d443acc"
+        data-exclude-hash="true"
         data-domains="edlehoelzer.de,www.edlehoelzer.de"></script>
 </head>
 <body>
@@ -140,6 +141,28 @@
         <h2>Short answer: not just any cooking oil</h2>
         <p>A cutting board should be treated with a suitable wood care oil or balm. Olive oil, sunflower oil and rapeseed oil may become sticky or unpleasant over time.</p>
         <p>Oil is not a substitute for cleaning. It supports the surface, but water, heat and poor drying can still damage wood.</p>
+
+        <section class="careChoice careChoice--inline" aria-labelledby="en-oil-care-choice-title">
+          <p class="eyebrow eyebrow--dark">Oil is not always enough</p>
+          <h2 id="en-oil-care-choice-title">Care for it at home or request an assessment?</h2>
+          <p class="careChoice__lead">A dull surface usually needs care. Deep damage needs an honest assessment first.</p>
+          <div class="careChoiceGrid">
+            <article class="careChoiceCard">
+              <p class="careChoiceCard__status">Dull, dry or slightly rough</p>
+              <h3>Care for it at home</h3>
+              <p>Clean the board, let it dry completely and apply a thin coat of a suitable wood care product.</p>
+              <a class="btn btn--emphasis" href="https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter" target="_blank" rel="noopener" data-etsy-link title="You are leaving for the Edle Hölzer Etsy listing" data-umami-event="care_selfservice_click" data-umami-event-source-page="en-cutting-board-oil-comparison" data-umami-event-position="decision-module">View care balm</a>
+            </article>
+            <article class="careChoiceCard careChoiceCard--service">
+              <p class="careChoiceCard__status">Deep cuts, strong stains or persistent odour</p>
+              <h3>Request a photo assessment</h3>
+              <p>Oil cannot repair deep damage. Send us a photo before sanding further or applying an unsuitable finish.</p>
+              <a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Cutting%20board%20photo%20assessment&amp;body=Hello%20Edle%20H%C3%B6lzer%2C%0A%0AI%20found%20your%20cutting%20board%20oil%20guide%20and%20would%20like%20an%20assessment%20of%20my%20board.%0A%0AShort%20description%3A%0A%0AI%20have%20attached%20one%20or%20more%20photos.%0A%0AKind%20regards" data-umami-event="care_refurbishment_check_click" data-umami-event-source-page="en-cutting-board-oil-comparison" data-umami-event-position="decision-module">Send photos for assessment</a>
+              <a class="careChoiceCard__textLink" href="/en/refurbishment/" data-umami-event="refurbishment_details_click" data-umami-event-source-page="en-cutting-board-oil-comparison">When refurbishment makes sense</a>
+            </article>
+          </div>
+          <p class="careChoice__note">Cracks through the board, severe warping or problematic contamination may rule out refurbishment. The workshop service is currently available only within Germany.</p>
+        </section>
 
         <h2>What we look for in a care product</h2>
         <p>The product has to suit wooden surfaces, the intended food-contact context and the way the board is used. It should penetrate the surface, be applied thinly and leave no sticky film.</p>
@@ -265,7 +288,7 @@
     <p class="footerCopyright">All content, images, photographs, renderings, logos, text and design elements on this website are protected by copyright. Use, reproduction, editing or distribution without express written permission from Edle Hölzer is not permitted.</p>
   </div>
 </footer>
-<script src="/main.js?v=20260630-ux3"></script>
+<script src="/main.js?v=20260715-care-conversion"></script>
 <script src="/assets/js/product-grid.js?v=20260703-landing-image-fix"></script>
 <script>
   renderProductGrid("products-cutting-board-oil-comparison", function (p) { return p.category === "board"; }, { maxItems: 6 });

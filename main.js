@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initBackToTop();
   initStickyMobileCta();
   initHomepageReveal();
+  initEtsyAttribution();
 
   if (window.innerWidth <= 900) {
     return;
@@ -190,6 +191,46 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
 });
+
+function initEtsyAttribution() {
+  var campaign = window.location.pathname
+    .replace(/^\/+|\/+$/g, "")
+    .replace(/\.html$/, "") || "homepage";
+
+  function addAttribution(link) {
+    try {
+      var url = new URL(link.href, window.location.href);
+      if (!/(^|\.)etsy\.com$/i.test(url.hostname)) {
+        return;
+      }
+
+      if (!url.searchParams.has("utm_source")) {
+        url.searchParams.set("utm_source", "edlehoelzer.de");
+      }
+      if (!url.searchParams.has("utm_medium")) {
+        url.searchParams.set("utm_medium", "website");
+      }
+      if (!url.searchParams.has("utm_campaign")) {
+        url.searchParams.set("utm_campaign", campaign);
+      }
+
+      link.href = url.toString();
+    } catch (error) {
+      // Keep the original checkout URL if a malformed link slips through.
+    }
+  }
+
+  document.querySelectorAll("a[data-etsy-link]").forEach(function (link) {
+    addAttribution(link);
+  });
+
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest("a[data-etsy-link]");
+    if (link) {
+      addAttribution(link);
+    }
+  });
+}
 
 function initHomepageReveal() {
   var items = document.querySelectorAll(".reveal-on-scroll");

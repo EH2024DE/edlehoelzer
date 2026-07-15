@@ -14,6 +14,93 @@
   --accent-deep:#a4774c;
   --shadow:0 12px 28px rgba(0,0,0,.05);
 }
+
+/* Care decision path */
+.careChoice {
+  margin-block: clamp(28px, 5vw, 56px);
+}
+
+.careChoice--inline {
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid rgba(116, 83, 53, 0.2);
+  background: #f7f3ed;
+}
+
+.careChoice__lead {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.careChoiceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.careChoiceCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid rgba(116, 83, 53, 0.18);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.careChoiceCard--service {
+  background: #f1ebe3;
+}
+
+.careChoiceCard__status {
+  margin: 0 0 10px;
+  color: #745335;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.careChoiceCard h3 {
+  margin: 0 0 12px;
+}
+
+.careChoiceCard p:not(.careChoiceCard__status) {
+  margin: 0 0 22px;
+}
+
+.careChoiceCard .btn,
+.careChoiceCard .pflege-btn {
+  width: 100%;
+  min-height: 48px;
+  margin-top: auto;
+  text-align: center;
+}
+
+.careChoiceCard__textLink {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin-top: 10px;
+  color: #60452f;
+  font-weight: 700;
+}
+
+.careChoice__note {
+  margin: 18px 0 0;
+  color: #655f58;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .careChoiceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .careChoice--inline {
+    padding: 20px;
+  }
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{margin:0;padding:0}
