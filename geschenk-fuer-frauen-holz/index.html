@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260720-owner-products-first">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -124,15 +124,29 @@
         <h1>Hochwertiges Geschenk für Frauen aus Holz</h1>
         <p class="seoHero__lead">Ein Holzgeschenk darf ruhig, nützlich und schön zugleich sein. Für Menschen mit Freude an Küche, Backen, Servieren oder Materialgefühl ist ein Massivholzobjekt keine reine Dekoration, sondern ein Gegenstand für den Alltag.</p>
         <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Holzgeschenk" class="btn btn--emphasis" data-umami-event="email-kontakt">Geschenkidee anfragen</a>
-          <a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a>
+          <a href="#products-frauen-preview" class="btn btn--emphasis">Geschenke ansehen</a>
+          <a href="#frauen-geschenkberatung" class="walnutTextLink">Zur Geschenkberatung</a>
         </div>
       </div>
       <img class="seoHero__image seoHero__image--portrait" src="/assets/hochwertige-kuechenaccessoires.jpg" alt="Pfannenwender aus Holz beim Kochen in einer Pfanne mit warmer Werkstattatmosphäre" width="1200" height="1800" decoding="async" srcset="/assets/hochwertige-kuechenaccessoires-800.jpg 533w, /assets/hochwertige-kuechenaccessoires-1200.jpg 800w, /assets/hochwertige-kuechenaccessoires-1600.jpg 1066w, /assets/hochwertige-kuechenaccessoires.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="eager" fetchpriority="high">
     </div>
   </section>
 
-  <section class="section section--white">
+  <section class="section section--white ownerProductLead">
+    <div class="container">
+      <div class="ownerProductPreview__head">
+        <div><p class="eyebrow eyebrow--dark">Direkt verfügbar</p><h2>Geschenke zuerst ansehen</h2></div>
+        <p>Für Küche, Backen und Servieren zeigen konkrete Stücke schneller, ob Material und Nutzung zur Person passen.</p>
+      </div>
+      <div id="products-frauen-preview" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
+      <div class="ownerProductPreview__footer">
+        <a href="#products-frauen" class="walnutTextLink">Weitere passende Stücke ansehen</a>
+        <a href="#frauen-geschenkberatung" class="walnutTextLink">Geschenk passend auswählen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="frauen-geschenkberatung">
     <div class="container seoContent">
       <article class="seoText">
         <h2>Was wirklich passt – vier konkrete Profile</h2>
@@ -179,7 +193,7 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Produkte</p>
-        <h2>Passende Produkte als Geschenk</h2>
+        <h2>Weitere passende Produkte als Geschenk</h2>
         <p class="section__lead">Auswahl aus Mittelhessen – konkrete Varianten und Verfügbarkeit im Etsy-Shop.</p>
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
@@ -279,11 +293,21 @@
   </div>
 </footer>
 <script src="/main.js?v=20260715-care-conversion"></script>
-<script src="/assets/js/product-grid.js?v=20260703-landing-image-fix"></script>
+<script src="/assets/js/product-grid.js?v=20260720-owner-products-first"></script>
 <script>
-  renderProductGrid("products-frauen", function (p) {
+  function isGiftForWomen(p) {
     return p.servingSuitable === true || p.giftable === true;
-  });
+  }
+  function sortGiftsForWomen(a, b) {
+    var aPriority = a.category === "board" && a.servingSuitable === true ? 0 : a.category === "board" ? 1 : 2;
+    var bPriority = b.category === "board" && b.servingSuitable === true ? 0 : b.category === "board" ? 1 : 2;
+    if (aPriority !== bPriority) return aPriority - bPriority;
+    if (a.featured !== b.featured) return a.featured ? -1 : 1;
+    if (a.needsReview !== b.needsReview) return a.needsReview ? 1 : -1;
+    return Number(a.priceOrder || 0) - Number(b.priceOrder || 0);
+  }
+  renderProductGrid("products-frauen-preview", isGiftForWomen, { maxItems: 3, sortFn: sortGiftsForWomen });
+  renderProductGrid("products-frauen", isGiftForWomen, { offset: 3, sortFn: sortGiftsForWomen });
 </script>
 </body>
 </html>

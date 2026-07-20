@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260720-owner-products-first">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -133,15 +133,32 @@
         <p class="seo-subline">Stehende Holzfasern statt Längsmaserung – ein anderes Schneidgefühl für intensive Nutzung.</p>
         <p class="seoHero__lead">Ein Stirnholzbrett ist kein gewöhnliches Schneidebrett. Viele einzelne Holzstücke werden so angeordnet, dass die Fasern nach oben zeigen. Die Klinge trifft dadurch anders auf das Holz als bei Längsholz. Das kann sich weicher anfühlen und macht Stirnholz für gute Messer und intensive Küchenarbeit interessant.</p>
         <div class="ctaRow">
-          <a href="#products-stirnholz" class="btn btn--emphasis">Stirnholzbretter ansehen</a>
-          <a href="mailto:info@edlehoelzer.de?subject=Beratung%20Stirnholzbrett" class="btn" data-umami-event="email-kontakt">Beratung zur passenden Ausführung</a>
+          <a href="#products-stirnholz-preview" class="btn btn--emphasis">Stirnholzbretter ansehen</a>
+          <a href="#stirnholz-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>
       <img class="seoHero__image" src="/assets/stirnholz-schneidebrett.jpg" alt="Stirnholz Schneidebrett aus Massivholz mit charaktervoller Hirnholz-Struktur" width="1200" height="1800" decoding="async" srcset="/assets/stirnholz-schneidebrett-800.jpg 533w, /assets/stirnholz-schneidebrett-1200.jpg 800w, /assets/stirnholz-schneidebrett-1600.jpg 1066w, /assets/stirnholz-schneidebrett.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="eager" fetchpriority="high">
     </div>
   </section>
 
-  <section class="section section--white">
+  <section class="section section--white ownerProductLead">
+    <div class="container">
+      <div class="ownerProductPreview__head">
+        <div>
+          <p class="eyebrow eyebrow--dark">Direkt verfügbar</p>
+          <h2>Stirnholzbretter zuerst ansehen</h2>
+        </div>
+        <p>Die sichtbaren Stirnholzflächen zeigen Bauweise, Format und Materialwirkung unmittelbar.</p>
+      </div>
+      <div id="products-stirnholz-preview" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
+      <div class="ownerProductPreview__footer">
+        <a href="#products-stirnholz" class="walnutTextLink">Weitere Stirnholzbretter ansehen</a>
+        <a href="#stirnholz-beratung" class="walnutTextLink">Stirnholz einordnen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="stirnholz-beratung">
     <div class="container seoContent">
       <article class="seoText">
         <h2>Warum Stirnholz technisch anders ist</h2>
@@ -226,8 +243,8 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Produkte</p>
-        <h2>Unsere Stirnholzbretter</h2>
-        <p class="section__lead">Handgefertigt in Mittelhessen – Auswahl und Verfügbarkeit im Etsy-Shop.</p>
+        <h2>Weitere Stirnholzbretter</h2>
+        <p class="section__lead">Diese Auswahl ergänzt die drei Bretter vom Seitenanfang.</p>
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
       <div id="products-stirnholz" class="landingProductGrid" aria-live="polite"></div>
@@ -330,11 +347,13 @@
   </div>
 </footer>
 <script src="/main.js?v=20260715-care-conversion"></script>
-<script src="/assets/js/product-grid.js?v=20260703-landing-image-fix"></script>
+<script src="/assets/js/product-grid.js?v=20260720-owner-products-first"></script>
 <script>
-  renderProductGrid("products-stirnholz", function (p) {
-    return p.woodCut === "end";
-  });
+  function isEndGrainBoard(p) {
+    return p.category === "board" && p.woodCut === "end";
+  }
+  renderProductGrid("products-stirnholz-preview", isEndGrainBoard, { maxItems: 3 });
+  renderProductGrid("products-stirnholz", isEndGrainBoard, { offset: 3 });
 </script>
 </body>
 </html>

@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260720-owner-products-first">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -126,15 +126,32 @@
         <h1>Brotzeitbrett aus Massivholz</h1>
         <p class="seoHero__lead">Ein gutes Brotzeitbrett begleitet kleine Rituale: Frühstück, Vesper, Brot und Käse am Abend. Wer das auf Massivholz vorbereitet, merkt den Unterschied zu Plastik oder Glas sofort. Gewicht, Oberfläche und Maserung machen aus einem einfachen Vorgang etwas Greifbares.</p>
         <div class="ctaRow">
-          <a href="#products-brotzeitbrett" class="btn btn--emphasis">Brotzeitbretter ansehen</a>
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Brotzeitbrett%20mit%20Gravur" class="btn" data-umami-event="email-kontakt">Brotzeitbrett mit Gravur anfragen</a>
+          <a href="#products-brotzeitbrett-preview" class="btn btn--emphasis">Brotzeitbretter ansehen</a>
+          <a href="#brotzeit-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>
       <img class="seoHero__image" src="/assets/Brotzeitbrett.jpg" alt="Brotzeitbrett aus Holz mit warmer Maserung für Frühstück und Servieren" width="1200" height="1600" decoding="async" srcset="/assets/Brotzeitbrett-800.jpg 600w, /assets/Brotzeitbrett-1200.jpg 900w, /assets/Brotzeitbrett.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="eager" fetchpriority="high">
     </div>
   </section>
 
-  <section class="section section--white">
+  <section class="section section--white ownerProductLead">
+    <div class="container">
+      <div class="ownerProductPreview__head">
+        <div>
+          <p class="eyebrow eyebrow--dark">Direkt verfügbar</p>
+          <h2>Brotzeitbretter zuerst ansehen</h2>
+        </div>
+        <p>Drei handliche Bretter zeigen Format, Holzbild und Tischwirkung, bevor die Begriffe erklärt werden.</p>
+      </div>
+      <div id="products-brotzeitbrett-preview" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
+      <div class="ownerProductPreview__footer">
+        <a href="#products-brotzeitbrett" class="walnutTextLink">Weitere Brotzeitbretter ansehen</a>
+        <a href="#brotzeit-beratung" class="walnutTextLink">Größe und Nutzung einordnen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="brotzeit-beratung">
     <div class="container seoContent">
       <article class="seoText">
         <h2>Was macht das Frühstück auf Holz anders?</h2>
@@ -217,8 +234,8 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Produkte</p>
-        <h2>Passende Brotzeitbretter</h2>
-        <p class="section__lead">Kompakte und mittelgroße Bretter für Frühstück, Vesper und Servieren.</p>
+        <h2>Weitere passende Brotzeitbretter</h2>
+        <p class="section__lead">Diese Auswahl ergänzt die drei Bretter vom Seitenanfang.</p>
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
       <div id="products-brotzeitbrett" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
@@ -316,9 +333,15 @@
   </div>
 </footer>
 <script src="/main.js?v=20260715-care-conversion"></script>
-<script src="/assets/js/product-grid.js?v=20260703-landing-image-fix"></script>
+<script src="/assets/js/product-grid.js?v=20260720-owner-products-first"></script>
 <script>
-  renderProductGrid("products-brotzeitbrett", function (p) { return p.category === "board" && (p.sizeProfile === "compact" || p.sizeProfile === "medium" || (Array.isArray(p.useCases) && p.useCases.indexOf("serving") !== -1)); }, { maxItems: 6 });
+  function isSnackBoard(p) {
+    return p.category === "board" &&
+      (p.sizeProfile === "compact" || p.sizeProfile === "medium" ||
+        (Array.isArray(p.useCases) && p.useCases.indexOf("serving") !== -1));
+  }
+  renderProductGrid("products-brotzeitbrett-preview", isSnackBoard, { maxItems: 3 });
+  renderProductGrid("products-brotzeitbrett", isSnackBoard, { offset: 3, maxItems: 6 });
 </script>
 </body>
 </html>

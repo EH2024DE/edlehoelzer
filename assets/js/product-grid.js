@@ -27,6 +27,7 @@
   function renderProductGrid(containerId, filterFn, options) {
     var container = document.getElementById(containerId);
     var maxItems = options && Number(options.maxItems);
+    var offset = options && Number(options.offset);
     if (!container) {
       return;
     }
@@ -45,7 +46,11 @@
           .filter(function (product) {
             return product.image && product.etsyUrl;
           })
-          .sort(sortProducts);
+          .sort(options && typeof options.sortFn === "function" ? options.sortFn : sortProducts);
+
+        if (offset > 0) {
+          filtered = filtered.slice(offset);
+        }
 
         if (maxItems > 0) {
           filtered = filtered.slice(0, maxItems);
