@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260720-owner-products-first">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -126,15 +126,29 @@
         <h1>Messerschonendes Schneidebrett</h1>
         <p class="seoHero__lead">Wer gute Messer hat, achtet auf die Schneidfläche. Bei Stirnholz stehen die Fasern senkrecht zur Oberfläche. Die Klinge trifft dadurch anders auf das Holz als bei Glas, Stein oder klassischem Längsholz.</p>
         <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20messerschonendes%20Schneidebrett" class="btn btn--emphasis" data-umami-event="email-kontakt">Direkt anfragen</a>
-          <a href="/produkte.html#produkte-grid" class="btn">Alle Produkte ansehen</a>
+          <a href="#products-messerschonend-preview" class="btn btn--emphasis">Stirnholzbretter ansehen</a>
+          <a href="#messerschonend-beratung" class="walnutTextLink">Zum Faserprinzip</a>
         </div>
       </div>
       <img class="seoHero__image" src="/assets/stirnholz-schneidebrett.jpg" alt="Messerschonendes Stirnholz Schneidebrett aus Massivholz mit Hirnholz-Struktur" width="1200" height="1800" decoding="async" srcset="/assets/stirnholz-schneidebrett-800.jpg 533w, /assets/stirnholz-schneidebrett-1200.jpg 800w, /assets/stirnholz-schneidebrett-1600.jpg 1066w, /assets/stirnholz-schneidebrett.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" loading="eager" fetchpriority="high">
     </div>
   </section>
 
-  <section class="section section--white">
+  <section class="section section--white ownerProductLead">
+    <div class="container">
+      <div class="ownerProductPreview__head">
+        <div><p class="eyebrow eyebrow--dark">Direkt verfügbar</p><h2>Messerschonende Bretter zuerst ansehen</h2></div>
+        <p>Die sichtbare Stirnholzstruktur und der massive Aufbau sind der konkrete Beweis hinter dem Faserprinzip.</p>
+      </div>
+      <div id="products-messerschonend-preview" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
+      <div class="ownerProductPreview__footer">
+        <a href="#products-messerschonend" class="walnutTextLink">Weitere Stirnholzbretter ansehen</a>
+        <a href="#messerschonend-beratung" class="walnutTextLink">Warum Stirnholz Messer schont</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="messerschonend-beratung">
     <div class="container seoContent">
       <article class="seoText">
 
@@ -177,7 +191,7 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Produkte</p>
-        <h2>Messerschonende Stirnholzbretter</h2>
+        <h2>Weitere messerschonende Stirnholzbretter</h2>
         <p class="section__lead">Stirnholzbretter mit stehenden Fasern für ruhigeres Schneiden.</p>
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
@@ -276,9 +290,13 @@
   </div>
 </footer>
 <script src="/main.js?v=20260715-care-conversion"></script>
-<script src="/assets/js/product-grid.js?v=20260703-landing-image-fix"></script>
+<script src="/assets/js/product-grid.js?v=20260720-owner-products-first"></script>
 <script>
-  renderProductGrid("products-messerschonend", function (p) { return p.category === "board" && p.woodCut === "end"; }, { maxItems: 6 });
+  function isKnifeFriendlyBoard(p) {
+    return p.category === "board" && p.woodCut === "end";
+  }
+  renderProductGrid("products-messerschonend-preview", isKnifeFriendlyBoard, { maxItems: 3 });
+  renderProductGrid("products-messerschonend", isKnifeFriendlyBoard, { offset: 3, maxItems: 6 });
 </script>
 </body>
 </html>

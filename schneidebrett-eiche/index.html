@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260720-owner-products-first">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -124,8 +124,8 @@
         <h1>Schneidebrett aus Eiche</h1>
         <p class="seoHero__lead">Eiche ist dicht, hart und optisch ruhig. Als Schneidebrett bringt sie spürbares Gewicht auf die Arbeitsfläche, bleibt im Alltag sachlich und kann bei trockener, gepflegter Oberfläche lange genutzt und später aufgearbeitet werden.</p>
         <div class="ctaRow">
-          <a href="#products-eiche" class="btn btn--emphasis">Eichenbretter ansehen</a>
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Eichenbrett%20nach%20Mass" class="btn" data-umami-event="email-kontakt">Eichenbrett nach Maß anfragen</a>
+          <a href="#products-eiche-preview" class="btn btn--emphasis">Eichenbretter ansehen</a>
+          <a href="#eiche-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
         <ul class="trustChipRow" aria-label="Merkmale von Eichenbrettern">
           <li>Dichtes Hartholz</li>
@@ -138,7 +138,24 @@
     </div>
   </section>
 
-  <section class="section section--white">
+  <section class="section section--white ownerProductLead">
+    <div class="container">
+      <div class="ownerProductPreview__head">
+        <div>
+          <p class="eyebrow eyebrow--dark">Direkt verfügbar</p>
+          <h2>Eichenbretter zuerst ansehen</h2>
+        </div>
+        <p>Drei reale Bretter zeigen Holzbild, Bauweise und Format besser als allgemeine Aussagen über Eiche.</p>
+      </div>
+      <div id="products-eiche-preview" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
+      <div class="ownerProductPreview__footer">
+        <a href="#products-eiche" class="walnutTextLink">Weitere Eichenbretter ansehen</a>
+        <a href="#eiche-beratung" class="walnutTextLink">Eiche als Material einordnen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="eiche-beratung">
     <div class="container seoContent">
       <article class="seoText">
         <h2>Warum Eiche für Schneidebretter so gut funktioniert</h2>
@@ -264,8 +281,8 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Produkte</p>
-        <h2>Unsere Eichenbretter</h2>
-        <p class="section__lead">Handgefertigt in Mittelhessen – Auswahl und Verfügbarkeit im Etsy-Shop.</p>
+        <h2>Weitere Eichenbretter</h2>
+        <p class="section__lead">Diese Auswahl ergänzt die drei Bretter vom Seitenanfang.</p>
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
       <div id="products-eiche" class="landingProductGrid" aria-live="polite"></div>
@@ -364,11 +381,27 @@
   </div>
 </footer>
 <script src="/main.js?v=20260715-care-conversion"></script>
-<script src="/assets/js/product-grid.js?v=20260703-landing-image-fix"></script>
+<script src="/assets/js/product-grid.js?v=20260720-owner-products-first"></script>
 <script>
-  renderProductGrid("products-eiche", function (p) {
-    return p.material && p.material.includes("Eiche");
-  });
+  function isOakBoard(p) {
+    return p.category === "board" && p.material && p.material.includes("Eiche");
+  }
+  function sortOakBoards(a, b) {
+    var aPureOak = String(a.material || "").trim().toLowerCase() === "eiche";
+    var bPureOak = String(b.material || "").trim().toLowerCase() === "eiche";
+    if (aPureOak !== bPureOak) {
+      return aPureOak ? -1 : 1;
+    }
+    if (a.featured !== b.featured) {
+      return a.featured ? -1 : 1;
+    }
+    if (a.needsReview !== b.needsReview) {
+      return a.needsReview ? 1 : -1;
+    }
+    return Number(a.priceOrder || 0) - Number(b.priceOrder || 0);
+  }
+  renderProductGrid("products-eiche-preview", isOakBoard, { maxItems: 3, sortFn: sortOakBoards });
+  renderProductGrid("products-eiche", isOakBoard, { offset: 3, sortFn: sortOakBoards });
 </script>
 </body>
 </html>
