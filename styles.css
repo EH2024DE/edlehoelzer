@@ -750,10 +750,12 @@ section[id]{scroll-margin-top:88px}
 .mobileStickyCta a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:2px;padding:10px 12px;font-size:11px;font-weight:800;line-height:1.15;letter-spacing:.06em;text-align:center;text-transform:uppercase}
 .mobileStickyCta__primary{border:1px solid var(--accent);background:var(--accent);color:#fff}
 .mobileStickyCta__secondary{border:1px solid rgba(184,136,87,.42);background:#fff;color:var(--accent-deep)}
-.refurbHero{padding:96px 0 64px;background:linear-gradient(180deg,#fff,var(--sand))}
+.refurbHero{padding:74px 0 56px;background:linear-gradient(180deg,#fff,var(--sand))}
 .refurbHero__grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(360px,.82fr);gap:42px;align-items:center}
-.refurbHero h1{max-width:900px;font-size:clamp(42px,6.4vw,76px);letter-spacing:-.04em}
+.refurbHero h1{max-width:900px;font-size:clamp(40px,4.8vw,58px);line-height:1.02;letter-spacing:-.04em}
 .refurbLead{max-width:66ch;margin:18px 0 0;color:rgba(17,17,17,.74);font-size:18px;line-height:1.7}
+.refurbLead--answer{border-left:3px solid var(--accent);padding-left:18px}
+.refurbLead--answer strong{color:var(--ink)}
 .refurbActions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .refurbCompare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;align-self:stretch}
 .refurbCompare div{position:relative;min-height:420px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#ece3d8;box-shadow:var(--shadow)}
@@ -764,6 +766,32 @@ section[id]{scroll-margin-top:88px}
 .quickFacts article{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:var(--shadow)}
 .quickFacts span{display:block;margin-bottom:7px;color:rgba(17,17,17,.48);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.10em}
 .quickFacts strong{display:block;color:var(--ink);font-size:17px;line-height:1.35}
+.refurbDiagnosis{scroll-margin-top:84px}
+.refurbDiagnosis .sectionIntro p:not(.eyebrow){max-width:760px;color:rgba(17,17,17,.72);font-size:17px;line-height:1.7}
+.refurbDiagnosisGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:30px}
+.refurbDiagnosisGrid article,.refurbChoiceGrid article,.refurbStopGrid article{display:flex;flex-direction:column;align-items:flex-start;border:1px solid var(--line);border-radius:8px;background:#fff;padding:22px;box-shadow:var(--shadow)}
+.refurbDiagnosisGrid span{color:var(--accent-deep);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.refurbDiagnosisGrid h3,.refurbChoiceGrid h3,.refurbStopGrid h3{margin-top:12px;font-size:clamp(23px,2.5vw,32px);letter-spacing:0}
+.refurbDiagnosisGrid p,.refurbChoiceGrid p:not(.eyebrow),.refurbStopGrid p{margin:12px 0 0;color:rgba(17,17,17,.72);line-height:1.65}
+.refurbDiagnosisGrid a{margin-top:auto;padding-top:18px;color:var(--accent-deep);font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.refurbTableWrap{margin-top:28px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.refurbDecisionTable{width:100%;border-collapse:collapse}
+.refurbDecisionTable th,.refurbDecisionTable td{padding:16px 18px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.refurbDecisionTable thead th{background:#211a15;color:#fff;font-size:12px;letter-spacing:.09em;text-transform:uppercase}
+.refurbDecisionTable tbody th{width:32%;color:var(--ink);font-size:15px}
+.refurbDecisionTable tbody td{color:rgba(17,17,17,.72);line-height:1.55}
+.refurbDecisionTable tbody tr:last-child th,.refurbDecisionTable tbody tr:last-child td{border-bottom:0}
+.refurbChoiceGrid,.refurbStopGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+.refurbChoiceGrid article{box-shadow:none;background:#fbf8f4}
+.refurbChoiceGrid ul,.refurbStopGrid ul{margin:16px 0 0;padding-left:20px;color:rgba(17,17,17,.72);line-height:1.6}
+.refurbChoiceGrid li+li,.refurbStopGrid li+li{margin-top:6px}
+.refurbChoiceGrid .textLink{margin-top:auto;padding-top:20px}
+.refurbChoiceGrid--service{margin-top:16px}
+.refurbStopGrid article:nth-child(2){border-color:rgba(184,136,87,.38);background:#fff7ee}
+.refurbStopGrid .btn{margin-top:20px}
+.refurbWorkshop{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1fr);gap:48px;align-items:start}
+.refurbWorkshop p:not(.eyebrow){margin:0;color:rgba(17,17,17,.72);font-size:17px;line-height:1.75}
+.refurbWorkshop p+p{margin-top:16px}
 .refurbSection{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:42px;align-items:start}
 .refurbSection__text p:not(.eyebrow){margin:16px 0 0;color:rgba(17,17,17,.72);font-size:17px;line-height:1.75}
 .resultGallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -795,6 +823,7 @@ section[id]{scroll-margin-top:88px}
 .refurbService .trust-badge{margin-top:10px}
 .closingCta{text-align:center}
 .closingCta p{margin:16px auto 24px;max-width:66ch;color:rgba(17,17,17,.72);font-size:17px;line-height:1.72}
+.refurbFinalActions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px}
 .erbstueckPage{background:var(--ink-warm);color:#f5f1eb}
 .erbstueckPage .btn{box-shadow:none}
 .erbstueckHero{position:relative;min-height:calc(100vh - 78px);min-height:calc(100svh - 78px);display:flex;align-items:flex-end;overflow:hidden;background:var(--ink-warm)}
@@ -1293,6 +1322,17 @@ section[id]{scroll-margin-top:88px}
   }
 }
 
+@media (max-width:1100px){
+  .refurbDiagnosisGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .refurbWorkshop{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+}
+
 @media (max-width:767px){
   .nav-desktop-only{display:none}
   .seoText h2{
@@ -1490,8 +1530,76 @@ section[id]{scroll-margin-top:88px}
     border-radius:8px;
   }
 
-  .quickFacts{
-    padding-bottom:42px;
+  .refurbDiagnosisGrid,
+  .refurbChoiceGrid,
+  .refurbStopGrid{
+    grid-template-columns:1fr;
+  }
+
+  .refurbDiagnosisGrid{
+    gap:10px;
+    margin-top:22px;
+  }
+
+  .refurbDiagnosisGrid article,
+  .refurbChoiceGrid article,
+  .refurbStopGrid article{
+    padding:20px;
+  }
+
+  .refurbTableWrap{
+    border:0;
+    overflow:visible;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .refurbDecisionTable,
+  .refurbDecisionTable tbody{
+    display:block;
+  }
+
+  .refurbDecisionTable thead{
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    clip-path:inset(50%);
+    white-space:nowrap;
+  }
+
+  .refurbDecisionTable tr{
+    display:grid;
+    gap:8px;
+    margin-bottom:10px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fff;
+    padding:17px 18px;
+    box-shadow:var(--shadow);
+  }
+
+  .refurbDecisionTable th,
+  .refurbDecisionTable td{
+    display:block;
+    width:auto;
+    border:0;
+    padding:0;
+  }
+
+  .refurbDecisionTable tbody th{
+    width:auto;
+    font-size:16px;
+  }
+
+  .refurbFinalActions{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .refurbFinalActions .btn{
+    width:100%;
   }
 
   .resultGallery img{
