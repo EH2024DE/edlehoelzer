@@ -3277,13 +3277,14 @@ section[id]{scroll-margin-top:88px}
 .oilMediaGrid img{
   display:block;
   width:100%;
-  aspect-ratio:4/3;
+  height:clamp(280px,30vw,420px);
   border-radius:6px;
   object-fit:cover;
 }
 
 .oilWorkshopFigure img{
-  object-position:center 58%;
+  height:clamp(300px,32vw,440px);
+  object-position:center 62%;
 }
 
 .oilWorkshopFigure figcaption,
@@ -3325,7 +3326,7 @@ section[id]{scroll-margin-top:88px}
 }
 
 .oilStopBlock > img{
-  max-height:540px;
+  height:clamp(300px,32vw,440px);
   object-position:center 68%;
 }
 
@@ -3348,7 +3349,8 @@ section[id]{scroll-margin-top:88px}
 }
 
 .oilMediaGrid img{
-  object-position:center 63%;
+  height:clamp(240px,25vw,340px);
+  object-position:center 62%;
 }
 
 .oilMediaGrid figcaption{
@@ -3527,6 +3529,12 @@ section[id]{scroll-margin-top:88px}
   .oilWorkshopGrid,
   .oilStopBlock{
     gap:30px;
+  }
+
+  .oilWorkshopFigure img,
+  .oilStopBlock > img,
+  .oilMediaGrid img{
+    height:clamp(230px,68vw,310px);
   }
 
   .oilSteps{
