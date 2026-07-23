@@ -3,7 +3,7 @@
 
   function loadProducts() {
     if (!catalogPromise) {
-      catalogPromise = fetch("/products.json?v=20260630")
+      catalogPromise = fetch(window.EDLE_HOELZER_PRODUCTS_URL || "/products.json")
         .then(function (response) {
           if (!response.ok) {
             throw new Error("products.json konnte nicht geladen werden.");

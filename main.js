@@ -1,5 +1,7 @@
 document.documentElement.classList.add("js");
 
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260723-tech-repair";
+
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
@@ -1136,7 +1138,7 @@ function initProductExperience() {
 
   function loadProducts() {
     if (!catalogPromise) {
-      catalogPromise = fetch("/products.json?v=20260630")
+      catalogPromise = fetch(EDLE_HOELZER_PRODUCTS_URL)
         .then(function (response) {
           if (!response.ok) {
             throw new Error("products.json konnte nicht geladen werden.");
@@ -1219,7 +1221,7 @@ function initProductExperience() {
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + ' <a href="' + (isEnglish ? "/en/care.html" : "/pflege.html") + '">' + escapeHtml(labels.careLink) + '</a></p></section>' +
         '<div class="productPreview__actions">' +
-          (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a><p class="productPreview__trust">' + escapeHtml(labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/products.html#product-finder" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
+        (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a><p class="productPreview__trust">' + escapeHtml(labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
           renderPreviewCompareControls(product, source || "preview") +
           '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
         '</div>' +
@@ -2507,7 +2509,7 @@ function initProductsPage() {
     careIntensity: ["low", "medium"]
   };
 
-  fetch("/products.json?v=20260630")
+  fetch(EDLE_HOELZER_PRODUCTS_URL)
     .then(function (response) {
       if (!response.ok) {
         throw new Error("products.json konnte nicht geladen werden.");
@@ -2530,6 +2532,12 @@ function initProductsPage() {
     })
     .catch(function (error) {
       console.warn("[Edle Hölzer] Produktdaten konnten nicht initialisiert werden:", error);
+      if (finderRoot) {
+        finderRoot.setAttribute("aria-live", "polite");
+        finderRoot.innerHTML = isEnglish
+          ? '<div class="finderShell__top"><div><span class="finderStepLabel">Product finder unavailable</span><h3>The product selection could not be loaded.</h3><p>Please use one of these direct alternatives.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">View all available boards</a><a class="btn btn--ghost-dark" href="/en/custom-cutting-board/">Request a custom board</a></div>'
+          : '<div class="finderShell__top"><div><span class="finderStepLabel">Brettfinder nicht verfügbar</span><h3>Die Produktauswahl konnte nicht geladen werden.</h3><p>Nutze bitte eine dieser direkten Alternativen.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">Alle verfügbaren Bretter ansehen</a><a class="btn btn--ghost-dark" href="/schneidebrett-nach-mass/">Wunschbrett anfragen</a></div>';
+      }
       if (gridRoot) {
         gridRoot.innerHTML = isEnglish
           ? '<p class="productEmpty">The selection could not be loaded right now. Please view the products directly in the <a href="https://edlehoelzervonkoc.etsy.com" data-etsy-link title="' + shopTitle + '">Etsy shop</a>.</p>'
@@ -3221,7 +3229,7 @@ function initProductsPage() {
     if (!hasVerifiedListing(product)) {
       return '<div class="ctaRow ctaRow--stacked">' + detailButton + compareButton + '<span class="productCard__availability">' +
         escapeHtml(labels.unavailableText) +
-        '</span><a class="btn btn--secondary" href="' + (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder") + '" data-umami-event="produktfinder-gestartet">' +
+        '</span><a class="btn btn--secondary" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
         escapeHtml(labels.askSimilar) +
         '</a></div>';
     }
