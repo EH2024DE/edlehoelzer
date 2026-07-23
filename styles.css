@@ -1188,6 +1188,25 @@ section[id]{scroll-margin-top:88px}
 .comparisonTable th,.comparisonTable td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
 .comparisonTable th{background:#f8f3ec;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.60)}
 .comparisonTable tr:last-child th,.comparisonTable tr:last-child td{border-bottom:none}
+.comparisonTable--origin thead,
+.comparisonTable--origin tbody{display:table;width:100%;min-width:760px;table-layout:fixed}
+.comparisonTable--origin th:nth-child(1),
+.comparisonTable--origin td:nth-child(1){width:25%}
+.comparisonTable--origin th:nth-child(2),
+.comparisonTable--origin td:nth-child(2){width:39%}
+.comparisonTable--origin th:nth-child(3),
+.comparisonTable--origin td:nth-child(3){width:36%}
+
+@media (max-width:767px){
+  .comparisonTable--origin thead{display:none}
+  .comparisonTable--origin tbody{
+    display:grid;
+    min-width:0;
+  }
+  .comparisonTable--origin tbody tr:first-child{display:grid}
+  .comparisonTable--origin th,
+  .comparisonTable--origin td{width:auto}
+}
 .decisionGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .decisionGrid article,.productsSupport>div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;box-shadow:var(--shadow)}
 .decisionGrid h2,.productsSupport h2{font-size:clamp(26px,3.2vw,38px);letter-spacing:0}
