@@ -211,7 +211,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://edlehoelzer.de/en/wood-types-for-cutting-boards/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://edlehoelzer.de/hochwertiges-schneidebrett-erkennen/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://edlehoelzer.de/en/how-to-recognise-a-quality-cutting-board/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
