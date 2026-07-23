@@ -11,6 +11,11 @@ const allowedCanonicalAliases = new Map([
     "https://edlehoelzer.de/welches-oel-schneidebrett/",
   ],
 ]);
+const retiredInternalPaths = [
+  "/index.html",
+  "/en/index.html",
+  "/schneidebrett-oel-vergleich/",
+];
 
 function walk(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -119,8 +124,21 @@ for (const file of walk(root).filter((path) => path.endsWith(".html"))) {
   }
 
   for (const href of allMatches(html, /<a\b[^>]*\bhref=["']([^"']+)["'][^>]*>/gi)) {
-    if (href.includes("index.html")) {
-      report(`${repoPath}: internal link uses non-canonical index.html URL (${href})`);
+    const internalPath = href.startsWith(origin)
+      ? href.slice(origin.length)
+      : href.startsWith("/")
+        ? href
+        : "";
+    if (
+      internalPath &&
+      retiredInternalPaths.some(
+        (retiredPath) =>
+          internalPath === retiredPath ||
+          internalPath.startsWith(`${retiredPath}?`) ||
+          internalPath.startsWith(`${retiredPath}#`),
+      )
+    ) {
+      report(`${repoPath}: internal link uses retired URL (${href})`);
     }
   }
 
@@ -167,6 +185,30 @@ for (const url of sitemapUrls) {
   if (!page) {
     report(`sitemap.xml: ${url} does not map to a self-canonical indexable HTML page`);
   }
+}
+
+for (const retiredPath of retiredInternalPaths) {
+  const retiredUrl = `${origin}${retiredPath}`;
+  if (sitemapUrls.has(retiredUrl)) {
+    report(`sitemap.xml: retired URL must not be listed (${retiredUrl})`);
+  }
+}
+
+const rootHtml = readFileSync(join(root, "index.html"), "utf8");
+if (!rootHtml.includes('window.location.pathname === "/index.html"')) {
+  report("index.html: missing browser URL normalization for /index.html");
+}
+
+const englishRootHtml = readFileSync(join(root, "en/index.html"), "utf8");
+if (!englishRootHtml.includes('window.location.pathname === "/en/index.html"')) {
+  report("en/index.html: missing browser URL normalization for /en/index.html");
+}
+
+const oilAlias = pages.find(
+  ({ repoPath }) => repoPath === "schneidebrett-oel-vergleich/index.html",
+);
+if (!oilAlias?.noindex) {
+  report("schneidebrett-oel-vergleich/index.html: retired alias must be noindex");
 }
 
 if (failures.length) {
