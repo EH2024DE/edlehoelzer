@@ -70,7 +70,8 @@
       ],
       "displayName": "Teigschaber – Massivholz-Mix",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4471048251/holz-teigschaber-aus-massivholz"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4471048251/holz-teigschaber-aus-massivholz",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-02-schneidebrett-buche-stirnholz-handgefertigt-besondere-jahresring-struktu",
@@ -141,7 +142,8 @@
       ],
       "displayName": "Buche Stirnholz – Jahresring-Struktur",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1841836619/cutting-board-beech-end-grain-handmade"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1841836619/cutting-board-beech-end-grain-handmade",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-03-schneidebrett-bambus-und-buche-kompaktes-fruhstucksbrett-im-din-a4-forma",
@@ -211,7 +213,8 @@
       ],
       "displayName": "Bambus & Buche – Frühstücksbrett",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1827805914/cutting-board-bamboo-beech-compact"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1827805914/cutting-board-bamboo-beech-compact",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
@@ -284,7 +287,8 @@
       ],
       "displayName": "Eiche Stirnholz – XXL mit Saftrille",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1824089235/solid-end-grain-oak-cutting-board"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1824089235/solid-end-grain-oak-cutting-board",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-05-stirnholz-schneidebrett-aus-sibirischer-larche-massiv-handgefertigt-und",
@@ -357,7 +361,10 @@
       "displayName": "Lärche Stirnholz – Kompakt",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian",
-      "availabilityNote": "Am 2026-06-22 als ausverkauft/nicht kaufbar markiert und deshalb nicht mehr aktiv beworben."
+      "availabilityStatus": "sold",
+      "visibility": "archive",
+      "inquiryPossible": true,
+      "availabilityNote": "Verkauft und aktuell nicht erhältlich. Eine ähnliche individuelle Ausführung ist auf Anfrage möglich."
     },
     {
       "id": "etsy-export-06-schneidebrett-mahagoni-stirnholz-massiv-handgearbeitet-personalisierbar",
@@ -427,7 +434,8 @@
       ],
       "displayName": "Mahagoni Stirnholz – Ruhiger Block",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1886613306/cutting-board-mahogany-end-grain-solid"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1886613306/cutting-board-mahogany-end-grain-solid",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-07-schneidebrett-halter-eiche-oder-buche-minimalistisch-massiv-passgenau",
@@ -493,7 +501,8 @@
       ],
       "displayName": "Bretthalter – Eiche oder Buche",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1874454440/cutting-board-holder-oak-or-beech"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1874454440/cutting-board-holder-oak-or-beech",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-08-untersetzer-set-aus-holz-mit-halter-stirnholz-oder-langholz-eiche-nussba",
@@ -560,7 +569,8 @@
       ],
       "displayName": "Untersetzer-Set – Holz mit Halter",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1838851839/wooden-coaster-set-with-holder"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1838851839/wooden-coaster-set-with-holder",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-09-schneidebrett-kariert-stirnholz-wenge-nussbaum-und-eiche-unikat",
@@ -632,7 +642,8 @@
       ],
       "displayName": "Wenge Nussbaum Eiche – Kariert",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1894223313/cutting-board-checkered-end-grain-wenge"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1894223313/cutting-board-checkered-end-grain-wenge",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-10-stirnholz-schneidebrett-nach-ma-massives-xxl-kuchenbrett-mit-anschlagkan",
@@ -704,7 +715,8 @@
       ],
       "displayName": "XXL Stirnholz – Nach Maß",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4484195050/custom-made-end-grain-cutting-board"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4484195050/custom-made-end-grain-cutting-board",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-11-xxl-schneidebrett-aus-thermobambus-und-birke-massives-streifenbrett-hand",
@@ -779,7 +791,8 @@
       ],
       "displayName": "XXL Streifenbrett – Thermobambus & Birke",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4417621529/xxl-cutting-board-made-of-thermally"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4417621529/xxl-cutting-board-made-of-thermally",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-12-eiche-stirnholz-schneidebrett-xxl-mit-griff-59-5384-9-cm-7-9-kg-massivbl",
@@ -853,7 +866,11 @@
         "haeufiges Tragen"
       ],
       "displayName": "Eiche Stirnholz – Premium Hackblock",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "availabilityStatus": "sold",
+      "visibility": "archive",
+      "inquiryPossible": true,
+      "availabilityNote": "Verkauft und aktuell nicht erhältlich. Eine ähnliche individuelle Ausführung ist auf Anfrage möglich."
     },
     {
       "id": "etsy-export-13-schneidebrett-pflegebalsam-holzpflege-paket-lebensmittelecht-mit-bienenw",
@@ -916,7 +933,8 @@
         "Hauptempfehlung im Produktfinder"
       ],
       "displayName": "Pflegebalsam – Leinöl & Bienenwachs",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-14-schneidebrett-kambala-holz-kompakt-personalisierbar-handgefertigt",
@@ -986,7 +1004,8 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Kambala Schneidebrett – Kompakt",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
@@ -1054,7 +1073,8 @@
       ],
       "displayName": "Pfannenwender – Massivholz-Mix",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4470469056/solid-wood-spatula-handmade-kitchen"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4470469056/solid-wood-spatula-handmade-kitchen",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-16-servierbrett-set-aus-massivholz-mit-halter-3-teilig-handgefertigtes-tapa",
@@ -1123,7 +1143,8 @@
       ],
       "displayName": "Servierbrett-Set – Dreiteilig",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4440690649/solid-wood-serving-board-set-with-holder"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4440690649/solid-wood-serving-board-set-with-holder",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-17-schneidebrett-nussbaum-holz-flankenholz-design-personalisierbar-minimale",
@@ -1194,7 +1215,8 @@
       ],
       "displayName": "Nussbaum Langholz – Flankenoptik",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1886821275/walnut-wood-cutting-board-flank-wood"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1886821275/walnut-wood-cutting-board-flank-wood",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
@@ -1268,7 +1290,8 @@
       ],
       "displayName": "3D Stirnholz – Walnuss & Wenge",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1803930088/cutting-board-3d-design-end-grain-walnut"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1803930088/cutting-board-3d-design-end-grain-walnut",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-19-servierbrett-eiche-mit-doppelgriff-90-cm-aus-massivem-eichenholz-handgef",
@@ -1340,7 +1363,8 @@
       ],
       "displayName": "Eiche Servierbrett – Doppelgriff",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4398179153/oak-serving-board-with-double-handles"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4398179153/oak-serving-board-with-double-handles",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-20-servierbrett-set-aus-massivholz-in-schwert-form-aus-eiche-esche-oder-nus",
@@ -1408,7 +1432,8 @@
       ],
       "displayName": "Servierbrett-Set – Schwertform",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4389604739/sword-shaped-serving-board-solid-oak-ash"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4389604739/sword-shaped-serving-board-solid-oak-ash",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-21-schneidebrett-holz-schachbrett-aus-padouk-und-eiche-kariertes-stirnholz",
@@ -1480,7 +1505,8 @@
       ],
       "displayName": "Padouk & Eiche – Kompakt kariert",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1859366842/schneidebrett-holz-schachbrett-aus"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1859366842/schneidebrett-holz-schachbrett-aus",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-22-schneidebrett-holz-schachbrett-aus-padouk-und-eiche-kariertes-stirnholz",
@@ -1553,7 +1579,10 @@
       ],
       "displayName": "Padouk & Eiche – Großformat kariert",
       "deliveryDays": "2–3 Werktage",
-      "statusNote": "Großformat aus Padouk und Eiche ist verkauft und wird nicht mehr aktiv beworben."
+      "availabilityStatus": "sold",
+      "visibility": "archive",
+      "inquiryPossible": true,
+      "availabilityNote": "Verkauft und aktuell nicht erhältlich. Eine ähnliche individuelle Ausführung ist auf Anfrage möglich."
     },
     {
       "id": "etsy-export-23-stirnholz-schneidebrett-eiche-ahorn-thermobambus-massivholz-brett-fachwe",
@@ -1623,7 +1652,8 @@
       ],
       "displayName": "Fachwerk-Stirnholz – Eiche & Ahorn",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4455205567/end-grain-cutting-board-oak-maple"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4455205567/end-grain-cutting-board-oak-maple",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-24-servierbrett-aus-buche-mit-rahmen-aus-mohreiche-handgefertigtes-holzbret",
@@ -1694,7 +1724,8 @@
       ],
       "displayName": "Buche & Mooreiche – Servierbrett",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4381023266/beechwood-serving-board-with-wenge-frame"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4381023266/beechwood-serving-board-with-wenge-frame",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-25-schneidebrett-eiche-mit-kambala-streifen-quadratisches-design-28-528-54",
@@ -1844,7 +1875,8 @@
       ],
       "displayName": "Esche Stirnholz – BBQ Hackblock",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4380062082/end-grain-ash-wood-chopping-board-41-x"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4380062082/end-grain-ash-wood-chopping-board-41-x",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-27-stirnholz-schneidebrett-aus-tropenholz-massivholzbrett-mit-praktischen-g",
@@ -1917,7 +1949,8 @@
       ],
       "displayName": "Tropenholz Stirnholz – Mit Griffen",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4451487112/end-grain-cutting-board-made-of-tropical"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4451487112/end-grain-cutting-board-made-of-tropical",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-28-stirnholz-schneidebrett-nussbaum-und-ahorn-massives-kuchenbrett-mit-ahor",
@@ -1988,7 +2021,8 @@
       ],
       "displayName": "Nussbaum & Ahorn – Streifenbrett",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4450988121/end-grain-cutting-board-made-of-american"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4450988121/end-grain-cutting-board-made-of-american",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-29-stirnholz-schneidebrett-stockbuche-in-schachbrettmuster-groformat-massiv",
@@ -2060,7 +2094,8 @@
       ],
       "displayName": "Stockbuche Stirnholz – Schachbrett",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1783359006/end-grain-beechwood-cutting-board-in-a"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1783359006/end-grain-beechwood-cutting-board-in-a",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-30-schneidebrett-holz-schachbrett-aus-buche-und-kambala-massiv-personalisie",
@@ -2133,7 +2168,8 @@
       ],
       "displayName": "Buche & Kambala – Schachbrett",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1783351692/cutting-board-wooden-chessboard-made-of"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1783351692/cutting-board-wooden-chessboard-made-of",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-31-schneidebrett-holz-stirnholz-nussbaum-46-x-36-x-4-6-cm-massivholz-handge",
@@ -2206,7 +2242,8 @@
         "haeufiges Tragen"
       ],
       "displayName": "Nussbaum Stirnholz – Mit Saftrille",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-32-stirnholz-schneidebrett-3d-design-eiche-buche-wenge-handgefertigtes-prem",
@@ -2279,7 +2316,8 @@
       ],
       "displayName": "3D Stirnholz – Eiche Buche Wenge",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1776273564/end-grain-cutting-board-3d-design-oak"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1776273564/end-grain-cutting-board-3d-design-oak",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-33-stirnholz-schneidebrett-stockbuche-einzigartige-maserung-durch-naturfarb",
@@ -2349,7 +2387,8 @@
       ],
       "displayName": "Stockbuche Stirnholz – Naturmaserung",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4370784882/end-grain-cutting-board-stock-beech"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4370784882/end-grain-cutting-board-stock-beech",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-34-schneidebrett-buche-stirnholz-mit-saftrille-massiv-handgefertigt-groform",
@@ -2422,7 +2461,8 @@
       ],
       "displayName": "Buche Stirnholz – Mit Saftrille",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1830530996/cutting-board-beech-end-grain-with-juice"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1830530996/cutting-board-beech-end-grain-with-juice",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-35-schneidebrett-aus-eiche-langholz-minimalistisches-design-mit-schweizer-k",
@@ -2491,7 +2531,8 @@
       ],
       "displayName": "Eiche Langholz – Schweizer Kante",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1774262638/large-oak-chopping-board-minimalist"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1774262638/large-oak-chopping-board-minimalist",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-36-stirnholz-schneidebrett-schachbrettmuster-aus-eiche-und-wenge-personalis",
@@ -2563,7 +2604,8 @@
       ],
       "displayName": "Eiche & Wenge – Schachbrett",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4299097497/end-grain-cutting-board-checkerboard"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4299097497/end-grain-cutting-board-checkerboard",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-37-stirnholz-schneidebrett-aus-eiche-und-buche-kompaktes-massivholzbrett-mi",
@@ -2634,7 +2676,8 @@
       ],
       "displayName": "Eiche & Buche – Kompakt mit Astloch",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/1855639262/end-grain-cutting-board-made-of-oak"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/1855639262/end-grain-cutting-board-made-of-oak",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-38-schneidebrett-walnuss-mit-eiche-rahmen-massives-stirnholzbrett-fur-hobby",
@@ -2709,7 +2752,8 @@
       ],
       "displayName": "Walnuss & Eiche – Rahmenbrett",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4297472161/walnut-cutting-board-with-oak-frame"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4297472161/walnut-cutting-board-with-oak-frame",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-39-stirnholz-schneidebrett-eiche-minimalistisch-schmales-design-handgeferti",
@@ -2781,7 +2825,8 @@
       ],
       "displayName": "Eiche Stirnholz – Schmales Design",
       "deliveryDays": "2–3 Werktage",
-      "etsyListingUrl": "https://www.etsy.com/de/listing/4358136560/end-grain-oak-cutting-board-minimalist"
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4358136560/end-grain-oak-cutting-board-minimalist",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-export-40-schneidebrett-aus-eiche-esche-und-buche-stirnholz-design-mit-saftrille-h",
@@ -2855,7 +2900,8 @@
         "haeufiges Tragen"
       ],
       "displayName": "Eiche Esche Buche – Mit Saftrille",
-      "deliveryDays": "2–3 Werktage"
+      "deliveryDays": "2–3 Werktage",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-live-20260619-schneidebrett-buche-massiv-griffmulden",
@@ -2916,7 +2962,8 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Buche Massiv – Mit Griffmulden",
-      "deliveryDays": "laut Etsy"
+      "deliveryDays": "laut Etsy",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
@@ -2977,7 +3024,8 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Eiche Massiv – Astloch & Kante",
-      "deliveryDays": "laut Etsy"
+      "deliveryDays": "laut Etsy",
+      "availabilityStatus": "available"
     },
     {
       "id": "etsy-live-20260619-holz-teigschaber-set",
@@ -3038,7 +3086,10 @@
       ],
       "displayName": "Teigschaber-Set – 2er oder 3er",
       "deliveryDays": "laut Etsy",
-      "availabilityNote": "Nicht mehr als separates Set-Listing verfügbar; Mengenwahl läuft über das Einzel-Teigschaber-Listing 4471048251."
+      "availabilityStatus": "sold",
+      "visibility": "archive",
+      "inquiryPossible": true,
+      "availabilityNote": "Das separate Set ist verkauft und aktuell nicht erhältlich. Eine individuelle Zusammenstellung ist auf Anfrage möglich."
     }
   ]
 }
