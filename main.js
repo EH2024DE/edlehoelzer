@@ -1,6 +1,6 @@
 document.documentElement.classList.add("js");
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260723-tech-repair";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260726-etsy-sync";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";

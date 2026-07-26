@@ -68,7 +68,7 @@
     </button>
     <div class="container hero__content">
       <div class="hero__copy">
-        <p class="heroTrustBar">5-star Etsy reviews <span aria-hidden="true">·</span> Made in Germany <span aria-hidden="true">·</span> Solid hardwood</p>
+        <p class="heroTrustBar">5.0 stars <span aria-hidden="true">·</span> 32 Etsy reviews <span aria-hidden="true">·</span> 63 sales</p>
         <h1>Solid wood cutting boards for everyday use.</h1>
         <p class="hero__lead">Handcrafted in Germany from solid hardwood, with a surface that can be cared for and refinished.</p>
         <div class="hero__actions">
@@ -82,9 +82,26 @@
   <section class="heroProof" aria-label="Material, craft, care and checkout">
     <div class="container heroProof__grid">
       <div class="heroProof__item"><strong>Solid hardwood</strong><span>Stays steadier and can be refinished when needed.</span></div>
-      <div class="heroProof__item"><strong>Made by Özgür</strong><span>Wood selection, cutting, sanding and finishing in the workshop in Central Hesse.</span></div>
+      <div class="heroProof__item"><strong>Özgür makes it. Serkan makes it visible.</strong><span>Workshop craft, product photography and guidance from our team in Central Hesse.</span></div>
       <div class="heroProof__item"><strong>Oiled surface</strong><span>The surface can be maintained instead of replaced too soon.</span></div>
-      <div class="heroProof__item"><strong>Checkout via Etsy</strong><span>Reviews and buyer protection remain visible at checkout.</span></div>
+      <div class="heroProof__item"><strong>Checkout via Etsy</strong><span>5.0 stars from 32 reviews and buyer protection at checkout.</span></div>
+    </div>
+  </section>
+
+  <section class="section section--white homepageProducts reveal-on-scroll" aria-labelledby="homepage-products-title">
+    <div class="container">
+      <div class="sectionIntro sectionIntro--split">
+        <div>
+          <p class="eyebrow eyebrow--dark">Available now</p>
+          <h2 id="homepage-products-title">A cross-section of our collection.</h2>
+        </div>
+        <p>From an oak long-grain board with a natural knot to solid end grain, a one-off Erbstück and two kitchen tools: six available pieces show different materials, uses and price points.</p>
+      </div>
+      <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite" aria-label="Browse available products" tabindex="0"></div>
+      <div class="ctaRow homepageProducts__actions">
+        <a href="/en/products.html#product-finder" class="btn btn--emphasis">Find the right board</a>
+        <a href="/en/products.html#products-grid" class="walnutTextLink">View all available products</a>
+      </div>
     </div>
   </section>
 
@@ -92,8 +109,8 @@
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Customer reviews</p>
-        <h2 data-review-headline>Reviews on Etsy</h2>
-        <p data-review-subline>Genuine feedback from people who already use our products or have given them as gifts.</p>
+        <h2 data-review-headline>5.0 stars from 32 Etsy reviews</h2>
+        <p data-review-subline>63 sales and genuine feedback from people who already use our products or have given them as gifts.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Scroll Etsy reviews horizontally">
         <div class="reviewTrust__track" data-review-track>
@@ -377,6 +394,25 @@
     <p class="footerCopyright">All content, images, photographs, renderings, logos, text and design elements on this website are protected by copyright. Use, reproduction, editing or distribution without express written permission from Edle Hölzer is not permitted.</p>
   </div>
 </footer>
-<script src="/main.js?v=20260726-review-photos-3"></script>
+<script src="/main.js?v=20260726-home-products"></script>
+<script src="/assets/js/product-grid.js?v=20260726-home-products"></script>
+<script>
+  var homepageProductIds = [
+    "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
+    "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
+    "etsy-live-20260726-erbstueck-no-004-eiche-buche",
+    "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
+    "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
+    "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
+  ];
+  renderProductGrid("homepage-products", function (product) {
+    return homepageProductIds.indexOf(product.id) !== -1;
+  }, {
+    maxItems: 6,
+    sortFn: function (a, b) {
+      return homepageProductIds.indexOf(a.id) - homepageProductIds.indexOf(b.id);
+    }
+  });
+</script>
 </body>
 </html>
