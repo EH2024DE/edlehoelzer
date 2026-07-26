@@ -10,15 +10,15 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const REVIEWS_PATH = path.join(ROOT, "data", "reviews.json");
 const META_PATH = path.join(ROOT, "data", "reviews-meta.json");
+const REVIEW_ASSET_DIR = path.join(ROOT, "assets", "reviews");
 const ENV_PATH = path.join(ROOT, ".env");
 const FALLBACK_ENV_PATH = path.join(ROOT, "..", ".env");
 const LISTING_GENERATOR_ENV_PATH = path.join(ROOT, "..", "listing-generator", ".env");
 
 loadDotEnv();
 
-const API_KEY = process.env.ETSY_API_KEY_HEADER || process.env.ETSY_API_KEY || process.env.ETSY_SHARED_SECRET;
+const API_KEY = buildApiKeyHeader();
 const SHOP_ID = process.env.ETSY_SHOP_ID;
-const ACCESS_TOKEN = process.env.ETSY_ACCESS_TOKEN || process.env.ETSY_OAUTH_TOKEN;
 
 main().catch((error) => {
   console.error("[reviews:update] Abbruch:", error.message);
@@ -37,9 +37,11 @@ async function main() {
   }
 
   const existingMeta = await readJson(META_PATH, {});
-  await readJson(REVIEWS_PATH, []);
+  const existingReviews = await readJson(REVIEWS_PATH, []);
 
-  const shop = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(SHOP_ID)}`);
+  const resolvedShopId = await resolveShopId(SHOP_ID);
+  const shop = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(resolvedShopId)}`);
+  const reviews = await fetchShopReviews(resolvedShopId);
   const nextMeta = buildMetaFromShop(existingMeta, shop);
 
   if (!nextMeta) {
@@ -49,8 +51,118 @@ async function main() {
   }
 
   await writeJson(META_PATH, nextMeta);
+  const syncedImages = await syncPermissionedReviewImages(reviews, existingReviews);
+  if (syncedImages.updated) {
+    await writeJson(REVIEWS_PATH, syncedImages.reviews);
+  }
   console.log("[reviews:update] data/reviews-meta.json wurde mit Etsy-Metadaten aktualisiert.");
-  console.log("[reviews:update] Review-Texte wurden nicht automatisch geändert, da kein stabiler Shop-Review-Sync aktiviert ist.");
+  console.log(`[reviews:update] ${reviews.length} Bewertungen geprüft, ${reviews.filter(hasReviewImage).length} davon mit Käuferfoto.`);
+  console.log(`[reviews:update] ${syncedImages.count} freigegebene Käuferfoto(s) lokal synchronisiert.`);
+}
+
+async function resolveShopId(shopIdOrName) {
+  if (/^\d+$/.test(String(shopIdOrName))) {
+    return String(shopIdOrName);
+  }
+
+  const response = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops?shop_name=${encodeURIComponent(shopIdOrName)}&limit=100`);
+  const shops = Array.isArray(response.results) ? response.results : [];
+  const exact = shops.find((shop) => String(shop.shop_name || "").toLowerCase() === String(shopIdOrName).toLowerCase());
+
+  if (!exact || !exact.shop_id) {
+    throw new Error(`Etsy-Shop "${shopIdOrName}" konnte nicht eindeutig aufgelöst werden.`);
+  }
+
+  return String(exact.shop_id);
+}
+
+async function fetchShopReviews(shopId) {
+  const reviews = [];
+  const limit = 100;
+  let offset = 0;
+
+  while (true) {
+    const data = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(shopId)}/reviews?limit=${limit}&offset=${offset}`);
+    const batch = Array.isArray(data.results) ? data.results : [];
+    reviews.push(...batch);
+    offset += batch.length;
+
+    if (!batch.length || !Number.isFinite(Number(data.count)) || offset >= Number(data.count)) {
+      return reviews;
+    }
+  }
+}
+
+function hasReviewImage(review) {
+  return Boolean(review && String(review.image_url_fullxfull || "").trim());
+}
+
+async function syncPermissionedReviewImages(apiReviews, existingReviews) {
+  if (!Array.isArray(existingReviews) || !existingReviews.length) {
+    return { reviews: existingReviews, count: 0, updated: false };
+  }
+
+  await fs.mkdir(REVIEW_ASSET_DIR, { recursive: true });
+  let count = 0;
+  let updated = false;
+
+  const reviews = await Promise.all(existingReviews.map(async (review) => {
+    const normalizedText = normalizeReviewText(review.text);
+    const apiReview = apiReviews.find((candidate) => {
+      const candidateText = normalizeReviewText(candidate && candidate.review);
+      return candidateText && normalizedText &&
+        (candidateText === normalizedText || candidateText.startsWith(normalizedText.slice(0, 90)));
+    });
+
+    if (!apiReview || !hasReviewImage(apiReview)) {
+      return review;
+    }
+
+    const fileName = `${safeFileName(review.id)}.jpg`;
+    const assetPath = path.join(REVIEW_ASSET_DIR, fileName);
+    const publicPath = `/assets/reviews/${fileName}`;
+    if (!fsSync.existsSync(assetPath)) {
+      await downloadReviewImage(apiReview.image_url_fullxfull, assetPath);
+    }
+    count += 1;
+
+    if (review.image !== publicPath) {
+      updated = true;
+    }
+
+    return {
+      ...review,
+      image: publicPath,
+      imageAlt: `Käuferfoto zur Etsy-Bewertung von ${review.reviewerName || "einem Etsy-Kunden"}`
+    };
+  }));
+
+  return { reviews, count, updated };
+}
+
+async function downloadReviewImage(url, targetPath) {
+  const response = await fetch(url, { headers: { Accept: "image/*" } });
+  if (!response.ok) {
+    throw new Error(`Käuferfoto konnte nicht geladen werden (${response.status}).`);
+  }
+
+  await fs.writeFile(targetPath, Buffer.from(await response.arrayBuffer()));
+}
+
+function normalizeReviewText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function safeFileName(value) {
+  return String(value || "etsy-review")
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 async function fetchEtsyJson(url) {
@@ -58,10 +170,6 @@ async function fetchEtsyJson(url) {
     "x-api-key": API_KEY,
     "Accept": "application/json"
   };
-
-  if (ACCESS_TOKEN) {
-    headers.Authorization = `Bearer ${ACCESS_TOKEN}`;
-  }
 
   const response = await fetch(url, { headers });
   const text = await response.text();
@@ -101,11 +209,29 @@ function buildMetaFromShop(existingMeta, shop) {
     shopName: existingMeta.shopName || shop.shop_name || shop.shopName || "Edle Hölzer",
     ratingAverage,
     ratingCount: Math.round(ratingCount),
+    transactionSoldCount: Math.max(0, Math.round(numberFromFirstDefined(
+      shop.transaction_sold_count,
+      shop.transactionSoldCount
+    ) || 0)),
     lastUpdated: new Date().toISOString().slice(0, 10),
     sourceUrl: existingMeta.sourceUrl || `https://www.etsy.com/shop/${shop.shop_name || ""}#reviews`,
     updateMode: "api",
     needsReview: false
   };
+}
+
+function buildApiKeyHeader() {
+  if (process.env.ETSY_API_KEY_HEADER) {
+    return process.env.ETSY_API_KEY_HEADER;
+  }
+
+  const key = process.env.ETSY_API_KEY;
+  const secret = process.env.ETSY_SHARED_SECRET;
+  if (key && secret) {
+    return `${key}:${secret}`;
+  }
+
+  return key || secret;
 }
 
 function numberFromFirstDefined(...values) {

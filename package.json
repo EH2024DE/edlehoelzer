@@ -3,6 +3,7 @@
     "audit:assets": "node scripts/audit-assets.js",
     "audit:indexability": "node scripts/check-indexability.mjs",
     "audit:products": "node scripts/audit-products.js",
+    "sync:etsy-reviews": "node scripts/sync-etsy-reviews.js",
     "sync:etsy-products": "node scripts/sync-etsy-products.js"
   }
 }

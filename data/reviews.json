@@ -30,7 +30,9 @@
     "reviewerName": "Nick",
     "date": "2026-05",
     "featured": true,
-    "needsReview": false
+    "needsReview": false,
+    "image": "/assets/reviews/etsy-review-202605-nick-teigschaber.jpg",
+    "imageAlt": "Käuferfoto zur Etsy-Bewertung von Nick"
   },
   {
     "id": "etsy-review-001",
@@ -52,7 +54,9 @@
     "reviewerName": "Daniel",
     "date": "2026-04",
     "featured": true,
-    "needsReview": false
+    "needsReview": false,
+    "image": "/assets/reviews/etsy-review-002.jpg",
+    "imageAlt": "Käuferfoto zur Etsy-Bewertung von Daniel"
   },
   {
     "id": "etsy-review-003",
@@ -85,7 +89,9 @@
     "reviewerName": "Kalin",
     "date": "2026-03",
     "featured": true,
-    "needsReview": false
+    "needsReview": false,
+    "image": "/assets/reviews/etsy-review-005.jpg",
+    "imageAlt": "Käuferfoto zur Etsy-Bewertung von Kalin"
   },
   {
     "id": "etsy-review-006",
@@ -107,7 +113,9 @@
     "reviewerName": "Nils",
     "date": "2026-02",
     "featured": true,
-    "needsReview": false
+    "needsReview": false,
+    "image": "/assets/reviews/etsy-review-007.jpg",
+    "imageAlt": "Käuferfoto zur Etsy-Bewertung von Nils"
   },
   {
     "id": "etsy-review-008",
@@ -140,6 +148,8 @@
     "reviewerName": "Ilnar",
     "date": "2025-02",
     "featured": true,
-    "needsReview": false
+    "needsReview": false,
+    "image": "/assets/reviews/etsy-review-010.jpg",
+    "imageAlt": "Käuferfoto zur Etsy-Bewertung von Ilnar"
   }
 ]

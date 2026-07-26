@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260726-review-photos-3">
   <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
 <script defer src="https://cloud.umami.is/script.js"
@@ -82,13 +82,13 @@
   <section class="heroProof" aria-label="Material, craft, care and checkout">
     <div class="container heroProof__grid">
       <div class="heroProof__item"><strong>Solid hardwood</strong><span>Stays steadier and can be refinished when needed.</span></div>
-      <div class="heroProof__item"><strong>Workshop made in Germany</strong><span>Made locally from the first cut to the final sanding.</span></div>
+      <div class="heroProof__item"><strong>Made by Özgür</strong><span>Wood selection, cutting, sanding and finishing in the workshop in Central Hesse.</span></div>
       <div class="heroProof__item"><strong>Oiled surface</strong><span>The surface can be maintained instead of replaced too soon.</span></div>
       <div class="heroProof__item"><strong>Checkout via Etsy</strong><span>Reviews and buyer protection remain visible at checkout.</span></div>
     </div>
   </section>
 
-  <section id="reviews" class="reviewTrust section reveal-on-scroll" data-review-trust-strip data-reviews-src="/data/reviews-en.json">
+  <section id="reviews" class="reviewTrust section reveal-on-scroll" data-review-trust-strip data-reviews-src="/data/reviews-en.json?v=20260726-review-photos">
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Customer reviews</p>
@@ -96,9 +96,50 @@
         <p data-review-subline>Genuine feedback from people who already use our products or have given them as gifts.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Scroll Etsy reviews horizontally">
-        <div class="reviewTrust__track" data-review-track></div>
+        <div class="reviewTrust__track" data-review-track>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="reviewCard__text">“Excellent customer service, high-quality and unusual/customized products. I am delighted and would gladly buy again anytime!”</p>
+            <p class="reviewCard__meta">Heike · June 2026 · Custom wooden piece</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="reviewCard__text">“For my baking projects I wanted a tool that was not made of plastic, but something special in wood. The dough scraper fully met my expectations.”</p>
+            <p class="reviewCard__meta">Nick · May 2026 · Wooden dough scraper</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="reviewCard__text">“Everything was great. It is good to work with.”</p>
+            <p class="reviewCard__meta">Marc · June 2026 · Wooden spatula</p>
+          </article>
+        </div>
       </div>
       <a class="reviewTrust__link" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-review-source-link data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="You are leaving for the Edle Hölzer Etsy shop" data-umami-event="etsy-klick" data-umami-event-seite="index">See all reviews on Etsy</a>
+    </div>
+  </section>
+
+  <section class="section section--white deliveryMap reveal-on-scroll" aria-labelledby="delivery-map-title">
+    <div class="container deliveryMap__layout">
+      <div class="deliveryMap__copy">
+        <p class="eyebrow eyebrow--dark">From Central Hesse across Europe</p>
+        <h2 id="delivery-map-title">Made in Central Hesse. At home across Europe.</h2>
+        <p class="section__lead">Boards and kitchen tools from our workshop have already found a place in twelve countries across Europe. Each symbol represents a piece by Edle Hölzer that arrived there.</p>
+      </div>
+      <div class="deliveryMap__visual" aria-label="Map of Europe with countries delivered to">
+        <img src="/assets/europe-country-outlines.svg" alt="" width="800" height="600" loading="lazy">
+        <button class="deliveryMap__marker" style="--map-x:46.2%;--map-y:37.3%" type="button" aria-label="Germany"><span>Germany</span></button>
+        <button class="deliveryMap__marker" style="--map-x:18%;--map-y:29.9%" type="button" aria-label="Ireland"><span>Ireland</span></button>
+        <button class="deliveryMap__marker" style="--map-x:26.7%;--map-y:26.1%" type="button" aria-label="United Kingdom"><span>United Kingdom</span></button>
+        <button class="deliveryMap__marker" style="--map-x:33.7%;--map-y:52.3%" type="button" aria-label="France"><span>France</span></button>
+        <button class="deliveryMap__marker" style="--map-x:52.1%;--map-y:79.8%" type="button" aria-label="Malta"><span>Malta</span></button>
+        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:80.1%;--map-y:81.8%" type="button" aria-label="Cyprus"><span>Cyprus</span></button>
+        <button class="deliveryMap__marker" style="--map-x:44.7%;--map-y:20.9%" type="button" aria-label="Denmark"><span>Denmark</span></button>
+        <button class="deliveryMap__marker" style="--map-x:54.8%;--map-y:10.8%" type="button" aria-label="Sweden"><span>Sweden</span></button>
+        <button class="deliveryMap__marker" style="--map-x:45.6%;--map-y:8.8%" type="button" aria-label="Norway"><span>Norway</span></button>
+        <button class="deliveryMap__marker" style="--map-x:50.7%;--map-y:47.5%" type="button" aria-label="Austria"><span>Austria</span></button>
+        <button class="deliveryMap__marker" style="--map-x:54.5%;--map-y:54%" type="button" aria-label="Slovenia"><span>Slovenia</span></button>
+        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:83.4%;--map-y:72%" type="button" aria-label="Türkiye"><span>Türkiye</span></button>
+      </div>
     </div>
   </section>
 
@@ -110,7 +151,7 @@
         <p class="section__lead">Start with the use case, not the wood species. This makes it clearer whether an available product, a custom inquiry or an Erbstück piece is the right next step.</p>
       </div>
       <div class="premiumCardGrid">
-        <a class="premiumCard" href="/en/snack-board/" aria-label="View pieces for breakfast and bread"><strong>Breakfast &amp; bread</strong><span>Bread, butter, coffee and wood: a small ritual that returns every day.</span><span class="premiumCard__link">View breakfast pieces</span></a>
+        <a class="premiumCard" href="/en/snack-board/" aria-label="View pieces for breakfast and bread"><strong>Breakfast &amp; bread</strong><span>Bread, butter, coffee and wood: a small moment that returns every day.</span><span class="premiumCard__link">View breakfast pieces</span></a>
         <a class="premiumCard" href="/en/products.html#products-grid" aria-label="View boards for daily cooking"><strong>Daily cooking</strong><span>A board that lies steadily, follows the knife and can stay on the worktop.</span><span class="premiumCard__link">View cooking pieces</span></a>
         <a class="premiumCard" href="/en/cutting-board-juice-groove/" aria-label="View boards for grill serving"><strong>Serving at the grill</strong><span>Surface, weight and juice groove for the moment after grilling.</span><span class="premiumCard__link">Understand grooves</span></a>
         <a class="premiumCard" href="/en/erbstueck/" aria-label="Find a visible wood gift"><strong>A visible gift</strong><span>A piece that is used, cared for and remembered longer than a voucher.</span><span class="premiumCard__link">View gifts</span></a>
@@ -216,9 +257,9 @@
 
   <section id="customwork" class="section section--white reveal-on-scroll">
     <div class="container customLayout">
-      <div class="customLayout__left"><p class="eyebrow eyebrow--dark">Custom work</p><h2>When a ritual has a fixed place.</h2><p class="section__lead">Whether it is a breakfast spot, kitchen island, grill station, gift or Erbstück piece: we discuss the wooden piece directly with you and assess what makes sense and what can be executed cleanly.</p></div>
+      <div class="customLayout__left"><p class="eyebrow eyebrow--dark">Custom work</p><h2>When the board needs a place of its own.</h2><p class="section__lead">Whether it is a breakfast spot, kitchen island, grill station, gift or Erbstück piece: we discuss the wooden piece directly with you and assess what makes sense and what can be executed cleanly.</p></div>
       <div class="customLayout__right">
-        <div class="processRow"><span>01</span><div><h3>Clarify the ritual</h3><p>Preliminary discussion by e-mail or phone. You outline the occasion, place, use, dimensions and wishes.</p></div></div>
+        <div class="processRow"><span>01</span><div><h3>Clarify use and place</h3><p>Preliminary discussion by e-mail or phone. You outline the occasion, place, use, dimensions and wishes.</p></div></div>
         <div class="processRow"><span>02</span><div><h3>Material selection</h3><p>We assess suitable woods, construction, format and meaningful details for your board.</p></div></div>
         <div class="processRow"><span>03</span><div><h3>Non-binding quote</h3><p>You receive a clear assessment of effort, price and feasibility – without obligation.</p></div></div>
         <div class="processRow"><span>04</span><div><h3>Realisation</h3><p>Once approved, we build your board cleanly and in line with your requirements.</p></div></div>
@@ -336,6 +377,6 @@
     <p class="footerCopyright">All content, images, photographs, renderings, logos, text and design elements on this website are protected by copyright. Use, reproduction, editing or distribution without express written permission from Edle Hölzer is not permitted.</p>
   </div>
 </footer>
-<script src="/main.js?v=20260715-care-conversion"></script>
+<script src="/main.js?v=20260726-review-photos-3"></script>
 </body>
 </html>

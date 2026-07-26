@@ -401,6 +401,7 @@ section[id]{scroll-margin-top:88px}
   align-items:stretch;
 }
 .reviewCard{
+  position:relative;
   flex:0 0 clamp(280px,32vw,392px);
   min-height:292px;
   display:flex;
@@ -412,6 +413,74 @@ section[id]{scroll-margin-top:88px}
   background:#fffaf4;
   padding:24px;
   box-shadow:0 12px 28px rgba(35,26,16,.06);
+}
+.reviewCard__photo{
+  position:absolute;
+  top:18px;
+  right:18px;
+  z-index:2;
+  width:54px;
+  height:54px;
+  overflow:visible;
+  border:1px solid rgba(17,17,17,.12);
+  border-radius:4px;
+  background:#fff;
+  padding:3px;
+  cursor:zoom-in;
+}
+.reviewCard__photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:2px;
+  object-fit:cover;
+  transition:box-shadow 180ms ease,transform 180ms ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .reviewCard__photo:hover{
+    z-index:8;
+  }
+  .reviewCard__photo:hover img{
+    box-shadow:0 18px 48px rgba(17,17,17,.28);
+    transform:translate(-72px,72px) scale(3.25);
+  }
+}
+.reviewCard:has(.reviewCard__photo) .reviewCard__stars{
+  padding-right:68px;
+}
+.reviewPhotoDialog{
+  width:min(720px,calc(100vw - 32px));
+  max-width:none;
+  border:0;
+  border-radius:6px;
+  background:#17120f;
+  padding:12px;
+  box-shadow:0 28px 80px rgba(0,0,0,.42);
+}
+.reviewPhotoDialog::backdrop{
+  background:rgba(14,10,8,.82);
+}
+.reviewPhotoDialog img{
+  display:block;
+  width:100%;
+  max-height:calc(100dvh - 80px);
+  border-radius:3px;
+  object-fit:contain;
+}
+.reviewPhotoDialog__close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  z-index:2;
+  width:44px;
+  height:44px;
+  border:1px solid rgba(255,255,255,.4);
+  border-radius:50%;
+  background:rgba(17,17,17,.78);
+  color:#fff;
+  font-size:30px;
+  line-height:1;
+  cursor:pointer;
 }
 .reviewCard__stars{
   color:var(--accent-deep);
@@ -444,6 +513,119 @@ section[id]{scroll-margin-top:88px}
   text-transform:uppercase;
   border-bottom:1px solid rgba(184,136,87,.55);
   padding-bottom:3px;
+}
+.deliveryMap{
+  overflow:hidden;
+  border-top:1px solid rgba(17,17,17,.06);
+}
+.deliveryMap__layout{
+  display:grid;
+  grid-template-columns:minmax(0,.78fr) minmax(520px,1.22fr);
+  gap:clamp(44px,7vw,108px);
+  align-items:center;
+}
+.deliveryMap__copy h2{
+  margin-top:12px;
+  max-width:11ch;
+}
+.deliveryMap__copy .section__lead{
+  max-width:36rem;
+}
+.deliveryMap__visual{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  isolation:isolate;
+}
+.deliveryMap__visual::before{
+  content:"";
+  position:absolute;
+  inset:10% 5% 5%;
+  z-index:-1;
+  background:radial-gradient(ellipse at center,rgba(184,136,87,.12),rgba(184,136,87,0) 68%);
+}
+.deliveryMap__visual img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.deliveryMap__marker{
+  position:absolute;
+  left:var(--map-x);
+  top:var(--map-y);
+  width:32px;
+  height:21px;
+  padding:0;
+  border:2px solid #5f422d;
+  border-radius:4px;
+  background:
+    linear-gradient(90deg,transparent 18%,rgba(87,53,31,.24) 19%,transparent 21%,transparent 64%,rgba(87,53,31,.20) 65%,transparent 67%),
+    linear-gradient(180deg,#c89259,#ad7542);
+  box-shadow:0 5px 12px rgba(48,31,18,.18);
+  transform:translate(-50%,-50%);
+  cursor:pointer;
+  transition:transform 180ms ease,box-shadow 180ms ease,filter 180ms ease;
+}
+.deliveryMap__marker::after{
+  content:"";
+  position:absolute;
+  right:-6px;
+  top:50%;
+  width:6px;
+  height:6px;
+  border:2px solid #5f422d;
+  border-left:0;
+  border-radius:0 4px 4px 0;
+  background:
+    radial-gradient(circle at center,#5f422d 0 1px,transparent 1.4px),
+    #bd8650;
+  transform:translateY(-50%);
+}
+.deliveryMap__marker span{
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 10px);
+  z-index:3;
+  width:max-content;
+  max-width:180px;
+  border-radius:4px;
+  background:#211914;
+  padding:7px 9px;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  line-height:1.2;
+  opacity:0;
+  pointer-events:none;
+  transform:translate(-50%,4px);
+  transition:opacity 150ms ease,transform 150ms ease;
+}
+.deliveryMap__marker--left span{
+  left:auto;
+  right:0;
+  transform:translate(0,4px);
+}
+.deliveryMap__marker:hover,
+.deliveryMap__marker:focus-visible,
+.deliveryMap__marker:focus{
+  z-index:4;
+  filter:saturate(1.08);
+  box-shadow:0 8px 18px rgba(48,31,18,.25);
+  transform:translate(-50%,-50%) scale(1.08);
+}
+.deliveryMap__marker:focus-visible{
+  outline:3px solid rgba(184,136,87,.5);
+  outline-offset:4px;
+}
+.deliveryMap__marker:hover span,
+.deliveryMap__marker:focus span{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+.deliveryMap__marker--left:hover span,
+.deliveryMap__marker--left:focus span{
+  transform:translate(0,0);
 }
 .closingHero{position:relative;min-height:72vh;overflow:hidden}
 .closingHero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -1006,7 +1188,7 @@ section[id]{scroll-margin-top:88px}
 .alternativeCard strong{font-size:15px;line-height:1.25}
 .alternativeCard strong,.alternativeCard span{overflow-wrap:anywhere}
 .alternativeCard span:not(.productCard__segment){color:rgba(17,17,17,.68);font-size:13px}
-.productFilters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 22px}
+.productFilters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 22px}
 .productFilters label{display:grid;gap:6px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.55)}
 .productFilters select{width:100%;border:1px solid var(--line);border-radius:8px;background:#fff;padding:12px 14px;font:inherit;font-size:15px;color:var(--ink)}
 .productGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
@@ -2011,6 +2193,25 @@ section[id]{scroll-margin-top:88px}
 
   .reviewTrust__link{
     margin-left:0;
+  }
+
+  .deliveryMap__layout{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .deliveryMap__copy h2{
+    max-width:14ch;
+  }
+
+  .deliveryMap__visual{
+    width:calc(100% + 28px);
+    margin-left:-14px;
+  }
+
+  .deliveryMap__marker{
+    width:30px;
+    height:20px;
   }
 
   .closingHero{
