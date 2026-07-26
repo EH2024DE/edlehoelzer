@@ -74,7 +74,7 @@
     </button>
     <div class="container hero__content">
       <div class="hero__copy">
-        <p class="heroTrustBar">5 Sterne auf Etsy <span aria-hidden="true">·</span> Mittelhessen <span aria-hidden="true">·</span> Massivholz</p>
+        <p class="heroTrustBar">5,0 Sterne <span aria-hidden="true">·</span> 32 Etsy-Bewertungen <span aria-hidden="true">·</span> 63 Verkäufe</p>
         <h1>Massive Schneidebretter für jeden Tag.</h1>
         <p class="hero__lead">Handgefertigt in Mittelhessen, aus echtem Hartholz und pflegbar statt kurzlebig.</p>
         <div class="hero__actions">
@@ -88,9 +88,26 @@
   <section class="heroProof" aria-label="Material, Fertigung, Pflege und Kauf">
     <div class="container heroProof__grid">
       <div class="heroProof__item"><strong>Massives Hartholz</strong><span>Liegt ruhiger und lässt sich bei Bedarf aufarbeiten.</span></div>
-      <div class="heroProof__item"><strong>Von Özgür gefertigt</strong><span>Holzauswahl, Zuschnitt, Schliff und Finish in der Werkstatt in Mittelhessen.</span></div>
+      <div class="heroProof__item"><strong>Özgür fertigt. Serkan macht es sichtbar.</strong><span>Werkstatt, Produktfotografie und Beratung aus unserem Team in Mittelhessen.</span></div>
       <div class="heroProof__item"><strong>Geölt &amp; nachpflegbar</strong><span>Die Oberfläche kann gepflegt statt vorschnell ersetzt werden.</span></div>
-      <div class="heroProof__item"><strong>Checkout über Etsy</strong><span>Bewertungen und Käuferschutz bleiben beim Kauf sichtbar.</span></div>
+      <div class="heroProof__item"><strong>Checkout über Etsy</strong><span>5,0 Sterne aus 32 Bewertungen und Käuferschutz beim Kauf.</span></div>
+    </div>
+  </section>
+
+  <section class="section section--white homepageProducts reveal-on-scroll" aria-labelledby="homepage-products-title">
+    <div class="container">
+      <div class="sectionIntro sectionIntro--split">
+        <div>
+          <p class="eyebrow eyebrow--dark">Aktuell verfügbar</p>
+          <h2 id="homepage-products-title">Bretter, die du jetzt auswählen kannst.</h2>
+        </div>
+        <p>Vom kompakten Langholzbrett über massives Stirnholz bis zum Erbstück: vier konkrete Stücke zeigen die Spannweite unseres Portfolios.</p>
+      </div>
+      <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite"></div>
+      <div class="ctaRow homepageProducts__actions">
+        <a href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+        <a href="/produkte.html#produkte-grid" class="walnutTextLink">Alle Produkte ansehen</a>
+      </div>
     </div>
   </section>
 
@@ -98,8 +115,8 @@
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Kundenstimmen</p>
-        <h2 data-review-headline>Bewertungen auf Etsy</h2>
-        <p data-review-subline>Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.</p>
+        <h2 data-review-headline>5,0 Sterne aus 32 Etsy-Bewertungen</h2>
+        <p data-review-subline>63 Verkäufe und echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Etsy-Bewertungen horizontal scrollen">
         <div class="reviewTrust__track" data-review-track>
@@ -398,6 +415,23 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung, Bearbeitung oder Weitergabe ohne ausdrückliche schriftliche Genehmigung von Edle Hölzer ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="./main.js?v=20260726-review-photos-3"></script>
+<script src="./main.js?v=20260726-home-products"></script>
+<script src="/assets/js/product-grid.js?v=20260726-home-products"></script>
+<script>
+  var homepageProductIds = [
+    "etsy-live-20260726-erbstueck-no-004-eiche-buche",
+    "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
+    "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
+    "etsy-export-14-schneidebrett-kambala-holz-kompakt-personalisierbar-handgefertigt"
+  ];
+  renderProductGrid("homepage-products", function (product) {
+    return homepageProductIds.indexOf(product.id) !== -1;
+  }, {
+    maxItems: 4,
+    sortFn: function (a, b) {
+      return homepageProductIds.indexOf(a.id) - homepageProductIds.indexOf(b.id);
+    }
+  });
+</script>
 </body>
 </html>
