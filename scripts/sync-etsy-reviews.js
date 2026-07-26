@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
 const REVIEWS_PATH = path.join(ROOT, "data", "reviews.json");
 const META_PATH = path.join(ROOT, "data", "reviews-meta.json");
+const REVIEW_ASSET_DIR = path.join(ROOT, "assets", "reviews");
 const ENV_PATH = path.join(ROOT, ".env");
 const FALLBACK_ENV_PATH = path.join(ROOT, "..", ".env");
 const LISTING_GENERATOR_ENV_PATH = path.join(ROOT, "..", "listing-generator", ".env");
@@ -36,7 +37,7 @@ async function main() {
   }
 
   const existingMeta = await readJson(META_PATH, {});
-  await readJson(REVIEWS_PATH, []);
+  const existingReviews = await readJson(REVIEWS_PATH, []);
 
   const resolvedShopId = await resolveShopId(SHOP_ID);
   const shop = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(resolvedShopId)}`);
@@ -50,9 +51,13 @@ async function main() {
   }
 
   await writeJson(META_PATH, nextMeta);
+  const syncedImages = await syncPermissionedReviewImages(reviews, existingReviews);
+  if (syncedImages.updated) {
+    await writeJson(REVIEWS_PATH, syncedImages.reviews);
+  }
   console.log("[reviews:update] data/reviews-meta.json wurde mit Etsy-Metadaten aktualisiert.");
   console.log(`[reviews:update] ${reviews.length} Bewertungen geprüft, ${reviews.filter(hasReviewImage).length} davon mit Käuferfoto.`);
-  console.log("[reviews:update] Review-Texte und Käuferfotos wurden nicht automatisch veröffentlicht.");
+  console.log(`[reviews:update] ${syncedImages.count} freigegebene Käuferfoto(s) lokal synchronisiert.`);
 }
 
 async function resolveShopId(shopIdOrName) {
@@ -90,6 +95,74 @@ async function fetchShopReviews(shopId) {
 
 function hasReviewImage(review) {
   return Boolean(review && String(review.image_url_fullxfull || "").trim());
+}
+
+async function syncPermissionedReviewImages(apiReviews, existingReviews) {
+  if (!Array.isArray(existingReviews) || !existingReviews.length) {
+    return { reviews: existingReviews, count: 0, updated: false };
+  }
+
+  await fs.mkdir(REVIEW_ASSET_DIR, { recursive: true });
+  let count = 0;
+  let updated = false;
+
+  const reviews = await Promise.all(existingReviews.map(async (review) => {
+    const normalizedText = normalizeReviewText(review.text);
+    const apiReview = apiReviews.find((candidate) => {
+      const candidateText = normalizeReviewText(candidate && candidate.review);
+      return candidateText && normalizedText &&
+        (candidateText === normalizedText || candidateText.startsWith(normalizedText.slice(0, 90)));
+    });
+
+    if (!apiReview || !hasReviewImage(apiReview)) {
+      return review;
+    }
+
+    const fileName = `${safeFileName(review.id)}.jpg`;
+    const assetPath = path.join(REVIEW_ASSET_DIR, fileName);
+    const publicPath = `/assets/reviews/${fileName}`;
+    if (!fsSync.existsSync(assetPath)) {
+      await downloadReviewImage(apiReview.image_url_fullxfull, assetPath);
+    }
+    count += 1;
+
+    if (review.image !== publicPath) {
+      updated = true;
+    }
+
+    return {
+      ...review,
+      image: publicPath,
+      imageAlt: `Käuferfoto zur Etsy-Bewertung von ${review.reviewerName || "einem Etsy-Kunden"}`
+    };
+  }));
+
+  return { reviews, count, updated };
+}
+
+async function downloadReviewImage(url, targetPath) {
+  const response = await fetch(url, { headers: { Accept: "image/*" } });
+  if (!response.ok) {
+    throw new Error(`Käuferfoto konnte nicht geladen werden (${response.status}).`);
+  }
+
+  await fs.writeFile(targetPath, Buffer.from(await response.arrayBuffer()));
+}
+
+function normalizeReviewText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function safeFileName(value) {
+  return String(value || "etsy-review")
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 async function fetchEtsyJson(url) {

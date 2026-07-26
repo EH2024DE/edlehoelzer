@@ -580,6 +580,7 @@ function initReviewTrustStrips() {
   }
 
   var config = getReviewConfig(roots[0]);
+  bindReviewPhotoDialog();
 
   fetchJson(config.reviewsUrl)
     .then(function (reviewData) {
@@ -629,7 +630,7 @@ function initReviewTrustStrips() {
     return {
       isEnglish: isEnglish,
       locale: isEnglish ? "en-US" : "de-DE",
-      reviewsUrl: root.getAttribute("data-reviews-src") || (isEnglish ? "/data/reviews-en.json" : "/data/reviews.json"),
+      reviewsUrl: root.getAttribute("data-reviews-src") || (isEnglish ? "/data/reviews-en.json?v=20260726-review-photos" : "/data/reviews.json?v=20260726-review-photos"),
       metaUrl: root.getAttribute("data-review-meta-src") || "/data/reviews-meta.json",
       fallbackSourceUrl: "https://edlehoelzervonkoc.etsy.com",
       copy: isEnglish ? {
@@ -702,8 +703,7 @@ function initReviewTrustStrips() {
         }
 
         return isValid;
-      })
-      .slice(0, 12);
+      });
   }
 
   function normalizeReviewMeta(data) {
@@ -788,12 +788,47 @@ function initReviewTrustStrips() {
       formatReviewDate(review.date),
       review.product
     ].filter(Boolean);
+    var photo = review.image
+      ? '<button class="reviewCard__photo" type="button" data-review-photo="' + escapeAttribute(review.image) + '" data-review-photo-alt="' + escapeAttribute(review.imageAlt || "") + '" aria-label="' + escapeAttribute(config.isEnglish ? "View customer photo" : "Käuferfoto ansehen") + '"><img src="' + escapeAttribute(review.image) + '" alt="' + escapeAttribute(review.imageAlt || "") + '" loading="lazy" decoding="async"></button>'
+      : "";
 
     return '<article class="reviewCard">' +
+      photo +
       '<div class="reviewCard__stars" aria-label="' + escapeAttribute(rating + config.copy.ratingLabelSuffix) + '">' + buildStars(rating) + '</div>' +
       '<p class="reviewCard__text">“' + escapeHtml(review.text) + '”</p>' +
       '<p class="reviewCard__meta">' + escapeHtml(labelParts.join(config.copy.metaSeparator)) + '</p>' +
     '</article>';
+  }
+
+  function bindReviewPhotoDialog() {
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest("[data-review-photo]");
+      if (!trigger) return;
+
+      var image = trigger.getAttribute("data-review-photo");
+      var alt = trigger.getAttribute("data-review-photo-alt") || "";
+      var dialog = document.createElement("dialog");
+      dialog.className = "reviewPhotoDialog";
+      dialog.innerHTML =
+        '<button class="reviewPhotoDialog__close" type="button" aria-label="' + (config.isEnglish ? "Close photo" : "Foto schließen") + '">×</button>' +
+        '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(alt) + '">';
+      document.body.appendChild(dialog);
+
+      function closeDialog() {
+        dialog.close();
+        dialog.remove();
+        trigger.focus();
+      }
+
+      dialog.querySelector(".reviewPhotoDialog__close").addEventListener("click", closeDialog);
+      dialog.addEventListener("click", function (dialogEvent) {
+        if (dialogEvent.target === dialog) closeDialog();
+      });
+      dialog.addEventListener("close", function () {
+        if (dialog.isConnected) dialog.remove();
+      });
+      dialog.showModal();
+    });
   }
 
   function buildStars(rating) {

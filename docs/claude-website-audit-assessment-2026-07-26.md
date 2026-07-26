@@ -57,11 +57,15 @@ kaufnahen Einstiegsseiten früh genug sichtbar zu machen.
 
 ## Etsy-Bewertungen und Käuferfotos
 
-Der API-Abgleich findet zehn Bewertungen mit Käuferfoto. Diese Bilder werden
-in diesem Paket nicht auf edlehoelzer.de veröffentlicht. Bewertungsinhalte
-gehören den jeweiligen Etsy-Mitgliedern; vor einer dauerhaften
-Weiterverwendung außerhalb von Etsy muss die erforderliche Freigabe oder ein
-anderes belastbares Nutzungsrecht vorliegen.
+Der API-Abgleich findet zehn Bewertungen mit Käuferfoto. Für die Verwendung
+dieser Bilder auf edlehoelzer.de liegt nach Angabe des Betreibers eine
+Freigabe vor. Fotos, die sich eindeutig einer redaktionell gepflegten
+Bewertung zuordnen lassen, werden deshalb als lokale, kleine Vorschau
+synchronisiert.
+
+Die größere Darstellung erscheint erst beim Hover sowie nach einem bewussten
+Klick oder Tipp. So bleiben die Bewertungskarten ruhig und die Bilder werden
+nicht ungefragt zum dominanten Seiteninhalt.
 
 Die Bewertungsmetadaten werden dagegen über die vorhandene zentrale Datei
 aktualisiert. Bei einem fehlgeschlagenen Abruf bleibt der letzte verifizierte
@@ -72,7 +76,7 @@ Stand erhalten, statt Zahlen zu erfinden oder die Website zu blockieren.
 Die Karte ist ein redaktionell gepflegter Marken- und Vertrauensbeleg, keine
 Live-Auswertung personenbezogener Etsy-Transaktionen. Aktuell dargestellt
 werden Deutschland, Irland, das Vereinigte Königreich, Frankreich, Malta,
-Zypern, Dänemark, Österreich, Slowenien und die Türkei.
+Zypern, Dänemark, Schweden, Norwegen, Österreich, Slowenien und die Türkei.
 
 Deutschland und Frankreich erhalten wie alle anderen Länder genau einen
 Marker. Die Marker sind als kleine Schneidebretter mit Innenkontur,
