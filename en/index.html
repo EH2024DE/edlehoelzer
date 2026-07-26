@@ -95,7 +95,7 @@
           <p class="eyebrow eyebrow--dark">Available now</p>
           <h2 id="homepage-products-title">Boards you can choose today.</h2>
         </div>
-        <p>From a compact long-grain board to solid end grain and a one-off Erbstück: four pieces show the range of our portfolio.</p>
+        <p>From an oak long-grain board with a natural knot to solid end grain and a one-off Erbstück: three pieces show the range of our portfolio.</p>
       </div>
       <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite"></div>
       <div class="ctaRow homepageProducts__actions">
@@ -398,15 +398,14 @@
 <script src="/assets/js/product-grid.js?v=20260726-home-products"></script>
 <script>
   var homepageProductIds = [
-    "etsy-live-20260726-erbstueck-no-004-eiche-buche",
-    "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
+    "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
     "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
-    "etsy-export-14-schneidebrett-kambala-holz-kompakt-personalisierbar-handgefertigt"
+    "etsy-live-20260726-erbstueck-no-004-eiche-buche",
   ];
   renderProductGrid("homepage-products", function (product) {
     return homepageProductIds.indexOf(product.id) !== -1;
   }, {
-    maxItems: 4,
+    maxItems: 3,
     sortFn: function (a, b) {
       return homepageProductIds.indexOf(a.id) - homepageProductIds.indexOf(b.id);
     }

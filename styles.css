@@ -1217,7 +1217,7 @@ section[id]{scroll-margin-top:88px}
 .productFacts--compact dd{margin:0;font-size:14px;font-weight:700;overflow-wrap:anywhere}
 .productEmpty{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px;color:rgba(17,17,17,.70)}
 .landingProductGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch;width:100%}
-.homepageProductGrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.homepageProductGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .homepageProductGrid .productCard__footer{align-items:stretch;flex-direction:column}
 .homepageProductGrid .productCard__buy{grid-template-columns:1fr;width:100%}
 .homepageProductGrid .productCard__cta--secondary{display:none}
