@@ -101,7 +101,7 @@
           <p class="eyebrow eyebrow--dark">Aktuell verfügbar</p>
           <h2 id="homepage-products-title">Bretter, die du jetzt auswählen kannst.</h2>
         </div>
-        <p>Vom kompakten Langholzbrett über massives Stirnholz bis zum Erbstück: vier konkrete Stücke zeigen die Spannweite unseres Portfolios.</p>
+        <p>Vom Eiche-Langholzbrett mit Astloch über massives Stirnholz bis zum Erbstück: drei konkrete Stücke zeigen die Spannweite unseres Portfolios.</p>
       </div>
       <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite"></div>
       <div class="ctaRow homepageProducts__actions">
@@ -419,15 +419,14 @@
 <script src="/assets/js/product-grid.js?v=20260726-home-products"></script>
 <script>
   var homepageProductIds = [
-    "etsy-live-20260726-erbstueck-no-004-eiche-buche",
-    "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
+    "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
     "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
-    "etsy-export-14-schneidebrett-kambala-holz-kompakt-personalisierbar-handgefertigt"
+    "etsy-live-20260726-erbstueck-no-004-eiche-buche",
   ];
   renderProductGrid("homepage-products", function (product) {
     return homepageProductIds.indexOf(product.id) !== -1;
   }, {
-    maxItems: 4,
+    maxItems: 3,
     sortFn: function (a, b) {
       return homepageProductIds.indexOf(a.id) - homepageProductIds.indexOf(b.id);
     }
