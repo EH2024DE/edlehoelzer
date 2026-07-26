@@ -99,9 +99,9 @@
       <div class="sectionIntro sectionIntro--split">
         <div>
           <p class="eyebrow eyebrow--dark">Aktuell verfügbar</p>
-          <h2 id="homepage-products-title">Bretter, die du jetzt auswählen kannst.</h2>
+          <h2 id="homepage-products-title">Ein Querschnitt durch unser Sortiment.</h2>
         </div>
-        <p>Vom Eiche-Langholzbrett mit Astloch über massives Stirnholz bis zum Erbstück: drei konkrete Stücke zeigen die Spannweite unseres Portfolios.</p>
+        <p>Vom Eiche-Langholzbrett mit Astloch über massives Stirnholz und Erbstück bis zu zwei Küchenhelfern: sechs verfügbare Stücke zeigen unterschiedliche Materialien, Anwendungen und Preislagen.</p>
       </div>
       <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite"></div>
       <div class="ctaRow homepageProducts__actions">
@@ -422,11 +422,14 @@
     "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
     "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
     "etsy-live-20260726-erbstueck-no-004-eiche-buche",
+    "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
+    "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
+    "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
   ];
   renderProductGrid("homepage-products", function (product) {
     return homepageProductIds.indexOf(product.id) !== -1;
   }, {
-    maxItems: 3,
+    maxItems: 6,
     sortFn: function (a, b) {
       return homepageProductIds.indexOf(a.id) - homepageProductIds.indexOf(b.id);
     }
