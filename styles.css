@@ -2149,23 +2149,38 @@ section[id]{scroll-margin-top:88px}
     margin-bottom:20px;
   }
 
-  .workshopSlider{
+  .workshopGrid{
+    display:flex;
     gap:10px;
-    padding:0 4px 8px;
+    width:calc(100% + 12px);
+    margin:0;
+    padding:0 12px 8px 0;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
     scroll-padding-left:4px;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
   }
 
-  .workshopSlider__item{
-    min-width:52%;
-    max-width:52%;
+  .workshopGrid::-webkit-scrollbar{
+    display:none;
   }
 
-  .workshopSlider__item img{
+  .workshopGrid__item,
+  .workshopGrid__item--wide{
+    flex:0 0 min(74vw,300px);
+    grid-column:auto;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
+
+  .workshopGrid__item img,
+  .workshopGrid__item--wide img{
     aspect-ratio:4/5;
     border-radius:16px;
   }
 
-  .workshopSlider__item figcaption{
+  .workshopGrid__item figcaption{
     font-size:13px;
     line-height:1.45;
   }
