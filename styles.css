@@ -1219,8 +1219,7 @@ section[id]{scroll-margin-top:88px}
 .landingProductGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch;width:100%}
 .homepageProductGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .homepageProductGrid .productCard__footer{align-items:stretch;flex-direction:column}
-.homepageProductGrid .productCard__buy{grid-template-columns:1fr;width:100%}
-.homepageProductGrid .productCard__cta--secondary{display:none}
+.homepageProductGrid .productCard__buy{grid-template-columns:1fr auto;width:100%}
 .homepageProductGrid .productCard__cta--etsy{justify-content:flex-start;width:100%}
 .homepageProducts__actions{margin-top:28px}
 .landingProductGrid+.ctaRow{width:100%}
@@ -1597,6 +1596,12 @@ section[id]{scroll-margin-top:88px}
   .erbstueckGallery figure{
     flex:0 0 80vw;
     scroll-snap-align:start;
+  }
+  .homepageProductGrid{
+    scroll-padding-inline:20px;
+  }
+  .homepageProductGrid .productCard{
+    flex-basis:min(82vw,340px);
   }
   .seo-product-card .spec-tiles,
   .landingProductGrid .productFacts{
