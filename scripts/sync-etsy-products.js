@@ -29,9 +29,8 @@ async function main() {
     return;
   }
 
-  const apiKey = process.env.ETSY_API_KEY_HEADER || process.env.ETSY_API_KEY || process.env.ETSY_SHARED_SECRET;
+  const apiKey = buildApiKeyHeader();
   const shopId = process.env.ETSY_SHOP_ID;
-  const accessToken = process.env.ETSY_ACCESS_TOKEN || process.env.ETSY_OAUTH_TOKEN;
 
   if (!apiKey || !shopId) {
     console.log("[etsy:products] ETSY_API_KEY und ETSY_SHOP_ID sind nicht gesetzt.");
@@ -46,7 +45,8 @@ async function main() {
 
   const catalog = readJson(CATALOG_PATH);
   const products = Array.isArray(catalog) ? catalog : catalog.products || [];
-  const activeListings = await fetchActiveListings({ apiKey, shopId, accessToken });
+  const resolvedShopId = await resolveShopId({ apiKey, shopId });
+  const activeListings = await fetchActiveListings({ apiKey, shopId: resolvedShopId });
   const activeListingIds = new Set(activeListings.map((listing) => String(listing.listing_id || listing.listingId)).filter(Boolean));
   const catalogListingIds = new Set(products.map((product) => String(product.listingId || "")).filter(Boolean));
 
@@ -59,13 +59,25 @@ async function main() {
     return;
   }
 
-  const changed = applyAvailability(products, activeListingIds, restoreActive);
+  const availabilityChanged = applyAvailability(products, activeListingIds, restoreActive);
+  const titlesChanged = applyListingTitles(products, activeListings);
+  const metadataChanged = !Array.isArray(catalog) && (
+    catalog.updatedAt !== TODAY ||
+    catalog.source !== `Etsy Live-Abgleich ${TODAY}`
+  );
+  const changed = availabilityChanged || titlesChanged || metadataChanged;
   if (!changed) {
     console.log("[etsy:products] products.json ist bereits passend zum Etsy-Stand.");
     return;
   }
 
-  const nextCatalog = Array.isArray(catalog) ? products : { ...catalog, products };
+  const nextCatalog = Array.isArray(catalog) ? products : {
+    ...catalog,
+    updatedAt: TODAY,
+    source: `Etsy Live-Abgleich ${TODAY}`,
+    sourceNote: "Produktdaten wurden gegen den aktuellen Etsy-Shop abgeglichen. Aktive Listing-Titel und Verfügbarkeit werden zentral synchronisiert; bewusst als verkauft markierte Einzelstücke bleiben archiviert.",
+    products
+  };
   fs.writeFileSync(CATALOG_PATH, `${JSON.stringify(nextCatalog, null, 2)}\n`, "utf8");
   console.log("[etsy:products] products.json wurde aktualisiert.");
 
@@ -82,39 +94,35 @@ async function main() {
   }
 }
 
-async function fetchActiveListings({ apiKey, shopId, accessToken }) {
-  const headerCandidates = uniqueValues([
-    process.env.ETSY_API_KEY_HEADER,
-    process.env.ETSY_API_KEY,
-    process.env.ETSY_SHARED_SECRET,
-    apiKey
-  ]);
-  const authCandidates = uniqueAuthCandidates(accessToken);
-  const failures = [];
-
-  for (const headerValue of headerCandidates) {
-    for (const authValue of authCandidates) {
-      try {
-        return await fetchActiveListingsWithCredentials({ apiKey: headerValue, shopId, accessToken: authValue });
-      } catch (error) {
-        if (!error.retryableCredentialError) throw error;
-        failures.push(error.message);
-      }
-    }
+async function resolveShopId({ apiKey, shopId }) {
+  if (/^\d+$/.test(String(shopId))) {
+    return String(shopId);
   }
 
-  throw new Error(`Keine Etsy-Credential-Kombination wurde akzeptiert. Letzte Antwort: ${failures.at(-1) || "unbekannt"}`);
+  const url = `${API_BASE}/shops?shop_name=${encodeURIComponent(shopId)}&limit=100`;
+  const response = await fetch(url, {
+    headers: { "x-api-key": apiKey, "Accept": "application/json" }
+  });
+  const text = await response.text();
+  if (!response.ok) {
+    throw new Error(`Etsy-Shop konnte nicht aufgelöst werden (${response.status}).`);
+  }
+
+  const data = parseJson(text);
+  const shops = Array.isArray(data.results) ? data.results : [];
+  const exact = shops.find((shop) => String(shop.shop_name || "").toLowerCase() === String(shopId).toLowerCase());
+  if (!exact || !exact.shop_id) {
+    throw new Error(`Etsy-Shop "${shopId}" konnte nicht eindeutig aufgelöst werden.`);
+  }
+
+  return String(exact.shop_id);
 }
 
-async function fetchActiveListingsWithCredentials({ apiKey, shopId, accessToken }) {
+async function fetchActiveListings({ apiKey, shopId }) {
   const headers = {
     "x-api-key": apiKey,
     "Accept": "application/json"
   };
-
-  if (accessToken) {
-    headers.Authorization = `Bearer ${accessToken}`;
-  }
 
   const listings = [];
   let offset = 0;
@@ -127,9 +135,7 @@ async function fetchActiveListingsWithCredentials({ apiKey, shopId, accessToken 
 
     if (!response.ok) {
       const detail = text ? ` Etsy-Antwort: ${text.slice(0, 280)}` : "";
-      const error = new Error(`Etsy API ${response.status} fuer aktive Listings.${detail}`);
-      error.retryableCredentialError = response.status === 401 || response.status === 403;
-      throw error;
+      throw new Error(`Etsy API ${response.status} fuer aktive Listings.${detail}`);
     }
 
     const data = parseJson(text);
@@ -143,15 +149,6 @@ async function fetchActiveListingsWithCredentials({ apiKey, shopId, accessToken 
   }
 
   return listings;
-}
-
-function uniqueValues(values) {
-  return [...new Set(values.map((value) => String(value || "").trim()).filter(Boolean))];
-}
-
-function uniqueAuthCandidates(accessToken) {
-  if (!accessToken) return [""];
-  return [accessToken, ""];
 }
 
 function buildReport(products, activeListings, activeListingIds) {
@@ -181,14 +178,51 @@ function buildReport(products, activeListings, activeListingIds) {
   const missingInCatalog = activeListings
     .filter((listing) => !catalogListingIds.has(String(listing.listing_id || listing.listingId || "")))
     .map((listing) => `${listing.listing_id || listing.listingId} - ${listing.title || "(ohne Titel)"}`);
+  const listingById = new Map(activeListings.map((listing) => [
+    String(listing.listing_id || listing.listingId || ""),
+    listing
+  ]));
+  const titleChanges = products
+    .filter((product) => product.listingId && listingById.has(String(product.listingId)))
+    .map((product) => {
+      const listing = listingById.get(String(product.listingId));
+      const catalogTitle = normalizeTitle(product.name || product.title || "");
+      const etsyTitle = normalizeTitle(listing.title || "");
+      return catalogTitle !== etsyTitle ? {
+        id: product.listingId,
+        displayName: product.displayName || product.name || product.id,
+        catalogTitle: product.name || product.title || "",
+        etsyTitle: listing.title || ""
+      } : null;
+    })
+    .filter(Boolean);
 
   return {
     activeEtsyCount: activeListings.length,
     activeInCatalog,
     missingOnEtsy,
     missingInCatalog,
-    inactiveButActiveOnEtsy: inactiveInCatalog.filter((entry) => entry.onEtsy).map((entry) => entry.label)
+    inactiveButActiveOnEtsy: inactiveInCatalog.filter((entry) => entry.onEtsy).map((entry) => entry.label),
+    titleChanges
   };
+}
+
+function normalizeTitle(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function buildApiKeyHeader() {
+  if (process.env.ETSY_API_KEY_HEADER) {
+    return process.env.ETSY_API_KEY_HEADER;
+  }
+
+  const key = process.env.ETSY_API_KEY;
+  const secret = process.env.ETSY_SHARED_SECRET;
+  if (key && secret) {
+    return `${key}:${secret}`;
+  }
+
+  return key || secret;
 }
 
 function applyAvailability(products, activeListingIds, restoreActive) {
@@ -210,6 +244,13 @@ function applyAvailability(products, activeListingIds, restoreActive) {
       return;
     }
 
+    const intentionallyUnavailable = product.active === false ||
+      product.visibility === "archive" ||
+      product.availabilityStatus === "sold";
+    if (intentionallyUnavailable && !restoreActive) {
+      return;
+    }
+
     changed = setIfChanged(product, "availabilityStatus", "available") || changed;
     changed = setIfChanged(product, "directListingUrlVerified", true) || changed;
 
@@ -223,6 +264,30 @@ function applyAvailability(products, activeListingIds, restoreActive) {
         changed = true;
       }
     }
+  });
+
+  return changed;
+}
+
+function applyListingTitles(products, activeListings) {
+  const listingsById = new Map(activeListings.map((listing) => [
+    String(listing.listing_id || listing.listingId || ""),
+    listing
+  ]));
+  let changed = false;
+
+  products.forEach((product) => {
+    const listing = listingsById.get(String(product.listingId || ""));
+    const currentTitle = normalizeTitle(product.name || product.title || "");
+    const etsyTitle = normalizeTitle(listing && listing.title);
+    if (!etsyTitle || currentTitle === etsyTitle) return;
+
+    changed = setIfChanged(product, "name", etsyTitle) || changed;
+    if (Object.prototype.hasOwnProperty.call(product, "title")) {
+      changed = setIfChanged(product, "title", etsyTitle) || changed;
+    }
+    changed = setIfChanged(product, "dataVerifiedAt", TODAY) || changed;
+    changed = setIfChanged(product, "source", `etsy-shop-live-${TODAY.replace(/-/g, "")}`) || changed;
   });
 
   return changed;
@@ -288,6 +353,7 @@ function printReport(report, writeMode, restoreActive) {
   console.log(`[etsy:products] In products.json aktiv bei Etsy gefunden: ${report.activeInCatalog.length}`);
   console.log(`[etsy:products] In products.json nicht unter aktiven Etsy-Listings: ${report.missingOnEtsy.length}`);
   console.log(`[etsy:products] Aktive Etsy-Listings fehlen in products.json: ${report.missingInCatalog.length}`);
+  console.log(`[etsy:products] Abweichende Etsy-Titel: ${report.titleChanges.length}`);
 
   if (report.inactiveButActiveOnEtsy.length) {
     console.log("[etsy:products] Archiviert/verkauft im Katalog, aber aktiv auf Etsy:");
@@ -305,6 +371,15 @@ function printReport(report, writeMode, restoreActive) {
   if (report.missingInCatalog.length) {
     console.log("[etsy:products] Auf Etsy aktiv, aber noch nicht im Website-Katalog:");
     report.missingInCatalog.slice(0, 25).forEach((entry) => console.log(`  - ${entry}`));
+  }
+
+  if (report.titleChanges.length) {
+    console.log("[etsy:products] Titeländerungen auf Etsy:");
+    report.titleChanges.slice(0, 50).forEach((entry) => {
+      console.log(`  - ${entry.id} - ${entry.displayName}`);
+      console.log(`    Katalog: ${entry.catalogTitle}`);
+      console.log(`    Etsy:    ${entry.etsyTitle}`);
+    });
   }
 }
 
