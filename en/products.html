@@ -12,7 +12,7 @@
   <link rel="alternate" hreflang="en" href="https://edlehoelzer.de/en/products.html">
   <link rel="alternate" hreflang="x-default" href="https://edlehoelzer.de/produkte.html">
   <meta property="og:title" content="Board Finder &amp; Product Guide | Edle Hölzer">
-  <meta property="og:description" content="Selection help for wooden pieces that support breakfast, cooking, grilling, serving and gifting rituals.">
+  <meta property="og:description" content="Selection help for wooden pieces used for breakfast, cooking, grilling, serving and gifting.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://edlehoelzer.de/en/products.html">
   <meta property="og:image" content="https://edlehoelzer.de/assets/schneidebretter-massivholz.jpg">
@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260726-price-sort">
   <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script type="application/ld+json">
 {
@@ -105,9 +105,9 @@
   <section class="productsHero">
     <div class="container productsHero__grid">
       <div>
-        <p class="eyebrow eyebrow--dark">Ritual guidance</p>
-        <h1>Find the wooden piece for your ritual.</h1>
-        <p class="productsHero__lead">A good wooden piece is not decided by wood species or looks alone. It has to support the ritual: breakfast, cooking, grilling, serving, gifting or caring for the material.</p>
+        <p class="eyebrow eyebrow--dark">Board finder</p>
+        <h1>Find the wooden piece for your everyday use.</h1>
+        <p class="productsHero__lead">A good wooden piece is not decided by wood species or looks alone. What matters is how you use it: for breakfast, cooking, grilling, serving, gifting or caring for the material.</p>
         <div class="hero__actions productsHero__actions">
           <a href="#product-finder" class="btn btn--emphasis">Find a board</a>
           <a href="#products-grid" class="btn btn--ghost-dark">View all products</a>
@@ -123,7 +123,7 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Board finder</p>
-        <h2>Start with the moment, not the product.</h2>
+        <h2>What will you use the board for?</h2>
         <p class="section__lead">Not every wooden piece has to do everything. The important question is whether it supports breakfast, daily cooking, grilling, serving, gifting or care.</p>
       </div>
 
@@ -151,7 +151,7 @@
       <div class="sectionIntro sectionIntro--split">
         <div>
           <p class="eyebrow eyebrow--dark">Products</p>
-          <h2>Tools for recurring rituals.</h2>
+          <h2>For kitchen, breakfast, grill and table.</h2>
         </div>
         <p class="section__lead">Compare formats, materials and use cases, and find the wooden piece that fits breakfast, kitchen, table, grill or occasion.</p>
       </div>
@@ -190,6 +190,13 @@
             <option value="gift">Gift</option>
           </select>
         </label>
+        <label>
+          Sort
+          <select name="sort">
+            <option value="priceAsc">Price: low to high</option>
+            <option value="priceDesc">Price: high to low</option>
+          </select>
+        </label>
       </form>
 
       <div class="productGrid" data-products-grid aria-live="polite"></div>
@@ -207,7 +214,23 @@
         <p data-review-subline>Genuine feedback from people who already use our products or have given them as gifts.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Scroll Etsy reviews horizontally">
-        <div class="reviewTrust__track" data-review-track></div>
+        <div class="reviewTrust__track" data-review-track>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="reviewCard__text">“Excellent customer service, high-quality and unusual/customized products. I am delighted and would gladly buy again anytime!”</p>
+            <p class="reviewCard__meta">Heike · June 2026 · Custom wooden piece</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="reviewCard__text">“For my baking projects I wanted a tool that was not made of plastic, but something special in wood. The dough scraper fully met my expectations.”</p>
+            <p class="reviewCard__meta">Nick · May 2026 · Wooden dough scraper</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="reviewCard__text">“Everything was great. It is good to work with.”</p>
+            <p class="reviewCard__meta">Marc · June 2026 · Wooden spatula</p>
+          </article>
+        </div>
       </div>
       <a class="reviewTrust__link" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-review-source-link data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="You are leaving for the Edle Hölzer Etsy shop" data-umami-event="etsy-klick" data-umami-event-seite="products">View all reviews on Etsy</a>
     </div>
@@ -323,6 +346,6 @@
   </div>
 </footer>
 
-<script src="/main.js?v=20260715-care-conversion"></script>
+<script src="/main.js?v=20260726-price-sort"></script>
 </body>
 </html>

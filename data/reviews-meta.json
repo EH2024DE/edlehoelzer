@@ -2,9 +2,10 @@
   "source": "Etsy",
   "shopName": "Edle Hölzer",
   "ratingAverage": 5,
-  "ratingCount": 30,
-  "lastUpdated": "2026-06-19",
+  "ratingCount": 32,
+  "transactionSoldCount": 63,
+  "lastUpdated": "2026-07-26",
   "sourceUrl": "https://www.etsy.com/shop/EdleHoelzervonKoc#reviews",
-  "updateMode": "manual-live-check",
+  "updateMode": "api",
   "needsReview": false
 }

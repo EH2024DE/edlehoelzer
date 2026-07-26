@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+  <link rel="stylesheet" href="/styles.css?v=20260726-price-sort">
   <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script type="application/ld+json">
 {
@@ -105,9 +105,9 @@
   <section class="productsHero">
     <div class="container productsHero__grid">
       <div>
-        <p class="eyebrow eyebrow--dark">Ritualberatung</p>
+        <p class="eyebrow eyebrow--dark">Brettfinder</p>
         <h1>Welches Holzstück passt zu deinem Alltag?</h1>
-        <p class="productsHero__lead">Ein gutes Holzstück entscheidet sich nicht nur über Holzart oder Optik. Wichtig ist, welches Ritual es begleitet: Frühstück, Kochen, Grillen, Servieren, Schenken oder Pflegen.</p>
+        <p class="productsHero__lead">Ein gutes Holzstück entscheidet sich nicht nur über Holzart oder Optik. Wichtig ist, wofür du es im Alltag nutzt: Frühstück, Kochen, Grillen, Servieren, Schenken oder Pflegen.</p>
         <div class="hero__actions productsHero__actions">
           <a href="#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
           <a href="#produkte-grid" class="btn btn--ghost-dark">Alle Produkte ansehen</a>
@@ -123,7 +123,7 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Brettfinder</p>
-        <h2>Starte mit dem Moment, nicht mit dem Produkt.</h2>
+        <h2>Wofür möchtest du das Brett verwenden?</h2>
         <p class="section__lead">Nicht jedes Holzstück muss alles können. Entscheidend ist, ob es Frühstück, tägliches Kochen, Grillen, Servieren, Schenken oder Pflege begleiten soll.</p>
       </div>
 
@@ -154,7 +154,7 @@
       <div class="sectionIntro sectionIntro--split">
         <div>
           <p class="eyebrow eyebrow--dark">Produkte</p>
-          <h2>Werkzeuge für wiederkehrende Rituale.</h2>
+          <h2>Für Küche, Frühstück, Grill und Tisch.</h2>
         </div>
         <p class="section__lead">Vergleiche Formate, Materialien und Einsatzbereiche und finde das Holzstück, das zu Frühstück, Küche, Tisch, Grill oder Anlass passt.</p>
       </div>
@@ -193,6 +193,13 @@
             <option value="gift">Geschenk</option>
           </select>
         </label>
+        <label>
+          Sortierung
+          <select name="sort">
+            <option value="priceAsc">Preis: niedrig zuerst</option>
+            <option value="priceDesc">Preis: hoch zuerst</option>
+          </select>
+        </label>
       </form>
 
       <div class="productGrid" data-products-grid aria-live="polite"></div>
@@ -210,7 +217,23 @@
         <p data-review-subline>Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Etsy-Bewertungen horizontal scrollen">
-        <div class="reviewTrust__track" data-review-track></div>
+        <div class="reviewTrust__track" data-review-track>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="reviewCard__text">„Exzellenter Kundenservice, hochwertige und ausgefallene/individualisierte Ware. Ich bin hocherfreut und kaufe jederzeit wieder gerne!“</p>
+            <p class="reviewCard__meta">Heike · Juni 2026 · Sonderanfertigung aus Holz</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="reviewCard__text">„Für meine Backvorhaben habe ich ein Werkzeug gesucht, das nicht aus Kunststoff ist, sondern etwas Besonderes aus Holz. Der Teigschaber hat meine Erwartungen vollständig erfüllt.“</p>
+            <p class="reviewCard__meta">Nick · Mai 2026 · Teigschaber aus Holz</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="reviewCard__text">„Alles super. Lässt sich gut mit arbeiten.“</p>
+            <p class="reviewCard__meta">Marc · Juni 2026 · Pfannenwender aus Holz</p>
+          </article>
+        </div>
       </div>
       <a class="reviewTrust__link" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-review-source-link data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="produkte">Alle Bewertungen auf Etsy ansehen</a>
     </div>
@@ -340,6 +363,6 @@
   </div>
 </footer>
 
-<script src="/main.js?v=20260715-care-conversion"></script>
+<script src="/main.js?v=20260726-price-sort"></script>
 </body>
 </html>

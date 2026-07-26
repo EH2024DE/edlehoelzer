@@ -16,9 +16,8 @@ const LISTING_GENERATOR_ENV_PATH = path.join(ROOT, "..", "listing-generator", ".
 
 loadDotEnv();
 
-const API_KEY = process.env.ETSY_API_KEY_HEADER || process.env.ETSY_API_KEY || process.env.ETSY_SHARED_SECRET;
+const API_KEY = buildApiKeyHeader();
 const SHOP_ID = process.env.ETSY_SHOP_ID;
-const ACCESS_TOKEN = process.env.ETSY_ACCESS_TOKEN || process.env.ETSY_OAUTH_TOKEN;
 
 main().catch((error) => {
   console.error("[reviews:update] Abbruch:", error.message);
@@ -39,7 +38,9 @@ async function main() {
   const existingMeta = await readJson(META_PATH, {});
   await readJson(REVIEWS_PATH, []);
 
-  const shop = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(SHOP_ID)}`);
+  const resolvedShopId = await resolveShopId(SHOP_ID);
+  const shop = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(resolvedShopId)}`);
+  const reviews = await fetchShopReviews(resolvedShopId);
   const nextMeta = buildMetaFromShop(existingMeta, shop);
 
   if (!nextMeta) {
@@ -50,7 +51,45 @@ async function main() {
 
   await writeJson(META_PATH, nextMeta);
   console.log("[reviews:update] data/reviews-meta.json wurde mit Etsy-Metadaten aktualisiert.");
-  console.log("[reviews:update] Review-Texte wurden nicht automatisch geändert, da kein stabiler Shop-Review-Sync aktiviert ist.");
+  console.log(`[reviews:update] ${reviews.length} Bewertungen geprüft, ${reviews.filter(hasReviewImage).length} davon mit Käuferfoto.`);
+  console.log("[reviews:update] Review-Texte und Käuferfotos wurden nicht automatisch veröffentlicht.");
+}
+
+async function resolveShopId(shopIdOrName) {
+  if (/^\d+$/.test(String(shopIdOrName))) {
+    return String(shopIdOrName);
+  }
+
+  const response = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops?shop_name=${encodeURIComponent(shopIdOrName)}&limit=100`);
+  const shops = Array.isArray(response.results) ? response.results : [];
+  const exact = shops.find((shop) => String(shop.shop_name || "").toLowerCase() === String(shopIdOrName).toLowerCase());
+
+  if (!exact || !exact.shop_id) {
+    throw new Error(`Etsy-Shop "${shopIdOrName}" konnte nicht eindeutig aufgelöst werden.`);
+  }
+
+  return String(exact.shop_id);
+}
+
+async function fetchShopReviews(shopId) {
+  const reviews = [];
+  const limit = 100;
+  let offset = 0;
+
+  while (true) {
+    const data = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(shopId)}/reviews?limit=${limit}&offset=${offset}`);
+    const batch = Array.isArray(data.results) ? data.results : [];
+    reviews.push(...batch);
+    offset += batch.length;
+
+    if (!batch.length || !Number.isFinite(Number(data.count)) || offset >= Number(data.count)) {
+      return reviews;
+    }
+  }
+}
+
+function hasReviewImage(review) {
+  return Boolean(review && String(review.image_url_fullxfull || "").trim());
 }
 
 async function fetchEtsyJson(url) {
@@ -58,10 +97,6 @@ async function fetchEtsyJson(url) {
     "x-api-key": API_KEY,
     "Accept": "application/json"
   };
-
-  if (ACCESS_TOKEN) {
-    headers.Authorization = `Bearer ${ACCESS_TOKEN}`;
-  }
 
   const response = await fetch(url, { headers });
   const text = await response.text();
@@ -101,11 +136,29 @@ function buildMetaFromShop(existingMeta, shop) {
     shopName: existingMeta.shopName || shop.shop_name || shop.shopName || "Edle Hölzer",
     ratingAverage,
     ratingCount: Math.round(ratingCount),
+    transactionSoldCount: Math.max(0, Math.round(numberFromFirstDefined(
+      shop.transaction_sold_count,
+      shop.transactionSoldCount
+    ) || 0)),
     lastUpdated: new Date().toISOString().slice(0, 10),
     sourceUrl: existingMeta.sourceUrl || `https://www.etsy.com/shop/${shop.shop_name || ""}#reviews`,
     updateMode: "api",
     needsReview: false
   };
+}
+
+function buildApiKeyHeader() {
+  if (process.env.ETSY_API_KEY_HEADER) {
+    return process.env.ETSY_API_KEY_HEADER;
+  }
+
+  const key = process.env.ETSY_API_KEY;
+  const secret = process.env.ETSY_SHARED_SECRET;
+  if (key && secret) {
+    return `${key}:${secret}`;
+  }
+
+  return key || secret;
 }
 
 function numberFromFirstDefined(...values) {

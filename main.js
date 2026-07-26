@@ -636,6 +636,8 @@ function initReviewTrustStrips() {
         headlineFallback: "Reviews on ",
         headlineSuffix: " stars on ",
         sublineFallback: "Genuine feedback from people who already use our products or have given them as gifts.",
+        reviewCountLabel: "reviews",
+        salesCountLabel: "sales via Etsy",
         ratingLabelSuffix: " out of 5 stars",
         metaSeparator: " · ",
         months: [
@@ -656,6 +658,8 @@ function initReviewTrustStrips() {
         headlineFallback: "Bewertungen auf ",
         headlineSuffix: " Sterne auf ",
         sublineFallback: "Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.",
+        reviewCountLabel: "Bewertungen",
+        salesCountLabel: "Verkäufe über Etsy",
         ratingLabelSuffix: " von 5 Sternen",
         metaSeparator: " · ",
         months: [
@@ -706,12 +710,14 @@ function initReviewTrustStrips() {
     var meta = data && typeof data === "object" && !Array.isArray(data) ? data : {};
     var ratingAverage = Number(meta.ratingAverage);
     var ratingCount = Number(meta.ratingCount);
+    var transactionSoldCount = Number(meta.transactionSoldCount);
 
     return {
       source: String(meta.source || "Etsy"),
       shopName: String(meta.shopName || "Edle Hölzer"),
       ratingAverage: ratingAverage >= 1 && ratingAverage <= 5 ? ratingAverage : null,
       ratingCount: ratingCount > 0 ? Math.round(ratingCount) : 0,
+      transactionSoldCount: transactionSoldCount > 0 ? Math.round(transactionSoldCount) : 0,
       lastUpdated: String(meta.lastUpdated || ""),
       sourceUrl: String(meta.sourceUrl || config.fallbackSourceUrl),
       needsReview: meta.needsReview === true
@@ -760,7 +766,19 @@ function initReviewTrustStrips() {
   }
 
   function buildReviewSubline(meta) {
-    return config.copy.sublineFallback;
+    var trustFacts = [];
+
+    if (meta.ratingCount) {
+      trustFacts.push(meta.ratingCount.toLocaleString(config.locale) + " " + config.copy.reviewCountLabel);
+    }
+
+    if (meta.transactionSoldCount) {
+      trustFacts.push(meta.transactionSoldCount.toLocaleString(config.locale) + " " + config.copy.salesCountLabel);
+    }
+
+    return trustFacts.length
+      ? trustFacts.join(" · ") + ". " + config.copy.sublineFallback
+      : config.copy.sublineFallback;
   }
 
   function buildReviewCard(review) {
@@ -2193,7 +2211,7 @@ function initProductsPage() {
   var questionsDe = [
     {
       id: "use",
-      title: "Welches Ritual soll dein Holzstück begleiten?",
+      title: "Wofür möchtest du das Holzstück verwenden?",
       options: [
         {
           value: "daily",
@@ -2328,7 +2346,7 @@ function initProductsPage() {
   var questionsEn = [
     {
       id: "use",
-      title: "What ritual should the wooden piece support?",
+      title: "What will you use the wooden piece for?",
       options: [
         {
           value: "daily",
@@ -2708,8 +2726,8 @@ function initProductsPage() {
     if (!main) {
       resultRoot.hidden = false;
       resultRoot.innerHTML = isEnglish
-        ? '<h2>This is probably the best direction for your ritual</h2><p>For this combination, a short personal check makes sense so format, wood and use really fit together.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Wooden%20piece%20inquiry">Ask about a wooden piece</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Restart finder</button></div>'
-        : '<h2>Das dürfte am besten zu deinem Ritual passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Holzst%C3%BCck">Holzstück anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
+        ? '<h2>This is probably the best direction for your everyday use</h2><p>For this combination, a short personal check makes sense so format, wood and use really fit together.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Wooden%20piece%20inquiry">Ask about a wooden piece</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Restart finder</button></div>'
+        : '<h2>Das dürfte am besten zu deinem Alltag passen</h2><p>Für diese Kombination ist eine kurze persönliche Abstimmung sinnvoll, damit Format, Holzart und Nutzung wirklich zusammenpassen.</p><div class="ctaRow"><a class="btn" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Holzst%C3%BCck">Holzstück anfragen</a><button class="btn btn--ghost-dark" type="button" data-finder-reset>Finder neu starten</button></div>';
       bindReset(resultRoot);
       return;
     }
@@ -2722,7 +2740,7 @@ function initProductsPage() {
     resultRoot.innerHTML =
       '<div class="finderResult__head">' +
         '<p class="eyebrow eyebrow--dark">' + (isEnglish ? "Recommendation" : "Empfehlung") + '</p>' +
-        '<h2>' + (isEnglish ? "This is probably the best direction for your ritual" : "Das dürfte am besten zu deinem Ritual passen") + '</h2>' +
+        '<h2>' + (isEnglish ? "This is probably the best direction for your everyday use" : "Das dürfte am besten zu deinem Alltag passen") + '</h2>' +
         '<p><strong>' + (isEnglish ? "This board fits because: " : "Dieses Brett passt, weil: ") + '</strong>' + escapeHtml(buildReason(main)) + '</p>' +
       '</div>' +
       '<div class="recommendationCard">' +
@@ -2965,6 +2983,7 @@ function initProductsPage() {
     var category = filters ? filters.get("category") : "all";
     var price = filters ? filters.get("price") : "all";
     var useCase = filters ? filters.get("useCase") : "all";
+    var sort = filters ? filters.get("sort") : "priceAsc";
 
     var products = state.activeProducts
       .filter(function (product) {
@@ -2991,27 +3010,20 @@ function initProductsPage() {
         return useCase === "all" || (Array.isArray(product.useCases) && product.useCases.indexOf(useCase) !== -1);
       })
       .sort(function (a, b) {
-        var aHighlight = state.highlightedIds.indexOf(a.id);
-        var bHighlight = state.highlightedIds.indexOf(b.id);
-        if (aHighlight !== -1 || bHighlight !== -1) {
-          if (aHighlight === -1) {
-            return 1;
-          }
-          if (bHighlight === -1) {
-            return -1;
-          }
-          return aHighlight - bHighlight;
+        var aPrice = Number(a.priceOrder);
+        var bPrice = Number(b.priceOrder);
+        var aHasPrice = Number.isFinite(aPrice) && aPrice > 0;
+        var bHasPrice = Number.isFinite(bPrice) && bPrice > 0;
+
+        if (aHasPrice !== bHasPrice) {
+          return aHasPrice ? -1 : 1;
         }
 
-        if (a.needsReview !== b.needsReview) {
-          return a.needsReview ? 1 : -1;
+        if (aHasPrice && aPrice !== bPrice) {
+          return sort === "priceDesc" ? bPrice - aPrice : aPrice - bPrice;
         }
 
-        if (a.featured !== b.featured) {
-          return a.featured ? -1 : 1;
-        }
-
-        return Number(a.priceOrder || 0) - Number(b.priceOrder || 0);
+        return String(a.displayName || a.name || "").localeCompare(String(b.displayName || b.name || ""), isEnglish ? "en" : "de");
       });
 
     if (!products.length) {

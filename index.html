@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20260715-care-conversion">
+<link rel="stylesheet" href="/styles.css?v=20260726-country-map">
   <script>
     if (window.location.pathname === "/index.html") {
       window.history.replaceState(null, "", "/" + window.location.search + window.location.hash);
@@ -88,7 +88,7 @@
   <section class="heroProof" aria-label="Material, Fertigung, Pflege und Kauf">
     <div class="container heroProof__grid">
       <div class="heroProof__item"><strong>Massives Hartholz</strong><span>Liegt ruhiger und lässt sich bei Bedarf aufarbeiten.</span></div>
-      <div class="heroProof__item"><strong>Werkstatt in Mittelhessen</strong><span>Vom Zuschnitt bis zum letzten Schliff vor Ort gefertigt.</span></div>
+      <div class="heroProof__item"><strong>Von Özgür gefertigt</strong><span>Holzauswahl, Zuschnitt, Schliff und Finish in der Werkstatt in Mittelhessen.</span></div>
       <div class="heroProof__item"><strong>Geölt &amp; nachpflegbar</strong><span>Die Oberfläche kann gepflegt statt vorschnell ersetzt werden.</span></div>
       <div class="heroProof__item"><strong>Checkout über Etsy</strong><span>Bewertungen und Käuferschutz bleiben beim Kauf sichtbar.</span></div>
     </div>
@@ -102,9 +102,48 @@
         <p data-review-subline>Echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Etsy-Bewertungen horizontal scrollen">
-        <div class="reviewTrust__track" data-review-track></div>
+        <div class="reviewTrust__track" data-review-track>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="reviewCard__text">„Exzellenter Kundenservice, hochwertige und ausgefallene/individualisierte Ware. Ich bin hocherfreut und kaufe jederzeit wieder gerne!“</p>
+            <p class="reviewCard__meta">Heike · Juni 2026 · Sonderanfertigung aus Holz</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="reviewCard__text">„Für meine Backvorhaben habe ich ein Werkzeug gesucht, das nicht aus Kunststoff ist, sondern etwas Besonderes aus Holz. Der Teigschaber hat meine Erwartungen vollständig erfüllt.“</p>
+            <p class="reviewCard__meta">Nick · Mai 2026 · Teigschaber aus Holz</p>
+          </article>
+          <article class="reviewCard">
+            <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+            <p class="reviewCard__text">„Alles super. Lässt sich gut mit arbeiten.“</p>
+            <p class="reviewCard__meta">Marc · Juni 2026 · Pfannenwender aus Holz</p>
+          </article>
+        </div>
       </div>
       <a class="reviewTrust__link" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-review-source-link data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Alle Bewertungen auf Etsy ansehen</a>
+    </div>
+  </section>
+
+  <section class="section section--white deliveryMap reveal-on-scroll" aria-labelledby="delivery-map-title">
+    <div class="container deliveryMap__layout">
+      <div class="deliveryMap__copy">
+        <p class="eyebrow eyebrow--dark">Von Mittelhessen nach Europa</p>
+        <h2 id="delivery-map-title">In Mittelhessen gefertigt. In Europa zu Hause.</h2>
+        <p class="section__lead">Von unserer Werkstatt aus haben Bretter und Küchenhelfer bereits ihren Platz in zehn Ländern Europas gefunden. Jedes Symbol steht für ein Stück Edle Hölzer, das dort angekommen ist.</p>
+      </div>
+      <div class="deliveryMap__visual" aria-label="Europakarte mit belieferten Ländern">
+        <img src="/assets/europe-country-outlines.svg" alt="" width="800" height="600" loading="lazy">
+        <button class="deliveryMap__marker" style="--map-x:46.2%;--map-y:37.3%" type="button" aria-label="Deutschland"><span>Deutschland</span></button>
+        <button class="deliveryMap__marker" style="--map-x:18%;--map-y:29.9%" type="button" aria-label="Irland"><span>Irland</span></button>
+        <button class="deliveryMap__marker" style="--map-x:26.7%;--map-y:26.1%" type="button" aria-label="Vereinigtes Königreich"><span>Vereinigtes Königreich</span></button>
+        <button class="deliveryMap__marker" style="--map-x:33.7%;--map-y:52.3%" type="button" aria-label="Frankreich"><span>Frankreich</span></button>
+        <button class="deliveryMap__marker" style="--map-x:52.1%;--map-y:79.8%" type="button" aria-label="Malta"><span>Malta</span></button>
+        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:80.1%;--map-y:81.8%" type="button" aria-label="Zypern"><span>Zypern</span></button>
+        <button class="deliveryMap__marker" style="--map-x:44.7%;--map-y:20.9%" type="button" aria-label="Dänemark"><span>Dänemark</span></button>
+        <button class="deliveryMap__marker" style="--map-x:50.7%;--map-y:47.5%" type="button" aria-label="Österreich"><span>Österreich</span></button>
+        <button class="deliveryMap__marker" style="--map-x:54.5%;--map-y:54%" type="button" aria-label="Slowenien"><span>Slowenien</span></button>
+        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:83.4%;--map-y:72%" type="button" aria-label="Türkei"><span>Türkei</span></button>
+      </div>
     </div>
   </section>
 
@@ -116,7 +155,7 @@
         <p class="section__lead">Wähle zuerst den Einsatz, nicht die Holzart. So wird schneller klar, welches Holzstück in deinem Alltag Sinn ergibt.</p>
       </div>
       <div class="premiumCardGrid">
-        <a class="premiumCard" href="/brotzeitbrett/" aria-label="Holzstücke für Frühstück und Brot ansehen"><strong>Frühstück &amp; Brot</strong><span>Brot, Butter, Kaffee und Holz: ein kleines Ritual, das jeden Tag wiederkommt.</span><span class="premiumCard__link">Frühstück ansehen</span></a>
+        <a class="premiumCard" href="/brotzeitbrett/" aria-label="Holzstücke für Frühstück und Brot ansehen"><strong>Frühstück &amp; Brot</strong><span>Brot, Butter, Kaffee und Holz: ein kleiner Moment, der jeden Tag wiederkommt.</span><span class="premiumCard__link">Frühstück ansehen</span></a>
         <a class="premiumCard" href="/schneidebretter-massivholz/" aria-label="Brett für tägliches Kochen ansehen"><strong>Täglich kochen</strong><span>Ein Brett, das ruhig liegt, Messer begleitet und auf der Arbeitsfläche bleiben darf.</span><span class="premiumCard__link">Kochen ansehen</span></a>
         <a class="premiumCard" href="/barbecue-geschenk/" aria-label="Brett für Grillabend ansehen"><strong>Am Grill servieren</strong><span>Fläche, Gewicht und Saftrille für den Moment nach dem Grillen.</span><span class="premiumCard__link">BBQ ansehen</span></a>
         <a class="premiumCard" href="/hochwertige-geschenke-holz/" aria-label="Geschenk aus Holz finden"><strong>Sichtbar schenken</strong><span>Ein Geschenk, das benutzt wird und länger erinnert als Gutschein oder Flasche.</span><span class="premiumCard__link">Geschenk finden</span></a>
@@ -222,9 +261,9 @@
 
   <section id="sonderanfertigung" class="section section--white reveal-on-scroll">
     <div class="container customLayout">
-      <div class="customLayout__left"><p class="eyebrow eyebrow--dark">Sonderanfertigung</p><h2>Wenn ein Ritual einen festen Platz hat.</h2><p class="section__lead">Ob Frühstücksplatz, Kücheninsel, Grillstation, Geschenk oder Erbstück: Wir besprechen dein Holzstück direkt mit dir und prüfen, was sinnvoll und sauber umsetzbar ist.</p></div>
+      <div class="customLayout__left"><p class="eyebrow eyebrow--dark">Sonderanfertigung</p><h2>Wenn das Brett einen festen Platz bekommen soll.</h2><p class="section__lead">Ob Frühstücksplatz, Kücheninsel, Grillstation, Geschenk oder Erbstück: Wir besprechen dein Holzstück direkt mit dir und prüfen, was sinnvoll und sauber umsetzbar ist.</p></div>
       <div class="customLayout__right">
-        <div class="processRow"><span>01</span><div><h3>Ritual klären</h3><p>Vorabstimmung per E-Mail oder Telefon. Du schilderst Anlass, Ort, Nutzung, Maße und Wünsche.</p></div></div>
+        <div class="processRow"><span>01</span><div><h3>Einsatz und Platz klären</h3><p>Vorabstimmung per E-Mail oder Telefon. Du schilderst Anlass, Ort, Nutzung, Maße und Wünsche.</p></div></div>
         <div class="processRow"><span>02</span><div><h3>Materialauswahl</h3><p>Wir prüfen passende Hölzer, Konstruktion, Format und sinnvolle Details für dein Brett.</p></div></div>
         <div class="processRow"><span>03</span><div><h3>Unverbindliches Angebot</h3><p>Du erhältst eine klare Einschätzung zu Aufwand, Preis und Umsetzbarkeit – ohne Verpflichtung.</p></div></div>
         <div class="processRow"><span>04</span><div><h3>Realisierung</h3><p>Nach Freigabe fertigen wir dein Brett sauber und abgestimmt auf deine Anforderungen.</p></div></div>
@@ -357,6 +396,6 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung, Bearbeitung oder Weitergabe ohne ausdrückliche schriftliche Genehmigung von Edle Hölzer ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="./main.js?v=20260715-care-conversion"></script>
+<script src="./main.js?v=20260726-country-map"></script>
 </body>
 </html>
