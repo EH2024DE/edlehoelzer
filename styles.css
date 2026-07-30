@@ -1257,9 +1257,11 @@ section[id]{scroll-margin-top:88px}
 .trust-badge{margin:6px 0 0}
 .etsyBuyBlock .btn{width:100%;background:#fff;color:var(--accent-deep);border-color:var(--accent)}
 .etsyBuyBlock .btn:hover{background:var(--accent);color:#fff;border-color:var(--accent-deep)}
-.ctaRow--product-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px}
-.ctaRow--product-card>.btn:first-child{grid-column:1 / -1;min-height:44px;background:var(--accent);border-color:var(--accent);color:#fff;font-size:13px;letter-spacing:0;text-transform:none}
-.ctaRow--product-card>.btn:nth-child(2){min-height:44px;background:#fff;border-color:rgba(26,26,26,.16);color:rgba(17,17,17,.72);font-size:12px;letter-spacing:0;text-transform:none}
+.ctaRow--product-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px}
+.ctaRow--product-card>.btn{width:auto;padding-inline:18px}
+.ctaRow--product-card>.btn:first-child{min-width:142px;min-height:46px;background:var(--accent-deep);border-color:var(--accent-deep);color:#fff;font-size:13px;font-weight:800;letter-spacing:0;text-transform:none}
+.ctaRow--product-card>.btn:first-child:hover{background:var(--ink);border-color:var(--ink)}
+.ctaRow--product-card>.btn:nth-child(2){min-width:118px;min-height:46px;background:#fff;border-color:rgba(26,26,26,.2);color:rgba(17,17,17,.72);font-size:12px;letter-spacing:0;text-transform:none}
 .ctaRow--product-card .etsyBuyBlock{align-items:flex-start}
 .ctaRow--product-card .etsyBuyBlock .btn{min-height:44px;width:auto;padding:8px 0;border-color:transparent;background:transparent;color:var(--accent-deep);font-size:12px;letter-spacing:0;text-decoration:underline;text-underline-offset:3px;text-transform:none}
 .ctaRow--product-card .etsyBuyBlock .btn:hover{background:transparent;color:var(--ink)}
@@ -3667,6 +3669,73 @@ section[id]{scroll-margin-top:88px}
   background:#fff;
 }
 
+.oilOutcomeCard{
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  gap:clamp(24px,4vw,52px);
+  align-items:center;
+  margin-top:32px;
+  padding:clamp(18px,3vw,30px);
+  border:1px solid rgba(116,83,53,.22);
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 16px 34px rgba(49,35,23,.07);
+}
+
+.oilOutcomeCard>img{
+  width:100%;
+  max-width:220px;
+  aspect-ratio:3/2;
+  border-radius:6px;
+  object-fit:cover;
+}
+
+.oilOutcomeCard__content h3{
+  margin:0 0 12px;
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(28px,3.5vw,46px);
+  line-height:1.08;
+}
+
+.oilOutcomeCard__content>p:not(.eyebrow){
+  margin:0;
+  color:rgba(17,17,17,.7);
+}
+
+.oilOutcomeCard__meta{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:10px 18px;
+  margin-top:18px;
+}
+
+.oilOutcomeCard__meta strong{
+  color:var(--ink);
+  font-size:24px;
+}
+
+.oilOutcomeCard__meta span,
+.oilOutcomeCard__checkout{
+  color:rgba(17,17,17,.56);
+  font-size:13px;
+  font-weight:600;
+}
+
+.oilOutcomeCard__textLink{
+  display:inline-flex;
+  min-height:44px;
+  align-items:center;
+  color:var(--accent-deep);
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+.oilOutcomeCard__checkout{
+  margin-top:10px !important;
+}
+
 .oilMistakeGrid strong{
   display:block;
   margin-bottom:10px;
@@ -3805,6 +3874,12 @@ section[id]{scroll-margin-top:88px}
   margin-inline:auto;
 }
 
+.oilFinalCta__lead{
+  max-width:680px;
+  margin:16px auto 0;
+  color:rgba(255,255,255,.76);
+}
+
 .oilFinalCta__actions{
   display:flex;
   flex-wrap:wrap;
@@ -3832,8 +3907,14 @@ section[id]{scroll-margin-top:88px}
   }
 
   .oilWorkshopGrid,
-  .oilStopBlock{
+  .oilStopBlock,
+  .oilOutcomeCard{
     grid-template-columns:1fr;
+  }
+
+  .oilOutcomeCard>img{
+    width:min(52vw,180px);
+    justify-self:start;
   }
 
   .oilWorkshopFigure,

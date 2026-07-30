@@ -282,8 +282,8 @@ function initStickyMobileCta() {
     "/erbstueck/": { label: "Erbstück anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Erbst%C3%BCck", secondary: "Verfügbare Stücke ansehen", secondaryHref: "#verfuegbare-hoelzer", event: "email-kontakt" },
     "/barbecue-geschenk/": { label: "BBQ-Brett ansehen", href: "#products-bbq", secondary: "Gravur anfragen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
     "/hochwertige-geschenke-holz/": { label: "Geschenk finden", href: "#products-geschenke", secondary: "Gravur ansehen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
-    "/pflege.html": { label: "Pflegebalsam ansehen", href: "/produkte.html#produkte-grid", secondary: "Aufbereitung prüfen", secondaryHref: "/schneidebrett-aufbereiten/", event: null },
-    "/welches-oel-schneidebrett/": { label: "Pflegebalsam ansehen", href: "/produkte.html#produkte-grid", secondary: "Pflegeanleitung lesen", secondaryHref: "/pflege.html", event: null }
+    "/pflege.html": { label: "Pflegebalsam kaufen", href: "https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter", secondary: "Aufbereitung prüfen", secondaryHref: "/schneidebrett-aufbereiten/", event: "care_selfservice_click", external: true },
+    "/welches-oel-schneidebrett/": { label: "Pflegebalsam kaufen", href: "https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter", secondary: "Foto einschätzen lassen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett", event: "care_selfservice_click", external: true }
   };
 
   if (!isGerman || !ctas[current] || !window.matchMedia("(max-width: 768px)").matches) {
@@ -296,12 +296,13 @@ function initStickyMobileCta() {
   var bar = document.createElement("nav");
   var primaryEvent = config.event ? ' data-umami-event="' + config.event + '"' : "";
   var secondaryEvent = config.secondaryHref && config.secondaryHref.indexOf("mailto:") === 0 ? ' data-umami-event="email-kontakt"' : "";
+  var primaryExternal = config.external ? ' target="_blank" rel="noopener" data-etsy-link title="Du öffnest jetzt den Pflegebalsam im Etsy-Shop von Edle Hölzer"' : "";
   var ticking = false;
 
   bar.className = "mobileStickyCta";
   bar.setAttribute("aria-label", "Schnellzugriff");
   bar.innerHTML =
-    '<a class="mobileStickyCta__primary" href="' + config.href + '"' + primaryEvent + ">" + config.label + "</a>" +
+    '<a class="mobileStickyCta__primary" href="' + config.href + '"' + primaryEvent + primaryExternal + ">" + config.label + "</a>" +
     '<a class="mobileStickyCta__secondary" href="' + config.secondaryHref + '"' + secondaryEvent + ">" + config.secondary + "</a>";
 
   document.body.appendChild(bar);
@@ -968,7 +969,7 @@ function initProductExperience() {
   var labels = isEnglish ? {
     previewTitle: "Product details",
     close: "Close",
-    details: "Discover product",
+    details: "View product",
     compare: "Compare",
     addCompare: "Add to comparison",
     removeCompare: "Remove from comparison",
@@ -978,7 +979,7 @@ function initProductExperience() {
     buyBoard: "Buy this board on Etsy",
     buyProduct: "Buy this product on Etsy",
     buyCare: "Buy care balm on Etsy",
-    etsyTrust: "Secure checkout via Etsy · Reviews and buyer protection available there",
+    etsyTrust: "You are opening this exact product on Etsy · Checkout, reviews and buyer protection are available there",
     careLink: "Understand care",
     madeFor: "What this product is made for",
     keyFacts: "Key facts",
@@ -1021,12 +1022,13 @@ function initProductExperience() {
     weight: "Weight",
     juiceGroove: "Juice groove",
     engraving: "Engraving",
+    delivery: "Dispatch",
     decision: "Decision hint",
     finderReason: "Why this fits"
   } : {
     previewTitle: "Produktdetails",
     close: "Schließen",
-    details: "Produkt entdecken",
+    details: "Produkt ansehen",
     compare: "Vergleichen",
     addCompare: "Zum Vergleich hinzufügen",
     removeCompare: "Aus Vergleich entfernen",
@@ -1036,7 +1038,7 @@ function initProductExperience() {
     buyBoard: "Dieses Brett auf Etsy kaufen",
     buyProduct: "Dieses Produkt auf Etsy kaufen",
     buyCare: "Pflegebalsam auf Etsy kaufen",
-    etsyTrust: "Sicherer Checkout über Etsy · Bewertungen und Käuferschutz dort verfügbar",
+    etsyTrust: "Du öffnest genau dieses Produkt auf Etsy · Checkout, Bewertungen und Käuferschutz findest du dort",
     careLink: "Pflege verstehen",
     madeFor: "Wofür dieses Produkt gemacht ist",
     keyFacts: "Eckdaten",
@@ -1079,6 +1081,7 @@ function initProductExperience() {
     weight: "Gewicht",
     juiceGroove: "Saftrille",
     engraving: "Gravur",
+    delivery: "Versand",
     decision: "Entscheidungshilfe",
     finderReason: "Warum das passt"
   };
@@ -1701,7 +1704,7 @@ function initProductExperience() {
     if (product.image && urls.indexOf(product.image) === -1) {
       urls.unshift(product.image);
     }
-    return urls.slice(0, 5).map(function (url) {
+    return urls.slice(0, 10).map(function (url) {
       return {
         type: "image",
         src: url,
@@ -1792,9 +1795,10 @@ function initProductExperience() {
     pushFact(facts, labels.thickness, meaningful(product.thicknessLabel));
     pushFact(facts, labels.weight, exactWeightLabel(product));
     pushFact(facts, labels.price, displayPriceLabel(product));
+    pushFact(facts, labels.delivery, deliveryLabel(product));
     pushFact(facts, labels.juiceGroove, booleanLabel(hasBadge(product, "Saftrille")));
     pushFact(facts, labels.engraving, engravingLabel(product));
-    return facts.slice(0, 8);
+    return facts.slice(0, 9);
   }
 
   function pushFact(facts, label, value) {
@@ -2010,6 +2014,21 @@ function initProductExperience() {
       .replace(/\s*EUR\b/g, " €")
       .replace(/\s{2,}/g, " ")
       .trim();
+  }
+
+  function deliveryLabel(product) {
+    if (!product) {
+      return "";
+    }
+    if (!isAvailableProduct(product)) {
+      return "";
+    }
+    if (product.category === "board") {
+      return isEnglish
+        ? "Standard 2–3 working days; with juice groove or engraving 4–5"
+        : "Standard 2–3 Werktage; mit Saftrille oder Gravur 4–5";
+    }
+    return isEnglish ? "2–3 working days" : "2–3 Werktage";
   }
 
   function productUseLabel(product) {
@@ -3018,7 +3037,7 @@ function initProductsPage() {
     var category = filters ? filters.get("category") : "all";
     var price = filters ? filters.get("price") : "all";
     var useCase = filters ? filters.get("useCase") : "all";
-    var sort = filters ? filters.get("sort") : "priceAsc";
+    var sort = filters ? filters.get("sort") : "recommended";
 
     var products = state.activeProducts
       .filter(function (product) {
@@ -3043,8 +3062,12 @@ function initProductsPage() {
       })
       .filter(function (product) {
         return useCase === "all" || (Array.isArray(product.useCases) && product.useCases.indexOf(useCase) !== -1);
-      })
-      .sort(function (a, b) {
+      });
+
+    if (sort === "recommended") {
+      products = sortRecommendedProducts(products);
+    } else {
+      products.sort(function (a, b) {
         var aPrice = Number(a.priceOrder);
         var bPrice = Number(b.priceOrder);
         var aHasPrice = Number.isFinite(aPrice) && aPrice > 0;
@@ -3060,6 +3083,7 @@ function initProductsPage() {
 
         return String(a.displayName || a.name || "").localeCompare(String(b.displayName || b.name || ""), isEnglish ? "en" : "de");
       });
+    }
 
     if (!products.length) {
       gridRoot.innerHTML = '<p class="productEmpty">' + (isEnglish ? "There are currently no matching products for this filter combination." : "Für diese Filterkombination gibt es aktuell keine passenden Produkte.") + '</p>';
@@ -3081,6 +3105,41 @@ function initProductsPage() {
         '</div>' +
       '</article>';
     }).join("");
+  }
+
+  function sortRecommendedProducts(products) {
+    var curatedIds = [
+      "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
+      "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
+      "etsy-live-20260726-erbstueck-no-004-eiche-buche",
+      "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
+      "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
+      "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku"
+    ];
+
+    return products.slice().sort(function (a, b) {
+      var aCurated = curatedIds.indexOf(a.id);
+      var bCurated = curatedIds.indexOf(b.id);
+      if (aCurated !== -1 || bCurated !== -1) {
+        if (aCurated === -1) return 1;
+        if (bCurated === -1) return -1;
+        return aCurated - bCurated;
+      }
+
+      var categoryOrder = { board: 0, accessory: 1, care: 2 };
+      var aCategory = Object.prototype.hasOwnProperty.call(categoryOrder, a.category) ? categoryOrder[a.category] : 3;
+      var bCategory = Object.prototype.hasOwnProperty.call(categoryOrder, b.category) ? categoryOrder[b.category] : 3;
+      if (aCategory !== bCategory) {
+        return aCategory - bCategory;
+      }
+
+      if (Boolean(a.featured) !== Boolean(b.featured)) {
+        return a.featured ? -1 : 1;
+      }
+
+      return Number(b.premiumLevel || 0) - Number(a.premiumLevel || 0) ||
+        Number(a.priceOrder || Number.MAX_VALUE) - Number(b.priceOrder || Number.MAX_VALUE);
+    });
   }
 
   function buildProductMedia(product, source) {
@@ -3284,15 +3343,14 @@ function initProductsPage() {
     return '<div class="ctaRow ctaRow--product-card">' +
       detailButton +
       compareButton +
-      '<span class="etsyBuyBlock"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">' + (isEnglish ? "View on Etsy" : "Auf Etsy ansehen") + '</a><span class="etsyTrust">' + (isEnglish ? "Checkout via Etsy · Buyer protection available there" : "Checkout über Etsy · Käuferschutz dort verfügbar") + '</span></span>' +
     '</div>';
   }
 
   function primaryCardCta(product) {
     if (product && product.category === "board") {
-      return isEnglish ? "Discover board" : "Brett entdecken";
+      return isEnglish ? "View board" : "Brett ansehen";
     }
-    return isEnglish ? "Discover product" : "Produkt entdecken";
+    return isEnglish ? "View product" : "Produkt ansehen";
   }
 
   function buildAlternativeCard(product) {
