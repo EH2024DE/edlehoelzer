@@ -84,17 +84,8 @@
   function renderCard(product) {
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
     var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
-    var directListingUrl = product.etsyListingUrl || product.etsyUrl;
-    var hasDirectListing = isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(directListingUrl);
     var detailsText = primaryCardCta(product, isEnglish);
     var compareText = isEnglish ? "Compare" : "Vergleichen";
-    var actionText = hasDirectListing ? buyLabelFor(product, isEnglish) : (isEnglish ? "Find similar board" : "Ähnliches Brett finden");
-    var actionUrl = hasDirectListing ? directListingUrl : (isEnglish ? "/en/products.html#product-finder" : "/produkte.html#produktfinder");
-    var linkAttributes = hasDirectListing
-      ? ' target="_blank" rel="noopener" data-etsy-link title="' +
-        (isEnglish ? "You are leaving for the Edle Hölzer Etsy listing" : "Du wechselst jetzt zum Etsy-Angebot von Edle Hölzer") +
-        '" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-umami-event="etsy-klick"'
-      : ' data-umami-event="produktfinder-gestartet"';
 
     return '<article class="' + productCardClass(product) + '">' +
       '<button class="productCard__link productCard__previewLink" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' +
@@ -112,10 +103,6 @@
             '<span class="productCard__buy">' +
               '<button class="productCard__cta" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(detailsText) + '</button>' +
               '<button class="productCard__cta productCard__cta--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(compareText) + '</button>' +
-              '<a class="productCard__cta productCard__cta--etsy" href="' + escapeAttribute(actionUrl) + '"' + linkAttributes + '>' + escapeHtml(actionText) + '</a>' +
-              (hasDirectListing
-                ? '<span class="productCard__trust">' + (isEnglish ? "Checkout via Etsy · Buyer protection available there" : "Checkout über Etsy · Käuferschutz dort verfügbar") + '</span>'
-                : "") +
             '</span>' +
           '</div>' +
         '</div>' +
@@ -136,10 +123,6 @@
     }
 
     return classes.join(" ");
-  }
-
-  function buyLabelFor(product, isEnglish) {
-    return isEnglish ? "View on Etsy" : "Auf Etsy ansehen";
   }
 
   function renderBadges(product) {
@@ -222,9 +205,9 @@
 
   function primaryCardCta(product, isEnglish) {
     if (product && product.category === "board") {
-      return isEnglish ? "Discover board" : "Brett entdecken";
+      return isEnglish ? "View board" : "Brett ansehen";
     }
-    return isEnglish ? "Discover product" : "Produkt entdecken";
+    return isEnglish ? "View product" : "Produkt ansehen";
   }
 
   function availabilityStatus(product) {
