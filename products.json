@@ -1,7 +1,45 @@
 {
-  "updatedAt": "2026-07-30",
-  "source": "Etsy Live-Abgleich 2026-07-30",
+  "updatedAt": "2026-07-31",
+  "source": "Etsy Live-Abgleich 2026-07-31",
   "sourceNote": "Produktdaten wurden gegen den aktuellen Etsy-Shop abgeglichen. Aktive Listing-Titel und Verfügbarkeit werden zentral synchronisiert; bewusst als verkauft markierte Einzelstücke bleiben archiviert.",
+  "purchaseRules": {
+    "currency": "EUR",
+    "optionPrices": {
+      "juiceGroove": 15,
+      "engravingBoard": 10,
+      "engravingAccessory": 5,
+      "careBalmRegular": 9.99,
+      "careBalmBundleDiscountPercent": 10
+    },
+    "juiceGrooveOptionListingIds": [
+      "1776273564",
+      "1783351692",
+      "1783359006",
+      "1803930088",
+      "1855639262",
+      "1859366842",
+      "1886613306",
+      "1894223313",
+      "4297451235",
+      "4299097497",
+      "4370769708",
+      "4380062082",
+      "4450988121",
+      "4451487112",
+      "4455205567"
+    ],
+    "freeShippingGermanyListingIds": [
+      "4471048251",
+      "4470469056"
+    ],
+    "careBalmOptionMaximumBasePrice": 150,
+    "careBalmOptionExcludedListingIds": [
+      "1886613306"
+    ],
+    "careBalmMinimumGoodsValue": 150,
+    "holderMinimumGoodsValue": 350,
+    "holderMinimumBoardThicknessCm": 4
+  },
   "products": [
     {
       "id": "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
@@ -10,8 +48,8 @@
       "name": "Teigschaber aus Holz – handgemachte Teigkarte für Backen & Küche, Eiche Nussbaum Esche, personalisierbarer Gemüseschaber",
       "category": "accessory",
       "segment": "Zubehoer",
-      "priceLabel": "ab 24,99 EUR",
-      "priceOrder": 24.99,
+      "priceLabel": "ab 25,99 EUR",
+      "priceOrder": 25.99,
       "stock": 6,
       "shortDescription": "Eiche, Nussbaum, Buche, Esche und weitere, 10 x 15 cm.",
       "longDescription": "Holz Teigschaber aus Massivholz für Backen, Kochen und Küchenarbeit. Handgefertigt in unserer Manufaktur in Mittelhessen aus Eiche, Nussbaum, Esche, Rotbuche oder Kambala. Ein kompakter Küchenhelfer mit klarer Form, angenehmer Haptik und vielseitiger Funktion. Typische Einsatzbereiche: Teig teilen und formen, Schnittgut vom Schneidebrett aufnehmen, Kräuter.",
@@ -3040,8 +3078,8 @@
       "name": "Schneidebrett Eiche Massivholz – Flankenholz Servierbrett mit Astloch, mit gerader oder Schweizer Kante",
       "category": "board",
       "segment": "Langholz",
-      "priceLabel": "ab 64,99 EUR",
-      "priceOrder": 64.99,
+      "priceLabel": "ab 65,99 EUR",
+      "priceOrder": 65.99,
       "stock": 2,
       "shortDescription": "Massive Eiche mit Astloch; gerade Kante 34 × 20,5 × 3,6 cm oder Schweizer Kante 38 × 20,5 × 3,3 cm.",
       "longDescription": "Ein massives Eichenbrett in Flankenholz-Bauweise für tägliche Schneidarbeiten, Brotzeit und das Anrichten direkt in der Küche. Sichtbare Astlöcher bleiben Teil des Materialbilds. Zur Auswahl stehen eine klare gerade Kante und eine handwerklich stärker betonte Schweizer Kante.",
