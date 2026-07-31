@@ -1,6 +1,6 @@
 document.documentElement.classList.add("js");
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260726-etsy-sync";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260731-price-options-balm";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -1024,7 +1024,28 @@ function initProductExperience() {
     engraving: "Engraving",
     delivery: "Dispatch",
     decision: "Decision hint",
-    finderReason: "Why this fits"
+    finderReason: "Why this fits",
+    configuration: "Choose your version",
+    standardVersion: "Standard version",
+    included: "included",
+    pricePreview: "Price preview",
+    startingPrice: "Starting price",
+    configureOnEtsy: "Configure on Etsy",
+    optionCheckoutNote: "Confirm the variants and final total on Etsy.",
+    freeShippingGermany: "Free shipping within Germany",
+    standardDispatch: "Ready to dispatch in 2–3 working days",
+    customDispatch: "With engraving or juice groove: 4–5 working days",
+    careBalmIncluded: "Care balm included",
+    careBalmThreshold: "Care balm included from €150 goods value",
+    careBalmSelected: "Edle Hölzer care balm selected",
+    careBalmSelectedNote: "Included in the displayed price.",
+    regularPrice: "Regular price",
+    holderIncluded: "Care balm and matching board holder included",
+    benefitBasis: "Based on goods value before shipping.",
+    juiceGrooveOption: "Juice groove",
+    engravingOption: "Engraving",
+    careBalmOption: "Edle Hölzer care balm · 10% off",
+    optional: "optional"
   } : {
     previewTitle: "Produktdetails",
     close: "Schließen",
@@ -1083,12 +1104,35 @@ function initProductExperience() {
     engraving: "Gravur",
     delivery: "Versand",
     decision: "Entscheidungshilfe",
-    finderReason: "Warum das passt"
+    finderReason: "Warum das passt",
+    configuration: "Deine Ausführung",
+    standardVersion: "Standardausführung",
+    included: "inklusive",
+    pricePreview: "Preisvorschau",
+    startingPrice: "Ausgangspreis",
+    configureOnEtsy: "Auf Etsy konfigurieren",
+    optionCheckoutNote: "Varianten und verbindlichen Endpreis bestätigst du auf Etsy.",
+    freeShippingGermany: "Kostenloser Versand innerhalb Deutschlands",
+    standardDispatch: "Versandbereit in 2–3 Werktagen",
+    customDispatch: "Mit Gravur oder Saftrille: 4–5 Werktage",
+    careBalmIncluded: "Pflegebalsam inklusive",
+    careBalmThreshold: "Ab 150 € Warenwert: Pflegebalsam inklusive",
+    careBalmSelected: "Edle Hölzer Pflegebalsam ausgewählt",
+    careBalmSelectedNote: "Im angezeigten Preis berücksichtigt.",
+    regularPrice: "Einzelpreis",
+    holderIncluded: "Pflegebalsam und passender Bretthalter inklusive",
+    benefitBasis: "Maßgeblich ist der Warenwert ohne Versand.",
+    juiceGrooveOption: "Saftrille",
+    engravingOption: "Gravur",
+    careBalmOption: "Edle Hölzer Pflegebalsam · 10 % günstiger",
+    optional: "optional"
   };
 
   var catalogPromise = null;
   var productMap = {};
   var products = [];
+  var purchaseRules = {};
+  var purchaseSelections = {};
   var compareIds = readCompareState();
   var activeOverlay = null;
   var activeDialog = null;
@@ -1166,6 +1210,29 @@ function initProductExperience() {
     }
   });
 
+  document.addEventListener("change", function (event) {
+    var optionInput = event.target.closest("[data-purchase-option]");
+    if (!optionInput) {
+      return;
+    }
+
+    var productId = optionInput.getAttribute("data-product-id");
+    var optionId = optionInput.getAttribute("data-purchase-option");
+    var product = productMap[productId];
+    if (!product || !optionId) {
+      return;
+    }
+
+    purchaseSelections[productId] = purchaseSelections[productId] || {};
+    purchaseSelections[productId][optionId] = optionInput.checked;
+    updatePreviewPurchaseSummary(product);
+    track("product_option_toggle", product, {
+      source: "preview",
+      option: optionId,
+      selected: optionInput.checked ? "true" : "false"
+    });
+  });
+
   document.addEventListener("keydown", function (event) {
     if (!activeDialog) {
       return;
@@ -1204,6 +1271,7 @@ function initProductExperience() {
         })
         .then(function (data) {
           products = (Array.isArray(data) ? data : data.products || []).filter(Boolean);
+          purchaseRules = Array.isArray(data) ? {} : (data.purchaseRules || {});
           productMap = {};
           products.forEach(function (product) {
             if (product.id) {
@@ -1265,9 +1333,11 @@ function initProductExperience() {
       '<div class="productPreview__content">' +
         '<p class="productPreview__eyebrow">' + escapeHtml(product.segment || product.category || "Edle Hölzer") + '</p>' +
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
+        renderPurchaseHeadline(product) +
         '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
         '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
         (reason ? '<div class="productPreview__reason"><strong>' + escapeHtml(labels.finderReason) + '</strong><p>' + escapeHtml(reason) + '</p></div>' : "") +
+        renderPurchaseConfigurator(product) +
         (facts.length ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.keyFacts) + '</h3><dl class="productPreview__facts">' + facts.map(function (fact) {
           return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
         }).join("") + '</dl></section>' : "") +
@@ -1277,7 +1347,7 @@ function initProductExperience() {
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + ' <a href="' + (isEnglish ? "/en/care.html" : "/pflege.html") + '">' + escapeHtml(labels.careLink) + '</a></p></section>' +
         '<div class="productPreview__actions">' +
-        (hasEtsy ? '<a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(etsyActionLabel(product)) + '</a><p class="productPreview__trust">' + escapeHtml(labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
+        (hasEtsy ? '<div class="productPreview__checkoutRow"><p><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></p><a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a></div><p class="productPreview__trust">' + escapeHtml(purchaseOptions(product).length ? labels.optionCheckoutNote : labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
           renderPreviewCompareControls(product, source || "preview") +
           '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
         '</div>' +
@@ -1794,9 +1864,7 @@ function initProductExperience() {
     pushFact(facts, labels.dimensions, dimensionLabel(product));
     pushFact(facts, labels.thickness, meaningful(product.thicknessLabel));
     pushFact(facts, labels.weight, exactWeightLabel(product));
-    pushFact(facts, labels.price, displayPriceLabel(product));
-    pushFact(facts, labels.delivery, deliveryLabel(product));
-    pushFact(facts, labels.juiceGroove, booleanLabel(hasBadge(product, "Saftrille")));
+    pushFact(facts, labels.juiceGroove, juiceGrooveFactLabel(product));
     pushFact(facts, labels.engraving, engravingLabel(product));
     return facts.slice(0, 9);
   }
@@ -1862,14 +1930,28 @@ function initProductExperience() {
   }
 
   function productExperienceText(product) {
-    if (product.shortDescription) {
-      return product.shortDescription;
+    var text = [product.name, product.displayName, product.segment].join(" ").toLowerCase();
+    if (/pfannenwender|spatula|turner/.test(text)) {
+      return isEnglish
+        ? "For turning, lifting and serving food at the hob or grill."
+        : "Zum Wenden, Anheben und Servieren am Kochfeld oder Grill.";
+    }
+    if (/teigschaber|dough|scraper/.test(text)) {
+      return isEnglish
+        ? "For dividing and shaping dough and for lifting chopped ingredients from the board."
+        : "Zum Teilen und Formen von Teig sowie zum Aufnehmen von Schnittgut vom Brett.";
+    }
+    if (product.category === "board") {
+      return productMoment(product);
     }
     if (product.category === "care") {
       return isEnglish ? "Care products support the surface when wood becomes dry, matte or rough." : "Pflegeprodukte unterstützen die Oberfläche, wenn Holz trocken, matt oder rau wird.";
     }
     if (product.category === "accessory") {
       return isEnglish ? "This tool is made for regular kitchen use, not for disappearing unused in a drawer." : "Dieses Werkzeug ist für regelmäßige Küchenarbeit gedacht, nicht für die ungenutzte Schublade.";
+    }
+    if (product.shortDescription) {
+      return product.shortDescription;
     }
     return isEnglish ? "This board is made for people who want to use, care for and keep a real piece of wood." : "Dieses Brett ist für Menschen gedacht, die ein echtes Stück Holz benutzen, pflegen und behalten wollen.";
   }
@@ -2014,6 +2096,266 @@ function initProductExperience() {
       .replace(/\s*EUR\b/g, " €")
       .replace(/\s{2,}/g, " ")
       .trim();
+  }
+
+  function purchaseOptions(product) {
+    if (!hasVerifiedListing(product)) {
+      return [];
+    }
+
+    var options = [];
+    var listingId = String(product.listingId || "");
+    var optionPrices = purchaseRules.optionPrices || {};
+    var juiceGrooveIds = purchaseRules.juiceGrooveOptionListingIds || [];
+    var careBalmMaximumBasePrice = Number(purchaseRules.careBalmOptionMaximumBasePrice || 150);
+    var careBalmExcludedIds = purchaseRules.careBalmOptionExcludedListingIds || [];
+    var engravable = product.category === "board" || product.category === "accessory";
+    var productText = [
+      product.name,
+      product.displayName,
+      product.shortDescription,
+      product.longDescription,
+      Array.isArray(product.badges) ? product.badges.join(" ") : ""
+    ].join(" ").toLowerCase();
+
+    if (juiceGrooveIds.map(String).indexOf(listingId) !== -1) {
+      options.push({
+        id: "juiceGroove",
+        label: labels.juiceGrooveOption,
+        price: Number(optionPrices.juiceGroove || 0)
+      });
+    }
+
+    if (
+      product.category === "board" &&
+      Number.isFinite(Number(product.priceOrder)) &&
+      Number(product.priceOrder) < careBalmMaximumBasePrice &&
+      careBalmExcludedIds.map(String).indexOf(listingId) === -1
+    ) {
+      var careBalmRegularPrice = Number(optionPrices.careBalmRegular || 9.99);
+      var careBalmDiscountPercent = Number(optionPrices.careBalmBundleDiscountPercent || 10);
+      options.push({
+        id: "careBalm",
+        label: labels.careBalmOption,
+        price: Math.round(careBalmRegularPrice * (1 - careBalmDiscountPercent / 100) * 100) / 100,
+        regularPrice: careBalmRegularPrice
+      });
+    }
+
+    if (engravable && (product.engravingPossible === true || /personalisierbar|gravur|engraving|personali[sz]/i.test(productText))) {
+      options.push({
+        id: "engraving",
+        label: labels.engravingOption,
+        price: Number(product.category === "accessory" ? optionPrices.engravingAccessory : optionPrices.engravingBoard) || 0
+      });
+    }
+
+    return options.filter(function (option) {
+      return option.price > 0;
+    });
+  }
+
+  function juiceGrooveFactLabel(product) {
+    var optional = purchaseOptions(product).some(function (option) {
+      return option.id === "juiceGroove";
+    });
+    return optional ? labels.optional : booleanLabel(hasBadge(product, "Saftrille"));
+  }
+
+  function purchaseSelection(product) {
+    return purchaseSelections[product.id] || {};
+  }
+
+  function purchaseTotal(product) {
+    var subtotal = purchaseSubtotalWithoutCareBalm(product);
+    if (!Number.isFinite(subtotal)) {
+      return null;
+    }
+
+    var selection = purchaseSelection(product);
+    var careThreshold = Number(purchaseRules.careBalmMinimumGoodsValue || 150);
+    var total = subtotal;
+    purchaseOptions(product).forEach(function (option) {
+      if (option.id === "careBalm" && selection[option.id] && subtotal < careThreshold) {
+        total += option.price;
+      }
+    });
+    return Math.round(total * 100) / 100;
+  }
+
+  function purchaseSubtotalWithoutCareBalm(product) {
+    var subtotal = Number(product.priceOrder);
+    if (!Number.isFinite(subtotal)) {
+      return null;
+    }
+    var selection = purchaseSelection(product);
+    purchaseOptions(product).forEach(function (option) {
+      if (option.id !== "careBalm" && selection[option.id]) {
+        subtotal += option.price;
+      }
+    });
+    return Math.round(subtotal * 100) / 100;
+  }
+
+  function careBalmIsIncluded(product) {
+    var subtotal = purchaseSubtotalWithoutCareBalm(product);
+    var careThreshold = Number(purchaseRules.careBalmMinimumGoodsValue || 150);
+    return Number.isFinite(subtotal) && subtotal >= careThreshold;
+  }
+
+  function formatCurrency(value) {
+    if (!Number.isFinite(value)) {
+      return "";
+    }
+    return new Intl.NumberFormat(isEnglish ? "en-GB" : "de-DE", {
+      style: "currency",
+      currency: purchaseRules.currency || "EUR",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }).format(value);
+  }
+
+  function purchasePriceLabel(product) {
+    var selection = purchaseSelection(product);
+    var hasSelection = purchaseOptions(product).some(function (option) {
+      return selection[option.id];
+    });
+    return hasSelection ? labels.pricePreview : labels.startingPrice;
+  }
+
+  function purchasePriceText(product) {
+    var total = purchaseTotal(product);
+    if (!Number.isFinite(total)) {
+      return displayPriceLabel(product);
+    }
+    return (isEnglish ? "from " : "ab ") + formatCurrency(total);
+  }
+
+  function hasFreeShippingGermany(product) {
+    var listingIds = purchaseRules.freeShippingGermanyListingIds || [];
+    return listingIds.map(String).indexOf(String(product.listingId || "")) !== -1;
+  }
+
+  function purchaseDeliveryText(product) {
+    var selection = purchaseSelection(product);
+    var customized = purchaseOptions(product).some(function (option) {
+      return option.id !== "careBalm" && selection[option.id];
+    });
+    return customized ? labels.customDispatch : labels.standardDispatch;
+  }
+
+  function minimumBoardThickness(product) {
+    if (!product || product.category !== "board") {
+      return null;
+    }
+    var values = String(product.thicknessLabel || "")
+      .replace(/,/g, ".")
+      .match(/\d+(?:\.\d+)?/g);
+    if (!values || !values.length) {
+      return null;
+    }
+    return Math.min.apply(Math, values.map(Number).filter(Number.isFinite));
+  }
+
+  function purchaseBenefit(product) {
+    var goodsValue = purchaseSubtotalWithoutCareBalm(product);
+    var careThreshold = Number(purchaseRules.careBalmMinimumGoodsValue || 150);
+    var holderThreshold = Number(purchaseRules.holderMinimumGoodsValue || 350);
+    var holderThickness = Number(purchaseRules.holderMinimumBoardThicknessCm || 4);
+    var thickness = minimumBoardThickness(product);
+    var selection = purchaseSelection(product);
+
+    if (selection.careBalm && Number.isFinite(goodsValue) && goodsValue < careThreshold) {
+      return {
+        title: labels.careBalmSelected,
+        detail: labels.careBalmSelectedNote,
+        active: true
+      };
+    }
+
+    if (Number.isFinite(goodsValue) && goodsValue >= holderThreshold && thickness !== null && thickness >= holderThickness) {
+      return {
+        title: labels.holderIncluded,
+        detail: labels.benefitBasis,
+        active: true
+      };
+    }
+    if (Number.isFinite(goodsValue) && goodsValue >= careThreshold) {
+      return {
+        title: labels.careBalmIncluded,
+        detail: labels.benefitBasis,
+        active: true
+      };
+    }
+    return {
+      title: labels.careBalmThreshold,
+      detail: labels.benefitBasis,
+      active: false
+    };
+  }
+
+  function renderPurchaseHeadline(product) {
+    if (!hasVerifiedListing(product)) {
+      return "";
+    }
+    return '<div class="productPreview__purchaseHeadline">' +
+      '<div><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></div>' +
+      '<div class="productPreview__purchaseMeta"><span data-purchase-delivery>' + escapeHtml(purchaseDeliveryText(product)) + '</span>' +
+      (hasFreeShippingGermany(product) ? '<span class="productPreview__shipping">' + escapeHtml(labels.freeShippingGermany) + '</span>' : "") +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderPurchaseBenefit(product) {
+    var benefit = purchaseBenefit(product);
+    return '<div class="productPreview__benefit' + (benefit.active ? " is-active" : "") + '" data-purchase-benefit>' +
+      '<strong>' + escapeHtml(benefit.title) + '</strong>' +
+      '<span>' + escapeHtml(benefit.detail) + '</span>' +
+    '</div>';
+  }
+
+  function renderPurchaseConfigurator(product) {
+    if (!hasVerifiedListing(product)) {
+      return "";
+    }
+    var options = purchaseOptions(product);
+    var selection = purchaseSelection(product);
+    return '<section class="productPreview__configuration">' +
+      (options.length ? '<h3>' + escapeHtml(labels.configuration) + '</h3><div class="productPreview__optionList">' +
+        '<div class="productPreview__option productPreview__option--standard"><span>' + escapeHtml(labels.standardVersion) + '</span><strong>' + escapeHtml(labels.included) + '</strong></div>' +
+        options.map(function (option) {
+          var hidden = option.id === "careBalm" && careBalmIsIncluded(product);
+          var optionCopy = '<span class="productPreview__optionCopy"><span>' + escapeHtml(option.label) + '</span>' +
+            (Number.isFinite(option.regularPrice) ? '<small>' + escapeHtml(labels.regularPrice) + ' ' + escapeHtml(formatCurrency(option.regularPrice)) + '</small>' : "") +
+          '</span>';
+          return '<label class="productPreview__option"' + (hidden ? " hidden" : "") + ' data-purchase-option-row="' + escapeAttribute(option.id) + '"><input type="checkbox" data-purchase-option="' + escapeAttribute(option.id) + '" data-product-id="' + escapeAttribute(product.id) + '"' + (selection[option.id] ? " checked" : "") + '>' + optionCopy + '<strong>+ ' + escapeHtml(formatCurrency(option.price)) + '</strong></label>';
+        }).join("") +
+      '</div>' : "") +
+      renderPurchaseBenefit(product) +
+    '</section>';
+  }
+
+  function updatePreviewPurchaseSummary(product) {
+    if (!activeOverlay) {
+      return;
+    }
+    activeOverlay.querySelectorAll("[data-purchase-price-label]").forEach(function (element) {
+      element.textContent = purchasePriceLabel(product);
+    });
+    activeOverlay.querySelectorAll("[data-purchase-price]").forEach(function (element) {
+      element.textContent = purchasePriceText(product);
+    });
+    activeOverlay.querySelectorAll("[data-purchase-delivery]").forEach(function (element) {
+      element.textContent = purchaseDeliveryText(product);
+    });
+    activeOverlay.querySelectorAll("[data-purchase-benefit]").forEach(function (element) {
+      var benefit = purchaseBenefit(product);
+      element.classList.toggle("is-active", benefit.active);
+      element.innerHTML = '<strong>' + escapeHtml(benefit.title) + '</strong><span>' + escapeHtml(benefit.detail) + '</span>';
+    });
+    activeOverlay.querySelectorAll('[data-purchase-option-row="careBalm"]').forEach(function (element) {
+      element.hidden = careBalmIsIncluded(product);
+    });
   }
 
   function deliveryLabel(product) {
