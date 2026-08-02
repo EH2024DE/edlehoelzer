@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260720-owner-products-first">
+  <link rel="stylesheet" href="/styles.css?v=20260802-structure">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -122,18 +122,28 @@
       <a href="/schneidebretter-massivholz/" class="btn btn--small">Schneidebretter ansehen</a>
     </div>
   </div>
-  <nav class="mobileMenu" id="mobileMenu">
+  <nav class="mobileMenu" id="mobileMenu" aria-label="Hauptnavigation">
     <div class="mobileMenu__head">
-      <div class="mobileMenu__lang"><a href="/" class="is-active">DE</a><a href="/en/">EN</a></div>
+      <div class="mobileMenu__lang"><a href="/schneidebretter-massivholz/" class="is-active">DE</a></div>
       <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
     </div>
-    <a href="/schneidebretter-massivholz/">Schneidebretter</a>
-    <a href="/produkte.html#produktfinder" data-umami-event="produktfinder-gestartet">Brettfinder</a>
-    <a href="/pflege.html">Pflege</a>
-    <a href="/#ueberuns">Über uns</a>
-    <a href="/b2b.html" data-umami-event="b2b-interesse">B2B</a>
-    <a href="/erbstueck/" class="mobileMenu__featured">Erbstück-Serie</a>
-    <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Shop → Etsy</a>
+    <div class="mobileMenu__primary">
+      <a href="/produkte.html#produkte-grid">Produkte</a>
+      <a href="/erbstueck/" class="mobileMenu__featured">Erbstück</a>
+      <a href="/schneidebrett-nach-mass/">Maßanfertigung</a>
+      <a href="/#ueberuns">Über uns</a>
+    </div>
+    <a href="/produkte.html#produktfinder" class="mobileMenu__finder btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+    <details class="mobileMenu__discover">
+      <summary>Entdecken</summary>
+      <div>
+        <a href="/pflege.html">Pflege &amp; Aufbereitung</a>
+        <a href="/hochwertige-geschenke-holz/">Geschenke</a>
+        <a href="/b2b.html" data-umami-event="b2b-interesse">Firmengeschenke</a>
+        <a href="/sitemap-uebersicht.html">Alle Themen &amp; Ratgeber</a>
+      </div>
+    </details>
+    <a class="mobileMenu__shop" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Shop von Edle Hölzer" data-umami-event="etsy-klick">Shop</a>
   </nav>
   <div class="menuBackdrop" id="menuBackdrop"></div>
 </header>
@@ -348,63 +358,36 @@
 
 <footer class="footer">
   <div class="container footer__inner">
-    <div>
+    <div class="footer__brandColumn">
       <div class="footer__brand">Edle Hölzer</div>
       <div class="footer__meta">Handgefertigt in Mittelhessen.</div>
+      <div class="footerSocial" aria-label="Social Media und Kontakt">
+        <a href="https://www.instagram.com/edle.hoelzer/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.pinterest.de/edlehoelzer/" target="_blank" rel="noopener">Pinterest</a>
+        <a href="mailto:info@edlehoelzer.de" data-umami-event="email-kontakt">E-Mail</a>
+      </div>
     </div>
     <nav class="footer__nav" aria-label="Footer-Navigation">
       <div class="footer__group">
-        <div class="footer__groupTitle">Produkte</div>
+        <div class="footer__groupTitle">Navigation</div>
+        <a href="/produkte.html#produkte-grid">Produkte</a>
         <a href="/produkte.html#produktfinder" data-umami-event="produktfinder-gestartet">Brettfinder</a>
-        <a href="/produkte.html#produkte-grid">Alle Produkte</a>
-        <a href="/teigschaber-sauerteig/">Teigschaber für Sauerteig</a>
-        <a href="/schneidebretter-massivholz/">Schneidebretter aus Massivholz</a>
-        <a href="/schneidebrett-eiche/">Schneidebrett Eiche</a>
-        <a href="/schneidebrett-nussbaum/">Schneidebrett Nussbaum</a>
-        <a href="/schneidebrett-mit-gravur/">Schneidebrett mit Gravur</a>
-        <a href="/schneidebrett-nach-mass/">Schneidebrett nach Maß</a>
-        <a href="/stirnholz-schneidebrett/">Stirnholz Schneidebrett</a>
-        <a href="/brotzeitbrett/">Brotzeitbrett</a>
-        <a href="/hackblock/">Hackblock</a>
-        <a href="/schneidebrett-saftrille/">Schneidebrett mit Saftrille</a>
-        <a href="/messerschonendes-schneidebrett/">Messerschonendes Schneidebrett</a>
-        <a href="/erbstueck/">Erbstück-Serie</a>
+        <a href="/erbstueck/">Erbstück</a>
+        <a href="/schneidebrett-nach-mass/">Maßanfertigung</a>
+        <a href="/#ueberuns">Über uns</a>
+        <a href="/sitemap-uebersicht.html">Alle Themen &amp; Ratgeber</a>
       </div>
       <div class="footer__group">
-        <div class="footer__groupTitle">Geschenke &amp; Anlässe</div>
-        <a href="/hochwertige-geschenke-holz/">Hochwertige Geschenke aus Holz</a>
-        <a href="/geschenk-fuer-maenner-holz/">Geschenk für Männer</a>
-        <a href="/geschenk-fuer-frauen-holz/">Geschenk für Frauen</a>
-        <a href="/barbecue-geschenk/">Barbecue Geschenk</a>
-        <a href="/b2b.html" data-umami-event="b2b-interesse">Firmengeschenke aus Holz</a>
-        <a href="/baumspende.html">Baumspende</a>
-      </div>
-      <div class="footer__group">
-        <div class="footer__groupTitle">Küche &amp; Pflege</div>
-        <a href="/hochwertige-kuechenaccessoires/">Hochwertige Küchenaccessoires</a>
-        <a href="/schneidebrett-aufbereiten/">Schneidebrett aufbereiten</a>
-        <a href="/pflege.html">Pflege &amp; Reinigung</a>
-        <a href="/welches-oel-schneidebrett/">Welches Öl?</a>
-      </div>
-      <div class="footer__group">
-        <div class="footer__groupTitle">Ratgeber</div>
-        <a href="/holzarten-schneidebrett/">Holzarten für Schneidebretter</a>
-        <a href="/hochwertiges-schneidebrett-erkennen/">Schneidebrett-Qualitätscheck</a>
-        <a href="/holz-statt-plastik/">Holz statt Plastik</a>
-        <a href="/stirnholz-vs-langholz/">Stirnholz vs. Längsholz</a>
-        <a href="/messerschonendes-schneidebrett/">Messerschonendes Brett</a>
-        <a href="/schneidebrett-saftrille/">Schneidebrett mit Saftrille</a>
-        <a href="/hackblock/">Hackblock</a>
-      </div>
-      <div class="footer__group">
-        <div class="footer__groupTitle">Kontakt &amp; Recht</div>
-        <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-umami-event="etsy-klick" data-umami-event-seite="index">Shop</a>
-        <a href="mailto:info@edlehoelzer.de" data-umami-event="email-kontakt">E-Mail</a>
+        <div class="footer__groupTitle">Service &amp; Recht</div>
+        <a href="/pflege.html">Pflege</a>
+        <a href="/schneidebrett-aufbereiten/">Aufbereitung</a>
+        <a href="/b2b.html" data-umami-event="b2b-interesse">Firmengeschenke</a>
+        <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Shop von Edle Hölzer">Shop</a>
         <a href="/impressum.html">Impressum</a>
         <a href="/datenschutz.html">Datenschutz</a>
       </div>
     </nav>
-    <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung, Bearbeitung oder Weitergabe ohne ausdrückliche schriftliche Genehmigung von Edle Hölzer ist nicht gestattet.</p>
+    <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist nicht gestattet.</p>
   </div>
 </footer>
 <script src="/main.js?v=20260715-care-conversion"></script>
