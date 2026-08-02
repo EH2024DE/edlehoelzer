@@ -3534,21 +3534,19 @@ section[id]{scroll-margin-top:88px}
 .homepageProducts .productCard__media{overflow:hidden;background:#ece3d8}
 .homepageProducts .productCard__media img{width:100%;height:100%;object-fit:var(--product-image-fit,cover);object-position:var(--product-image-x,50%) var(--product-image-y,50%)}
 
-.erbstueckFeature{position:relative;display:grid;min-height:clamp(680px,82svh,900px);overflow:hidden;background:#1d1713;color:#f5f1eb}
+.erbstueckFeature{position:relative;display:grid;min-height:clamp(570px,72svh,760px);overflow:hidden;background:#1d1713;color:#f5f1eb}
 .erbstueckFeature__media{position:absolute;inset:0;margin:0;background:#2a211b}
 .erbstueckFeature__media img{width:100%;height:100%;object-fit:cover;object-position:center 48%}
 .erbstueckFeature__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,.10) 18%,rgba(20,14,10,.34) 48%,rgba(20,14,10,.96) 100%),linear-gradient(90deg,rgba(20,14,10,.60),transparent 64%)}
-.erbstueckFeature__stage{position:relative;z-index:1;display:flex;align-items:flex-end;padding-block:clamp(72px,8vw,112px)}
-.erbstueckFeature__copy{max-width:980px}
+.erbstueckFeature__stage{position:relative;z-index:1;display:flex;align-items:flex-end;padding-block:clamp(58px,6vw,86px)}
+.erbstueckFeature__copy{max-width:860px}
 .erbstueckFeature__copy .eyebrow{color:rgba(245,241,235,.72)}
-.erbstueckFeature__copy h2{max-width:940px;color:#fff;font-size:clamp(42px,6.4vw,86px);line-height:.98}
-.erbstueckFeature__lead{max-width:750px;margin:24px 0 0;color:rgba(245,241,235,.82);font-size:clamp(17px,1.6vw,21px);line-height:1.65}
-.erbstueckFeature__logic{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(22px,4vw,52px);max-width:940px;margin:36px 0 0}
-.erbstueckFeature__logic>div{padding-top:16px;border-top:1px solid rgba(245,241,235,.28)}
-.erbstueckFeature__logic dt{color:#fff;font-size:12px;font-weight:800;letter-spacing:.10em;text-transform:uppercase}
-.erbstueckFeature__logic dd{margin:9px 0 0;color:rgba(245,241,235,.72);font-size:15px;line-height:1.6}
-.erbstueckFeature__availability{margin:28px 0 0;color:rgba(245,241,235,.62);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.erbstueckFeature__actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:24px}
+.erbstueckFeature__copy h2{max-width:860px;color:#fff;font-size:clamp(42px,5.4vw,74px);line-height:1}
+.erbstueckFeature__lead{max-width:660px;margin:22px 0 0;color:rgba(245,241,235,.82);font-size:clamp(17px,1.4vw,20px);line-height:1.55}
+.erbstueckFeature__facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin:26px 0 0;padding:17px 0;border-top:1px solid rgba(245,241,235,.28);border-bottom:1px solid rgba(245,241,235,.18);list-style:none}
+.erbstueckFeature__facts li{position:relative;color:rgba(245,241,235,.78);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.erbstueckFeature__facts li+li::before{content:"·";position:absolute;left:-17px;color:rgba(245,241,235,.38)}
+.erbstueckFeature__actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:20px}
 .erbstueckFeature__link{min-height:44px;display:inline-flex;align-items:center;color:#fff;font-weight:800;text-decoration:underline;text-underline-offset:6px}
 
 .refurbishmentFeature{background:#f8f5f0}
@@ -3610,11 +3608,12 @@ section[id]{scroll-margin-top:88px}
   .erbstueckFeature{display:block;min-height:0}
   .erbstueckFeature__media{position:relative;aspect-ratio:3/2}
   .erbstueckFeature__shade{display:none}
-  .erbstueckFeature__stage{display:block;padding-block:48px 58px}
+  .erbstueckFeature__stage{display:block;padding-block:42px 50px}
   .erbstueckFeature__copy h2{font-size:clamp(38px,11vw,54px);line-height:1.02}
   .erbstueckFeature__lead{font-size:16px}
-  .erbstueckFeature__logic{grid-template-columns:1fr;gap:22px;margin-top:30px}
-  .erbstueckFeature__availability{line-height:1.6}
+  .erbstueckFeature__facts{gap:8px 18px;margin-top:22px;padding-block:14px}
+  .erbstueckFeature__facts li{font-size:11px}
+  .erbstueckFeature__facts li+li::before{left:-11px}
   .refurbishmentFeature__copy .refurbishmentFeature__lead{font-size:17px}
   .refurbishmentFeature__facts{margin-top:0}
   .refurbishmentFeature__facts li{grid-template-columns:1fr;gap:5px}

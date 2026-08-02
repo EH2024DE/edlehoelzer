@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260726-review-photos-3">
+  <link rel="stylesheet" href="/styles.css?v=20260802-structure-4">
   <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
 <script defer src="https://cloud.umami.is/script.js"
@@ -68,23 +68,21 @@
     </button>
     <div class="container hero__content">
       <div class="hero__copy">
-        <p class="heroTrustBar">5.0 stars <span aria-hidden="true">·</span> 32 Etsy reviews <span aria-hidden="true">·</span> 63 sales</p>
-        <h1>Solid wood cutting boards for everyday use.</h1>
-        <p class="hero__lead">Handcrafted in Germany from solid hardwood, with a surface that can be cared for and refinished.</p>
+        <h1>Solid wood cutting boards made to stay.</h1>
+        <p class="hero__lead">Handcrafted in Central Hesse from solid hardwood, made to be cared for rather than replaced.</p>
         <div class="hero__actions">
           <a href="/en/products.html#product-finder" class="btn btn--emphasis">Find a board</a>
           <a href="/en/products.html#products-grid" class="btn btn--ghost">View products</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="heroProof" aria-label="Material, craft, care and checkout">
-    <div class="container heroProof__grid">
-      <div class="heroProof__item"><strong>Solid hardwood</strong><span>Stays steadier and can be refinished when needed.</span></div>
-      <div class="heroProof__item"><strong>Özgür makes it. Serkan makes it visible.</strong><span>Workshop craft, product photography and guidance from our team in Central Hesse.</span></div>
-      <div class="heroProof__item"><strong>Oiled surface</strong><span>The surface can be maintained instead of replaced too soon.</span></div>
-      <div class="heroProof__item"><strong>Checkout via Etsy</strong><span>5.0 stars from 32 reviews and buyer protection at checkout.</span></div>
+    <div class="heroProof" role="list" aria-label="Material, craft, care and checkout">
+      <div class="container heroProof__grid">
+        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Material</span><strong>Solid hardwood</strong><span>Weight, substance and a surface that can be refinished.</span></div>
+        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Craft</span><strong>Workshop in Central Hesse</strong><span>From stored timber to final inspection in our workshop.</span></div>
+        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Care</span><strong>Oiled &amp; maintainable</strong><span>Care for it and sand it when needed, rather than replacing it too soon.</span></div>
+        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Checkout</span><strong>Checkout via Etsy</strong><span>5.0 stars from 32 reviews and buyer protection at checkout.</span></div>
+      </div>
     </div>
   </section>
 
@@ -101,6 +99,29 @@
       <div class="ctaRow homepageProducts__actions">
         <a href="/en/products.html#product-finder" class="btn btn--emphasis">Find the right board</a>
         <a href="/en/products.html#products-grid" class="walnutTextLink">View all available products</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="erbstueckFeature reveal-on-scroll" aria-labelledby="erbstueck-feature-title">
+    <figure class="erbstueckFeature__media">
+      <img src="/assets/Erbstueck.jpg" alt="Numbered Erbstück cutting board made from historic timber in the workshop" width="1588" height="1059" loading="lazy" decoding="async">
+    </figure>
+    <div class="erbstueckFeature__shade" aria-hidden="true"></div>
+    <div class="container erbstueckFeature__stage">
+      <div class="erbstueckFeature__copy">
+        <p class="eyebrow">Erbstück series · numbered one-offs</p>
+        <h2 id="erbstueck-feature-title">Not always available. Never repeatable. Only when the timber allows it.</h2>
+        <p class="erbstueckFeature__lead">Historic timber becomes a numbered piece for everyday use – only when the material, its condition and the intended use belong together.</p>
+        <ul class="erbstueckFeature__facts" aria-label="Erbstück series characteristics">
+          <li>Historic timber</li>
+          <li>Every piece numbered</li>
+          <li>Made as material allows</li>
+        </ul>
+        <div class="erbstueckFeature__actions">
+          <a href="mailto:info@edlehoelzer.de?subject=Erbst%C3%BCck%20inquiry" class="btn btn--emphasis" data-umami-event="email-kontakt">Enquire about an Erbstück</a>
+          <a href="/en/erbstueck/" class="erbstueckFeature__link">Discover the series</a>
+        </div>
       </div>
     </div>
   </section>
