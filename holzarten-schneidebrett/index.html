@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260720-owner-products-first">
+  <link rel="stylesheet" href="/styles.css?v=20260802-structure">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://edlehoelzer.de/"},{"@type":"ListItem","position":2,"name":"Holzarten für Schneidebretter","item":"https://edlehoelzer.de/holzarten-schneidebrett/"}]}
   </script>
@@ -46,9 +46,28 @@
     <a href="/" class="brand" aria-label="Edle Hölzer Startseite"><img src="/assets/logo.png" alt="Edle Hölzer Logo" class="brand__logo" width="756" height="756"><span class="brand__text">Edle Hölzer</span></a>
     <div class="topbar__right"><div class="lang"><a href="/holzarten-schneidebrett/" class="is-active">DE</a><a href="/en/wood-types-for-cutting-boards/">EN</a></div><a href="/produkte.html#produktfinder" class="btn btn--small" data-umami-event="produktfinder-gestartet">Brettfinder starten</a></div>
   </div>
-  <nav class="mobileMenu" id="mobileMenu">
-    <div class="mobileMenu__head"><div class="mobileMenu__lang"><a href="/holzarten-schneidebrett/" class="is-active">DE</a><a href="/en/wood-types-for-cutting-boards/">EN</a></div><button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button></div>
-    <a href="/schneidebretter-massivholz/">Schneidebretter</a><a href="/produkte.html#produktfinder">Brettfinder</a><a href="/pflege.html">Pflege</a><a href="/#ueberuns">Über uns</a><a href="/erbstueck/" class="mobileMenu__featured">Erbstück-Serie</a><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link>Shop → Etsy</a>
+  <nav class="mobileMenu" id="mobileMenu" aria-label="Hauptnavigation">
+    <div class="mobileMenu__head">
+      <div class="mobileMenu__lang"><a href="/holzarten-schneidebrett/" class="is-active">DE</a><a href="/en/wood-types-for-cutting-boards/">EN</a></div>
+      <button class="mobileMenu__close" id="menuCloseButton" aria-label="Menü schließen">×</button>
+    </div>
+    <div class="mobileMenu__primary">
+      <a href="/produkte.html#produkte-grid">Produkte</a>
+      <a href="/erbstueck/" class="mobileMenu__featured">Erbstück</a>
+      <a href="/schneidebrett-nach-mass/">Maßanfertigung</a>
+      <a href="/#ueberuns">Über uns</a>
+    </div>
+    <a href="/produkte.html#produktfinder" class="mobileMenu__finder btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+    <details class="mobileMenu__discover">
+      <summary>Entdecken</summary>
+      <div>
+        <a href="/pflege.html">Pflege &amp; Aufbereitung</a>
+        <a href="/hochwertige-geschenke-holz/">Geschenke</a>
+        <a href="/b2b.html" data-umami-event="b2b-interesse">Firmengeschenke</a>
+        <a href="/sitemap-uebersicht.html">Alle Themen &amp; Ratgeber</a>
+      </div>
+    </details>
+    <a class="mobileMenu__shop" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Shop von Edle Hölzer" data-umami-event="etsy-klick">Shop</a>
   </nav>
   <div class="menuBackdrop" id="menuBackdrop"></div>
 </header>
@@ -150,13 +169,36 @@
 
 <footer class="footer">
   <div class="container footer__inner">
-    <div><div class="footer__brand">Edle Hölzer</div><div class="footer__meta">Handgefertigt in Mittelhessen.</div></div>
+    <div class="footer__brandColumn">
+      <div class="footer__brand">Edle Hölzer</div>
+      <div class="footer__meta">Handgefertigt in Mittelhessen.</div>
+      <div class="footerSocial" aria-label="Social Media und Kontakt">
+        <a href="https://www.instagram.com/edle.hoelzer/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.pinterest.de/edlehoelzer/" target="_blank" rel="noopener">Pinterest</a>
+        <a href="mailto:info@edlehoelzer.de" data-umami-event="email-kontakt">E-Mail</a>
+      </div>
+    </div>
     <nav class="footer__nav" aria-label="Footer-Navigation">
-      <div class="footer__group"><div class="footer__groupTitle">Produkte</div><a href="/produkte.html#produktfinder">Brettfinder</a><a href="/produkte.html#produkte-grid">Alle Produkte</a><a href="/schneidebretter-massivholz/">Massivholz-Schneidebretter</a></div>
-      <div class="footer__group"><div class="footer__groupTitle">Material</div><a href="/holzarten-schneidebrett/">Holzarten</a><a href="/hochwertiges-schneidebrett-erkennen/">Schneidebrett-Qualitätscheck</a><a href="/schneidebrett-eiche/">Eiche</a><a href="/schneidebrett-nussbaum/">Nussbaum</a><a href="/stirnholz-vs-langholz/">Stirnholz vs. Langholz</a></div>
-      <div class="footer__group"><div class="footer__groupTitle">Pflege</div><a href="/pflege.html">Pflege &amp; Reinigung</a><a href="/welches-oel-schneidebrett/">Welches Öl?</a><a href="/schneidebrett-aufbereiten/">Aufbereitung</a></div>
-      <div class="footer__group"><div class="footer__groupTitle">Kontakt &amp; Recht</div><a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link>Shop</a><a href="mailto:info@edlehoelzer.de">E-Mail</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a></div>
+      <div class="footer__group">
+        <div class="footer__groupTitle">Navigation</div>
+        <a href="/produkte.html#produkte-grid">Produkte</a>
+        <a href="/produkte.html#produktfinder" data-umami-event="produktfinder-gestartet">Brettfinder</a>
+        <a href="/erbstueck/">Erbstück</a>
+        <a href="/schneidebrett-nach-mass/">Maßanfertigung</a>
+        <a href="/#ueberuns">Über uns</a>
+        <a href="/sitemap-uebersicht.html">Alle Themen &amp; Ratgeber</a>
+      </div>
+      <div class="footer__group">
+        <div class="footer__groupTitle">Service &amp; Recht</div>
+        <a href="/pflege.html">Pflege</a>
+        <a href="/schneidebrett-aufbereiten/">Aufbereitung</a>
+        <a href="/b2b.html" data-umami-event="b2b-interesse">Firmengeschenke</a>
+        <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="Du wechselst jetzt zum Shop von Edle Hölzer">Shop</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+      </div>
     </nav>
+    <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist nicht gestattet.</p>
   </div>
 </footer>
 <script src="/main.js?v=20260715-care-conversion"></script>
