@@ -40,7 +40,34 @@
     "price": "24.99",
     "priceCurrency": "EUR",
     "url": "https://edlehoelzervonkoc.etsy.com/listing/4471048251",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/InStock",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "EUR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "DE"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 2,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        }
+      }
+    }
   },
   "image": [
     "https://edlehoelzer.de/teigschaber-sauerteig/img/teigschaber-sauerteig-hand.jpg",
