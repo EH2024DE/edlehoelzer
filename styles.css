@@ -5559,6 +5559,14 @@ section[id]{scroll-margin-top:88px}
   margin-top:22px;
 }
 
+.oakFamilyBlock .sectionIntro{
+  margin-bottom:28px;
+}
+
+.oakFamilyBlock__note{
+  margin-top:20px;
+}
+
 .oakOwnerNarrow{
   max-width:920px;
 }
