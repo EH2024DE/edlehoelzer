@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initStickyMobileCta();
   initHomepageReveal();
   initEtsyAttribution();
+  initConversionTracking();
 
   if (window.innerWidth <= 900) {
     return;
@@ -234,6 +235,76 @@ function initEtsyAttribution() {
   });
 }
 
+function initConversionTracking() {
+  function track(name, data) {
+    if (!window.umami || typeof window.umami.track !== "function") {
+      return;
+    }
+
+    try {
+      window.umami.track(name, data || {});
+    } catch (error) {
+      // Analytics must never block navigation or checkout.
+    }
+  }
+
+  function linkText(link) {
+    return (link.textContent || link.getAttribute("aria-label") || "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 80);
+  }
+
+  function safeUrl(href) {
+    try {
+      return new URL(href, window.location.href);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest("a");
+    var page = window.location.pathname.replace(/\/index\.html$/, "/") || "/";
+
+    if (!link) {
+      return;
+    }
+
+    var href = link.getAttribute("href") || "";
+    var url = safeUrl(link.href);
+    var payload = {
+      page: page,
+      label: linkText(link)
+    };
+
+    if (link.hasAttribute("data-etsy-link") || (url && /(^|\.)etsy\.com$/i.test(url.hostname))) {
+      if (url && /1881802291/.test(url.pathname)) {
+        track("care_balm_etsy_click", payload);
+      } else {
+        payload.host = url ? url.hostname : "";
+        track("etsy_checkout_click", payload);
+      }
+    }
+
+    if (href.indexOf("#produktfinder") !== -1 || href.indexOf("#product-finder") !== -1) {
+      track("product_finder_start", payload);
+    }
+
+    if (href.indexOf("/schneidebrett-aufbereiten/") !== -1 || link.getAttribute("data-umami-event") === "refurbishment_details_click") {
+      track("refurbishment_details_click", payload);
+    }
+
+    if (href.indexOf("mailto:") === 0) {
+      if (/Fotoeinsch|Aufbereitung|General/i.test(decodeURIComponent(href))) {
+        track("refurbishment_inquiry_start", payload);
+      } else {
+        track("email_contact_click", payload);
+      }
+    }
+  });
+}
+
 function initHomepageReveal() {
   var items = document.querySelectorAll(".reveal-on-scroll");
   if (!items.length) {
@@ -283,7 +354,8 @@ function initStickyMobileCta() {
     "/barbecue-geschenk/": { label: "BBQ-Brett ansehen", href: "#products-bbq", secondary: "Gravur anfragen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
     "/hochwertige-geschenke-holz/": { label: "Geschenk finden", href: "#products-geschenke", secondary: "Gravur ansehen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
     "/pflege.html": { label: "Pflegebalsam kaufen", href: "https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter", secondary: "Aufbereitung prüfen", secondaryHref: "/schneidebrett-aufbereiten/", event: "care_selfservice_click", external: true },
-    "/welches-oel-schneidebrett/": { label: "Pflegebalsam kaufen", href: "https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter", secondary: "Foto einschätzen lassen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett", event: "care_selfservice_click", external: true }
+    "/welches-oel-schneidebrett/": { label: "Pflegebalsam kaufen", href: "https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter", secondary: "Foto einschätzen lassen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett", event: "care_selfservice_click", external: true },
+    "/schneidebrett-aufbereiten/": { label: "Fotos einschätzen lassen", href: "mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett", secondary: "Kosten ansehen", secondaryHref: "#aufbereitungsservice", event: "refurbishment_inquiry_start" }
   };
 
   if (!isGerman || !ctas[current] || !window.matchMedia("(max-width: 768px)").matches) {

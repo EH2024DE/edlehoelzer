@@ -941,7 +941,7 @@ section[id]{scroll-margin-top:88px}
 .refurbLead--answer strong{color:var(--ink)}
 .refurbActions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .refurbCompare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;align-self:stretch}
-.refurbCompare div{position:relative;min-height:420px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#ece3d8;box-shadow:var(--shadow)}
+.refurbCompare div{position:relative;min-height:380px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#ece3d8;box-shadow:var(--shadow)}
 .refurbCompare img{width:100%;height:100%;object-fit:cover;object-position:center 46%}
 .refurbCompare span{position:absolute;left:12px;bottom:12px;border-radius:999px;background:rgba(17,17,17,.76);color:#fff;padding:7px 10px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;backdrop-filter:blur(8px)}
 .quickFacts{padding:0 0 58px;background:var(--sand)}
@@ -1143,19 +1143,34 @@ section[id]{scroll-margin-top:88px}
 
 .refurbQuickGuide{scroll-margin-top:82px}
 .refurbQuickGuide .sectionIntro--split>p{margin:0;color:rgba(17,17,17,.68);font-size:16px;line-height:1.7}
+.refurbVisualTriage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 18px}
+.refurbVisualTriage article{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:stretch;padding:10px;border:1px solid rgba(17,17,17,.10);border-radius:8px;background:#fff;box-shadow:0 12px 28px rgba(39,29,21,.05)}
+.refurbVisualTriage figure{margin:0;overflow:hidden;border-radius:6px;background:#eadfD1}
+.refurbVisualTriage img{display:block;width:100%;height:100%;min-height:116px;object-fit:cover;object-position:center 58%}
+.refurbVisualTriage div{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.refurbVisualTriage span{color:var(--accent-deep);font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.refurbVisualTriage strong{margin-top:6px;color:var(--ink);font-size:16px;line-height:1.22}
+.refurbVisualTriage p{margin:6px 0 0;color:rgba(17,17,17,.62);font-size:11px;line-height:1.42}
+.refurbVisualTriage__surface{position:relative;min-height:116px;background:linear-gradient(135deg,#b9824d,#6f452b)}
+.refurbVisualTriage__surface::before{position:absolute;inset:0;background:repeating-linear-gradient(78deg,rgba(255,245,226,.12) 0 2px,transparent 2px 14px);content:""}
+.refurbVisualTriage__surface::after{position:absolute;left:46%;top:14%;width:8px;height:72%;border-radius:999px;background:rgba(33,20,13,.72);clip-path:polygon(35% 0,100% 12%,62% 29%,96% 47%,48% 63%,82% 82%,22% 100%,0 84%,42% 65%,8% 48%,46% 31%,12% 14%);content:"";box-shadow:0 0 0 2px rgba(255,235,205,.08)}
+.refurbVisualTriage__surface span{position:absolute;display:block;height:2px;border-radius:999px;background:rgba(37,20,12,.58);transform-origin:left center}
+.refurbVisualTriage__surface span:nth-child(1){left:27%;top:31%;width:24%;transform:rotate(-20deg)}
+.refurbVisualTriage__surface span:nth-child(2){left:50%;top:50%;width:28%;transform:rotate(18deg)}
+.refurbVisualTriage__surface span:nth-child(3){left:30%;top:69%;width:22%;transform:rotate(22deg)}
 .refurbQuickGuide__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.refurbQuickCard{display:flex;flex-direction:column;min-width:0;padding:24px;background:#f8f5f0;border:1px solid rgba(17,17,17,.10);border-radius:8px}
+.refurbQuickCard{display:flex;flex-direction:column;min-width:0;padding:20px;background:#f8f5f0;border:1px solid rgba(17,17,17,.10);border-radius:8px}
 .refurbQuickCard--accent{background:#856044;border-color:#856044;color:#fffaf4}
 .refurbQuickCard--dark{background:#3b2c25;border-color:#3b2c25;color:#fbf7f1}
 .refurbQuickCard__label{color:var(--accent-deep);font-size:11px;font-weight:800;letter-spacing:.08em;line-height:1.4;text-transform:uppercase}
 .refurbQuickCard--accent .refurbQuickCard__label{color:#ffe0bd}
 .refurbQuickCard--dark .refurbQuickCard__label{color:#efc49c}
-.refurbQuickCard h3{margin-top:10px;font-size:clamp(25px,2.5vw,34px);letter-spacing:0}
-.refurbQuickCard p{margin:12px 0 20px;color:rgba(17,17,17,.68);font-size:14px;line-height:1.6}
+.refurbQuickCard h3{margin-top:9px;font-size:clamp(23px,2.2vw,31px);letter-spacing:0}
+.refurbQuickCard p{margin:10px 0 16px;color:rgba(17,17,17,.68);font-size:13px;line-height:1.55}
 .refurbQuickCard--accent p{color:rgba(251,247,241,.76)}
 .refurbQuickCard--dark p{color:rgba(248,245,240,.72)}
-.refurbQuickCard__price{display:block;margin-top:auto;font-size:21px;line-height:1.25}
-.refurbQuickCard__prices{display:grid;margin:14px 0 18px;border-top:1px solid rgba(17,17,17,.12)}
+.refurbQuickCard__price{display:block;margin-top:auto;font-size:20px;line-height:1.25}
+.refurbQuickCard__prices{display:grid;margin:12px 0 16px;border-top:1px solid rgba(17,17,17,.12)}
 .refurbQuickCard__prices div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid rgba(17,17,17,.12);font-size:12px}
 .refurbQuickCard__prices dt{color:rgba(17,17,17,.62)}
 .refurbQuickCard__prices dd{margin:0;font-weight:800}
@@ -1176,19 +1191,28 @@ section[id]{scroll-margin-top:88px}
 .refurbQuickGuide__next{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:18px;padding:18px 20px;background:#fbf8f4;border:1px solid rgba(17,17,17,.10);border-radius:8px}
 .refurbQuickGuide__next p{max-width:720px;margin:0;color:rgba(17,17,17,.66);font-size:13px;line-height:1.6}
 .refurbQuickGuide__next strong{color:var(--ink)}
+.refurbEaseSteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:18px 0 0;padding:0;overflow:hidden;border:1px solid rgba(17,17,17,.10);border-radius:8px;background:rgba(17,17,17,.10);list-style:none}
+.refurbEaseSteps li{display:grid;gap:6px;padding:15px 18px;background:#fff}
+.refurbEaseSteps strong{color:var(--ink);font-size:14px;line-height:1.35}
+.refurbEaseSteps span{color:rgba(17,17,17,.62);font-size:13px;line-height:1.5}
 @media (max-width:900px){
+  .refurbVisualTriage{grid-template-columns:1fr}
   .refurbQuickGuide__grid{grid-template-columns:1fr}
   .refurbQuickCard{padding:20px}
+  .refurbEaseSteps{grid-template-columns:1fr}
   .refurbQuickGuide__next{align-items:stretch;flex-direction:column}
   .refurbQuickGuide__next .btn{width:100%}
 }
 @media (max-width:767px){
   .refurbQuickGuide .sectionIntro{margin-bottom:22px}
+  .refurbVisualTriage{display:flex;gap:10px;margin-right:-12px;padding-right:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .refurbVisualTriage::-webkit-scrollbar{display:none}
+  .refurbVisualTriage article{flex:0 0 min(86vw,350px);scroll-snap-align:start}
   .refurbQuickGuide__grid{display:flex;gap:10px;margin-right:-12px;padding-right:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
   .refurbQuickGuide__grid::-webkit-scrollbar{display:none}
-  .refurbQuickCard{flex:0 0 min(82vw,330px);scroll-snap-align:start}
-  .refurbQuickCard h3{font-size:25px}
-  .refurbQuickCard p{margin-bottom:16px}
+  .refurbQuickCard{flex:0 0 min(78vw,310px);scroll-snap-align:start}
+  .refurbQuickCard h3{font-size:22px}
+  .refurbQuickCard p{margin-bottom:14px;font-size:12px}
   .refurbQuickGuide__next{margin-top:10px;padding:16px}
 }
 
@@ -1845,7 +1869,7 @@ section[id]{scroll-margin-top:88px}
   }
 
   .refurbCompare div{
-    min-height:260px;
+    min-height:220px;
     border-radius:8px;
   }
 
@@ -3782,6 +3806,17 @@ section[id]{scroll-margin-top:88px}
   max-width:820px;
 }
 
+.oilOwner .seoHero__grid{
+  grid-template-columns:minmax(0,1.05fr) minmax(240px,.48fr);
+}
+
+.oilOwner .seoHero__image{
+  width:min(100%,420px);
+  height:clamp(220px,26vw,340px);
+  justify-self:end;
+  object-position:center 48%;
+}
+
 .oilDirectAnswer{
   border-bottom:1px solid var(--line);
 }
@@ -3794,8 +3829,56 @@ section[id]{scroll-margin-top:88px}
   max-width:840px;
   margin:20px 0 0;
   color:rgba(17,17,17,.76);
-  font-size:clamp(18px,2vw,22px);
+  font-size:clamp(17px,1.8vw,21px);
   line-height:1.65;
+}
+
+.oilCarePath{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin-top:28px;
+}
+
+.oilCarePath article{
+  display:flex;
+  flex-direction:column;
+  min-height:178px;
+  padding:18px;
+  border:1px solid rgba(17,17,17,.10);
+  border-radius:8px;
+  background:#fbf8f4;
+}
+
+.oilCarePath span{
+  color:var(--accent-deep);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.oilCarePath strong{
+  margin-top:10px;
+  color:var(--ink);
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(23px,2.5vw,30px);
+  line-height:1.08;
+}
+
+.oilCarePath p{
+  margin:10px 0 16px;
+  color:rgba(17,17,17,.68);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.oilCarePath a{
+  margin-top:auto;
+  color:var(--accent-deep);
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:4px;
 }
 
 .oilDecisionGrid{
@@ -3807,8 +3890,8 @@ section[id]{scroll-margin-top:88px}
 .oilDecisionCard{
   display:flex;
   flex-direction:column;
-  min-height:190px;
-  padding:24px;
+  min-height:168px;
+  padding:20px;
   border:1px solid rgba(17,17,17,.12);
   border-radius:8px;
   background:#fff;
@@ -3825,7 +3908,7 @@ section[id]{scroll-margin-top:88px}
 }
 
 .oilDecisionCard__question{
-  margin-bottom:20px;
+  margin-bottom:14px;
   color:var(--accent-deep);
   font-size:12px;
   font-weight:800;
@@ -3835,13 +3918,13 @@ section[id]{scroll-margin-top:88px}
 
 .oilDecisionCard strong{
   font-family:"Playfair Display",Georgia,serif;
-  font-size:clamp(21px,2.2vw,27px);
+  font-size:clamp(20px,1.9vw,25px);
   line-height:1.18;
 }
 
 .oilDecisionCard__link{
   margin-top:auto;
-  padding-top:24px;
+  padding-top:18px;
   color:var(--accent-deep);
   font-size:13px;
   font-weight:800;
@@ -3929,9 +4012,11 @@ section[id]{scroll-margin-top:88px}
 .oilOutcomeCard>img{
   width:100%;
   max-width:220px;
+  height:150px;
   aspect-ratio:3/2;
   border-radius:6px;
   object-fit:cover;
+  object-position:center 42%;
 }
 
 .oilOutcomeCard__content h3{
@@ -4145,6 +4230,16 @@ section[id]{scroll-margin-top:88px}
 }
 
 @media (max-width:900px){
+  .oilOwner .seoHero__grid{
+    grid-template-columns:1fr;
+  }
+
+  .oilOwner .seoHero__image{
+    width:min(100%,520px);
+    height:clamp(210px,45vw,320px);
+    justify-self:start;
+  }
+
   .oilDecisionGrid,
   .oilMistakeGrid{
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -4157,7 +4252,9 @@ section[id]{scroll-margin-top:88px}
   }
 
   .oilOutcomeCard>img{
-    width:min(52vw,180px);
+    width:min(100%,280px);
+    max-width:280px;
+    height:150px;
     justify-self:start;
   }
 
@@ -4176,11 +4273,20 @@ section[id]{scroll-margin-top:88px}
 }
 
 @media (max-width:640px){
+  .oilOwner .seoHero{
+    padding-bottom:44px;
+  }
+
+  .oilOwner .seoHero__image{
+    height:clamp(180px,52vw,240px);
+  }
+
   .oilOwnerSection{
     scroll-margin-top:72px;
   }
 
   .oilDecisionGrid,
+  .oilCarePath,
   .oilMistakeGrid,
   .oilAnswerGrid,
   .oilMediaGrid,
@@ -4194,12 +4300,14 @@ section[id]{scroll-margin-top:88px}
     min-height:0;
   }
 
+  .oilCarePath article,
   .oilDecisionCard{
-    padding:20px;
+    padding:16px;
   }
 
   .oilDecisionCard__question{
-    margin-bottom:12px;
+    margin-bottom:10px;
+    font-size:11px;
   }
 
   .oilDecisionCard__link{
@@ -4209,6 +4317,19 @@ section[id]{scroll-margin-top:88px}
   .oilWorkshopGrid,
   .oilStopBlock{
     gap:30px;
+  }
+
+  .oilOutcomeCard{
+    gap:18px;
+  }
+
+  .oilOutcomeCard>img{
+    width:min(100%,260px);
+    height:132px;
+  }
+
+  .oilOutcomeCard__content h3{
+    font-size:clamp(28px,8vw,36px);
   }
 
   .oilWorkshopFigure img,
