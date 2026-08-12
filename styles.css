@@ -795,8 +795,9 @@ section[id]{scroll-margin-top:88px}
   background: #ece3d8;
 }
 .seoHero__image--contain {
-  object-fit: cover;
-  background: #ece3d8;
+  object-fit: contain;
+  background: #f3eee7;
+  padding: 16px;
 }
 .seoHero__image--portrait {
   width: min(100%, 430px);
