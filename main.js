@@ -1117,6 +1117,8 @@ function initProductExperience() {
     juiceGrooveOption: "Juice groove",
     engravingOption: "Engraving",
     careBalmOption: "Edle Hölzer care balm · 10% off",
+    productWhatsappHint: "Still have a question about this product? Message us.",
+    productWhatsappCta: "Ask via WhatsApp",
     optional: "optional"
   } : {
     previewTitle: "Produktdetails",
@@ -1197,6 +1199,8 @@ function initProductExperience() {
     juiceGrooveOption: "Saftrille",
     engravingOption: "Gravur",
     careBalmOption: "Edle Hölzer Pflegebalsam · 10 % günstiger",
+    productWhatsappHint: "Noch offene Fragen zu diesem Produkt? Schreib uns kurz.",
+    productWhatsappCta: "Per WhatsApp klären",
     optional: "optional"
   };
 
@@ -1211,6 +1215,7 @@ function initProductExperience() {
   var previousFocus = null;
   var previousOverflow = "";
   var compareBar = createCompareBar();
+  var whatsappNumber = "491791694200";
 
   document.body.appendChild(compareBar);
   updateCompareBar();
@@ -1418,14 +1423,15 @@ function initProductExperience() {
         }).join("") + '</ul></section>' : "") +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + ' <a href="' + (isEnglish ? "/en/care.html" : "/pflege.html") + '">' + escapeHtml(labels.careLink) + '</a></p></section>' +
-        '<div class="productPreview__actions">' +
-        (hasEtsy ? '<div class="productPreview__checkoutRow"><p><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></p><a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a></div><p class="productPreview__trust">' + escapeHtml(purchaseOptions(product).length ? labels.optionCheckoutNote : labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
-          renderPreviewCompareControls(product, source || "preview") +
-          '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
-        '</div>' +
         (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
           return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.details) + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.compare) + '</button></div></article>';
         }).join("") + '</div></section>' : "") +
+        '<div class="productPreview__actions">' +
+        (hasEtsy ? '<div class="productPreview__checkoutRow"><p><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></p><a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a></div><p class="productPreview__trust">' + escapeHtml(purchaseOptions(product).length ? labels.optionCheckoutNote : labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
+          renderProductWhatsappPrompt(product, hasEtsy) +
+          renderPreviewCompareControls(product, source || "preview") +
+          '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
+        '</div>' +
       '</div>' +
     '</section>';
   }
@@ -2486,6 +2492,40 @@ function initProductExperience() {
       return isEnglish ? "on request" : "auf Anfrage";
     }
     return "";
+  }
+
+  function renderProductWhatsappPrompt(product, hasEtsy) {
+    if (!product || !hasEtsy || product.category === "care") {
+      return "";
+    }
+    var productName = displayProductName(product);
+    var whatsappUrl = productWhatsappUrl(product, productName);
+    return '<div class="productPreview__whatsapp">' +
+      '<span>' + escapeHtml(labels.productWhatsappHint) + '</span>' +
+      '<a href="' + escapeAttribute(whatsappUrl) + '" target="_blank" rel="noopener" aria-label="' + escapeAttribute(labels.productWhatsappCta) + '" data-umami-event="whatsapp-kontakt" data-umami-event-source-page="product-preview" data-umami-event-product="' + escapeAttribute(product.id || productName) + '"><span class="whatsappServiceFloat__icon" aria-hidden="true"></span></a>' +
+    '</div>';
+  }
+
+  function productWhatsappUrl(product, productName) {
+    var lines = isEnglish ? [
+      "Hello Edle Hölzer, I have a question about this product:",
+      "",
+      "Product: " + productName,
+      "Price: " + purchasePriceText(product),
+      etsyActionUrl(product) ? "Etsy link: " + etsyActionUrl(product) : "",
+      "",
+      "Could you help me briefly?"
+    ] : [
+      "Hallo Edle Hölzer, ich habe noch eine Frage zu diesem Produkt:",
+      "",
+      "Produkt: " + productName,
+      "Preis: " + purchasePriceText(product),
+      etsyActionUrl(product) ? "Etsy-Link: " + etsyActionUrl(product) : "",
+      "",
+      "Könnt ihr mir kurz weiterhelfen?"
+    ];
+
+    return "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(lines.filter(Boolean).join("\n"));
   }
 
   function booleanLabel(value) {
