@@ -1086,7 +1086,6 @@ function initProductExperience() {
     buyProduct: "Buy this product on Etsy",
     buyCare: "Buy care balm on Etsy",
     etsyTrust: "You are opening this exact product on Etsy · Checkout, reviews and buyer protection are available there",
-    careLink: "Understand care",
     madeFor: "What this product is made for",
     keyFacts: "Key facts",
     highlights: "Highlights",
@@ -1179,7 +1178,6 @@ function initProductExperience() {
     buyProduct: "Dieses Produkt auf Etsy kaufen",
     buyCare: "Pflegebalsam auf Etsy kaufen",
     etsyTrust: "Du öffnest genau dieses Produkt auf Etsy · Checkout, Bewertungen und Käuferschutz findest du dort",
-    careLink: "Pflege verstehen",
     madeFor: "Wofür dieses Produkt gemacht ist",
     keyFacts: "Eckdaten",
     highlights: "Highlights",
@@ -1510,7 +1508,7 @@ function initProductExperience() {
           return '<li>' + escapeHtml(highlight) + '</li>';
         }).join("") + '</ul></section>' : "") +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
-        '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + ' <a href="' + (isEnglish ? "/en/care.html" : "/pflege.html") + '">' + escapeHtml(labels.careLink) + '</a></p></section>' +
+        '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + '</p></section>' +
         (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
           return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.details) + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.compare) + '</button></div></article>';
         }).join("") + '</div></section>' : "") +
@@ -2029,6 +2027,30 @@ function initProductExperience() {
   }
 
   function relatedProducts(product) {
+    if (product.category === "accessory") {
+      var isButterKnife = productTextMatches(product, /buttermesser|butter\s*knife/i);
+      var isSpatula = productTextMatches(product, /pfannenwender|spatula|turner/i);
+      var isScraper = productTextMatches(product, /teigschaber|dough|scraper/i);
+      var setMatches = products.filter(function (candidate) {
+        if (!candidate || candidate.id === product.id || !candidate.image || !hasVerifiedListing(candidate)) {
+          return false;
+        }
+        if (isButterKnife) {
+          return productTextMatches(candidate, /nussbaum|walnut|pfannenwender|spatula|turner|teigschaber|dough|scraper/i);
+        }
+        if (isSpatula) {
+          return productTextMatches(candidate, /buttermesser|butter\s*knife|teigschaber|dough|scraper|schneidebrett|brett|board/i);
+        }
+        if (isScraper) {
+          return productTextMatches(candidate, /buttermesser|butter\s*knife|pfannenwender|spatula|turner|schneidebrett|brett|board/i);
+        }
+        return false;
+      });
+      if (setMatches.length) {
+        return sortRelatedForAccessory(product, setMatches).slice(0, 3);
+      }
+    }
+
     return products.filter(function (candidate) {
       if (!candidate || candidate.id === product.id || !isComparableProduct(candidate) || !candidate.image) {
         return false;
@@ -2043,6 +2065,44 @@ function initProductExperience() {
         return product.useCases.indexOf(useCase) !== -1;
       });
     }).slice(0, 3);
+  }
+
+  function productTextMatches(product, pattern) {
+    return pattern.test([
+      product.name,
+      product.displayName,
+      product.segment,
+      product.shortDescription,
+      product.longDescription,
+      product.material,
+      (product.badges || []).join(" ")
+    ].join(" "));
+  }
+
+  function sortRelatedForAccessory(product, candidates) {
+    return candidates.sort(function (a, b) {
+      return accessoryRelatedScore(product, b) - accessoryRelatedScore(product, a);
+    });
+  }
+
+  function accessoryRelatedScore(product, candidate) {
+    var score = 0;
+    if (candidate.category === "accessory") {
+      score += 10;
+    }
+    if (candidate.category === "board") {
+      score += 8;
+    }
+    if (product.material && candidate.material && product.material === candidate.material) {
+      score += 4;
+    }
+    if (productTextMatches(candidate, /nussbaum|walnut/i)) {
+      score += 3;
+    }
+    if (candidate.giftable) {
+      score += 1;
+    }
+    return score;
   }
 
   function primaryImage(product) {
@@ -2093,8 +2153,14 @@ function initProductExperience() {
     if (product.category === "care") {
       return isEnglish ? "For boards that should be cared for instead of replaced." : "Für Bretter, die gepflegt statt ersetzt werden sollen.";
     }
+    if (/buttermesser|butter\s*knife/.test(text)) {
+      return isEnglish ? "For breakfast, bread boards and small serving moments that should match your wooden kitchen tools." : "Für Frühstück, Brotzeit und kleine Serviermomente, die zu deinen Holzstücken passen sollen.";
+    }
+    if (/pfannenwender|spatula|turner/.test(text)) {
+      return isEnglish ? "For the pan, grill and kitchen tools that may match your board instead of feeling random." : "Für Pfanne, Grill und Küchenhelfer, die zum Brett passen dürfen statt beliebig zu wirken.";
+    }
     if (/teigschaber|dough|scraper/.test(text)) {
-      return isEnglish ? "For sourdough, bread dough and quiet work with real material." : "Für Sauerteig, Brotteig und ruhiges Arbeiten mit echtem Material.";
+      return isEnglish ? "For sourdough, bread dough and a wooden tool family that can match your board." : "Für Sauerteig, Brotteig und eine Holzfamilie, die zum Brett passen kann.";
     }
     if (/erbst/.test(text)) {
       return isEnglish ? "For people who do not want a reproducible standard product." : "Für Menschen, die kein reproduzierbares Serienprodukt suchen.";
@@ -2126,15 +2192,20 @@ function initProductExperience() {
 
   function productExperienceText(product) {
     var text = [product.name, product.displayName, product.segment].join(" ").toLowerCase();
+    if (/buttermesser|butter\s*knife/.test(text)) {
+      return isEnglish
+        ? "For butter, cream cheese, spreads and breakfast boards. Choose walnut or plum wood and combine it with matching boards, spatulas or dough scrapers."
+        : "Für Butter, Frischkäse, Aufstriche und Brotzeit am Tisch. Du kannst Nussbaum oder Zwetschge wählen und es mit passenden Brettern, Pfannenwendern oder Teigschabern kombinieren.";
+    }
     if (/pfannenwender|spatula|turner/.test(text)) {
       return isEnglish
-        ? "For turning, lifting and serving food at the hob or grill."
-        : "Zum Wenden, Anheben und Servieren am Kochfeld oder Grill.";
+        ? "For turning, lifting and serving at the hob or grill. Works well as part of a matching wood set with a board, butter knife or dough scraper."
+        : "Zum Wenden, Anheben und Servieren am Kochfeld oder Grill. Passt als Holz-Set gut zu Brett, Buttermesser oder Teigschaber.";
     }
     if (/teigschaber|dough|scraper/.test(text)) {
       return isEnglish
-        ? "For dividing and shaping dough and for lifting chopped ingredients from the board."
-        : "Zum Teilen und Formen von Teig sowie zum Aufnehmen von Schnittgut vom Brett.";
+        ? "For dividing and shaping dough and lifting chopped ingredients from the board. If several pieces are available, the wood look can be coordinated before dispatch."
+        : "Zum Teilen und Formen von Teig sowie zum Aufnehmen von Schnittgut vom Brett. Wenn mehrere Exemplare verfügbar sind, kann die Optik vor dem Versand abgestimmt werden.";
     }
     if (product.category === "board") {
       return productMoment(product);
@@ -2154,6 +2225,9 @@ function initProductExperience() {
   function careNote(product) {
     if (product.category === "care") {
       return isEnglish ? "Use care products according to their instructions and let treated wood dry openly." : "Pflegeprodukte nach Anleitung verwenden und behandeltes Holz offen trocknen lassen.";
+    }
+    if (product.category === "accessory") {
+      return isEnglish ? "Clean by hand, dry promptly and refresh occasionally with food-safe wood care when the surface feels dry." : "Von Hand reinigen, direkt abtrocknen und bei trockener Oberfläche gelegentlich mit lebensmittelechter Holzpflege auffrischen.";
     }
     return isEnglish ? "Wood should not go into the dishwasher. Let it dry after cleaning and care for it when the surface becomes dry." : "Holz gehört nicht in die Spülmaschine. Nach dem Reinigen trocknen lassen und pflegen, wenn die Oberfläche trocken wirkt.";
   }
