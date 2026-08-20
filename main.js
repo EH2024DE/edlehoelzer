@@ -1161,7 +1161,6 @@ function initProductExperience() {
     careExperiencePromise: "Care instructions are included, so the product does not arrive without context.",
     cardServicePhoto: "real photos",
     cardServiceQuestion: "questions welcome",
-    cardServiceVariant: "variant check possible",
     cardServiceCare: "care note included",
     optional: "optional"
   } : {
@@ -1253,7 +1252,6 @@ function initProductExperience() {
     careExperiencePromise: "Die passende Anwendung kommt mit, damit Pflege nicht erst nach dem Kauf zur Unsicherheit wird.",
     cardServicePhoto: "echte Fotos",
     cardServiceQuestion: "Rückfrage möglich",
-    cardServiceVariant: "Optik abstimmbar",
     cardServiceCare: "Anleitung dabei",
     optional: "optional"
   };
@@ -2996,7 +2994,6 @@ function initProductsPage() {
     controlPromise: "What you can expect",
     cardServicePhoto: "real photos",
     cardServiceQuestion: "questions welcome",
-    cardServiceVariant: "variant check possible",
     cardServiceCare: "care note included"
   } : {
     askSimilar: "Ähnliches Produkt anfragen",
@@ -3004,7 +3001,6 @@ function initProductsPage() {
     controlPromise: "Was du erwarten kannst",
     cardServicePhoto: "echte Fotos",
     cardServiceQuestion: "Rückfrage möglich",
-    cardServiceVariant: "Optik abstimmbar",
     cardServiceCare: "Anleitung dabei"
   };
 
@@ -3993,9 +3989,6 @@ function initProductsPage() {
 
   function buildServiceSignals(product) {
     var signals = [labels.cardServicePhoto, labels.cardServiceQuestion];
-    if (product.category === "accessory" && hasSelectableWoodLook(product)) {
-      signals.splice(1, 0, labels.cardServiceVariant);
-    }
     if (product.category === "care") {
       signals = [labels.cardServiceCare, labels.cardServiceQuestion];
     }
