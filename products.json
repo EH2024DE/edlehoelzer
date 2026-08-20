@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-31",
-  "source": "Etsy Live-Abgleich 2026-07-31",
+  "updatedAt": "2026-08-20",
+  "source": "Etsy Live-Abgleich 2026-08-20",
   "sourceNote": "Produktdaten wurden gegen den aktuellen Etsy-Shop abgeglichen. Aktive Listing-Titel und Verfügbarkeit werden zentral synchronisiert; bewusst als verkauft markierte Einzelstücke bleiben archiviert.",
   "purchaseRules": {
     "currency": "EUR",
@@ -30,7 +30,8 @@
     ],
     "freeShippingGermanyListingIds": [
       "4471048251",
-      "4470469056"
+      "4470469056",
+      "4549962555"
     ],
     "careBalmOptionMaximumBasePrice": 150,
     "careBalmOptionExcludedListingIds": [
@@ -41,6 +42,80 @@
     "holderMinimumBoardThicknessCm": 4
   },
   "products": [
+    {
+      "id": "etsy-live-20260820-buttermesser-holz-personalisiert",
+      "listingId": "4549962555",
+      "exportRow": null,
+      "name": "Buttermesser Holz personalisiert | Handgemacht aus Nussbaum oder Zwetschge | Frühstücksmesser 17 cm",
+      "category": "accessory",
+      "segment": "Zubehoer",
+      "priceLabel": "19,99 EUR",
+      "priceOrder": 19.99,
+      "stock": 1,
+      "shortDescription": "Nussbaum oder Zwetschge, ca. 17 cm lang und ca. 8 mm stark.",
+      "longDescription": "Handgemachtes Buttermesser aus Holz für Frühstück, Brotzeit und den gedeckten Tisch. Die geschwungene, minimalistische Form liegt angenehm in der Hand und verstreicht Butter, Frischkäse oder weiche Aufstriche sauber. Erhältlich aus Nussbaum oder Zwetschgenholz; auf Wunsch mit kleiner Gravur am Griff. Wenn mehrere Exemplare einer Holzart verfügbar sind, können wir vor dem Versand Fotos zur Auswahl schicken.",
+      "badges": [
+        "Nussbaum / Zwetschge",
+        "ca. 17 cm",
+        "personalisierbar"
+      ],
+      "image": "https://i.etsystatic.com/54205761/r/il/dc0c63/8387719721/il_794xN.8387719721_jb3r.jpg",
+      "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/dc0c63/8387719721/il_794xN.8387719721_jb3r.jpg",
+        "https://i.etsystatic.com/54205761/r/il/087668/8387552557/il_794xN.8387552557_1b0o.jpg",
+        "https://i.etsystatic.com/54205761/r/il/317b45/8339668648/il_794xN.8339668648_t2i4.jpg",
+        "https://i.etsystatic.com/54205761/r/il/f1a80b/8387701873/il_794xN.8387701873_2zy8.jpg",
+        "https://i.etsystatic.com/54205761/r/il/53f458/8339668608/il_794xN.8339668608_bgbw.jpg",
+        "https://i.etsystatic.com/54205761/r/il/258179/8339668644/il_794xN.8339668644_moqc.jpg",
+        "https://i.etsystatic.com/54205761/r/il/d50829/8339668566/il_794xN.8339668566_6l7q.jpg",
+        "https://i.etsystatic.com/54205761/r/il/16e012/8387552737/il_794xN.8387552737_3os3.jpg",
+        "https://i.etsystatic.com/54205761/r/il/dd19a6/8341215804/il_794xN.8341215804_pow6.jpg"
+      ],
+      "etsyUrl": "https://www.etsy.com/de/listing/4549962555/buttermesser-holz-personalisiert",
+      "directListingUrlVerified": true,
+      "featured": false,
+      "active": true,
+      "needsReview": false,
+      "dataVerified": true,
+      "imageVerified": true,
+      "dataVerifiedAt": "2026-08-20",
+      "source": "etsy-shop-live-20260820",
+      "productType": "accessory",
+      "material": "Nussbaum oder Zwetschge",
+      "woodCut": "none",
+      "sizeLabel": "ca. 17 cm",
+      "thicknessLabel": "ca. 0,8 cm",
+      "sizeProfile": "compact",
+      "weightClass": "light",
+      "portability": "portable",
+      "kitchenFit": "small",
+      "useCases": [
+        "daily",
+        "serving",
+        "gift"
+      ],
+      "servingSuitable": true,
+      "tactileProfile": "smooth",
+      "premiumLevel": 1,
+      "giftable": true,
+      "careIntensity": "low",
+      "recommendedFor": [
+        "Fruehstueck",
+        "Brotzeit",
+        "Geschenkergänzung"
+      ],
+      "notIdealFor": [
+        "Schneiden",
+        "Haupt-Schneidebrett"
+      ],
+      "displayName": "Buttermesser – Nussbaum oder Zwetschge",
+      "deliveryDays": "2–3 Werktage",
+      "etsyListingUrl": "https://www.etsy.com/de/listing/4549962555/buttermesser-holz-personalisiert",
+      "availabilityStatus": "available",
+      "dimensions": "ca. 17 × 0,8 cm",
+      "dimensionsVerifiedAt": "2026-08-20",
+      "dimensionsSource": "etsy-listing-live"
+    },
     {
       "id": "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
       "listingId": "4471048251",

@@ -98,6 +98,7 @@
           '<h3 class="productCard__name">' + escapeHtml(product.displayName || displayProductName(product)) + '</h3>' +
           renderBadges(product) +
           renderFacts(product) +
+          renderServiceSignals(product, isEnglish) +
           '<div class="productCard__footer">' +
             (displayPriceLabel(product) ? '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' : "") +
             '<span class="productCard__buy">' +
@@ -107,6 +108,38 @@
           '</div>' +
         '</div>' +
     '</article>';
+  }
+
+  function renderServiceSignals(product, isEnglish) {
+    var signals = isEnglish
+      ? ["real photos", "questions welcome"]
+      : ["echte Fotos", "Rückfrage möglich"];
+
+    if (String(product.category || "").toLowerCase() === "accessory" && hasSelectableWoodLook(product)) {
+      signals.splice(1, 0, isEnglish ? "variant check possible" : "Optik abstimmbar");
+    }
+
+    if (String(product.category || "").toLowerCase() === "care") {
+      signals = isEnglish ? ["care note included", "questions welcome"] : ["Anleitung dabei", "Rückfrage möglich"];
+    }
+
+    return '<ul class="productCard__serviceSignals" aria-label="' + escapeAttribute(isEnglish ? "What you can expect" : "Was du erwarten kannst") + '">' +
+      signals.slice(0, 3).map(function (signal) {
+        return '<li>' + escapeHtml(signal) + '</li>';
+      }).join("") +
+    '</ul>';
+  }
+
+  function hasSelectableWoodLook(product) {
+    var text = [
+      product.name,
+      product.displayName,
+      product.shortDescription,
+      product.longDescription,
+      product.segment,
+      product.slug
+    ].join(" ");
+    return /teigschaber|dough\s*scraper|pfannenwender|spatula|turner|buttermesser|butter\s*knife/i.test(text);
   }
 
   function productCardClass(product) {

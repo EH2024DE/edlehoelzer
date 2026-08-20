@@ -302,7 +302,41 @@ function initConversionTracking() {
         track("email_contact_click", payload);
       }
     }
+
+    if (url && /(^|\.)wa\.me$/i.test(url.hostname)) {
+      payload.source = link.getAttribute("data-umami-event-source-page") || "";
+      payload.position = link.getAttribute("data-umami-event-position") || "";
+      track("whatsapp_contact_click", payload);
+    }
   });
+
+  var serviceCards = document.querySelectorAll("[data-service-product-card]");
+  if (serviceCards.length && "IntersectionObserver" in window) {
+    var seenCards = [];
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.35) {
+          return;
+        }
+
+        var card = entry.target;
+        if (seenCards.indexOf(card) !== -1) {
+          return;
+        }
+
+        seenCards.push(card);
+        observer.unobserve(card);
+        track(card.getAttribute("data-service-view-event") || "service_product_card_view", {
+          page: window.location.pathname.replace(/\/index\.html$/, "/") || "/",
+          service: card.getAttribute("data-service-type") || "unknown"
+        });
+      });
+    }, { threshold: [0.35] });
+
+    serviceCards.forEach(function (card) {
+      observer.observe(card);
+    });
+  }
 }
 
 function initHomepageReveal() {
@@ -1119,6 +1153,17 @@ function initProductExperience() {
     careBalmOption: "Edle Hölzer care balm · 10% off",
     productWhatsappHint: "Still have a question about this product? Message us.",
     productWhatsappCta: "Ask via WhatsApp",
+    mediaProof: "Real product photos",
+    controlPromise: "What you can expect",
+    productExperiencePromise: "You do not receive a surprise piece: product photos, wood grain, dimensions and open questions are clarified before you decide.",
+    boardExperiencePromise: "Every board is freshly prepared before dispatch: finely sanded, oiled, waxed and shipped ready to use with care guidance.",
+    engravingExperiencePromise: "For engraving, we coordinate position, motif and visual effect on the specific piece before it is made.",
+    accessoryExperiencePromise: "If several pieces of the same wood type are available, we can help you choose the grain you prefer before dispatch.",
+    careExperiencePromise: "Care instructions are included, so the product does not arrive without context.",
+    cardServicePhoto: "real photos",
+    cardServiceQuestion: "questions welcome",
+    cardServiceVariant: "variant check possible",
+    cardServiceCare: "care note included",
     optional: "optional"
   } : {
     previewTitle: "Produktdetails",
@@ -1201,6 +1246,17 @@ function initProductExperience() {
     careBalmOption: "Edle Hölzer Pflegebalsam · 10 % günstiger",
     productWhatsappHint: "Noch offene Fragen zu diesem Produkt? Schreib uns kurz.",
     productWhatsappCta: "Per WhatsApp klären",
+    mediaProof: "Echte Produktbilder",
+    controlPromise: "Was du erwarten kannst",
+    productExperiencePromise: "Du bekommst kein Überraschungsstück: Holzbild, Maße, Optionen und offene Fragen werden vor deiner Entscheidung sauber geklärt.",
+    boardExperiencePromise: "Jedes Brett wird vor dem Versand noch einmal frisch vorbereitet: fein geschliffen, geölt, gewachst und mit Pflegehinweis einsatzbereit verschickt.",
+    engravingExperiencePromise: "Bei Gravur stimmen wir Position, Motiv und Wirkung auf dem konkreten Stück vor der Fertigung mit dir ab.",
+    accessoryExperiencePromise: "Wenn mehrere Exemplare einer Holzart verfügbar sind, kannst du vor dem Versand dein bevorzugtes Holzbild abstimmen.",
+    careExperiencePromise: "Die passende Anwendung kommt mit, damit Pflege nicht erst nach dem Kauf zur Unsicherheit wird.",
+    cardServicePhoto: "echte Fotos",
+    cardServiceQuestion: "Rückfrage möglich",
+    cardServiceVariant: "Optik abstimmbar",
+    cardServiceCare: "Anleitung dabei",
     optional: "optional"
   };
 
@@ -1214,6 +1270,7 @@ function initProductExperience() {
   var activeDialog = null;
   var previousFocus = null;
   var previousOverflow = "";
+  var previewSwipeStart = null;
   var compareBar = createCompareBar();
   var whatsappNumber = "491791694200";
 
@@ -1286,6 +1343,35 @@ function initProductExperience() {
       closeOverlay();
     }
   });
+
+  document.addEventListener("touchstart", function (event) {
+    if (!activeDialog || !event.target.closest(".productPreview__mainMedia") || event.touches.length !== 1) {
+      previewSwipeStart = null;
+      return;
+    }
+
+    previewSwipeStart = {
+      x: event.touches[0].clientX,
+      y: event.touches[0].clientY
+    };
+  }, { passive: true });
+
+  document.addEventListener("touchend", function (event) {
+    if (!previewSwipeStart || !activeDialog || event.changedTouches.length !== 1) {
+      previewSwipeStart = null;
+      return;
+    }
+
+    var deltaX = event.changedTouches[0].clientX - previewSwipeStart.x;
+    var deltaY = event.changedTouches[0].clientY - previewSwipeStart.y;
+    previewSwipeStart = null;
+
+    if (Math.abs(deltaX) < 42 || Math.abs(deltaX) < Math.abs(deltaY) * 1.25) {
+      return;
+    }
+
+    switchPreviewByOffset(deltaX < 0 ? 1 : -1);
+  }, { passive: true });
 
   document.addEventListener("change", function (event) {
     var optionInput = event.target.closest("[data-purchase-option]");
@@ -1400,6 +1486,7 @@ function initProductExperience() {
     return '<section class="productPreview" role="dialog" aria-modal="true" aria-labelledby="product-preview-title">' +
       '<button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button>' +
       '<div class="productPreview__media">' +
+        '<div class="productPreview__mediaProof"><span>' + escapeHtml(labels.mediaProof) + '</span></div>' +
         '<div class="productPreview__mainMedia">' +
           renderPreviewMainMedia(main) +
         '</div>' +
@@ -1413,6 +1500,7 @@ function initProductExperience() {
         renderPurchaseHeadline(product) +
         '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
         '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
+        renderExperiencePromise(product) +
         (reason ? '<div class="productPreview__reason"><strong>' + escapeHtml(labels.finderReason) + '</strong><p>' + escapeHtml(reason) + '</p></div>' : "") +
         renderPurchaseConfigurator(product) +
         (facts.length ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.keyFacts) + '</h3><dl class="productPreview__facts">' + facts.map(function (fact) {
@@ -1829,6 +1917,28 @@ function initProductExperience() {
     activeOverlay.querySelectorAll("[data-preview-media]").forEach(function (item) {
       item.classList.toggle("is-active", item === button);
     });
+    button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
+
+  function switchPreviewByOffset(offset) {
+    if (!activeOverlay) {
+      return;
+    }
+
+    var buttons = Array.prototype.slice.call(activeOverlay.querySelectorAll("[data-preview-media]"));
+    if (buttons.length < 2) {
+      return;
+    }
+
+    var currentIndex = buttons.findIndex(function (button) {
+      return button.classList.contains("is-active");
+    });
+    if (currentIndex < 0) {
+      currentIndex = 0;
+    }
+
+    var nextIndex = (currentIndex + offset + buttons.length) % buttons.length;
+    switchPreviewMedia(buttons[nextIndex]);
   }
 
   function productMedia(product) {
@@ -1877,6 +1987,13 @@ function initProductExperience() {
   function renderPreviewThumb(item, index) {
     var poster = item.poster || item.src;
     return '<button class="productPreview__thumb' + (index === 0 ? " is-active" : "") + '" type="button" data-preview-media="' + index + '" data-preview-type="' + escapeAttribute(item.type || "image") + '" data-preview-src="' + escapeAttribute(item.src) + '" data-preview-poster="' + escapeAttribute(poster) + '" data-preview-alt="' + escapeAttribute(item.alt) + '"><img src="' + escapeAttribute(poster) + '" alt="" loading="lazy" decoding="async">' + (item.type === "video" ? '<span class="productPreview__videoBadge">Video</span>' : "") + '</button>';
+  }
+
+  function mediaCountLabel(count) {
+    if (isEnglish) {
+      return count + (count === 1 ? " photo" : " photos");
+    }
+    return count + (count === 1 ? " Foto" : " Fotos");
   }
 
   function renderPreviewCompareControls(product, source) {
@@ -2039,6 +2156,60 @@ function initProductExperience() {
       return isEnglish ? "Use care products according to their instructions and let treated wood dry openly." : "Pflegeprodukte nach Anleitung verwenden und behandeltes Holz offen trocknen lassen.";
     }
     return isEnglish ? "Wood should not go into the dishwasher. Let it dry after cleaning and care for it when the surface becomes dry." : "Holz gehört nicht in die Spülmaschine. Nach dem Reinigen trocknen lassen und pflegen, wenn die Oberfläche trocken wirkt.";
+  }
+
+  function renderExperiencePromise(product) {
+    var copy = labels.productExperiencePromise;
+    var pieces = [];
+    if (product.category === "board") {
+      pieces.push(labels.boardExperiencePromise);
+      if (hasEngravingControl(product)) {
+        pieces.push(labels.engravingExperiencePromise);
+      }
+      copy = pieces.join(" ");
+    } else if (product.category === "accessory" && hasSelectableWoodLook(product)) {
+      copy = labels.accessoryExperiencePromise;
+    } else if (product.category === "care") {
+      copy = labels.careExperiencePromise;
+    }
+
+    return '<section class="productPreview__experiencePromise">' +
+      '<strong>' + escapeHtml(labels.controlPromise) + '</strong>' +
+      '<p>' + escapeHtml(copy) + '</p>' +
+    '</section>';
+  }
+
+  function hasEngravingControl(product) {
+    if (!product) {
+      return false;
+    }
+    if (product.engravingPossible === true) {
+      return true;
+    }
+    var text = [
+      product.name,
+      product.displayName,
+      product.shortDescription,
+      product.longDescription,
+      product.segment,
+      (product.badges || []).join(" ")
+    ].join(" ");
+    return /gravur|graviert|personalisier|engraving|personal/i.test(text);
+  }
+
+  function hasSelectableWoodLook(product) {
+    if (!product) {
+      return false;
+    }
+    var text = [
+      product.name,
+      product.displayName,
+      product.shortDescription,
+      product.longDescription,
+      product.segment,
+      product.slug
+    ].join(" ");
+    return /teigschaber|dough\s*scraper|pfannenwender|spatula|turner|buttermesser|butter\s*knife/i.test(text);
   }
 
   function decisionHint(product, comparedTo) {
@@ -2715,6 +2886,23 @@ function initProductsPage() {
   var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
   var gridAnchor = isEnglish ? "#products-grid" : "#produkte-grid";
   var shopTitle = isEnglish ? "You are leaving for the Edle Hölzer Etsy shop" : "Du wechselst jetzt zum Etsy-Shop von Edle Hölzer";
+  var labels = isEnglish ? {
+    askSimilar: "Request similar product",
+    unavailableText: "This exact product is no longer available. A similar piece can be matched by material, size and use.",
+    controlPromise: "What you can expect",
+    cardServicePhoto: "real photos",
+    cardServiceQuestion: "questions welcome",
+    cardServiceVariant: "variant check possible",
+    cardServiceCare: "care note included"
+  } : {
+    askSimilar: "Ähnliches Produkt anfragen",
+    unavailableText: "Dieses konkrete Produkt ist nicht mehr verfügbar. Ein ähnliches Stück können wir nach Material, Größe und Einsatz abstimmen.",
+    controlPromise: "Was du erwarten kannst",
+    cardServicePhoto: "echte Fotos",
+    cardServiceQuestion: "Rückfrage möglich",
+    cardServiceVariant: "Optik abstimmbar",
+    cardServiceCare: "Anleitung dabei"
+  };
 
   var questionsDe = [
     {
@@ -3555,6 +3743,7 @@ function initProductsPage() {
           buildFeatureBadges(product) +
           buildProductFacts(product) +
           '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' +
+          buildServiceSignals(product) +
           buildProductActions(product, "grid") +
         '</div>' +
       '</article>';
@@ -3696,6 +3885,33 @@ function initProductsPage() {
     return '<dl class="productFacts productFacts--compact">' + facts.slice(0, 2).map(function (fact) {
       return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
     }).join("") + '</dl>';
+  }
+
+  function buildServiceSignals(product) {
+    var signals = [labels.cardServicePhoto, labels.cardServiceQuestion];
+    if (product.category === "accessory" && hasSelectableWoodLook(product)) {
+      signals.splice(1, 0, labels.cardServiceVariant);
+    }
+    if (product.category === "care") {
+      signals = [labels.cardServiceCare, labels.cardServiceQuestion];
+    }
+    return '<ul class="productCard__serviceSignals" aria-label="' + escapeAttribute(labels.controlPromise) + '">' +
+      signals.slice(0, 3).map(function (signal) {
+        return '<li>' + escapeHtml(signal) + '</li>';
+      }).join("") +
+    '</ul>';
+  }
+
+  function hasSelectableWoodLook(product) {
+    var text = [
+      product.name,
+      product.displayName,
+      product.shortDescription,
+      product.longDescription,
+      product.segment,
+      product.slug
+    ].join(" ");
+    return /teigschaber|dough\s*scraper|pfannenwender|spatula|turner|buttermesser|butter\s*knife/i.test(text);
   }
 
   function hasMeaningfulValue(value) {
