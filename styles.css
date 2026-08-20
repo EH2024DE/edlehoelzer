@@ -1395,18 +1395,6 @@ section[id]{scroll-margin-top:88px}
 .productCard__serviceSignals{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
 .productCard__serviceSignals li{padding:5px 8px;border:1px solid rgba(184,136,87,.22);border-radius:999px;background:#fbf8f4;color:rgba(17,17,17,.58);font-size:11px;font-weight:800;line-height:1.1;white-space:nowrap}
 .priceNote{margin:0 0 16px;color:rgba(17,17,17,.54);font-size:12px;font-weight:600;line-height:1.45}
-.serviceProductCard{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:18px;align-items:center;margin:0 0 18px;padding:18px 20px;border:1px solid rgba(184,136,87,.24);border-radius:8px;background:linear-gradient(135deg,#fbf8f4,#f3ece3);box-shadow:0 12px 28px rgba(52,35,22,.07)}
-.serviceProductCard__copy{min-width:0}
-.serviceProductCard__copy .eyebrow{margin-bottom:6px}
-.serviceProductCard__copy h3{font-size:clamp(23px,2vw,31px);line-height:1.1;letter-spacing:0}
-.serviceProductCard__copy p:not(.eyebrow){max-width:62ch;margin:8px 0 0;color:rgba(17,17,17,.66);font-size:14px;line-height:1.55}
-.serviceProductCard__signals{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;max-width:320px;margin:0;padding:0;list-style:none}
-.serviceProductCard__signals li{padding:7px 9px;border:1px solid rgba(17,17,17,.08);border-radius:999px;background:rgba(255,255,255,.70);color:rgba(17,17,17,.60);font-size:11px;font-weight:800;line-height:1.15;white-space:nowrap}
-.serviceProductCard__actions{display:flex;align-items:center;justify-content:flex-end;gap:10px}
-.serviceProductCard__actions .btn{min-height:42px;padding:10px 16px;white-space:nowrap}
-.serviceProductCard__actions .textLink{font-size:12px;font-weight:800;line-height:1.25;white-space:nowrap}
-.serviceProductCard__whatsapp{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:42px;height:42px;border:1px solid rgba(37,211,102,.34);border-radius:999px;background:#f5fff8;color:#1f9d55;box-shadow:0 8px 18px rgba(37,211,102,.12)}
-.serviceProductCard__whatsapp .whatsappServiceFloat__icon{width:22px;height:22px}
 .productBadgeRow{display:flex;flex-wrap:wrap;gap:6px}
 .productBadgeRow span{display:inline-flex;align-items:center;border-radius:999px;background:#f0ebe4;color:#5a4a3a;font-size:12px;font-weight:700;padding:5px 9px}
 .productFacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0}
@@ -1987,35 +1975,6 @@ section[id]{scroll-margin-top:88px}
   .landingProductGrid .productCard__cta--secondary,
   .landingProductGrid .productCard__cta--etsy{
     width:auto;
-  }
-  .serviceProductCard{
-    grid-template-columns:1fr;
-    gap:12px;
-    margin-bottom:16px;
-    padding:16px;
-  }
-  .serviceProductCard__copy h3{
-    font-size:22px;
-  }
-  .serviceProductCard__copy p:not(.eyebrow){
-    font-size:13px;
-    line-height:1.5;
-  }
-  .serviceProductCard__signals{
-    justify-content:flex-start;
-    max-width:none;
-  }
-  .serviceProductCard__actions{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) 42px;
-    justify-content:stretch;
-  }
-  .serviceProductCard__actions .btn{
-    width:100%;
-  }
-  .serviceProductCard__actions .textLink{
-    grid-column:1 / -1;
-    justify-self:start;
   }
   .productBadgeRow span{
     font-size:11px;
