@@ -1510,7 +1510,7 @@ function initProductExperience() {
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + '</p></section>' +
         (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
-          return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.details) + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(labels.compare) + '</button></div></article>';
+          return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "View" : "Ansehen") + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "Compare" : "Vergleich") + '</button></div></article>';
         }).join("") + '</div></section>' : "") +
         '<div class="productPreview__actions">' +
         (hasEtsy ? '<div class="productPreview__checkoutRow"><p><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></p><a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a></div><p class="productPreview__trust">' + escapeHtml(purchaseOptions(product).length ? labels.optionCheckoutNote : labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
@@ -2117,9 +2117,11 @@ function initProductExperience() {
     pushFact(facts, labels.wood, product.material);
     pushFact(facts, labels.construction, constructionLabel(product));
     pushFact(facts, labels.dimensions, dimensionLabel(product));
-    pushFact(facts, labels.thickness, meaningful(product.thicknessLabel));
+    pushFact(facts, labels.thickness, displayThicknessLabel(product));
     pushFact(facts, labels.weight, exactWeightLabel(product));
-    pushFact(facts, labels.juiceGroove, juiceGrooveFactLabel(product));
+    if (product.category === "board") {
+      pushFact(facts, labels.juiceGroove, juiceGrooveFactLabel(product));
+    }
     pushFact(facts, labels.engraving, engravingLabel(product));
     return facts.slice(0, 9);
   }
@@ -2134,18 +2136,34 @@ function initProductExperience() {
     var highlights = [];
     if (Array.isArray(product.badges)) {
       product.badges.forEach(function (badge) {
-        if (badge && highlights.length < 5 && !/cm|kg|Format laut/i.test(String(badge))) {
+        if (badge && highlights.length < 5 && !/cm|mm|kg|Format laut/i.test(String(badge)) && !isAccessoryMaterialBadge(product, badge)) {
           highlights.push(normalizeConstructionTerms(badge));
         }
       });
     }
-    if (product.material && highlights.indexOf(product.material) === -1) {
+    if (product.category !== "accessory" && product.material && highlights.indexOf(product.material) === -1) {
       highlights.unshift(product.material);
     }
     if (isEndGrain(product)) {
       highlights.push(isEnglish ? "end-grain construction" : "Stirnholz-Aufbau");
     }
     return unique(highlights).slice(0, 5);
+  }
+
+  function isAccessoryMaterialBadge(product, badge) {
+    if (product.category !== "accessory") {
+      return false;
+    }
+    var value = String(badge || "").toLowerCase();
+    return /eiche|nussbaum|buche|esche|zwetschge|kambala|kastanie|ahorn|wenge|weitere/.test(value);
+  }
+
+  function displayThicknessLabel(product) {
+    var value = meaningful(product.thicknessLabel);
+    if (!value) {
+      return "";
+    }
+    return String(value).replace(/ca\.\s*0,8\s*cm/i, "ca. 8 mm");
   }
 
   function productMoment(product) {
@@ -2441,7 +2459,7 @@ function initProductExperience() {
       Array.isArray(product.badges) ? product.badges.join(" ") : ""
     ].join(" ").toLowerCase();
 
-    if (juiceGrooveIds.map(String).indexOf(listingId) !== -1) {
+    if (product.category === "board" && juiceGrooveIds.map(String).indexOf(listingId) !== -1) {
       options.push({
         id: "juiceGroove",
         label: labels.juiceGrooveOption,
@@ -2561,10 +2579,22 @@ function initProductExperience() {
 
   function purchaseDeliveryText(product) {
     var selection = purchaseSelection(product);
-    var customized = purchaseOptions(product).some(function (option) {
+    var selectedCustomOptions = purchaseOptions(product).filter(function (option) {
       return option.id !== "careBalm" && selection[option.id];
     });
-    return customized ? labels.customDispatch : labels.standardDispatch;
+    if (!selectedCustomOptions.length) {
+      return labels.standardDispatch;
+    }
+    var selectedIds = selectedCustomOptions.map(function (option) {
+      return option.id;
+    });
+    if (selectedIds.indexOf("juiceGroove") === -1 && selectedIds.indexOf("engraving") !== -1) {
+      return isEnglish ? "With engraving: 4–5 working days" : "Mit Gravur: 4–5 Werktage";
+    }
+    if (selectedIds.indexOf("engraving") === -1 && selectedIds.indexOf("juiceGroove") !== -1) {
+      return isEnglish ? "With juice groove: 4–5 working days" : "Mit Saftrille: 4–5 Werktage";
+    }
+    return labels.customDispatch;
   }
 
   function minimumBoardThickness(product) {
