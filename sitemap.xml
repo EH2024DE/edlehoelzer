@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://edlehoelzer.de/atelier/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://edlehoelzer.de/schneidebretter-massivholz/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
