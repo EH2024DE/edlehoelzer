@@ -6326,6 +6326,23 @@ section[id]{scroll-margin-top:88px}
   object-fit:cover;
 }
 
+.woodCompareHeirloomBridge{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:clamp(24px,5vw,70px);
+  align-items:center;
+  padding:clamp(26px,5vw,48px);
+  border:1px solid rgba(17,17,17,.1);
+  border-radius:8px;
+  background:#fff;
+}
+
+.woodCompareHeirloomBridge p:not(.eyebrow){
+  max-width:860px;
+  color:rgba(17,17,17,.68);
+  line-height:1.68;
+}
+
 .woodCompareFinalCta{
   background:#1d1713;
   color:#fff;
@@ -6376,7 +6393,8 @@ section[id]{scroll-margin-top:88px}
   .woodCompareProductColumns,
   .woodCompareChoiceGrid,
   .woodCompareKitchen,
-  .woodCompareWorkshop{
+  .woodCompareWorkshop,
+  .woodCompareHeirloomBridge{
     grid-template-columns:1fr;
   }
 
