@@ -6129,3 +6129,340 @@ section[id]{scroll-margin-top:88px}
     width:100%;
   }
 }
+
+.woodCompareHero__figure{
+  margin:0;
+}
+
+.woodCompareHero__duo{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  overflow:hidden;
+  border-radius:8px;
+  background:#1d1713;
+}
+
+.woodCompareHero__duo img{
+  display:block;
+  width:100%;
+  height:clamp(340px,48vw,620px);
+  object-fit:cover;
+}
+
+.woodCompareHero__duo img:first-child{
+  object-position:center 62%;
+}
+
+.woodCompareHero__duo img:last-child{
+  object-position:center 50%;
+}
+
+.woodCompareHero__figure figcaption,
+.woodCompareWorkshop figcaption{
+  margin-top:10px;
+  color:rgba(17,17,17,.56);
+  font-size:13px;
+  line-height:1.45;
+}
+
+.woodCompareProductColumns{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(22px,4vw,44px);
+}
+
+.woodCompareProductColumns__head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:16px;
+}
+
+.woodCompareProductColumns__head h3{
+  margin:0;
+  font-size:clamp(28px,4vw,46px);
+}
+
+.woodCompareProductColumns__head a{
+  color:#8b623f;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:5px;
+}
+
+.woodCompareChoiceGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
+.woodCompareChoiceGrid article{
+  padding:clamp(26px,4vw,42px);
+  border:1px solid rgba(17,17,17,.1);
+  border-radius:8px;
+  background:#fff;
+}
+
+.woodCompareChoiceGrid span{
+  display:inline-flex;
+  margin-bottom:22px;
+  color:#9d704a;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.woodCompareChoiceGrid h3{
+  margin-bottom:18px;
+}
+
+.woodCompareChoiceGrid ul{
+  display:grid;
+  gap:10px;
+  margin:0;
+  padding-left:20px;
+  color:rgba(17,17,17,.68);
+  line-height:1.55;
+}
+
+.woodCompareTable{
+  overflow-x:auto;
+  border:1px solid rgba(17,17,17,.1);
+  border-radius:8px;
+  background:#fff;
+}
+
+.woodCompareTable table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.woodCompareTable th,
+.woodCompareTable td{
+  padding:18px 20px;
+  border-bottom:1px solid rgba(17,17,17,.09);
+  text-align:left;
+  vertical-align:top;
+}
+
+.woodCompareTable thead th{
+  color:rgba(17,17,17,.55);
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.woodCompareTable tbody th{
+  width:16%;
+  color:var(--ink);
+  font-size:15px;
+}
+
+.woodCompareTable tbody td{
+  color:rgba(17,17,17,.68);
+  line-height:1.5;
+}
+
+.woodCompareTable tbody tr:last-child th,
+.woodCompareTable tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.woodCompareKitchen,
+.woodCompareWorkshop{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.82fr);
+  gap:clamp(34px,6vw,84px);
+  align-items:center;
+}
+
+.woodCompareKitchen p,
+.woodCompareWorkshop p{
+  color:rgba(17,17,17,.68);
+  line-height:1.7;
+}
+
+.woodCompareKitchen__cards{
+  display:grid;
+  gap:12px;
+}
+
+.woodCompareKitchen__cards article{
+  padding:22px;
+  border:1px solid rgba(17,17,17,.1);
+  border-radius:8px;
+  background:#fff;
+}
+
+.woodCompareKitchen__cards strong,
+.woodCompareKitchen__cards span{
+  display:block;
+}
+
+.woodCompareKitchen__cards strong{
+  margin-bottom:8px;
+  font-size:18px;
+}
+
+.woodCompareKitchen__cards span{
+  color:rgba(17,17,17,.66);
+  line-height:1.5;
+}
+
+.woodCompareWorkshop figure{
+  order:2;
+  margin:0;
+}
+
+.woodCompareWorkshop img{
+  display:block;
+  width:100%;
+  height:clamp(320px,42vw,520px);
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.woodCompareFinalCta{
+  background:#1d1713;
+  color:#fff;
+  text-align:center;
+}
+
+.woodCompareFinalCta h2,
+.woodCompareFinalCta p{
+  max-width:780px;
+  margin-inline:auto;
+}
+
+.woodCompareFinalCta p:not(.eyebrow){
+  margin-top:16px;
+  color:rgba(255,255,255,.72);
+  line-height:1.65;
+}
+
+.woodCompareFinalCta__actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin-top:30px;
+}
+
+.woodCompareFinalCta__link{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:8px 4px;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:5px;
+}
+
+@media (min-width:761px){
+  .woodCompareProductColumns .landingProductGrid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:760px){
+  .woodCompareHero .seoHero__grid,
+  .woodCompareProductColumns,
+  .woodCompareChoiceGrid,
+  .woodCompareKitchen,
+  .woodCompareWorkshop{
+    grid-template-columns:1fr;
+  }
+
+  .woodCompareHero__duo img{
+    height:clamp(250px,74vw,390px);
+  }
+
+  .woodCompareProductColumns__head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .woodCompareTable{
+    overflow:visible;
+    border:0;
+    background:transparent;
+  }
+
+  .woodCompareTable table,
+  .woodCompareTable thead,
+  .woodCompareTable tbody,
+  .woodCompareTable tr,
+  .woodCompareTable th,
+  .woodCompareTable td{
+    display:block;
+  }
+
+  .woodCompareTable thead{
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+  }
+
+  .woodCompareTable tbody{
+    display:grid;
+    gap:12px;
+  }
+
+  .woodCompareTable tbody tr{
+    overflow:hidden;
+    border:1px solid rgba(17,17,17,.1);
+    border-radius:8px;
+    background:#fff;
+  }
+
+  .woodCompareTable tbody th{
+    padding:16px 18px;
+    background:#f4eee6;
+  }
+
+  .woodCompareTable tbody td{
+    position:relative;
+    min-height:68px;
+    padding:40px 18px 15px;
+  }
+
+  .woodCompareTable tbody td::before{
+    position:absolute;
+    top:13px;
+    left:18px;
+    color:rgba(17,17,17,.48);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  .woodCompareTable tbody td:nth-of-type(1)::before{content:"Eiche";}
+  .woodCompareTable tbody td:nth-of-type(2)::before{content:"Nussbaum";}
+  .woodCompareTable tbody td:nth-of-type(3)::before{content:"Einordnung";}
+
+  .woodCompareWorkshop figure{
+    order:0;
+  }
+
+  .woodCompareFinalCta__actions{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .woodCompareFinalCta__actions .btn,
+  .woodCompareFinalCta__link{
+    justify-content:center;
+    width:100%;
+  }
+}
