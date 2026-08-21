@@ -1610,7 +1610,7 @@ section[id]{scroll-margin-top:88px}
 .productGridEmpty p{margin:0}
 .productGridEmpty a{display:inline-flex;margin-top:12px;text-decoration:underline;text-underline-offset:3px;font-weight:800}
 .comparisonTable{display:block;width:100%;max-width:100%;border-collapse:separate;border-spacing:0;margin:24px 0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow-x:auto;box-shadow:var(--shadow);-webkit-overflow-scrolling:touch}
-.comparisonTable tbody{display:table;width:100%;min-width:680px}
+.comparisonTable thead,.comparisonTable tbody{display:table;width:100%;min-width:680px;table-layout:fixed}
 .comparisonTable th,.comparisonTable td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
 .comparisonTable th{background:#f8f3ec;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:rgba(17,17,17,.60)}
 .comparisonTable tr:last-child th,.comparisonTable tr:last-child td{border-bottom:none}
@@ -2648,6 +2648,10 @@ section[id]{scroll-margin-top:88px}
     gap:10px;
   }
 
+  .comparisonTable thead{
+    display:none;
+  }
+
   .comparisonTable tr{
     display:grid;
     gap:7px;
@@ -2660,6 +2664,10 @@ section[id]{scroll-margin-top:88px}
 
   .comparisonTable tr:first-child{
     display:none;
+  }
+
+  .comparisonTable tbody tr:first-child{
+    display:grid;
   }
 
   .comparisonTable th,
