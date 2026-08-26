@@ -15,6 +15,82 @@
   --shadow:0 12px 28px rgba(0,0,0,.05);
 }
 
+/* Google Preferred Sources: local prompt, official Google dialog after click. */
+.preferredSourceCta{
+  border-top:1px solid rgba(87,58,34,.14);
+  background:#f0e8de;
+}
+
+.preferredSourceCta__inner{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(220px,300px);
+  gap:clamp(28px,6vw,84px);
+  align-items:center;
+  padding-top:clamp(38px,5vw,64px);
+  padding-bottom:clamp(38px,5vw,64px);
+}
+
+.preferredSourceCta__copy{max-width:780px}
+.preferredSourceCta__copy .eyebrow{margin:0 0 10px}
+.preferredSourceCta__copy h2{
+  margin:0;
+  max-width:18ch;
+  font-family:"Playfair Display", Georgia, serif;
+  font-size:clamp(30px,3.5vw,48px);
+  font-weight:500;
+  line-height:1.02;
+}
+.preferredSourceCta__copy > p:last-child{
+  margin:18px 0 0;
+  max-width:65ch;
+  color:rgba(17,17,17,.68);
+  font-size:16px;
+  line-height:1.65;
+}
+.preferredSourceCta__action{
+  display:grid;
+  justify-items:start;
+  gap:10px;
+}
+.preferredSourceCta__button{
+  width:auto;
+  min-width:0;
+  white-space:nowrap;
+}
+.preferredSourceCta__button[aria-busy="true"]{
+  opacity:.68;
+  pointer-events:none;
+}
+.preferredSourceCta__action small{
+  max-width:30ch;
+  color:rgba(17,17,17,.55);
+  font-size:11px;
+  line-height:1.45;
+}
+
+@media (max-width:760px){
+  .preferredSourceCta__inner{
+    grid-template-columns:1fr;
+    gap:22px;
+    padding-top:34px;
+    padding-bottom:36px;
+  }
+  .preferredSourceCta__copy h2{
+    max-width:17ch;
+    font-size:30px;
+  }
+  .preferredSourceCta__copy > p:last-child{
+    margin-top:14px;
+    font-size:14px;
+    line-height:1.55;
+  }
+  .preferredSourceCta__button{
+    min-height:46px;
+    padding:12px 16px;
+    font-size:12px;
+  }
+}
+
 .consentBanner{
   position:fixed;
   right:clamp(12px, 3vw, 28px);

@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initHomepageReveal();
   initEtsyAttribution();
   initConversionTracking();
+  initGooglePreferredSource();
 
   if (window.innerWidth <= 900) {
     return;
@@ -335,6 +336,125 @@ function initConversionTracking() {
       observer.observe(card);
     });
   }
+}
+
+function initGooglePreferredSource() {
+  var path = window.location.pathname.replace(/\/index\.html$/, "/") || "/";
+  var excludedPaths = [
+    "/produkte.html",
+    "/en/products.html",
+    "/impressum.html",
+    "/datenschutz.html",
+    "/danke.html",
+    "/karte/",
+    "/sitemap-uebersicht.html"
+  ];
+  var main = document.querySelector("main");
+
+  if (!main || excludedPaths.indexOf(path) !== -1 || document.querySelector("[data-preferred-source-cta]")) {
+    return;
+  }
+
+  var isEnglish = document.documentElement.lang.toLowerCase().indexOf("en") === 0 || path.indexOf("/en/") === 0;
+  var copy = isEnglish
+    ? {
+        eyebrow: "Preferred source",
+        heading: "Prefer Edle Hölzer on Google",
+        text: "If our guides and workshop knowledge help you, you can select Edle Hölzer as a preferred source. Google may then highlight our content in relevant search and AI results.",
+        button: "Prefer on Google",
+        privacy: "A connection to Google is established only after you click.",
+        loading: "Opening the Google selection..."
+      }
+    : {
+        eyebrow: "Bevorzugte Quelle",
+        heading: "Edle Hölzer bei Google bevorzugen",
+        text: "Wenn dir unsere Ratgeber und das Wissen aus der Werkstatt helfen, kannst du Edle Hölzer bei Google als bevorzugte Quelle auswählen. Google kann unsere Inhalte dann bei passenden Such- und KI-Ergebnissen hervorheben.",
+        button: "Bei Google bevorzugen",
+        privacy: "Erst beim Klick wird eine Verbindung zu Google hergestellt.",
+        loading: "Google-Auswahl wird geöffnet ..."
+      };
+  var deepLink = "https://www.google.com/preferences/source?q=edlehoelzer.de";
+  var section = document.createElement("section");
+  var preferredSourceClient = null;
+
+  section.className = "preferredSourceCta";
+  section.id = "google-preferred-source";
+  section.setAttribute("aria-labelledby", "preferred-source-title");
+  section.setAttribute("data-preferred-source-cta", "");
+  section.innerHTML =
+    '<div class="container preferredSourceCta__inner">' +
+      '<div class="preferredSourceCta__copy">' +
+        '<p class="eyebrow eyebrow--dark">' + copy.eyebrow + "</p>" +
+        '<h2 id="preferred-source-title">' + copy.heading + "</h2>" +
+        "<p>" + copy.text + "</p>" +
+      "</div>" +
+      '<div class="preferredSourceCta__action">' +
+        '<a class="btn preferredSourceCta__button" href="' + deepLink + '" data-google-preferred-source>' + copy.button + "</a>" +
+        '<small data-preferred-source-status aria-live="polite">' + copy.privacy + "</small>" +
+      "</div>" +
+    "</div>";
+
+  main.appendChild(section);
+
+  if (window.location.hash === "#google-preferred-source") {
+    window.requestAnimationFrame(function () {
+      section.scrollIntoView({ block: "start" });
+    });
+  }
+
+  var button = section.querySelector("[data-google-preferred-source]");
+  var status = section.querySelector("[data-preferred-source-status]");
+
+  button.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    try {
+      if (window.EdleAnalytics && typeof window.EdleAnalytics.track === "function") {
+        window.EdleAnalytics.track("preferred_source_click", {
+          page: path,
+          source: "google",
+          cta_location: "page_end"
+        });
+      }
+    } catch (error) {
+      // The Google action must work independently from analytics.
+    }
+
+    button.setAttribute("aria-busy", "true");
+    status.textContent = copy.loading;
+
+    if (preferredSourceClient) {
+      preferredSourceClient.addPreferredSource();
+      button.removeAttribute("aria-busy");
+      status.textContent = copy.privacy;
+      return;
+    }
+
+    (self.PREFERRED_SOURCE = self.PREFERRED_SOURCE || []).push(function (client) {
+      preferredSourceClient = client;
+      client.init({
+        theme: "light",
+        lang: isEnglish ? "en" : "de"
+      });
+      client.addPreferredSource();
+      button.removeAttribute("aria-busy");
+      status.textContent = copy.privacy;
+    });
+
+    if (document.querySelector("script[data-preferred-source-library]")) {
+      return;
+    }
+
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://news.google.com/swg/js/v1/publisher.js";
+    script.setAttribute("preferred-sources-control", "manual");
+    script.setAttribute("data-preferred-source-library", "");
+    script.addEventListener("error", function () {
+      window.location.href = deepLink;
+    });
+    document.head.appendChild(script);
+  });
 }
 
 function initHomepageReveal() {
