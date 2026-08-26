@@ -21,7 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=20260802-structure">
-  <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -561,11 +560,7 @@
       }
     }
   </style>
-<!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
-<script defer src="https://cloud.umami.is/script.js"
-        data-website-id="9c072a65-fef4-48ce-a03c-6f1e9d443acc"
-        data-exclude-hash="true"
-        data-domains="edlehoelzer.de,www.edlehoelzer.de"></script>
+  <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -695,16 +690,21 @@
         </section>
 
         <section class="pflege-grid" id="pflegevideo" aria-labelledby="pflegevideo-title">
-          <div class="pflege-card">
+          <div class="pflege-card consentMedia" data-consent-media>
             <iframe
               class="pflege-video"
-              src="https://www.youtube-nocookie.com/embed/S719JvOY0Yo"
+              data-consent-src="https://www.youtube-nocookie.com/embed/S719JvOY0Yo"
               title="Schneidebrett pflegen und auffrischen – Edle Hölzer"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen>
             </iframe>
+            <div class="consentMedia__placeholder" data-consent-media-placeholder>
+              <strong>Pflegevideo laden</strong>
+              <p>Das Video wird erst nach Zustimmung zu externen Medien geladen.</p>
+              <button type="button" class="consentMedia__button" data-open-consent-settings>Cookie-Einstellungen öffnen</button>
+            </div>
           </div>
           <div class="pflege-copy">
             <p class="eyebrow eyebrow--dark">Pflegevideo aus unserer Anleitung</p>

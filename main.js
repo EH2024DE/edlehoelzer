@@ -237,12 +237,10 @@ function initEtsyAttribution() {
 
 function initConversionTracking() {
   function track(name, data) {
-    if (!window.umami || typeof window.umami.track !== "function") {
-      return;
-    }
-
     try {
-      window.umami.track(name, data || {});
+      if (window.EdleAnalytics && typeof window.EdleAnalytics.track === "function") {
+        window.EdleAnalytics.track(name, data || {});
+      }
     } catch (error) {
       // Analytics must never block navigation or checkout.
     }
@@ -2947,13 +2945,12 @@ function initProductExperience() {
   function track(eventName, product, extra) {
     var payload = Object.assign({
       product_id: product && product.id,
-      product_title: product && displayProductName(product),
       product_category: product && product.category,
       wood: product && product.material
     }, extra || {});
 
-    if (window.umami && typeof window.umami.track === "function") {
-      window.umami.track(eventName, payload);
+    if (window.EdleAnalytics && typeof window.EdleAnalytics.track === "function") {
+      window.EdleAnalytics.track(eventName, payload);
     }
   }
 
