@@ -61,6 +61,11 @@
   opacity:.68;
   pointer-events:none;
 }
+.preferredSourceCta__button.is-opened::before{
+  content:"✓";
+  margin-right:8px;
+  font-size:1.05em;
+}
 .preferredSourceCta__action small{
   max-width:30ch;
   color:rgba(17,17,17,.55);
