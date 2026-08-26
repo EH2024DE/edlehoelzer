@@ -363,7 +363,9 @@ function initGooglePreferredSource() {
         text: "If our guides and workshop knowledge help you, you can select Edle Hölzer as a preferred source. Google may then highlight our content in relevant search and AI results.",
         button: "Prefer on Google",
         privacy: "A connection to Google is established only after you click.",
-        loading: "Opening the Google selection..."
+        loading: "Opening the Google selection...",
+        thanks: "Thank you for your support",
+        opened: "Google has opened. Sign in there if needed, then confirm or manage your choice."
       }
     : {
         eyebrow: "Bevorzugte Quelle",
@@ -371,7 +373,9 @@ function initGooglePreferredSource() {
         text: "Wenn dir unsere Ratgeber und das Wissen aus der Werkstatt helfen, kannst du Edle Hölzer bei Google als bevorzugte Quelle auswählen. Google kann unsere Inhalte dann bei passenden Such- und KI-Ergebnissen hervorheben.",
         button: "Bei Google bevorzugen",
         privacy: "Erst beim Klick wird eine Verbindung zu Google hergestellt.",
-        loading: "Google-Auswahl wird geöffnet ..."
+        loading: "Google-Auswahl wird geöffnet ...",
+        thanks: "Danke für deine Unterstützung",
+        opened: "Google wurde geöffnet. Melde dich dort bei Bedarf an und bestätige oder verwalte deine Auswahl."
       };
   var deepLink = "https://www.google.com/preferences/source?q=edlehoelzer.de";
   var isLiveDomain = /(^|\.)edlehoelzer\.de$/i.test(window.location.hostname);
@@ -390,7 +394,7 @@ function initGooglePreferredSource() {
         "<p>" + copy.text + "</p>" +
       "</div>" +
       '<div class="preferredSourceCta__action">' +
-        '<a class="btn preferredSourceCta__button" href="' + deepLink + '" data-google-preferred-source>' + copy.button + "</a>" +
+        '<a class="btn preferredSourceCta__button" href="' + deepLink + '" target="_blank" rel="noopener noreferrer" data-google-preferred-source>' + copy.button + "</a>" +
         '<small data-preferred-source-status aria-live="polite">' + copy.privacy + "</small>" +
       "</div>" +
     "</div>";
@@ -406,9 +410,14 @@ function initGooglePreferredSource() {
   var button = section.querySelector("[data-google-preferred-source]");
   var status = section.querySelector("[data-preferred-source-status]");
 
-  button.addEventListener("click", function (event) {
-    event.preventDefault();
+  function showOpenedState() {
+    button.classList.add("is-opened");
+    button.textContent = copy.thanks;
+    button.removeAttribute("aria-busy");
+    status.textContent = copy.opened;
+  }
 
+  button.addEventListener("click", function (event) {
     try {
       if (window.EdleAnalytics && typeof window.EdleAnalytics.track === "function") {
         window.EdleAnalytics.track("preferred_source_click", {
@@ -421,18 +430,19 @@ function initGooglePreferredSource() {
       // The Google action must work independently from analytics.
     }
 
-    if (!isLiveDomain) {
-      window.location.href = deepLink;
+    if (!isLiveDomain || window.matchMedia("(max-width: 760px)").matches) {
+      showOpenedState();
       return;
     }
+
+    event.preventDefault();
 
     button.setAttribute("aria-busy", "true");
     status.textContent = copy.loading;
 
     if (preferredSourceClient) {
       preferredSourceClient.addPreferredSource();
-      button.removeAttribute("aria-busy");
-      status.textContent = copy.privacy;
+      showOpenedState();
       return;
     }
 
@@ -443,8 +453,7 @@ function initGooglePreferredSource() {
         lang: isEnglish ? "en" : "de"
       });
       client.addPreferredSource();
-      button.removeAttribute("aria-busy");
-      status.textContent = copy.privacy;
+      showOpenedState();
     });
 
     if (document.querySelector("script[data-preferred-source-library]")) {
