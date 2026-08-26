@@ -378,6 +378,7 @@ function initGooglePreferredSource() {
   var preferredSourceClient = null;
 
   section.className = "preferredSourceCta";
+  section.id = "google-preferred-source";
   section.setAttribute("aria-labelledby", "preferred-source-title");
   section.setAttribute("data-preferred-source-cta", "");
   section.innerHTML =
@@ -394,6 +395,12 @@ function initGooglePreferredSource() {
     "</div>";
 
   main.appendChild(section);
+
+  if (window.location.hash === "#google-preferred-source") {
+    window.requestAnimationFrame(function () {
+      section.scrollIntoView({ block: "start" });
+    });
+  }
 
   var button = section.querySelector("[data-google-preferred-source]");
   var status = section.querySelector("[data-preferred-source-status]");
