@@ -574,7 +574,7 @@ section[id]{scroll-margin-top:88px}
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(8,8,8,.78) 0%, rgba(8,8,8,.56) 24%, rgba(8,8,8,.20) 58%, rgba(8,8,8,.08) 100%),linear-gradient(180deg, rgba(10,10,10,.18), rgba(10,10,10,.38))}
 .hero__content{position:relative;z-index:2;width:100%;padding-bottom:64px}
 .hero__copy{max-width:980px;margin-left:18px}
-.hero h1{max-width:17ch;font-size:clamp(38px,4.85vw,62px);color:rgba(245,240,232,0.94);text-shadow:0 2px 10px rgba(0,0,0,.22),0 14px 34px rgba(0,0,0,.20)}
+.hero h1{max-width:17ch;font-size:clamp(38px,4.85vw,62px);color:rgba(245,240,232,0.94);text-shadow:0 2px 10px rgba(0,0,0,.22),0 14px 34px rgba(0,0,0,.20);transform:translateY(-40px)}
 .hero__lead{margin:18px 0 0 0;font-size:clamp(18px,2.05vw,25px);color:rgba(255,255,255,.92);max-width:46ch}
 .heroTrustBar{margin:0 0 18px;color:rgba(255,255,255,.84);font-size:12px;font-weight:800;line-height:1.4;letter-spacing:.06em;text-transform:uppercase}
 .heroTrustBar span{display:inline-block;margin:0 7px;color:rgba(255,255,255,.52)}
@@ -2640,6 +2640,7 @@ section[id]{scroll-margin-top:88px}
   .hero h1{
     font-size:clamp(25px,7.7vw,35px);
     line-height:1.03;
+    transform:translateY(-58px);
   }
 
   .hero__lead{

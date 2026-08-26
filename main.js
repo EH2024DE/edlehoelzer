@@ -374,6 +374,7 @@ function initGooglePreferredSource() {
         loading: "Google-Auswahl wird geöffnet ..."
       };
   var deepLink = "https://www.google.com/preferences/source?q=edlehoelzer.de";
+  var isLiveDomain = /(^|\.)edlehoelzer\.de$/i.test(window.location.hostname);
   var section = document.createElement("section");
   var preferredSourceClient = null;
 
@@ -418,6 +419,11 @@ function initGooglePreferredSource() {
       }
     } catch (error) {
       // The Google action must work independently from analytics.
+    }
+
+    if (!isLiveDomain) {
+      window.location.href = deepLink;
+      return;
     }
 
     button.setAttribute("aria-busy", "true");
