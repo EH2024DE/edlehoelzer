@@ -29,12 +29,6 @@
       window.history.replaceState(null, "", "/" + window.location.search + window.location.hash);
     }
   </script>
-  <script data-goatcounter="https://edlehoelzer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-<!-- Umami Analytics – cookiefrei, keine personenbezogenen Daten -->
-<script defer src="https://cloud.umami.is/script.js"
-        data-website-id="9c072a65-fef4-48ce-a03c-6f1e9d443acc"
-        data-exclude-hash="true"
-        data-domains="edlehoelzer.de,www.edlehoelzer.de"></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,6 +66,7 @@
   ]
 }
 </script>
+  <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
 </head>
 <body>
 <header class="topbar">
@@ -83,7 +78,7 @@
     </a>
     <div class="topbar__right">
       <div class="lang"><a href="/" class="is-active">DE</a><a href="/en/">EN</a></div>
-      <a href="./produkte.html#produktfinder" class="btn btn--small" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+      <a href="./produkte.html#produktfinder" class="btn btn--small" data-umami-event="produktfinder-gestartet">Brettfinder</a>
     </div>
   </div>
   <nav class="mobileMenu" id="mobileMenu" aria-label="Hauptnavigation">
@@ -98,7 +93,7 @@
       <a href="/schneidebrett-nach-mass/">Maßanfertigung</a>
       <a href="/#ueberuns">Über uns</a>
     </div>
-    <a href="/produkte.html#produktfinder" class="mobileMenu__finder btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+    <a href="/produkte.html#produktfinder" class="mobileMenu__finder btn btn--emphasis" data-umami-event="produktfinder-gestartet">Brettfinder starten</a>
     <details class="mobileMenu__discover">
       <summary>Entdecken</summary>
       <div>
@@ -122,20 +117,18 @@
     </button>
     <div class="container hero__content">
       <div class="hero__copy">
-        <h1>Massive Schneidebretter, die bleiben.</h1>
-        <p class="hero__lead">Handgefertigt in Mittelhessen, aus echtem Hartholz und pflegbar statt kurzlebig.</p>
+        <h1>Ausgewähltes Holz. Gebaut für deine Küche.</h1>
+        <p class="hero__lead">Massive Schneidebretter, bei denen Bauweise, Format und Gewicht zu deiner Nutzung passen.</p>
         <div class="hero__actions">
-          <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
-          <a href="./produkte.html#produkte-grid" class="btn btn--ghost">Produkte ansehen</a>
+          <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Brettfinder starten</a>
+          <a href="./produkte.html#produkte-grid" class="btn btn--ghost">Alle Produkte</a>
         </div>
-      </div>
-    </div>
-    <div class="heroProof" role="list" aria-label="Material, Fertigung, Pflege und Kauf">
-      <div class="container heroProof__grid">
-        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Material</span><strong>Massives Hartholz</strong><span>Gewicht, Substanz und eine Oberfläche, die sich aufarbeiten lässt.</span></div>
-        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Fertigung</span><strong>Werkstatt in Mittelhessen</strong><span>Vom Materialbestand bis zur Endkontrolle in unserer Werkstatt.</span></div>
-        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Werterhalt</span><strong>Geölt &amp; nachpflegbar</strong><span>Pflegen und bei Bedarf schleifen, statt vorschnell ersetzen.</span></div>
-        <div class="heroProof__item" role="listitem"><span class="heroProof__label">Kauf</span><strong>Checkout über Etsy</strong><span>5,0 Sterne aus 32 Bewertungen und Käuferschutz beim Kauf.</span></div>
+        <p class="hero__finderHint">5 Fragen zu Nutzung, Größe und Gewicht.</p>
+        <ul class="heroFacts" aria-label="Edle Hölzer auf einen Blick">
+          <li>Werkstatt in Mittelhessen</li>
+          <li>5,0 Sterne auf Etsy</li>
+          <li>Pflege &amp; Aufbereitung</li>
+        </ul>
       </div>
     </div>
   </section>
