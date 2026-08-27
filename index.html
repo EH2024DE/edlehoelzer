@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20260826-google-visible-feedback">
+<link rel="stylesheet" href="/styles.css?v=20260827-product-decisions">
   <script>
     if (window.location.pathname === "/index.html") {
       window.history.replaceState(null, "", "/" + window.location.search + window.location.hash);
@@ -117,12 +117,13 @@
     </button>
     <div class="container hero__content">
       <div class="hero__copy">
-        <h1>Ausgewähltes Holz. Gebaut für deine Küche.</h1>
+        <h1>Schneidebretter aus massivem Holz. Für Jahre gemacht.</h1>
+        <p class="hero__supportingCopy">Handgefertigt in Mittelhessen. Finde das Brett, das zu deiner Küche, deinem Alltag und deiner Art zu kochen passt.</p>
         <div class="hero__actions">
-          <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Brettfinder starten</a>
-          <a href="./produkte.html#produkte-grid" class="btn btn--ghost">Alle Produkte</a>
+          <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+          <a href="./produkte.html#produkte-grid" class="btn btn--ghost">Kollektion ansehen</a>
         </div>
-        <p class="hero__finderHint">In 5 Fragen zu deinem passenden Brett.</p>
+        <p class="hero__finderHint">In 5 Fragen zum passenden Brett.</p>
       </div>
     </div>
   </section>
@@ -134,12 +135,50 @@
           <p class="eyebrow eyebrow--dark">Aktuell verfügbar</p>
           <h2 id="homepage-products-title">Ein Querschnitt durch unser Sortiment.</h2>
         </div>
-        <p>Drei unterschiedliche Werkzeuge zeigen, wie Material, Bauweise und Einsatz zusammengehören: ein bewegliches Langholzbrett, ein massiver Stirnholzblock und ein Küchenhelfer.</p>
+        <p>Vom ersten Massivholzbrett bis zum 3D-Einzelstück – ergänzt durch Küchenhelfer, die sich passend zur Holzart kombinieren lassen.</p>
       </div>
       <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite" aria-label="Verfügbare Produkte durchsehen" tabindex="0"></div>
       <div class="ctaRow homepageProducts__actions">
         <a href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
         <a href="/produkte.html#produkte-grid" class="walnutTextLink">Alle verfügbaren Produkte ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="homepageTrustBar" aria-label="Vertrauen in Edle Hölzer">
+    <div class="container homepageTrustBar__grid">
+      <p><strong>5,0 Sterne</strong><span>aus 33 Etsy-Bewertungen</span></p>
+      <p><strong>68 Verkäufe</strong><span>über unseren Etsy-Shop</span></p>
+      <p><strong>14 Länder</strong><span>bereits beliefert</span></p>
+      <p><strong>Einzeln geprüft</strong><span>vor jedem Versand</span></p>
+    </div>
+  </section>
+
+  <section id="produktfinder-start" class="section section--white homepageConversion reveal-on-scroll">
+    <div class="container homepageConversion__inner">
+      <div>
+        <p class="eyebrow eyebrow--dark">Brettfinder</p>
+        <h2>Finde das Holzstück, das zu deinem Alltag passt.</h2>
+        <p class="section__lead">Nutzung, Platz, Stil und Preisrahmen führen in fünf Schritten zu einer nachvollziehbaren Empfehlung.</p>
+      </div>
+      <div class="homepageConversion__actions">
+        <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Brettfinder starten</a>
+        <a href="./produkte.html#produkte-grid" class="textLink">Alle Produkte ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand materialProofBlock reveal-on-scroll">
+    <div class="container">
+      <div class="sectionIntro">
+        <p class="eyebrow eyebrow--dark">Warum Edle Hölzer</p>
+        <h2>Kein Brett verlässt die Werkstatt beiläufig.</h2>
+        <p class="section__lead materialProofBlock__lead">Wir fertigen keine anonyme Serie. Material, Proportion und Oberfläche werden am konkreten Stück beurteilt – und vor dem Versand noch einmal vollständig kontrolliert.</p>
+      </div>
+      <div class="materialProofGrid materialProofGrid--three">
+        <article class="proofCard"><strong>Einzeln gefertigt</strong><p>Holzbild, Kanten und Griffgefühl werden nicht von einem Standardprogramm entschieden.</p></article>
+        <article class="proofCard"><strong>Frisch versandbereit</strong><p>Jedes Brett wird vor dem Versand kontrolliert, bei Bedarf frisch geschliffen, geölt und gewachst.</p></article>
+        <article class="proofCard"><strong>Pflegbar &amp; aufarbeitbar</strong><p>Gutes Massivholz darf altern und kann später wieder in der Werkstatt aufgearbeitet werden.</p></article>
       </div>
     </div>
   </section>
@@ -171,15 +210,15 @@
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Kundenstimmen</p>
-        <h2 data-review-headline>5,0 Sterne aus 32 Etsy-Bewertungen</h2>
-        <p data-review-subline>63 Verkäufe und echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.</p>
+        <h2 data-review-headline>5,0 Sterne aus 33 Etsy-Bewertungen</h2>
+        <p data-review-subline>68 Verkäufe und echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Etsy-Bewertungen horizontal scrollen">
         <div class="reviewTrust__track" data-review-track>
           <article class="reviewCard">
             <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
-            <p class="reviewCard__text">„Exzellenter Kundenservice, hochwertige und ausgefallene/individualisierte Ware. Ich bin hocherfreut und kaufe jederzeit wieder gerne!“</p>
-            <p class="reviewCard__meta">Heike · Juni 2026 · Sonderanfertigung aus Holz</p>
+            <p class="reviewCard__text">„Das Holz ist gut gearbeitet und sehr wertig. Die Kommunikation mit dem Verkäufer ist top. Man wird über alles informiert und es wird auch ruckzuck geantwortet.“</p>
+            <p class="reviewCard__meta">Susanna · August 2026 · Teigschaber mit Gravur</p>
           </article>
           <article class="reviewCard">
             <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
@@ -232,36 +271,6 @@
     </div>
   </section>
 
-  <section id="produktfinder-start" class="section section--white homepageConversion reveal-on-scroll">
-    <div class="container homepageConversion__inner">
-      <div>
-        <p class="eyebrow eyebrow--dark">Brettfinder</p>
-        <h2>Finde das Holzstück, das zu deinem Alltag passt.</h2>
-        <p class="section__lead">Ob Frühstück, Kochen, Grillen, Schenken oder Pflegen – der Finder startet beim Moment und führt dann zu passenden Produkten.</p>
-      </div>
-      <div class="homepageConversion__actions">
-        <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
-        <a href="./produkte.html#produkte-grid" class="textLink">Alle Produkte ansehen</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--sand materialProofBlock reveal-on-scroll">
-    <div class="container">
-      <div class="sectionIntro">
-        <p class="eyebrow eyebrow--dark">Beweis statt Behauptung</p>
-        <h2>Warum man den Unterschied merkt</h2>
-        <p class="section__lead materialProofBlock__lead">Frühstück, Kochen oder Grillen fühlen sich anders an, wenn Gewicht, Kante und Oberfläche stimmen. Das Holzstück ist kein Dekostück. Es ist das Werkzeug, das den Moment ruhiger, greifbarer und dauerhafter macht.</p>
-      </div>
-      <div class="materialProofGrid">
-        <article class="proofCard"><strong>Gewicht</strong><p>Ein massives Brett bewegt sich beim Arbeiten weniger schnell.</p></article>
-        <article class="proofCard"><strong>Kanten</strong><p>Gerundete Kanten entscheiden darüber, ob sich ein schweres Brett angenehm greifen lässt.</p></article>
-        <article class="proofCard"><strong>Oberfläche</strong><p>Schleifen und Ölen sind keine Dekoration, sondern Teil der Haptik.</p></article>
-        <article class="proofCard"><strong>Material</strong><p>Eiche, Nussbaum und Stirnholz verhalten sich unterschiedlich. Deshalb beraten wir nicht pauschal.</p></article>
-      </div>
-      <div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a></div>
-    </div>
-  </section>
 
   <section class="section refurbishmentFeature reveal-on-scroll" aria-labelledby="refurbishment-feature-title">
     <div class="container refurbishmentFeature__grid">
@@ -372,18 +381,21 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="./main.js?v=20260826-google-visible-feedback"></script>
-<script src="/assets/js/product-grid.js?v=20260820-product-experience"></script>
+<script src="./main.js?v=20260827-product-decisions-2"></script>
+<script src="/assets/js/product-grid.js?v=20260827-product-decisions"></script>
 <script>
   var homepageProductIds = [
     "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
     "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
-    "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba"
+    "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
+    "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
+    "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
+    "etsy-live-20260820-buttermesser-holz-personalisiert"
   ];
   renderProductGrid("homepage-products", function (product) {
     return homepageProductIds.indexOf(product.id) !== -1;
   }, {
-    maxItems: 3,
+    maxItems: 6,
     sortFn: function (a, b) {
       return homepageProductIds.indexOf(a.id) - homepageProductIds.indexOf(b.id);
     }

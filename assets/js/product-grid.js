@@ -85,61 +85,40 @@
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
     var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
     var detailsText = primaryCardCta(product, isEnglish);
-    var compareText = isEnglish ? "Compare" : "Vergleichen";
+    var compared = isProductCompared(product.id);
+    var compareText = isEnglish ? "Compare" : (compared ? "✓ Im Vergleich" : "+ Vergleichen");
+    var productName = product.displayName || displayProductName(product);
+    var previewLabel = isEnglish ? "View " + productName : productName + " ansehen";
+    var compareLabel = isEnglish ? "Compare " + productName : productName + " vergleichen";
 
     return '<article class="' + productCardClass(product) + '">' +
-      '<button class="productCard__link productCard__previewLink" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' +
+      '<button class="productCard__link productCard__previewLink" type="button" aria-label="' + escapeAttribute(previewLabel) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' +
         '<span class="productCard__media productCard__imgWrap"' + productImageStyle(product) + '>' +
           '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
         '</span>' +
       '</button>' +
       '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(product.segment || product.category || "Produkt") + '</p>' +
-          '<h3 class="productCard__name">' + escapeHtml(product.displayName || displayProductName(product)) + '</h3>' +
-          renderBadges(product) +
-          renderFacts(product) +
-          renderServiceSignals(product, isEnglish) +
+          '<h3 class="productCard__name">' + escapeHtml(productName) + '</h3>' +
+          (isEnglish ? renderLegacyFacts(product) + renderLegacyServiceSignals(product) : renderCardMeta(product) + renderBadges(product)) +
           '<div class="productCard__footer">' +
             (displayPriceLabel(product) ? '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' : "") +
             '<span class="productCard__buy">' +
-              '<button class="productCard__cta" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(detailsText) + '</button>' +
-              '<button class="productCard__cta productCard__cta--secondary" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(compareText) + '</button>' +
+              '<button class="productCard__cta" type="button" aria-label="' + escapeAttribute(previewLabel) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(detailsText) + '</button>' +
+              '<button class="' + (isEnglish ? 'productCard__cta productCard__cta--secondary' : 'productCard__compareUtility') + (compared ? ' is-in-compare' : '') + '" type="button" aria-label="' + escapeAttribute(compareLabel) + '" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="landing" aria-pressed="' + (compared ? 'true' : 'false') + '">' + escapeHtml(compareText) + '</button>' +
             '</span>' +
           '</div>' +
         '</div>' +
     '</article>';
   }
 
-  function renderServiceSignals(product, isEnglish) {
-    var signals = isEnglish
-      ? ["real photos", "questions welcome"]
-      : ["echte Fotos", "Rückfrage möglich"];
-
-    if (String(product.category || "").toLowerCase() === "accessory" && hasSelectableWoodLook(product)) {
-      signals.splice(1, 0, isEnglish ? "variant check possible" : "Optik abstimmbar");
+  function isProductCompared(productId) {
+    try {
+      var stored = JSON.parse(window.localStorage.getItem("edleHoelzerCompareProducts") || "[]");
+      return Array.isArray(stored) && stored.indexOf(productId) !== -1;
+    } catch (error) {
+      return false;
     }
-
-    if (String(product.category || "").toLowerCase() === "care") {
-      signals = isEnglish ? ["care note included", "questions welcome"] : ["Anleitung dabei", "Rückfrage möglich"];
-    }
-
-    return '<ul class="productCard__serviceSignals" aria-label="' + escapeAttribute(isEnglish ? "What you can expect" : "Was du erwarten kannst") + '">' +
-      signals.slice(0, 3).map(function (signal) {
-        return '<li>' + escapeHtml(signal) + '</li>';
-      }).join("") +
-    '</ul>';
-  }
-
-  function hasSelectableWoodLook(product) {
-    var text = [
-      product.name,
-      product.displayName,
-      product.shortDescription,
-      product.longDescription,
-      product.segment,
-      product.slug
-    ].join(" ");
-    return /teigschaber|dough\s*scraper|pfannenwender|spatula|turner|buttermesser|butter\s*knife/i.test(text);
   }
 
   function productCardClass(product) {
@@ -186,43 +165,46 @@
       return "";
     }
 
-    return '<div class="productBadgeRow productCard__badges">' + filtered.slice(0, 3).map(function (badge) {
+    var segment = String(product.segment || "").toLowerCase();
+    filtered = filtered.filter(function (badge) {
+      var normalized = normalizeConstructionTerms(badge).toLowerCase();
+      return !segment || segment.indexOf(normalized) === -1;
+    });
+
+    return '<div class="productBadgeRow productCard__badges">' + filtered.slice(0, 2).map(function (badge) {
       return '<span class="productCard__badge">' + escapeHtml(normalizeConstructionTerms(badge)) + '</span>';
     }).join("") + '</div>';
   }
 
-  function renderFacts(product) {
-    var facts = [];
-
+  function renderCardMeta(product) {
+    var parts = [];
     if (product.material) {
-      facts.push(["Material", product.material]);
+      parts.push(product.material);
     }
     if (product.category === "board" && dimensionLabel(product)) {
-      facts.push(["Maße", dimensionLabel(product)]);
+      parts.push(dimensionLabel(product));
+    } else if (product.category === "accessory" && dimensionLabel(product)) {
+      parts.push(dimensionLabel(product));
     }
-    if (product.category === "board" && product.thicknessLabel && hasMeaningfulValue(product.thicknessLabel)) {
-      facts.push(["Stärke", product.thicknessLabel]);
-    }
-    if (product.category === "accessory") {
-      facts = [
-        ["Typ", product.segment || "Küchenhelfer"],
-        ["Material", product.material || "Holz"]
-      ];
-    }
-    if (product.category === "care") {
-      facts = [
-        ["Typ", "Pflegeprodukt"],
-        ["Basis", product.material || "Öl und Wachs"]
-      ];
-    }
+    return parts.length ? '<p class="productCard__meta">' + escapeHtml(parts.slice(0, 2).join(" · ")) + '</p>' : "";
+  }
 
-    if (!facts.length) {
-      return "";
-    }
-
-    return '<dl class="productFacts spec-tiles productFacts--compact">' + facts.slice(0, 2).map(function (fact) {
+  function renderLegacyFacts(product) {
+    var facts = [];
+    if (product.material) facts.push(["Material", product.material]);
+    if (product.category === "board" && dimensionLabel(product)) facts.push(["Size", dimensionLabel(product)]);
+    if (product.category === "accessory") facts = [["Type", "Kitchen tool"], ["Material", product.material || "Wood"]];
+    if (product.category === "care") facts = [["Type", "Care product"], ["Base", product.material || "Oil and wax"]];
+    return facts.length ? '<dl class="productFacts spec-tiles productFacts--compact">' + facts.slice(0, 2).map(function (fact) {
       return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
-    }).join("") + '</dl>';
+    }).join("") + '</dl>' : "";
+  }
+
+  function renderLegacyServiceSignals(product) {
+    var signals = product.category === "care" ? ["care note included", "questions welcome"] : ["real photos", "questions welcome"];
+    return '<ul class="productCard__serviceSignals" aria-label="What you can expect">' + signals.map(function (signal) {
+      return '<li>' + escapeHtml(signal) + '</li>';
+    }).join("") + '</ul>';
   }
 
   function hasMeaningfulValue(value) {
@@ -238,9 +220,9 @@
 
   function primaryCardCta(product, isEnglish) {
     if (product && product.category === "board") {
-      return isEnglish ? "View board" : "Brett ansehen";
+      return isEnglish ? "View board" : "Zum Brett";
     }
-    return isEnglish ? "View product" : "Produkt ansehen";
+    return isEnglish ? "View product" : "Zum Produkt";
   }
 
   function availabilityStatus(product) {

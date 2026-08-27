@@ -94,6 +94,13 @@
         "serving",
         "gift"
       ],
+      "primaryUseCases": [
+        "serving",
+        "bread"
+      ],
+      "secondaryUseCases": [
+        "gift"
+      ],
       "servingSuitable": true,
       "tactileProfile": "smooth",
       "premiumLevel": 1,
@@ -172,6 +179,14 @@
       "portability": "portable",
       "kitchenFit": "small",
       "useCases": [
+        "daily",
+        "gift"
+      ],
+      "primaryUseCases": [
+        "baking",
+        "prep"
+      ],
+      "secondaryUseCases": [
         "daily",
         "bbq",
         "gift"
@@ -1262,8 +1277,15 @@
       "kitchenFit": "normal",
       "useCases": [
         "daily",
-        "gift",
-        "bbq"
+        "gift"
+      ],
+      "primaryUseCases": [
+        "cooking"
+      ],
+      "secondaryUseCases": [
+        "daily",
+        "bbq",
+        "gift"
       ],
       "servingSuitable": false,
       "tactileProfile": "smooth",
@@ -2121,7 +2143,7 @@
       "imageVerified": true,
       "dataVerifiedAt": "2026-06-22",
       "source": "etsy-shop-live-20260622",
-      "productType": "servingBoard",
+      "productType": "cuttingBoard",
       "material": "Esche",
       "woodCut": "end",
       "sizeLabel": "41 x 40 cm",
