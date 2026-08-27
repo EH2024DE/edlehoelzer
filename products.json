@@ -114,7 +114,14 @@
       "availabilityStatus": "available",
       "dimensions": "ca. 17 × 8 mm",
       "dimensionsVerifiedAt": "2026-08-20",
-      "dimensionsSource": "etsy-listing-live"
+      "dimensionsSource": "etsy-listing-live",
+      "videos": [
+        {
+          "src": "/assets/product-videos/buttermesser-holz-brotzeitmesser-etsy.mp4",
+          "poster": "/assets/product-videos/posters/buttermesser-holz-brotzeitmesser-etsy.jpg",
+          "alt": "Buttermesser – Nussbaum oder Zwetschge im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
@@ -184,7 +191,14 @@
       "displayName": "Teigschaber – Massivholz-Mix",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4471048251/holz-teigschaber-aus-massivholz",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/teigschaber-etsy.mp4",
+          "poster": "/assets/product-videos/posters/teigschaber-etsy.jpg",
+          "alt": "Teigschaber – Massivholz-Mix im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-02-schneidebrett-buche-stirnholz-handgefertigt-besondere-jahresring-struktu",
@@ -195,7 +209,7 @@
       "segment": "Stirnholz",
       "priceLabel": "ab 215,99 EUR",
       "priceOrder": 215.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "Stirnholz, Buche, 45,6 x 37,3 x 4,2 cm.",
       "longDescription": "Dieses Schneidebrett aus heller Buche ist mehr als nur ein praktischer Küchenhelfer – es erzählt die Geschichte des Baumes, aus dem es gefertigt wurde. Die charakteristischen dunklen Jahresringe, die in einer absteigenden Form angeordnet sind, sind das Ergebnis natürlicher Wachstumsbedingungen, wie wechselnder Jahreszeiten und Bodenbeschaffenheit. Diese.",
       "badges": [
@@ -257,10 +271,21 @@
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1841836619/cutting-board-beech-end-grain-handmade",
       "availabilityStatus": "sold",
-      "visibility": "archive",
+      "visibility": "inspiration",
       "soldReason": "Automatischer Etsy-Abgleich am 2026-07-26: Listing nicht in aktiven Etsy-Listings.",
       "replacementStrategy": "request_similar",
-      "requestUrl": "/schneidebrett-nach-mass/"
+      "requestUrl": "/schneidebrett-nach-mass/",
+      "videos": [
+        {
+          "src": "/assets/product-videos/buche-fleck-etsy.mp4",
+          "poster": "/assets/product-videos/posters/buche-fleck-etsy.jpg",
+          "alt": "Buche Stirnholz – Jahresring-Struktur im Produktvideo"
+        }
+      ],
+      "inquiryPossible": true,
+      "inspirationOnly": true,
+      "availabilityVerifiedAt": "2026-08-27",
+      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung."
     },
     {
       "id": "etsy-export-03-schneidebrett-bambus-und-buche-kompaktes-fruhstucksbrett-im-din-a4-forma",
@@ -482,9 +507,18 @@
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian",
       "availabilityStatus": "sold",
-      "visibility": "archive",
+      "visibility": "inspiration",
       "inquiryPossible": true,
-      "availabilityNote": "Verkauft und aktuell nicht erhältlich. Eine ähnliche individuelle Ausführung ist auf Anfrage möglich."
+      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung.",
+      "videos": [
+        {
+          "src": "/assets/product-videos/sibirische-laerche-klein-quadrat-etsy.mp4",
+          "poster": "/assets/product-videos/posters/sibirische-laerche-klein-quadrat-etsy.jpg",
+          "alt": "Lärche Stirnholz – Kompakt im Produktvideo"
+        }
+      ],
+      "inspirationOnly": true,
+      "availabilityVerifiedAt": "2026-08-27"
     },
     {
       "id": "etsy-export-06-schneidebrett-mahagoni-stirnholz-massiv-handgearbeitet-personalisierbar",
@@ -555,7 +589,14 @@
       "displayName": "Mahagoni Stirnholz – Ruhiger Block",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1886613306/cutting-board-mahogany-end-grain-solid",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/mahagoni-etsy.mp4",
+          "poster": "/assets/product-videos/posters/mahagoni-etsy.jpg",
+          "alt": "Mahagoni Stirnholz – Ruhiger Block im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-07-schneidebrett-halter-eiche-oder-buche-minimalistisch-massiv-passgenau",
@@ -622,7 +663,14 @@
       "displayName": "Bretthalter – Eiche, Nussbaum oder Buche",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1874454440/cutting-board-holder-oak-or-beech",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/schneidebrett-halter-etsy-clip.mp4",
+          "poster": "/assets/product-videos/posters/schneidebrett-halter-etsy-clip.jpg",
+          "alt": "Bretthalter – Eiche, Nussbaum oder Buche im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-08-untersetzer-set-aus-holz-mit-halter-stirnholz-oder-langholz-eiche-nussba",
@@ -690,7 +738,19 @@
       "displayName": "Untersetzer-Set – Holz mit Halter",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1838851839/wooden-coaster-set-with-holder",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/untersetzer-eiche-1-etsy.mp4",
+          "poster": "/assets/product-videos/posters/untersetzer-eiche-1-etsy.jpg",
+          "alt": "Untersetzer-Set – Holz mit Halter im Produktvideo"
+        },
+        {
+          "src": "/assets/product-videos/untersetzer-eiche-hell-etsy.mp4",
+          "poster": "/assets/product-videos/posters/untersetzer-eiche-hell-etsy.jpg",
+          "alt": "Untersetzer-Set – Holz mit Halter im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-09-schneidebrett-kariert-stirnholz-wenge-nussbaum-und-eiche-unikat",
@@ -912,7 +972,14 @@
       "displayName": "XXL Streifenbrett – Thermobambus & Birke",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4417621529/xxl-cutting-board-made-of-thermally",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/multiplex-birke-etsy.mp4",
+          "poster": "/assets/product-videos/posters/multiplex-birke-etsy.jpg",
+          "alt": "XXL Streifenbrett – Thermobambus & Birke im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-12-eiche-stirnholz-schneidebrett-xxl-mit-griff-59-5384-9-cm-7-9-kg-massivbl",
@@ -988,12 +1055,14 @@
       "displayName": "Eiche Stirnholz – Premium Hackblock",
       "deliveryDays": "2–3 Werktage",
       "availabilityStatus": "sold",
-      "visibility": "archive",
+      "visibility": "inspiration",
       "inquiryPossible": true,
-      "availabilityNote": "Verkauft und aktuell nicht erhältlich. Eine ähnliche individuelle Ausführung ist auf Anfrage möglich.",
+      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung.",
       "soldReason": "Automatischer Etsy-Abgleich am 2026-07-26: Listing nicht in aktiven Etsy-Listings.",
       "replacementStrategy": "request_similar",
-      "requestUrl": "/schneidebrett-nach-mass/"
+      "requestUrl": "/schneidebrett-nach-mass/",
+      "inspirationOnly": true,
+      "availabilityVerifiedAt": "2026-08-27"
     },
     {
       "id": "etsy-export-13-schneidebrett-pflegebalsam-holzpflege-paket-lebensmittelecht-mit-bienenw",
@@ -1061,7 +1130,14 @@
       ],
       "displayName": "Pflegebalsam – Leinöl & Bienenwachs",
       "deliveryDays": "2–3 Werktage",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/pflegewachs-etsy.mp4",
+          "poster": "/assets/product-videos/posters/pflegewachs-etsy.jpg",
+          "alt": "Pflegebalsam – Leinöl & Bienenwachs im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-14-schneidebrett-kambala-holz-kompakt-personalisierbar-handgefertigt",
@@ -1204,7 +1280,14 @@
       "displayName": "Pfannenwender – Massivholz-Mix",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4470469056/solid-wood-spatula-handmade-kitchen",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/pfannenwender-etsy.mp4",
+          "poster": "/assets/product-videos/posters/pfannenwender-etsy.jpg",
+          "alt": "Pfannenwender – Massivholz-Mix im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-16-servierbrett-set-aus-massivholz-mit-halter-3-teilig-handgefertigtes-tapa",
@@ -1350,7 +1433,14 @@
       "displayName": "Nussbaum Langholz – Flankenoptik",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1886821275/walnut-wood-cutting-board-flank-wood",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/nussbaum-etsy.mp4",
+          "poster": "/assets/product-videos/posters/nussbaum-etsy.jpg",
+          "alt": "Nussbaum Langholz – Flankenoptik im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
@@ -1573,7 +1663,14 @@
       "dimensions": "ca. 40–66 cm Länge, je nach Variante",
       "dimensionsVerifiedAt": "2026-07-26",
       "dimensionsSource": "etsy-listing-description",
-      "source": "etsy-shop-live-20260726"
+      "source": "etsy-shop-live-20260726",
+      "videos": [
+        {
+          "src": "/assets/product-videos/schwert-etsy.mp4",
+          "poster": "/assets/product-videos/posters/schwert-etsy.jpg",
+          "alt": "Servierbrett-Set – Schwertform im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-21-schneidebrett-holz-schachbrett-aus-padouk-und-eiche-kariertes-stirnholz",
@@ -1646,7 +1743,14 @@
       "displayName": "Padouk & Eiche – Kompakt kariert",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1859366842/schneidebrett-holz-schachbrett-aus",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/eiche-padouk-schachbrett-quadrat-etsy.mp4",
+          "poster": "/assets/product-videos/posters/eiche-padouk-schachbrett-quadrat-etsy.jpg",
+          "alt": "Padouk & Eiche – Kompakt kariert im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-22-schneidebrett-holz-schachbrett-aus-padouk-und-eiche-kariertes-stirnholz",
@@ -1720,9 +1824,11 @@
       "displayName": "Padouk & Eiche – Großformat kariert",
       "deliveryDays": "2–3 Werktage",
       "availabilityStatus": "sold",
-      "visibility": "archive",
+      "visibility": "inspiration",
       "inquiryPossible": true,
-      "availabilityNote": "Verkauft und aktuell nicht erhältlich. Eine ähnliche individuelle Ausführung ist auf Anfrage möglich."
+      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung.",
+      "inspirationOnly": true,
+      "availabilityVerifiedAt": "2026-08-27"
     },
     {
       "id": "etsy-export-23-stirnholz-schneidebrett-eiche-ahorn-thermobambus-massivholz-brett-fachwe",
@@ -1733,7 +1839,7 @@
       "segment": "Stirnholz",
       "priceLabel": "ab 214,99 EUR",
       "priceOrder": 214.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "Fachwerk-Stirnholz aus Eiche, Ahorn und Thermobambus, 34 × 32 × 4,4 cm, ca. 2,6 kg.",
       "longDescription": "Dieses Stirnholz-Schneidebrett aus unserer Fachwerkserie verbindet Material, Handwerk und Bedeutung. Jedes Brett wird vollständig aus einem einzelnen historischen Eichenbalken gefertigt. Die Eiche stammt aus einem Fachwerksbalken, der in Mittelhessen über Jahrzehnte ein Haus getragen hat. Wir mischen keine Balken untereinander – jedes Brett erzählt eine.",
       "badges": [
@@ -1757,9 +1863,9 @@
         "https://i.etsystatic.com/54205761/r/il/35b0c7/7693479270/il_fullxfull.7693479270_cwaz.jpg"
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/4455205567/end-grain-cutting-board-oak-maple",
-      "directListingUrlVerified": true,
+      "directListingUrlVerified": false,
       "featured": false,
-      "active": true,
+      "active": false,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
@@ -1794,10 +1900,22 @@
       "displayName": "Fachwerk-Stirnholz – Eiche & Ahorn",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4455205567/end-grain-cutting-board-oak-maple",
-      "availabilityStatus": "available",
+      "availabilityStatus": "sold",
       "dimensions": "34 × 32 × 4,4 cm",
       "dimensionsVerifiedAt": "2026-07-26",
-      "dimensionsSource": "provided-by-owner"
+      "dimensionsSource": "provided-by-owner",
+      "videos": [
+        {
+          "src": "/assets/product-videos/eiche-fachwerk-ahorn-bambus-piano-etsy.mp4",
+          "poster": "/assets/product-videos/posters/eiche-fachwerk-ahorn-bambus-piano-etsy.jpg",
+          "alt": "Fachwerk-Stirnholz – Eiche & Ahorn im Produktvideo"
+        }
+      ],
+      "visibility": "inspiration",
+      "inquiryPossible": true,
+      "inspirationOnly": true,
+      "availabilityVerifiedAt": "2026-08-27",
+      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung."
     },
     {
       "id": "etsy-export-24-servierbrett-aus-buche-mit-rahmen-aus-mohreiche-handgefertigtes-holzbret",
@@ -1873,7 +1991,14 @@
       "dimensions": "33 × 17 × 2,3 cm",
       "dimensionsVerifiedAt": "2026-07-26",
       "dimensionsSource": "etsy-listing-description",
-      "source": "etsy-shop-live-20260726"
+      "source": "etsy-shop-live-20260726",
+      "videos": [
+        {
+          "src": "/assets/product-videos/buche-mooreiche-vesperbrett-etsy.mp4",
+          "poster": "/assets/product-videos/posters/buche-mooreiche-vesperbrett-etsy.jpg",
+          "alt": "Buche & Mooreiche – Servierbrett im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-25-schneidebrett-eiche-mit-kambala-streifen-quadratisches-design-28-528-54",
@@ -1884,7 +2009,7 @@
       "segment": "Schneidebrett",
       "priceLabel": "ab 69,99 EUR",
       "priceOrder": 69.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "Langholz, Eiche, Kambala, 28,5 x 28,5 x 4,4 cm.",
       "longDescription": "Ein klares Eiche Quadrat, durchzogen von feinen Kambala-Linien, Umhüllt von Eichenholz – minimalistisch, edel und handgefertigt für höchste Ansprüche. Viele Schneidebretter verschwinden im Alltag. Dieses nicht. Sein perfektes Quadrat und die geometrischen Kambala-Streifen machen es zu einem Designobjekt, das Funktion und Ästhetik verbindet. Das warme.",
       "badges": [
@@ -1946,10 +2071,14 @@
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4380304814/oak-cutting-board-with-kambala-stripes",
       "availabilityStatus": "sold",
-      "visibility": "archive",
+      "visibility": "inspiration",
       "soldReason": "Automatischer Etsy-Abgleich am 2026-07-26: Listing nicht in aktiven Etsy-Listings.",
       "replacementStrategy": "request_similar",
-      "requestUrl": "/schneidebrett-nach-mass/"
+      "requestUrl": "/schneidebrett-nach-mass/",
+      "inquiryPossible": true,
+      "inspirationOnly": true,
+      "availabilityVerifiedAt": "2026-08-27",
+      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung."
     },
     {
       "id": "etsy-export-26-stirnholz-schneidebrett-aus-esche-41-x-40-x-4-8-cm-5-8-kg-massiver-hackb",
@@ -2024,7 +2153,14 @@
       "displayName": "Esche Stirnholz – BBQ Hackblock",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4380062082/end-grain-ash-wood-chopping-board-41-x",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/esche-mit-klammern-etsy.mp4",
+          "poster": "/assets/product-videos/posters/esche-mit-klammern-etsy.jpg",
+          "alt": "Esche Stirnholz – BBQ Hackblock im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-27-stirnholz-schneidebrett-aus-tropenholz-massivholzbrett-mit-praktischen-g",
@@ -2174,7 +2310,24 @@
       "displayName": "Nussbaum & Ahorn – Streifenbrett",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4450988121/end-grain-cutting-board-made-of-american",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/ahorn-drei-schwarznuss-etsy.mp4",
+          "poster": "/assets/product-videos/posters/ahorn-drei-schwarznuss-etsy.jpg",
+          "alt": "Nussbaum & Ahorn – Streifenbrett im Produktvideo"
+        },
+        {
+          "src": "/assets/product-videos/ahorn-kreuz-schwarznuss-etsy.mp4",
+          "poster": "/assets/product-videos/posters/ahorn-kreuz-schwarznuss-etsy.jpg",
+          "alt": "Nussbaum & Ahorn – Streifenbrett im Produktvideo"
+        },
+        {
+          "src": "/assets/product-videos/amer-nussbaum-etsy.mp4",
+          "poster": "/assets/product-videos/posters/amer-nussbaum-etsy.jpg",
+          "alt": "Nussbaum & Ahorn – Streifenbrett im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-29-stirnholz-schneidebrett-stockbuche-in-schachbrettmuster-groformat-massiv",
@@ -2398,7 +2551,14 @@
       ],
       "displayName": "Nussbaum Stirnholz – Mit Saftrille",
       "deliveryDays": "2–3 Werktage",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/nussbaum-45x36x4-6-etsy.mp4",
+          "poster": "/assets/product-videos/posters/nussbaum-45x36x4-6-etsy.jpg",
+          "alt": "Nussbaum Stirnholz – Mit Saftrille im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-32-stirnholz-schneidebrett-3d-design-eiche-buche-wenge-handgefertigtes-prem",
@@ -2477,7 +2637,14 @@
       "dimensions": "46 × 46 × 5 cm",
       "weight": "ca. 6,6 kg",
       "dimensionsVerifiedAt": "2026-07-26",
-      "dimensionsSource": "provided-by-owner"
+      "dimensionsSource": "provided-by-owner",
+      "videos": [
+        {
+          "src": "/assets/product-videos/3d-stirnholzbrett-quadratisch-etsy.mp4",
+          "poster": "/assets/product-videos/posters/3d-stirnholzbrett-quadratisch-etsy.jpg",
+          "alt": "3D Stirnholz – Eiche & weitere im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-33-stirnholz-schneidebrett-stockbuche-einzigartige-maserung-durch-naturfarb",
@@ -2488,7 +2655,7 @@
       "segment": "Stirnholz",
       "priceLabel": "ab 179,99 EUR",
       "priceOrder": 179.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "Stirnholz, Buche, Esche, 41 x 30 x 4,7 cm, 4,0 kg.",
       "longDescription": "Viele denken, Holz sei gleich Holz. Stockbuche beweist das Gegenteil. Durch natürlichen Pilzbefall entstehen intensive Farbspiele – von warmen Goldtönen bis zu dunklen Kontrasten. Keine Fläche ist planbar, kein Brett identisch. Dieses Holz wird bewusst gewählt – nicht sortiert. Dieses Stirnholz-Schneidebrett ist für den täglichen Einsatz gemacht. Schwer,.",
       "badges": [
@@ -2549,10 +2716,21 @@
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4370784882/end-grain-cutting-board-stock-beech",
       "availabilityStatus": "sold",
-      "visibility": "archive",
+      "visibility": "inspiration",
       "soldReason": "Automatischer Etsy-Abgleich am 2026-07-26: Listing nicht in aktiven Etsy-Listings.",
       "replacementStrategy": "request_similar",
-      "requestUrl": "/schneidebrett-nach-mass/"
+      "requestUrl": "/schneidebrett-nach-mass/",
+      "videos": [
+        {
+          "src": "/assets/product-videos/stockbuche-uni-etsy.mp4",
+          "poster": "/assets/product-videos/posters/stockbuche-uni-etsy.jpg",
+          "alt": "Stockbuche Stirnholz – Naturmaserung im Produktvideo"
+        }
+      ],
+      "inquiryPossible": true,
+      "inspirationOnly": true,
+      "availabilityVerifiedAt": "2026-08-27",
+      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung."
     },
     {
       "id": "etsy-export-34-schneidebrett-buche-stirnholz-mit-saftrille-massiv-handgefertigt-groform",
@@ -2626,7 +2804,14 @@
       "displayName": "Buche Stirnholz – Mit Saftrille",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1830530996/cutting-board-beech-end-grain-with-juice",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/buche-thor-hammer-etsy.mp4",
+          "poster": "/assets/product-videos/posters/buche-thor-hammer-etsy.jpg",
+          "alt": "Buche Stirnholz – Mit Saftrille im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-35-schneidebrett-aus-eiche-langholz-minimalistisches-design-mit-schweizer-k",
@@ -2696,7 +2881,14 @@
       "displayName": "Eiche Langholz – Schweizer Kante",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1774262638/large-oak-chopping-board-minimalist",
-      "availabilityStatus": "available"
+      "availabilityStatus": "available",
+      "videos": [
+        {
+          "src": "/assets/product-videos/eiche-flankenholzbrett-etsy.mp4",
+          "poster": "/assets/product-videos/posters/eiche-flankenholzbrett-etsy.jpg",
+          "alt": "Eiche Langholz – Schweizer Kante im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-36-stirnholz-schneidebrett-schachbrettmuster-aus-eiche-und-wenge-personalis",
@@ -2845,7 +3037,14 @@
       "availabilityStatus": "available",
       "dimensions": "31,1 × 30,1 × 3,8 cm",
       "dimensionsVerifiedAt": "2026-07-26",
-      "dimensionsSource": "provided-by-owner"
+      "dimensionsSource": "provided-by-owner",
+      "videos": [
+        {
+          "src": "/assets/product-videos/eiche-buche-schachbrett-herz-etsy.mp4",
+          "poster": "/assets/product-videos/posters/eiche-buche-schachbrett-herz-etsy.jpg",
+          "alt": "Eiche & Buche – Kompakt mit Astloch im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-export-38-schneidebrett-walnuss-mit-eiche-rahmen-massives-stirnholzbrett-fur-hobby",
@@ -3144,7 +3343,14 @@
       "availabilityStatus": "available",
       "dimensions": "37,8 × 25,1 × 3,2 cm",
       "dimensionsVerifiedAt": "2026-07-26",
-      "dimensionsSource": "provided-by-owner"
+      "dimensionsSource": "provided-by-owner",
+      "videos": [
+        {
+          "src": "/assets/product-videos/buche-flanke-servierbrett-etsy.mp4",
+          "poster": "/assets/product-videos/posters/buche-flanke-servierbrett-etsy.jpg",
+          "alt": "Buche Massiv – Mit Griffmulden im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
@@ -3219,7 +3425,14 @@
       "availabilityStatus": "available",
       "dimensions": "Gerade Kante: 34 × 20,5 × 3,6 cm; Schweizer Kante: 38 × 20,5 × 3,3 cm",
       "dimensionsVerifiedAt": "2026-07-26",
-      "dimensionsSource": "provided-by-owner"
+      "dimensionsSource": "provided-by-owner",
+      "videos": [
+        {
+          "src": "/assets/product-videos/eiche-flanke-servierbrett-etsy.mp4",
+          "poster": "/assets/product-videos/posters/eiche-flanke-servierbrett-etsy.jpg",
+          "alt": "Eiche Massiv – Astloch & Kante im Produktvideo"
+        }
+      ]
     },
     {
       "id": "etsy-live-20260619-holz-teigschaber-set",
@@ -3281,8 +3494,8 @@
       "displayName": "Teigschaber-Set – 2er oder 3er",
       "deliveryDays": "laut Etsy",
       "availabilityStatus": "sold",
-      "visibility": "archive",
-      "inquiryPossible": true,
+      "visibility": "hidden",
+      "inquiryPossible": false,
       "availabilityNote": "Das separate Set ist verkauft und aktuell nicht erhältlich. Eine individuelle Zusammenstellung ist auf Anfrage möglich."
     },
     {

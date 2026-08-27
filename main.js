@@ -1296,6 +1296,7 @@ function initProductExperience() {
     cardServiceQuestion: "questions welcome",
     cardServiceVariant: "variant check possible",
     cardServiceCare: "care note included",
+    playVideo: "Play product video",
     optional: "optional"
   } : {
     previewTitle: "Produktdetails",
@@ -1388,6 +1389,7 @@ function initProductExperience() {
     cardServiceQuestion: "Rückfrage möglich",
     cardServiceVariant: "Optik abstimmbar",
     cardServiceCare: "Anleitung dabei",
+    playVideo: "Produktvideo abspielen",
     optional: "optional"
   };
 
@@ -1409,6 +1411,13 @@ function initProductExperience() {
   updateCompareBar();
 
   document.addEventListener("click", function (event) {
+    var videoPlayTrigger = event.target.closest("[data-preview-video-play]");
+    if (videoPlayTrigger) {
+      event.preventDefault();
+      activatePreviewVideo(videoPlayTrigger);
+      return;
+    }
+
     var etsyTrigger = event.target.closest("[data-product-etsy]");
     if (etsyTrigger) {
       var etsyProduct = productMap[etsyTrigger.getAttribute("data-product-etsy")];
@@ -1597,6 +1606,11 @@ function initProductExperience() {
         activeOverlay.setAttribute("data-current-product-id", product.id);
         activeOverlay.setAttribute("data-current-product-source", source || "preview");
         activeOverlay.setAttribute("data-current-product-reason", reason || "");
+        var mainMedia = activeOverlay.querySelector(".productPreview__mainMedia");
+        startDesktopPreviewVideo(mainMedia);
+        if (mainMedia && mainMedia.querySelector("video[autoplay]")) {
+          track("product_video_view", product, { source: source || "preview", playback: "desktop_autoplay" });
+        }
       }
       track("product_preview_open", product, { source: source });
     }).catch(function (error) {
@@ -1646,7 +1660,7 @@ function initProductExperience() {
           return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "View" : "Ansehen") + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "Compare" : "Vergleich") + '</button></div></article>';
         }).join("") + '</div></section>' : "") +
         '<div class="productPreview__actions">' +
-        (hasEtsy ? '<div class="productPreview__checkoutRow"><p><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></p><a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a></div><p class="productPreview__trust">' + escapeHtml(purchaseOptions(product).length ? labels.optionCheckoutNote : labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(labels.unavailableText) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
+        (hasEtsy ? '<div class="productPreview__checkoutRow"><p><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></p><a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a></div><p class="productPreview__trust">' + escapeHtml(purchaseOptions(product).length ? labels.optionCheckoutNote : labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(isEnglish ? (product.availabilityNoteEn || labels.unavailableText) : (product.availabilityNote || labels.unavailableText)) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
           renderProductWhatsappPrompt(product, hasEtsy) +
           renderPreviewCompareControls(product, source || "preview") +
           '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
@@ -2045,6 +2059,7 @@ function initProductExperience() {
       alt: button.getAttribute("data-preview-alt") || ""
     };
     main.innerHTML = renderPreviewMainMedia(item);
+    startDesktopPreviewVideo(main);
     activeOverlay.querySelectorAll("[data-preview-media]").forEach(function (item) {
       item.classList.toggle("is-active", item === button);
     });
@@ -2093,7 +2108,7 @@ function initProductExperience() {
     if (product.image && urls.indexOf(product.image) === -1) {
       urls.unshift(product.image);
     }
-    return urls.slice(0, 10).map(function (url) {
+    var images = urls.slice(0, 9).map(function (url) {
       return {
         type: "image",
         src: url,
@@ -2101,6 +2116,19 @@ function initProductExperience() {
         alt: productImageAlt(product)
       };
     });
+
+    var videos = Array.isArray(product.videos) ? product.videos.filter(function (item) {
+      return item && item.src && item.poster;
+    }).map(function (item) {
+      return {
+        type: "video",
+        src: item.src,
+        poster: item.poster,
+        alt: item.alt || productImageAlt(product)
+      };
+    }) : [];
+
+    return videos.concat(images).slice(0, 10);
   }
 
   function renderPreviewMainMedia(item) {
@@ -2109,10 +2137,57 @@ function initProductExperience() {
     }
 
     if (item.type === "video") {
-      return '<video data-preview-main controls playsinline preload="none"' + (item.poster ? ' poster="' + escapeAttribute(item.poster) + '"' : "") + ' aria-label="' + escapeAttribute(item.alt || labels.previewTitle) + '"><source src="' + escapeAttribute(item.src) + '" type="video/mp4"></video>';
+      if (shouldAutoplayPreviewVideo()) {
+        return '<video data-preview-main controls playsinline preload="metadata" autoplay muted loop' + (item.poster ? ' poster="' + escapeAttribute(item.poster) + '"' : "") + ' aria-label="' + escapeAttribute(item.alt || labels.previewTitle) + '"><source src="' + escapeAttribute(item.src) + '" type="video/mp4"></video>';
+      }
+      return '<div class="productPreview__videoPoster" data-preview-main>' +
+        '<img src="' + escapeAttribute(item.poster) + '" alt="' + escapeAttribute(item.alt || labels.previewTitle) + '" decoding="async">' +
+        '<button type="button" data-preview-video-play data-video-src="' + escapeAttribute(item.src) + '" data-video-poster="' + escapeAttribute(item.poster) + '" data-video-alt="' + escapeAttribute(item.alt || labels.previewTitle) + '"><span aria-hidden="true">▶</span>' + escapeHtml(labels.playVideo) + '</button>' +
+      '</div>';
     }
 
     return '<img data-preview-main src="' + escapeAttribute(item.src) + '" alt="' + escapeAttribute(item.alt) + '" decoding="async">';
+  }
+
+  function shouldAutoplayPreviewVideo() {
+    return Boolean(window.matchMedia && window.matchMedia("(min-width: 769px) and (hover: hover)").matches);
+  }
+
+  function activatePreviewVideo(trigger) {
+    var container = trigger.closest(".productPreview__mainMedia");
+    var src = trigger.getAttribute("data-video-src") || "";
+    if (!container || !src) {
+      return;
+    }
+    var poster = trigger.getAttribute("data-video-poster") || "";
+    var alt = trigger.getAttribute("data-video-alt") || labels.previewTitle;
+    container.innerHTML = '<video data-preview-main controls playsinline autoplay muted' + (poster ? ' poster="' + escapeAttribute(poster) + '"' : "") + ' aria-label="' + escapeAttribute(alt) + '"><source src="' + escapeAttribute(src) + '" type="video/mp4"></video>';
+    var video = container.querySelector("video");
+    if (video && typeof video.play === "function") {
+      var productId = activeOverlay && activeOverlay.getAttribute("data-current-product-id");
+      track("product_video_view", productMap[productId], {
+        source: (activeOverlay && activeOverlay.getAttribute("data-current-product-source")) || "preview",
+        playback: "manual"
+      });
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {});
+      }
+    }
+  }
+
+  function startDesktopPreviewVideo(root) {
+    if (!root || !shouldAutoplayPreviewVideo()) {
+      return;
+    }
+    var video = root.querySelector("video[autoplay]");
+    if (!video || typeof video.play !== "function") {
+      return;
+    }
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
   }
 
   function renderPreviewThumb(item, index) {
@@ -2975,7 +3050,13 @@ function initProductExperience() {
   }
 
   function isGridProduct(product) {
-    if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
+    if (!product || product.visibility === "hidden" || product.visibility === "archive") {
+      return false;
+    }
+    if (product.visibility === "inspiration" && product.inspirationOnly === true && availabilityStatus(product) === "sold") {
+      return true;
+    }
+    if (product.active !== true) {
       return false;
     }
     if (availabilityStatus(product) === "made_to_order") {
@@ -2985,6 +3066,9 @@ function initProductExperience() {
   }
 
   function isComparableProduct(product) {
+    if (product && product.inspirationOnly === true) {
+      return false;
+    }
     return isGridProduct(product) || product.visibility === "preview_only";
   }
 
@@ -3716,6 +3800,9 @@ function initProductsPage() {
 
   function rankProducts() {
     return state.activeProducts
+      .filter(function (product) {
+        return product.inspirationOnly !== true;
+      })
       .map(function (product) {
         return {
           product: product,
@@ -3971,14 +4058,16 @@ function initProductsPage() {
     gridRoot.innerHTML = products.map(function (product) {
       var highlighted = state.highlightedIds.indexOf(product.id) !== -1;
       var review = product.needsReview ? " is-review" : "";
-      return '<article class="productCard' + (highlighted ? " is-highlighted" : "") + review + '">' +
+      var inspiration = product.inspirationOnly === true;
+      return '<article class="productCard' + (highlighted ? " is-highlighted" : "") + review + (inspiration ? " is-inspiration" : "") + '">' +
         buildProductMedia(product, "grid") +
         '<div class="productCard__body">' +
+          (inspiration ? '<span class="productCard__inspirationBadge">' + escapeHtml(isEnglish ? "Sold · Inspiration" : "Verkauft · Inspiration") + '</span>' : '') +
           '<p class="productCard__segment">' + escapeHtml(product.segment) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
           buildFeatureBadges(product) +
           buildProductFacts(product) +
-          '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' +
+          '<p class="productCard__price">' + escapeHtml(inspiration ? (isEnglish ? "Sold one-off piece" : "Verkauftes Einzelstück") : displayPriceLabel(product)) + '</p>' +
           buildServiceSignals(product) +
           buildProductActions(product, "grid") +
         '</div>' +
@@ -3997,6 +4086,9 @@ function initProductsPage() {
     ];
 
     return products.slice().sort(function (a, b) {
+      if (Boolean(a.inspirationOnly) !== Boolean(b.inspirationOnly)) {
+        return a.inspirationOnly ? 1 : -1;
+      }
       var aCurated = curatedIds.indexOf(a.id);
       var bCurated = curatedIds.indexOf(b.id);
       if (aCurated !== -1 || bCurated !== -1) {
@@ -4238,6 +4330,12 @@ function initProductsPage() {
     var detailButton = '<button class="btn btn--emphasis" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '"' + reasonAttribute + '>' + escapeHtml(detailsLabel) + '</button>';
     var compareButton = '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '">' + escapeHtml(compareLabel) + '</button>';
 
+    if (product.inspirationOnly === true) {
+      return '<div class="ctaRow ctaRow--stacked">' + detailButton + '<a class="btn btn--secondary" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
+        escapeHtml(isEnglish ? "Request a similar piece" : "Ähnliche Anfertigung anfragen") +
+        '</a></div>';
+    }
+
     if (!hasVerifiedListing(product)) {
       return '<div class="ctaRow ctaRow--stacked">' + detailButton + compareButton + '<span class="productCard__availability">' +
         escapeHtml(labels.unavailableText) +
@@ -4324,7 +4422,13 @@ function initProductsPage() {
   }
 
   function isGridProduct(product) {
-    if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
+    if (!product || product.visibility === "hidden" || product.visibility === "archive") {
+      return false;
+    }
+    if (product.visibility === "inspiration" && product.inspirationOnly === true && availabilityStatus(product) === "sold") {
+      return true;
+    }
+    if (product.active !== true) {
       return false;
     }
     if (availabilityStatus(product) === "made_to_order") {
