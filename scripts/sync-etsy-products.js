@@ -234,10 +234,11 @@ function applyAvailability(products, activeListingIds, restoreActive) {
     const isActiveOnEtsy = activeListingIds.has(String(product.listingId));
 
     if (!isActiveOnEtsy) {
+      const keepAsInspiration = product.inspirationOnly === true || product.visibility === "inspiration";
       changed = setIfChanged(product, "active", false) || changed;
       changed = setIfChanged(product, "directListingUrlVerified", false) || changed;
       changed = setIfChanged(product, "availabilityStatus", "sold") || changed;
-      changed = setIfChanged(product, "visibility", "archive") || changed;
+      changed = setIfChanged(product, "visibility", keepAsInspiration ? "inspiration" : "archive") || changed;
       changed = setIfChanged(product, "soldReason", `Automatischer Etsy-Abgleich am ${TODAY}: Listing nicht in aktiven Etsy-Listings.`) || changed;
       changed = setIfChanged(product, "replacementStrategy", product.replacementStrategy || "request_similar") || changed;
       changed = setIfChanged(product, "requestUrl", product.requestUrl || "/schneidebrett-nach-mass/") || changed;
@@ -256,8 +257,12 @@ function applyAvailability(products, activeListingIds, restoreActive) {
 
     if (restoreActive) {
       changed = setIfChanged(product, "active", true) || changed;
-      if (product.visibility === "archive" || product.visibility === "hidden") {
+      if (product.visibility === "archive" || product.visibility === "hidden" || product.visibility === "inspiration") {
         changed = setIfChanged(product, "visibility", "grid") || changed;
+      }
+      if (product.inspirationOnly) {
+        delete product.inspirationOnly;
+        changed = true;
       }
       if (product.soldReason) {
         delete product.soldReason;

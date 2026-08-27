@@ -18,7 +18,9 @@ function status(product) {
 }
 
 function isGridProduct(product) {
-  if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") return false;
+  if (!product || product.visibility === "hidden" || product.visibility === "archive") return false;
+  if (product.visibility === "inspiration" && product.inspirationOnly === true && status(product) === "sold") return true;
+  if (product.active !== true) return false;
   if (status(product) === "made_to_order") return product.visibility === "grid";
   return status(product) === "available" && product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
 }
@@ -69,7 +71,8 @@ products.forEach((product, index) => {
 
   if (!product.id) errors.push(`KRITISCH Produkt ohne id in Zeile ${index + 1}`);
   if (product.active === true && !product.image) errors.push(`KRITISCH ${label}: active ohne Bild`);
-  if (isGridProduct(product) && ["sold", "inactive", "unknown"].includes(currentStatus)) {
+  const intentionalInspiration = product.visibility === "inspiration" && product.inspirationOnly === true && currentStatus === "sold";
+  if (isGridProduct(product) && !intentionalInspiration && ["sold", "inactive", "unknown"].includes(currentStatus)) {
     errors.push(`KRITISCH ${label}: ${currentStatus} wuerde im Grid erscheinen`);
   }
   if (product.active === true && product.category !== "care" && product.directListingUrlVerified !== true) {
