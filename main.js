@@ -513,7 +513,6 @@ function initStickyMobileCta() {
   var current = path === "/index.html" ? "/" : path;
   var ctas = {
     "/": { label: "Passendes Brett finden", href: "/produkte.html#produktfinder", secondary: "Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "produktfinder-gestartet" },
-    "/produkte.html": { label: "Passendes Brett finden", href: "#produktfinder", secondary: "Produkte ansehen", secondaryHref: "#produkte-grid", event: "produktfinder-gestartet" },
     "/schneidebretter-massivholz/": { label: "Schneidebretter ansehen", href: "#products-massivholz", secondary: "Individuelles Brett anfragen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett", event: null },
     "/schneidebrett-nach-mass/": { label: "Maßanfertigung anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Ma%C3%9F", secondary: "Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "email-kontakt" },
     "/schneidebrett-mit-gravur/": { label: "Gravierbares Brett ansehen", href: "#products-gravur", secondary: "B2B-Gravur anfragen", secondaryHref: "/b2b.html", event: null },
@@ -559,8 +558,22 @@ function initStickyMobileCta() {
     return footer && footer.getBoundingClientRect().top < window.innerHeight - 24;
   }
 
+  function isInteractiveAreaVisible() {
+    if (document.body.classList.contains("has-product-experience")) {
+      return true;
+    }
+
+    return Array.prototype.some.call(document.querySelectorAll("#produktfinder, #product-finder, [data-product-finder], #produkte-grid, #products-grid, .homepageProductGrid, [data-finder-result], .compareBar:not([hidden])"), function (element) {
+      if (element.hidden) {
+        return false;
+      }
+      var rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight - 32 && rect.bottom > 96;
+    });
+  }
+
   function update() {
-    bar.classList.toggle("is-visible", !isHeroVisible() && !isFooterVisible());
+    bar.classList.toggle("is-visible", !isHeroVisible() && !isFooterVisible() && !isInteractiveAreaVisible());
     ticking = false;
   }
 
@@ -871,7 +884,7 @@ function initReviewTrustStrips() {
       isEnglish: isEnglish,
       locale: isEnglish ? "en-US" : "de-DE",
       reviewsUrl: root.getAttribute("data-reviews-src") || (isEnglish ? "/data/reviews-en.json?v=20260726-review-photos" : "/data/reviews.json?v=20260726-review-photos"),
-      metaUrl: root.getAttribute("data-review-meta-src") || "/data/reviews-meta.json",
+      metaUrl: root.getAttribute("data-review-meta-src") || "/data/reviews-meta.json?v=20260827",
       fallbackSourceUrl: "https://edlehoelzervonkoc.etsy.com",
       copy: isEnglish ? {
         headlineFallback: "Reviews on ",
@@ -1387,7 +1400,7 @@ function initProductExperience() {
     careExperiencePromise: "Die passende Anwendung kommt mit, damit Pflege nicht erst nach dem Kauf zur Unsicherheit wird.",
     cardServicePhoto: "echte Fotos",
     cardServiceQuestion: "Rückfrage möglich",
-    cardServiceVariant: "Optik abstimmbar",
+    cardServiceVariant: "Lieblingsstück wählen",
     cardServiceCare: "Anleitung dabei",
     playVideo: "Produktvideo abspielen",
     optional: "optional"
@@ -1643,6 +1656,7 @@ function initProductExperience() {
         '<p class="productPreview__eyebrow">' + escapeHtml(product.segment || product.category || "Edle Hölzer") + '</p>' +
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
         renderPurchaseHeadline(product) +
+        renderEarlyPurchaseAction(product) +
         '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
         '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
         renderExperiencePromise(product) +
@@ -1654,9 +1668,9 @@ function initProductExperience() {
         (highlights.length ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.highlights) + '</h3><ul class="productPreview__chips">' + highlights.map(function (highlight) {
           return '<li>' + escapeHtml(highlight) + '</li>';
         }).join("") + '</ul></section>' : "") +
-        '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' +
+        (productExperienceText(product) !== productMoment(product) ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' : "") +
         '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + '</p></section>' +
-        (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
+        (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(related.some(function (item) { return item.category === "accessory"; }) ? (isEnglish ? "Complete the wood family" : "Passend kombinieren") : labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
           return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "View" : "Ansehen") + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "Compare" : "Vergleich") + '</button></div></article>';
         }).join("") + '</div></section>' : "") +
         '<div class="productPreview__actions">' +
@@ -1939,9 +1953,13 @@ function initProductExperience() {
 
       var isActive = compareIds.indexOf(id) !== -1;
       button.classList.toggle("is-in-compare", isActive);
-      button.textContent = button.closest(".productPreview__compareControls")
-        ? compareButtonLabel(id)
-        : (isActive ? labels.removeCompare : (compareIds.length >= 2 ? labels.replaceCompare : labels.compare));
+      if (button.closest(".productPreview__compareControls")) {
+        button.textContent = compareButtonLabel(id);
+      } else if (!isEnglish && button.classList.contains("productCard__compareUtility")) {
+        button.textContent = isActive ? "✓ Im Vergleich" : (compareIds.length >= 2 ? labels.replaceCompare : "+ Vergleichen");
+      } else {
+        button.textContent = isActive ? labels.removeCompare : (compareIds.length >= 2 ? labels.replaceCompare : labels.compare);
+      }
       button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   }
@@ -2259,6 +2277,17 @@ function initProductExperience() {
       }
     }
 
+    if (product.category === "board") {
+      var matchingAccessories = products.filter(function (candidate) {
+        return candidate && candidate.id !== product.id && candidate.category === "accessory" && candidate.image && hasVerifiedListing(candidate);
+      }).sort(function (a, b) {
+        return materialAffinityScore(product, b) - materialAffinityScore(product, a);
+      });
+      if (matchingAccessories.length) {
+        return matchingAccessories.slice(0, 3);
+      }
+    }
+
     return products.filter(function (candidate) {
       if (!candidate || candidate.id === product.id || !isComparableProduct(candidate) || !candidate.image) {
         return false;
@@ -2313,6 +2342,21 @@ function initProductExperience() {
     return score;
   }
 
+  function materialAffinityScore(product, candidate) {
+    var source = String(product.material || "").toLowerCase();
+    var target = [candidate.material, candidate.name, candidate.shortDescription, (candidate.badges || []).join(" ")].join(" ").toLowerCase();
+    var score = 0;
+    ["eiche", "nussbaum", "buche", "esche", "ahorn", "zwetschge", "kambala", "wenge"].forEach(function (wood) {
+      if (source.indexOf(wood) !== -1 && target.indexOf(wood) !== -1) {
+        score += 8;
+      }
+    });
+    if (candidate.giftable) {
+      score += 1;
+    }
+    return score;
+  }
+
   function primaryImage(product) {
     if (Array.isArray(product.gallery) && product.gallery[0]) {
       return product.gallery[0];
@@ -2349,13 +2393,9 @@ function initProductExperience() {
         }
       });
     }
-    if (product.category !== "accessory" && product.material && highlights.indexOf(product.material) === -1) {
-      highlights.unshift(product.material);
-    }
-    if (isEndGrain(product)) {
-      highlights.push(isEnglish ? "end-grain construction" : "Stirnholz-Aufbau");
-    }
-    return unique(highlights).slice(0, 5);
+    return unique(highlights).filter(function (highlight) {
+      return highlight !== product.material && !/^(Langholz|Stirnholz|edge grain|end grain|Stirnholz-Aufbau|end-grain construction)$/i.test(highlight);
+    }).slice(0, 4);
   }
 
   function isAccessoryMaterialBadge(product, badge) {
@@ -2404,8 +2444,16 @@ function initProductExperience() {
   }
 
   function productProof(product) {
+    if (product.shortDescription) {
+      return normalizeConstructionTerms(product.shortDescription).replace(/\s+/g, " ").trim();
+    }
     if (product.longDescription) {
-      return normalizeConstructionTerms(product.longDescription);
+      var normalized = normalizeConstructionTerms(product.longDescription).replace(/\s+/g, " ").trim();
+      var sentences = normalized.match(/[^.!?]+[.!?]+/g);
+      if (sentences && sentences.length) {
+        return sentences.slice(0, 2).join(" ").trim();
+      }
+      return normalized.length > 340 ? normalized.slice(0, 337).replace(/\s+\S*$/, "") + "…" : normalized;
     }
     if (isEndGrain(product)) {
       return isEnglish ? "Standing wood fibres make end grain more involved to produce and give it its dense, substantial character." : "Stehende Holzfasern machen Stirnholz aufwendiger in der Fertigung und geben dem Brett seinen dichten, massiven Charakter.";
@@ -2431,7 +2479,7 @@ function initProductExperience() {
     if (/teigschaber|dough|scraper/.test(text)) {
       return isEnglish
         ? "For dividing and shaping dough and lifting chopped ingredients from the board. If several pieces are available, the wood look can be coordinated before dispatch."
-        : "Zum Teilen und Formen von Teig sowie zum Aufnehmen von Schnittgut vom Brett. Wenn mehrere Exemplare verfügbar sind, kann die Optik vor dem Versand abgestimmt werden.";
+        : "Zum Teilen und Formen von Teig sowie zum Aufnehmen von Schnittgut vom Brett. Wenn mehrere Exemplare verfügbar sind, kannst du dein Lieblingsstück vor dem Versand frei auswählen.";
     }
     if (product.category === "board") {
       return productMoment(product);
@@ -2867,6 +2915,13 @@ function initProductExperience() {
     '</div>';
   }
 
+  function renderEarlyPurchaseAction(product) {
+    if (!hasVerifiedListing(product)) {
+      return "";
+    }
+    return '<div class="productPreview__earlyPurchase"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a><span>' + escapeHtml(isEnglish ? "Secure checkout on Etsy. Details remain visible here." : "Sicherer Checkout über Etsy. Alle Details bleiben hier sichtbar.") + '</span></div>';
+  }
+
   function renderPurchaseBenefit(product) {
     var benefit = purchaseBenefit(product);
     return '<div class="productPreview__benefit' + (benefit.active ? " is-active" : "") + '" data-purchase-benefit>' +
@@ -3220,7 +3275,7 @@ function initProductsPage() {
     controlPromise: "Was du erwarten kannst",
     cardServicePhoto: "echte Fotos",
     cardServiceQuestion: "Rückfrage möglich",
-    cardServiceVariant: "Optik abstimmbar",
+    cardServiceVariant: "Lieblingsstück wählen",
     cardServiceCare: "Anleitung dabei"
   };
 
@@ -3304,56 +3359,62 @@ function initProductsPage() {
       ]
     },
     {
-      id: "haptics",
-      title: "Welches Gefühl passt besser zu dir?",
+      id: "style",
+      title: "Welche Wirkung soll das Holz haben?",
       options: [
         {
-          value: "smooth",
-          title: "Leichter und schneller geführt",
-          description: "Für schnelle Nutzung, wenig Gewicht und möglichst unkompliziertes Handling.",
-          attributes: "schlank · glatt · beweglich"
+          value: "light",
+          title: "Hell und ruhig",
+          description: "Buche, Ahorn, Esche und helle Eiche wirken sachlich und zurückhaltend.",
+          attributes: "hell · ruhig · klar"
         },
         {
-          value: "solid",
-          title: "Spürbar, aber alltagstauglich",
-          description: "Ein ausgewogenes Verhältnis aus Substanz, Handling und täglicher Nutzbarkeit.",
-          attributes: "solide · ausgewogen · griffig"
+          value: "dark",
+          title: "Dunkel und elegant",
+          description: "Nussbaum und dunkle Akzente passen zu ruhigen, kontrastreichen Küchen.",
+          attributes: "dunkel · warm · elegant"
         },
         {
-          value: "substantial",
-          title: "Schwerer und sichtbar",
-          description: "Für Nutzer, die Gewicht, Stärke und klare Materialwirkung bewusst möchten.",
-          attributes: "dick · schwer · materialstark"
+          value: "expressive",
+          title: "Markant und präsent",
+          description: "3D-Muster, Fachwerkholz und kräftige Maserung dürfen zum Blickfang werden.",
+          attributes: "Statement · Erbstück · 3D"
+        },
+        {
+          value: "open",
+          title: "Zeig mir, was passt",
+          description: "Die Nutzung ist wichtiger als eine vorab festgelegte Holzfarbe.",
+          attributes: "offen · beraten · passend"
         }
       ]
     },
     {
-      id: "priority",
-      title: "Was ist dir am wichtigsten?",
+      id: "budget",
+      title: "Welcher Preisrahmen fühlt sich richtig an?",
       options: [
         {
-          value: "daily",
-          title: "Alltagstauglichkeit",
-          description: "Das Brett soll jeden Tag funktionieren und nicht mehr Aufmerksamkeit brauchen als nötig.",
-          attributes: "praktisch · gut beweglich · direkt nutzbar"
+          value: "under100",
+          title: "Bis 100 €",
+          description: "Ein solides Einstiegsbrett oder kleineres Geschenk steht im Vordergrund.",
+          attributes: "Einstieg · kompakt · praktisch"
         },
         {
-          value: "knifeFeel",
-          title: "Messergefühl",
-          description: "Eine satte, ruhige Oberfläche ist wichtiger als möglichst geringes Gewicht.",
-          attributes: "ruhiger Schnitt · stabil · spürbar"
+          value: "100to250",
+          title: "100 bis 250 €",
+          description: "Mehr Fläche, Stärke oder aufwendiger Stirnholzaufbau kommen infrage.",
+          attributes: "Kernsortiment · massiv · vielseitig"
         },
         {
-          value: "serving",
-          title: "Optik beim Servieren",
-          description: "Das Brett soll nicht nur schneiden, sondern beim Anrichten sichtbar bleiben.",
-          attributes: "sichtbar · ruhig · am Tisch"
+          value: "above250",
+          title: "Ab 250 €",
+          description: "Besondere Hölzer, 3D-Aufbau oder ein großes Einzelstück dürfen im Fokus stehen.",
+          attributes: "Atelier · Einzelstück · Präsenz"
         },
         {
-          value: "premium",
-          title: "Maximale Materialwirkung",
-          description: "Gesucht ist ein Brett mit viel Präsenz, Haptik und spürbarer Stärke.",
-          attributes: "Gewicht · Stärke · Maserung"
+          value: "open",
+          title: "Erst das passende Brett",
+          description: "Zeig mir die beste Übereinstimmung und danach, was sie kostet.",
+          attributes: "ohne Preisfilter · voller Vergleich"
         }
       ]
     }
@@ -3439,62 +3500,94 @@ function initProductsPage() {
       ]
     },
     {
-      id: "haptics",
-      title: "Which feel suits you better?",
+      id: "style",
+      title: "How should the wood feel in the room?",
       options: [
         {
-          value: "smooth",
-          title: "Lighter and easier to handle",
-          description: "For quick use, lower weight and uncomplicated handling.",
-          attributes: "slim · smooth · movable"
+          value: "light",
+          title: "Light and calm",
+          description: "Beech, maple, ash and light oak create a restrained, clear look.",
+          attributes: "light · calm · clear"
         },
         {
-          value: "solid",
-          title: "Tactile, but practical",
-          description: "A balanced mix of substance, handling and daily usability.",
-          attributes: "solid · balanced · grippy"
+          value: "dark",
+          title: "Dark and elegant",
+          description: "Walnut and dark accents suit calm, contrasting kitchens.",
+          attributes: "dark · warm · elegant"
         },
         {
-          value: "substantial",
-          title: "Heavier and visible",
-          description: "For users who deliberately want weight, thickness and a strong material feel.",
-          attributes: "thick · heavy · material-rich"
+          value: "expressive",
+          title: "Distinctive and present",
+          description: "3D patterns, reclaimed timber and strong grain may become a focal point.",
+          attributes: "statement · heirloom · 3D"
+        },
+        {
+          value: "open",
+          title: "Show me what fits",
+          description: "How the board is used matters more than a predefined wood colour.",
+          attributes: "open · advised · suitable"
         }
       ]
     },
     {
-      id: "priority",
-      title: "What matters most to you?",
+      id: "budget",
+      title: "Which price range feels right?",
       options: [
         {
-          value: "daily",
-          title: "Everyday practicality",
-          description: "The board should work every day without needing unnecessary attention.",
-          attributes: "practical · movable · ready to use"
+          value: "under100",
+          title: "Up to €100",
+          description: "A solid entry board or smaller gift is the priority.",
+          attributes: "entry · compact · practical"
         },
         {
-          value: "knifeFeel",
-          title: "Knife feel",
-          description: "A calm, substantial cutting surface matters more than the lowest possible weight.",
-          attributes: "calm cut · stable · tactile"
+          value: "100to250",
+          title: "€100 to €250",
+          description: "More surface, thickness or a more involved end-grain build comes into reach.",
+          attributes: "core range · solid · versatile"
         },
         {
-          value: "serving",
-          title: "Serving appearance",
-          description: "The board should not only cut, but stay visible when plating or serving.",
-          attributes: "visible · calm · table-ready"
+          value: "above250",
+          title: "From €250",
+          description: "Special woods, 3D construction or a large one-off piece may take priority.",
+          attributes: "atelier · one-off · presence"
         },
         {
-          value: "premium",
-          title: "Maximum material presence",
-          description: "You are looking for a board with weight, feel and visible thickness.",
-          attributes: "weight · thickness · grain"
+          value: "open",
+          title: "Fit first",
+          description: "Show me the closest match first, then tell me what it costs.",
+          attributes: "no price filter · full comparison"
         }
       ]
     }
   ];
 
   var questions = isEnglish ? questionsEn : questionsDe;
+
+  function activeQuestions() {
+    var selectedUse = state.answers.use && state.answers.use.value;
+    var source = isEnglish ? questionsEn : questionsDe;
+    if (selectedUse !== "gift") {
+      return source;
+    }
+    var giftQuestion = isEnglish ? {
+      id: "giftScale",
+      title: "What kind of gift should it be?",
+      options: [
+        { value: "smallGift", title: "A thoughtful gesture", description: "For a birthday, Valentine’s Day or a small personal occasion.", attributes: "compact · personal · useful" },
+        { value: "meaningfulGift", title: "A lasting present", description: "For a host, housewarming or someone who cooks often.", attributes: "substantial · visible · versatile" },
+        { value: "milestoneGift", title: "A major occasion", description: "For a wedding, anniversary or a gift intended to stay for many years.", attributes: "one-off · presence · engraving" }
+      ]
+    } : {
+      id: "giftScale",
+      title: "Welche Art von Geschenk soll es sein?",
+      options: [
+        { value: "smallGift", title: "Eine persönliche Geste", description: "Für Geburtstag, Valentinstag oder einen kleineren persönlichen Anlass.", attributes: "kompakt · persönlich · nützlich" },
+        { value: "meaningfulGift", title: "Ein bleibendes Geschenk", description: "Für Gastgeber, Einzug oder Menschen, die häufig kochen.", attributes: "substanziell · sichtbar · vielseitig" },
+        { value: "milestoneGift", title: "Ein großer Anlass", description: "Für Hochzeit, Jubiläum oder ein Geschenk, das viele Jahre bleiben soll.", attributes: "Einzelstück · Präsenz · Gravur" }
+      ]
+    };
+    return [source[0], giftQuestion, source[2], source[3], source[4]];
+  }
 
   var requiredFields = [
     "id",
@@ -3631,6 +3724,7 @@ function initProductsPage() {
       return;
     }
 
+    questions = activeQuestions();
     var question = questions[state.currentStep];
     var stepLabel = finderRoot.querySelector("[data-finder-step-label]");
     var questionNode = finderRoot.querySelector("[data-finder-question]");
@@ -3733,11 +3827,17 @@ function initProductsPage() {
       return;
     }
 
-    var rankedProducts = rankProducts().filter(function (product) {
-      return canRecommendAsMainBoard(product);
-    });
-    var main = rankedProducts[0];
-    var alternatives = rankedProducts.slice(1, 3);
+    var rankedEntries = rankEntries(false);
+    var unrestrictedEntries = rankEntries(true);
+    var mainEntry = rankedEntries[0];
+    var main = mainEntry && mainEntry.product;
+    var alternatives = main ? rankedEntries.slice(1).filter(function (entry) {
+      return entry.score >= mainEntry.score - 18 && isPlausibleAlternative(entry.product, main);
+    }).slice(0, 2).map(function (entry) {
+      return entry.product;
+    }) : [];
+    var supplements = main ? supplementaryProducts(main) : [];
+    var unrestricted = unrestrictedEntries[0] && unrestrictedEntries[0].product;
 
     if (!main) {
       resultRoot.hidden = false;
@@ -3756,7 +3856,7 @@ function initProductsPage() {
     resultRoot.innerHTML =
       '<div class="finderResult__head">' +
         '<p class="eyebrow eyebrow--dark">' + (isEnglish ? "Recommendation" : "Empfehlung") + '</p>' +
-        '<h2>' + (isEnglish ? "This is probably the best direction for your everyday use" : "Das dürfte am besten zu deinem Alltag passen") + '</h2>' +
+        '<h2>' + escapeHtml(finderResultTitle()) + '</h2>' +
         '<p><strong>' + (isEnglish ? "This board fits because: " : "Dieses Brett passt, weil: ") + '</strong>' + escapeHtml(buildReason(main)) + '</p>' +
       '</div>' +
       '<div class="recommendationCard">' +
@@ -3764,17 +3864,19 @@ function initProductsPage() {
         '<div class="recommendationCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(main.segment) + '</p>' +
           '<h3>' + escapeHtml(displayProductName(main)) + '</h3>' +
+          buildCardMeta(main) +
           buildFeatureBadges(main) +
-          buildProductFacts(main) +
           '<p class="productCard__price">' + escapeHtml(displayPriceLabel(main)) + '</p>' +
           buildProductActions(main, "finder", buildReason(main)) +
           '<div class="ctaRow finderResult__secondaryActions">' +
-            '<a class="btn btn--ghost-dark" href="' + gridAnchor + '">' + (isEnglish ? "View product grid" : "Produktgrid ansehen") + '</a>' +
-            '<button class="btn btn--ghost-dark" type="button" data-finder-reset>' + (isEnglish ? "Restart" : "Neu starten") + '</button>' +
+            '<a class="btn btn--ghost-dark" href="' + gridAnchor + '">' + (isEnglish ? "View product grid" : "Alle Bretter ansehen") + '</a>' +
+            '<button class="btn btn--ghost-dark" type="button" data-finder-reset>' + (isEnglish ? "Restart" : "Auswahl ändern") + '</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
-      (alternatives.length ? '<div class="alternativeList"><h3>' + (isEnglish ? "Alternatives" : "Alternativen") + '</h3><div class="alternativeGrid">' + alternatives.map(buildAlternativeCard).join("") + '</div></div>' : "");
+      (alternatives.length ? '<div class="alternativeList"><h3>' + (isEnglish ? "Alternatives" : "Ebenfalls passend") + '</h3><div class="alternativeGrid">' + alternatives.map(function (product) { return buildAlternativeCard(product, main); }).join("") + '</div></div>' : '<div class="alternativeList alternativeList--empty"><h3>' + escapeHtml(isEnglish ? "No close alternative" : "Keine ähnlich passende Alternative") + '</h3><p>' + escapeHtml(isEnglish ? "No other available product currently meets the same core requirements." : "Aktuell erfüllt kein weiteres verfügbares Brett dieselben Kernanforderungen ähnlich gut.") + '</p><a class="textLink" href="' + gridAnchor + '">' + escapeHtml(isEnglish ? "View all boards" : "Alle Schneidebretter ansehen") + '</a></div>') +
+      (supplements.length ? '<div class="finderSupplements"><h3>' + escapeHtml(isEnglish ? "Useful additions" : "Passende Ergänzungen") + '</h3><div class="alternativeGrid">' + supplements.map(buildSupplementCard).join("") + '</div></div>' : "") +
+      (unrestricted && unrestricted.id !== main.id && state.answers.budget && state.answers.budget.value !== "open" ? '<aside class="finderResult__openBudget"><p class="eyebrow eyebrow--dark">' + escapeHtml(isEnglish ? "Without a price limit" : "Ohne Preisgrenze") + '</p><h3>' + escapeHtml(displayProductName(unrestricted)) + '</h3><p>' + escapeHtml(isEnglish ? "This is the closest match to your use and style when price is deliberately left out of the decision." : "Dieses Brett passt am stärksten zu Nutzung und Stil, wenn der Preis bewusst nicht in die Entscheidung einfließt.") + '</p><button class="btn btn--ghost-dark" type="button" data-product-preview="' + escapeAttribute(unrestricted.id) + '" data-product-source="finder-open-budget">' + escapeHtml(isEnglish ? "See what changes" : "Unterschied ansehen") + '</button></aside>' : "");
 
     bindReset(resultRoot);
     renderGrid();
@@ -3798,15 +3900,22 @@ function initProductsPage() {
     });
   }
 
-  function rankProducts() {
+  function finderResultTitle() {
+    if (state.answers.use && state.answers.use.value === "gift") {
+      return isEnglish ? "This direction fits your occasion" : "Das passt zu deinem Anlass.";
+    }
+    return isEnglish ? "This is probably the best direction for your everyday use" : "Das passt zu deinem Alltag.";
+  }
+
+  function rankEntries(ignoreBudget) {
     return state.activeProducts
       .filter(function (product) {
-        return product.inspirationOnly !== true;
+        return product.inspirationOnly !== true && isFinderCompatible(product);
       })
       .map(function (product) {
         return {
           product: product,
-          score: scoreProduct(product)
+          score: scoreProduct(product, ignoreBudget)
         };
       })
       .sort(function (a, b) {
@@ -3820,19 +3929,25 @@ function initProductsPage() {
           return a.product.featured ? -1 : 1;
         }
         return Number(a.product.priceOrder || 0) - Number(b.product.priceOrder || 0);
-      })
-      .map(function (entry) {
-        return entry.product;
       });
   }
 
-  function scoreProduct(product) {
+  function rankProducts(ignoreBudget) {
+    return rankEntries(ignoreBudget).map(function (entry) {
+      return entry.product;
+    });
+  }
+
+  function scoreProduct(product, ignoreBudget) {
     var score = 0;
     var use = state.answers.use && state.answers.use.value;
     var space = state.answers.space && state.answers.space.value;
+    var giftScale = state.answers.giftScale && state.answers.giftScale.value;
     var movement = state.answers.movement && state.answers.movement.value;
-    var haptics = state.answers.haptics && state.answers.haptics.value;
-    var priority = state.answers.priority && state.answers.priority.value;
+    var style = state.answers.style && state.answers.style.value;
+    var budget = state.answers.budget && state.answers.budget.value;
+    var price = Number(product.priceOrder || 0);
+    var materialText = [product.material, product.name, product.shortDescription, (product.badges || []).join(" ")].join(" ").toLowerCase();
 
     if (use && Array.isArray(product.useCases) && product.useCases.indexOf(use) !== -1) {
       score += 5;
@@ -3841,40 +3956,60 @@ function initProductsPage() {
     if (space && product.kitchenFit === space) {
       score += 4;
     }
+    if (space === "small" && (product.kitchenFit === "large" || product.weightClass === "heavy")) {
+      score -= 12;
+    }
+    if (space === "large" && product.sizeProfile === "compact") {
+      score -= 4;
+    }
 
     if (movement && product.portability === movement) {
       score += 4;
     }
-
-    if (haptics && product.tactileProfile === haptics) {
-      score += 4;
+    if (movement === "portable" && (product.portability === "stationary" || product.weightClass === "heavy")) {
+      score -= 14;
+    }
+    if (movement === "stationary" && product.portability === "portable") {
+      score -= 3;
     }
 
-    if (priority === "daily" && Array.isArray(product.useCases) && product.useCases.indexOf("daily") !== -1) {
-      score += 4;
+    if (style === "light" && /buche|ahorn|esche|eiche|birke|lärche/.test(materialText)) {
+      score += 7;
     }
-
-    if (priority === "knifeFeel" && (product.woodCut === "end" || product.tactileProfile === "solid" || product.tactileProfile === "substantial")) {
-      score += 4;
+    if (style === "dark" && /nussbaum|walnuss|wenge|mooreiche|zwetschge|mahagoni/.test(materialText)) {
+      score += 8;
     }
-
-    if (priority === "serving" && product.servingSuitable) {
-      score += 4;
-    }
-
-    if (priority === "premium") {
-      score += Number(product.premiumLevel || 0) * 2;
+    if (style === "expressive" && (/3d|fachwerk|erbstück|schach|kambala|padouk/.test(materialText) || isStatementDesignProduct(product))) {
+      score += 12;
     }
 
     if (use === "gift" && product.giftable) {
       score += 3;
     }
 
+    if (giftScale === "smallGift") {
+      score += price <= 100 && product.sizeProfile === "compact" ? 8 : -5;
+    } else if (giftScale === "meaningfulGift") {
+      score += price >= 90 && price <= 260 ? 7 : 0;
+    } else if (giftScale === "milestoneGift") {
+      score += Number(product.premiumLevel || 0) * 3;
+      score += price >= 200 ? 8 : -4;
+    }
+
+    if (!ignoreBudget && budget && budget !== "open") {
+      if (budget === "under100") {
+        score += price <= 100 ? 12 : -24;
+      } else if (budget === "100to250") {
+        score += price >= 100 && price <= 250 ? 12 : (price > 250 ? -14 : -3);
+      } else if (budget === "above250") {
+        score += price >= 250 ? 14 : -8;
+      }
+    }
+
     if (isStatementDesignProduct(product) &&
-      (use === "gift" || use === "serving" || priority === "premium" || priority === "serving") &&
+      (use === "gift" || use === "serving" || style === "expressive") &&
       space !== "small" &&
-      movement !== "portable" &&
-      haptics !== "smooth") {
+      movement !== "portable") {
       if (use === "gift") {
         score += 3;
       }
@@ -3883,15 +4018,11 @@ function initProductsPage() {
         score += 3;
       }
 
-      if (priority === "premium") {
+      if (style === "expressive") {
         score += 12;
       }
 
-      if (priority === "serving") {
-        score += 3;
-      }
-
-      if (space === "large" && movement === "stationary" && haptics === "substantial") {
+      if (space === "large" && movement === "stationary") {
         score += 2;
       }
     }
@@ -3938,6 +4069,86 @@ function initProductsPage() {
       hasConcreteFinderData(product);
   }
 
+  function productRole(product) {
+    var type = String(product && product.productType || "").toLowerCase();
+    if (type === "cuttingboard") return "cuttingBoard";
+    if (type === "servingboard") return "servingBoard";
+    if (type === "accessory") return "accessory";
+    if (type === "care") return "care";
+    if (product && product.category === "board") return "cuttingBoard";
+    return String(product && product.category || "other");
+  }
+
+  function productSupportsUse(product, use) {
+    var primary = Array.isArray(product.primaryUseCases) ? product.primaryUseCases : [];
+    var legacy = Array.isArray(product.useCases) ? product.useCases : [];
+    if (use === "gift") {
+      return product.giftable === true || primary.indexOf("gift") !== -1 || legacy.indexOf("gift") !== -1;
+    }
+    return primary.indexOf(use) !== -1 || legacy.indexOf(use) !== -1;
+  }
+
+  function isFinderCompatible(product) {
+    if (!canRecommendAsMainBoard(product)) {
+      return false;
+    }
+
+    var use = state.answers.use && state.answers.use.value;
+    var space = state.answers.space && state.answers.space.value;
+    var movement = state.answers.movement && state.answers.movement.value;
+    var role = productRole(product);
+
+    if (use === "daily" || use === "bbq") {
+      if (role !== "cuttingBoard" || !productSupportsUse(product, use)) return false;
+    } else if (use === "serving") {
+      if ((role !== "cuttingBoard" && role !== "servingBoard") || !productSupportsUse(product, use)) return false;
+    } else if (use === "gift") {
+      if ((role !== "cuttingBoard" && role !== "servingBoard") || !productSupportsUse(product, use)) return false;
+    }
+
+    if (space === "small" && (product.sizeProfile === "large" || product.kitchenFit === "large")) {
+      return false;
+    }
+    if (movement === "portable" && (product.portability === "stationary" || product.weightClass === "heavy")) {
+      return false;
+    }
+    return true;
+  }
+
+  function isPlausibleAlternative(candidate, main) {
+    if (!candidate || !main) return false;
+    var use = state.answers.use && state.answers.use.value;
+    if (!productSupportsUse(candidate, use)) return false;
+    if (use === "daily" || use === "bbq") {
+      return productRole(candidate) === "cuttingBoard" && productRole(main) === "cuttingBoard";
+    }
+    return ["cuttingBoard", "servingBoard"].indexOf(productRole(candidate)) !== -1;
+  }
+
+  function supplementaryProducts(main) {
+    var use = state.answers.use && state.answers.use.value;
+    var mainMaterials = materialTokens(main);
+    return state.activeProducts.filter(function (product) {
+      if (productRole(product) !== "accessory" || product.inspirationOnly === true || !product.image) return false;
+      var primary = Array.isArray(product.primaryUseCases) ? product.primaryUseCases : [];
+      var secondary = Array.isArray(product.secondaryUseCases) ? product.secondaryUseCases : [];
+      return primary.indexOf(use) !== -1 || secondary.indexOf(use) !== -1 || (use === "gift" && product.giftable === true);
+    }).sort(function (a, b) {
+      var aMatch = materialTokens(a).some(function (token) { return mainMaterials.indexOf(token) !== -1; });
+      var bMatch = materialTokens(b).some(function (token) { return mainMaterials.indexOf(token) !== -1; });
+      if (aMatch !== bMatch) return aMatch ? -1 : 1;
+      return Number(a.priceOrder || 0) - Number(b.priceOrder || 0);
+    }).slice(0, 2);
+  }
+
+  function materialTokens(product) {
+    return String(product && product.material || "").toLowerCase().split(/,|&|oder|\//).map(function (value) {
+      return value.trim();
+    }).filter(function (value) {
+      return value && !/weitere|massivholz|holz/.test(value);
+    });
+  }
+
   function hasConcreteFinderData(product) {
     return dimensionLabel(product) &&
       hasMeaningfulValue(product.thicknessLabel);
@@ -3947,11 +4158,20 @@ function initProductsPage() {
     var parts = [];
     var use = state.answers.use;
     var space = state.answers.space;
+    var giftScale = state.answers.giftScale;
     var movement = state.answers.movement;
-    var haptics = state.answers.haptics;
-    var priority = state.answers.priority;
+    var style = state.answers.style;
+    var budget = state.answers.budget;
 
-    if (space && movement) {
+    if (giftScale) {
+      if (giftScale.value === "smallGift") {
+        parts.push(isEnglish ? "The occasion calls for a compact, useful present rather than an oversized statement piece." : "Der Anlass spricht für ein kompaktes, nützliches Geschenk statt für ein übergroßes Statement-Stück.");
+      } else if (giftScale.value === "milestoneGift") {
+        parts.push(isEnglish ? "For a major occasion, material presence and the character of a one-off piece carry more weight." : "Bei einem großen Anlass zählen Materialpräsenz und der Charakter eines Einzelstücks stärker.");
+      } else {
+        parts.push(isEnglish ? "The gift should remain useful while still feeling substantial and personal." : "Das Geschenk soll dauerhaft nützlich sein und sich zugleich substanziell und persönlich anfühlen.");
+      }
+    } else if (space && movement) {
       if (space.value === "small" || movement.value === "portable") {
         parts.push(isEnglish ? "You have limited space or want to move the board often. A compact, lighter board therefore fits better than a heavy end-grain board." : "Du hast wenig Platz oder möchtest das Brett häufiger bewegen. Deshalb passt ein kompaktes, leichteres Brett besser als ein schweres Stirnholzbrett.");
       } else if (space.value === "large" || movement.value === "stationary") {
@@ -3973,14 +4193,24 @@ function initProductsPage() {
       }
     }
 
-    if (haptics && priority) {
-      var facts = [dimensionLabel(product), hasMeaningfulValue(product.thicknessLabel), product.material].filter(Boolean);
-      if (facts.length) {
-        parts.push((isEnglish ? "Your choices around feel and priority point toward " : "Deine Auswahl bei Haptik und Priorität spricht für ") + facts.join(isEnglish ? ", " : ", ") + ".");
-      }
+    if (style && style.value !== "open") {
+      parts.push(isEnglish ? "Its wood and grain match the visual direction you selected." : "Holzart und Maserung entsprechen der von dir gewählten Raumwirkung.");
     }
 
-    return parts.join(" ");
+    if (budget && budget.value !== "open" && isWithinSelectedBudget(product, budget.value)) {
+      parts.push(isEnglish ? "It also stays within the price range you selected." : "Gleichzeitig bleibt es in dem von dir gewählten Preisrahmen.");
+    }
+
+    return parts.slice(0, 3).join(" ");
+  }
+
+  function isWithinSelectedBudget(product, budget) {
+    var price = Number(product && product.priceOrder || 0);
+    if (!price) return false;
+    if (budget === "under100") return price <= 100;
+    if (budget === "100to250") return price >= 100 && price <= 250;
+    if (budget === "above250") return price >= 250;
+    return true;
   }
 
   function bindFilters() {
@@ -4065,10 +4295,10 @@ function initProductsPage() {
           (inspiration ? '<span class="productCard__inspirationBadge">' + escapeHtml(isEnglish ? "Sold · Inspiration" : "Verkauft · Inspiration") + '</span>' : '') +
           '<p class="productCard__segment">' + escapeHtml(product.segment) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
+          buildCardMeta(product) +
           buildFeatureBadges(product) +
-          buildProductFacts(product) +
           '<p class="productCard__price">' + escapeHtml(inspiration ? (isEnglish ? "Sold one-off piece" : "Verkauftes Einzelstück") : displayPriceLabel(product)) + '</p>' +
-          buildServiceSignals(product) +
+          (isEnglish ? buildServiceSignals(product) : "") +
           buildProductActions(product, "grid") +
         '</div>' +
       '</article>';
@@ -4126,7 +4356,7 @@ function initProductsPage() {
       '</div>';
     }
 
-    return '<button class="productCard__media productCard__mediaButton" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "grid") + '"' + productImageStyle(product) + '>' +
+    return '<button class="productCard__media productCard__mediaButton" type="button" aria-label="' + escapeAttribute((isEnglish ? "View " : "Ansehen: ") + displayProductName(product)) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "grid") + '"' + productImageStyle(product) + '>' +
       '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
     '</button>';
   }
@@ -4172,13 +4402,29 @@ function initProductsPage() {
       return true;
     });
 
+    var segment = String(product.segment || "").toLowerCase();
+    filtered = filtered.filter(function (badge) {
+      var normalized = normalizeConstructionTerms(badge).toLowerCase();
+      return !segment || segment.indexOf(normalized) === -1;
+    });
+
     if (!filtered.length) {
       return "";
     }
 
-    return '<div class="productBadgeRow">' + filtered.slice(0, 3).map(function (badge) {
+    return '<div class="productBadgeRow">' + filtered.slice(0, isEnglish ? 3 : 2).map(function (badge) {
       return '<span>' + escapeHtml(normalizeConstructionTerms(badge)) + '</span>';
     }).join("") + '</div>';
+  }
+
+  function buildCardMeta(product) {
+    if (isEnglish) {
+      return buildProductFacts(product);
+    }
+    var parts = [];
+    if (product.material) parts.push(product.material);
+    if (dimensionLabel(product)) parts.push(dimensionLabel(product));
+    return parts.length ? '<p class="productCard__meta">' + escapeHtml(parts.slice(0, 2).join(" · ")) + '</p>' : "";
   }
 
   function buildProductFacts(product) {
@@ -4324,11 +4570,15 @@ function initProductsPage() {
 
   function buildProductActions(product, source, reason) {
     var detailsLabel = primaryCardCta(product);
-    var compareLabel = isEnglish ? "Compare" : "Vergleichen";
+    var compared = isProductCompared(product.id);
+    var compareLabel = isEnglish ? "Compare" : (compared ? "✓ Im Vergleich" : "+ Vergleichen");
     var productSource = source || "grid";
     var reasonAttribute = reason ? ' data-product-reason="' + escapeAttribute(reason) + '"' : "";
-    var detailButton = '<button class="btn btn--emphasis" type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '"' + reasonAttribute + '>' + escapeHtml(detailsLabel) + '</button>';
-    var compareButton = '<button class="btn btn--ghost-dark" type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '">' + escapeHtml(compareLabel) + '</button>';
+    var productName = displayProductName(product);
+    var detailAriaLabel = isEnglish ? "View " + productName : productName + " ansehen";
+    var compareAriaLabel = isEnglish ? "Compare " + productName : productName + " vergleichen";
+    var detailButton = '<button class="btn btn--emphasis" type="button" aria-label="' + escapeAttribute(detailAriaLabel) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '"' + reasonAttribute + '>' + escapeHtml(detailsLabel) + '</button>';
+    var compareButton = '<button class="' + (isEnglish ? 'btn btn--ghost-dark' : 'productCard__compareUtility') + (compared ? ' is-in-compare' : '') + '" type="button" aria-label="' + escapeAttribute(compareAriaLabel) + '" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '" aria-pressed="' + (compared ? 'true' : 'false') + '">' + escapeHtml(compareLabel) + '</button>';
 
     if (product.inspirationOnly === true) {
       return '<div class="ctaRow ctaRow--stacked">' + detailButton + '<a class="btn btn--secondary" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
@@ -4350,27 +4600,59 @@ function initProductsPage() {
     '</div>';
   }
 
-  function primaryCardCta(product) {
-    if (product && product.category === "board") {
-      return isEnglish ? "View board" : "Brett ansehen";
+  function isProductCompared(productId) {
+    try {
+      var stored = JSON.parse(window.localStorage.getItem("edleHoelzerCompareProducts") || "[]");
+      return Array.isArray(stored) && stored.indexOf(productId) !== -1;
+    } catch (error) {
+      return false;
     }
-    return isEnglish ? "View product" : "Produkt ansehen";
   }
 
-  function buildAlternativeCard(product) {
+  function primaryCardCta(product) {
+    if (product && product.category === "board") {
+      return isEnglish ? "View board" : "Zum Brett";
+    }
+    return isEnglish ? "View product" : "Zum Produkt";
+  }
+
+  function buildAlternativeCard(product, main) {
     var content =
       buildProductMedia(product, false) +
       '<span class="alternativeCard__body">' +
         '<span class="productCard__segment">' + escapeHtml(product.segment) + '</span>' +
         '<strong>' + escapeHtml(displayProductName(product)) + '</strong>' +
+        buildCardMeta(product) +
+        '<span class="alternativeCard__difference">' + escapeHtml(alternativeDifference(product, main)) + '</span>' +
         '<span>' + escapeHtml(displayPriceLabel(product)) + '</span>' +
         '<span class="alternativeCard__actions">' +
-          '<button type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Details" : "Details") + '</button>' +
-          '<button type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Compare" : "Vergleichen") + '</button>' +
+          '<button type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Details" : "Zum Brett") + '</button>' +
+          '<button type="button" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="finder">' + (isEnglish ? "Compare" : "+ Vergleichen") + '</button>' +
         '</span>' +
       '</span>';
 
     return '<article class="alternativeCard">' + content + '</article>';
+  }
+
+  function buildSupplementCard(product) {
+    return '<article class="alternativeCard alternativeCard--supplement">' +
+      buildProductMedia(product, false) +
+      '<span class="alternativeCard__body"><span class="productCard__segment">Küchenhelfer</span><strong>' + escapeHtml(displayProductName(product)) + '</strong>' +
+      buildCardMeta(product) + '<span>' + escapeHtml(displayPriceLabel(product)) + '</span><span class="alternativeCard__actions"><button type="button" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="finder-supplement">Zum Produkt</button></span></span></article>';
+  }
+
+  function alternativeDifference(product, main) {
+    if (!main) return "";
+    if (product.sizeProfile !== main.sizeProfile) {
+      if (product.sizeProfile === "large") return "größer & präsenter";
+      if (product.sizeProfile === "compact") return "kompakter & beweglicher";
+    }
+    if (product.weightClass !== main.weightClass) {
+      if (product.weightClass === "heavy") return "schwerer & standfester";
+      if (product.weightClass === "light") return "leichter zu bewegen";
+    }
+    if (product.material !== main.material) return "ähnlicher Einsatz, andere Holzart";
+    return "ähnlicher Einsatz, andere Ausführung";
   }
 
   function hasVerifiedListing(product) {
