@@ -10,6 +10,10 @@ const allowedCanonicalAliases = new Map([
     "schneidebrett-oel-vergleich/index.html",
     "https://edlehoelzer.de/welches-oel-schneidebrett/",
   ],
+  [
+    "teigschaber-sauerteig/index.html",
+    "https://edlehoelzer.de/teigschaber-holz/",
+  ],
 ]);
 
 function walk(directory) {
