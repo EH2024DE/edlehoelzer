@@ -1932,6 +1932,13 @@
       "dimensions": "41,5 × 39,8 × 5 cm",
       "dimensionsVerifiedAt": "2026-08-31",
       "dimensionsSource": "etsy-listing-4455205567",
+      "videos": [
+        {
+          "src": "/assets/product-videos/eiche-stirnholz-quadrat-etsy.mp4",
+          "poster": "/assets/product-videos/posters/eiche-stirnholz-quadrat-etsy.jpg",
+          "alt": "Massiver Eiche-Stirnholz-Hackblock im Produktvideo"
+        }
+      ],
       "visibility": "grid",
       "inquiryPossible": true,
       "availabilityVerifiedAt": "2026-08-31",
