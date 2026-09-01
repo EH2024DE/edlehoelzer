@@ -2038,6 +2038,21 @@ section[id]{scroll-margin-top:88px}
 .teigschaberGalleryCta{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:16px;padding-top:16px;border-top:1px solid #ded6cd}
 .teigschaberGalleryCta p{margin:0;max-width:520px;color:#615b55}
 @media(max-width:640px){.teigschaberGalleryCta{align-items:stretch;flex-direction:column}.teigschaberGalleryCta .btn{width:100%;text-align:center}}
+.accessoryHero{background:#f3eee8;border-bottom:1px solid var(--line)}
+.accessoryHero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.72fr);align-items:center;gap:clamp(28px,6vw,88px);min-height:620px;padding-top:42px;padding-bottom:42px}
+.accessoryHero__copy{max-width:700px}
+.accessoryHero h1{margin:12px 0 20px;font-family:"Playfair Display",serif;font-size:clamp(46px,6vw,84px);line-height:1.02;letter-spacing:0}
+.accessoryHero__lead{max-width:680px;margin:0;color:#4f4a45;font-size:clamp(18px,2vw,24px);line-height:1.55}
+.accessoryHero .ctaRow{margin-top:28px}
+.accessoryHero img{display:block;width:100%;height:min(72vh,720px);object-fit:cover;border-radius:6px}
+.accessoryOwnerPage .teigschaberVariantStrip img{object-position:center bottom}
+.accessoryOwnerPage .teigschaberVariantStrip figure{flex-basis:min(190px,52vw)}
+.accessoryOwnerPage .teigschaberVariantStrip img{height:240px;aspect-ratio:auto}
+.accessoryDecisionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.accessoryDecisionGrid article{padding:26px;background:#fff;border:1px solid var(--line);border-radius:6px}
+.accessoryDecisionGrid h3{margin:0 0 14px;font-size:22px}
+.accessoryDecisionGrid ul{margin:0;padding-left:20px;color:#514c47;line-height:1.7}
+@media(max-width:760px){.accessoryHero__grid{grid-template-columns:1fr;min-height:0;padding-top:24px}.accessoryHero h1{font-size:44px}.accessoryHero img{height:auto;max-height:520px}.accessoryOwnerPage .teigschaberVariantStrip img{height:210px}.accessoryDecisionGrid{grid-template-columns:1fr}}
 .productGridEmpty p{margin:0}
 .productGridEmpty a{display:inline-flex;margin-top:12px;text-decoration:underline;text-underline-offset:3px;font-weight:800}
 .comparisonTable{display:block;width:100%;max-width:100%;border-collapse:separate;border-spacing:0;margin:24px 0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow-x:auto;box-shadow:var(--shadow);-webkit-overflow-scrolling:touch}

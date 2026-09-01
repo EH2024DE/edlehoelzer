@@ -1,6 +1,6 @@
 document.documentElement.classList.add("js");
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260731-price-options-balm";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260901-pfannenwender-woods";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -563,7 +563,7 @@ function initStickyMobileCta() {
       return true;
     }
 
-    return Array.prototype.some.call(document.querySelectorAll("#produktfinder, #product-finder, [data-product-finder], #produkte-grid, #products-grid, .homepageProductGrid, [data-finder-result], .compareBar:not([hidden])"), function (element) {
+    return Array.prototype.some.call(document.querySelectorAll("#produktfinder, #product-finder, [data-product-finder], #produkte-grid, #products-grid, .homepageProductGrid, .pflege-produkt, .oilOutcomeCard, [data-finder-result], .compareBar:not([hidden])"), function (element) {
       if (element.hidden) {
         return false;
       }
