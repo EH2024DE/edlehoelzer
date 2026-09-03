@@ -1465,6 +1465,8 @@ section[id]{scroll-margin-top:88px}
   display:flex;
   flex:0 0 300px;
   flex-direction:column;
+  width:300px;
+  height:380px;
   margin:0;
   background:#fff;
   border:1px solid var(--line);
@@ -1475,7 +1477,8 @@ section[id]{scroll-margin-top:88px}
 }
 .pressImageGrid img{
   width:100%;
-  aspect-ratio:4/3;
+  height:225px;
+  flex:0 0 225px;
   object-fit:cover;
   display:block;
 }
@@ -1498,8 +1501,15 @@ section[id]{scroll-margin-top:88px}
     padding:4px 24px 12px;
     scroll-padding-left:24px;
   }
-  .pressImageGrid figure{flex-basis:min(68vw,260px)}
-  .pressImageGrid img{aspect-ratio:4/3}
+  .pressImageGrid figure{
+    flex-basis:260px;
+    width:260px;
+    height:360px;
+  }
+  .pressImageGrid img{
+    height:195px;
+    flex-basis:195px;
+  }
 }
 .premiumCardGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .premiumCardGrid--three{grid-template-columns:repeat(3,minmax(0,1fr))}
