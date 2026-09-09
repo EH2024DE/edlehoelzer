@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { loadPhoto, savePhoto } from './photo-cache.js';
 import { t, english, translateDOM } from './i18n.js';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
@@ -406,8 +407,13 @@ function drawMarkers() {
           .join("")
       : "";
 }
-$("file").onchange = async (e) => {
-  const file = e.target.files[0];
+let currentPhoto=null;
+function rememberPhoto(){if(currentPhoto)savePhoto({file:currentPhoto,points:points.map(p=>[...p]),w:$('refW').value,d:$('refD').value,confirmed:!!homography&&!calibrating,proposed:referenceProposed,white:$('whiteReference').checked});}
+const forgetPhoto=document.createElement('button');forgetPhoto.type='button';forgetPhoto.className='photo-tips-help';forgetPhoto.hidden=true;
+forgetPhoto.textContent=english?'Remove saved photo':'Gespeichertes Foto entfernen';journey.append(forgetPhoto);
+forgetPhoto.onclick=async()=>{await savePhoto(null);currentPhoto=null;if(photoURL)URL.revokeObjectURL(photoURL);photoURL=null;$('photo').removeAttribute('src');homography=null;referenceProposed=false;calibrating=true;paperWhite=null;$('room').disabled=true;forgetPhoto.hidden=true;refreshColor();setMode('studio');};
+const cacheNote=document.createElement('p');cacheNote.className='note';cacheNote.textContent=english?'Your photo stays only on your device and is not uploaded. It expires after one day; you can remove it at any time.':'Dein Foto bleibt nur auf deinem Gerät und wird nicht hochgeladen. Nach einem Tag verfällt die Speicherung automatisch; du kannst es jederzeit entfernen.';journey.append(cacheNote);
+async function usePhoto(file,saved){
   if (!file) return;
   if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
     status(
@@ -445,11 +451,17 @@ $("file").onchange = async (e) => {
     $('detect').hidden=false;
     $('swap').hidden=false;
     setMode("room");
+    currentPhoto=file;forgetPhoto.hidden=false;
+    if(saved){points=saved.points;$('refW').value=saved.w;$('refD').value=saved.d;$('whiteReference').checked=saved.white;referenceProposed=saved.proposed;setMode('room');if(saved.confirmed)$('apply').click();}
+    rememberPhoto();
   } catch {
     URL.revokeObjectURL(url);
     status("Das Foto konnte nicht geöffnet werden. Bitte als JPEG versuchen.");
   }
-  e.target.value = "";
+}
+$("file").onchange = async (e) => {
+  await usePhoto(e.target.files[0]);
+  e.target.value='';
 };
 $("apply").onclick = () => {
   try {
@@ -474,6 +486,7 @@ $("apply").onclick = () => {
     $('detect').hidden=$('swap').hidden=true;
     setMode("room");
     status('Referenz übernommen. Du kannst das Brett jetzt auf dem Tresen verschieben.');
+    rememberPhoto();
     if(!document.querySelector('.workspace').classList.contains('expanded'))document.querySelector('.workspace').scrollIntoView({block:'start',behavior:'smooth'});
   } catch (e) {
     homography=null;
@@ -697,7 +710,7 @@ if(!initialKey){
   document.querySelector('.workspace').hidden=true;
   document.querySelector('aside').hidden=true;
   document.querySelector('.page-heading').textContent=params.get('lang')==='en'?'This board is not available for preview.':'Dieses Brett ist nicht für die Vorschau verfügbar.';
-}else select(initialKey).catch(() =>
+}else select(initialKey).then(async()=>{const saved=await loadPhoto();if(saved?.file&&!currentPhoto)await usePhoto(saved.file,saved);}).catch(() =>
   status("Die Produktansicht konnte nicht geladen werden. Bitte neu laden."),
 );
 resize();
