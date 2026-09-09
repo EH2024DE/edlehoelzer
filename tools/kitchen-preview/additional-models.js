@@ -6,14 +6,6 @@ export default {
     image:'/assets/review/4451487112.jpg',quad:[.245,.145,.759,.173,.759,.712,.245,.776],handles:true },
   walnutMaple: { listingId:'4450988121',name:'Nussbaum & Ahorn – Streifenbrett',w:42,d:27,h:4.4,
     image:'/assets/review/4450988121-3.jpg',quad:[.052,.535,.614,.359,.966,.460,.421,.701] },
-  servingSet: { listingId:'4440690649',name:'Servierbrett-Set – Dreiteilig',w:59,d:1,h:44,standing:true,
-    image:'/assets/review/4440690649-3.jpg',quad:[0,0,1,0,1,1,0,1],
-    dimensionLabel:'Bretter: 44 × 21,5 · 39 × 18 · 34 × 14 cm; stehende Ansicht ohne Halter',
-    parts:[
-      {w:14,h:34,x:-22,quad:[.252,.278,.385,.278,.385,.736,.252,.736]},
-      {w:18,h:39,x:-4,quad:[.405,.214,.576,.214,.576,.736,.405,.736]},
-      {w:21.5,h:44,x:17.5,quad:[.603,.135,.816,.135,.816,.736,.603,.736]}
-    ] },
   oakXXLGroove: { listingId:'1824089235',name:'Eiche Stirnholz XXL – Mit Saftrille',w:47.5,d:36,h:5,
     image:'/assets/review/1824089235.jpg',quad:[.188,.268,.856,.289,.856,.661,.193,.696] },
   mixedGroove: { listingId:'4297451235',name:'Eiche, Esche & Buche – Mit Saftrille',w:42.7,d:36.4,h:4.6,

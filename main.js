@@ -1661,7 +1661,7 @@ function initProductExperience() {
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
         renderPurchaseHeadline(product) +
         renderEarlyPurchaseAction(product) +
-        (product.category === 'board' && product.active !== false && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt"><p>' + (isEnglish ? 'Will it fit your kitchen?' : 'Passt es in deine Küche?') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
+        (product.category === 'board' && product.active !== false && String(product.listingId) !== '4440690649' && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt"><p>' + (isEnglish ? 'Will it fit your kitchen?' : 'Passt es in deine Küche?') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
         '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
         '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
         renderExperiencePromise(product) +
