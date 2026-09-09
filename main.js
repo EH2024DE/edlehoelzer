@@ -1,4 +1,8 @@
 document.documentElement.classList.add("js");
+if (!document.querySelector('[data-kitchen-preview-loader]')) {
+  var kitchenStyle=document.createElement('link');kitchenStyle.rel='stylesheet';kitchenStyle.href='/assets/css/kitchen-preview-entry.css';document.head.appendChild(kitchenStyle);
+  var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
+}
 
 var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260901-pfannenwender-woods";
 
@@ -1550,7 +1554,7 @@ function initProductExperience() {
   });
 
   document.addEventListener("keydown", function (event) {
-    if (!activeDialog) {
+    if (!activeDialog || document.querySelector('.kitchenPreviewDialog[open]')) {
       return;
     }
 
@@ -1657,6 +1661,7 @@ function initProductExperience() {
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
         renderPurchaseHeadline(product) +
         renderEarlyPurchaseAction(product) +
+        (product.category === 'board' && product.active !== false && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt"><p>' + (isEnglish ? 'Will it fit your kitchen?' : 'Passt es in deine Küche?') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
         '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
         '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
         renderExperiencePromise(product) +
@@ -2978,6 +2983,9 @@ function initProductExperience() {
     if (!product) {
       return "";
     }
+    if (availabilityStatus(product) === "made_to_order") {
+      return isEnglish ? "Made to order; production and delivery time agreed individually" : "Auf Bestellung gefertigt; Fertigungs- und Lieferzeit nach Abstimmung";
+    }
     if (!isAvailableProduct(product)) {
       return "";
     }
@@ -3081,7 +3089,7 @@ function initProductExperience() {
   }
 
   function hasVerifiedListing(product) {
-    return Boolean(isAvailableProduct(product) && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
+    return Boolean((isAvailableProduct(product) || availabilityStatus(product) === "made_to_order") && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
   }
 
   function availabilityStatus(product) {
@@ -4656,7 +4664,7 @@ function initProductsPage() {
   }
 
   function hasVerifiedListing(product) {
-    return Boolean(isAvailableProduct(product) && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
+    return Boolean((isAvailableProduct(product) || availabilityStatus(product) === "made_to_order") && product.directListingUrlVerified === true && (product.etsyListingUrl || product.etsyUrl));
   }
 
   function etsyActionLabel(product) {

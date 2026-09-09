@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dein Brett im Raum | Edle Hölzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/brettvorschau/assets/index-BTxUlwe3.js"></script>
+    <link rel="stylesheet" crossorigin href="/brettvorschau/assets/index-Lr0Fq373.css">
+  </head>
+  <body>
+    <header>
+      <strong class="brand"><img src="/brettvorschau/assets/logo-D6NH5TlU.png" alt="" width="40" height="40">Edle Hölzer</strong><span>Dein Brett im Raum <small>Vorschau</small></span>
+    </header>
+    <main>
+      <div class="page-heading"><h1>Passt das Brett auf deinen Tresen?</h1><p class="intro">Holzbild, Platzbedarf und Stärke gemeinsam betrachten.</p></div>
+      <section class="workspace">
+        <div class="toolbar">
+          <div class="modes">
+            <button id="studio" aria-pressed="true">3D-Ansicht</button
+            ><button id="room" disabled aria-pressed="false">
+              Dein Tresen
+            </button>
+          </div>
+          <button id="expand" title="Vollbildansicht öffnen" aria-label="Vollbildansicht öffnen" aria-expanded="false"><i data-lucide="maximize"></i></button>
+          <button id="toggleControls" hidden aria-label="Bedienung ausblenden" title="Bedienung ausblenden" aria-pressed="true"><i data-lucide="sliders-horizontal"></i></button>
+          <button
+            id="reset"
+            title="Ansicht zurücksetzen"
+            aria-label="Ansicht zurücksetzen"
+          >
+            <i data-lucide="rotate-ccw"></i>
+          </button>
+        </div>
+        <div id="stage">
+          <img id="photo" alt="Dein Tresen" hidden />
+          <div id="renderer"></div>
+          <svg id="markers" aria-label="Referenzfläche markieren"></svg
+          ><span id="sceneTag">Freie 3D-Ansicht</span>
+        </div>
+        <div class="live-controls">
+          <label class="range">Drehung <output id="angleValue">0°</output><input id="angle" type="range" min="-180" max="180" value="0"></label>
+          <label class="range">Holzfarbe <output id="colorValue">65 %</output><input id="color" aria-label="Holzfarbe von wärmer zu neutraler" type="range" min="0" max="100" value="65"><small>wärmer ↔ neutraler</small></label>
+        </div>
+        <p id="status" role="status">Modell wird vorbereitet …</p>
+        <div class="bottom">
+          <span id="size"></span
+          ><button
+            id="download"
+            title="Ansicht herunterladen"
+            aria-label="Ansicht herunterladen"
+          >
+            <i data-lucide="download"></i>
+          </button>
+        </div>
+        <a id="purchase" class="purchase-cta" target="_blank" rel="noopener noreferrer" hidden>Dieses Brett im Shop kaufen</a>
+      </section>
+      <aside>
+        <label class="model-choice" for="modelChoice">Brett auswählen<select id="modelChoice"></select></label>
+        <div class="products">
+          <button class="product selected" data-product="walnut">
+            <img
+              src="/brettvorschau/assets/walnut-orfqMBXb.jpg"
+              alt="Nussbaum mit Eichenrahmen"
+            /><span
+              >Nussbaum & Eiche<small>48 × 36,5 × 4,2 cm</small></span
+            ></button
+          ><button class="product" data-product="oak">
+            <img src="/brettvorschau/assets/oak-C5XGcKYF.jpg" alt="Eiche Stirnholz" /><span
+              >Eiche Stirnholz<small>41,5 × 39,8 × 5 cm</small></span
+            >
+          </button>
+        </div>
+        <label class="upload" for="file"
+          ><i data-lucide="image-plus"></i> Tresenfoto auswählen</label
+        ><input
+          id="file"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          hidden
+        />
+        <div id="calibration" hidden>
+          <button id="detect">A4-Blatt im Foto suchen</button>
+          <button id="editReference">Ecken vergrößert setzen</button>
+          <p id="detectStatus" role="status" hidden></p>
+          <details id="referenceDetails"><summary>Referenzmaße und Hinweise</summary><p id="cameraNote"></p>
+          <p>
+            Lege ein A4-Blatt flach auf den Tresen. Ziehe die vier Punkte auf
+            seine Ecken: hinten links, hinten rechts, vorne rechts, vorne links.
+            Richte die hintere Blattkante parallel zur vorderen Tresenkante aus.
+            Ein bedrucktes weißes Blatt mit freiem weißen Rand ist meist ebenfalls geeignet.
+          </p>
+          <div class="inputs">
+            <label
+              >Breite (cm)<input
+                id="refW"
+                type="number"
+                value="29.7"
+                min="5"
+                max="400"
+                step="0.1" /></label
+            ><label
+              >Tiefe (cm)<input
+                id="refD"
+                type="number"
+                value="21"
+                min="5"
+                max="400"
+                step="0.1"
+            /></label>
+          </div>
+          <button id="swap">Lange / kurze Blattkante tauschen</button>
+          <label><input id="whiteReference" type="checkbox" checked> Referenz ist weißes Papier</label>
+          </details>
+          <button id="apply" class="primary">Brett auf den Tresen setzen</button
+          ><button id="recalibrate" hidden>Referenz korrigieren</button>
+        </div>
+        <p class="note">Farbannäherung, keine farbverbindliche Vorschau. 0 % zeigt die warme Studioaufnahme.</p>
+        <details>
+          <summary>Genauigkeit der Vorschau</summary>
+          <p>
+            Die Grundfläche folgt deinen Referenzpunkten. Die Höhenwirkung wird
+            aus der Fotoperspektive geschätzt, nicht vermessen. Holzfarbe,
+            Seitenmaserung, Rundungen und Schatten sind Annäherungen; Füße und
+            Griffmulden sind nicht modelliert.
+          </p>
+          <p>
+            Für dein Foto: normale 1×-Kamera, schräg von oben, alle vier
+            Referenzecken sichtbar. Keine Panorama- oder
+            Ultraweitwinkelaufnahme. Die Referenz muss auf derselben Fläche wie
+            das Brett liegen.
+          </p>
+          <p>Dein Foto bleibt in diesem Browser. Es wird nicht hochgeladen.</p>
+        </details>
+        <p class="note">Prototyp zur Entscheidungshilfe, kein Aufmaß.</p>
+      </aside>
+    </main>
+  </body>
+</html>

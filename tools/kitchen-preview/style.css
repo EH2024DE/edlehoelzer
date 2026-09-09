@@ -1,0 +1,302 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f7f8f7;
+  color: #202923;
+  font:
+    15px/1.5 system-ui,
+    sans-serif;
+}
+header {
+  height: 68px;
+  padding: 0 4%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dce2de;
+  background: white;
+}
+header strong {
+  font-size: 23px;
+}
+header span {
+  color: #59665e;
+}
+small {
+  display: block;
+  font-size: 12px;
+  color: #637067;
+}
+header small {
+  display: inline;
+  margin-left: 12px;
+}
+main {
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 32px;
+  padding: 28px 4%;
+}
+h1 {
+  font-size: 27px;
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+h2 {
+  font-size: 17px;
+  margin: 18px 0 8px;
+}
+.intro {
+  color: #5c6960;
+  margin: 0 0 22px;
+}
+button,
+.upload {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid #cbd5ce;
+  border-radius: 5px;
+  background: white;
+  color: inherit;
+  padding: 10px 14px;
+  min-height: 44px;
+}
+button:focus-visible,
+.upload:focus-within,
+input:focus-visible {
+  outline: 3px solid #418b72;
+  outline-offset: 3px;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+button svg,
+.upload svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.toolbar,
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+.modes {
+  display: flex;
+  gap: 4px;
+}
+.modes button[aria-pressed="true"] {
+  background: #203f33;
+  color: white;
+  border-color: #203f33;
+}
+#stage {
+  width: 100%;
+  aspect-ratio: 1.15;
+  position: relative;
+  background: #e9edea;
+  overflow: hidden;
+  border-radius: 6px;
+}
+#photo,
+#renderer,
+#markers {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+#photo {
+  object-fit: fill;
+}
+#renderer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+#markers {
+  pointer-events: none;
+  overflow: visible;
+}
+#markers circle {
+  pointer-events: all;
+  cursor: grab;
+  touch-action: none;
+  stroke: #fff;
+  stroke-width: 3;
+  fill: #244e3e;
+}
+#markers text {
+  pointer-events: none;
+  fill: #fff;
+  text-anchor: middle;
+  font: bold 13px system-ui;
+}
+#sceneTag {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 12px;
+  background: #fffe;
+  padding: 5px 9px;
+  border-radius: 3px;
+  pointer-events: none;
+}
+#status {
+  min-height: 44px;
+  color: #5b665f;
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+.bottom {
+  border-top: 1px solid #d7ded9;
+  font-size: 14px;
+}
+.product {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  text-align: left;
+  gap: 12px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+.product img {
+  width: 66px;
+  height: 66px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.product.selected {
+  border: 2px solid #305b48;
+  padding: 7px;
+  background: #edf4ef;
+}
+.product span {
+  font-weight: 600;
+}
+.product small {
+  margin-top: 4px;
+  font-weight: 400;
+}
+.upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 22px 0 12px;
+  background: #203f33;
+  color: #fff;
+  border-color: #203f33;
+}
+.range {
+  display: block;
+  margin: 24px 0;
+}
+.range output {
+  float: right;
+}
+input[type="range"] {
+  width: 100%;
+  accent-color: #305b48;
+  min-height: 36px;
+}
+input[type="number"] {
+  display: block;
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #bac7bf;
+  border-radius: 4px;
+  font: inherit;
+}
+.inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+}
+.inputs label {
+  font-size: 12px;
+}
+#calibration p,
+details p,
+.note {
+  font-size: 13px;
+  color: #5b685f;
+}
+#calibration button {
+  width: 100%;
+  margin-top: 8px;
+}
+.primary {
+  background: #203f33;
+  color: white;
+}
+details {
+  border-top: 1px solid #d5ddd7;
+  padding-top: 16px;
+}
+summary {
+  cursor: pointer;
+  font-size: 14px;
+}
+.note {
+  font-size: 12px;
+  margin-top: 24px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 800px) {
+  header {
+    height: 56px;
+  }
+  header strong {
+    font-size: 20px;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    gap: 24px;
+  }
+  #stage {
+    aspect-ratio: 1.1;
+    max-height: 62vh;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .product {
+    flex-direction: column;
+    align-items: start;
+    font-size: 13px;
+  }
+  .product img {
+    width: 100%;
+    height: 90px;
+  }
+  .product small {
+    font-size: 11px;
+  }
+  aside {
+    padding-bottom: 28px;
+  }
+}
+[id="stage"] {
+  max-height: 72vh;
+}
