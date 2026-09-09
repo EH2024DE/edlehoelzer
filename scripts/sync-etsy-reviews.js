@@ -42,6 +42,12 @@ async function main() {
   const resolvedShopId = await resolveShopId(SHOP_ID);
   const shop = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(resolvedShopId)}`);
   const reviews = await fetchShopReviews(resolvedShopId);
+  if (process.argv.includes('--inspect')) {
+    console.log(JSON.stringify(reviews.slice().sort((a,b)=>b.create_timestamp-a.create_timestamp).slice(0,5).map(review=>({
+      listingId:review.listing_id,rating:review.rating,text:review.review,createdAt:review.create_timestamp
+    })),null,2));
+    return;
+  }
   const nextMeta = buildMetaFromShop(existingMeta, shop);
 
   if (!nextMeta) {

@@ -47,6 +47,14 @@ async function main() {
   const products = Array.isArray(catalog) ? catalog : catalog.products || [];
   const resolvedShopId = await resolveShopId({ apiKey, shopId });
   const activeListings = await fetchActiveListings({ apiKey, shopId: resolvedShopId });
+  if (args.has('--snapshot')) {
+    const directory = path.join(ROOT, 'logs');
+    fs.mkdirSync(directory, { recursive: true });
+    fs.writeFileSync(path.join(directory, 'etsy-active-listings.json'), JSON.stringify({
+      fetchedAt: new Date().toISOString(), listings: activeListings
+    }, null, 2) + '\n');
+    console.log('[etsy:products] Lokaler Prüfsnapshot: logs/etsy-active-listings.json (keine Zugangsdaten).');
+  }
   const activeListingIds = new Set(activeListings.map((listing) => String(listing.listing_id || listing.listingId)).filter(Boolean));
   const catalogListingIds = new Set(products.map((product) => String(product.listingId || "")).filter(Boolean));
 
@@ -252,7 +260,9 @@ function applyAvailability(products, activeListingIds, restoreActive) {
       return;
     }
 
-    changed = setIfChanged(product, "availabilityStatus", "available") || changed;
+    if (product.availabilityStatus !== "made_to_order") {
+      changed = setIfChanged(product, "availabilityStatus", "available") || changed;
+    }
     changed = setIfChanged(product, "directListingUrlVerified", true) || changed;
 
     if (restoreActive) {
@@ -395,6 +405,7 @@ function printHelp() {
   console.log("  npm run sync:etsy-products");
   console.log("  npm run sync:etsy-products -- --write");
   console.log("  npm run sync:etsy-products -- --write --restore-active");
+  console.log("  npm run sync:etsy-products -- --snapshot  # lokale Listingdaten in logs/etsy-active-listings.json");
   console.log("");
   console.log("Benötigte lokale .env-Werte:");
   console.log("  ETSY_API_KEY=...         # oder ETSY_API_KEY_HEADER / ETSY_SHARED_SECRET, je nach lokalem Etsy-App-Setup");

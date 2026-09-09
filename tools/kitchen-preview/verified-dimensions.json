@@ -1,0 +1,12 @@
+{
+  "source": "Etsy active listing descriptions, API snapshot 2026-09-08",
+  "units": "cm",
+  "ownerConfirmedAt": "2026-09-08",
+  "ownerConfirmedListingIds": ["1894223313", "1859366842", "4299097497", "4358136560"],
+  "listings": {
+    "1894223313": { "width": 42.6, "depth": 34.7, "thickness": 3.3 },
+    "1859366842": { "width": 33.5, "depth": 29.5, "thickness": 4.3 },
+    "4299097497": { "width": 34.4, "depth": 33.6, "thickness": 4.8 },
+    "4358136560": { "width": 32.8, "depth": 15.8, "thickness": 3.8 }
+  }
+}
