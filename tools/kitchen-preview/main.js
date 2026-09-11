@@ -56,8 +56,26 @@ let tipsSeen=false;
 try{tipsSeen=localStorage.getItem(tipsKey)==='1';}catch{}
 try{tipsSeen=tipsSeen||window.parent.__edlePhotoTipsSeen===true;}catch{}
 if(!tipsSeen)requestAnimationFrame(()=>{if(!new URLSearchParams(location.search).has('listing')||Object.values(catalog).some(model=>model.listingId===new URLSearchParams(location.search).get('listing')))tipsDialog.showModal();});
-photoTips.querySelector('details').addEventListener('toggle',event=>{
-  if(event.target.open){const image=photoTips.querySelector('img');if(!image.hasAttribute('src'))image.src=assetPath('assets/worktop-example.jpg');}
+const exampleDetails=photoTips.querySelector('details');
+const exampleKey='edle-kitchen-example-collapsed-until';
+function exampleCollapsed(){
+  let until=0;
+  try{until=Number(localStorage.getItem(exampleKey))||0;}catch{}
+  try{until=Math.max(until,Number(window.parent.__edleExampleCollapsedUntil)||0);}catch{}
+  return until>Date.now();
+}
+function loadExample(){const image=photoTips.querySelector('img');if(!image.hasAttribute('src'))image.src=assetPath('assets/worktop-example.jpg');}
+exampleDetails.open=!exampleCollapsed();
+if(exampleDetails.open)loadExample();
+let exampleWasOpen=exampleDetails.open;
+exampleDetails.addEventListener('toggle',()=>{
+  if(exampleDetails.open)loadExample();
+  if(exampleWasOpen&&!exampleDetails.open){
+    const until=Date.now()+24*60*60*1000;
+    try{localStorage.setItem(exampleKey,String(until));}catch{}
+    try{window.parent.__edleExampleCollapsedUntil=until;}catch{}
+  }
+  exampleWasOpen=exampleDetails.open;
 });
 stage.insertAdjacentElement('afterend',$('calibration'));
 const viewDock=document.createElement('div');
