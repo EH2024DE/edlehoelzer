@@ -82,8 +82,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -119,9 +121,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Knife-Friendly Cutting Board</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Knife-Friendly Cutting Board</h1>
-        <p class="seoHero__lead">Good knives deserve a board that treats them well. End grain lets the blade move between upright fibres, so knives stay sharp for longer.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>Surface matters</dt><dd>Wood is a more suitable cutting surface than glass or stone for protecting a knife edge.</dd></div>
+          <div><dt>Choose carefully</dt><dd>Species, construction and finish affect the cutting feel.</dd></div>
+          <div><dt>Keep perspective</dt><dd>Knives still wear and need sharpening; no board guarantees a fixed sharpening interval.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Inquiry%20Knife-Friendly%20Cutting%20Board" class="btn btn--emphasis" data-umami-event="email-kontakt">Send inquiry</a>
+          <a data-summary-cta data-cta-location="summary" href="/en/products.html#products-grid" class="btn btn--emphasis">Compare wooden boards</a>
           <a href="/en/products.html#products-grid" class="btn">View all products</a>
         </div>
       </div>

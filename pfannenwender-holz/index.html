@@ -36,8 +36,10 @@
   ]}
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body class="accessoryOwnerPage">
+<body class="hasPageSummary accessoryOwnerPage">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -61,8 +63,15 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Pfannenwender aus Holz</nav>
         <p class="eyebrow eyebrow--dark">Massivholz für den Kochalltag</p>
         <h1>Pfannenwender aus Holz</h1>
-        <p class="accessoryHero__lead">Ein sauber geschliffener Küchenhelfer für Pfanne und Kochfeld. Du wählst die Holzart und bei mehreren verfügbaren Exemplaren auch dein bevorzugtes Holzbild.</p>
-        <div class="ctaRow"><a class="btn btn--emphasis" href="#pfannenwender-auswahl">Pfannenwender ansehen</a></div>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Am Herd</dt><dd>Zum Wenden und Anheben mit einer glatt geschliffenen Holzkante.</dd></div>
+          <div><dt>Auswahl</dt><dd>Esche, Kastanie, Kambala, Nussbaum und Buche sind bebildert; Zwetschge und Wenge gehören ebenfalls zum Angebot.</dd></div>
+          <div><dt>Pflege</dt><dd>Von Hand reinigen und trocknen lassen. Die jeweils verfügbaren Varianten findest du im Shop.</dd></div>
+        </dl>
+      </section>
+        <div class="ctaRow"><a data-etsy-link target="_blank" rel="noopener" data-summary-cta data-cta-location="summary" class="btn btn--emphasis" href="https://edlehoelzervonkoc.etsy.com/listing/4470469056?utm_source=edlehoelzer.de&amp;utm_medium=referral&amp;utm_campaign=page_summary&amp;utm_content=pfannenwender">Pfannenwender im Shop kaufen</a></div>
       </div>
       <img src="/assets/pfannenwender-holz/pfannenwender-anwendung.jpg" alt="Pfannenwender aus Massivholz beim Kochen in einer Pfanne" width="1067" height="1600" loading="eager" fetchpriority="high" decoding="async">
     </div>

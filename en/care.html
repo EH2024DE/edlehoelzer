@@ -374,8 +374,10 @@
     }
   </style>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
   <header class="topbar">
     <div class="container topbar__inner">
       <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -413,12 +415,16 @@
       <div class="pflege-wrap">
         <p class="eyebrow eyebrow--dark">Care</p>
         <h1>How to care for your cutting board</h1>
-        <p class="subheadline subheadline--dark">How to restore a wooden cutting board properly.</p>
-        <p class="pflege-lead">
-          A well-made board can take years of use.
-          But solid wood is not maintenance-free.
-          This is how you restore the surface properly — sand it clean, oil it right, and make it last.
-        </p>
+
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>After use</dt><dd>Clean by hand and allow the board to dry well.</dd></div>
+          <div><dt>When it feels dry</dt><dd>Follow the instructions for a suitable kitchen-wood care product.</dd></div>
+          <div><dt>If damaged</dt><dd>Have open joints, cracks or unusual areas assessed first; oil does not repair structural damage.</dd></div>
+        </dl>
+      </section>
+      <div class="summaryActions"><a class="btn btn--emphasis" href="/en/cutting-board-oil-comparison/" data-summary-cta data-cta-location="summary">View board care</a></div>
       </div>
     </section>
 

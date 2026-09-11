@@ -7,8 +7,8 @@
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="https://edlehoelzer.de/brettvorschau/" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/brettvorschau/assets/index-CfjwvCEB.js"></script>
-    <link rel="stylesheet" crossorigin href="/brettvorschau/assets/index-Lr0Fq373.css">
+    <script type="module" crossorigin src="/brettvorschau/assets/index-Bz7bg9cq.js"></script>
+    <link rel="stylesheet" crossorigin href="/brettvorschau/assets/index-B0OCo97b.css">
   </head>
   <body>
     <header>
@@ -73,6 +73,7 @@
             >
           </button>
         </div>
+        <div id="photoSources" class="photo-source-actions">
         <label class="upload" for="file"
           ><i data-lucide="image-plus"></i> Tresenfoto auswählen</label
         ><input
@@ -81,6 +82,9 @@
           accept="image/jpeg,image/png,image/webp"
           hidden
         />
+        <button id="takePhoto" type="button" class="camera-capture secondary" hidden><i data-lucide="camera"></i> Foto aufnehmen</button>
+        <input id="cameraFile" type="file" accept="image/*" capture="environment" hidden />
+        </div>
         <div id="calibration" hidden>
           <button id="detect">A4-Blatt im Foto suchen</button>
           <button id="editReference">Ecken vergrößert setzen</button>

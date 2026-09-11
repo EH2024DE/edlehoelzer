@@ -37,8 +37,10 @@
   ]}
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -78,8 +80,15 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Holzarten für Schneidebretter</nav>
         <p class="eyebrow eyebrow--dark">Material richtig auswählen</p>
         <h1>Welche Holzart eignet sich für Schneidebretter?</h1>
-        <p class="seoHero__lead">Für Schneidebretter eignen sich gut verarbeitete Hölzer, die eine belastbare und nachpflegbare Oberfläche ermöglichen. Eiche, Nussbaum, Buche, Ahorn und Esche können je nach Bauweise gut funktionieren. Wichtiger als ein pauschales Ranking sind Holzqualität, Trocknung, Konstruktion und Nutzung.</p>
-        <div class="ctaRow"><a href="#holzarten-vergleich" class="btn btn--emphasis">Holzarten vergleichen</a><a href="/produkte.html#produktfinder" class="btn" data-umami-event="produktfinder-gestartet" data-umami-event-quelle="holzarten-owner-page">Passendes Holz auswählen</a></div>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Geeignet</dt><dd>Eiche, Nussbaum, Buche, Ahorn und Esche können gute Schneidebretter ergeben.</dd></div>
+          <div><dt>Wichtiger als ein Ranking</dt><dd>Trocknung, Verarbeitung, Bauweise und Pflege müssen stimmen.</dd></div>
+          <div><dt>Deine Auswahl</dt><dd>Entscheide nach Holzbild, gewünschter Handlichkeit und Nutzung; dieselbe Holzart kann ganz unterschiedliche Bretter ergeben.</dd></div>
+        </dl>
+      </section>
+        <div class="ctaRow"><a data-summary-cta data-cta-location="summary" href="/produkte.html#produktfinder" class="btn btn--emphasis">Brett nach meinen Bedürfnissen finden</a><a href="/produkte.html#produktfinder" class="btn" data-umami-event="produktfinder-gestartet" data-umami-event-quelle="holzarten-owner-page">Passendes Holz auswählen</a></div>
       </div>
       <figure><img class="seoHero__image" src="/assets/schneidebretter-massivholz.jpg" srcset="/assets/schneidebretter-massivholz-800.jpg 533w, /assets/schneidebretter-massivholz-1200.jpg 800w, /assets/schneidebretter-massivholz.jpg 1066w" sizes="(max-width: 767px) 100vw, 50vw" alt="Schneidebretter aus verschiedenen Holzarten mit unterschiedlichen Farben und Maserungen" width="1066" height="1600" loading="eager" fetchpriority="high" decoding="async"><figcaption>Holzart, Sortierung und Zuschnitt prägen jedes Brett anders.</figcaption></figure>
     </div>

@@ -113,8 +113,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -160,9 +162,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Welches Öl für Schneidebrett?</nav>
         <p class="eyebrow eyebrow--dark">Pflegewissen aus der Werkstatt</p>
         <h1>Welches Öl für ein Schneidebrett aus Holz?</h1>
-        <p class="seoHero__lead">Finde zuerst heraus, was dein Brett wirklich braucht. Eine trockene Oberfläche lässt sich meist nachpflegen. Schäden, Geruch oder offene Fugen brauchen eine andere Entscheidung.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Geeignet</dt><dd>Öle und Balsame, die ausdrücklich für Holz mit Lebensmittelkontakt vorgesehen sind.</dd></div>
+          <div><dt>Wichtig</dt><dd>Anwendung und Aushärtung richten sich nach dem konkreten Produkt; nicht jeder Leinölfirnis ist geeignet.</dd></div>
+          <div><dt>Grenze</dt><dd>Öl hilft bei trockener Oberfläche, behebt aber keine offenen Fugen, tiefen Risse oder andere strukturelle Schäden.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#direktantwort" class="btn btn--emphasis">Zur schnellen Entscheidung</a>
+          <a data-summary-cta data-cta-location="summary" href="#oil-outcome-title" class="btn btn--emphasis">Pflegebalsam ansehen</a>
         </div>
       </div>
       <img class="seoHero__image seoHero__image--contain" src="/assets/pflegebalsam_thumbnail.jpg" alt="Pflegebalsam, Tuch und Pflegehinweis für Holz-Schneidebretter" width="1800" height="1200" decoding="async" srcset="/assets/pflegebalsam_thumbnail-800.jpg 800w, /assets/pflegebalsam_thumbnail-1200.jpg 1200w, /assets/pflegebalsam_thumbnail-1600.jpg 1600w, /assets/pflegebalsam_thumbnail.jpg 1800w" sizes="(max-width: 767px) 100vw, 50vw" loading="eager" fetchpriority="high">
@@ -171,9 +180,9 @@
 
   <section id="direktantwort" class="section section--white oilOwnerSection oilDirectAnswer">
     <div class="container container--narrow">
-      <p class="eyebrow eyebrow--dark">Direktantwort</p>
-      <h2>Geeignet ist, was ausdrücklich für Küchenholz vorgesehen ist.</h2>
-      <p class="oilDirectAnswer__text">Öl vermindert, dass eine trockene Holzoberfläche Wasser sofort aufnimmt, und hält sie angenehmer in der Nutzung. Geeignet sind Pflegeöle oder Pflegebalsame, die der Hersteller ausdrücklich für Holzoberflächen mit Lebensmittelkontakt vorsieht. Rohes Leinöl kann eine Option sein; Leinölfirnis nur bei passender Eignung und vollständiger Aushärtung. Oliven-, Sonnenblumen- und Rapsöl sind keine verlässliche Dauerpflege.</p>
+
+      <h2>Selbst pflegen oder erst prüfen lassen?</h2>
+
       <div class="oilCarePath" aria-label="Nächster Schritt bei der Schneidebrettpflege">
         <article>
           <span>Intakte Oberfläche</span>

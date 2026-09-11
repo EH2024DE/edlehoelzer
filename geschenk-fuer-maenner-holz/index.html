@@ -80,8 +80,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -127,9 +129,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Hochwertiges Geschenk für Männer aus Holz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Hochwertiges Geschenk für Männer aus Holz</h1>
-        <p class="seoHero__lead">Kein Klischee nötig. Für Menschen, die gern kochen, grillen oder Material gern in der Hand haben, ist ein massives Holzbrett kein generisches Geschenk: Es wird geschnitten, serviert, gepflegt und bleibt sichtbar.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Für wen</dt><dd>Für Männer, die gerne kochen, grillen oder Brot backen.</dd></div>
+          <div><dt>Passend auswählen</dt><dd>Ein kräftiges Brett für die Grillstation, ein handliches Brotzeitbrett oder ein Küchenhelfer für den Alltag.</dd></div>
+          <div><dt>Persönlich</dt><dd>Entscheidend sind Nutzung, Platz und Budget; eine Gravur ist auf Wunsch möglich.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-maenner-preview" class="btn btn--emphasis">Geschenke ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-maenner-preview" class="btn btn--emphasis">Geschenkideen ansehen</a>
           <a href="#maenner-geschenkberatung" class="walnutTextLink">Zur Geschenkberatung</a>
         </div>
       </div>

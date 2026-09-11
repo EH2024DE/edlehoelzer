@@ -5,13 +5,13 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
 import { handledGeometry, servingGeometry } from './model-shapes.js';
 import PerspT from "./perspective.js";
-import { createIcons, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } from "lucide";
+import { createIcons, Camera, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } from "lucide";
 import { plane, cameraAxes } from "./geometry.js";
 import { cameraMetadata, detectPaper, samplePaper } from './photo-analysis.js';
 import { createReferenceEditor } from './reference-editor.js';
 import additionalModels from './additional-models.js';
 import eligibility from './preview-eligibility.json';
-createIcons({ icons: { ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } });
+createIcons({ icons: { Camera, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } });
 const $ = (id) => document.getElementById(id),
   stage = $("stage");
 const assetPath = path => `${import.meta.env.BASE_URL}${path.replace(/^\//,'')}`;
@@ -21,7 +21,15 @@ journey.innerHTML='<ol></ol><h2 aria-live="polite"></h2>';
 const stepNames=english?['Photo','Reference','Check','Preview']:['Foto','Referenz','Prüfen','Vorschau'];
 journey.querySelector('ol').replaceChildren(...stepNames.map(name=>{const item=document.createElement('li');item.textContent=name;return item;}));
 document.querySelector('.workspace').prepend(journey);
-journey.append(document.querySelector('.upload'),$('file'));
+journey.append($('photoSources'));
+// Android photo pickers do not consistently offer a camera alongside the gallery.
+const touchInput=window.matchMedia('(any-pointer: coarse)');
+function updateCameraOption(){
+  $('takePhoto').hidden=!(touchInput.matches||/Android|iPhone|iPad/i.test(navigator.userAgent));
+}
+updateCameraOption();
+touchInput.addEventListener('change',updateCameraOption);
+$('takePhoto').onclick=()=>$('cameraFile').click();
 const photoTips=document.createElement('div');
 photoTips.className='photo-preparation';
 photoTips.innerHTML=english?`<p><strong>Before you take your photo</strong></p><ul><li>Lay a flat A4 sheet (29.7 × 21 cm) where the board will go. Keep all four corners visible and its long edge parallel to the front of the worktop.</li><li>Photograph from slightly above and to one side, using the normal 1× camera. Include some of the kitchen, but keep the paper clearly visible.</li><li>Use even light without strong glare. White paper is best; printed paper with a clear white border usually works too.</li></ul><details><summary>See an example photo</summary><figure><img alt="Kitchen photographed diagonally from above, with an A4 sheet lying flat on the worktop" width="2880" height="3840"><figcaption>All four paper corners are visible, with enough of the surrounding worktop to judge the space.</figcaption></figure></details>`:`<p><strong>Bevor du dein Foto aufnimmst</strong></p><ul><li>Lege ein A4-Blatt (29,7 × 21 cm) flach an die Stelle, an der dein Brett liegen soll. Alle vier Ecken bleiben sichtbar, die lange Blattkante liegt parallel zur vorderen Tresenkante.</li><li>Fotografiere leicht schräg von oben und seitlich mit der normalen 1×-Kamera. Zeige etwas von deiner Küche, aber lass das Blatt gut erkennbar im Bild.</li><li>Achte auf gleichmäßiges Licht ohne starke Spiegelungen. Weißes Papier ist ideal; ein bedrucktes Blatt mit freiem weißen Rand funktioniert meist ebenfalls.</li></ul><details><summary>Beispielfoto ansehen</summary><figure><img alt="Küche schräg von oben fotografiert, mit einem flach auf dem Tresen liegenden A4-Blatt" width="2880" height="3840"><figcaption>Alle vier Blattecken sind sichtbar. Der umliegende Tresen vermittelt ein Gefühl für den verfügbaren Platz.</figcaption></figure></details>`;
@@ -48,8 +56,26 @@ let tipsSeen=false;
 try{tipsSeen=localStorage.getItem(tipsKey)==='1';}catch{}
 try{tipsSeen=tipsSeen||window.parent.__edlePhotoTipsSeen===true;}catch{}
 if(!tipsSeen)requestAnimationFrame(()=>{if(!new URLSearchParams(location.search).has('listing')||Object.values(catalog).some(model=>model.listingId===new URLSearchParams(location.search).get('listing')))tipsDialog.showModal();});
-photoTips.querySelector('details').addEventListener('toggle',event=>{
-  if(event.target.open){const image=photoTips.querySelector('img');if(!image.hasAttribute('src'))image.src=assetPath('assets/worktop-example.jpg');}
+const exampleDetails=photoTips.querySelector('details');
+const exampleKey='edle-kitchen-example-collapsed-until';
+function exampleCollapsed(){
+  let until=0;
+  try{until=Number(localStorage.getItem(exampleKey))||0;}catch{}
+  try{until=Math.max(until,Number(window.parent.__edleExampleCollapsedUntil)||0);}catch{}
+  return until>Date.now();
+}
+function loadExample(){const image=photoTips.querySelector('img');if(!image.hasAttribute('src'))image.src=assetPath('assets/worktop-example.jpg');}
+exampleDetails.open=!exampleCollapsed();
+if(exampleDetails.open)loadExample();
+let exampleWasOpen=exampleDetails.open;
+exampleDetails.addEventListener('toggle',()=>{
+  if(exampleDetails.open)loadExample();
+  if(exampleWasOpen&&!exampleDetails.open){
+    const until=Date.now()+24*60*60*1000;
+    try{localStorage.setItem(exampleKey,String(until));}catch{}
+    try{window.parent.__edleExampleCollapsedUntil=until;}catch{}
+  }
+  exampleWasOpen=exampleDetails.open;
 });
 stage.insertAdjacentElement('afterend',$('calibration'));
 const viewDock=document.createElement('div');
@@ -459,10 +485,12 @@ async function usePhoto(file,saved){
     status("Das Foto konnte nicht geöffnet werden. Bitte als JPEG versuchen.");
   }
 }
-$("file").onchange = async (e) => {
+const handlePhotoSelection = async (e) => {
   await usePhoto(e.target.files[0]);
   e.target.value='';
 };
+$("file").onchange=handlePhotoSelection;
+$("cameraFile").onchange=handlePhotoSelection;
 $("apply").onclick = () => {
   try {
     const w = +$("refW").value,

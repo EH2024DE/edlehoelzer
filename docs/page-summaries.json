@@ -1,0 +1,733 @@
+[
+  {
+    "route": "/schneidebretter-massivholz/",
+    "items": [
+      {
+        "label": "Auswahl",
+        "text": "Handgefertigte Schneidebretter aus Eiche, Nussbaum und weiteren Massivhölzern."
+      },
+      {
+        "label": "Passform",
+        "text": "Wähle zuerst Arbeitsfläche und Handlichkeit, dann Holzbild und Bauweise."
+      },
+      {
+        "label": "Entscheidung",
+        "text": "Verfügbare Stücke kannst du direkt vergleichen; für ein eigenes Format planen wir mit dir eine Maßanfertigung."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-nussbaum/",
+    "items": [
+      {
+        "label": "Holzbild",
+        "text": "Dunkles Kernholz mit lebendiger, je nach Stück ruhiger oder kontrastreicher Maserung."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Langholz und Stirnholz unterscheiden sich in Aufbau, Stärke und Gewicht."
+      },
+      {
+        "label": "Unser Anspruch",
+        "text": "Für unsere Nussbaumbretter wählen wir das Kernholz gezielt aus. Vergleiche das konkrete Stück, nicht nur die Holzart."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-eiche/",
+    "items": [
+      {
+        "label": "Charakter",
+        "text": "Eiche bringt eine markante Maserung und eine robuste Schneidfläche in die Küche."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Ein schlankes Langholzbrett lässt sich anders handhaben als ein massiver Stirnholzblock."
+      },
+      {
+        "label": "Besonderheit",
+        "text": "Unsere Erbstück-Serie verarbeitet ausgewähltes historisches Fachwerkholz aus der Region zu neuen Einzelstücken."
+      }
+    ]
+  },
+  {
+    "route": "/stirnholz-schneidebrett/",
+    "items": [
+      {
+        "label": "Bauweise",
+        "text": "Die Stirnseiten der Holzfasern bilden die Schneidfläche."
+      },
+      {
+        "label": "Für dich",
+        "text": "Sinnvoll, wenn du häufig schneidest und ein kräftiges Arbeitsbrett suchst."
+      },
+      {
+        "label": "Vor dem Kauf",
+        "text": "Prüfe Maße, tatsächliches Gewicht und Verarbeitung. Stirnholz allein macht ein Brett weder rutschfest noch automatisch besser."
+      }
+    ]
+  },
+  {
+    "route": "/brotzeitbrett/",
+    "items": [
+      {
+        "label": "Am Tisch",
+        "text": "Für Frühstück, Abendbrot, Käse und kleine Speisen."
+      },
+      {
+        "label": "Im Alltag",
+        "text": "Ein handliches Format lässt sich leichter tragen und verstauen als ein großer Hackblock."
+      },
+      {
+        "label": "Persönlich",
+        "text": "Auf Wunsch mit Gravur; auch kleine, abgestimmte Frühstücksbrettserien für die Familie kannst du bei uns anfragen."
+      }
+    ]
+  },
+  {
+    "route": "/hackblock/",
+    "items": [
+      {
+        "label": "Einsatz",
+        "text": "Eine kräftige Arbeitsfläche für regelmäßiges Schneiden und größere Vorbereitungen."
+      },
+      {
+        "label": "Abwägen",
+        "text": "Mehr Fläche und Stärke bringen meist mehr Gewicht; Reinigung und Stellplatz müssen dazu passen."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Wir zeigen dir vorhandene Hackblöcke und prüfen auf Anfrage einen individuellen Aufbau."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-saftrille/",
+    "items": [
+      {
+        "label": "Sinnvoll",
+        "text": "Wenn beim Tranchieren oder Servieren regelmäßig Flüssigkeit anfällt."
+      },
+      {
+        "label": "Abwägen",
+        "text": "Eine Saftrille nimmt Schneidfläche weg und braucht sorgfältige Reinigung."
+      },
+      {
+        "label": "Bei uns",
+        "text": "Vorhandene Ausführungen ansehen oder eine Rille für dein Wunschbrett besprechen. Wir prüfen, ob sie zum Format und Aufbau passt."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-mit-gravur/",
+    "items": [
+      {
+        "label": "Persönlich",
+        "text": "Namen, Datum oder Motiv machen ein Brett zu deinem Geschenk."
+      },
+      {
+        "label": "Wirkung",
+        "text": "Helles Holz zeigt Gravuren meist deutlicher als dunkles oder stark gemasertes Holz."
+      },
+      {
+        "label": "Abstimmung",
+        "text": "Grundsätzlich können wir jedes Schneidebrett gravieren; Position und Motiv stimmen wir passend zur Nutzung ab."
+      }
+    ]
+  },
+  {
+    "route": "/hochwertige-geschenke-holz/",
+    "items": [
+      {
+        "label": "Passend schenken",
+        "text": "Wähle nach dem, was der Mensch gerne macht: kochen, backen, grillen oder gemeinsam essen."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Handgefertigte Bretter und Küchenhelfer, auf Wunsch persönlich graviert."
+      },
+      {
+        "label": "Budget",
+        "text": "Eine kleine Aufmerksamkeit braucht ein anderes Format als ein Hochzeitsgeschenk; passende Ergänzungen stellen wir mit dir zusammen."
+      }
+    ]
+  },
+  {
+    "route": "/geschenk-fuer-frauen-holz/",
+    "items": [
+      {
+        "label": "Für wen",
+        "text": "Für Frauen, die Freude am Kochen, Backen oder Servieren haben."
+      },
+      {
+        "label": "Passend auswählen",
+        "text": "Ein Teigschaber für die Brotbäckerin, ein Servierbrett für gemeinsame Abende oder ein größeres Arbeitsbrett für tägliches Kochen."
+      },
+      {
+        "label": "Persönlich",
+        "text": "Anlass, Budget und eine abgestimmte Gravur helfen bei der Auswahl."
+      }
+    ]
+  },
+  {
+    "route": "/geschenk-fuer-maenner-holz/",
+    "items": [
+      {
+        "label": "Für wen",
+        "text": "Für Männer, die gerne kochen, grillen oder Brot backen."
+      },
+      {
+        "label": "Passend auswählen",
+        "text": "Ein kräftiges Brett für die Grillstation, ein handliches Brotzeitbrett oder ein Küchenhelfer für den Alltag."
+      },
+      {
+        "label": "Persönlich",
+        "text": "Entscheidend sind Nutzung, Platz und Budget; eine Gravur ist auf Wunsch möglich."
+      }
+    ]
+  },
+  {
+    "route": "/barbecue-geschenk/",
+    "items": [
+      {
+        "label": "Nach dem Grillen",
+        "text": "Platz zum Ruhenlassen, Tranchieren und Servieren."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Ein großes Brett kann praktisch sein, braucht aber Stellfläche und lässt sich schwerer bewegen."
+      },
+      {
+        "label": "Details",
+        "text": "Eine Saftrille hilft bei Flüssigkeit; eine passende Gravur macht das Geschenk persönlicher."
+      }
+    ]
+  },
+  {
+    "route": "/hochwertige-kuechenaccessoires/",
+    "items": [
+      {
+        "label": "Aus einer Werkstatt",
+        "text": "Schneidebretter, Teigschaber, Pfannenwender und weitere Küchenhelfer aus ausgewählten Hölzern."
+      },
+      {
+        "label": "Zusammenstellen",
+        "text": "Wähle Stücke, die du wirklich nutzt und die in Holzbild und Handhabung zusammenpassen."
+      },
+      {
+        "label": "Ergänzen",
+        "text": "Ein Küchenhelfer kann dein Brett sinnvoll ergänzen, ohne dass du ein festes Set kaufen musst."
+      }
+    ]
+  },
+  {
+    "route": "/teigschaber-holz/",
+    "items": [
+      {
+        "label": "Beim Backen",
+        "text": "Eine feste Holz-Teigkarte zum Teilen und Zusammenschieben von Teig auf der Arbeitsfläche."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Verschiedene Holzarten und Formen, passend zu Hand und Einsatz."
+      },
+      {
+        "label": "Grenze",
+        "text": "Für das vollständige Ausschaben einer runden Schüssel ist ein flexibler Schaber häufig praktischer."
+      }
+    ]
+  },
+  {
+    "route": "/pfannenwender-holz/",
+    "items": [
+      {
+        "label": "Am Herd",
+        "text": "Zum Wenden und Anheben mit einer glatt geschliffenen Holzkante."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Esche, Kastanie, Kambala, Nussbaum und Buche sind bebildert; Zwetschge und Wenge gehören ebenfalls zum Angebot."
+      },
+      {
+        "label": "Pflege",
+        "text": "Von Hand reinigen und trocknen lassen. Die jeweils verfügbaren Varianten findest du im Shop."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-nach-mass/",
+    "items": [
+      {
+        "label": "Deine Möglichkeiten",
+        "text": "Einzelstücke oder kleine Serien. Größe, Holz und Details stimmen wir mit dir ab."
+      },
+      {
+        "label": "Deine Preisorientierung",
+        "text": "Maßanfertigungen beginnen je nach Größe und Ausführung schon bei wenigen hundert Euro. Den Preis für dein Wunschbrett kalkulieren wir individuell."
+      },
+      {
+        "label": "Dein erster Schritt",
+        "text": "Wunschmaße, Nutzung und Budget per E-Mail senden. Du erhältst unsere Einschätzung zu Machbarkeit, Preis und Fertigungszeit."
+      }
+    ]
+  },
+  {
+    "route": "/atelier/",
+    "items": [
+      {
+        "label": "Für deine Küche",
+        "text": "Einzelstücke und Maßanfertigungen, abgestimmt auf Arbeitsplatte, Raum und Nutzung."
+      },
+      {
+        "label": "Persönliche Auswahl",
+        "text": "Auf Wunsch mit Termin in unserer Manufaktur und gemeinsamer Holzauswahl nach Verfügbarkeit."
+      },
+      {
+        "label": "Begleitung",
+        "text": "Wir besprechen Details telefonisch und zeigen dir dein Brett auf Wunsch mit Fotos oder Video, bevor du es abholst oder wir es versenden."
+      }
+    ]
+  },
+  {
+    "route": "/erbstueck/",
+    "items": [
+      {
+        "label": "Herkunft",
+        "text": "Ausgewählte Eichen-Fachwerksbalken aus Häusern unserer Region, die wir teilweise selbst abbauen."
+      },
+      {
+        "label": "Verarbeitung",
+        "text": "Wir prüfen die Substanz und fertigen daraus neue Einzelstücke."
+      },
+      {
+        "label": "Charakter",
+        "text": "Historische Spuren und Holzbild unterscheiden sich von Brett zu Brett; ein verkauftes Stück kann als Anregung dienen, aber nicht identisch wiederholt werden."
+      }
+    ]
+  },
+  {
+    "route": "/b2b.html",
+    "items": [
+      {
+        "label": "Für Unternehmen",
+        "text": "Handgefertigte Holzgeschenke für Teams, Kunden oder besondere Anlässe."
+      },
+      {
+        "label": "Planung",
+        "text": "Produkt, Stückzahl, Budget, Termin und mögliche Gravur stimmen wir vorab ab."
+      },
+      {
+        "label": "Machbarkeit",
+        "text": "Auch kleine Serien sind eine Anfrage wert; Verfügbarkeit und Werkstattkapazität bestimmen den konkreten Umfang."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-made-in-germany/",
+    "items": [
+      {
+        "label": "Unsere Fertigung",
+        "text": "Auswahl, Bearbeitung, Endkontrolle und Versand erfolgen in unserer Werkstatt in Staufenberg, Mittelhessen."
+      },
+      {
+        "label": "Unser Holz",
+        "text": "Schwerpunkt sind regionale und deutsche Hölzer; vorhandene andere Bestände ergänzen die Auswahl."
+      },
+      {
+        "label": "Transparenz",
+        "text": "Fertigung in Deutschland bedeutet nicht automatisch, dass jedes verwendete Holz in Deutschland gewachsen ist."
+      }
+    ]
+  },
+  {
+    "route": "/presse/",
+    "items": [
+      {
+        "label": "Edle Hölzer",
+        "text": "Eine kleine Holzmanufaktur aus Staufenberg in Mittelhessen."
+      },
+      {
+        "label": "Themen",
+        "text": "Handgefertigte Schneidebretter, Küchenhelfer und neue Werkstücke aus historischem Fachwerkholz."
+      },
+      {
+        "label": "Für Redaktionen",
+        "text": "Hier findest du die Markenstory, Werkstattbilder und den Kontakt für weitere Informationen und Bildanfragen."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-eiche-vs-nussbaum/",
+    "items": [
+      {
+        "label": "Eiche",
+        "text": "Meist härter und markanter im Holzbild."
+      },
+      {
+        "label": "Nussbaum",
+        "text": "Dunkler und bei vergleichbarem Format häufig leichter."
+      },
+      {
+        "label": "Entscheidend",
+        "text": "Die konkreten Maße, Stärke, Bauweise und dein Umgang mit dem Brett. Keine Holzart gewinnt für alle; vergleiche zwei passende Stücke statt nur Materialnamen."
+      }
+    ]
+  },
+  {
+    "route": "/stirnholz-vs-langholz/",
+    "items": [
+      {
+        "label": "Stirnholz",
+        "text": "Die Faserenden bilden die Schneidfläche; unsere kräftigen Ausführungen passen zu häufigem Schneiden."
+      },
+      {
+        "label": "Langholz",
+        "text": "Zeigt den längs verlaufenden Holzcharakter und ist in schlanken Formaten handlicher."
+      },
+      {
+        "label": "Entscheidung",
+        "text": "Vergleiche nicht nur die Bauweise, sondern Maße und tatsächliches Gewicht der Bretter."
+      }
+    ]
+  },
+  {
+    "route": "/holzarten-schneidebrett/",
+    "items": [
+      {
+        "label": "Geeignet",
+        "text": "Eiche, Nussbaum, Buche, Ahorn und Esche können gute Schneidebretter ergeben."
+      },
+      {
+        "label": "Wichtiger als ein Ranking",
+        "text": "Trocknung, Verarbeitung, Bauweise und Pflege müssen stimmen."
+      },
+      {
+        "label": "Deine Auswahl",
+        "text": "Entscheide nach Holzbild, gewünschter Handlichkeit und Nutzung; dieselbe Holzart kann ganz unterschiedliche Bretter ergeben."
+      }
+    ]
+  },
+  {
+    "route": "/hochwertiges-schneidebrett-erkennen/",
+    "items": [
+      {
+        "label": "Prüfen",
+        "text": "Benannte Holzart, vollständige Maße, saubere Fugen und Kanten sowie nachvollziehbare Pflegehinweise."
+      },
+      {
+        "label": "Abwägen",
+        "text": "Stärke, Gewicht und Bauweise müssen zu deinem Alltag passen."
+      },
+      {
+        "label": "Fazit",
+        "text": "Das beste Massivholzbrett ist kein pauschaler Testsieger, sondern ein sauber gefertigtes Brett, das du gern und regelmäßig nutzt."
+      }
+    ]
+  },
+  {
+    "route": "/messerschonendes-schneidebrett/",
+    "items": [
+      {
+        "label": "Schneidfläche",
+        "text": "Holz ist gegenüber harten Unterlagen wie Glas oder Stein die sinnvollere Wahl für deine Messerklinge."
+      },
+      {
+        "label": "Auswahl",
+        "text": "Holzart, Bauweise und Oberfläche beeinflussen das Schneidgefühl."
+      },
+      {
+        "label": "Realistisch",
+        "text": "Auch auf einem Holzbrett verschleißen Messer; eine feste Zeit bis zum Nachschärfen lässt sich daraus nicht ableiten."
+      }
+    ]
+  },
+  {
+    "route": "/pflege.html",
+    "items": [
+      {
+        "label": "Nach der Nutzung",
+        "text": "Von Hand reinigen und anschließend gut trocknen lassen."
+      },
+      {
+        "label": "Bei trockener Oberfläche",
+        "text": "Ein für Küchenholz geeignetes Pflegeprodukt nach Anleitung verwenden."
+      },
+      {
+        "label": "Bei Schäden",
+        "text": "Offene Fugen, Risse oder auffällige Stellen zuerst prüfen lassen; Öl ist keine Reparatur."
+      }
+    ]
+  },
+  {
+    "route": "/welches-oel-schneidebrett/",
+    "items": [
+      {
+        "label": "Geeignet",
+        "text": "Öle und Balsame, die ausdrücklich für Holz mit Lebensmittelkontakt vorgesehen sind."
+      },
+      {
+        "label": "Wichtig",
+        "text": "Anwendung und Aushärtung richten sich nach dem konkreten Produkt; nicht jeder Leinölfirnis ist geeignet."
+      },
+      {
+        "label": "Grenze",
+        "text": "Öl hilft bei trockener Oberfläche, behebt aber keine offenen Fugen, tiefen Risse oder andere strukturelle Schäden."
+      }
+    ]
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "items": [
+      {
+        "label": "Nur trocken",
+        "text": "Häufig reicht die passende Nachpflege."
+      },
+      {
+        "label": "Rau oder verkratzt",
+        "text": "Bei einem stabilen Massivholzbrett kann Schleifen sinnvoll sein."
+      },
+      {
+        "label": "Erst prüfen",
+        "text": "Offene Fugen, starke Risse, Verzug oder Schimmel nicht einfach überölen. Schick uns Fotos, wenn du den Zustand nicht sicher einschätzen kannst."
+      }
+    ]
+  },
+  {
+    "route": "/holz-statt-plastik/",
+    "items": [
+      {
+        "label": "Im Alltag",
+        "text": "Massivholz lässt sich pflegen und bei ausreichender Substanz aufarbeiten."
+      },
+      {
+        "label": "Die Grenze",
+        "text": "Es gehört nicht in die Spülmaschine und braucht einen passenden Umgang mit Feuchtigkeit."
+      },
+      {
+        "label": "Die Entscheidung",
+        "text": "Ein Vorteil entsteht, wenn das Werkzeug zu deiner Nutzung passt und du es lange verwendest; nicht allein durch das Materialetikett."
+      }
+    ]
+  },
+  {
+    "route": "/en/snack-board/",
+    "items": [
+      {
+        "label": "At the table",
+        "text": "A manageable board for breakfast, bread, cheese and small meals."
+      },
+      {
+        "label": "Personal choice",
+        "text": "Pick the size and wood you enjoy using, with an optional engraving."
+      },
+      {
+        "label": "For the family",
+        "text": "Ask us about a small matching series made to your preferred dimensions."
+      }
+    ]
+  },
+  {
+    "route": "/en/butcher-block/",
+    "items": [
+      {
+        "label": "For regular preparation",
+        "text": "A substantial wooden work surface."
+      },
+      {
+        "label": "Before choosing",
+        "text": "Check the actual dimensions, weight and space needed for cleaning."
+      },
+      {
+        "label": "Our offer",
+        "text": "Compare available blocks or discuss a custom build with our workshop."
+      }
+    ]
+  },
+  {
+    "route": "/en/cutting-board-juice-groove/",
+    "items": [
+      {
+        "label": "Useful for",
+        "text": "Carving or serving food that releases liquid."
+      },
+      {
+        "label": "The trade-off",
+        "text": "A groove reduces the flat working area and needs careful cleaning."
+      },
+      {
+        "label": "Your board",
+        "text": "Compare existing designs or ask whether a groove suits your chosen size and construction."
+      }
+    ]
+  },
+  {
+    "route": "/en/wooden-dough-scraper/",
+    "items": [
+      {
+        "label": "On the worktop",
+        "text": "A rigid wooden scraper for dividing and gathering dough."
+      },
+      {
+        "label": "Your choice",
+        "text": "Different woods and shapes to suit your hand."
+      },
+      {
+        "label": "Its limit",
+        "text": "A flexible scraper may work better for cleaning the inside of a curved mixing bowl."
+      }
+    ]
+  },
+  {
+    "route": "/en/knife-friendly-cutting-board/",
+    "items": [
+      {
+        "label": "Surface matters",
+        "text": "Wood is a more suitable cutting surface than glass or stone for protecting a knife edge."
+      },
+      {
+        "label": "Choose carefully",
+        "text": "Species, construction and finish affect the cutting feel."
+      },
+      {
+        "label": "Keep perspective",
+        "text": "Knives still wear and need sharpening; no board guarantees a fixed sharpening interval."
+      }
+    ]
+  },
+  {
+    "route": "/en/wood-types-for-cutting-boards/",
+    "items": [
+      {
+        "label": "Possible choices",
+        "text": "Oak, walnut, beech, maple and ash."
+      },
+      {
+        "label": "What matters",
+        "text": "Timber preparation, construction, workmanship and care, not a universal species ranking."
+      },
+      {
+        "label": "Your decision",
+        "text": "Compare the look, actual dimensions and handling of the finished boards."
+      }
+    ]
+  },
+  {
+    "route": "/en/end-grain-vs-edge-grain/",
+    "items": [
+      {
+        "label": "End grain",
+        "text": "The fibre ends form the cutting surface; our thicker versions suit regular preparation."
+      },
+      {
+        "label": "Edge grain",
+        "text": "Displays the lengthwise grain and can be easier to handle in slimmer formats."
+      },
+      {
+        "label": "Compare",
+        "text": "Actual dimensions and weight matter as much as construction."
+      }
+    ]
+  },
+  {
+    "route": "/en/how-to-recognise-a-quality-cutting-board/",
+    "items": [
+      {
+        "label": "Look for",
+        "text": "Identified wood, complete dimensions, clean joints and edges, and clear care instructions."
+      },
+      {
+        "label": "Check the fit",
+        "text": "Size, weight and construction should suit your routine."
+      },
+      {
+        "label": "The result",
+        "text": "A well-made board you use regularly, rather than an invented overall winner."
+      }
+    ]
+  },
+  {
+    "route": "/en/care.html",
+    "items": [
+      {
+        "label": "After use",
+        "text": "Clean by hand and allow the board to dry well."
+      },
+      {
+        "label": "When it feels dry",
+        "text": "Follow the instructions for a suitable kitchen-wood care product."
+      },
+      {
+        "label": "If damaged",
+        "text": "Have open joints, cracks or unusual areas assessed first; oil does not repair structural damage."
+      }
+    ]
+  },
+  {
+    "route": "/en/cutting-board-oil-comparison/",
+    "items": [
+      {
+        "label": "Choose by suitability",
+        "text": "Use a care oil or balm intended for wood in contact with food."
+      },
+      {
+        "label": "Follow the label",
+        "text": "Application and curing depend on the product; not every linseed oil varnish is suitable."
+      },
+      {
+        "label": "Know the limit",
+        "text": "Oil cannot repair open joints or deep cracks."
+      }
+    ]
+  },
+  {
+    "route": "/en/refurbishment/",
+    "items": [
+      {
+        "label": "Dry surface",
+        "text": "Suitable care may be enough."
+      },
+      {
+        "label": "Rough or scratched",
+        "text": "A structurally sound solid-wood board may benefit from sanding."
+      },
+      {
+        "label": "Check first",
+        "text": "Open joints, serious cracks, warping or mould need assessment rather than another coat of oil."
+      }
+    ]
+  },
+  {
+    "route": "/en/wood-instead-of-plastic/",
+    "items": [
+      {
+        "label": "Everyday use",
+        "text": "Solid wood can be maintained and, with enough sound material, refinished."
+      },
+      {
+        "label": "Its needs",
+        "text": "Handwashing and careful drying, not the dishwasher."
+      },
+      {
+        "label": "A useful choice",
+        "text": "Choose tools you can look after and use for a long time, not just a material label."
+      }
+    ]
+  },
+  {
+    "route": "/en/erbstueck/",
+    "items": [
+      {
+        "label": "Origin",
+        "text": "Selected historic oak beams from regional timber-framed houses."
+      },
+      {
+        "label": "Workshop",
+        "text": "We assess the timber before turning it into new pieces."
+      },
+      {
+        "label": "Individual character",
+        "text": "Marks and grain vary; a sold piece can inspire a new commission but cannot be reproduced exactly."
+      }
+    ]
+  }
+]

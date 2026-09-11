@@ -67,8 +67,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body class="materialGuidePage">
+<body class="hasPageSummary materialGuidePage">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -103,7 +105,15 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Guide / Wood instead of plastic</nav>
       <p class="teigschaberEyebrow">Edle Hölzer · Guide</p>
       <h1>Wood instead of plastic. Why the material in your kitchen makes a difference.</h1>
-      <p class="materialGuideHero__lead">Plastic is light, inexpensive and everywhere. Solid wood can be repaired, ages differently and may stay for decades when material, workmanship and care are right.</p>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>Everyday use</dt><dd>Solid wood can be maintained and, with enough sound material, refinished.</dd></div>
+          <div><dt>Its needs</dt><dd>Handwashing and careful drying, not the dishwasher.</dd></div>
+          <div><dt>A useful choice</dt><dd>Choose tools you can look after and use for a long time, not just a material label.</dd></div>
+        </dl>
+      </section>
+      <div class="summaryActions"><a class="btn btn--emphasis" href="/en/products.html#products-grid" data-summary-cta data-cta-location="summary">View wooden kitchen tools</a></div>
     </div>
   </section>
 

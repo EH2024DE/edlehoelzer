@@ -82,8 +82,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -119,9 +121,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Cutting Board with Juice Groove</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Cutting Board with Juice Groove</h1>
-        <p class="seoHero__lead">A juice groove keeps meat juices, fruit juice and moisture on the board instead of on the counter. For steak and juicy food, it is simply useful.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>Useful for</dt><dd>Carving or serving food that releases liquid.</dd></div>
+          <div><dt>The trade-off</dt><dd>A groove reduces the flat working area and needs careful cleaning.</dd></div>
+          <div><dt>Your board</dt><dd>Compare existing designs or ask whether a groove suits your chosen size and construction.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-cutting-board-juice-groove-preview" class="btn btn--emphasis">View boards with juice grooves</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-cutting-board-juice-groove-preview" class="btn btn--emphasis">View boards with a juice groove</a>
           <a href="#juice-groove-guide" class="walnutTextLink">Read the buying guide</a>
         </div>
       </div>

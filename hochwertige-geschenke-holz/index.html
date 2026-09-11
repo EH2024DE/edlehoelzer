@@ -88,8 +88,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -136,9 +138,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Hochwertige Geschenke aus Holz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Hochwertige Geschenke aus Holz</h1>
-        <p class="seoHero__lead">Ein Holzgeschenk funktioniert, wenn es ein Ritual begleitet. Frühstück, Kochen, Grillen, Servieren oder Pflegen: Der Wert entsteht nicht beim Auspacken allein, sondern dort, wo das Stück regelmäßig benutzt wird. Wer jemanden beschenkt, der nie in der Küche steht – nicht.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Passend schenken</dt><dd>Wähle nach dem, was der Mensch gerne macht: kochen, backen, grillen oder gemeinsam essen.</dd></div>
+          <div><dt>Auswahl</dt><dd>Handgefertigte Bretter und Küchenhelfer, auf Wunsch persönlich graviert.</dd></div>
+          <div><dt>Budget</dt><dd>Eine kleine Aufmerksamkeit braucht ein anderes Format als ein Hochzeitsgeschenk; passende Ergänzungen stellen wir mit dir zusammen.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-geschenke-preview" class="btn btn--emphasis">Geschenke ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-geschenke-preview" class="btn btn--emphasis">Holzgeschenke ansehen</a>
           <a href="#geschenk-beratung" class="walnutTextLink">Zur Geschenkberatung</a>
         </div>
       </div>

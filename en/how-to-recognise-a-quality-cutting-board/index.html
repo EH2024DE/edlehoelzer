@@ -37,8 +37,10 @@
   ]}
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -55,8 +57,15 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Quality cutting board checklist</nav>
         <p class="eyebrow eyebrow--dark">Workshop buying checklist</p>
         <h1>How can you recognise a quality cutting board?</h1>
-        <p class="seoHero__lead">A quality cutting board is not defined by a “premium” label. Look for clearly identified material, suitable construction and thickness, an even surface, clean workmanship and repairability. The board should fit its intended use and its production should be understandable.</p>
-        <div class="ctaRow"><a href="#buying-checklist" class="btn btn--emphasis">Open checklist</a><a href="/en/products.html#products-grid" class="btn">View actual boards</a></div>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>Look for</dt><dd>Identified wood, complete dimensions, clean joints and edges, and clear care instructions.</dd></div>
+          <div><dt>Check the fit</dt><dd>Size, weight and construction should suit your routine.</dd></div>
+          <div><dt>The result</dt><dd>A well-made board you use regularly, rather than an invented overall winner.</dd></div>
+        </dl>
+      </section>
+        <div class="ctaRow"><a data-summary-cta data-cta-location="summary" href="/en/products.html#product-finder" class="btn btn--emphasis">Find my board</a><a href="/en/products.html#products-grid" class="btn">View actual boards</a></div>
       </div>
       <figure><img class="seoHero__image" src="/assets/schneidebretter-massivholz.jpg" srcset="/assets/schneidebretter-massivholz-800.jpg 533w, /assets/schneidebretter-massivholz-1200.jpg 800w, /assets/schneidebretter-massivholz.jpg 1066w" sizes="(max-width: 767px) 100vw, 50vw" alt="Solid wood cutting boards with different thicknesses, edges and wood types" width="1066" height="1600" loading="eager" fetchpriority="high" decoding="async"><figcaption>Actual dimensions and material details are more useful than a quality label.</figcaption></figure>
     </div>

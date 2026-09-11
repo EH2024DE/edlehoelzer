@@ -90,8 +90,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -136,10 +138,17 @@
       <div>
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Brotzeitbrett aus Massivholz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
-        <h1>Brotzeitbrett aus Holz für Frühstück, Abendbrot und Servieren</h1>
-        <p class="seoHero__lead">Ein Brotzeitbrett ist handlicher als ein klassisches Arbeitsbrett und passt für Brot, Käse, Obst oder kleine Speisen direkt am Tisch. Massivholz ist angenehm zu greifen, lässt sich pflegen und kann auf Wunsch dezent graviert werden.</p>
+        <h1>Brotzeitbrett aus Holz</h1>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Am Tisch</dt><dd>Für Frühstück, Abendbrot, Käse und kleine Speisen.</dd></div>
+          <div><dt>Im Alltag</dt><dd>Ein handliches Format lässt sich leichter tragen und verstauen als ein großer Hackblock.</dd></div>
+          <div><dt>Persönlich</dt><dd>Auf Wunsch mit Gravur; auch kleine, abgestimmte Frühstücksbrettserien für die Familie kannst du bei uns anfragen.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-brotzeitbrett-preview" class="btn btn--emphasis">Brotzeitbretter ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-brotzeitbrett-preview" class="btn btn--emphasis">Brotzeitbretter ansehen</a>
           <a href="#brotzeit-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>

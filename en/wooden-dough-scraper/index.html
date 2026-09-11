@@ -94,8 +94,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body class="teigschaberPage">
+<body class="hasPageSummary teigschaberPage">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -134,14 +136,21 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Wooden dough scraper</nav>
       <p class="teigschaberEyebrow">Edle Hölzer · Dough scraper</p>
       <h1>A wooden dough scraper for real sourdough</h1>
-      <p class="teigschaberHero__lead">For the ritual of flour, water, time and handwork. No plastic. No mass-produced tool. Just a piece of wood made to stay in your kitchen.</p>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>On the worktop</dt><dd>A rigid wooden scraper for dividing and gathering dough.</dd></div>
+          <div><dt>Your choice</dt><dd>Different woods and shapes to suit your hand.</dd></div>
+          <div><dt>Its limit</dt><dd>A flexible scraper may work better for cleaning the inside of a curved mixing bowl.</dd></div>
+        </dl>
+      </section>
       <div class="teigschaberBuy">
-        <a class="btn btn--primary"
+        <a data-summary-cta data-cta-location="summary" class="btn btn--primary"
            href="https://edlehoelzervonkoc.etsy.com/listing/4471048251?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=wooden-dough-scraper"
            target="_blank" rel="noopener" data-etsy-link
            data-goatcounter-click="true" data-goatcounter-title="etsy_dough_scraper_hero"
            data-umami-event="etsy-klick" data-umami-event-seite="wooden-dough-scraper"
-           title="You are leaving for the Edle Hölzer Etsy listing">Buy this dough scraper</a>
+           title="You are leaving for the Edle Hölzer Etsy listing">Shop wooden dough scrapers</a>
         <p class="trust-badge">🔒 Secure checkout on Etsy · Buyer protection included</p>
         <p class="teigschaberPrice">from EUR 24.99 · shipping options shown on Etsy</p>
       </div>

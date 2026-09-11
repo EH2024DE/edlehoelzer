@@ -151,8 +151,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -199,9 +201,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett aus Nussbaum</nav>
         <p class="eyebrow eyebrow--dark">Kaufberatung aus der Werkstatt</p>
         <h1>Schneidebrett aus Nussbaum</h1>
-        <p class="seoHero__lead">Für Menschen, die ein dunkles Holzbrett suchen und vor dem Kauf wissen möchten, welche Bauweise, Größe und Stärke im Alltag wirklich passen.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Holzbild</dt><dd>Dunkles Kernholz mit lebendiger, je nach Stück ruhiger oder kontrastreicher Maserung.</dd></div>
+          <div><dt>Auswahl</dt><dd>Langholz und Stirnholz unterscheiden sich in Aufbau, Stärke und Gewicht.</dd></div>
+          <div><dt>Unser Anspruch</dt><dd>Für unsere Nussbaumbretter wählen wir das Kernholz gezielt aus. Vergleiche das konkrete Stück, nicht nur die Holzart.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-nussbaum-preview" class="btn btn--emphasis">Nussbaum-Bretter ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-nussbaum-preview" class="btn btn--emphasis">Nussbaumbretter ansehen</a>
           <a href="#nussbaum-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>

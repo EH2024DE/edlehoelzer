@@ -36,8 +36,10 @@
   ]}
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -76,9 +78,16 @@
       <div>
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett Made in Germany</nav>
         <p class="eyebrow eyebrow--dark">Fertigung in Mittelhessen</p>
-        <h1>Was bedeutet Made in Germany bei einem Schneidebrett?</h1>
-        <p class="seoHero__lead">Bei Edle Hölzer umfasst die Fertigung in Deutschland die regionale Materialbeschaffung, den eigenen Holzbestand, Lagerung und kontrollierte Trocknung sowie Auswahl und Bearbeitung in Staufenberg. Dort fotografieren wir die fertigen Werkstücke unter Studiobedingungen, prüfen, verpacken und versenden sie. Unser Schwerpunkt liegt auf Holz aus Mittelhessen, Hessen und Deutschland; vorhandene europäische und tropische Restbestände bleiben eine punktuelle Ergänzung.</p>
-        <div class="ctaRow"><a href="#werkstatt-bretter" class="btn btn--emphasis">Bretter aus der Werkstatt ansehen</a><a href="#fertigung" class="btn">Fertigungsschritte prüfen</a></div>
+        <h1>Schneidebretter aus unserer Manufaktur in Deutschland</h1>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Unsere Fertigung</dt><dd>Auswahl, Bearbeitung, Endkontrolle und Versand erfolgen in unserer Werkstatt in Staufenberg, Mittelhessen.</dd></div>
+          <div><dt>Unser Holz</dt><dd>Schwerpunkt sind regionale und deutsche Hölzer; vorhandene andere Bestände ergänzen die Auswahl.</dd></div>
+          <div><dt>Transparenz</dt><dd>Fertigung in Deutschland bedeutet nicht automatisch, dass jedes verwendete Holz in Deutschland gewachsen ist.</dd></div>
+        </dl>
+      </section>
+        <div class="ctaRow"><a data-summary-cta data-cta-location="summary" href="#werkstatt-bretter" class="btn btn--emphasis">Unsere Bretter ansehen</a><a href="#fertigung" class="btn">Fertigungsschritte prüfen</a></div>
       </div>
       <figure><img class="seoHero__image" src="/assets/workshop1.jpg" srcset="/assets/workshop1-800.jpg 533w, /assets/workshop1-1200.jpg 800w, /assets/workshop1-1600.jpg 1066w, /assets/workshop1.jpg 1200w" sizes="(max-width: 767px) 100vw, 50vw" alt="Präziser Zuschnitt eines Holzbretts in der Edle Hölzer Werkstatt in Mittelhessen" width="1200" height="1800" loading="eager" fetchpriority="high" decoding="async"><figcaption>Zuschnitt an der Altendorf-Formatsäge in unserer Werkstatt in Staufenberg.</figcaption></figure>
     </div>

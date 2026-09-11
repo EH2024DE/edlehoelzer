@@ -49,7 +49,7 @@
       "name": "Was kostet ein Schneidebrett nach Maß?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Der Preis hängt von Holzart, Größe, Stärke, Aufbau und zusätzlichen Details wie Saftrille, Griffen oder Gravur ab. Ein kleines Brett ist deutlich günstiger als ein massives Stirnholzbrett für Kochinsel oder BBQ. Deshalb kalkulieren wir Maßanfertigungen individuell."
+        "text": "Je nach Größe und Ausführung beginnen Maßanfertigungen schon bei wenigen hundert Euro. Holzart, Stärke, Aufbau und Details wie Saftrille, Griffe oder Gravur bestimmen den individuellen Preis. Das XXL-Referenzbrett mit 75 × 60 cm ab 1.199 Euro ist ein High-End-Beispiel, nicht der Einstiegspreis für alle Maßanfertigungen."
       }
     },
     {
@@ -88,8 +88,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -130,19 +132,48 @@
 </header>
 
 <main>
-  <section class="seoHero">
-    <div class="container seoHero__grid">
-      <div>
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett nach Maß</nav>
-        <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
-        <h1>Schneidebrett nach Maß</h1>
-        <p class="seoHero__lead">Ein Schneidebrett nach Maß ist sinnvoll, wenn Standardformate nur ein Kompromiss wären. Nicht nur Länge und Breite zählen: Gewicht, Reinigung, Lagerung, Holzart, Saftrille, Griffmulden und Gravur werden gemeinsam geplant, damit das Brett später wirklich zum Einsatz passt.</p>
-        <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Mass" class="btn btn--emphasis" data-umami-event="email-kontakt">Maßanfertigung anfragen</a>
-          <a href="#massbeispiele" class="btn">Beispiele ansehen</a>
-        </div>
+  <section class="summaryHero" aria-labelledby="page-title">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett nach Maß</nav>
+      <h1 id="page-title">Schneidebrett nach Maß aus Massivholz</h1>
+      <p class="summaryHero__intro">Vom Frühstücksbrett für die Familie bis zur großen Arbeitsfläche: Wir fertigen passend zu deiner Küche.</p>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Deine Möglichkeiten</dt><dd>Einzelstücke oder kleine Serien. Größe, Holz und Details stimmen wir mit dir ab.</dd></div>
+          <div><dt>Deine Preisorientierung</dt><dd>Maßanfertigungen beginnen je nach Größe und Ausführung schon bei wenigen hundert Euro. Den Preis für dein Wunschbrett kalkulieren wir individuell.</dd></div>
+          <div><dt>Dein erster Schritt</dt><dd>Wunschmaße, Nutzung und Budget per E-Mail senden. Du erhältst unsere Einschätzung zu Machbarkeit, Preis und Fertigungszeit.</dd></div>
+        </dl>
+      </section>
+      <div class="summaryActions">
+        <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Ma%C3%9F&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0AIch%20interessiere%20mich%20f%C3%BCr%20eine%20Ma%C3%9Fanfertigung.%0AEinsatzzweck%3A%0AWunschma%C3%9Fe%20oder%20verf%C3%BCgbare%20Fl%C3%A4che%3A%0AHolzwunsch%3A%0ABudgetrahmen%3A%0AWunschtermin%3A%0A" class="btn btn--emphasis" data-umami-event="email-kontakt" data-cta-location="summary">Mein Brett anfragen</a>
+        <a href="#referenzprojekt" class="summaryTextLink">Erst ein Beispiel ansehen</a>
       </div>
-      <img class="seoHero__image" src="/assets/schneidebrett-nach-mass.jpg" alt="Handgefertigtes Schneidebrett nach Maß aus Massivholz mit sauberer Kante" width="1600" height="1069" decoding="async" srcset="/assets/schneidebrett-nach-mass-800.jpg 800w, /assets/schneidebrett-nach-mass-1200.jpg 1200w, /assets/schneidebrett-nach-mass.jpg 1600w" sizes="(max-width: 767px) 100vw, 50vw" loading="eager" fetchpriority="high">
+    </div>
+  </section>
+
+  <section class="summaryReference" id="referenzprojekt" aria-labelledby="reference-title">
+    <div class="container summaryReference__grid">
+      <figure>
+        <img src="/brettvorschau/assets/review/4484195050.jpg" alt="XXL-Stirnholzbrett mit Anschlagkante als Beispiel für eine individuelle Anfertigung" width="1400" height="932" loading="eager" fetchpriority="high" decoding="async">
+        <figcaption>Referenzprojekt: Stirnholz mit Anschlagkante. Deine Ausführung wird individuell abgestimmt.</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow eyebrow--dark">Ein Beispiel aus unserem High-End-Segment</p>
+        <h2 id="reference-title">XXL-Brett mit Anschlagkante</h2>
+        <p><strong>75 × 60 cm</strong> · Referenzformat, individuell anpassbar</p>
+        <p class="summaryReference__price">ab 1.199 €</p>
+        <p>Ein fest eingeplantes Arbeitsbrett für die Kochinsel oder eine großzügige Küche. Holzart, Fläche und Gewicht stimmen wir vor der Anfertigung mit dir ab.</p>
+        <p class="summaryReference__note">Dieses High-End-Projekt beginnt bei 1.199 € und kann je nach Holz und Ausführung etwa 1.600–1.700 € kosten. Es zeigt das obere Segment unserer Maßanfertigungen, nicht deren Einstiegspreis. Dein konkretes Angebot stimmen wir individuell ab.</p>
+        <a class="summaryTextLink" href="https://www.etsy.com/de/listing/4484195050/custom-made-end-grain-cutting-board?utm_source=edlehoelzer.de&amp;utm_medium=referral&amp;utm_campaign=custom_board&amp;utm_content=tldr_reference_4484195050" target="_blank" rel="noopener" data-etsy-link>Referenz im Shop ansehen</a>
+      </div>
+    </div>
+  </section>
+  <section class="summaryFamily">
+    <div class="container">
+      <h2>Es muss kein XXL-Brett sein.</h2>
+      <p>Du möchtest kleinere Frühstücks- oder Servierbretter für deine Familie? Auch eine kleine Serie aus aufeinander abgestimmten Hölzern fertigen wir auf Anfrage. Nenne uns Stückzahl, Wunschgröße und Budget; dafür erhältst du eine eigene Kalkulation.</p>
+      <a class="summaryTextLink" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Fr%C3%BChst%C3%BCcksbrettserie&amp;body=St%C3%BCckzahl%3A%0AWunschgr%C3%B6%C3%9Fe%3A%0AHolzwunsch%3A%0ABudget%3A%0A">Eine kleine Serie anfragen</a>
     </div>
   </section>
 
@@ -215,7 +246,7 @@
         <div class="faqList">
           <article class="faqItem">
             <h3>Was kostet ein Schneidebrett nach Maß?</h3>
-            <p>Der Preis hängt von Holzart, Größe, Stärke, Aufbau und zusätzlichen Details wie Saftrille, Griffen oder Gravur ab. Ein kleines Brett ist deutlich günstiger als ein massives Stirnholzbrett für Kochinsel oder BBQ. Deshalb kalkulieren wir Maßanfertigungen individuell.</p>
+            <p>Je nach Größe und Ausführung beginnen Maßanfertigungen schon bei wenigen hundert Euro. Holzart, Stärke, Aufbau und Details wie Saftrille, Griffe oder Gravur bestimmen den individuellen Preis. Das XXL-Referenzbrett mit 75 × 60 cm ab 1.199 Euro ist ein High-End-Beispiel, nicht der Einstiegspreis für alle Maßanfertigungen.</p>
           </article>
           <article class="faqItem">
             <h3>Kann ich jede Größe bestellen?</h3>

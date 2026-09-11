@@ -106,8 +106,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -152,10 +154,17 @@
       <div>
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett aus Eiche</nav>
         <p class="eyebrow eyebrow--dark">Eichenbretter aus der Werkstatt</p>
-        <h1>Schneidebrett Eiche massiv</h1>
-        <p class="seoHero__lead">Ein Schneidebrett aus Eiche passt, wenn du ein robustes, helles Holzbrett mit sichtbarer Maserung suchst. Sieh zuerst unsere Eichenbretter in Langholz und Stirnholz an; danach folgen die Unterschiede bei Härte, Gewicht, Pflege und Nutzung.</p>
+        <h1>Schneidebrett aus massiver Eiche</h1>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Charakter</dt><dd>Eiche bringt eine markante Maserung und eine robuste Schneidfläche in die Küche.</dd></div>
+          <div><dt>Auswahl</dt><dd>Ein schlankes Langholzbrett lässt sich anders handhaben als ein massiver Stirnholzblock.</dd></div>
+          <div><dt>Besonderheit</dt><dd>Unsere Erbstück-Serie verarbeitet ausgewähltes historisches Fachwerkholz aus der Region zu neuen Einzelstücken.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-eiche-preview" class="btn btn--emphasis">Eichenbretter entdecken</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-eiche-preview" class="btn btn--emphasis">Eichenbretter ansehen</a>
           <a href="#eiche-beratung" class="oakTextLink">Eiche einordnen</a>
         </div>
       </div>

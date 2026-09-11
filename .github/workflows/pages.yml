@@ -23,3 +23,6 @@ jobs:
 
       - name: Audit public assets
         run: node scripts/audit-assets.js
+
+      - name: Validate page summaries
+        run: node scripts/check-page-summaries.mjs

@@ -1453,8 +1453,9 @@ section[id]{scroll-margin-top:88px}
 .pressImageGrid{
   display:flex;
   gap:18px;
-  margin-right:calc((100vw - min(1180px, calc(100vw - 48px))) / -2);
-  padding:4px calc((100vw - min(1180px, calc(100vw - 48px))) / 2) 16px 0;
+  min-width:0;
+  max-width:100%;
+  padding:4px 0 16px;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   overscroll-behavior-x:contain;
@@ -1497,9 +1498,9 @@ section[id]{scroll-margin-top:88px}
   .pressQuoteGrid blockquote{font-size:24px}
   .pressImageGrid{
     gap:12px;
-    margin:0 -24px;
-    padding:4px 24px 12px;
-    scroll-padding-left:24px;
+    margin:0;
+    padding:4px 0 12px;
+    scroll-padding-left:0;
   }
   .pressImageGrid figure{
     flex-basis:260px;
@@ -2932,7 +2933,7 @@ section[id]{scroll-margin-top:88px}
   }
 
   .premiumCardGrid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:10px;
   }
 
@@ -4427,7 +4428,7 @@ section[id]{scroll-margin-top:88px}
   .homepageProducts .sectionIntro{margin-bottom:24px}
   .homepageProductGrid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 5vw 14px 0;scrollbar-width:none}
   .homepageProductGrid::-webkit-scrollbar{display:none}
-  .homepageProductGrid>.productCard{flex:0 0:min(82vw,340px);scroll-snap-align:start}
+  .homepageProductGrid>.productCard{flex:0 0 min(82vw,340px);scroll-snap-align:start}
   .homepageTrustBar__grid{display:flex;gap:0;overflow-x:auto;padding-block:16px;scroll-snap-type:x mandatory;scrollbar-width:none}
   .homepageTrustBar__grid::-webkit-scrollbar{display:none}
   .homepageTrustBar__grid p{flex:0 0 52vw;scroll-snap-align:start;padding-inline:18px}
@@ -4451,7 +4452,7 @@ section[id]{scroll-margin-top:88px}
   .refurbishmentFeature__visual figure{aspect-ratio:4/5}
   .productMomentGrid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 5vw 12px 0;scrollbar-width:none}
   .productMomentGrid::-webkit-scrollbar{display:none}
-  .productMomentGrid>.premiumCard{flex:0 0:min(78vw,310px);scroll-snap-align:start;min-height:220px}
+  .productMomentGrid>.premiumCard{flex:0 0 min(78vw,310px);scroll-snap-align:start;min-height:220px}
   .footer__inner{grid-template-columns:1fr;gap:38px}
   .footer__nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
   .topicOverview__grid{grid-template-columns:1fr}
@@ -6796,6 +6797,8 @@ section[id]{scroll-margin-top:88px}
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:clamp(22px,4vw,44px);
 }
+.woodCompareProductColumns > section{min-width:0}
+.premiumCard{min-width:0;overflow-wrap:anywhere}
 
 .woodCompareProductColumns__head{
   display:flex;

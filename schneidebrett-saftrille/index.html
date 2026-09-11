@@ -105,8 +105,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -152,9 +154,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett mit Saftrille</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Braucht dein Schneidebrett eine Saftrille?</h1>
-        <p class="seoHero__lead"><strong>Direktantwort:</strong> Eine Saftrille lohnt sich, wenn beim Schneiden oder Servieren regelmäßig Flüssigkeit entsteht. Sie kostet jedoch nutzbare Fläche und muss gut erreichbar zu reinigen sein. Für Brot, Gemüse oder kleine Bretter ist eine freie Arbeitsfläche häufig praktischer.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Sinnvoll</dt><dd>Wenn beim Tranchieren oder Servieren regelmäßig Flüssigkeit anfällt.</dd></div>
+          <div><dt>Abwägen</dt><dd>Eine Saftrille nimmt Schneidfläche weg und braucht sorgfältige Reinigung.</dd></div>
+          <div><dt>Bei uns</dt><dd>Vorhandene Ausführungen ansehen oder eine Rille für dein Wunschbrett besprechen. Wir prüfen, ob sie zum Format und Aufbau passt.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-saftrille-preview" class="btn btn--emphasis">Bretter mit Saftrille ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-saftrille-preview" class="btn btn--emphasis">Bretter mit Saftrille ansehen</a>
           <a href="#saftrille-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>

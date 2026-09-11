@@ -111,8 +111,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -157,11 +159,18 @@
       <div>
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett mit Gravur</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
-        <h1>Schneidebrett mit Gravur: persönlich, wenn die Gravur zum Brett passt.</h1>
-        <p class="seo-subline">Name, Datum, Monogramm oder Logo – abgestimmt auf Holzbild, Nutzung und verfügbare Fläche.</p>
-        <p class="seoHero__lead">Eine gute Gravur ergänzt das Brett, ohne die nutzbare Fläche zu dominieren. Entscheidend sind Position, Tiefe, Motiv, Holzbild und die Frage, ob das Brett täglich genutzt, serviert oder hauptsächlich verschenkt werden soll.</p>
+        <h1>Schneidebrett mit Gravur</h1>
+
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Persönlich</dt><dd>Namen, Datum oder Motiv machen ein Brett zu deinem Geschenk.</dd></div>
+          <div><dt>Wirkung</dt><dd>Helles Holz zeigt Gravuren meist deutlicher als dunkles oder stark gemasertes Holz.</dd></div>
+          <div><dt>Abstimmung</dt><dd>Grundsätzlich können wir jedes Schneidebrett gravieren; Position und Motiv stimmen wir passend zur Nutzung ab.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-gravur-preview" class="btn btn--emphasis">Gravierbare Bretter ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-gravur-preview" class="btn btn--emphasis">Brett für meine Gravur finden</a>
           <a href="#gravur-beratung" class="walnutTextLink">Zur Gravurberatung</a>
         </div>
       </div>

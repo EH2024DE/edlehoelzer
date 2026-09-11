@@ -88,8 +88,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -135,9 +137,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Barbecue Geschenk aus Holz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Barbecue Geschenk aus Holz</h1>
-        <p class="seoHero__lead">Ein massives Holzbrett begleitet den Moment nach dem Grillen: ruhen lassen, tranchieren, würzen, servieren und teilen. Es passt zu Menschen, die Grillen nicht als Nebensache behandeln.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Nach dem Grillen</dt><dd>Platz zum Ruhenlassen, Tranchieren und Servieren.</dd></div>
+          <div><dt>Auswahl</dt><dd>Ein großes Brett kann praktisch sein, braucht aber Stellfläche und lässt sich schwerer bewegen.</dd></div>
+          <div><dt>Details</dt><dd>Eine Saftrille hilft bei Flüssigkeit; eine passende Gravur macht das Geschenk persönlicher.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-bbq-preview" class="btn btn--emphasis">BBQ-Bretter ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-bbq-preview" class="btn btn--emphasis">Bretter fürs Grillen ansehen</a>
           <a href="#bbq-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>
