@@ -103,8 +103,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -149,10 +151,17 @@
       <div>
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebretter aus Massivholz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
-        <h1>Schneidebretter aus Holz und Massivholz</h1>
-        <p class="seoHero__lead">Ein gutes Schneidebrett aus Holz passt zu deiner Küche und zu dem, was du darauf machst. Sieh zuerst verfügbare Massivholzbretter an und wähle danach zwischen Eiche, Nussbaum, Langholz, Stirnholz, handlichem Format oder großem Arbeitsbrett.</p>
+        <h1>Schneidebretter aus Massivholz</h1>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Auswahl</dt><dd>Handgefertigte Schneidebretter aus Eiche, Nussbaum und weiteren Massivhölzern.</dd></div>
+          <div><dt>Passform</dt><dd>Wähle zuerst Arbeitsfläche und Handlichkeit, dann Holzbild und Bauweise.</dd></div>
+          <div><dt>Entscheidung</dt><dd>Verfügbare Stücke kannst du direkt vergleichen; für ein eigenes Format planen wir mit dir eine Maßanfertigung.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-massivholz-preview" class="btn btn--emphasis">Massive Schneidebretter ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-massivholz-preview" class="btn btn--emphasis">Schneidebretter ansehen</a>
           <a href="#massivholz-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>

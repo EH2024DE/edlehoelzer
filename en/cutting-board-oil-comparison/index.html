@@ -82,8 +82,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -119,9 +121,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Cutting Board Oil Comparison</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Cutting Board Oil Comparison</h1>
-        <p class="seoHero__lead">Linseed oil, tung oil and mineral oil all appear in care advice, but they behave differently. In our workshop we use linseed oil varnish and regional beeswax.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>Choose by suitability</dt><dd>Use a care oil or balm intended for wood in contact with food.</dd></div>
+          <div><dt>Follow the label</dt><dd>Application and curing depend on the product; not every linseed oil varnish is suitable.</dd></div>
+          <div><dt>Know the limit</dt><dd>Oil cannot repair open joints or deep cracks.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Inquiry%20Cutting%20Board%20Oil%20Comparison" class="btn btn--emphasis" data-umami-event="email-kontakt">Send inquiry</a>
+          <a data-etsy-link target="_blank" rel="noopener" data-summary-cta data-cta-location="summary" href="https://www.etsy.com/listing/1881802291?utm_source=edlehoelzer.de&amp;utm_medium=referral&amp;utm_campaign=page_summary&amp;utm_content=care_balm" class="btn btn--emphasis">View care balm</a>
           <a href="/en/products.html#products-grid" class="btn">View all products</a>
         </div>
       </div>

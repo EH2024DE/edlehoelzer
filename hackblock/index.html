@@ -82,8 +82,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -129,9 +131,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Hackblock aus Massivholz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Hackblock aus Massivholz</h1>
-        <p class="seoHero__lead">Ein Hackblock hat Gewicht, steht fest und gibt beim Schneiden nach – nicht weg. Für alles, was Kraft braucht: Fleisch, Steak, Gemüse in großen Mengen oder hartes Brot. Stirnholz kann dafür sinnvoll sein, weil stehende Fasern anders auf die Klinge reagieren als Längsholz.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Einsatz</dt><dd>Eine kräftige Arbeitsfläche für regelmäßiges Schneiden und größere Vorbereitungen.</dd></div>
+          <div><dt>Abwägen</dt><dd>Mehr Fläche und Stärke bringen meist mehr Gewicht; Reinigung und Stellplatz müssen dazu passen.</dd></div>
+          <div><dt>Auswahl</dt><dd>Wir zeigen dir vorhandene Hackblöcke und prüfen auf Anfrage einen individuellen Aufbau.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-hackblock-preview" class="btn btn--emphasis">Hackblöcke ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-hackblock-preview" class="btn btn--emphasis">Hackblöcke ansehen</a>
           <a href="#hackblock-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>

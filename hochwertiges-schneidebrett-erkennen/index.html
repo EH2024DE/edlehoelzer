@@ -37,8 +37,10 @@
   ]}
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -77,9 +79,16 @@
       <div>
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Bestes Schneidebrett aus Massivholz erkennen</nav>
         <p class="eyebrow eyebrow--dark">Kaufcheck aus der Werkstatt</p>
-        <h1>Bestes Schneidebrett aus Massivholz erkennen</h1>
-        <p class="seoHero__lead">Das beste Schneidebrett aus Massivholz ist kein allgemeiner Testsieger. Es passt zu deinem Alltag, besteht aus nachvollziehbarem Material, hat eine sinnvolle Bauweise und Stärke, eine angenehme Oberfläche, saubere Kanten und lässt sich pflegen oder begrenzt aufarbeiten.</p>
-        <div class="ctaRow"><a href="#qualitaets-bretter" class="btn btn--emphasis">Bretter zuerst ansehen</a><a href="#kaufcheck" class="btn">Kaufcheck öffnen</a></div>
+        <h1>Woran erkennst du ein hochwertiges Schneidebrett aus Massivholz?</h1>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Prüfen</dt><dd>Benannte Holzart, vollständige Maße, saubere Fugen und Kanten sowie nachvollziehbare Pflegehinweise.</dd></div>
+          <div><dt>Abwägen</dt><dd>Stärke, Gewicht und Bauweise müssen zu deinem Alltag passen.</dd></div>
+          <div><dt>Fazit</dt><dd>Das beste Massivholzbrett ist kein pauschaler Testsieger, sondern ein sauber gefertigtes Brett, das du gern und regelmäßig nutzt.</dd></div>
+        </dl>
+      </section>
+        <div class="ctaRow"><a data-summary-cta data-cta-location="summary" href="/produkte.html#produktfinder" class="btn btn--emphasis">Mein passendes Brett finden</a><a href="#kaufcheck" class="btn">Kaufcheck öffnen</a></div>
       </div>
       <figure><img class="seoHero__image" src="/assets/schneidebretter-massivholz.jpg" srcset="/assets/schneidebretter-massivholz-800.jpg 533w, /assets/schneidebretter-massivholz-1200.jpg 800w, /assets/schneidebretter-massivholz.jpg 1066w" sizes="(max-width: 767px) 100vw, 50vw" alt="Massivholz-Schneidebretter mit unterschiedlichen Stärken, Kanten und Holzarten" width="1066" height="1600" loading="eager" fetchpriority="high" decoding="async"><figcaption>Reale Maße und Materialangaben sind aussagekräftiger als ein Qualitätslabel.</figcaption></figure>
     </div>

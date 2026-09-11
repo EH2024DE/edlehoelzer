@@ -82,8 +82,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -119,9 +121,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / End Grain vs. Edge Grain: Which Board Fits You?</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>End Grain vs. Edge Grain: Which Board Fits You?</h1>
-        <p class="seoHero__lead">Both constructions have their place. End grain is more characterful and kinder to knives. Edge grain is lighter, simpler and very practical for daily use.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>End grain</dt><dd>The fibre ends form the cutting surface; our thicker versions suit regular preparation.</dd></div>
+          <div><dt>Edge grain</dt><dd>Displays the lengthwise grain and can be easier to handle in slimmer formats.</dd></div>
+          <div><dt>Compare</dt><dd>Actual dimensions and weight matter as much as construction.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="mailto:info@edlehoelzer.de?subject=Inquiry%20End%20Grain%20vs.%20Edge%20Grain%3A%20Which%20Board%20Fits%20You%3F" class="btn btn--emphasis" data-umami-event="email-kontakt">Send inquiry</a>
+          <a data-summary-cta data-cta-location="summary" href="/en/products.html#products-grid" class="btn btn--emphasis">Compare board designs</a>
           <a href="/en/products.html#products-grid" class="btn">View all products</a>
         </div>
       </div>

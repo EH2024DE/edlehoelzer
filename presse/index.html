@@ -26,8 +26,10 @@
   {"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://edlehoelzer.de/#organization","name":"Edle Hölzer","legalName":"Edle Hölzer GbR","url":"https://edlehoelzer.de/","logo":"https://edlehoelzer.de/assets/logo.png","image":"https://edlehoelzer.de/assets/hero-fallback.webp","description":"Edle Hölzer ist eine kleine Holzmanufaktur aus Staufenberg in Mittelhessen für massive Schneidebretter, Servierbretter, Küchenhelfer, Maßanfertigungen und Aufbereitung.","email":"info@edlehoelzer.de","address":{"@type":"PostalAddress","streetAddress":"Schulgasse 4A","postalCode":"35460","addressLocality":"Staufenberg","addressRegion":"Hessen","addressCountry":"DE"},"founder":[{"@type":"Person","name":"Özgür Koç"},{"@type":"Person","name":"Serkan Koç"}],"sameAs":["https://edlehoelzervonkoc.etsy.com","https://www.instagram.com/edle.hoelzer/","https://www.pinterest.de/edlehoelzer/"]},{"@type":"AboutPage","@id":"https://edlehoelzer.de/presse/#aboutpage","name":"Presse & About: Edle Hölzer","description":"Zitierbares Markenprofil, Fakten, Themen und Bildmaterial zur Holzmanufaktur Edle Hölzer aus Mittelhessen.","url":"https://edlehoelzer.de/presse/","inLanguage":"de-DE","isPartOf":{"@type":"WebSite","name":"Edle Hölzer","url":"https://edlehoelzer.de/"},"about":{"@id":"https://edlehoelzer.de/#organization"}}]}
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -68,8 +70,15 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Presse &amp; About</nav>
         <p class="eyebrow eyebrow--dark">Zitierbares Markenprofil</p>
         <h1>Presse &amp; About: Edle Hölzer</h1>
-        <p class="seoHero__lead">Edle Hölzer ist eine kleine Holzmanufaktur aus Staufenberg in Mittelhessen. Gefertigt werden massive Schneidebretter, Servierbretter und Küchenhelfer aus ausgewählten Hölzern wie Eiche, Nussbaum, Esche und Ahorn. Der Fokus liegt auf langlebigen Einzelstücken, ehrlicher Beratung, Pflege und späterer Aufbereitung statt kurzlebiger Massenware.</p>
-        <div class="ctaRow"><a href="#fakten" class="btn btn--emphasis">Fakten ansehen</a><a href="mailto:info@edlehoelzer.de?subject=Presseanfrage%20Edle%20H%C3%B6lzer" class="btn" data-umami-event="presse-email">Pressekontakt</a></div>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Edle Hölzer</dt><dd>Eine kleine Holzmanufaktur aus Staufenberg in Mittelhessen.</dd></div>
+          <div><dt>Themen</dt><dd>Handgefertigte Schneidebretter, Küchenhelfer und neue Werkstücke aus historischem Fachwerkholz.</dd></div>
+          <div><dt>Für Redaktionen</dt><dd>Hier findest du die Markenstory, Werkstattbilder und den Kontakt für weitere Informationen und Bildanfragen.</dd></div>
+        </dl>
+      </section>
+        <div class="ctaRow"><a data-summary-cta data-cta-location="summary" href="mailto:info@edlehoelzer.de?subject=Presseanfrage%20Edle%20H%C3%B6lzer" class="btn btn--emphasis" data-umami-event="presse-email">Presseanfrage senden</a><a href="#fakten" class="btn btn--ghost-dark">Fakten ansehen</a></div>
       </div>
       <figure class="pressHeroFigure"><img class="seoHero__image" src="/assets/hero-fallback.webp" alt="Özgür Koç bei der Arbeit am Bandschleifer in der Werkstatt von Edle Hölzer" width="760" height="507" loading="eager" fetchpriority="high" decoding="async"><figcaption>Özgür Koç bei der Werkstattarbeit in Staufenberg, Mittelhessen.</figcaption></figure>
     </div>

@@ -90,8 +90,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -126,12 +128,19 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Cutting Board Refurbishment</nav>
       <span class="service-label">Refurbishment service</span>
       <h1>Have your cutting board refurbished</h1>
-      <p class="service-intro">A good board does not need to be thrown away just because it has worked hard. We sand, plane, repair and oil it – either as a quick surface refresh or as a full restoration. Fixed price, return shipping included, currently only within Germany.</p>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>Dry surface</dt><dd>Suitable care may be enough.</dd></div>
+          <div><dt>Rough or scratched</dt><dd>A structurally sound solid-wood board may benefit from sanding.</dd></div>
+          <div><dt>Check first</dt><dd>Open joints, serious cracks, warping or mould need assessment rather than another coat of oil.</dd></div>
+        </dl>
+      </section>
       <div class="service-availability">
         <strong>This service is currently only available within Germany.</strong>
         We are evaluating whether to expand to further European countries at a later date.
       </div>
-      <a href="mailto:info@edlehoelzer.de?subject=Refurbishment%20inquiry" class="btn" data-umami-event="email-kontakt">Check my board</a>
+      <a data-summary-cta data-cta-location="summary" href="mailto:info@edlehoelzer.de?subject=Refurbishment%20inquiry" class="btn" data-umami-event="email-kontakt">Ask about refurbishment</a>
       <p class="trust-badge">📸 Send photos first – we reply with an honest assessment</p>
     </div>
   </section>

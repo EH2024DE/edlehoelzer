@@ -103,8 +103,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -150,11 +152,18 @@
       <div>
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Stirnholz Schneidebrett</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
-        <h1>Stirnholz-Schneidebrett: massiv, schwer und nicht automatisch besser.</h1>
-        <p class="seo-subline">Verfügbare Bretter zuerst ansehen, danach Bauweise, Verarbeitung und Alltag fundiert einordnen.</p>
-        <p class="seoHero__lead"><strong>Direktantwort:</strong> Ein Stirnholzbrett ist sinnvoll, wenn du häufig schneidest und ein schweres Brett bevorzugst. Bauweise, Materialstärke, Leimfugen, Feuchteverhalten und Verarbeitung sind wichtiger als das reine Würfel- oder Schachbrettmuster.</p>
+        <h1>Stirnholz-Schneidebretter aus Massivholz</h1>
+
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Bauweise</dt><dd>Die Stirnseiten der Holzfasern bilden die Schneidfläche.</dd></div>
+          <div><dt>Für dich</dt><dd>Sinnvoll, wenn du häufig schneidest und ein kräftiges Arbeitsbrett suchst.</dd></div>
+          <div><dt>Vor dem Kauf</dt><dd>Prüfe Maße, tatsächliches Gewicht und Verarbeitung. Stirnholz allein macht ein Brett weder rutschfest noch automatisch besser.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-stirnholz-preview" class="btn btn--emphasis">Stirnholzbretter ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-stirnholz-preview" class="btn btn--emphasis">Stirnholzbretter ansehen</a>
           <a href="#stirnholz-beratung" class="walnutTextLink">Zur Kaufberatung</a>
         </div>
       </div>

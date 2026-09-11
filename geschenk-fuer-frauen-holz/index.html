@@ -80,8 +80,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -127,9 +129,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Hochwertiges Geschenk für Frauen aus Holz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Hochwertiges Geschenk für Frauen aus Holz</h1>
-        <p class="seoHero__lead">Ein Holzgeschenk darf ruhig, nützlich und schön zugleich sein. Für Menschen mit Freude an Küche, Backen, Servieren oder Materialgefühl ist ein Massivholzobjekt keine reine Dekoration, sondern ein Gegenstand für den Alltag.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Für wen</dt><dd>Für Frauen, die Freude am Kochen, Backen oder Servieren haben.</dd></div>
+          <div><dt>Passend auswählen</dt><dd>Ein Teigschaber für die Brotbäckerin, ein Servierbrett für gemeinsame Abende oder ein größeres Arbeitsbrett für tägliches Kochen.</dd></div>
+          <div><dt>Persönlich</dt><dd>Anlass, Budget und eine abgestimmte Gravur helfen bei der Auswahl.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-frauen-preview" class="btn btn--emphasis">Geschenke ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-frauen-preview" class="btn btn--emphasis">Geschenkideen ansehen</a>
           <a href="#frauen-geschenkberatung" class="walnutTextLink">Zur Geschenkberatung</a>
         </div>
       </div>

@@ -678,8 +678,10 @@
     }
   </style>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
@@ -728,25 +730,21 @@
         <div>
           <p class="eyebrow eyebrow--dark">B2B &middot; Firmengeschenke &middot; Sonderanfertigungen</p>
           <h1>Firmengeschenke aus Holz, die genutzt werden</h1>
-          <p class="subheadline subheadline--dark">Firmengeschenke, die bleiben.</p>
-          <p class="b2b-lead">
-            Holzprodukte aus Massivholz &ndash; auf Wunsch personalisiert mit Logo oder Botschaft.
-            Für Unternehmen, die kein beliebiges Streuartikel-Geschenk suchen, sondern etwas, das genutzt, gesehen und erinnert wird.
-          </p>
-          <ul class="b2b-points">
-            <li>Personalisierung mit Logo-Gravur</li>
-            <li>Klare Preisrahmen zur Budgetplanung</li>
-            <li>Ab 10 Stück sinnvoll realisierbar</li>
-            <li>Produkte mit echter Nutzung im Alltag</li>
-          </ul>
+
+          <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Für Unternehmen</dt><dd>Handgefertigte Holzgeschenke für Teams, Kunden oder besondere Anlässe.</dd></div>
+          <div><dt>Planung</dt><dd>Produkt, Stückzahl, Budget, Termin und mögliche Gravur stimmen wir vorab ab.</dd></div>
+          <div><dt>Machbarkeit</dt><dd>Auch kleine Serien sind eine Anfrage wert; Verfügbarkeit und Werkstattkapazität bestimmen den konkreten Umfang.</dd></div>
+        </dl>
+      </section>
+
           <div class="b2b-actions">
-            <a href="#anfrage" class="b2b-btn b2b-btn--primary" data-goatcounter-click="true" data-goatcounter-title="custom_request_click">Jetzt Anfrage senden</a>
+            <a data-summary-cta data-cta-location="summary" href="#anfrage" class="b2b-btn b2b-btn--primary" data-goatcounter-click="true" data-goatcounter-title="custom_request_click">Firmengeschenke anfragen</a>
             <a href="#preise" class="b2b-btn b2b-btn--ghost">Preisrahmen ansehen</a>
           </div>
-          <div class="b2b-anchor">
-            <p>Kurz prüfen, was in deinem Budget sinnvoll umsetzbar ist?</p>
-            <a href="#anfrage" class="b2b-btn b2b-btn--primary" data-goatcounter-click="true" data-goatcounter-title="custom_request_click">Projekt anfragen</a>
-          </div>
+
         </div>
 
         <aside class="b2b-form-card" id="anfrage">

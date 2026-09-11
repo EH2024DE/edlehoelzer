@@ -90,8 +90,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -139,10 +141,17 @@
       <nav class="breadcrumb erbstueckBreadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Erbstück-Serie</nav>
       <p class="eyebrow">Fachwerkholz mit begrenztem Material</p>
       <h1>Erbstücke aus historischem Holz</h1>
-      <p class="erbstueckHero__lead">Aus alten Eichenbalken entstehen Schneide- und Servierbretter für Rituale, die nicht beliebig wirken sollen: Kochen, Servieren, Schenken und Weitergeben. Größe, Maserung und Charakter gibt das Material vor, gefertigt wird nur auf Anfrage.</p>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Herkunft</dt><dd>Ausgewählte Eichen-Fachwerksbalken aus Häusern unserer Region, die wir teilweise selbst abbauen.</dd></div>
+          <div><dt>Verarbeitung</dt><dd>Wir prüfen die Substanz und fertigen daraus neue Einzelstücke.</dd></div>
+          <div><dt>Charakter</dt><dd>Historische Spuren und Holzbild unterscheiden sich von Brett zu Brett; ein verkauftes Stück kann als Anregung dienen, aber nicht identisch wiederholt werden.</dd></div>
+        </dl>
+      </section>
       <div class="erbstueckActions">
-        <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Erbst%C3%BCck&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20ein%20Erbst%C3%BCck-Brett.%0A%0AGew%C3%BCnschtes%20Format%20(L%20%C3%97%20B)%3A%0AGew%C3%BCnschte%20St%C3%A4rke%3A%0AInlay%3A%20Ahorn%20%2F%20Buche%20%2F%20offen%0AGriffe%3A%20Griffmulden%20%2F%20abstehende%20Griffe%20%2F%20keine%0AKante%3A%20Schweizer%20Kante%20%2F%20gerundet%20%2F%20offen%0AGummif%C3%BC%C3%9Fe%3A%20ja%20%2F%20nein%0ASaftrille%3A%20umlaufend%20%2F%20mit%20Becken%20links%20oder%20rechts%20%2F%20keine%0AGravur%3A%20ja%20%2F%20nein%20-%20Text%3A%0AHolzbild%3A%20ruhig%20%2F%20markant%20%2F%20offen%0AAnlass%20oder%20Wunschtermin%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn--emphasis" data-umami-event="email-kontakt">Erbstück anfragen</a>
-        <a href="#verfuegbare-hoelzer" class="btn btn--ghost">Verfügbare Möglichkeiten ansehen</a>
+        <a data-summary-cta data-cta-location="summary" href="#verfuegbare-hoelzer" class="btn btn--emphasis">Erbstücke ansehen</a>
+        <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Erbst%C3%BCck&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20ein%20Erbst%C3%BCck-Brett.%0A%0AGew%C3%BCnschtes%20Format%20(L%20%C3%97%20B)%3A%0AGew%C3%BCnschte%20St%C3%A4rke%3A%0AInlay%3A%20Ahorn%20%2F%20Buche%20%2F%20offen%0AGriffe%3A%20Griffmulden%20%2F%20abstehende%20Griffe%20%2F%20keine%0AKante%3A%20Schweizer%20Kante%20%2F%20gerundet%20%2F%20offen%0AGummif%C3%BC%C3%9Fe%3A%20ja%20%2F%20nein%0ASaftrille%3A%20umlaufend%20%2F%20mit%20Becken%20links%20oder%20rechts%20%2F%20keine%0AGravur%3A%20ja%20%2F%20nein%20-%20Text%3A%0AHolzbild%3A%20ruhig%20%2F%20markant%20%2F%20offen%0AAnlass%20oder%20Wunschtermin%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn--ghost">Erbstück anfragen</a>
       </div>
       <ul class="erbstueckBadges" aria-label="Merkmale der Erbstück-Serie">
         <li>Historisches Eichenholz</li>

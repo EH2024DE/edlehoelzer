@@ -95,8 +95,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -143,10 +145,17 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebretter für Küchen &amp; Kochinseln</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer Atelier</p>
         <h1>Schneidebretter für hochwertige Küchen und Kochinseln</h1>
-        <p class="seoHero__lead">Massive Einzelstücke aus Nussbaum, Eiche, Fachwerkholz und besonderen Maserungen – gefertigt für moderne Küchen, offene Wohnküchen, Kochinseln und Architekturhäuser.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Für deine Küche</dt><dd>Einzelstücke und Maßanfertigungen, abgestimmt auf Arbeitsplatte, Raum und Nutzung.</dd></div>
+          <div><dt>Persönliche Auswahl</dt><dd>Auf Wunsch mit Termin in unserer Manufaktur und gemeinsamer Holzauswahl nach Verfügbarkeit.</dd></div>
+          <div><dt>Begleitung</dt><dd>Wir besprechen Details telefonisch und zeigen dir dein Brett auf Wunsch mit Fotos oder Video, bevor du es abholst oder wir es versenden.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#atelier-stuecke" class="btn btn--emphasis">Hochwertige Stücke ansehen</a>
-          <a href="mailto:info@edlehoelzer.de?subject=Atelier-Anfrage%20Schneidebrett&body=Hallo%20Edle%20H%C3%B6lzer%2C%0Aich%20interessiere%20mich%20f%C3%BCr%20ein%20Atelier-Schneidebrett.%0A%0AGrobe%20Gr%C3%B6%C3%9Fe%3A%0AK%C3%BCche%20%2F%20Ort%20%28z.%20B.%20Kochinsel%2C%20Arbeitsplatte%2C%20geplante%20K%C3%BCche%29%3A%0AGew%C3%BCnschtes%20Holz%20oder%20Wirkung%3A%0ABesondere%20Details%20%28Saftrille%2C%20Gravur%2C%20Kante%29%3A%0APassende%20Tischplatte%20%2F%20Couchtischplatte%20gew%C3%BCnscht%3F%3A%0ATelefonische%20R%C3%BCckfrage%20m%C3%B6glich%20unter%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn" data-umami-event="atelier-email-anfrage">Atelier-Anfrage per E-Mail</a>
+          <a data-summary-cta data-cta-location="summary" href="mailto:info@edlehoelzer.de?subject=Atelier-Anfrage%20Schneidebrett&body=Hallo%20Edle%20H%C3%B6lzer%2C%0Aich%20interessiere%20mich%20f%C3%BCr%20ein%20Atelier-Schneidebrett.%0A%0AGrobe%20Gr%C3%B6%C3%9Fe%3A%0AK%C3%BCche%20%2F%20Ort%20%28z.%20B.%20Kochinsel%2C%20Arbeitsplatte%2C%20geplante%20K%C3%BCche%29%3A%0AGew%C3%BCnschtes%20Holz%20oder%20Wirkung%3A%0ABesondere%20Details%20%28Saftrille%2C%20Gravur%2C%20Kante%29%3A%0APassende%20Tischplatte%20%2F%20Couchtischplatte%20gew%C3%BCnscht%3F%3A%0ATelefonische%20R%C3%BCckfrage%20m%C3%B6glich%20unter%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn--emphasis" data-umami-event="atelier-email-anfrage">Mein Küchenprojekt besprechen</a>
+          <a href="#atelier-stuecke" class="btn btn--ghost-dark">Hochwertige Stücke ansehen</a>
         </div>
         <ul class="erbstueckBadges" aria-label="Vertrauenssignale">
           <li>5,0 Sterne auf Etsy</li>

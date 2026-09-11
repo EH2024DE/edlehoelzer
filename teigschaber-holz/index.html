@@ -111,8 +111,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body class="teigschaberPage">
+<body class="hasPageSummary teigschaberPage">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -160,10 +162,17 @@
     <div class="teigschaberHero__content">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Teigschaber aus Holz</nav>
       <p class="teigschaberEyebrow">Edle Hölzer · Teigschaber</p>
-      <h1>Teigschaber aus Holz für Sauerteig, Brot und Backen</h1>
-      <p class="teigschaberHero__lead">Der massive Holzschaber löst, teilt und formt Teig und nimmt Schnittgut vom Brett auf. Er ist ca. 9 × 13 cm groß, kommt ohne Kunststoff aus und ist in mehreren Holzarten erhältlich.</p>
+      <h1>Teigschaber aus Holz für Brot und Sauerteig</h1>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Beim Backen</dt><dd>Eine feste Holz-Teigkarte zum Teilen und Zusammenschieben von Teig auf der Arbeitsfläche.</dd></div>
+          <div><dt>Auswahl</dt><dd>Verschiedene Holzarten und Formen, passend zu Hand und Einsatz.</dd></div>
+          <div><dt>Grenze</dt><dd>Für das vollständige Ausschaben einer runden Schüssel ist ein flexibler Schaber häufig praktischer.</dd></div>
+        </dl>
+      </section>
       <div class="teigschaberBuy">
-        <a class="btn btn--primary"
+        <a data-summary-cta data-cta-location="summary" class="btn btn--primary"
            href="https://edlehoelzervonkoc.etsy.com/listing/4471048251?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=teigschaber-holz"
            target="_blank"
            rel="noopener"
@@ -172,7 +181,7 @@
            data-goatcounter-title="etsy_teigschaber_hero"
            data-umami-event="etsy-klick"
            data-umami-event-seite="teigschaber-holz"
-           title="Du wechselst jetzt zum Etsy-Angebot von Edle Hölzer">Diesen Teigschaber kaufen</a>
+           title="Du wechselst jetzt zum Etsy-Angebot von Edle Hölzer">Teigschaber im Shop kaufen</a>
         <p class="trust-badge">🔒 Sicher über Etsy · Käuferschutz inklusive</p>
         <p class="teigschaberPrice">ab 25,99 EUR · Versandoptionen auf Etsy</p>
       </div>

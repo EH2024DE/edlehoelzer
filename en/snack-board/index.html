@@ -82,8 +82,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -119,9 +121,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Snack Board Made from Solid Wood</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Snack Board Made from Solid Wood</h1>
-        <p class="seoHero__lead">A good snack board supports small rituals: breakfast, bread, cheese and simple meals at the table. Solid wood brings a warm feel, a sturdy surface and a calmer presence than plastic or glass.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>At the table</dt><dd>A manageable board for breakfast, bread, cheese and small meals.</dd></div>
+          <div><dt>Personal choice</dt><dd>Pick the size and wood you enjoy using, with an optional engraving.</dd></div>
+          <div><dt>For the family</dt><dd>Ask us about a small matching series made to your preferred dimensions.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-snack-board-preview" class="btn btn--emphasis">View snack boards</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-snack-board-preview" class="btn btn--emphasis">View snack boards</a>
           <a href="#snack-board-guide" class="walnutTextLink">Read the buying guide</a>
         </div>
       </div>

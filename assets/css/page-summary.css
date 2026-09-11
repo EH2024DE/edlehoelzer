@@ -1,0 +1,61 @@
+.summaryHero { padding: 36px 0 32px; background: #fff; }
+.summaryHero h1 { font-size: 48px; line-height: 1.12; max-width: 950px; letter-spacing: 0; }
+.summaryHero .breadcrumb { margin: 0 0 20px; }
+.summaryHero__intro { max-width: 76ch; margin: 18px 0 26px; font-size: 17px; color: #505050; line-height: 1.6; }
+.pageSummary { container-type: inline-size; margin: 22px 0; padding: 20px 0; border-top: 1px solid #d5d0c9; border-bottom: 1px solid #d5d0c9; }
+.pageSummary h2 { font: 700 14px/1.4 Montserrat, sans-serif; letter-spacing: 0; color: #79552f; margin: 0 0 16px; }
+.pageSummary dl { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 0; }
+.pageSummary dl > div { min-width: 0; }
+.pageSummary dt { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+.pageSummary dd { margin: 0; font-size: 15px; line-height: 1.55; color: #454545; }
+.summaryActions { display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; margin-top: 22px; }
+.summaryActions .btn { letter-spacing: 0; text-transform: none; font-size: 15px; min-height: 48px; background: #79552f; border-color: #79552f; }
+.summaryActions .btn:hover { background: #5e4023; }
+.summaryTextLink { color: #79552f; font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 5px; padding: 10px 0; display: inline-block; }
+.summaryReference { padding: 40px 0; scroll-margin-top: 96px; }
+.summaryReference__grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 48px; }
+.summaryReference figure { margin: 0; }
+.summaryReference img { display: block; width: 100%; height: 340px; object-fit: contain; background: #e9e6e1; border-radius: 4px; }
+.summaryReference figcaption { font-size: 12px; color: #555; line-height: 1.5; margin-top: 10px; }
+.summaryReference h2, .summaryFamily h2 { font-size: 32px; line-height: 1.2; letter-spacing: 0; }
+.summaryReference p { margin: 14px 0; line-height: 1.6; }
+.summaryReference__price { font-size: 24px; font-weight: 600; }
+.summaryReference__note { font-size: 13px; color: #555; }
+.summaryFamily { background: #fff; padding: 34px 0; }
+.summaryFamily p { max-width: 83ch; margin: 16px 0 4px; line-height: 1.65; }
+.hasPageSummary h1 { font-size: 48px; line-height: 1.12; letter-spacing: 0; overflow-wrap: break-word; }
+.hasPageSummary .pageSummary { max-width: 1100px; }
+.hasPageSummary .pageSummary h2 { font: 700 14px/1.4 Montserrat, sans-serif; letter-spacing: 0; color: #79552f; margin: 0 0 16px; }
+.hasPageSummary .pageSummary dt { color: #111; }
+.hasPageSummary .pageSummary dd { color: #454545; }
+.hasPageSummary .erbstueckHero .pageSummary { border-color: #a89e92; }
+.hasPageSummary .erbstueckHero .pageSummary :is(h2,dt,dd) { color: #fff; }
+.hasPageSummary .summaryActions { margin-bottom: 8px; }
+.hasPageSummary .teigschaberHero { height: auto; }
+.hasPageSummary .teigschaberHero h1 { max-width: 20ch; }
+.hasPageSummary .teigschaberHero__content { padding-top: 36px; padding-bottom: 36px; }
+.hasPageSummary .teigschaberHero__content .breadcrumb { margin-bottom: 24px; }
+@container (min-width: 760px) {
+  .pageSummary dl { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; }
+}
+:is(.summaryActions, .summaryReference, .summaryFamily) a:focus-visible { outline: 3px solid #79552f; outline-offset: 5px; }
+@media (max-width: 700px) {
+  .hasPageSummary h1 { font-size: 34px; }
+  .summaryHero { padding: 24px 0 28px; }
+  .summaryHero h1 { font-size: 34px; line-height: 1.12; }
+  .summaryHero .container, .summaryReference .container, .summaryFamily .container { width: calc(100% - 36px); }
+  .summaryHero .breadcrumb { font-size: 11px; margin-bottom: 16px; }
+  .summaryHero__intro { font-size: 15px; line-height: 1.55; margin: 14px 0 20px; }
+  .pageSummary { padding: 16px 0; }
+  .pageSummary h2 { margin-bottom: 14px; }
+  .pageSummary dl { grid-template-columns: 1fr; gap: 13px; }
+  .pageSummary dt { font-size: 14px; margin-bottom: 3px; }
+  .pageSummary dd { font-size: 14px; }
+  .summaryActions { gap: 5px; margin-top: 18px; }
+  .summaryActions .btn { width: 100%; }
+  .summaryTextLink { font-size: 14px; }
+  .summaryReference { padding: 28px 0; }
+  .summaryReference__grid { grid-template-columns: 1fr; gap: 22px; }
+  .summaryReference img { height: 260px; }
+  .summaryReference h2, .summaryFamily h2 { font-size: 27px; }
+}

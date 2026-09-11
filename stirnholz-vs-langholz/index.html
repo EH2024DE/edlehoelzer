@@ -105,8 +105,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -152,9 +154,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Stirnholz oder Langholz</nav>
         <p class="eyebrow eyebrow--dark">Direkter Bauweisen-Vergleich</p>
         <h1>Stirnholz oder Langholz: welches Schneidebrett passt zu dir?</h1>
-        <p class="seoHero__lead grainCompareHero__answer"><strong>Direktantwort:</strong> Stirnholz passt zu dir, wenn du ein schweres, massives Arbeitsbrett für häufiges Schneiden suchst. Langholz ist meist leichter, schlanker und flexibler, wenn du das Brett häufiger bewegst, servierst oder in einer kleineren Küche nutzt.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Stirnholz</dt><dd>Die Faserenden bilden die Schneidfläche; unsere kräftigen Ausführungen passen zu häufigem Schneiden.</dd></div>
+          <div><dt>Langholz</dt><dd>Zeigt den längs verlaufenden Holzcharakter und ist in schlanken Formaten handlicher.</dd></div>
+          <div><dt>Entscheidung</dt><dd>Vergleiche nicht nur die Bauweise, sondern Maße und tatsächliches Gewicht der Bretter.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+          <a data-summary-cta data-cta-location="summary" href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passende Bretter vergleichen</a>
           <a href="#stirnholz-auswahl" class="btn">Stirnholz ansehen</a>
         </div>
         <a class="grainCompareHero__textLink" href="#langholz-auswahl">Langholzbretter ansehen</a>

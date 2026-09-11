@@ -90,8 +90,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -127,11 +129,18 @@
     <div class="container erbstueckHero__content">
       <nav class="breadcrumb erbstueckBreadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Erbstück Series</nav>
       <p class="eyebrow">Limited timber-frame series</p>
-      <h1>200-year-old wood. Rebuilt for decades.</h1>
-      <p class="erbstueckHero__lead">Each board is made from historic oak beams for rituals that should not feel interchangeable: cooking, serving, gifting and passing on. Shape, grain and size are set by the material, not by series production.</p>
+      <h1>Erbstück boards from historic timber</h1>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>Origin</dt><dd>Selected historic oak beams from regional timber-framed houses.</dd></div>
+          <div><dt>Workshop</dt><dd>We assess the timber before turning it into new pieces.</dd></div>
+          <div><dt>Individual character</dt><dd>Marks and grain vary; a sold piece can inspire a new commission but cannot be reproduced exactly.</dd></div>
+        </dl>
+      </section>
       <div class="erbstueckActions">
-        <a href="mailto:info@edlehoelzer.de?subject=Erbst%C3%BCck%20inquiry&amp;body=Hello%20Edle%20H%C3%B6lzer%2C%0A%0AI%20am%20interested%20in%20an%20Erbst%C3%BCck%20board.%0A%0ADesired%20size%20(L%20%C3%97%20W)%3A%0ADesired%20thickness%3A%0AInlay%3A%20maple%20%2F%20beech%20%2F%20open%0AHandles%3A%20routed%20grips%20%2F%20projecting%20handles%20%2F%20none%0AEdge%3A%20Swiss%20edge%20%2F%20rounded%20%2F%20open%0ARubber%20feet%3A%20yes%20%2F%20no%0AJuice%20groove%3A%20continuous%20%2F%20with%20basin%20left%20or%20right%20%2F%20none%0AEngraving%3A%20yes%20%2F%20no%20-%20text%3A%0AWood%20character%3A%20calm%20%2F%20pronounced%20%2F%20open%0AOccasion%20or%20preferred%20date%3A%0A%0ABest%20regards" class="btn btn--emphasis" data-umami-event="email-kontakt">Inquire about Erbstück</a>
-        <a href="#available-timber" class="btn btn--ghost">View available timber</a>
+        <a data-summary-cta data-cta-location="summary" href="#available-timber" class="btn btn--emphasis">View Erbstück pieces</a>
+        <a href="mailto:info@edlehoelzer.de?subject=Erbst%C3%BCck%20inquiry&amp;body=Hello%20Edle%20H%C3%B6lzer%2C%0A%0AI%20am%20interested%20in%20an%20Erbst%C3%BCck%20board.%0A%0ADesired%20size%20(L%20%C3%97%20W)%3A%0ADesired%20thickness%3A%0AInlay%3A%20maple%20%2F%20beech%20%2F%20open%0AHandles%3A%20routed%20grips%20%2F%20projecting%20handles%20%2F%20none%0AEdge%3A%20Swiss%20edge%20%2F%20rounded%20%2F%20open%0ARubber%20feet%3A%20yes%20%2F%20no%0AJuice%20groove%3A%20continuous%20%2F%20with%20basin%20left%20or%20right%20%2F%20none%0AEngraving%3A%20yes%20%2F%20no%20-%20text%3A%0AWood%20character%3A%20calm%20%2F%20pronounced%20%2F%20open%0AOccasion%20or%20preferred%20date%3A%0A%0ABest%20regards" class="btn btn--ghost">Inquire about Erbstück</a>
       </div>
       <ul class="erbstueckBadges" aria-label="Key facts about the Erbstück series">
         <li>Historic timber beams</li>

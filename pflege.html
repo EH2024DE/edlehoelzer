@@ -561,8 +561,10 @@
     }
   </style>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
   <header class="topbar">
     <div class="container topbar__inner">
       <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
@@ -613,11 +615,16 @@
       <div class="pflege-wrap">
         <p class="eyebrow eyebrow--dark">Pflege-Hub</p>
         <h1>Holz-Schneidebrett richtig pflegen</h1>
-        <p class="pflege-lead">
-          Ein Holzschneidebrett hält länger, wenn es nach der Nutzung zeitnah gereinigt, vollständig getrocknet und nicht dauerhaft feucht gelagert wird. Nachölen ist erst dann sinnvoll, wenn die Oberfläche trocken, stumpf oder ungleichmäßig wirkt.
-        </p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Nach der Nutzung</dt><dd>Von Hand reinigen und anschließend gut trocknen lassen.</dd></div>
+          <div><dt>Bei trockener Oberfläche</dt><dd>Ein für Küchenholz geeignetes Pflegeprodukt nach Anleitung verwenden.</dd></div>
+          <div><dt>Bei Schäden</dt><dd>Offene Fugen, Risse oder auffällige Stellen zuerst prüfen lassen; Öl ist keine Reparatur.</dd></div>
+        </dl>
+      </section>
         <div class="pflege-hero__actions">
-          <a class="pflege-btn" href="#pflegeprobleme">Pflegeproblem auswählen</a>
+          <a data-summary-cta data-cta-location="summary" class="pflege-btn" href="#pflegeprobleme">Passende Pflege ansehen</a>
           <a class="pflege-btn pflege-btn--ghost" href="#pflegevideo">Pflegevideo ansehen</a>
         </div>
       </div>

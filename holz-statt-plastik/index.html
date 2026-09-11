@@ -67,8 +67,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body class="materialGuidePage">
+<body class="hasPageSummary materialGuidePage">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -113,7 +115,15 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Ratgeber / Holz statt Plastik</nav>
       <p class="teigschaberEyebrow">Edle Hölzer · Ratgeber</p>
       <h1>Holz statt Plastik. Warum das in deiner Küche einen Unterschied macht.</h1>
-      <p class="materialGuideHero__lead">Plastik ist leicht, günstig und überall. Massivholz ist reparierbar, altert anders und kann lange genutzt werden, wenn Material, Verarbeitung und Pflege zusammenpassen.</p>
+      <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Im Alltag</dt><dd>Massivholz lässt sich pflegen und bei ausreichender Substanz aufarbeiten.</dd></div>
+          <div><dt>Die Grenze</dt><dd>Es gehört nicht in die Spülmaschine und braucht einen passenden Umgang mit Feuchtigkeit.</dd></div>
+          <div><dt>Die Entscheidung</dt><dd>Ein Vorteil entsteht, wenn das Werkzeug zu deiner Nutzung passt und du es lange verwendest; nicht allein durch das Materialetikett.</dd></div>
+        </dl>
+      </section>
+      <div class="summaryActions"><a class="btn btn--emphasis" href="/produkte.html#produkte-grid" data-summary-cta data-cta-location="summary">Küchenhelfer aus Holz ansehen</a></div>
     </div>
   </section>
 

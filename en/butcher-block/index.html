@@ -82,8 +82,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -119,9 +121,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / Solid Wood Butcher Block</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Solid Wood Butcher Block</h1>
-        <p class="seoHero__lead">A butcher block is the most substantial board in the kitchen. It stands firm, carries weight and gives under the knife instead of sliding away.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">At a glance</h2>
+        <dl>
+          <div><dt>For regular preparation</dt><dd>A substantial wooden work surface.</dd></div>
+          <div><dt>Before choosing</dt><dd>Check the actual dimensions, weight and space needed for cleaning.</dd></div>
+          <div><dt>Our offer</dt><dd>Compare available blocks or discuss a custom build with our workshop.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-butcher-block-preview" class="btn btn--emphasis">View butcher blocks</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-butcher-block-preview" class="btn btn--emphasis">View butcher blocks</a>
           <a href="#butcher-block-guide" class="walnutTextLink">Read the buying guide</a>
         </div>
       </div>

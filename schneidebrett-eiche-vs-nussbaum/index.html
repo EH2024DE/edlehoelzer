@@ -119,8 +119,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -167,9 +169,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Eiche oder Nussbaum</nav>
         <p class="eyebrow eyebrow--dark">Holzvergleich für Schneidebretter</p>
         <h1>Schneidebrett Eiche oder Nussbaum?</h1>
-        <p class="seoHero__lead">Eiche passt, wenn du ein helleres, markant strukturiertes Brett mit robuster Alltagswirkung suchst. Nussbaum passt, wenn das Brett dunkler, ruhiger und sichtbarer als Servier- oder Designobjekt wirken soll. Technisch entscheidet nicht nur die Holzart, sondern Bauweise, Stärke, Gewicht, Oberfläche und Pflege.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Eiche</dt><dd>Meist härter und markanter im Holzbild.</dd></div>
+          <div><dt>Nussbaum</dt><dd>Dunkler und bei vergleichbarem Format häufig leichter.</dd></div>
+          <div><dt>Entscheidend</dt><dd>Die konkreten Maße, Stärke, Bauweise und dein Umgang mit dem Brett. Keine Holzart gewinnt für alle; vergleiche zwei passende Stücke statt nur Materialnamen.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#vergleich-produkte" class="btn btn--emphasis">Bretter vergleichen</a>
+          <a data-summary-cta data-cta-location="summary" href="#vergleich-produkte" class="btn btn--emphasis">Eiche und Nussbaum vergleichen</a>
           <a href="/produkte.html#produktfinder" class="btn btn--ghost-dark" data-umami-event="produktfinder-gestartet" data-umami-event-quelle="eiche-vs-nussbaum">Brettfinder starten</a>
         </div>
       </div>

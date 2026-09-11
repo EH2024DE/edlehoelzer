@@ -82,8 +82,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -129,9 +131,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Messerschonendes Schneidebrett</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Messerschonendes Schneidebrett</h1>
-        <p class="seoHero__lead">Wer gute Messer hat, achtet auf die Schneidfläche. Bei Stirnholz stehen die Fasern senkrecht zur Oberfläche. Die Klinge trifft dadurch anders auf das Holz als bei Glas, Stein oder klassischem Längsholz.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Schneidfläche</dt><dd>Holz ist gegenüber harten Unterlagen wie Glas oder Stein die sinnvollere Wahl für deine Messerklinge.</dd></div>
+          <div><dt>Auswahl</dt><dd>Holzart, Bauweise und Oberfläche beeinflussen das Schneidgefühl.</dd></div>
+          <div><dt>Realistisch</dt><dd>Auch auf einem Holzbrett verschleißen Messer; eine feste Zeit bis zum Nachschärfen lässt sich daraus nicht ableiten.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-messerschonend-preview" class="btn btn--emphasis">Stirnholzbretter ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-messerschonend-preview" class="btn btn--emphasis">Holzbretter vergleichen</a>
           <a href="#messerschonend-beratung" class="walnutTextLink">Zum Faserprinzip</a>
         </div>
       </div>

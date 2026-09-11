@@ -132,8 +132,10 @@
 }
   </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -179,10 +181,17 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Schneidebrett aufbereiten</nav>
         <p class="eyebrow eyebrow--dark">Schneidebrett aufbereiten</p>
         <h1>Schneidebrett aufbereiten: nachölen, schleifen oder ersetzen?</h1>
-        <p class="refurbLead refurbLead--answer"><strong>Direktantwort:</strong> Ein trockenes oder stumpfes Brett braucht häufig nur neue Pflege. Raue Fasern, tiefe Schnittspuren oder oberflächliche Verfärbungen können vorsichtig ausgeschliffen werden. Offene Leimfugen, tiefer Schimmel, starke Risse oder massiver Verzug sollten dagegen nicht einfach überarbeitet werden, ohne die Ursache zu prüfen.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Nur trocken</dt><dd>Häufig reicht die passende Nachpflege.</dd></div>
+          <div><dt>Rau oder verkratzt</dt><dd>Bei einem stabilen Massivholzbrett kann Schleifen sinnvoll sein.</dd></div>
+          <div><dt>Erst prüfen</dt><dd>Offene Fugen, starke Risse, Verzug oder Schimmel nicht einfach überölen. Schick uns Fotos, wenn du den Zustand nicht sicher einschätzen kannst.</dd></div>
+        </dl>
+      </section>
         <div class="refurbActions">
-          <a href="#aufbereitungsservice" class="btn btn--emphasis" data-umami-event="refurbishment_details_click" data-umami-event-source-page="schneidebrett-aufbereiten" data-umami-event-position="hero">Kosten &amp; Pakete ansehen</a>
-          <a href="mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0Aich%20m%C3%B6chte%20pr%C3%BCfen%20lassen%2C%20ob%20mein%20Schneidebrett%20aufbereitet%20werden%20kann.%0A%0AKurze%20Beschreibung%20des%20Zustands%3A%0A%0AIch%20h%C3%A4nge%20Fotos%20von%20Vorderseite%2C%20R%C3%BCckseite%2C%20Kanten%20und%20Schadstellen%20an.%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn--ghost-dark" data-umami-event="refurbishment_inquiry_start" data-umami-event-source-page="schneidebrett-aufbereiten" data-umami-event-position="hero">Foto einschätzen lassen</a>
+          <a data-summary-cta data-cta-location="summary" href="mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0Aich%20m%C3%B6chte%20pr%C3%BCfen%20lassen%2C%20ob%20mein%20Schneidebrett%20aufbereitet%20werden%20kann.%0A%0AKurze%20Beschreibung%20des%20Zustands%3A%0A%0AIch%20h%C3%A4nge%20Fotos%20von%20Vorderseite%2C%20R%C3%BCckseite%2C%20Kanten%20und%20Schadstellen%20an.%0A%0AViele%20Gr%C3%BC%C3%9Fe" class="btn btn--emphasis" data-umami-event="refurbishment_inquiry_start" data-umami-event-source-page="schneidebrett-aufbereiten" data-umami-event-position="hero">Mein Brett prüfen lassen</a>
+          <a href="#aufbereitungsservice" class="btn btn--ghost-dark" data-umami-event="refurbishment_details_click" data-umami-event-source-page="schneidebrett-aufbereiten" data-umami-event-position="hero">Kosten &amp; Pakete ansehen</a>
         </div>
       </div>
       <figure class="refurbCompare" aria-label="Vorher-Nachher Vergleich eines aufbereiteten Schneidebretts">

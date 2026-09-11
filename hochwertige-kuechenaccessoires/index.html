@@ -80,8 +80,10 @@
 }
 </script>
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+  <link rel="stylesheet" href="/assets/css/page-summary.css">
+  <script defer src="/assets/js/page-summary.js"></script>
 </head>
-<body>
+<body class="hasPageSummary">
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
@@ -127,9 +129,16 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Hochwertige Küchenaccessoires aus Holz</nav>
         <p class="eyebrow eyebrow--dark">Edle Hölzer</p>
         <h1>Hochwertige Küchenaccessoires aus Holz</h1>
-        <p class="seoHero__lead">Hochwertig bedeutet hier nicht teuer aussehen. Es heißt: regelmäßig benutzt werden, gut in der Hand liegen und pflegbar bleiben. Bei Edle Hölzer sind das Schneidebretter, Servierbretter und Pflegeprodukte aus Massivholz.</p>
+        <section class="pageSummary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Auf einen Blick</h2>
+        <dl>
+          <div><dt>Aus einer Werkstatt</dt><dd>Schneidebretter, Teigschaber, Pfannenwender und weitere Küchenhelfer aus ausgewählten Hölzern.</dd></div>
+          <div><dt>Zusammenstellen</dt><dd>Wähle Stücke, die du wirklich nutzt und die in Holzbild und Handhabung zusammenpassen.</dd></div>
+          <div><dt>Ergänzen</dt><dd>Ein Küchenhelfer kann dein Brett sinnvoll ergänzen, ohne dass du ein festes Set kaufen musst.</dd></div>
+        </dl>
+      </section>
         <div class="ctaRow">
-          <a href="#products-kueche-preview" class="btn btn--emphasis">Küchenaccessoires ansehen</a>
+          <a data-summary-cta data-cta-location="summary" href="#products-kueche-preview" class="btn btn--emphasis">Küchenhelfer ansehen</a>
           <a href="#kuechenaccessoires-beratung" class="walnutTextLink">Zur Orientierung</a>
         </div>
       </div>
