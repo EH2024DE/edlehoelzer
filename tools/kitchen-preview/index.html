@@ -73,6 +73,7 @@
             >
           </button>
         </div>
+        <div id="photoSources" class="photo-source-actions">
         <label class="upload" for="file"
           ><i data-lucide="image-plus"></i> Tresenfoto auswählen</label
         ><input
@@ -81,6 +82,9 @@
           accept="image/jpeg,image/png,image/webp"
           hidden
         />
+        <button id="takePhoto" type="button" class="camera-capture secondary" hidden><i data-lucide="camera"></i> Foto aufnehmen</button>
+        <input id="cameraFile" type="file" accept="image/*" capture="environment" hidden />
+        </div>
         <div id="calibration" hidden>
           <button id="detect">A4-Blatt im Foto suchen</button>
           <button id="editReference">Ecken vergrößert setzen</button>

@@ -202,6 +202,10 @@ button svg,
   display: block;
   margin: 24px 0;
 }
+.photo-source-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:22px 0 12px}
+.photo-source-actions .upload,.photo-source-actions .camera-capture{margin:0;flex:1 1 190px;min-height:48px}
+.photo-source-actions .camera-capture:not([hidden]){display:flex;align-items:center;justify-content:center;gap:10px}
+.photo-source-actions .camera-capture svg{width:20px;height:20px;flex-shrink:0}
 .range output {
   float: right;
 }

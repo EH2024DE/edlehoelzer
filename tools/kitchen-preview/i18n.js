@@ -13,7 +13,7 @@ const messages = {
   'wärmer ↔ neutraler':'warmer ↔ more neutral', 'Modell wird vorbereitet …':'Preparing model…',
   'Holzansicht wird vorbereitet …':'Preparing wood preview…', 'Ansicht herunterladen':'Download view',
   'Dieses Brett im Shop kaufen':'Buy this board in the shop', 'Brett auswählen':'Choose a board',
-  'Tresenfoto auswählen':'Choose worktop photo', 'A4-Blatt im Foto suchen':'Find A4 paper in photo',
+  'Tresenfoto auswählen':'Choose worktop photo', 'Foto aufnehmen':'Take a photo', 'A4-Blatt im Foto suchen':'Find A4 paper in photo',
   'Ecken vergrößert setzen':'Adjust corners up close', 'Referenzmaße und Hinweise':'Reference dimensions and notes',
   'Breite (cm)':'Width (cm)', 'Tiefe (cm)':'Depth (cm)',
   'Lange / kurze Blattkante tauschen':'Swap long / short paper edge', 'Referenz ist weißes Papier':'Reference is white paper',
