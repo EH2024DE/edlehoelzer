@@ -667,7 +667,7 @@ function showReferenceFeedback(reason){
  feedbackCopy.textContent=english?(corners?'The size is not reliable yet. Check that the frame meets all four paper corners. If they already match, try another photo from slightly above and to one side.':reason==='small'?'The paper is too small in this photo to estimate the size reliably. Move a little closer and keep all four corners visible, as in the example.':'The paper looks very flat from this angle. Hold the camera a little higher and photograph slightly from the side, as in the example.'):(corners?'Die Größe lässt sich noch nicht zuverlässig darstellen. Liegt der Rahmen genau auf allen vier Blattecken? Falls ja, hilft ein neues Foto leicht schräg von oben und seitlich.':reason==='small'?'Das Blatt ist im Foto zu klein für eine zuverlässige Größenabschätzung. Gehe etwas näher heran und lasse alle vier Ecken sichtbar, ähnlich wie im Beispiel.':'Das Blatt wirkt aus diesem Blickwinkel sehr flach. Halte die Kamera etwas höher und fotografiere leicht seitlich, ähnlich wie im Beispiel.');
  if(!referenceFeedback.open)referenceFeedback.showModal();
 }
-savedViews=createSavedViews({host:viewDock,english,models:Object.entries(catalog).map(([key,p])=>({key,name:p.name,id:p.listingId})),onChoose:async key=>{
+savedViews=createSavedViews({host:viewDock,english,models:Object.entries(catalog).map(([key,p])=>({key,name:p.name,id:p.listingId,image:assetPath(p.image||`assets/${key}.jpg`)})),onChoose:async key=>{
  await select(key);stage.scrollIntoView({block:'center',behavior:'smooth'});
 },capture:()=>{
  if(mode!=='room'||calibrating||!homography)return null;
