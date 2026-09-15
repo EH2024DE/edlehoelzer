@@ -1,5 +1,15 @@
 [
   {
+    "id": "etsy-review-20260914-eiche",
+    "source": "Etsy",
+    "rating": 5,
+    "text": "Ein wirklich hochwertiges Schneidebrett und ein unglaublich guter Service.",
+    "product": "Eiche Stirnholz",
+    "date": "2026-09",
+    "featured": true,
+    "needsReview": false
+  },
+  {
     "id": "etsy-review-202609-marlena-buche",
     "source": "Etsy",
     "rating": 5,
@@ -8,7 +18,9 @@
     "reviewerName": "Marlena",
     "date": "2026-09",
     "featured": true,
-    "needsReview": false
+    "needsReview": false,
+    "image": "/assets/reviews/etsy-review-202609-marlena-buche.jpg",
+    "imageAlt": "Käuferfoto zur Etsy-Bewertung von Marlena"
   },
   {
     "id": "etsy-review-202608-susanna-teigschaber",
