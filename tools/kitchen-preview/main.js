@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import { loadPhoto, savePhoto } from './photo-cache.js';
+import { referenceQuality } from './reference-quality.js';
+import { createSavedViews } from './saved-views.js';
 import { t, english, translateDOM } from './i18n.js';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
@@ -14,6 +16,7 @@ import eligibility from './preview-eligibility.json';
 createIcons({ icons: { Camera, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } });
 const $ = (id) => document.getElementById(id),
   stage = $("stage");
+let savedViews;
 const assetPath = path => `${import.meta.env.BASE_URL}${path.replace(/^\//,'')}`;
 const journey=document.createElement('div');
 journey.className='preview-journey';
@@ -323,6 +326,7 @@ function updateJourney(){
   $('apply').textContent=english?'Corners correct · Place board':'Ecken stimmen · Brett platzieren';
   $('purchase').hidden=!ready;
   $('download').hidden=!ready;
+  savedViews?.update(ready);
 }
 function position() {
   board.position.set(
@@ -495,6 +499,10 @@ $("apply").onclick = () => {
   try {
     const w = +$("refW").value,
       d = +$("refD").value;
+    const photoIssue=referenceQuality(points,$('photo').naturalWidth,$('photo').naturalHeight,w,d);
+    if(photoIssue==='small'||photoIssue==='flat'){
+      showReferenceFeedback(photoIssue);homography=null;calibrating=true;setMode('room');fitStage();resize();return;
+    }
     homography = plane(points, w, d);
     let assessment=cameraAxes(homography.coeffs,$('photo').naturalWidth/$('photo').naturalHeight,cameraInfo?.mm);
     if(assessment.error>.35){
@@ -502,6 +510,8 @@ $("apply").onclick = () => {
       if(q.error<assessment.error){points=rotated;homography=candidate;assessment=q;}
     }
     if(assessment.error>.35){homography=null;throw Error('Die Referenz passt noch nicht zu einem Rechteck. Bitte Ecken und lange / kurze Blattkante prüfen.');}
+    const issue=referenceQuality(points,$('photo').naturalWidth,$('photo').naturalHeight,w,d);
+    if(issue){showReferenceFeedback(issue);homography=null;calibrating=true;setMode('room');fitStage();resize();return;}
     if($('whiteReference').checked)paperWhite=samplePaper($('photo'),points);
     else paperWhite=null;
     refreshColor();
@@ -522,6 +532,7 @@ $("apply").onclick = () => {
     setMode('room');
     status(e.message);
     $('detectStatus').hidden=false;$('detectStatus').textContent=t(e.message);
+    showReferenceFeedback('corners');
   }
   fitStage();resize();
 };
@@ -604,7 +615,7 @@ $("reset").onclick = () => {
   center = [+$("refW").value / 2, +$("refD").value / 2];
   position();
 };
-$("download").onclick = () => {
+function captureView(withCaption=true) {
   if (calibrating) {
     status("Bitte zuerst die Referenzfläche bestätigen.");
     return;
@@ -618,6 +629,7 @@ $("download").onclick = () => {
   ctx.fillRect(0, 0, c.width, c.height);
   if (mode === "room") ctx.drawImage($("photo"), 0, 0, c.width, c.height);
   ctx.drawImage(renderer.domElement, 0, 0);
+  if(withCaption){
   ctx.fillStyle = "#ffffffee";
   ctx.fillRect(0, c.height - 64, c.width, 64);
   ctx.fillStyle = "#26382e";
@@ -627,11 +639,44 @@ $("download").onclick = () => {
     14,
     c.height - 24,
   );
+  }
+  return c;
+}
+$("download").onclick = () => {
+  const c=captureView();if(!c)return;
   const a = document.createElement("a");
   a.download = "edle-hoelzer-raumprobe.png";
   a.href = c.toDataURL();
   a.click();
 };
+const referenceFeedback=document.createElement('dialog');
+referenceFeedback.className='reference-feedback';
+referenceFeedback.setAttribute('aria-label',english?'Improve your photo':'Dein Foto verbessern');
+const feedbackTitle=document.createElement('h2'),feedbackCopy=document.createElement('p'),feedbackImage=document.createElement('img');
+feedbackImage.src=assetPath('assets/worktop-example.jpg');feedbackImage.alt=english?'Example photo with A4 paper on the worktop':'Beispielfoto mit A4-Blatt auf dem Tresen';
+const feedbackActions=document.createElement('div');
+function feedbackButton(label,action){const button=document.createElement('button');button.textContent=label;button.onclick=()=>{referenceFeedback.close();action();};feedbackActions.append(button);return button;}
+feedbackButton(english?'Check corners':'Ecken prüfen',()=>$('editReference').click());
+feedbackButton(english?'Take another photo':'Neues Foto aufnehmen',()=>$('cameraFile').click());
+feedbackButton(english?'Choose another photo':'Anderes Foto auswählen',()=>$('file').click());
+feedbackButton(english?'Back':'Zurück',()=>{});
+referenceFeedback.append(feedbackTitle,feedbackCopy,feedbackImage,feedbackActions);document.body.append(referenceFeedback);
+function showReferenceFeedback(reason){
+ const corners=reason==='corners'||reason==='unstable';
+ feedbackTitle.textContent=english?(corners?'Let’s check the paper corners':'A different angle will help'):(corners?'Schauen wir kurz auf die Blattecken':'Mit einem anderen Blickwinkel wird’s genauer');
+ feedbackCopy.textContent=english?(corners?'The size is not reliable yet. Check that the frame meets all four paper corners. If they already match, try another photo from slightly above and to one side.':reason==='small'?'The paper is too small in this photo to estimate the size reliably. Move a little closer and keep all four corners visible, as in the example.':'The paper looks very flat from this angle. Hold the camera a little higher and photograph slightly from the side, as in the example.'):(corners?'Die Größe lässt sich noch nicht zuverlässig darstellen. Liegt der Rahmen genau auf allen vier Blattecken? Falls ja, hilft ein neues Foto leicht schräg von oben und seitlich.':reason==='small'?'Das Blatt ist im Foto zu klein für eine zuverlässige Größenabschätzung. Gehe etwas näher heran und lasse alle vier Ecken sichtbar, ähnlich wie im Beispiel.':'Das Blatt wirkt aus diesem Blickwinkel sehr flach. Halte die Kamera etwas höher und fotografiere leicht seitlich, ähnlich wie im Beispiel.');
+ if(!referenceFeedback.open)referenceFeedback.showModal();
+}
+savedViews=createSavedViews({host:viewDock,english,models:Object.entries(catalog).map(([key,p])=>({key,name:p.name,id:p.listingId})),onChoose:async key=>{
+ await select(key);stage.scrollIntoView({block:'center',behavior:'smooth'});
+},capture:()=>{
+ if(mode!=='room'||calibrating||!homography)return null;
+ const source=captureView(false),small=document.createElement('canvas');
+ const factor=Math.min(1,1000/Math.max(source.width,source.height));small.width=Math.round(source.width*factor);small.height=Math.round(source.height*factor);
+ small.getContext('2d').drawImage(source,0,0,small.width,small.height);
+ const p=catalog[selected];
+ return {id:p.listingId,name:p.name,details:p.dimensionLabel||`${p.approximateDimensions?(english?'approx. ':'ca. '):''}${p.w} × ${p.d} cm · ${p.h} cm ${english?'thick':'Stärke'}`,cleanImage:true,image:small.toDataURL('image/jpeg',.82)};
+},onBuy:id=>{window.EdleAnalytics?.track('kitchen_preview_buy_click',{product_id:id,product_category:'board',cta_location:'saved_comparison',source:entryPoint});if(window.parent!==window)window.parent.postMessage({type:'kitchen-preview-buy',listingId:id,entry:'saved_comparison'},location.origin);}});
 $('color').oninput=()=>{$('colorValue').value=`${$('color').value} %`;refreshColor();};
 $('whiteReference').onchange=()=>{paperWhite=$('whiteReference').checked&&homography&&!calibrating?samplePaper($('photo'),points):null;refreshColor();};
 $('swap').onclick=()=>{const w=$('refW').value;$('refW').value=$('refD').value;$('refD').value=w;};
@@ -701,7 +746,7 @@ $('toggleControls').onclick=()=>{
 };
 new ResizeObserver(()=>{if(expanded){fitStage();resize();}}).observe(viewDock);
 document.addEventListener('keydown',e=>{
-  if(!expanded||document.querySelector('.reference-editor')?.open)return;
+  if(!expanded||document.querySelector('dialog[open]'))return;
   if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();expandView(false);}
   if(e.key==='Tab'){
     const items=[...workspace.querySelectorAll('button:not(:disabled),input:not(:disabled)')].filter(el=>el.getClientRects().length);
@@ -719,7 +764,8 @@ const entryPoint=params.get('entry')==='product'?'product':'homepage';
 const requestedListing=params.get('listing');
 const initialKey=requestedListing?Object.keys(catalog).find(key=>catalog[key].listingId===requestedListing):'walnut';
 document.querySelector('.products').hidden=true;
-document.querySelector('.model-choice').hidden=true;
+const quickChoice=document.querySelector('.model-choice');
+quickChoice.hidden=true;
 const changeBoard=document.createElement('a');changeBoard.href='/produkte.html';changeBoard.textContent='Anderes Brett auswählen';
 document.querySelector('aside').prepend(changeBoard);
 $('purchase').addEventListener('click',()=>{
@@ -731,7 +777,7 @@ $('purchase').addEventListener('click',()=>{
 if(params.get('embedded')==='1'){
   document.body.classList.add('embedded');
   changeBoard.remove();
-  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!event.defaultPrevented&&!expanded&&!document.querySelector('.reference-editor')?.open)window.parent.postMessage({type:'kitchen-preview-close'},location.origin);});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!event.defaultPrevented&&!expanded&&!document.querySelector('dialog[open]'))window.parent.postMessage({type:'kitchen-preview-close'},location.origin);});
 }
 if(!initialKey){
   $('purchase').hidden=true;
