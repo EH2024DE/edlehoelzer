@@ -38,6 +38,7 @@
         const frame=element('iframe','kitchenPreviewDialog__frame');frame.title=copy.title;
         frame.src=`/brettvorschau/?listing=${encodeURIComponent(model.listingId)}&entry=${id?'product':'homepage'}&lang=${en?'en':'de'}&embedded=1`;
         frame.allow='fullscreen';content.append(frame);
+        window.EdleAnalytics?.track('kitchen_preview_open',{product_id:model.listingId,source:id?'product':'homepage'});
       };
       const chosen=list.find(model=>model.listingId===id);
       if(chosen){show(chosen);return;}
@@ -62,6 +63,11 @@
     const frame=dialog?.querySelector('iframe');
     if(event.origin!==location.origin||event.source!==frame?.contentWindow)return;
     if(event.data?.type==='kitchen-preview-close')close();
+    if(event.data?.type==='kitchen-preview-event'&&['kitchen_preview_placed','kitchen_preview_compare'].includes(event.data.event)&&typeof event.data.listingId==='string'){
+      models().then(list=>{
+        if(list.some(model=>model.listingId===event.data.listingId))window.EdleAnalytics?.track(event.data.event,{product_id:event.data.listingId,source:'kitchen_preview'});
+      }).catch(()=>{});
+    }
     if(event.data?.type==='kitchen-preview-buy'&&typeof event.data.listingId==='string'){
       models().then(list=>{
         if(list.some(model=>model.listingId===event.data.listingId))window.EdleAnalytics?.track('kitchen_preview_buy_click',{

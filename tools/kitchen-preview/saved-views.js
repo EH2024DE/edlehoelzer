@@ -1,5 +1,5 @@
 import { createIcons, ArrowLeft, ArrowRight } from 'lucide';
-export function createSavedViews({host,capture,english,onBuy,models=[],onChoose}){
+export function createSavedViews({host,capture,english,onBuy,models=[],onChoose,onCompare}){
  const key='edle-worktop-comparisons-v1',ttl=86400000;
  const words=english?{save:'Save comparison view',title:'Your saved views',note:'On your device for 24 hours. Photos may show different positions and angles.',remove:'Remove',buy:'Buy this board in the shop',close:'Close',full:'Two views saved. Remove one before adding another.',error:'Could not save on this device. Please use the image download instead.'}:{save:'Ansicht zum Vergleich merken',title:'Deine gemerkten Ansichten',note:'Für 24 Stunden auf deinem Gerät. Fotos können unterschiedliche Positionen und Blickwinkel zeigen.',remove:'Entfernen',buy:'Dieses Brett im Shop kaufen',close:'Schließen',full:'Zwei Ansichten gemerkt. Entferne eine, bevor du eine weitere hinzufügst.',error:'Speichern auf diesem Gerät nicht möglich. Nutze bitte den Bild-Download.'};
  const save=document.createElement('button');save.textContent=words.save;save.hidden=true;
@@ -57,6 +57,7 @@ export function createSavedViews({host,capture,english,onBuy,models=[],onChoose}
    figure.append(image,caption,purchaseLink(view));return figure;
   }));
   opener=button;zoom.showModal();
+  if(read().length===2)onCompare?.(id||read()[0].id);
   slides.scrollLeft=wide.matches?0:Math.max(0,views.findIndex(view=>view.id===id))*slides.clientWidth;sync();
  }
  function render(){

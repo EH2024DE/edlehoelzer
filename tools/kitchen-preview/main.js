@@ -17,6 +17,11 @@ createIcons({ icons: { Camera, ImagePlus, RotateCcw, Download, Maximize, Minimiz
 const $ = (id) => document.getElementById(id),
   stage = $("stage");
 let savedViews;
+const measuredPlacements=new Set();
+function measurePreview(event,id=catalog[selected].listingId){
+  if(window.parent!==window)window.parent.postMessage({type:'kitchen-preview-event',event,listingId:id},location.origin);
+  else window.EdleAnalytics?.track(event,{product_id:id,source:'kitchen_preview'});
+}
 const assetPath = path => `${import.meta.env.BASE_URL}${path.replace(/^\//,'')}`;
 const journey=document.createElement('div');
 journey.className='preview-journey';
@@ -414,6 +419,10 @@ function setMode(next) {
       : "Freie 3D-Ansicht");
   board.visible = next === "studio" || (!!homography && !calibrating);
   shadow.visible = board.visible;
+  if(next==='room'&&board.visible&&!measuredPlacements.has(catalog[selected].listingId)){
+    measuredPlacements.add(catalog[selected].listingId);
+    measurePreview('kitchen_preview_placed');
+  }
   position();
   $('editReference').hidden=!calibrating;
   $('referenceDetails').hidden=!calibrating;
@@ -667,7 +676,7 @@ function showReferenceFeedback(reason){
  feedbackCopy.textContent=english?(corners?'The size is not reliable yet. Check that the frame meets all four paper corners. If they already match, try another photo from slightly above and to one side.':reason==='small'?'The paper is too small in this photo to estimate the size reliably. Move a little closer and keep all four corners visible, as in the example.':'The paper looks very flat from this angle. Hold the camera a little higher and photograph slightly from the side, as in the example.'):(corners?'Die Größe lässt sich noch nicht zuverlässig darstellen. Liegt der Rahmen genau auf allen vier Blattecken? Falls ja, hilft ein neues Foto leicht schräg von oben und seitlich.':reason==='small'?'Das Blatt ist im Foto zu klein für eine zuverlässige Größenabschätzung. Gehe etwas näher heran und lasse alle vier Ecken sichtbar, ähnlich wie im Beispiel.':'Das Blatt wirkt aus diesem Blickwinkel sehr flach. Halte die Kamera etwas höher und fotografiere leicht seitlich, ähnlich wie im Beispiel.');
  if(!referenceFeedback.open)referenceFeedback.showModal();
 }
-savedViews=createSavedViews({host:viewDock,english,models:Object.entries(catalog).map(([key,p])=>({key,name:p.name,id:p.listingId,image:assetPath(p.image||`assets/${key}.jpg`)})),onChoose:async key=>{
+savedViews=createSavedViews({host:viewDock,english,onCompare:id=>measurePreview('kitchen_preview_compare',id),models:Object.entries(catalog).map(([key,p])=>({key,name:p.name,id:p.listingId,image:assetPath(p.image||`assets/${key}.jpg`)})),onChoose:async key=>{
  await select(key);stage.scrollIntoView({block:'center',behavior:'smooth'});
 },capture:()=>{
  if(mode!=='room'||calibrating||!homography)return null;
