@@ -1,0 +1,18 @@
+.boardInquiry{scroll-margin-top:110px;padding:48px 0;border-block:1px solid #ddd}
+.boardInquiry .container{max-width:960px}
+.boardInquiry h2{font-size:32px;line-height:1.15}
+.boardInquiry form{max-width:720px;margin-top:24px}
+.boardInquiry label{display:grid;gap:8px;margin-bottom:20px;font-size:16px}
+.boardInquiry input,.boardInquiry textarea,.boardInquiry select{box-sizing:border-box;width:100%;min-width:0;padding:12px;border:1px solid #aaa;border-radius:4px;background:#fff;color:#222;font:inherit}
+.boardInquiry textarea{resize:vertical;min-height:110px}
+.boardInquiry details{margin:20px 0}
+.boardInquiry summary{cursor:pointer;padding:12px 0;font-weight:600}
+.boardInquiry__fields{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:12px}
+.boardInquiry__trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.boardInquiry [role=status]{margin-top:18px}
+.boardInquiry button:disabled{opacity:.65;cursor:wait}
+.inquiryExamples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:24px 0}
+.inquiryExamples img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.inquiryExamples h3{font-size:21px;margin:14px 0 8px}
+.inquiryExamples p{font-size:16px}
+@media(max-width:600px){.boardInquiry__fields,.inquiryExamples{grid-template-columns:1fr}.boardInquiry{padding:32px 0}.boardInquiry .btn{width:100%;white-space:normal}}

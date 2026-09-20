@@ -90,6 +90,8 @@
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
   <link rel="stylesheet" href="/assets/css/page-summary.css">
   <script defer src="/assets/js/page-summary.js"></script>
+<link rel="stylesheet" href="/assets/css/board-inquiry.css">
+<script src="/assets/js/board-inquiry.js" defer></script>
 </head>
 <body class="hasPageSummary">
 <header class="topbar">
@@ -142,16 +144,39 @@
         <dl>
           <div><dt>Deine Möglichkeiten</dt><dd>Einzelstücke oder kleine Serien. Größe, Holz und Details stimmen wir mit dir ab.</dd></div>
           <div><dt>Deine Preisorientierung</dt><dd>Maßanfertigungen beginnen je nach Größe und Ausführung schon bei wenigen hundert Euro. Den Preis für dein Wunschbrett kalkulieren wir individuell.</dd></div>
-          <div><dt>Dein erster Schritt</dt><dd>Wunschmaße, Nutzung und Budget per E-Mail senden. Du erhältst unsere Einschätzung zu Machbarkeit, Preis und Fertigungszeit.</dd></div>
+          <div><dt>Dein erster Schritt</dt><dd>Eine grobe Idee genügt. Maße, Holz und Details klären wir gemeinsam. Du erhältst unsere Einschätzung zu Machbarkeit, Preisrahmen und Fertigungszeit.</dd></div>
         </dl>
       </section>
       <div class="summaryActions">
-        <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Ma%C3%9F&amp;body=Hallo%20Edle%20H%C3%B6lzer%2C%0A%0AIch%20interessiere%20mich%20f%C3%BCr%20eine%20Ma%C3%9Fanfertigung.%0AEinsatzzweck%3A%0AWunschma%C3%9Fe%20oder%20verf%C3%BCgbare%20Fl%C3%A4che%3A%0AHolzwunsch%3A%0ABudgetrahmen%3A%0AWunschtermin%3A%0A" class="btn btn--emphasis" data-umami-event="email-kontakt" data-cta-location="summary">Mein Brett anfragen</a>
+        <a href="#anfrage" class="btn btn--emphasis" data-cta-location="summary">Mein Brett anfragen</a>
         <a href="#referenzprojekt" class="summaryTextLink">Erst ein Beispiel ansehen</a>
       </div>
     </div>
   </section>
 
+  <section class="section section--white" aria-labelledby="format-title">
+    <div class="container">
+      <h2 id="format-title">Welches Format passt zu deiner Idee?</h2>
+      <p>Diese vorhandenen Standardbretter zeigen zwei mögliche Größen und Bauweisen. Sie sind Material- und Formatbeispiele, keine dokumentierten Maßaufträge. Eine individuelle Anfertigung kalkulieren wir separat; sie beginnt je nach Größe und Ausführung bei wenigen hundert Euro.</p>
+      <div class="inquiryExamples">
+        <article>
+          <img src="https://i.etsystatic.com/54205761/r/il/7962a4/6893321436/il_fullxfull.6893321436_f8i6.jpg" alt="Kompaktes Nussbaum-Langholzbrett als Formatbeispiel" width="800" height="600" loading="lazy">
+          <h3>Kompakt zum Vorbereiten und Servieren</h3>
+          <p>Nussbaum · Langholz · 32,9 × 21,7 cm · 4 cm stark</p>
+          <p>Eine Orientierung für kleinere Arbeitsflächen oder persönliche Servierbretter. Auch eine kleine Serie für die Familie ist möglich.</p>
+          <a href="#anfrage" class="summaryTextLink" data-inquiry-example="Kompaktes Nussbaum-Langholzbrett, 32,9 × 21,7 × 4 cm">Ähnliches Brett anfragen</a>
+        </article>
+        <article>
+          <img src="https://i.etsystatic.com/54205761/r/il/0ea742/6893252440/il_fullxfull.6893252440_lhmi.jpg" alt="Walnuss-Stirnholzbrett mit Eicherahmen als Materialbeispiel" width="800" height="600" loading="lazy">
+          <h3>Mehr Fläche für die tägliche Vorbereitung</h3>
+          <p>Walnuss und Eiche · Stirnholz · 48 × 36,5 cm · 4,2 cm stark</p>
+          <p>Als Standardbrett im Katalog ab 239,99 €. Dieser Preis gilt für das Standardprodukt, nicht als Angebot für dein Maßbrett.</p>
+          <a href="#anfrage" class="summaryTextLink" data-inquiry-example="Walnuss-Stirnholz mit Eicherahmen, 48 × 36,5 × 4,2 cm">Ähnliches Brett anfragen</a>
+        </article>
+      </div>
+      <a class="summaryTextLink" href="/produkte.html#produkte-grid">Lieber ein vorhandenes Brett? Produkte ansehen</a>
+    </div>
+  </section>
   <section class="summaryReference" id="referenzprojekt" aria-labelledby="reference-title">
     <div class="container summaryReference__grid">
       <figure>
@@ -165,6 +190,7 @@
         <p class="summaryReference__price">ab 1.199 €</p>
         <p>Ein fest eingeplantes Arbeitsbrett für die Kochinsel oder eine großzügige Küche. Holzart, Fläche und Gewicht stimmen wir vor der Anfertigung mit dir ab.</p>
         <p class="summaryReference__note">Dieses High-End-Projekt beginnt bei 1.199 € und kann je nach Holz und Ausführung etwa 1.600–1.700 € kosten. Es zeigt das obere Segment unserer Maßanfertigungen, nicht deren Einstiegspreis. Dein konkretes Angebot stimmen wir individuell ab.</p>
+        <p><a class="btn btn--emphasis" href="#anfrage" data-inquiry-example="XXL-Stirnholz mit Anschlagkante, 75 × 60 cm">Ähnliches Brett anfragen</a></p>
         <a class="summaryTextLink" href="https://www.etsy.com/de/listing/4484195050/custom-made-end-grain-cutting-board?utm_source=edlehoelzer.de&amp;utm_medium=referral&amp;utm_campaign=custom_board&amp;utm_content=tldr_reference_4484195050" target="_blank" rel="noopener" data-etsy-link>Referenz im Shop ansehen</a>
       </div>
     </div>
@@ -173,9 +199,38 @@
     <div class="container">
       <h2>Es muss kein XXL-Brett sein.</h2>
       <p>Du möchtest kleinere Frühstücks- oder Servierbretter für deine Familie? Auch eine kleine Serie aus aufeinander abgestimmten Hölzern fertigen wir auf Anfrage. Nenne uns Stückzahl, Wunschgröße und Budget; dafür erhältst du eine eigene Kalkulation.</p>
-      <a class="summaryTextLink" href="mailto:info@edlehoelzer.de?subject=Anfrage%20Fr%C3%BChst%C3%BCcksbrettserie&amp;body=St%C3%BCckzahl%3A%0AWunschgr%C3%B6%C3%9Fe%3A%0AHolzwunsch%3A%0ABudget%3A%0A">Eine kleine Serie anfragen</a>
+      <a class="summaryTextLink" href="#anfrage">Eine kleine Serie anfragen</a>
     </div>
   </section>
+
+<section id="anfrage" class="boardInquiry" aria-labelledby="inquiry-title">
+  <div class="container">
+    <h2 id="inquiry-title">Dein Brett beginnt mit einer Idee.</h2>
+    <p>Wofür möchtest du es nutzen? Eine grobe Vorstellung genügt. Maße, Holz und Details klären wir gemeinsam. Unsere erste Antwort ordnet Machbarkeit, Preisrahmen und Fertigungszeit ein.</p>
+    <form data-board-inquiry action="https://formspree.io/f/maqanpld" method="POST">
+      <input type="hidden" name="_subject" value="Schneidebrett-Anfrage über edlehoelzer.de">
+      <input type="hidden" name="reference" value="">
+      <label class="boardInquiry__trap" aria-hidden="true">Nicht ausfüllen<input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      <p data-reference-note></p>
+      <label>Deine E-Mail-Adresse (Pflichtfeld)<input type="email" name="email" autocomplete="email" required maxlength="254"></label>
+      <label>Dein Wunsch oder Einsatz (Pflichtfeld)<textarea name="message" required maxlength="3000" placeholder="Zum Beispiel: ein Arbeitsbrett für unsere Küche oder Frühstücksbretter für die Familie."></textarea></label>
+      <details><summary>Weitere Wünsche ergänzen (optional)</summary>
+        <div class="boardInquiry__fields">
+          <label>Maße oder verfügbare Fläche<input name="dimensions" maxlength="100" placeholder="Weiß ich noch nicht"></label>
+          <label>Holzart<select name="wood"><option value="">Weiß ich noch nicht</option><option>Eiche</option><option>Nussbaum</option><option>Anderes Holz / gemeinsam auswählen</option></select></label>
+          <label>Bauweise<select name="construction"><option value="">Weiß ich noch nicht</option><option>Langholz</option><option>Stirnholz</option></select></label>
+          <label>Budgetrahmen<input name="budget" maxlength="100" placeholder="Noch offen"></label>
+          <label>Wunschtermin<input name="timing" maxlength="100" placeholder="Kein fester Termin"></label>
+        </div>
+        <p>Ein Küchenfoto kannst du uns später per E-Mail schicken. Für den ersten Kontakt ist es nicht nötig.</p>
+      </details>
+      <p>Wir verwenden deine Angaben zur Bearbeitung deiner Anfrage. Informationen zur Verarbeitung durch Formspree findest du in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+      <button type="submit" class="btn btn--emphasis">Unverbindliche Anfrage senden</button>
+      <p role="status" aria-live="polite" tabindex="-1"></p>
+    </form>
+    <p>Lieber direkt schreiben? <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett">info@edlehoelzer.de</a></p>
+  </div>
+</section>
 
   <section class="section section--white">
     <div class="container seoContent">
@@ -205,7 +260,7 @@
             <article class="premiumCard"><strong>Gewicht</strong><span>Groß ist nicht automatisch besser.</span></article>
             <article class="premiumCard"><strong>Einsatz</strong><span>Küche, Grillstation, Geschenk oder Sonderlösung.</span></article>
           </div>
-          <div class="ctaRow"><a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Mass" class="btn btn--emphasis" data-umami-event="email-kontakt">Maßanfertigung anfragen</a></div>
+          <div class="ctaRow"><a href="#anfrage" class="btn btn--emphasis">Maßanfertigung anfragen</a></div>
         </div>
 
         <h2 id="massbeispiele">Welche Maße sind sinnvoll?</h2>
@@ -213,6 +268,7 @@
         <h3>Für den täglichen Kücheneinsatz</h3>
         <p>Größen wie 40 × 30 cm, 45 × 35 cm oder 50 × 40 cm passen gut auf viele Arbeitsplatten und bleiben noch handlich. Hier sind <a href="/schneidebrett-eiche/">Eiche</a> und <a href="/schneidebrett-nussbaum/">Nussbaum</a> ruhige Optionen mit spürbarem Material.</p>
         <h3>Für Kochinseln und große Küchen</h3>
+        <p>Du möchtest Holzbild und Raumwirkung gemeinsam betrachten? Im <a href="/atelier/">Atelier kannst du Holz und Format passend zu deiner Küche auswählen</a>. Für ein konkretes Wunschmaß genügt die direkte Anfrage hier.</p>
         <p>Bei 60 × 40 cm, 70 × 45 cm oder 80 × 50 cm entsteht eine echte Arbeitsfläche. Solche Bretter eignen sich für Menschen, die regelmäßig kochen und ein Brett nicht nur gelegentlich aus der Schublade holen.</p>
         <h3>Für BBQ und Grillstationen</h3>
         <p>Für BBQ ist ein größeres Format oft sinnvoll, weil Fleischstücke, Brot, Beilagen und Messer gleichzeitig Platz brauchen. Wer viel am Grill arbeitet, kann auch ein <a href="/stirnholz-schneidebrett/">Stirnholzbrett</a> oder einen massiveren Aufbau prüfen lassen.</p>
@@ -221,27 +277,9 @@
         <p>Ein Schneidebrett nach Maß bedeutet nicht, dass jede beliebige Idee technisch sinnvoll ist. Holz ist ein lebendiges Material. Genau deshalb wird jedes Projekt einzeln abgestimmt.</p>
         <p>Je nach Holz, Aufbau und gewünschtem Einsatz sind individuelle Länge und Breite, unterschiedliche Brettstärken, Saftrille, Griffmulden, personalisierte Gravur, Stirnholz oder Längsholz, Eiche, Nussbaum und ausgewählte Materialkombinationen möglich. Auch eine ruhige oder bewusst kontrastreiche Holzsortierung kann besprochen werden.</p>
         <p>Wir sagen offen, wenn eine Idee aus handwerklicher Sicht nicht sinnvoll ist. Ein gutes Maßbrett soll nicht nur beim Auspacken beeindrucken, sondern über Jahre funktionieren. Für besondere Einzelstücke kann auch die <a href="/erbstueck/">Erbstück-Serie</a> die passendere Richtung sein.</p>
-        <h2>Typische Fehler bei einem Schneidebrett nach Maß</h2>
-        <p>Bei einer Maßanfertigung geht es nicht nur um Länge und Breite. Viele Fehler entstehen, weil das Brett nur optisch geplant wird.</p>
-        <ul>
-          <li>Das Brett wird zu groß und dadurch unhandlich.</li>
-          <li>Die Stärke und das spätere Gewicht werden unterschätzt.</li>
-          <li>Reinigung, Lagerung und Anheben werden vergessen.</li>
-          <li>Saftrille oder Griffe werden ohne echten Nutzen gewählt.</li>
-          <li>Die Holzart wird nur nach Farbe entschieden.</li>
-        </ul>
-        <p>Unser Ziel ist nicht das größte oder auffälligste Brett. Unser Ziel ist ein Brett, das zum späteren Einsatz passt. Ein gutes Schneidebrett nach Maß soll im Alltag benutzt werden, nicht nur gut aussehen.</p>
+        <h2>Drei Entscheidungen, die wir gemeinsam treffen</h2><ul><li><strong>Einsatz und Platz:</strong> Arbeitsfläche, Reinigung und Anheben bestimmen das passende Format.</li><li><strong>Holzart und Bauweise:</strong> Eiche oder Nussbaum beschreibt das Holz; Langholz oder Stirnholz beschreibt den Aufbau.</li><li><strong>Details:</strong> Saftrille, Griffe und Gravur ergänzen wir dort, wo sie zu deiner Nutzung und zum Brett passen.</li></ul>
         <h2>So entsteht dein Schneidebrett nach Maß</h2>
-        <h3>1. Anfrage mit grober Vorstellung</h3>
-        <p>Du beschreibst, wofür das Brett gedacht ist: Küche, Kochinsel, BBQ, Geschenk oder Sonderprojekt. Maße, Holzart und Wünsche können grob genannt werden.</p>
-        <h3>2. Material und Machbarkeit prüfen</h3>
-        <p>Wir prüfen, welche Holzart und welcher Aufbau sinnvoll sind. Dabei geht es auch um Gewicht, Pflege, Stabilität und Alltagstauglichkeit.</p>
-        <h3>3. Details abstimmen</h3>
-        <p>Mögliche Details sind Saftrille, Griffmulden, Gravur, Stärke und Format. Nicht alles ist bei jeder Ausführung sinnvoll. Genau deshalb stimmen wir die Details vorher ab.</p>
-        <h3>4. Fertigung in der Werkstatt</h3>
-        <p>Das Brett wird zugeschnitten, verleimt, geschliffen, bearbeitet und geölt. Jedes Stück entsteht einzeln, nicht aus Serienproduktion. <a href="/schneidebrett-made-in-germany/">Unsere Fertigungsschritte in Deutschland</a> erklären wir nachvollziehbar auf einer eigenen Seite.</p>
-        <h3>5. Übergabe oder Versand</h3>
-        <p>Nach der Fertigung erhältst du dein fertiges Brett mit Hinweisen zur Pflege und Nutzung.</p>
+        <ol><li><strong>Wunsch senden.</strong> Beschreibe deine Nutzung; grobe Maße oder ein Budget sind optional.</li><li><strong>Machbarkeit und Preis abstimmen.</strong> Wir klären Holzart, Bauweise, Details und Fertigungszeit gemeinsam.</li><li><strong>Nach Freigabe fertigen.</strong> Wir fertigen die vereinbarte Ausführung und stimmen Versand oder Abholung mit dir ab.</li></ol>
         <h2>Häufige Fragen</h2>
         <div class="faqList">
           <article class="faqItem">
@@ -270,7 +308,7 @@
         <div class="seoAside__box">
           <h2>Direkt anfragen</h2>
           <p>Du hast einen bestimmten Platz, ein Wunschmaß oder eine Idee im Kopf? Beschreibe kurz, wofür das Brett gedacht ist. Wir prüfen, was handwerklich sinnvoll ist.</p>
-          <div class="ctaRow"><a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Mass" class="btn btn--emphasis" data-umami-event="email-kontakt">Maßanfertigung anfragen</a></div>
+          <div class="ctaRow"><a href="#anfrage" class="btn btn--emphasis">Maßanfertigung anfragen</a></div>
         </div>
         <div class="seoAside__box">
           <h3>Weiterlesen</h3>
