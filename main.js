@@ -1,4 +1,8 @@
 document.documentElement.classList.add("js");
+if (!document.querySelector('[data-site-search-loader]')) {
+  var searchStyle=document.createElement('link');searchStyle.rel='stylesheet';searchStyle.href='/assets/css/site-search.css';document.head.appendChild(searchStyle);
+  var searchScript=document.createElement('script');searchScript.src='/assets/js/site-search.js';searchScript.setAttribute('data-site-search-loader','');document.head.appendChild(searchScript);
+}
 if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenStyle=document.createElement('link');kitchenStyle.rel='stylesheet';kitchenStyle.href='/assets/css/kitchen-preview-entry.css';document.head.appendChild(kitchenStyle);
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
