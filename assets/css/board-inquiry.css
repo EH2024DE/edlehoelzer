@@ -15,4 +15,13 @@
 .inquiryExamples img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
 .inquiryExamples h3{font-size:21px;margin:14px 0 8px}
 .inquiryExamples p{font-size:16px}
+.seoText>h2:not(:first-child),.seoText>div{margin-top:44px}
+.seoText h2{margin-bottom:22px}
+.seoText h3{margin-top:28px;margin-bottom:14px}
+.seoText p+p{margin-top:16px}
+.seoText .proofCard strong{display:block;margin-bottom:12px}
+.seoText .proofCard p{margin:0}
+#products-atelier-preview{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(260px,32%);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;max-width:100%;overscroll-behavior-x:contain}
+#products-atelier-preview>.productCard{min-width:0;scroll-snap-align:start}
+@media(max-width:600px){#products-atelier-preview{grid-auto-columns:86%;gap:14px}.seoText>h2:not(:first-child),.seoText>div{margin-top:32px}}
 @media(max-width:600px){.boardInquiry__fields,.inquiryExamples{grid-template-columns:1fr}.boardInquiry{padding:32px 0}.boardInquiry .btn{width:100%;white-space:normal}}
