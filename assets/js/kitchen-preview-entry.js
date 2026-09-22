@@ -20,6 +20,8 @@
     if (dialog?.open) return;
     dialog = element('dialog','kitchenPreviewDialog');
     const currentDialog = dialog;
+    currentDialog.dataset.entrySource=id?'product':'homepage';
+    window.EdleAnalytics?.track('kitchen_preview_start',{source:currentDialog.dataset.entrySource,product_id:id||'',cta_location:id?'product_detail':'homepage_after_finder'});
     const head = element('div','kitchenPreviewDialog__head');
     const title = element('h2','',copy.title); title.id = 'kitchen-preview-heading';
     const closeButton = element('button','kitchenPreviewDialog__close','×'); closeButton.type='button';closeButton.setAttribute('aria-label',copy.close);closeButton.onclick=close;
@@ -62,16 +64,17 @@
   window.addEventListener('message',event=>{
     const frame=dialog?.querySelector('iframe');
     if(event.origin!==location.origin||event.source!==frame?.contentWindow)return;
+    const entrySource=dialog.dataset.entrySource;
     if(event.data?.type==='kitchen-preview-close')close();
     if(event.data?.type==='kitchen-preview-event'&&['kitchen_preview_placed','kitchen_preview_compare'].includes(event.data.event)&&typeof event.data.listingId==='string'){
       models().then(list=>{
-        if(list.some(model=>model.listingId===event.data.listingId))window.EdleAnalytics?.track(event.data.event,{product_id:event.data.listingId,source:'kitchen_preview'});
+        if(list.some(model=>model.listingId===event.data.listingId))window.EdleAnalytics?.track(event.data.event,{product_id:event.data.listingId,source:entrySource});
       }).catch(()=>{});
     }
     if(event.data?.type==='kitchen-preview-buy'&&typeof event.data.listingId==='string'){
       models().then(list=>{
         if(list.some(model=>model.listingId===event.data.listingId))window.EdleAnalytics?.track('kitchen_preview_buy_click',{
-          product_id:event.data.listingId,cta_location:'kitchen_preview',source:event.data.entry==='product'?'product':'homepage'
+          product_id:event.data.listingId,cta_location:'kitchen_preview',source:entrySource
         });
       }).catch(()=>{});
     }
