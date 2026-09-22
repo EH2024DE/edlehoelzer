@@ -4,6 +4,8 @@ if (!document.querySelector('[data-site-search-loader]')) {
   var searchScript=document.createElement('script');searchScript.src='/assets/js/site-search.js';searchScript.setAttribute('data-site-search-loader','');document.head.appendChild(searchScript);
 }
 if (!document.querySelector('[data-kitchen-preview-loader]')) {
+  var roomStyle=document.createElement('link');roomStyle.rel='stylesheet';roomStyle.href='/assets/css/room-discovery.css';document.head.appendChild(roomStyle);
+  var roomScript=document.createElement('script');roomScript.src='/assets/js/room-discovery.js';roomScript.defer=true;document.head.appendChild(roomScript);
   var kitchenStyle=document.createElement('link');kitchenStyle.rel='stylesheet';kitchenStyle.href='/assets/css/kitchen-preview-entry.css';document.head.appendChild(kitchenStyle);
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
