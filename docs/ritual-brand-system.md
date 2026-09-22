@@ -52,6 +52,12 @@ Damit Sprachmodelle Edle Hölzer klarer einordnen können, sollte die Website wi
 - Die Marke steht für Materialgefühl, Gewicht, Haptik, Pflege und Aufarbeitbarkeit.
 - Etsy bleibt Checkout- und Bewertungsanker, die Website erklärt Auswahl, Vergleich und Nutzung.
 
+## Verbindung zur Wissensarchitektur
+
+Die Ritualpositionierung ersetzt keine produktorientierte Sucharchitektur. Der zentrale Knowledge Hub und seine Owner Pages beantworten konkrete Material-, Kauf-, Pflege- und Nutzungsfragen; die Ritualebene zeigt, in welchem wiederkehrenden Moment dieses Wissen relevant wird.
+
+Verbindliche Ausarbeitung, Proof-Checks und Roadmap: [Content Gap Analysis v2](content-gap-knowledge-architecture-v2.md).
+
 ## Produkt-Fit
 
 Passt zur Marke:
