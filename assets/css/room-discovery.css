@@ -1,6 +1,6 @@
 .roomDiscovery{background:var(--sand,#eee5da);color:#302820;padding:56px 0;scroll-margin-top:90px}
 .roomDiscovery__layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:54px}
-.roomDiscovery figure{margin:0}.roomDiscovery figure img{display:block;width:100%;height:340px;object-fit:cover;object-position:center 70%;border-radius:4px}
+.roomDiscovery figure{margin:0;min-width:0;width:100%;max-width:560px}.roomDiscovery figure img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:1300 / 1024;object-fit:contain;border-radius:4px}
 .roomDiscovery figcaption{font-size:12px;color:#58635d;margin-top:10px}
 .roomEyebrow{display:block;color:#6a5137!important;font-size:12px!important;line-height:1.5;font-weight:600;letter-spacing:0;margin:0 0 12px!important}
 .roomDiscovery h2{font-size:40px;line-height:1.12;letter-spacing:0;margin:0 0 20px;color:#252b28}
@@ -14,4 +14,5 @@
 .productPreview__roomPrompt[data-enhanced] .roomPromptCopy{color:#414c45;font-size:15px;font-weight:400;line-height:1.6;margin:0 0 20px}
 .roomDisclosure,.roomDiscovery .roomDisclosure{display:block;color:#58635d!important;font-size:12px!important;line-height:1.5!important;margin:14px 0 0!important;font-weight:400!important}
 @media(max-width:900px){.productPreview__roomPrompt[data-enhanced]{margin-inline:-20px;padding-inline:20px}}
-@media(max-width:700px){.roomDiscovery{padding:32px 0}.roomDiscovery__layout{grid-template-columns:1fr;gap:24px}.roomDiscovery figure img{height:220px;object-position:center 71%}.roomDiscovery h2{font-size:32px}.roomDiscovery__cta.btn{width:100%}.productPreview__roomPrompt[data-enhanced]{margin-inline:-20px;padding:26px 20px}.productPreview__roomPrompt[data-enhanced] h3{font-size:26px}}
+@media(max-width:900px){.roomDiscovery__layout{grid-template-columns:1fr;gap:24px}.roomDiscovery figure{max-width:560px}}
+@media(max-width:700px){.roomDiscovery{padding:32px 0}.roomDiscovery h2{font-size:32px}.roomDiscovery__cta.btn{width:100%}.productPreview__roomPrompt[data-enhanced]{margin-inline:-20px;padding:26px 20px}.productPreview__roomPrompt[data-enhanced] h3{font-size:26px}}
