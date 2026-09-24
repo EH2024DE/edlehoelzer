@@ -59,8 +59,9 @@
         "ca. 17 cm",
         "personalisierbar"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/dc0c63/8387719721/il_794xN.8387719721_jb3r.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/41c951/8572655828/il_794xN.8572655828_a5pp.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/41c951/8572655828/il_794xN.8572655828_a5pp.jpg",
         "https://i.etsystatic.com/54205761/r/il/dc0c63/8387719721/il_794xN.8387719721_jb3r.jpg",
         "https://i.etsystatic.com/54205761/r/il/087668/8387552557/il_794xN.8387552557_1b0o.jpg",
         "https://i.etsystatic.com/54205761/r/il/317b45/8339668648/il_794xN.8339668648_t2i4.jpg",
@@ -147,8 +148,9 @@
         "ca. 9 x 13 cm",
         "personalisierbar"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/e492ae/7945187608/il_fullxfull.7945187608_1rmr.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/283ed3/8459309645/il_794xN.8459309645_km3b.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/283ed3/8459309645/il_794xN.8459309645_km3b.jpg",
         "https://i.etsystatic.com/54205761/r/il/e492ae/7945187608/il_fullxfull.7945187608_1rmr.jpg",
         "https://i.etsystatic.com/54205761/r/il/8f4dc6/7799090960/il_fullxfull.7799090960_bd5a.jpg",
         "https://i.etsystatic.com/54205761/r/il/d564eb/7809144718/il_fullxfull.7809144718_o20h.jpg",
@@ -203,7 +205,7 @@
       "notIdealFor": [
         "Haupt-Schneidebrett"
       ],
-      "displayName": "Teigschaber – Massivholz-Mix",
+      "displayName": "Teigschaber aus Massivholz",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4471048251/holz-teigschaber-aus-massivholz",
       "availabilityStatus": "available",
@@ -211,7 +213,7 @@
         {
           "src": "/assets/product-videos/teigschaber-etsy.mp4",
           "poster": "/assets/product-videos/posters/teigschaber-etsy.jpg",
-          "alt": "Teigschaber – Massivholz-Mix im Produktvideo"
+          "alt": "Teigschaber aus Massivholz im Produktvideo"
         }
       ]
     },
@@ -468,8 +470,9 @@
         "28 x 26 x 3,3 cm",
         "personalisierbar"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/14e239/7616209310/il_fullxfull.7616209310_nmtd.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/16a8b4/7993195989/il_794xN.7993195989_nmtd.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/16a8b4/7993195989/il_794xN.7993195989_nmtd.jpg",
         "https://i.etsystatic.com/54205761/r/il/14e239/7616209310/il_fullxfull.7616209310_nmtd.jpg",
         "https://i.etsystatic.com/54205761/r/il/89346f/7868212992/il_fullxfull.7868212992_qhgi.jpg",
         "https://i.etsystatic.com/54205761/r/il/7ca68f/6631845233/il_fullxfull.6631845233_9m2w.jpg",
@@ -628,8 +631,9 @@
         "Eiche, Nussbaum oder Buche",
         "bis 5 cm Brettstärke"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/a45959/7916149821/il_fullxfull.7916149821_faqf.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/1353dc/7868199330/il_794xN.7868199330_n615.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/1353dc/7868199330/il_794xN.7868199330_n615.jpg",
         "https://i.etsystatic.com/54205761/r/il/a45959/7916149821/il_fullxfull.7916149821_faqf.jpg",
         "https://i.etsystatic.com/54205761/r/il/caa18f/7246432169/il_fullxfull.7246432169_zjt4.jpg",
         "https://i.etsystatic.com/54205761/r/il/71109b/7277746124/il_fullxfull.7277746124_h6jz.jpg",
@@ -922,7 +926,7 @@
       "segment": "Schneidebrett",
       "priceLabel": "ab 159,99 EUR",
       "priceOrder": 159.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "Langholz, Thermobambus, Bambus, Birke, 44,7 x 31 cm, 4,4 kg.",
       "longDescription": "Dieses massive XXL-Schneidebrett aus Thermobambus und Multiplex-Birke steckt jeden Kücheneinsatz weg. 44,7 × 31 cm Fläche, 3,6 cm Stärke und 4,4 kg Gewicht sorgen für ruhigen Stand und volle Kontrolle – nichts verrutscht, nichts wackelt. Dunkler Thermobambus trifft auf helle, präzise Birkenlagen. Ein Streifenbrett mit industriellem Charakter – robust genug.",
       "badges": [
@@ -947,8 +951,8 @@
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/4417621529/xxl-cutting-board-made-of-thermally",
       "directListingUrlVerified": true,
-      "featured": true,
-      "active": true,
+      "featured": false,
+      "active": false,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
@@ -987,7 +991,15 @@
       "displayName": "XXL Streifenbrett – Thermobambus & Birke",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4417621529/xxl-cutting-board-made-of-thermally",
-      "availabilityStatus": "available",
+      "availabilityStatus": "sold",
+      "visibility": "inspiration",
+      "inspirationOnly": true,
+      "inquiryPossible": true,
+      "replacementStrategy": "request_similar",
+      "requestUrl": "/schneidebrett-nach-mass/",
+      "availabilityVerifiedAt": "2026-09-24",
+      "soldReason": "Verkauf vom Shopinhaber bestätigt.",
+      "availabilityNote": "Verkauftes Einzelstück. Eine ähnliche Anfertigung prüfen wir gerne auf Anfrage.",
       "videos": [
         {
           "src": "/assets/product-videos/multiplex-birke-etsy.mp4",
@@ -1242,8 +1254,9 @@
         "Eiche + weitere",
         "personalisierbar"
       ],
-      "image": "/assets/pfannenwender-holz/pfannenwender-vielfalt.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/37f6f1/8620503947/il_794xN.8620503947_fovn.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/37f6f1/8620503947/il_794xN.8620503947_fovn.jpg",
         "/assets/pfannenwender-holz/pfannenwender-vielfalt.jpg",
         "/assets/pfannenwender-holz/pfannenwender-wenge.jpg",
         "https://i.etsystatic.com/54205761/r/il/e0f2e3/8288083702/il_fullxfull.8288083702_qw2q.jpg",
@@ -1482,8 +1495,9 @@
         "48,5 x 35,3 x 4 cm",
         "personalisierbar"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/adbf04/7728175107/il_fullxfull.7728175107_cean.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/b3a7ba/8475922999/il_794xN.8475922999_iz79.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/b3a7ba/8475922999/il_794xN.8475922999_iz79.jpg",
         "https://i.etsystatic.com/54205761/r/il/adbf04/7728175107/il_fullxfull.7728175107_cean.jpg",
         "https://i.etsystatic.com/54205761/r/il/add794/7916166187/il_fullxfull.7916166187_iz79.jpg",
         "https://i.etsystatic.com/54205761/r/il/cff632/6469138279/il_fullxfull.6469138279_qxox.jpg",
@@ -2287,14 +2301,13 @@
         "2,75 kg",
         "personalisierbar"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/4fcc34/8287877632/il_fullxfull.8287877632_daam.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/5f9896/7943496803/il_fullxfull.7943496803_23ow.jpg",
       "gallery": [
-        "https://i.etsystatic.com/54205761/r/il/4fcc34/8287877632/il_fullxfull.8287877632_daam.jpg",
+        "https://i.etsystatic.com/54205761/r/il/5f9896/7943496803/il_fullxfull.7943496803_23ow.jpg",
         "https://i.etsystatic.com/54205761/r/il/6ecff8/8164858192/il_fullxfull.8164858192_2dl4.jpg",
         "https://i.etsystatic.com/54205761/r/il/11ae8b/7943677155/il_fullxfull.7943677155_obdy.jpg",
         "https://i.etsystatic.com/54205761/r/il/dbe980/7665978888/il_fullxfull.7665978888_9iy3.jpg",
         "https://i.etsystatic.com/54205761/r/il/ec2b78/7943950933/il_fullxfull.7943950933_s4l4.jpg",
-        "https://i.etsystatic.com/54205761/r/il/5f9896/7943496803/il_fullxfull.7943496803_23ow.jpg",
         "https://i.etsystatic.com/54205761/r/il/7cd144/7665987548/il_fullxfull.7665987548_p5iu.jpg",
         "https://i.etsystatic.com/54205761/r/il/5a8906/7665983732/il_fullxfull.7665983732_4w26.jpg",
         "https://i.etsystatic.com/54205761/r/il/3c47c2/7665982822/il_fullxfull.7665982822_cdd6.jpg",
@@ -2606,8 +2619,9 @@
         "46 × 46 × 5 cm",
         "personalisierbar"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/cdb0da/7728172613/il_fullxfull.7728172613_tg06.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/077cb4/8475925999/il_794xN.8475925999_57ns.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/077cb4/8475925999/il_794xN.8475925999_57ns.jpg",
         "https://i.etsystatic.com/54205761/r/il/cdb0da/7728172613/il_fullxfull.7728172613_tg06.jpg",
         "https://i.etsystatic.com/54205761/r/il/9abeb0/7916969367/il_fullxfull.7916969367_57ns.jpg",
         "https://i.etsystatic.com/54205761/r/il/daa42a/6755378782/il_fullxfull.6755378782_oii5.jpg",
@@ -2683,7 +2697,7 @@
       "segment": "Stirnholz",
       "priceLabel": "ab 179,99 EUR",
       "priceOrder": 179.99,
-      "stock": 0,
+      "stock": 1,
       "shortDescription": "Stirnholz, Buche, Esche, 41 x 30 x 4,7 cm, 4,0 kg.",
       "longDescription": "Viele denken, Holz sei gleich Holz. Stockbuche beweist das Gegenteil. Durch natürlichen Pilzbefall entstehen intensive Farbspiele – von warmen Goldtönen bis zu dunklen Kontrasten. Keine Fläche ist planbar, kein Brett identisch. Dieses Holz wird bewusst gewählt – nicht sortiert. Dieses Stirnholz-Schneidebrett ist für den täglichen Einsatz gemacht. Schwer,.",
       "badges": [
@@ -2693,8 +2707,9 @@
         "4,0 kg",
         "personalisierbar"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/7a6ded/7602744036/il_fullxfull.7602744036_9i7s.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/6b2f57/8534018568/il_794xN.8534018568_dn3r.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/6b2f57/8534018568/il_794xN.8534018568_dn3r.jpg",
         "https://i.etsystatic.com/54205761/r/il/7a6ded/7602744036/il_fullxfull.7602744036_9i7s.jpg",
         "https://i.etsystatic.com/54205761/r/il/d90bc7/7916970249/il_fullxfull.7916970249_phix.jpg",
         "https://i.etsystatic.com/54205761/r/il/fcf0b0/7204608442/il_fullxfull.7204608442_oqv5.jpg",
@@ -2707,9 +2722,9 @@
         "https://i.etsystatic.com/54205761/r/il/61ba09/7252540839/il_fullxfull.7252540839_hc73.jpg"
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/4370784882/end-grain-cutting-board-stock-beech",
-      "directListingUrlVerified": false,
+      "directListingUrlVerified": true,
       "featured": false,
-      "active": false,
+      "active": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
@@ -2743,11 +2758,7 @@
       "displayName": "Stockbuche Stirnholz – Naturmaserung",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/4370784882/end-grain-cutting-board-stock-beech",
-      "availabilityStatus": "sold",
-      "visibility": "inspiration",
-      "soldReason": "Automatischer Etsy-Abgleich am 2026-09-07: Listing nicht in aktiven Etsy-Listings.",
-      "replacementStrategy": "request_similar",
-      "requestUrl": "/schneidebrett-nach-mass/",
+      "availabilityStatus": "available",
       "videos": [
         {
           "src": "/assets/product-videos/stockbuche-uni-etsy.mp4",
@@ -2756,9 +2767,9 @@
         }
       ],
       "inquiryPossible": true,
-      "inspirationOnly": true,
-      "availabilityVerifiedAt": "2026-08-27",
-      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung."
+      "inspirationOnly": false,
+      "availabilityVerifiedAt": "2026-09-24",
+      "availabilityNote": "Wieder verfügbar. Vom Shopinhaber bestätigt."
     },
     {
       "id": "etsy-export-34-schneidebrett-buche-stirnholz-mit-saftrille-massiv-handgefertigt-groform",
@@ -3318,8 +3329,9 @@
         "mit Griffmulden",
         "37,8 × 25,1 × 3,2 cm"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/e189af/8140702288/il_fullxfull.8140702288_ddkx.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/359ebf/8140699162/il_794xN.8140699162_1vv5.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/359ebf/8140699162/il_794xN.8140699162_1vv5.jpg",
         "https://i.etsystatic.com/54205761/r/il/e189af/8140702288/il_fullxfull.8140702288_ddkx.jpg",
         "https://i.etsystatic.com/54205761/r/il/359ebf/8140699162/il_fullxfull.8140699162_1vv5.jpg",
         "https://i.etsystatic.com/54205761/r/il/d62ddb/8140700472/il_fullxfull.8140700472_pvzi.jpg",
@@ -3400,8 +3412,9 @@
         "Schweizer Kante möglich",
         "2 Kantenvarianten"
       ],
-      "image": "https://i.etsystatic.com/54205761/r/il/5b4710/8188531009/il_fullxfull.8188531009_dqko.jpg",
+      "image": "https://i.etsystatic.com/54205761/r/il/8312c7/8188430509/il_794xN.8188430509_8nq8.jpg",
       "gallery": [
+        "https://i.etsystatic.com/54205761/r/il/8312c7/8188430509/il_794xN.8188430509_8nq8.jpg",
         "https://i.etsystatic.com/54205761/r/il/5b4710/8188531009/il_fullxfull.8188531009_dqko.jpg",
         "https://i.etsystatic.com/54205761/r/il/8312c7/8188430509/il_fullxfull.8188430509_8nq8.jpg",
         "https://i.etsystatic.com/54205761/r/il/34ad04/8140656940/il_fullxfull.8140656940_s4qg.jpg",

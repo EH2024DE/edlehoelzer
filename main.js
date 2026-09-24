@@ -6,8 +6,8 @@ if (!document.querySelector('[data-site-search-loader]')) {
 if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var roomStyle=document.createElement('link');roomStyle.rel='stylesheet';roomStyle.href='/assets/css/room-discovery.css';document.head.appendChild(roomStyle);
   var roomScript=document.createElement('script');roomScript.src='/assets/js/room-discovery.js';roomScript.defer=true;document.head.appendChild(roomScript);
-  var kitchenStyle=document.createElement('link');kitchenStyle.rel='stylesheet';kitchenStyle.href='/assets/css/kitchen-preview-entry.css';document.head.appendChild(kitchenStyle);
-  var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
+  var kitchenStyle=document.createElement('link');kitchenStyle.rel='stylesheet';kitchenStyle.href='/assets/css/kitchen-preview-entry.css?v=20260923-picker';document.head.appendChild(kitchenStyle);
+  var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
 var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20260901-pfannenwender-woods";
@@ -361,7 +361,7 @@ function initGooglePreferredSource() {
   ];
   var main = document.querySelector("main");
 
-  if (!main || excludedPaths.indexOf(path) !== -1 || document.querySelector("[data-preferred-source-cta]")) {
+  if (!main || main.classList.contains("homepageRefined") || excludedPaths.indexOf(path) !== -1 || document.querySelector("[data-preferred-source-cta]")) {
     return;
   }
 
@@ -534,7 +534,7 @@ function initStickyMobileCta() {
     "/schneidebrett-aufbereiten/": { label: "Fotos einschätzen lassen", href: "mailto:info@edlehoelzer.de?subject=Fotoeinsch%C3%A4tzung%20Schneidebrett", secondary: "Kosten ansehen", secondaryHref: "#aufbereitungsservice", event: "refurbishment_inquiry_start" }
   };
 
-  if (!isGerman || !ctas[current] || !window.matchMedia("(max-width: 768px)").matches) {
+  if (!isGerman || document.querySelector(".homepageRefined") || !ctas[current] || !window.matchMedia("(max-width: 768px)").matches) {
     return;
   }
 
@@ -704,7 +704,7 @@ function initHeroVideo() {
     video.loop = true;
     video.playsInline = true;
 
-    if (desktopQuery.matches) {
+    if (desktopQuery.matches && video.getAttribute("data-autoplay") !== "manual") {
       video.preload = "metadata";
       video.autoplay = true;
       playVideo();
@@ -999,6 +999,17 @@ function initReviewTrustStrips() {
 
     headline.textContent = buildReviewHeadline(meta);
     subline.textContent = buildReviewSubline(meta);
+    var selection = root.getAttribute("data-review-selection");
+    if (selection) {
+      var selectedIds = selection.split(",");
+      reviews = reviews.filter(function (review) { return selectedIds.indexOf(review.id) !== -1; });
+    }
+    if (root.hasAttribute("data-review-compact")) {
+      if (meta.ratingAverage && !meta.needsReview) {
+        headline.textContent = meta.ratingAverage.toLocaleString(config.locale, { minimumFractionDigits: 1 }) + " Sterne auf " + meta.source;
+      }
+      subline.textContent = meta.ratingCount + " Bewertungen · " + meta.transactionSoldCount + " Verkäufe über Etsy · In 14 Länder geliefert.";
+    }
     track.innerHTML = reviews.map(buildReviewCard).join("");
 
     if (sourceLink && meta.sourceUrl) {
@@ -1121,6 +1132,7 @@ function initReviewTrustStrips() {
   }
 
   function bindReviewScrolling(root) {
+    if (root.hasAttribute("data-review-compact")) return;
     var viewport = root.querySelector("[data-review-viewport]");
 
     if (!viewport) {

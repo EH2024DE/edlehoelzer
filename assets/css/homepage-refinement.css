@@ -1,0 +1,70 @@
+/* Homepage-only composition; editorial pages retain their existing layout. */
+.homepageRefined > .section,
+.homepageRefined > .roomDiscovery { padding-block: 88px; }
+.homepageRefined h2 { max-width: 24ch; margin-bottom: 24px; }
+.homepageRefined p { max-width: 60ch; }
+.homepageRefined .btn--emphasis,
+.homepageRefined .productCard__cta { background: #87613e; color: #fff; }
+.homepageRefined .productCard__price,
+.homepageRefined .walnutTextLink,
+.homepageRefined .textLink,
+.homepageRefined .reviewTrust__link { color: #785332; }
+.homepageRefined .sectionIntro { margin-bottom: 36px; }
+.homepageRefined .sectionIntro > p,
+.homepageRefined .sectionIntro--split > p { max-width: 40ch; }
+.homepageRefined .homepageProductGrid {
+  display: grid; grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-auto-flow: row; gap: 24px; overflow: visible; margin: 0; padding: 0;
+}
+.homepageRefined .homepageProductGrid > .productCard {
+  min-width: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent;
+}
+.homepageRefined .homepageProductGrid .productCard__media { aspect-ratio: 1; }
+.homepageRefined .homepageProductGrid .productCard__body { padding: 16px 0 0; gap: 8px; }
+.homepageRefined .homepageProductGrid .productCard__name { font-size: 18px; line-height: 1.4; min-height: 0; margin: 0; }
+.homepageRefined .homepageProductGrid .productCard__meta { min-height: 0; margin: 0; }
+.homepageRefined .homepageProductGrid .productCard__footer { margin-top: 8px; }
+.homepageRefined .homepageProductGrid .productCard__buy { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.homepageRefined .homepageProductGrid .productCard__compareUtility { font-size: 13px; }
+.homepageRefined .roomDiscovery { background: #eee5da; }
+.homepageRefined .roomDiscovery__layout { align-items: center; }
+.homepageRefined .homepageProductGrid .productCard__segment,
+.homepageRefined .homepageProductGrid .productCard__badges { display: none; }
+.homepageRefined .homepageProducts__actions { margin-top: 32px; }
+.homepageRefined .materialProofBlock { background: white; }
+.homepageRefined .proofCard { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.homepageRefined .materialProofGrid { gap: 40px; }
+.homepageRefined .proofCard strong { display: block; margin-bottom: 12px; }
+.homepageRefined .erbstueckFeature__copy { max-width: 560px; }
+.homepageRefined .reviewTrust__track { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 40px; transform: none; }
+.homepageRefined .reviewTrust__viewport { overflow: visible; }
+.homepageRefined .reviewCard { min-width: 0; min-height: 0; width: auto; padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.homepageRefined .reviewCard__meta { margin-top: 24px; }
+.homepageRefined .reviewCard__text { font-size: 19px; line-height: 1.7; }
+.homepageRefined .reviewTrust__head { margin-bottom: 40px; }
+.homepageRefined .reviewTrust__link { display: inline-block; margin-top: 28px; }
+.homeWorkshop { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; }
+.homeWorkshop > img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.homeEditorialLinks { display: flex; flex-wrap: wrap; gap: 16px 28px; margin-top: 24px; }
+.homepageRefined .textLink { text-decoration: underline; text-underline-offset: 5px; }
+.homepageRefined .refurbishmentFeature__grid { align-items: center; }
+.homepageRefined .refurbishmentFeature__visual { max-width: 500px; }
+.homepageRefined .refurbishmentFeature__visual figure { aspect-ratio: 4 / 5; }
+.homepageRefined .homeDecision { background: #24211e; color: white; }
+.homepageRefined .homeDecision h2 { color: white; }
+.homepageRefined .homeDecision p { color: #eee5da; }
+@media (max-width: 1100px) {
+  .homepageRefined .homepageProductGrid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 24px; }
+  .homeWorkshop { gap: 32px; }
+}
+@media (max-width: 767px) {
+  .homepageRefined > .section,
+  .homepageRefined > .roomDiscovery { padding-block: 56px; }
+  .homepageRefined .homepageProductGrid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 18px; padding-bottom: 18px; }
+  .homepageRefined .homepageProductGrid > .productCard { flex: 0 0 84%; scroll-snap-align: start; }
+  .homepageRefined .materialProofGrid,
+  .homepageRefined .reviewTrust__track,
+  .homeWorkshop { grid-template-columns: 1fr; gap: 32px; }
+  .homepageRefined .reviewCard__text { font-size: 17px; }
+  .homepageRefined h2 { margin-bottom: 20px; }
+}

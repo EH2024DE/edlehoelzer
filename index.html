@@ -25,6 +25,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css?v=20260827-product-decisions">
 <link rel="stylesheet" href="/assets/css/room-discovery.css?v=20260923-image-ratio">
+<link rel="stylesheet" href="/assets/css/homepage-refinement.css?v=20260923-polish">
   <script>
     if (window.location.pathname === "/index.html") {
       window.history.replaceState(null, "", "/" + window.location.search + window.location.hash);
@@ -109,9 +110,9 @@
   <div class="menuBackdrop" id="menuBackdrop"></div>
 </header>
 
-<main>
+<main class="homepageRefined">
   <section id="hero" class="hero">
-    <video id="heroVideo" class="hero__video" autoplay muted loop playsinline preload="none" poster="/assets/hero_intro_video_edle_hoelzer_poster.webp" data-hero-video data-src="/assets/hero_intro_video_edle_hoelzer.mp4" aria-label="Edle Hölzer Werkstattvideo"></video>
+    <video id="heroVideo" class="hero__video" muted loop playsinline preload="none" poster="/assets/hero_intro_video_edle_hoelzer_poster.webp" data-hero-video data-autoplay="manual" data-src="/assets/hero_intro_video_edle_hoelzer.mp4" aria-label="Edle Hölzer Werkstattvideo"></video>
     <div class="hero__overlay"></div>
     <button class="hero__videoToggle" type="button" data-hero-video-toggle aria-controls="heroVideo" aria-label="Hero-Video abspielen" data-label-play="Hero-Video abspielen" data-label-pause="Hero-Video pausieren">
       <span class="hero__videoToggleIcon" aria-hidden="true"></span>
@@ -134,37 +135,14 @@
       <div class="sectionIntro sectionIntro--split">
         <div>
           <p class="eyebrow eyebrow--dark">Aktuell verfügbar</p>
-          <h2 id="homepage-products-title">Ein Querschnitt durch unser Sortiment.</h2>
+          <h2 id="homepage-products-title">Vier Bretter. Vier Charaktere.</h2>
         </div>
-        <p>Vom ersten Massivholzbrett bis zum 3D-Einzelstück – ergänzt durch Küchenhelfer, die sich passend zur Holzart kombinieren lassen.</p>
+        <p>Von ruhiger Maserung bis zu markantem Stirnholz. Entdecke ausgewählte Stücke für deinen Alltag.</p>
       </div>
       <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite" aria-label="Verfügbare Produkte durchsehen" tabindex="0"></div>
-      <div class="ctaRow homepageProducts__actions">
+      <div class="ctaRow homepageProducts__actions" id="produktfinder-start">
         <a href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
-        <a href="/produkte.html#produkte-grid" class="walnutTextLink">Alle verfügbaren Produkte ansehen</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="homepageTrustBar" aria-label="Vertrauen in Edle Hölzer">
-    <div class="container homepageTrustBar__grid">
-      <p><strong>5,0 Sterne</strong><span>aus 35 Etsy-Bewertungen</span></p>
-      <p><strong>68 Verkäufe</strong><span>über unseren Etsy-Shop</span></p>
-      <p><strong>14 Länder</strong><span>bereits beliefert</span></p>
-      <p><strong>Einzeln geprüft</strong><span>vor jedem Versand</span></p>
-    </div>
-  </section>
-
-  <section id="produktfinder-start" class="section section--white homepageConversion reveal-on-scroll">
-    <div class="container homepageConversion__inner">
-      <div>
-        <p class="eyebrow eyebrow--dark">Brettfinder</p>
-        <h2>Finde das Holzstück, das zu deinem Alltag passt.</h2>
-        <p class="section__lead">Nutzung, Platz, Stil und Preisrahmen führen in fünf Schritten zu einer nachvollziehbaren Empfehlung.</p>
-      </div>
-      <div class="homepageConversion__actions">
-        <a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Brettfinder starten</a>
-        <a href="./produkte.html#produkte-grid" class="textLink">Alle Produkte ansehen</a>
+        <a href="/produkte.html#produkte-grid" class="walnutTextLink">Kollektion ansehen</a>
       </div>
     </div>
   </section>
@@ -172,12 +150,11 @@
   <section class="roomDiscovery" id="dein-brett-deine-kueche" aria-labelledby="room-discovery-title">
     <div class="container roomDiscovery__layout">
       <div>
-        <p class="roomEyebrow">Vor dem Kauf ausprobieren</p>
-        <h2 id="room-discovery-title">Dein Favorit.<br>In deiner Küche.</h2>
-        <p>Du magst das Brett. Aber passt es auch auf deinen Tresen? Sieh dir ausgewählte Bretter in deinem eigenen Küchenfoto an und bekomme ein Gefühl für Größe und Wirkung.</p>
-        <ol><li>A4-Blatt auf den Tresen legen.</li><li>Ein Foto leicht schräg von oben aufnehmen.</li><li>Brett auswählen und in deiner Küche ansehen.</li></ol>
+        <p class="roomEyebrow">Deine Küche. Dein Maßstab.</p>
+        <h2 id="room-discovery-title">Sieh dein Brett<br>in deiner Küche.</h2>
+        <p>Du hast ein Brett im Blick? Sieh, wie Größe und Holz in deiner Küche wirken. Ein Foto deines Tresens mit einem A4-Blatt genügt.</p>
         <button type="button" class="btn roomDiscovery__cta" data-kitchen-preview="">Brett in meiner Küche ansehen</button>
-        <p class="roomDisclosure">Visuelle Orientierung, keine exakte Vermessung oder farbverbindliche Vorschau.</p>
+        <p class="roomDisclosure">Dein Foto bleibt auf deinem Gerät. Visuelle Orientierung, kein exaktes Aufmaß und keine farbverbindliche Vorschau.</p>
       </div>
       <figure>
         <img src="/assets/kitchen-preview-example.jpg" alt="Küchenarbeitsplatte mit einem flach liegenden A4-Blatt, dessen lange Kante parallel zur vorderen Arbeitsplattenkante liegt" width="1300" height="1024" loading="lazy">
@@ -190,13 +167,12 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Warum Edle Hölzer</p>
-        <h2>Kein Brett verlässt die Werkstatt beiläufig.</h2>
-        <p class="section__lead materialProofBlock__lead">Wir fertigen keine anonyme Serie. Material, Proportion und Oberfläche werden am konkreten Stück beurteilt – und vor dem Versand noch einmal vollständig kontrolliert.</p>
+        <h2>Aus gutem Holz. Für echten Alltag.</h2>
       </div>
       <div class="materialProofGrid materialProofGrid--three">
-        <article class="proofCard"><strong>Einzeln gefertigt</strong><p>Holzbild, Kanten und Griffgefühl werden nicht von einem Standardprogramm entschieden.</p></article>
-        <article class="proofCard"><strong>Frisch versandbereit</strong><p>Jedes Brett wird vor dem Versand kontrolliert, bei Bedarf frisch geschliffen, geölt und gewachst.</p></article>
-        <article class="proofCard"><strong>Pflegbar &amp; aufarbeitbar</strong><p>Gutes Massivholz darf altern und kann später wieder in der Werkstatt aufgearbeitet werden.</p></article>
+        <article class="proofCard"><strong>Material</strong><p>Massivholz, einzeln nach Holzbild und Eignung ausgewählt.</p></article>
+        <article class="proofCard"><strong>Fertigung</strong><p>Einzeln bearbeitet. Kanten, Oberfläche und Griffgefühl vor dem Versand kontrolliert.</p></article>
+        <article class="proofCard"><strong>Werterhalt</strong><p>Pflegbar und bei geeigneter Substanz in unserer Werkstatt aufarbeitbar.</p></article>
       </div>
     </div>
   </section>
@@ -209,44 +185,33 @@
     <div class="container erbstueckFeature__stage">
       <div class="erbstueckFeature__copy">
         <p class="eyebrow">Erbstück-Serie · nummerierte Einzelstücke</p>
-        <h2 id="erbstueck-feature-title">Nicht jederzeit. Nicht wiederholbar. Nur wenn das Holz es zulässt.</h2>
+        <h2 id="erbstueck-feature-title">Holz mit Geschichte.<br>Für deinen Alltag.</h2>
         <p class="erbstueckFeature__lead">Historisches Holz wird zum nummerierten Einzelstück für den Alltag – nur wenn Material, Zustand und gewünschte Nutzung zusammenpassen.</p>
-        <ul class="erbstueckFeature__facts" aria-label="Merkmale der Erbstück-Serie">
-          <li>Historisches Holz</li>
-          <li>Jedes Stück nummeriert</li>
-          <li>Nur nach Materiallage</li>
-        </ul>
         <div class="erbstueckFeature__actions">
-          <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Erbst%C3%BCck" class="btn btn--emphasis" data-umami-event="email-kontakt">Erbstück anfragen</a>
           <a href="/erbstueck/" class="erbstueckFeature__link">Die Serie kennenlernen</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="bewertungen" class="reviewTrust section reveal-on-scroll" data-review-trust-strip>
+  <section id="bewertungen" class="reviewTrust section reveal-on-scroll" data-review-trust-strip data-review-selection="etsy-review-20260914-eiche,etsy-review-202606-heike-service" data-review-compact>
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Kundenstimmen</p>
         <h2 data-review-headline>5,0 Sterne aus 35 Etsy-Bewertungen</h2>
-        <p data-review-subline>68 Verkäufe und echte Rückmeldungen von Menschen, die unsere Produkte bereits nutzen oder verschenkt haben.</p>
+        <p data-review-subline>35 Bewertungen · 75 Verkäufe über Etsy · In 14 Länder geliefert.</p>
       </div>
-      <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Etsy-Bewertungen horizontal scrollen">
+      <div class="reviewTrust__viewport" data-review-viewport aria-label="Ausgewählte Etsy-Bewertungen">
         <div class="reviewTrust__track" data-review-track>
           <article class="reviewCard">
             <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
-            <p class="reviewCard__text">„Das Holz ist gut gearbeitet und sehr wertig. Die Kommunikation mit dem Verkäufer ist top. Man wird über alles informiert und es wird auch ruckzuck geantwortet.“</p>
-            <p class="reviewCard__meta">Susanna · August 2026 · Teigschaber mit Gravur</p>
+            <p class="reviewCard__text">„Ein wirklich hochwertiges Schneidebrett und ein unglaublich guter Service.“</p>
+            <p class="reviewCard__meta">Eva · September 2026 · Eiche Stirnholz</p>
           </article>
           <article class="reviewCard">
             <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
-            <p class="reviewCard__text">„Für meine Backvorhaben habe ich ein Werkzeug gesucht, das nicht aus Kunststoff ist, sondern etwas Besonderes aus Holz. Der Teigschaber hat meine Erwartungen vollständig erfüllt.“</p>
-            <p class="reviewCard__meta">Nick · Mai 2026 · Teigschaber aus Holz</p>
-          </article>
-          <article class="reviewCard">
-            <div class="reviewCard__stars" aria-label="5 von 5 Sternen">★★★★★</div>
-            <p class="reviewCard__text">„Alles super. Lässt sich gut mit arbeiten.“</p>
-            <p class="reviewCard__meta">Marc · Juni 2026 · Pfannenwender aus Holz</p>
+            <p class="reviewCard__text">„Exzellenter Kundenservice, hochwertige und ausgefallene/individualisierte Ware. Ich bin hocherfreut und kaufe jederzeit wieder gerne!“</p>
+            <p class="reviewCard__meta">Heike · Juni 2026 · Sonderanfertigung aus Holz</p>
           </article>
         </div>
       </div>
@@ -255,37 +220,9 @@
   </section>
 
   <section id="ueberuns" class="section section--white reveal-on-scroll">
-    <div class="container container--narrow"><p class="eyebrow eyebrow--dark">Über uns</p><h2>Wer dahintersteht.</h2><p class="section__lead">Edle Hölzer entstand aus der gemeinsamen Arbeit von Özgür und Serkan an Holz, Fotografie und Produktauftritt. In der Werkstatt werden Bretter einzeln ausgewählt, zugeschnitten, geschliffen und geölt; online zeigen wir, wie Material, Kanten und Nutzung zusammenhängen.</p></div>
-    <div class="container storyGrid">
-      <article class="card"><h3>Hi, ich bin Özgür.</h3><p>Ich bin Gründer von Edle Hölzer, Handwerker seit rund 20 Jahren und verantwortlich für Entwurf, Holzauswahl und Fertigung.</p><p>In Mittelhessen fertige ich Schneidebretter aus Eiche, Nussbaum, Fachwerkholz und weiteren ausgewählten Hölzern – bewusst ohne CNC.</p><p>Jedes Brett wird einzeln zugeschnitten, geschliffen und geölt. Dadurch bleiben Proportion, Griffgefühl und Oberfläche keine anonyme Serienentscheidung.</p></article>
-      <article class="card"><h3>Hi, ich bin Serkan.</h3><p>Ich bin Ingenieur, Hobbyfotograf und verantwortlich für den Online-Auftritt von Edle Hölzer.</p><p>Mein Part ist es, Özgürs Handwerk sichtbar zu machen: durch Fotos, Videos und eine klare Darstellung dessen, was hinter den Produkten steckt.</p><p>Mich interessiert nicht künstliches Marketing. Mich interessiert, dass Holzart, Zuschnitt, Oberfläche und Pflege so erklärt werden, dass Käufer die Qualität selbst einordnen können.</p></article>
-    </div>
-  </section>
-
-  <section class="section section--white deliveryMap reveal-on-scroll" aria-labelledby="delivery-map-title">
-    <div class="container deliveryMap__layout">
-      <div class="deliveryMap__copy">
-        <p class="eyebrow eyebrow--dark">Von Mittelhessen nach Europa</p>
-        <h2 id="delivery-map-title">In Mittelhessen gefertigt. In Europa zu Hause.</h2>
-        <p class="section__lead">Von unserer Werkstatt aus haben Bretter und Küchenhelfer bereits ihren Platz in vierzehn Ländern Europas gefunden. Jedes Symbol steht für ein Stück Edle Hölzer, das dort angekommen ist.</p>
-      </div>
-      <div class="deliveryMap__visual" aria-label="Europakarte mit belieferten Ländern">
-        <img src="/assets/europe-country-outlines.svg" alt="" width="800" height="600" loading="lazy">
-        <button class="deliveryMap__marker" style="--map-x:46.2%;--map-y:37.3%" type="button" aria-label="Deutschland"><span>Deutschland</span></button>
-        <button class="deliveryMap__marker" style="--map-x:18%;--map-y:29.9%" type="button" aria-label="Irland"><span>Irland</span></button>
-        <button class="deliveryMap__marker" style="--map-x:26.7%;--map-y:26.1%" type="button" aria-label="Vereinigtes Königreich"><span>Vereinigtes Königreich</span></button>
-        <button class="deliveryMap__marker" style="--map-x:33.7%;--map-y:52.3%" type="button" aria-label="Frankreich"><span>Frankreich</span></button>
-        <button class="deliveryMap__marker" style="--map-x:52.1%;--map-y:79.8%" type="button" aria-label="Malta"><span>Malta</span></button>
-        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:80.1%;--map-y:81.8%" type="button" aria-label="Zypern"><span>Zypern</span></button>
-        <button class="deliveryMap__marker" style="--map-x:44.7%;--map-y:20.9%" type="button" aria-label="Dänemark"><span>Dänemark</span></button>
-        <button class="deliveryMap__marker" style="--map-x:40.6%;--map-y:33.1%" type="button" aria-label="Niederlande"><span>Niederlande</span></button>
-        <button class="deliveryMap__marker" style="--map-x:57.9%;--map-y:36.4%" type="button" aria-label="Polen"><span>Polen</span></button>
-        <button class="deliveryMap__marker" style="--map-x:54.8%;--map-y:10.8%" type="button" aria-label="Schweden"><span>Schweden</span></button>
-        <button class="deliveryMap__marker" style="--map-x:45.6%;--map-y:8.8%" type="button" aria-label="Norwegen"><span>Norwegen</span></button>
-        <button class="deliveryMap__marker" style="--map-x:50.7%;--map-y:47.5%" type="button" aria-label="Österreich"><span>Österreich</span></button>
-        <button class="deliveryMap__marker" style="--map-x:54.5%;--map-y:54%" type="button" aria-label="Slowenien"><span>Slowenien</span></button>
-        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:83.4%;--map-y:72%" type="button" aria-label="Türkei"><span>Türkei</span></button>
-      </div>
+    <div class="container homeWorkshop" id="werkstatt">
+      <img src="/assets/hero-fallback.webp" alt="Özgür bei der Arbeit in unserer Werkstatt in Mittelhessen" width="760" height="507" loading="lazy" decoding="async">
+      <div><p class="eyebrow eyebrow--dark">Unsere Werkstatt in Mittelhessen</p><h2>Handwerk hat ein Gesicht.</h2><p>Özgür wählt das Holz aus und fertigt jedes Brett. Serkan macht Material und Handwerk durch Fotografie sichtbar. Gemeinsam steht für uns das Stück im Mittelpunkt, das du täglich benutzt.</p><div class="homeEditorialLinks"><a href="/presse/" class="textLink">Unsere Geschichte</a><a href="/schneidebrett-made-in-germany/" class="textLink">Fertigung ansehen</a></div></div>
     </div>
   </section>
 
@@ -294,9 +231,9 @@
     <div class="container refurbishmentFeature__grid">
       <div class="refurbishmentFeature__copy">
         <p class="eyebrow eyebrow--dark">Aufbereitungsservice</p>
-        <h2 id="refurbishment-feature-title">Du musst ein gutes Brett nicht selbst retten.</h2>
-        <p class="refurbishmentFeature__lead">Was bei einer mechanischen Uhr die Revision ist, ist bei einem massiven Brett die fachgerechte Aufbereitung: Substanz prüfen, nur das Nötige abtragen und die Oberfläche neu aufbauen.</p>
-        <p>Wenn Zeit, Werkzeug oder Erfahrung fehlen, übernehmen wir Diagnose, Schliff und Finish in unserer Werkstatt. Das spart Staub, Fehlversuche und einen Neukauf, wenn das Brett noch genügend Substanz besitzt.</p>
+        <h2 id="refurbishment-feature-title">Für Jahre gemacht.<br>Für weitere aufgearbeitet.</h2>
+        <p class="refurbishmentFeature__lead">Gebrauchsspuren gehören dazu. Wenn die Substanz stimmt, frischen wir dein Brett mit Schliff und neuer Oberfläche in unserer Werkstatt wieder auf.</p>
+        <a href="/schneidebrett-aufbereiten/#aufbereitungsservice" class="textLink" data-umami-event="refurbishment_inquiry_start" data-umami-event-source-page="index">Aufbereitung prüfen lassen</a>
       </div>
       <div class="refurbishmentFeature__visual" aria-label="Schneidebrett vor und nach der Aufbereitung">
         <figure>
@@ -308,54 +245,11 @@
           <figcaption>Nachher</figcaption>
         </figure>
       </div>
-      <div class="refurbishmentFeature__details">
-        <ul class="refurbishmentFeature__facts" aria-label="Leistungen des Aufbereitungsservice">
-          <li><strong>Fotoeinschätzung vorab</strong><span>Du erfährst zuerst, ob Werkstattarbeit überhaupt sinnvoll ist.</span></li>
-          <li><strong>Auffrischung ab 41 €</strong><span>Inklusive Rückversand innerhalb Deutschlands.</span></li>
-          <li><strong>So wenig Abtrag wie möglich</strong><span>Gebrauchsspuren dürfen bleiben, solange Oberfläche und Funktion stimmen.</span></li>
-        </ul>
-        <div class="refurbishmentFeature__actions">
-          <a href="/schneidebrett-aufbereiten/#aufbereitungsservice" class="btn btn--emphasis" data-umami-event="refurbishment_inquiry_start" data-umami-event-source-page="index">Aufbereitung prüfen lassen</a>
-          <a href="/schneidebrett-aufbereiten/" class="textLink">Ablauf und Leistungen ansehen</a>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section id="werkstatt" class="section section--sand section--tight-top reveal-on-scroll">
+  <section class="section homeDecision reveal-on-scroll" id="lead-pfade">
     <div class="container">
-      <div class="workshopIntro">
-        <div><p class="eyebrow eyebrow--dark">Werkstatt</p><h2>Der Unterschied entsteht im Prozess.</h2></div>
-        <p class="section__lead workshopIntro__lead">Traditionelle Maschinen, denen wir aus gutem Grund treu bleiben. Präzise eingestellt, sauber geführt und eingesetzt für Ergebnisse, die nicht nur heute gut aussehen, sondern auch morgen noch überzeugen.</p>
-      </div>
-      <div class="workshopGrid" aria-label="Einblicke in die Werkstatt" tabindex="0">
-        <figure class="workshopGrid__item workshopGrid__item--wide"><img src="./assets/workshop1.jpg" alt="Handgeführter Zuschnitt an der Tischkreissäge in der Edle Hölzer Werkstatt" width="1200" height="1800" decoding="async" srcset="./assets/workshop1-800.jpg 533w, ./assets/workshop1-1200.jpg 800w, ./assets/workshop1-1600.jpg 1066w, ./assets/workshop1.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><figcaption>Sauberer Zuschnitt ist keine Nebensache. Hier beginnt Präzision.</figcaption></figure>
-        <figure class="workshopGrid__item"><img src="./assets/workshop2.jpg" alt="Eichebohlen aus regionalem Holz zur Auswahl in der Edle Hölzer Werkstatt" width="1066" height="1600" decoding="async" srcset="./assets/workshop2-800.jpg 533w, ./assets/workshop2-1200.jpg 800w, ./assets/workshop2.jpg 1066w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><figcaption>Materialwahl entscheidet früh, ob ein Produkt später Charakter hat.</figcaption></figure>
-        <figure class="workshopGrid__item"><img src="./assets/workshop3.jpg" alt="Abrichthobel in der Werkstatt für gerade Flächen an Massivholz" width="1200" height="1800" decoding="async" srcset="./assets/workshop3-800.jpg 533w, ./assets/workshop3-1200.jpg 800w, ./assets/workshop3-1600.jpg 1066w, ./assets/workshop3.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><figcaption>Gerade Flächen und saubere Übergänge entstehen nicht zufällig.</figcaption></figure>
-      </div>
-      <div class="ctaRow"><a href="/schneidebrett-made-in-germany/" class="btn btn--outline">Fertigungsschritte ansehen</a></div>
-    </div>
-  </section>
-
-  <section id="lead-pfade" class="section section--white reveal-on-scroll">
-    <div class="container">
-      <div class="sectionIntro sectionIntro--split">
-        <div><p class="eyebrow eyebrow--dark">Weiterdenken</p><h2>Wenn Standard nicht passt.</h2></div>
-        <p class="section__lead">Ein fester Platz, ein gebrauchtes Lieblingsbrett oder eine kleine Firmenserie brauchen einen anderen Weg als ein verfügbares Einzelstück.</p>
-      </div>
-      <div class="premiumCardGrid premiumCardGrid--three compactPathGrid">
-        <a class="premiumCard" href="/atelier/"><strong>Küchen &amp; Kochinseln</strong><span>Selektierte Einzelstücke für hochwertige Küchen, Kochinseln und besondere Geschenke. Edle Hölzer Atelier ist der Prozess dahinter.</span><span class="premiumCard__link">Stücke ansehen</span></a>
-        <a class="premiumCard" href="/schneidebrett-nach-mass/"><strong>Maßanfertigung</strong><span>Format, Holz und Details passend zum späteren Einsatz abstimmen.</span><span class="premiumCard__link">Maß anfragen</span></a>
-        <a class="premiumCard" href="/schneidebrett-mit-gravur/"><strong>Gravur &amp; Geschenk</strong><span>Motiv, Position und Brett so abstimmen, dass die nutzbare Fläche erhalten bleibt.</span><span class="premiumCard__link">Gravur planen</span></a>
-        <a class="premiumCard" href="/b2b.html" data-umami-event="b2b-interesse"><strong>Firmengeschenke</strong><span>Format, Gravur und Stückzahl vor der Fertigung klären.</span><span class="premiumCard__link">B2B anfragen</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="closingHero reveal-on-scroll">
-    <img src="./assets/hero-fallback.webp" alt="Özgür in der Werkstatt von Edle Hölzer mit warmem Gegenlicht und Gehörschutz" width="760" height="507" loading="lazy" decoding="async">
-    <div class="closingHero__overlay"></div>
-    <div class="container closingHero__content">
       <p class="eyebrow">Nächster Schritt</p><h2>Welches Brett passt zu deinem Alltag?</h2><p>Starte mit dem Brettfinder oder frage direkt an, wenn Ort, Maß, Gravur oder Anlass wichtiger sind als ein Standardprodukt.</p>
       <div class="ctaRow"><a href="./produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a><a href="/schneidebrett-nach-mass/" class="btn">Maßanfertigung anfragen</a></div>
     </div>
@@ -383,6 +277,7 @@
         <a href="/atelier/">Küchen &amp; Kochinseln</a>
         <a href="/erbstueck/">Erbstück</a>
         <a href="/schneidebrett-nach-mass/">Maßanfertigung</a>
+        <a href="/schneidebrett-mit-gravur/">Gravur &amp; Geschenk</a>
         <a href="/#ueberuns">Über uns</a>
         <a href="/sitemap-uebersicht.html">Alle Themen &amp; Ratgeber</a>
       </div>
@@ -400,21 +295,19 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="./main.js?v=20260827-product-decisions-2"></script>
-<script src="/assets/js/product-grid.js?v=20260827-product-decisions"></script>
+<script src="./main.js?v=20260923-polish"></script>
+<script src="/assets/js/product-grid.js?v=20260923-polish"></script>
 <script>
   var homepageProductIds = [
     "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
     "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
     "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
-    "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
-    "etsy-export-15-pfannenwender-aus-massivholz-handgemachter-kuchenhelfer-aus-eiche-nussba",
-    "etsy-live-20260820-buttermesser-holz-personalisiert"
+    "etsy-export-38-schneidebrett-walnuss-mit-eiche-rahmen-massives-stirnholzbrett-fur-hobby"
   ];
   renderProductGrid("homepage-products", function (product) {
     return homepageProductIds.indexOf(product.id) !== -1;
   }, {
-    maxItems: 6,
+    maxItems: 4,
     sortFn: function (a, b) {
       return homepageProductIds.indexOf(a.id) - homepageProductIds.indexOf(b.id);
     }
