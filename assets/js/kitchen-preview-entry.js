@@ -7,7 +7,11 @@
     title:'Dein Brett in deiner Küche', choose:'Brett auswählen', close:'Vorschau schließen',
     view:'Auf meinem Tresen ansehen', loading:'Deine Vorschau wird vorbereitet …', error:'Die Vorschau konnte nicht geladen werden. Bitte versuche es erneut.'
   };
-  let modelsPromise, dialog;
+  let modelsPromise, catalogPromise, dialog;
+  const catalog = () => catalogPromise ||= fetch('/products.json').then(r => {
+    if (!r.ok) throw Error('product catalog');
+    return r.json();
+  }).then(data => Array.isArray(data) ? data : data.products).catch(error => { catalogPromise = null; throw error; });
   const models = () => modelsPromise ||= fetch('/brettvorschau/models.json').then(r => {
     if (!r.ok) throw Error('model manifest');
     return r.json();
@@ -47,11 +51,18 @@
       if(id){content.textContent=en?'This board is not yet available in the room preview.':'Dieses Brett ist noch nicht für die Raumvorschau aufbereitet.';return;}
       content.replaceChildren();content.removeAttribute('role');
       content.append(element('h3','',copy.choose));
+      const products=await catalog();if(dialog!==currentDialog || !currentDialog.open)return;
       const grid=element('div','kitchenPreviewDialog__products');
       for(const model of list){
+        const product=products.find(item=>String(item.listingId)===model.listingId);
         const button=element('button','kitchenPreviewDialog__product');button.type='button';
         const img=element('img');img.src=model.image;img.alt='';img.loading='lazy';
-        button.append(img,element('strong','',model.name),element('span','',model.dimensions));
+        img.width=144;img.height=144;
+        const details=element('span','kitchenPreviewDialog__details');
+        const name=element('strong','kitchenPreviewDialog__name',model.name);name.title=model.name;
+        const price=element('span','kitchenPreviewDialog__price',product?.priceLabel?.replace('EUR','€')||(en?'Price on request':'Preis auf Anfrage'));
+        const dimensions=element('span','kitchenPreviewDialog__dimensions',model.dimensions.replace(/(\d)\.(\d)/g,en?'$1.$2':'$1,$2'));
+        details.append(name,price,dimensions);button.append(img,details);
         button.setAttribute('aria-label',`${model.name}: ${copy.view}`);button.onclick=()=>show(model);grid.append(button);
       }
       content.append(grid);

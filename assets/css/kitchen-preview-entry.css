@@ -7,10 +7,15 @@
 .kitchenPreviewDialog__content{flex:1;min-height:0;overflow:auto;padding:20px}
 .kitchenPreviewDialog__content:has(iframe){padding:0;overflow:hidden}
 .kitchenPreviewDialog__frame{width:100%;height:100%;border:0;display:block}
-.kitchenPreviewDialog__products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.kitchenPreviewDialog__product{display:flex;flex-direction:column;text-align:left;gap:10px;padding:12px;border:1px solid #ddd;border-radius:4px;background:white;font:inherit;color:inherit;cursor:pointer;min-width:0}
-.kitchenPreviewDialog__product img{width:100%;height:210px;object-fit:contain}
-.kitchenPreviewDialog__product strong{font-size:16px}.kitchenPreviewDialog__product span{font-size:13px}
-@media(max-width:700px){.kitchenPreviewDialog{width:100%;height:100dvh;margin:0}.kitchenPreviewDialog__head{padding:8px 16px}.kitchenPreviewDialog__head h2{font-size:18px}.kitchenPreviewDialog__products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.kitchenPreviewDialog__product img{height:150px}}
+.kitchenPreviewDialog__products{display:grid;grid-template-columns:minmax(0,1fr);gap:0;max-width:900px;margin:0 auto}
+.kitchenPreviewDialog__product{display:grid;grid-template-columns:144px minmax(0,1fr);align-items:center;text-align:left;gap:24px;padding:16px 0;border:0;border-bottom:1px solid #d7cfc5;border-radius:0;background:transparent;font:inherit;color:inherit;cursor:pointer;min-width:0}
+.kitchenPreviewDialog__product:hover{background:#eee5da}
+.kitchenPreviewDialog__product:focus-visible{outline:2px solid #785332;outline-offset:3px}
+.kitchenPreviewDialog__product img{display:block;width:144px;height:144px;aspect-ratio:1;object-fit:cover;border-radius:4px}
+.kitchenPreviewDialog__details{display:flex;flex-direction:column;gap:8px;min-width:0}
+.kitchenPreviewDialog__name{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:18px;font-weight:500;line-height:1.4}
+.kitchenPreviewDialog__price{font-size:16px;font-weight:700}
+.kitchenPreviewDialog__dimensions{font-size:13px;color:#625b54;line-height:1.4}
+@media(max-width:700px){.kitchenPreviewDialog{width:100%;height:100dvh;margin:0}.kitchenPreviewDialog__head{padding:8px 16px}.kitchenPreviewDialog__head h2{font-size:18px}.kitchenPreviewDialog__product{grid-template-columns:104px minmax(0,1fr);gap:14px;padding:14px 0}.kitchenPreviewDialog__product img{width:104px;height:104px}.kitchenPreviewDialog__name{font-size:15px}.kitchenPreviewDialog__price{font-size:14px}.kitchenPreviewDialog__details{gap:5px}}
 .productPreview__roomPrompt{margin:20px 0;padding:16px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd}
 .productPreview__roomPrompt p{margin:0 0 10px;font-weight:600}

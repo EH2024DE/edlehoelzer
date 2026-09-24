@@ -220,6 +220,7 @@
 
   function primaryCardCta(product, isEnglish) {
     if (product && product.category === "board") {
+      if (!isEnglish && document.querySelector(".homepageRefined")) return "Mein Brett entdecken";
       return isEnglish ? "View board" : "Zum Brett";
     }
     return isEnglish ? "View product" : "Zum Produkt";
