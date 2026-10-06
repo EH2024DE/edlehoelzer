@@ -4,6 +4,8 @@ Stand: 2026-06-27
 
 Ziel dieses Durchgangs: starke Begriffe nicht entfernen, sondern belegbarer machen. Wo Begriffe wie hochwertig, massiv, langlebig, robust, handgefertigt oder nachhaltig im SEO-Kontext sinnvoll bleiben, werden sie durch Material, Verarbeitung, Nutzung, Pflege oder klare Grenzen gestützt.
 
+Für alle künftigen Wissens- und Owner Pages gilt zusätzlich der verbindliche Proof-Check aus der [Content Gap Analysis v2](content-gap-knowledge-architecture-v2.md). Dort werden Aussage, sichtbarer Beleg, Beweisart und Freigabestatus vor Veröffentlichung dokumentiert.
+
 | Seite | Vorheriger Claim-Typ | Neue Proof-Logik | Wirkung |
 | --- | --- | --- | --- |
 | `/` | Handwerk, Gewicht, Charakter, Alltagstauglichkeit | Ausgewähltes Holz, Zuschnitt, Schleifen, Öl, Kanten, Materialgewicht und Pflegefähigkeit | Markenversprechen wird als Prozess und Materialbeweis erklärt |
