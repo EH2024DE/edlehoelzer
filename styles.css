@@ -1984,6 +1984,33 @@ section[id]{scroll-margin-top:88px}
 .productCard__buy .productCard__cta:first-child{grid-column:1 / -1}
 .productCard__buy:has(.productCard__compareUtility) .productCard__cta:first-child{grid-column:auto}
 .productCard__buy .productCard__trust{grid-column:1 / -1}
+@media (min-width:901px){
+  .landingProductGrid .productCard__footer,
+  .seo-products-carousel .productCard__footer{
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+  .landingProductGrid .productCard__price,
+  .seo-products-carousel .productCard__price{
+    margin:0;
+    white-space:nowrap;
+  }
+  .landingProductGrid .productCard__buy,
+  .seo-products-carousel .productCard__buy{
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+    min-width:0;
+    gap:8px 12px;
+  }
+  .landingProductGrid .productCard__buy .productCard__cta,
+  .seo-products-carousel .productCard__buy .productCard__cta{
+    flex:1 1 120px;
+    min-width:0;
+    white-space:normal;
+  }
+}
 .etsyBuyBlock{display:flex;flex-direction:column;align-items:stretch;gap:6px}
 .productCard__trust,.etsyTrust,.trust-badge{display:block;color:rgba(17,17,17,.54);font-size:11px;font-weight:600;line-height:1.35;text-align:left}
 .trust-badge{margin:6px 0 0}
