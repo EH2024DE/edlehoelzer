@@ -93,6 +93,10 @@ button svg,
   display: flex;
   gap: 4px;
 }
+.presentation-controls { display:flex; flex-wrap:wrap; align-items:center; gap:12px; grid-column:1 / -1; }
+.presentation-controls label { display:flex; align-items:center; gap:8px; font-size:14px; }
+.presentation-controls label[hidden] { display:none; }
+.presentation-controls select { width:auto; min-width:110px; }
 .modes button[aria-pressed="true"] {
   background: #203f33;
   color: white;

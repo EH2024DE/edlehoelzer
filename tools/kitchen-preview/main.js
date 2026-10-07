@@ -5,13 +5,14 @@ import { createSavedViews } from './saved-views.js';
 import { t, english, translateDOM } from './i18n.js';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
-import { handledGeometry, tropicalGeometry, servingGeometry } from './model-shapes.js';
+import { handledGeometry, tropicalGeometry, servingGeometry, swissEdgeGeometry } from './model-shapes.js';
 import PerspT from "./perspective.js";
 import { createIcons, Camera, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } from "lucide";
 import { plane, cameraAxes } from "./geometry.js";
 import { cameraMetadata, detectPaper, samplePaper } from './photo-analysis.js';
 import { createReferenceEditor } from './reference-editor.js';
 import additionalModels from './additional-models.js';
+import { holderTextures, createHolder, standBoard, createBackTexture, createBackGeometry } from './board-holder.js';
 import eligibility from './preview-eligibility.json';
 createIcons({ icons: { Camera, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } });
 const $ = (id) => document.getElementById(id),
@@ -94,6 +95,8 @@ const catalog = {
   ...additionalModels,
   walnut: {
     listingId: '4297472161',
+    backCrop: [.10,.10,.90,.90],
+    backFrame: 1.5,
     name: "Nussbaum & Eiche",
     w: 36.5,
     d: 48,
@@ -118,25 +121,30 @@ for(const key of Object.keys(catalog)){
 let referenceProposed=false;
 const rawTextures={};
 
-function correctColor(source){
+function correctColor(source,key=''){
   const out=document.createElement('canvas');out.width=source.width;out.height=source.height;
   const ctx=out.getContext('2d');ctx.drawImage(source,0,0);
   const pixels=ctx.getImageData(0,0,out.width,out.height),amount=Number($('color').value)/100;
   // Conservative adaptation of already processed warm JPEGs, not RAW recovery.
-  const neutral=[.79,1.02,1.42];
+  const daylight=key==='holder-walnut';
+  const neutral=daylight?[1.14,.98,.79]:[.79,1.02,1.42];
+  const warm=daylight?[1.20,1.02,.76]:[1,1,1];
   const mean=paperWhite?paperWhite.reduce((s,v)=>s+v,0)/3:1;
   const target=paperWhite?paperWhite.map(v=>Math.max(.85,Math.min(1.15,v/mean))):[1,1,1];
   for(let i=0;i<pixels.data.length;i+=4){
-    const rgb=[0,1,2].map(j=>pixels.data[i+j]*((1-amount)+amount*neutral[j])*target[j]);
+    const rgb=[0,1,2].map(j=>pixels.data[i+j]*((1-amount)*warm[j]+amount*neutral[j])*target[j]*(daylight?.84:1));
     const l=.2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2];
-    for(let j=0;j<3;j++)pixels.data[i+j]=Math.max(0,Math.min(255,l+(rgb[j]-l)*(1-.18*amount)));
+    const saturation=daylight?1.20-.10*amount:1-.18*amount;
+    for(let j=0;j<3;j++)pixels.data[i+j]=Math.max(0,Math.min(255,l+(rgb[j]-l)*saturation));
   }
   ctx.putImageData(pixels,0,0);return out;
 }
 function refreshColor(){
-  for(const [key,tex] of Object.entries(textures)){tex.image=correctColor(rawTextures[key]);tex.needsUpdate=true;}
-  const body=board.children[0];
-  if(body?.userData.sideTexture && textures[selected]){body.material.map.image=textures[selected].image;body.material.map.needsUpdate=true;}
+  for(const [key,tex] of Object.entries(textures)){tex.image=correctColor(rawTextures[key],key);tex.needsUpdate=true;}
+  board.traverse(body=>{
+    if(body.userData.sideTexture && textures[selected]){body.material.map.image=textures[selected].image;body.material.map.needsUpdate=true;}
+    if(body.userData.ownedTexture&&textures[selected]){body.userData.ownedTexture.image=textures[selected].image;body.userData.ownedTexture.needsUpdate=true;}
+  });
 }
 const renderer = new THREE.WebGLRenderer({
   alpha: true,
@@ -189,6 +197,7 @@ shadow.rotation.x = -Math.PI / 2;
 shadow.position.y = 0.015;
 scene.add(shadow);
 let selected = "walnut",
+  presentation = 'lying',
   mode = "studio",
   photoURL = null,
   calibrating = false,
@@ -236,7 +245,7 @@ async function texture(key, model = catalog[key]) {
     }
   oc.putImageData(pixels, 0, 0);
   rawTextures[key]=out;
-  const tex = new THREE.CanvasTexture(correctColor(out));
+  const tex = new THREE.CanvasTexture(correctColor(out,key));
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
   textures[key] = tex;
@@ -244,21 +253,29 @@ async function texture(key, model = catalog[key]) {
 }
 async function select(key) {
   const token = ++loadToken;
+  const requestedPresentation=presentation;
   $("status").textContent = t("Holzansicht wird vorbereitet …");
   const p = catalog[key];
   const maps = p.standing ? await Promise.all(p.parts.map((part,i)=>texture(`${key}-${i}`,{...part,d:part.h,image:p.image}))) : [await texture(key)];
   const map = maps[0];
   const edgeMap = p.edge ? await texture(`${key}-edge`, p.edge) : null;
+  const supportsHolder=!p.standing&&p.holderView!==false;
+  const nextPresentation=supportsHolder?requestedPresentation:'lying';
+  const holderMap=nextPresentation==='holder'?await texture(`holder-${$('holderWood').value}`,holderTextures[$('holderWood').value]):null;
   if (token !== loadToken) return;
+  presentation=nextPresentation;
   selected = key;
   $('modelChoice').value=key;
-  while (board.children.length) {
-    const child = board.children[0];
+  const materials=new Set();
+  board.traverse(child=>{
+    if(!child.isMesh)return;
     child.geometry.dispose();
-    if (child.userData.sideTexture) child.material.map.dispose();
-    (Array.isArray(child.material) ? child.material : [child.material]).forEach(material => material.dispose());
-    board.remove(child);
-  }
+    if(child.userData.sideTexture)child.material.map.dispose();
+    child.userData.ownedTexture?.dispose();
+    (Array.isArray(child.material)?child.material:[child.material]).forEach(material=>materials.add(material));
+  });
+  materials.forEach(material=>material.dispose());
+  board.clear();
   if(p.standing){
     p.parts.forEach((part,i)=>{
       const mesh=new THREE.Mesh(servingGeometry(part.w,part.h,[.67,.60,.54][i]),new THREE.MeshBasicMaterial({map:maps[i],side:THREE.DoubleSide}));
@@ -272,19 +289,29 @@ async function select(key) {
       new THREE.MeshStandardMaterial({map:edgeMap,roughness:1})
     ]));
   } else if(p.handles){
-    board.add(new THREE.Mesh(handledGeometry(p.w,p.d,p.h),new THREE.MeshBasicMaterial({map})));
+    const sideMap=edgeMap||map.clone();
+    sideMap.wrapS=THREE.RepeatWrapping;
+    if(!edgeMap){sideMap.repeat.set(1,.035);sideMap.offset.set(0,.015);}
+    const mesh=new THREE.Mesh(handledGeometry(p.w,p.d,p.h),[
+      new THREE.MeshBasicMaterial({map}),
+      new THREE.MeshStandardMaterial({map:sideMap,roughness:1})
+    ]);
+    if(!edgeMap)mesh.userData.ownedTexture=sideMap;
+    board.add(mesh);
   } else {
   const sideMap = map.clone();
   sideMap.repeat.set(1, 0.035);
   sideMap.offset.set(0, 0.015);
   sideMap.needsUpdate = true;
+  const swiss=p.profile==='swiss'?swissEdgeGeometry(p.w,p.d,p.h):null;
   const body = new THREE.Mesh(
-    new RoundedBoxGeometry(p.w, p.h, p.d, 3, 0.3),
+    swiss?swiss.bevel:new RoundedBoxGeometry(p.w, p.h, p.d, 3, 0.3),
     new THREE.MeshStandardMaterial({ map: sideMap, color: '#c9c2b6', roughness: 1 }),
   );
   body.userData.sideTexture = true;
-  body.position.y = p.h / 2;
+  body.position.y = swiss?0:p.h / 2;
   board.add(body);
+  if(swiss)board.add(new THREE.Mesh(swiss.lip,body.material));
   const top = new THREE.Mesh(
     new THREE.PlaneGeometry(p.w - 0.55, p.d - 0.55),
     new THREE.MeshBasicMaterial({ map }),
@@ -292,8 +319,28 @@ async function select(key) {
   top.rotation.x = -Math.PI / 2;
   top.position.y = p.h + 0.015;
   board.add(top);
+  const underside=new THREE.Mesh(
+    createBackGeometry(p.w-(swiss?2*swiss.inset:.55),p.d-(swiss?2*swiss.inset:.55),p.backCrop,p.backFrame),
+    new THREE.MeshBasicMaterial({map:createBackTexture(map,p.backFrame?null:p.backCrop),side:THREE.DoubleSide})
+  );
+  underside.userData.sideTexture=Boolean(p.backCrop&&!p.backFrame);
+  underside.rotation.x=-Math.PI/2;
+  underside.position.y=-.015;
+  board.add(underside);
   }
-  shadow.scale.set(p.w * 1.22, p.d * 1.22, 1);
+  if(presentation==='holder'){
+    const product=new THREE.Group();
+    [...board.children].forEach(child=>product.add(child));
+    board.add(standBoard(product,p),createHolder(holderMap,p.h));
+  }
+  $('holderView').disabled=!supportsHolder;
+  $('holderView').hidden=!supportsHolder;
+  $('holderView').title='';
+  $('lyingView').setAttribute('aria-pressed',String(presentation==='lying'));
+  $('holderView').setAttribute('aria-pressed',String(presentation==='holder'));
+  $('holderWoodLabel').hidden=presentation!=='holder';
+  shadow.scale.set((presentation==='holder'?Math.max(p.w,p.d):p.w)*1.22,(presentation==='holder'?p.h+4:p.d)*1.22,1);
+  if(mode==='studio')controls.target.set(0,presentation==='holder'?Math.min(p.w,p.d)/2+2:2,0);
   document
     .querySelectorAll(".product")
     .forEach((b) => b.classList.toggle("selected", b.dataset.product === key));
@@ -346,7 +393,7 @@ function position() {
     0,
     mode === "room" ? center[1] : 0,
   );
-  const baseAngle = catalog[selected].d > catalog[selected].w ? 90 : 0;
+  const baseAngle = presentation==='lying'&&catalog[selected].d > catalog[selected].w ? 90 : 0;
   board.rotation.y = (-(baseAngle + Number($("angle").value)) * Math.PI) / 180;
   shadow.position.x = board.position.x;
   shadow.position.z = board.position.z;
@@ -410,6 +457,7 @@ function setMode(next) {
   stage.style.maxHeight = next === 'room' ? 'none' : '72vh';
   mode = next;
   controls.enabled = next === "studio";
+  if(next==='studio')controls.target.set(0,presentation==='holder'?Math.min(catalog[selected].w,catalog[selected].d)/2+2:2,0);
   floor.visible = next === "studio";
   $("photo").hidden = next !== "room";
   $("calibration").hidden = next !== "room";
@@ -562,6 +610,14 @@ $("recalibrate").onclick = () => {
 };
 $("studio").onclick = () => setMode("studio");
 $("room").onclick = () => setMode("room");
+async function changePresentation(next){
+  presentation=next;
+  await select(selected);
+  measurePreview(next==='holder'?'kitchen_preview_holder_view':'kitchen_preview_lying_view');
+}
+$('lyingView').onclick=()=>changePresentation('lying');
+$('holderView').onclick=()=>changePresentation('holder');
+$('holderWood').onchange=()=>select(selected);
 document
   .querySelectorAll(".product")
   .forEach((b) => (b.onclick = () => select(b.dataset.product)));
@@ -627,7 +683,7 @@ $("reset").onclick = () => {
   $("angle").value = 0;
   $("angleValue").value = "0°";
   camera.position.set(65, 65, 85);
-  controls.target.set(0, 2, 0);
+  controls.target.set(0,presentation==='holder'?Math.min(catalog[selected].w,catalog[selected].d)/2+2:2,0);
   center = [+$("refW").value / 2, +$("refD").value / 2];
   position();
 };
@@ -694,6 +750,13 @@ savedViews=createSavedViews({host:viewDock,english,onCompare:id=>measurePreview(
  return {id:p.listingId,name:p.name,details:p.dimensionLabel||`${p.approximateDimensions?(english?'approx. ':'ca. '):''}${p.w} × ${p.d} cm · ${p.h} cm ${english?'thick':'Stärke'}`,cleanImage:true,image:small.toDataURL('image/jpeg',.82)};
 },onBuy:id=>{window.EdleAnalytics?.track('kitchen_preview_buy_click',{product_id:id,product_category:'board',cta_location:'saved_comparison',source:entryPoint});if(window.parent!==window)window.parent.postMessage({type:'kitchen-preview-buy',listingId:id,entry:'saved_comparison'},location.origin);}});
 $('color').oninput=()=>{$('colorValue').value=`${$('color').value} %`;refreshColor();};
+for(const id of ['angle','color']){
+  $(id).title=english?'Double-click to reset':'Doppelklick zum Zurücksetzen';
+  $(id).addEventListener('dblclick',()=>{
+    $(id).value=$(id).defaultValue;
+    $(id).dispatchEvent(new Event('input',{bubbles:true}));
+  });
+}
 $('whiteReference').onchange=()=>{paperWhite=$('whiteReference').checked&&homography&&!calibrating?samplePaper($('photo'),points):null;refreshColor();};
 $('swap').onclick=()=>{const w=$('refW').value;$('refW').value=$('refD').value;$('refD').value=w;};
 $('detect').onclick=async()=>{
@@ -765,7 +828,7 @@ document.addEventListener('keydown',e=>{
   if(!expanded||document.querySelector('dialog[open]'))return;
   if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();expandView(false);}
   if(e.key==='Tab'){
-    const items=[...workspace.querySelectorAll('button:not(:disabled),input:not(:disabled)')].filter(el=>el.getClientRects().length);
+    const items=[...workspace.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled)')].filter(el=>el.getClientRects().length);
     const first=items[0],last=items.at(-1);
     if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}

@@ -41,6 +41,10 @@
           ><span id="sceneTag">Freie 3D-Ansicht</span>
         </div>
         <div class="live-controls">
+          <div class="presentation-controls">
+            <div class="modes" role="group" aria-label="Brettposition"><button id="lyingView" type="button" aria-pressed="true">Liegend</button><button id="holderView" type="button" aria-pressed="false">Im Halter</button></div>
+            <label id="holderWoodLabel" hidden>Halterholz<select id="holderWood"><option value="oak">Eiche</option><option value="walnut">Nussbaum</option><option value="beech">Buche</option></select></label>
+          </div>
           <label class="range">Drehung <output id="angleValue">0°</output><input id="angle" type="range" min="-180" max="180" value="0"></label>
           <label class="range">Holzfarbe <output id="colorValue">65 %</output><input id="color" aria-label="Holzfarbe von wärmer zu neutraler" type="range" min="0" max="100" value="65"><small>wärmer ↔ neutraler</small></label>
         </div>
@@ -127,7 +131,7 @@
           <p>
             Die Grundfläche folgt deinen Referenzpunkten. Die Höhenwirkung wird
             aus der Fotoperspektive geschätzt, nicht vermessen. Holzfarbe,
-            Seitenmaserung, Rundungen und Schatten sind Annäherungen; Füße und
+            Seiten- und Rückseitenmaserung, Rundungen und Schatten sind Annäherungen; Füße und
             Griffmulden sind nicht modelliert.
           </p>
           <p>
