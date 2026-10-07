@@ -12,6 +12,11 @@ const models=Object.values(catalog).filter(model=>eligible.listingIds.includes(m
 const missing=eligible.listingIds.filter(id=>!models.some(model=>model.listingId===id));
 if(missing.length)throw new Error(`Missing premium-board models: ${missing.join(', ')}`);
 for(const model of models){
+  if(model.edge){
+    const edgeRelative=model.edge.image.replace(/^\//,'');
+    await mkdir(path.dirname(path.join(output,edgeRelative)),{recursive:true});
+    await copyFile(path.join(root,edgeRelative),path.join(output,edgeRelative));
+  }
   const relative=model.image.replace(/^\//,'');
   await mkdir(path.dirname(path.join(output,relative)),{recursive:true});
   await copyFile(path.join(root,relative),path.join(output,relative));
