@@ -5,7 +5,7 @@ import { createSavedViews } from './saved-views.js';
 import { t, english, translateDOM } from './i18n.js';
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
-import { handledGeometry, servingGeometry } from './model-shapes.js';
+import { handledGeometry, tropicalGeometry, servingGeometry } from './model-shapes.js';
 import PerspT from "./perspective.js";
 import { createIcons, Camera, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } from "lucide";
 import { plane, cameraAxes } from "./geometry.js";
@@ -248,6 +248,7 @@ async function select(key) {
   const p = catalog[key];
   const maps = p.standing ? await Promise.all(p.parts.map((part,i)=>texture(`${key}-${i}`,{...part,d:part.h,image:p.image}))) : [await texture(key)];
   const map = maps[0];
+  const edgeMap = p.edge ? await texture(`${key}-edge`, p.edge) : null;
   if (token !== loadToken) return;
   selected = key;
   $('modelChoice').value=key;
@@ -255,7 +256,7 @@ async function select(key) {
     const child = board.children[0];
     child.geometry.dispose();
     if (child.userData.sideTexture) child.material.map.dispose();
-    child.material.dispose();
+    (Array.isArray(child.material) ? child.material : [child.material]).forEach(material => material.dispose());
     board.remove(child);
   }
   if(p.standing){
@@ -264,6 +265,12 @@ async function select(key) {
       mesh.position.x=part.x;
       board.add(mesh);
     });
+  } else if(p.profile === 'tropical'){
+    edgeMap.wrapS = THREE.RepeatWrapping;
+    board.add(new THREE.Mesh(tropicalGeometry(p.w,p.d,p.h), [
+      new THREE.MeshBasicMaterial({map}),
+      new THREE.MeshStandardMaterial({map:edgeMap,roughness:1})
+    ]));
   } else if(p.handles){
     board.add(new THREE.Mesh(handledGeometry(p.w,p.d,p.h),new THREE.MeshBasicMaterial({map})));
   } else {
