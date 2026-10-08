@@ -20,17 +20,20 @@
   min-width: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent;
 }
 .homepageRefined .homepageProductGrid .productCard__media { aspect-ratio: 1; }
-.homepageRefined .homepageProductGrid .productCard__body { padding: 16px 0 0; gap: 8px; }
+.homepageRefined .homepageProductGrid .productCard__body { padding: 14px 0 0; gap: 6px; }
 .homepageRefined .homepageProductGrid .productCard__name { font-size: 18px; line-height: 1.4; min-height: 0; margin: 0; }
 .homepageRefined .homepageProductGrid .productCard__meta { min-height: 0; margin: 0; }
-.homepageRefined .homepageProductGrid .productCard__footer { margin-top: 8px; }
-.homepageRefined .homepageProductGrid .productCard__buy { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.homepageRefined .homepageProductGrid .productCard__footer { margin-top: auto; padding-top: 8px; gap: 6px; }
+.homepageRefined .homepageProductGrid .productCard__buy { display: grid; grid-template-columns: 1fr; gap: 2px; width: fit-content; max-width: 100%; }
+.homepageRefined .homepageProductGrid .productCard__buy .productCard__cta { grid-column: 1; width: 100%; }
+.homepageRefined .homepageProductGrid .productCard__buy button.productCard__cta { font-size: 16px; font-weight: 700; line-height: 1.3; min-height: 44px; padding: 10px 18px; white-space: normal; }
+.homepageRefined .homepageProductGrid .productCard__compareUtility { justify-self: start; }
 .homepageRefined .homepageProductGrid .productCard__compareUtility { font-size: 13px; }
 .homepageRefined .roomDiscovery { background: #eee5da; }
 .homepageRefined .roomDiscovery__layout { align-items: center; }
 .homepageRefined .homepageProductGrid .productCard__segment,
 .homepageRefined .homepageProductGrid .productCard__badges { display: none; }
-.homepageRefined .homepageProducts__actions { margin-top: 32px; }
+.homepageRefined .homepageProducts__actions { margin-top: 52px; gap: 12px 24px; }
 .homepageRefined .materialProofBlock { background: white; }
 .homepageRefined .proofCard { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
 .homepageRefined .materialProofGrid { gap: 40px; }
@@ -62,6 +65,8 @@
   .homepageRefined > .roomDiscovery { padding-block: 56px; }
   .homepageRefined .homepageProductGrid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 18px; padding-bottom: 18px; }
   .homepageRefined .homepageProductGrid > .productCard { flex: 0 0 84%; scroll-snap-align: start; }
+  .homepageRefined .homepageProductGrid .productCard__buy { width: 100%; }
+  .homepageRefined .homepageProducts__actions { margin-top: 44px; }
   .homepageRefined .materialProofGrid,
   .homepageRefined .reviewTrust__track,
   .homeWorkshop { grid-template-columns: 1fr; gap: 32px; }
