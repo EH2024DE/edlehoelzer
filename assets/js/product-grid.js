@@ -86,7 +86,7 @@
     var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
     var detailsText = primaryCardCta(product, isEnglish);
     var compared = isProductCompared(product.id);
-    var compareText = isEnglish ? "Compare" : (compared ? "✓ Im Vergleich" : "+ Vergleichen");
+    var compareText = isEnglish ? (compared ? "✓ In comparison" : "+ Compare") : (compared ? "✓ Im Vergleich" : "+ Zum Vergleich");
     var productName = product.displayName || displayProductName(product);
     var previewLabel = isEnglish ? "View " + productName : productName + " ansehen";
     var compareLabel = isEnglish ? "Compare " + productName : productName + " vergleichen";
@@ -105,7 +105,7 @@
             (displayPriceLabel(product) ? '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' : "") +
             '<span class="productCard__buy">' +
               '<button class="productCard__cta" type="button" aria-label="' + escapeAttribute(previewLabel) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' + escapeHtml(detailsText) + '</button>' +
-              '<button class="' + (isEnglish ? 'productCard__cta productCard__cta--secondary' : 'productCard__compareUtility') + (compared ? ' is-in-compare' : '') + '" type="button" aria-label="' + escapeAttribute(compareLabel) + '" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="landing" aria-pressed="' + (compared ? 'true' : 'false') + '">' + escapeHtml(compareText) + '</button>' +
+              '<button class="productCard__compareUtility' + (compared ? ' is-in-compare' : '') + '" type="button" aria-label="' + escapeAttribute(compareLabel) + '" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="landing" aria-pressed="' + (compared ? 'true' : 'false') + '">' + escapeHtml(compareText) + '</button>' +
             '</span>' +
           '</div>' +
         '</div>' +
@@ -220,10 +220,9 @@
 
   function primaryCardCta(product, isEnglish) {
     if (product && product.category === "board") {
-      if (!isEnglish && document.querySelector(".homepageRefined")) return "Mein Brett entdecken";
-      return isEnglish ? "View board" : "Zum Brett";
+      return isEnglish ? "View board" : "Brett ansehen";
     }
-    return isEnglish ? "View product" : "Zum Produkt";
+    return isEnglish ? "View product" : "Produkt ansehen";
   }
 
   function availabilityStatus(product) {

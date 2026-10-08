@@ -1978,8 +1978,8 @@ function initProductExperience() {
       button.classList.toggle("is-in-compare", isActive);
       if (button.closest(".productPreview__compareControls")) {
         button.textContent = compareButtonLabel(id);
-      } else if (!isEnglish && button.classList.contains("productCard__compareUtility")) {
-        button.textContent = isActive ? "✓ Im Vergleich" : (compareIds.length >= 2 ? labels.replaceCompare : "+ Vergleichen");
+      } else if (button.classList.contains("productCard__compareUtility")) {
+        button.textContent = isEnglish ? (isActive ? "✓ In comparison" : "+ Compare") : (isActive ? "✓ Im Vergleich" : "+ Zum Vergleich");
       } else {
         button.textContent = isActive ? labels.removeCompare : (compareIds.length >= 2 ? labels.replaceCompare : labels.compare);
       }
@@ -4597,14 +4597,14 @@ function initProductsPage() {
   function buildProductActions(product, source, reason) {
     var detailsLabel = primaryCardCta(product);
     var compared = isProductCompared(product.id);
-    var compareLabel = isEnglish ? "Compare" : (compared ? "✓ Im Vergleich" : "+ Vergleichen");
+    var compareLabel = isEnglish ? (compared ? "✓ In comparison" : "+ Compare") : (compared ? "✓ Im Vergleich" : "+ Zum Vergleich");
     var productSource = source || "grid";
     var reasonAttribute = reason ? ' data-product-reason="' + escapeAttribute(reason) + '"' : "";
     var productName = displayProductName(product);
     var detailAriaLabel = isEnglish ? "View " + productName : productName + " ansehen";
     var compareAriaLabel = isEnglish ? "Compare " + productName : productName + " vergleichen";
     var detailButton = '<button class="btn btn--emphasis" type="button" aria-label="' + escapeAttribute(detailAriaLabel) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '"' + reasonAttribute + '>' + escapeHtml(detailsLabel) + '</button>';
-    var compareButton = '<button class="' + (isEnglish ? 'btn btn--ghost-dark' : 'productCard__compareUtility') + (compared ? ' is-in-compare' : '') + '" type="button" aria-label="' + escapeAttribute(compareAriaLabel) + '" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '" aria-pressed="' + (compared ? 'true' : 'false') + '">' + escapeHtml(compareLabel) + '</button>';
+    var compareButton = '<button class="productCard__compareUtility' + (compared ? ' is-in-compare' : '') + '" type="button" aria-label="' + escapeAttribute(compareAriaLabel) + '" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '" aria-pressed="' + (compared ? 'true' : 'false') + '">' + escapeHtml(compareLabel) + '</button>';
 
     if (product.inspirationOnly === true) {
       return '<div class="ctaRow ctaRow--stacked">' + detailButton + '<a class="btn btn--secondary" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
@@ -4637,9 +4637,9 @@ function initProductsPage() {
 
   function primaryCardCta(product) {
     if (product && product.category === "board") {
-      return isEnglish ? "View board" : "Zum Brett";
+      return isEnglish ? "View board" : "Brett ansehen";
     }
-    return isEnglish ? "View product" : "Zum Produkt";
+    return isEnglish ? "View product" : "Produkt ansehen";
   }
 
   function buildAlternativeCard(product, main) {

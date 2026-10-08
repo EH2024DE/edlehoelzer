@@ -23,9 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20260827-product-decisions">
+<link rel="stylesheet" href="/styles.css?v=20261008-card-actions">
 <link rel="stylesheet" href="/assets/css/room-discovery.css?v=20260923-image-ratio">
-<link rel="stylesheet" href="/assets/css/homepage-refinement.css?v=20260923-polish">
+<link rel="stylesheet" href="/assets/css/homepage-refinement.css?v=20261008-layout-audit">
   <script>
     if (window.location.pathname === "/index.html") {
       window.history.replaceState(null, "", "/" + window.location.search + window.location.hash);
@@ -141,7 +141,7 @@
       </div>
       <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite" aria-label="Verfügbare Produkte durchsehen" tabindex="0"></div>
       <div class="ctaRow homepageProducts__actions" id="produktfinder-start">
-        <a href="/produkte.html#produktfinder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
+        <a href="/produkte.html#produktfinder" class="btn btn--ghost-dark" data-umami-event="produktfinder-gestartet">Passendes Brett finden</a>
         <a href="/produkte.html#produkte-grid" class="walnutTextLink">Kollektion ansehen</a>
       </div>
     </div>
@@ -198,8 +198,8 @@
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Kundenstimmen</p>
-        <h2 data-review-headline>5,0 Sterne aus 35 Etsy-Bewertungen</h2>
-        <p data-review-subline>35 Bewertungen · 75 Verkäufe über Etsy · In 14 Länder geliefert.</p>
+        <h2 data-review-headline>5,0 Sterne aus 39 Etsy-Bewertungen</h2>
+        <p data-review-subline>39 Bewertungen · 76 Verkäufe über Etsy · In 14 Länder geliefert.</p>
       </div>
       <div class="reviewTrust__viewport" data-review-viewport aria-label="Ausgewählte Etsy-Bewertungen">
         <div class="reviewTrust__track" data-review-track>
@@ -218,6 +218,7 @@
       <a class="reviewTrust__link" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-review-source-link data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="Du wechselst jetzt zum Etsy-Shop von Edle Hölzer" data-umami-event="etsy-klick" data-umami-event-seite="index">Alle Bewertungen auf Etsy ansehen</a>
     </div>
   </section>
+
 
   <section id="ueberuns" class="section section--white reveal-on-scroll">
     <div class="container homeWorkshop" id="werkstatt">
@@ -295,14 +296,14 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="./main.js?v=20260923-polish"></script>
-<script src="/assets/js/product-grid.js?v=20260923-polish"></script>
+<script src="./main.js?v=20261008-card-actions"></script>
+<script src="/assets/js/product-grid.js?v=20261008-card-actions"></script>
 <script>
   var homepageProductIds = [
     "etsy-live-20260619-schneidebrett-eiche-massiv-astloch",
     "etsy-export-04-stirnholz-schneidebrett-aus-eiche-handgefertigtes-xxl-kuchenbrett-mit-sa",
     "etsy-export-18-schneidebrett-3d-design-stirnholz-walnuss-wenge-eiche-buche-premium-pers",
-    "etsy-export-38-schneidebrett-walnuss-mit-eiche-rahmen-massives-stirnholzbrett-fur-hobby"
+    "etsy-export-31-schneidebrett-holz-stirnholz-nussbaum-46-x-36-x-4-6-cm-massivholz-handge"
   ];
   renderProductGrid("homepage-products", function (product) {
     return homepageProductIds.indexOf(product.id) !== -1;
