@@ -1,5 +1,47 @@
 import * as THREE from 'three';
 
+function taperGrips(source,width,height,leftCore,rightCore){
+  const positions=[],uvs=[],groups=[];
+  const position=source.getAttribute('position'),uv=source.getAttribute('uv');
+  const clip=(polygon,bound,keepLeft)=>{
+    const result=[];
+    for(let i=0;i<polygon.length;i++){
+      const a=polygon[i],b=polygon[(i+1)%polygon.length];
+      const insideA=keepLeft?a.x<=bound:a.x>=bound,insideB=keepLeft?b.x<=bound:b.x>=bound;
+      if(insideA)result.push(a);
+      if(insideA!==insideB){
+        const t=(bound-a.x)/(b.x-a.x),point={};
+        for(const key of ['x','y','z','u','v'])point[key]=a[key]+t*(b[key]-a[key]);
+        result.push(point);
+      }
+    }
+    return result;
+  };
+  // Split caps at the shoulders before tapering, so the central underside stays flat.
+  for(const group of source.groups){
+    const start=positions.length/3;
+    for(let i=group.start;i<group.start+group.count;i+=3){
+      const triangle=[0,1,2].map(j=>({x:position.getX(i+j),y:position.getY(i+j),z:position.getZ(i+j),u:uv.getX(i+j),v:uv.getY(i+j)}));
+      const regions=[clip(triangle,leftCore,true),clip(clip(triangle,leftCore,false),rightCore,true),clip(triangle,rightCore,false)];
+      for(const polygon of regions)for(let j=1;j<polygon.length-1;j++){
+        const vertices=[polygon[0],polygon[j],polygon[j+1]];
+        const points=vertices.map(v=>new THREE.Vector3(v.x,v.y,v.z));
+        if(points[1].clone().sub(points[0]).cross(points[2].clone().sub(points[0])).lengthSq()<1e-12)continue;
+        for(const vertex of vertices){
+          const fraction=vertex.x<leftCore?(leftCore-vertex.x)/(leftCore+width/2):vertex.x>rightCore?(vertex.x-rightCore)/(width/2-rightCore):0;
+          const y=height-(height-vertex.y)*(1-.55*Math.min(1,fraction));
+          positions.push(vertex.x,y,vertex.z);uvs.push(vertex.u,vertex.v);
+        }
+      }
+    }
+    groups.push({start,count:positions.length/3-start,materialIndex:group.materialIndex});
+  }
+  const geometry=new THREE.BufferGeometry();
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
+  geometry.setAttribute('uv',new THREE.Float32BufferAttribute(uvs,2));
+  geometry.groups=groups;geometry.computeVertexNormals();source.dispose();return geometry;
+}
+
 // Trace of listing 4451487112: broad rounded grips, gently rounded shoulders.
 export function tropicalGeometry(width, depth, height) {
   const shape = new THREE.Shape();
@@ -34,7 +76,7 @@ export function tropicalGeometry(width, depth, height) {
     }
   });
   geometry.rotateX(-Math.PI/2);
-  return geometry;
+  return taperGrips(geometry,width,height,-width*.415,width*.415);
 }
 
 export function handledGeometry(width, depth, height) {
@@ -53,15 +95,39 @@ export function handledGeometry(width, depth, height) {
   shape.lineTo(...point(0,.39));
   shape.bezierCurveTo(...point(0,.27), ...point(.115,.30), ...point(.115,.23));
   shape.closePath();
+  const contour=shape.getPoints(24),distances=[0];
+  for(let i=1;i<contour.length;i++)distances.push(distances[i-1]+contour[i].distanceTo(contour[i-1]));
+  const edgeUV=(vertices,i)=>{
+    let nearest=0,best=Infinity;
+    contour.forEach((point,index)=>{const distance=(point.x-vertices[i*3])**2+(point.y-vertices[i*3+1])**2;if(distance<best){best=distance;nearest=index;}});
+    return new THREE.Vector2(distances[nearest]/(width*.8),vertices[i*3+2]/height);
+  };
   const geometry = new THREE.ExtrudeGeometry(shape, {
     depth: height, bevelEnabled: false, curveSegments: 12,
     UVGenerator: {
       generateTopUV: (_, vertices, a, b, c) => [a,b,c].map(i => new THREE.Vector2(vertices[i*3]/width+.5, vertices[i*3+1]/depth+.5)),
-      generateSideWallUV: () => [new THREE.Vector2(0,0),new THREE.Vector2(1,0),new THREE.Vector2(1,1),new THREE.Vector2(0,1)]
+      generateSideWallUV: (_,vertices,a,b,c,d) => [a,b,c,d].map(i=>edgeUV(vertices,i))
     }
   });
   geometry.rotateX(-Math.PI/2);
-  return geometry;
+  return taperGrips(geometry,width,height,-width*.385,width*.425);
+}
+
+export function swissEdgeGeometry(width,depth,height){
+  const geometry=new THREE.BoxGeometry(width,height,depth);
+  const position=geometry.getAttribute('position'),lip=height*.22,inset=height*.78;
+  // The cutting face retains its full size; only the underside is chamfered.
+  for(let i=0;i<position.count;i++){
+    const top=position.getY(i)>0;
+    position.setY(i,top?height-lip:0);
+    if(!top){
+      position.setX(i,Math.sign(position.getX(i))*(width/2-inset));
+      position.setZ(i,Math.sign(position.getZ(i))*(depth/2-inset));
+    }
+  }
+  geometry.computeVertexNormals();
+  const topLip=new THREE.BoxGeometry(width,lip,depth);topLip.translate(0,height-lip/2,0);
+  return {bevel:geometry,lip:topLip,inset};
 }
 
 // The serving boards are upright silhouettes, not a guessed solid model of the holder.

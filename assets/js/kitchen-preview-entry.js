@@ -77,7 +77,7 @@
     if(event.origin!==location.origin||event.source!==frame?.contentWindow)return;
     const entrySource=dialog.dataset.entrySource;
     if(event.data?.type==='kitchen-preview-close')close();
-    if(event.data?.type==='kitchen-preview-event'&&['kitchen_preview_placed','kitchen_preview_compare'].includes(event.data.event)&&typeof event.data.listingId==='string'){
+    if(event.data?.type==='kitchen-preview-event'&&['kitchen_preview_placed','kitchen_preview_compare','kitchen_preview_holder_view','kitchen_preview_lying_view'].includes(event.data.event)&&typeof event.data.listingId==='string'){
       models().then(list=>{
         if(list.some(model=>model.listingId===event.data.listingId))window.EdleAnalytics?.track(event.data.event,{product_id:event.data.listingId,source:entrySource});
       }).catch(()=>{});

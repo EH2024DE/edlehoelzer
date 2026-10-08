@@ -1,5 +1,7 @@
 export const english = new URLSearchParams(location.search).get('lang') === 'en';
 const messages = {
+  'Liegend':'Flat', 'Im Halter':'In the holder', 'Halterholz':'Holder wood',
+  'Nussbaum':'Walnut', 'Buche':'Beech', 'Eiche':'Oak', 'Brettposition':'Board position',
   'Die vier Ecken müssen ein Rechteck in der angegebenen Reihenfolge umschließen. Prüfe auch die Maße.':'The four corners must enclose a rectangle in the specified order. Check the dimensions too.',
   'Bitte ein JPEG-, PNG- oder WebP-Foto wählen. HEIC vorher als JPEG exportieren.':'Choose a JPEG, PNG or WebP photo. Export HEIC as JPEG first.',
   'Dein Brett im Raum':'Your board in your kitchen', 'Vorschau':'Preview',
@@ -22,7 +24,7 @@ const messages = {
   'Genauigkeit der Vorschau':'Preview accuracy', 'Dein Foto bleibt in diesem Browser. Es wird nicht hochgeladen.':'Your photo stays in this browser. It is not uploaded.',
   'Prototyp zur Entscheidungshilfe, kein Aufmaß.':'A decision aid, not a precise measurement.',
   'Lege ein A4-Blatt flach auf den Tresen. Ziehe die vier Punkte auf seine Ecken: hinten links, hinten rechts, vorne rechts, vorne links. Richte die hintere Blattkante parallel zur vorderen Tresenkante aus. Ein bedrucktes weißes Blatt mit freiem weißen Rand ist meist ebenfalls geeignet.':'Lay an A4 sheet flat on the worktop. Match its four corners: back left, back right, front right, front left. Align its back edge with the front edge of the worktop. Printed white paper with a clear white margin usually works too.',
-  'Die Grundfläche folgt deinen Referenzpunkten. Die Höhenwirkung wird aus der Fotoperspektive geschätzt, nicht vermessen. Holzfarbe, Seitenmaserung, Rundungen und Schatten sind Annäherungen; Füße und Griffmulden sind nicht modelliert.':'The footprint follows your reference points. Height is estimated from the photo perspective, not measured. Wood colour, side grain, rounded edges and shadows are approximate; feet and grip recesses are not modelled.',
+  'Die Grundfläche folgt deinen Referenzpunkten. Die Höhenwirkung wird aus der Fotoperspektive geschätzt, nicht vermessen. Holzfarbe, Seiten- und Rückseitenmaserung, Rundungen und Schatten sind Annäherungen; Füße und Griffmulden sind nicht modelliert.':'The footprint follows your reference points. Height is estimated from the photo perspective, not measured. Wood colour, side and rear grain, rounded edges and shadows are approximate; feet and grip recesses are not modelled.',
   'Für dein Foto: normale 1×-Kamera, schräg von oben, alle vier Referenzecken sichtbar. Keine Panorama- oder Ultraweitwinkelaufnahme. Die Referenz muss auf derselben Fläche wie das Brett liegen.':'Use the normal 1× camera, looking down at an angle, with all four reference corners visible. Avoid panorama and ultrawide photos. The reference must lie on the same surface as the board.',
   'Ziehen zum Betrachten · Scrollen zum Zoomen. Seitenholz und Details sind angenähert.':'Drag to rotate · Scroll to zoom. Side grain and details are approximate.',
   'Die Punkte auf die vier Referenzecken ziehen.':'Drag the points onto the four reference corners.',

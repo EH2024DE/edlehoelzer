@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import extra from './additional-models.js';
+import { holderTextures } from './board-holder.js';
 const root=fileURLToPath(new URL('.',import.meta.url));
 const output=path.resolve(root,root.includes('/tools/kitchen-preview/')?'../../brettvorschau':'../github-pr/brettvorschau');
 const eligible=JSON.parse(await readFile(path.join(root,'preview-eligibility.json'),'utf8'));
@@ -26,4 +27,8 @@ await writeFile(path.join(output,'models.json'),JSON.stringify(models.map(model=
 })),null,2)+'\n');
 await copyFile(path.join(root,'vendor/LICENSE-perspective-transform'),path.join(output,'LICENSE-perspective-transform'));
 await copyFile(path.join(root,'assets/worktop-example.jpg'),path.join(output,'assets/worktop-example.jpg'));
+for(const holder of Object.values(holderTextures)){
+  const relative=holder.image.replace(/^\//,'');
+  await copyFile(path.join(root,relative),path.join(output,relative));
+}
 console.log(`Website preview built with ${models.length} models. Private photos and local review data excluded.`);
