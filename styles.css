@@ -1866,6 +1866,113 @@ section[id]{scroll-margin-top:88px}
 .sectionIntro{max-width:840px;margin-bottom:30px}
 .sectionIntro--split{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,520px);gap:28px;align-items:end}
 .productsFinderSection{background:#f8f5f0}
+.finderDecisions{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.finderShell{scroll-margin-top:88px}
+.finderShell [data-finder-question]{font-size:24px;line-height:1.25;margin:0;letter-spacing:0}
+.finderDecisions:empty{display:none}
+.finderDecision{font:inherit;font-size:13px;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--ink);cursor:pointer;letter-spacing:0}
+.finderPoolSummary{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.finderPoolSummary p{margin:0;font-size:16px;font-weight:700}
+.finderPoolSummary span{font-size:12px;color:#595959}
+.finderPool{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;max-width:860px;margin:0 auto 24px;align-items:center}
+.finderPool__tile{position:relative;min-width:0;opacity:.86;transition:opacity 400ms cubic-bezier(.22,.8,.3,1),filter 400ms cubic-bezier(.22,.8,.3,1)}
+.finderPool__inspect{display:block;position:relative;padding:0;width:100%;min-height:44px;min-width:44px;border:0;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.finderPool__inspect:disabled{cursor:default;opacity:1}
+.finderPool__inspect img{display:block;width:100%;height:auto;aspect-ratio:170/135;object-fit:cover;border-radius:4px}
+.finderPool__tile.is-leading{opacity:1}
+.finderPool__tile.is-compatible{opacity:.9}
+.finderPool__tile.is-near-match{opacity:.7;filter:saturate(.65)}
+.finderPool__tile.is-near-match .finderPool__inspect{min-width:64px;min-height:64px}
+.finderPool__tile.is-excluded{opacity:.2;filter:grayscale(.8)}
+@media(min-width:768px){
+  .finderPool__tile:nth-child(n+17){height:54px}
+  .finderPool__tile:nth-child(n+17) .finderPool__inspect{width:48px;max-width:100%;margin:auto}
+  .finderPool.is-condensed .finderPool__tile:nth-child(n+9){height:28px}
+  .finderPool.is-condensed .finderPool__tile:nth-child(n+9) .finderPool__inspect{width:28px}
+  .finderPool.is-condensed .finderPool__tile:nth-child(n+9) .finderPool__state{display:none}
+}
+.finderPool__state{display:block;height:17px;font-size:10px;text-align:center;white-space:nowrap;color:#353535;line-height:17px}
+.finderPool__name{display:none;position:absolute;bottom:100%;left:50%;transform:translateX(-50%);width:180px;max-width:220px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:4px;z-index:2;font-size:12px;color:#222}
+.finderPool__inspect:hover .finderPool__name,.finderPool__inspect:focus-visible .finderPool__name{display:block}
+.finderExplanation{position:relative;padding:20px 44px 20px 20px;margin-bottom:24px;background:#f8f5f0;border-left:3px solid var(--accent);color:#222}
+.finderExplanation[hidden]{display:none}
+.finderExplanation h4{font-size:18px;margin:0 0 12px;letter-spacing:0}
+.finderExplanation p{font-size:14px;line-height:1.5}
+.finderExplanation__close{position:absolute;right:0;top:0;width:44px;height:44px;border:0;background:transparent;font-size:26px;cursor:pointer;color:inherit}
+.finderMatchGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.finderMatchCard{display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.finderMatchCard .productCard__media{aspect-ratio:4/3}
+.finderMatchCard .productCard__media img{width:100%;height:100%;object-fit:cover}
+.finderMatchCard__body{display:flex;flex-direction:column;gap:10px;padding:20px;flex:1}
+.finderMatchCard__body h3{font-size:22px;line-height:1.25;margin:0;letter-spacing:0}
+.finderMatchCard__body p{margin:0;font-size:14px;line-height:1.55}
+.finderMatchCard__body .productCard__price{margin-top:auto;font-size:20px;font-weight:700;padding-top:8px}
+.finderMatchCard__body>.btn{align-self:flex-start;min-height:44px;display:inline-flex;align-items:center;padding:10px 18px;font-size:16px;letter-spacing:0}
+.finderMatchCard__label{font-size:13px!important;font-weight:700;color:#555;letter-spacing:0}
+.finderMatchCard__tradeoff{font-weight:700;color:#555}
+.finderMatchCard__conflict,.finderMatchCard__availability{padding-left:10px;border-left:2px solid var(--accent)}
+.finderNear{display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px;border-top:1px solid var(--line);padding-top:24px;margin-top:28px}
+.finderNear h3{font-size:18px;letter-spacing:0;margin:8px 0}
+.finderNear p{font-size:14px;line-height:1.55}
+.finderNear .productCard__media{aspect-ratio:1;margin:0}
+.finderNear .btn{font-size:14px;min-height:44px;padding:10px 16px;letter-spacing:0}
+.finderResult__secondaryActions{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:24px}
+.finderResult .textLink,.finderExplanation .textLink{font:inherit;font-size:14px;letter-spacing:0;text-transform:none;min-height:44px;display:inline-flex;align-items:center;cursor:pointer}
+.finderResult button.textLink,.finderExplanation button.textLink{border:0;background:transparent;padding:8px 0;color:var(--accent-deep);text-decoration:underline;text-underline-offset:4px}
+.finderResult .btn,.finderExplanation .btn{text-transform:none;letter-spacing:0}
+.finderShell button:focus-visible,.finderResult button:focus-visible,.finderResult a:focus-visible{outline:3px solid #536b55;outline-offset:3px}
+.finderShell .finderShell__top{display:block;margin-bottom:12px;scroll-margin-top:100px}
+.finderShell .finderStepLabel{letter-spacing:0;text-transform:none;font-weight:600;color:#555}
+.finderShell .finderOption{border-radius:4px;padding:12px 14px;min-height:80px;gap:4px;transform:none;letter-spacing:0}
+.finderShell .finderOption__title{font-size:16px;line-height:1.35;font-weight:700}
+.finderShell .finderOption__description{font-size:14px;color:#555;line-height:1.45}
+.finderShell .finderOption.is-selected{background:#f3f5f1;border-color:#536b55;box-shadow:none}
+.finderShell .finderNav button{min-height:44px;font-size:14px;padding:10px 16px;letter-spacing:0}
+@media(max-width:767px){
+  .finderShell{display:flex;flex-direction:column}
+  .finderShell .finderShell__top{scroll-margin-top:128px}
+  .finderPoolSummary{order:0}
+  .finderShell__top{order:1}
+  .finderOptions{order:2}
+  .finderNav{order:3}
+  .finderDecisions{order:4;margin-top:12px}
+  .finderPool{order:5;width:100%;max-height:190px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding:8px 4px;scroll-padding:8px}
+  .finderExplanation{order:6}
+  .finderShell .finderOptions{grid-template-columns:1fr;gap:8px}
+  .finderShell .finderOption{min-height:68px;padding:10px 12px}
+  .finderShell .finderOption__description{font-size:13px}
+  .finderPool{gap:4px;grid-template-columns:repeat(8,minmax(0,1fr));margin-bottom:18px}
+  .finderPool__tile:nth-child(-n+8){grid-column:span 2}
+  .finderPool__tile:nth-child(n+9){height:24px}
+  .finderPool__tile:nth-child(n+9) img{height:auto;aspect-ratio:170/135;object-fit:cover}
+  .finderPool__tile:nth-child(n+9) .finderPool__state{display:none}
+  .finderPool__tile:nth-child(4n) .finderPool__name{left:auto;right:0;transform:none}
+  .finderPool__tile:nth-child(4n+1) .finderPool__name{left:0;transform:none}
+  .finderPoolSummary{display:block}
+  .finderPoolSummary span{display:block;margin-top:4px}
+  .finderPool__state{font-size:9px}
+  .finderMatchGrid{grid-template-columns:1fr;gap:16px}
+  .finderMatchCard__body{padding:16px}
+  .finderMatchCard__body>.btn{width:100%;justify-content:center}
+  .finderNear{grid-template-columns:72px minmax(0,1fr);gap:12px}
+  .finderNear .ctaRow{align-items:flex-start;flex-direction:column;gap:8px}
+  .finderDecision{font-size:12px;max-width:100%;text-align:left}
+}
+@media(prefers-reduced-motion:reduce){.finderPool__tile,.finderShell .finderOption{transition:none}}
+.finderPool__tile.is-excluded:focus-within,.finderPool__tile.is-excluded:hover{opacity:.75;filter:none}
+.finderPool__inspect img{transition:transform 400ms cubic-bezier(.22,.8,.3,1)}
+.finderPool__tile.is-compatible img{transform:scale(.83)}
+.finderPool__tile.is-near-match img{transform:scale(.7)}
+.finderPool__tile.is-excluded img{transform:scale(.35)}
+.finderPool.is-condensed .finderPool__tile:nth-child(n+9){height:auto;min-height:44px}
+.finderPool.is-condensed .finderPool__tile:nth-child(n+9) .finderPool__inspect{width:100%}
+@media(max-width:767px){
+  .finderPool__tile:nth-child(n+9){grid-column:span 2;min-height:44px;height:auto}
+}
+@media(prefers-reduced-motion:reduce){.finderPool__inspect img{transition:none}}
+@media(min-width:600px) and (max-width:767px){
+  .finderShell .finderOptions{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 .finderShell{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:26px}
 .finderShell [data-finder-question],.finderResult{scroll-margin-top:96px}
 .finderShell__top{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:22px;align-items:start;margin-bottom:22px}

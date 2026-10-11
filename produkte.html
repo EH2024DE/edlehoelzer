@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20261008-card-actions">
+  <link rel="stylesheet" href="/styles.css?v=20261011-finder-v2">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -180,17 +180,20 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Brettfinder</p>
-        <h2>Wofür möchtest du das Brett verwenden?</h2>
-        <p class="section__lead">Nicht jedes Holzstück muss alles können. Entscheidend ist, ob es Frühstück, tägliches Kochen, Grillen, Servieren, Schenken oder Pflege begleiten soll.</p>
+        <h2>Welches Brett passt zu deinem Alltag?</h2>
+        <p class="section__lead">Für Frühstück, tägliches Kochen, Grillabende oder den gedeckten Tisch.</p>
       </div>
 
       <div class="finderShell" data-product-finder>
+        <div class="finderDecisions" data-finder-decisions aria-label="Deine Angaben ändern"></div>
+        <div class="finderPoolSummary"><p data-finder-count role="status" aria-live="polite" aria-atomic="true"></p></div>
+        <div class="finderPool" data-finder-pool aria-label="Bretter im Vergleich zu deinen Angaben"></div>
+        <div class="finderExplanation" data-finder-explanation hidden></div>
         <div class="finderShell__top">
           <div>
             <span class="finderStepLabel" data-finder-step-label>Schritt 1 von 5</span>
             <h3 data-finder-question>Brettfinder wird geladen.</h3>
           </div>
-          <div class="finderProgress" aria-hidden="true"><span data-finder-progress></span></div>
         </div>
         <div class="finderOptions" data-finder-options></div>
         <div class="finderNav">
@@ -410,6 +413,6 @@
   </div>
 </footer>
 
-<script src="/main.js?v=20261008-card-actions"></script>
+<script src="/main.js?v=20261011-finder-v2"></script>
 </body>
 </html>
