@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20261008-card-actions">
+  <link rel="stylesheet" href="/styles.css?v=20261011-finder-v2">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -118,17 +118,20 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Board finder</p>
-        <h2>What will you use the board for?</h2>
-        <p class="section__lead">Not every wooden piece has to do everything. The important question is whether it supports breakfast, daily cooking, grilling, serving, gifting or care.</p>
+        <h2>Which board suits your everyday life?</h2>
+        <p class="section__lead">For breakfast, everyday cooking, BBQ or food shared at the table.</p>
       </div>
 
       <div class="finderShell" data-product-finder>
+        <div class="finderDecisions" data-finder-decisions aria-label="Change your preferences"></div>
+        <div class="finderPoolSummary"><p data-finder-count role="status" aria-live="polite" aria-atomic="true"></p></div>
+        <div class="finderPool" data-finder-pool aria-label="Boards matched to your preferences"></div>
+        <div class="finderExplanation" data-finder-explanation hidden></div>
         <div class="finderShell__top">
           <div>
             <span class="finderStepLabel" data-finder-step-label>Step 1 of 5</span>
             <h3 data-finder-question>Board finder is loading.</h3>
           </div>
-          <div class="finderProgress" aria-hidden="true"><span data-finder-progress></span></div>
         </div>
         <div class="finderOptions" data-finder-options></div>
         <div class="finderNav">
@@ -324,6 +327,6 @@
   </div>
 </footer>
 
-<script src="/main.js?v=20261008-card-actions"></script>
+<script src="/main.js?v=20261011-finder-v2"></script>
 </body>
 </html>

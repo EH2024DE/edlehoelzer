@@ -26,3 +26,6 @@ jobs:
 
       - name: Validate page summaries
         run: node scripts/check-page-summaries.mjs
+
+      - name: Validate board finder matching
+        run: node --test tests/finder-matching.test.cjs
