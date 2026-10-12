@@ -141,7 +141,7 @@ if __name__ == "__main__":
         assessments = {row["file"]: row for row in csv.DictReader((root / "docs/search-page-assessments.csv").open())}
         fields = ["file", "url", "title", "h1", "meta_description", "headings", "word_count_main", "first_150_words", "faq_questions", "schema_types", "internal_links_main", "external_links_main", "contact_links_main", "first_party_signals", "intent", "primary_query", "secondary_clusters", "citation_fit", "intent_fit", "first_party_fit", "conversion_fit", "conversion_path", "action"]
         with Path(args.csv_output).open("w", newline="") as stream:
-            writer = csv.DictWriter(stream, fieldnames=fields)
+            writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
             writer.writeheader()
             for record in records:
                 row = {key: record.get(key, "") for key in fields}

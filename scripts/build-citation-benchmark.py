@@ -91,7 +91,7 @@ for r in sorted(RUNS, key=lambda x: (x["prompt_id"], x["run"])):
         "evidence_file": str(file.relative_to(ROOT)), "source_capture": "partial" if (pid, run) in PARTIAL else "expanded",
     })
 with (ROOT / "docs/chatgpt-citation-results.csv").open("w", newline="") as f:
-    writer = csv.DictWriter(f, fieldnames=fields)
+    writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
 
@@ -119,7 +119,7 @@ gap_data = [
 ]
 gap_fields = "prompt_id competitor competitor_url page_type direct_answer comparison_table first_party_evidence concrete_measurements limitations author_signal likely_advantage eh_gap recommended_action url_evidence".split()
 with (ROOT / "docs/chatgpt-competitor-gap.csv").open("w", newline="") as f:
-    writer = csv.writer(f)
+    writer = csv.writer(f, lineterminator="\n")
     writer.writerow(gap_fields)
     writer.writerows((f"P{x[0]:02d}", *x[1:]) for x in gap_data)
 

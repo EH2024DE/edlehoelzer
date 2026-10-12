@@ -25,6 +25,7 @@ Complete production scope: eight HTML files and one search-index JSON file. No n
 - Mobile product pair includes product names despite hidden table headers; column order matches existing Stirnholz/Langholz labels. Historical pre-fix screenshot retained with explicit warning.
 - Phase-3 report's original format gaps predate owner confirmation of 60 × 75 × 5 cm; dated addendum explains the change. Remembered/calculated masses remain unpublished.
 - Phase-1 no-ChatGPT-tests/no-PR statements are marked historical; later benchmark is linked, not retroactively substituted.
+- New CSV files and their generators use LF line endings; normalized from CRLF without changing data to satisfy the complete release diff whitespace check.
 
 ## Claims and Source Checks
 
