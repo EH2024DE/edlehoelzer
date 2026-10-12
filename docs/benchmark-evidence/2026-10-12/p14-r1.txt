@@ -1,0 +1,589 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-4cd7bb09-ec8a-4d1c-adf7-758a23b629f8":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Brett eignet sich für Brotzeit und Servieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für Brotzeit und zum Servieren eignet sich am besten ein
+            - generic: massives Holzbrett mit glatter, lebensmittelechter Oberfläche
+            - text: . Es sollte groß genug für Brot, Käse, Wurst und kleine Schälchen sein, dabei aber gut auf dem Tisch aussehen.
+          - heading "Welche Materialien sind am besten?" [level=2]
+          - img "Solid Oak Waney Edge Chopping Board"
+          - button "Open Solid Oak Waney Edge Chopping Board"
+          - heading "1. Eiche – der vielseitige Klassiker" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Robust, langlebig und zeitlos schön
+            - paragraph: Ideal für Brotzeit, Käse, Wurst und Antipasti
+            - paragraph: Passt zum rustikalen wie zum modernen Tisch
+          - paragraph: "Am besten: massiv, ca. 30–40 × 20–30 cm."
+          - img "klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - button "Open klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - heading "2. Nussbaum – elegant und edel" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Besonders schön zum Anrichten von Käse, Schinken und Häppchen
+            - paragraph: Ideal, wenn das Brett auch dekorativ auf dem Tisch liegen soll
+          - img "Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - button "Open Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - heading "3. Ahorn – hell und schlicht" [level=3]
+          - list:
+            - paragraph: Helle, freundliche Optik
+            - paragraph: Gut für Brot, Gebäck und Käse
+            - paragraph: Passt besonders gut zu skandinavischem Geschirr und hellem Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: 35 × 25 cm für eine kleine Brotzeit, 40 × 30 cm oder größer zum Servieren für mehrere Personen.
+            - paragraph:
+              - generic: "Stärke:"
+              - text: etwa 2–3 cm für einen wertigen, stabilen Eindruck.
+            - paragraph:
+              - generic: "Form:"
+              - text: rechteckig mit abgerundeten Kanten; ein Griff ist praktisch zum Tragen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: von Hand reinigen, nicht einweichen und bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+              - button "woodprojectstosell.com +1":
+                - generic: woodprojectstosell.com
+                - generic: "+1"
+          - heading "Ein paar konkrete Optionen" [level=2]
+          - img "Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - button "Open Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - paragraph:
+            - button "Servierbrett Eichenholz 63 × 22 cm":
+              - generic: Servierbrett Eichenholz 63 × 22 cm
+          - heading "89,00 €" [level=3]
+          - paragraph: Von Manufactum · Lang und schmal, schön zum Anrichten und Teilen.
+          - paragraph:
+            - button "Bei Manufactum ansehen":
+              - link "Bei Manufactum ansehen":
+                - /url: https://www.manufactum.de/
+                - generic: Bei Manufactum
+                - generic: ansehen
+          - img "Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - button "Open Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - paragraph:
+            - button "WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm":
+              - generic: WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm
+          - heading "39,95 €" [level=3]
+          - paragraph: Von Amazon.de · Gute Größe für Brotzeit und den täglichen Einsatz.
+          - paragraph:
+            - button "Bei Amazon suchen":
+              - link "Bei Amazon suchen":
+                - /url: https://www.amazon.de/
+                - generic: Bei Amazon
+                - generic: suchen
+          - paragraph:
+            - generic: "Meine persönliche Wahl:"
+            - text: ein massives Brett aus Nussbaum oder Ahorn, wenn die Optik im Vordergrund steht; Eiche oder Akazie, wenn es rustikaler sein darf.
+          - paragraph:
+            - text: Soll das Brett eher
+            - generic: rustikal wie auf einer schwäbischen Vesperplatte
+            - text: oder
+            - generic: modern und elegant zum Servieren
+            - text: aussehen? Dann kann ich dir gezielter das passende empfehlen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-4cd7bb09-ec8a-4d1c-adf7-758a23b629f8":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Brett eignet sich für Brotzeit und Servieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für Brotzeit und zum Servieren eignet sich am besten ein
+            - generic: massives Holzbrett mit glatter, lebensmittelechter Oberfläche
+            - text: . Es sollte groß genug für Brot, Käse, Wurst und kleine Schälchen sein, dabei aber gut auf dem Tisch aussehen.
+          - heading "Welche Materialien sind am besten?" [level=2]
+          - img "Solid Oak Waney Edge Chopping Board"
+          - button "Open Solid Oak Waney Edge Chopping Board"
+          - heading "1. Eiche – der vielseitige Klassiker" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Robust, langlebig und zeitlos schön
+            - paragraph: Ideal für Brotzeit, Käse, Wurst und Antipasti
+            - paragraph: Passt zum rustikalen wie zum modernen Tisch
+          - paragraph: "Am besten: massiv, ca. 30–40 × 20–30 cm."
+          - img "klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - button "Open klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - heading "2. Nussbaum – elegant und edel" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Besonders schön zum Anrichten von Käse, Schinken und Häppchen
+            - paragraph: Ideal, wenn das Brett auch dekorativ auf dem Tisch liegen soll
+          - img "Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - button "Open Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - heading "3. Ahorn – hell und schlicht" [level=3]
+          - list:
+            - paragraph: Helle, freundliche Optik
+            - paragraph: Gut für Brot, Gebäck und Käse
+            - paragraph: Passt besonders gut zu skandinavischem Geschirr und hellem Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: 35 × 25 cm für eine kleine Brotzeit, 40 × 30 cm oder größer zum Servieren für mehrere Personen.
+            - paragraph:
+              - generic: "Stärke:"
+              - text: etwa 2–3 cm für einen wertigen, stabilen Eindruck.
+            - paragraph:
+              - generic: "Form:"
+              - text: rechteckig mit abgerundeten Kanten; ein Griff ist praktisch zum Tragen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: von Hand reinigen, nicht einweichen und bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+              - button "woodprojectstosell.com +1" [active]:
+                - generic: woodprojectstosell.com
+                - generic: "+1"
+          - heading "Ein paar konkrete Optionen" [level=2]
+          - img "Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - button "Open Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - paragraph:
+            - button "Servierbrett Eichenholz 63 × 22 cm":
+              - generic: Servierbrett Eichenholz 63 × 22 cm
+          - heading "89,00 €" [level=3]
+          - paragraph: Von Manufactum · Lang und schmal, schön zum Anrichten und Teilen.
+          - paragraph:
+            - button "Bei Manufactum ansehen":
+              - link "Bei Manufactum ansehen":
+                - /url: https://www.manufactum.de/
+                - generic: Bei Manufactum
+                - generic: ansehen
+          - img "Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - button "Open Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - paragraph:
+            - button "WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm":
+              - generic: WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm
+          - heading "39,95 €" [level=3]
+          - paragraph: Von Amazon.de · Gute Größe für Brotzeit und den täglichen Einsatz.
+          - paragraph:
+            - button "Bei Amazon suchen":
+              - link "Bei Amazon suchen":
+                - /url: https://www.amazon.de/
+                - generic: Bei Amazon
+                - generic: suchen
+          - paragraph:
+            - generic: "Meine persönliche Wahl:"
+            - text: ein massives Brett aus Nussbaum oder Ahorn, wenn die Optik im Vordergrund steht; Eiche oder Akazie, wenn es rustikaler sein darf.
+          - paragraph:
+            - text: Soll das Brett eher
+            - generic: rustikal wie auf einer schwäbischen Vesperplatte
+            - text: oder
+            - generic: modern und elegant zum Servieren
+            - text: aussehen? Dann kann ich dir gezielter das passende empfehlen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-4cd7bb09-ec8a-4d1c-adf7-758a23b629f8":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Brett eignet sich für Brotzeit und Servieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für Brotzeit und zum Servieren eignet sich am besten ein
+            - generic: massives Holzbrett mit glatter, lebensmittelechter Oberfläche
+            - text: . Es sollte groß genug für Brot, Käse, Wurst und kleine Schälchen sein, dabei aber gut auf dem Tisch aussehen.
+          - heading "Welche Materialien sind am besten?" [level=2]
+          - img "Solid Oak Waney Edge Chopping Board"
+          - button "Open Solid Oak Waney Edge Chopping Board"
+          - heading "1. Eiche – der vielseitige Klassiker" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Robust, langlebig und zeitlos schön
+            - paragraph: Ideal für Brotzeit, Käse, Wurst und Antipasti
+            - paragraph: Passt zum rustikalen wie zum modernen Tisch
+          - paragraph: "Am besten: massiv, ca. 30–40 × 20–30 cm."
+          - img "klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - button "Open klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - heading "2. Nussbaum – elegant und edel" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Besonders schön zum Anrichten von Käse, Schinken und Häppchen
+            - paragraph: Ideal, wenn das Brett auch dekorativ auf dem Tisch liegen soll
+          - img "Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - button "Open Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - heading "3. Ahorn – hell und schlicht" [level=3]
+          - list:
+            - paragraph: Helle, freundliche Optik
+            - paragraph: Gut für Brot, Gebäck und Käse
+            - paragraph: Passt besonders gut zu skandinavischem Geschirr und hellem Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: 35 × 25 cm für eine kleine Brotzeit, 40 × 30 cm oder größer zum Servieren für mehrere Personen.
+            - paragraph:
+              - generic: "Stärke:"
+              - text: etwa 2–3 cm für einen wertigen, stabilen Eindruck.
+            - paragraph:
+              - generic: "Form:"
+              - text: rechteckig mit abgerundeten Kanten; ein Griff ist praktisch zum Tragen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: von Hand reinigen, nicht einweichen und bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+              - button "woodprojectstosell.com +1":
+                - generic: woodprojectstosell.com
+                - generic: "+1"
+          - heading "Ein paar konkrete Optionen" [level=2]
+          - img "Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - button "Open Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - paragraph:
+            - button "Servierbrett Eichenholz 63 × 22 cm":
+              - generic: Servierbrett Eichenholz 63 × 22 cm
+          - heading "89,00 €" [level=3]
+          - paragraph: Von Manufactum · Lang und schmal, schön zum Anrichten und Teilen.
+          - paragraph:
+            - button "Bei Manufactum ansehen" [expanded] [active]:
+              - link "Bei Manufactum ansehen":
+                - /url: https://www.manufactum.de/
+                - generic: Bei Manufactum
+                - generic: ansehen
+            - dialog "Bei Manufactum ansehen":
+              - link "https://www.manufactum.de/":
+                - /url: https://www.manufactum.de/
+                - generic: https://www.manufactum.de/
+              - button "Copy URL":
+          - img "Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - button "Open Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - paragraph:
+            - button "WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm":
+              - generic: WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm
+          - heading "39,95 €" [level=3]
+          - paragraph: Von Amazon.de · Gute Größe für Brotzeit und den täglichen Einsatz.
+          - paragraph:
+            - button "Bei Amazon suchen":
+              - link "Bei Amazon suchen":
+                - /url: https://www.amazon.de/
+                - generic: Bei Amazon
+                - generic: suchen
+          - paragraph:
+            - generic: "Meine persönliche Wahl:"
+            - text: ein massives Brett aus Nussbaum oder Ahorn, wenn die Optik im Vordergrund steht; Eiche oder Akazie, wenn es rustikaler sein darf.
+          - paragraph:
+            - text: Soll das Brett eher
+            - generic: rustikal wie auf einer schwäbischen Vesperplatte
+            - text: oder
+            - generic: modern und elegant zum Servieren
+            - text: aussehen? Dann kann ich dir gezielter das passende empfehlen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-4cd7bb09-ec8a-4d1c-adf7-758a23b629f8":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Brett eignet sich für Brotzeit und Servieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für Brotzeit und zum Servieren eignet sich am besten ein
+            - generic: massives Holzbrett mit glatter, lebensmittelechter Oberfläche
+            - text: . Es sollte groß genug für Brot, Käse, Wurst und kleine Schälchen sein, dabei aber gut auf dem Tisch aussehen.
+          - heading "Welche Materialien sind am besten?" [level=2]
+          - img "Solid Oak Waney Edge Chopping Board"
+          - button "Open Solid Oak Waney Edge Chopping Board"
+          - heading "1. Eiche – der vielseitige Klassiker" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Robust, langlebig und zeitlos schön
+            - paragraph: Ideal für Brotzeit, Käse, Wurst und Antipasti
+            - paragraph: Passt zum rustikalen wie zum modernen Tisch
+          - paragraph: "Am besten: massiv, ca. 30–40 × 20–30 cm."
+          - img "klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - button "Open klotzaufklotz Servierbrett Nussbaum | selekkt.com"
+          - heading "2. Nussbaum – elegant und edel" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Besonders schön zum Anrichten von Käse, Schinken und Häppchen
+            - paragraph: Ideal, wenn das Brett auch dekorativ auf dem Tisch liegen soll
+          - img "Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - button "Open Damian - Cutting board with recessed handle, oak wood, 40 x 25 cm, fr"
+          - heading "3. Ahorn – hell und schlicht" [level=3]
+          - list:
+            - paragraph: Helle, freundliche Optik
+            - paragraph: Gut für Brot, Gebäck und Käse
+            - paragraph: Passt besonders gut zu skandinavischem Geschirr und hellem Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: 35 × 25 cm für eine kleine Brotzeit, 40 × 30 cm oder größer zum Servieren für mehrere Personen.
+            - paragraph:
+              - generic: "Stärke:"
+              - text: etwa 2–3 cm für einen wertigen, stabilen Eindruck.
+            - paragraph:
+              - generic: "Form:"
+              - text: rechteckig mit abgerundeten Kanten; ein Griff ist praktisch zum Tragen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: von Hand reinigen, nicht einweichen und bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+              - button "woodprojectstosell.com +1":
+                - generic: woodprojectstosell.com
+                - generic: "+1"
+          - heading "Ein paar konkrete Optionen" [level=2]
+          - img "Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - button "Open Servierbrett Eichenholz, 63 x 22 cm | Manufactum"
+          - paragraph:
+            - button "Servierbrett Eichenholz 63 × 22 cm":
+              - generic: Servierbrett Eichenholz 63 × 22 cm
+          - heading "89,00 €" [level=3]
+          - paragraph: Von Manufactum · Lang und schmal, schön zum Anrichten und Teilen.
+          - paragraph:
+            - button "Bei Manufactum ansehen":
+              - link "Bei Manufactum ansehen":
+                - /url: https://www.manufactum.de/
+                - generic: Bei Manufactum
+                - generic: ansehen
+          - img "Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - button "Open Shiori Akashia Chesū-ban - deska do krojenia z drewna akacjowego, 40 × 28,5 cm | Shiori.pl"
+          - paragraph:
+            - button "WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm":
+              - generic: WALDLAND Premium Schneidebrett aus Akazienholz 40 × 30 cm
+          - heading "39,95 €" [level=3]
+          - paragraph: Von Amazon.de · Gute Größe für Brotzeit und den täglichen Einsatz.
+          - paragraph:
+            - button "Bei Amazon suchen" [expanded] [active]:
+              - link "Bei Amazon suchen":
+                - /url: https://www.amazon.de/
+                - generic: Bei Amazon
+                - generic: suchen
+            - dialog "Bei Amazon suchen":
+              - link "https://www.amazon.de/":
+                - /url: https://www.amazon.de/
+                - generic: https://www.amazon.de/
+              - button "Copy URL":
+          - paragraph:
+            - generic: "Meine persönliche Wahl:"
+            - text: ein massives Brett aus Nussbaum oder Ahorn, wenn die Optik im Vordergrund steht; Eiche oder Akazie, wenn es rustikaler sein darf.
+          - paragraph:
+            - text: Soll das Brett eher
+            - generic: rustikal wie auf einer schwäbischen Vesperplatte
+            - text: oder
+            - generic: modern und elegant zum Servieren
+            - text: aussehen? Dann kann ich dir gezielter das passende empfehlen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

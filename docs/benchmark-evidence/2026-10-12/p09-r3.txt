@@ -1,0 +1,917 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ef9d2309-3d7f-4af1-8f88-89e96754ef83":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Brisket, Rippchen oder einem ganzen Braten eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille und rutschfestem Stand
+            - text: . Entscheidend ist, dass es Fleischsaft auffängt, dem Messer nicht zu viel Widerstand bietet und genügend Platz zum Arbeiten lässt.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - button "Open Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - heading "1. Stirnholz oder massives Hartholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders geeignet für Steaks, Roastbeef und Brisket. Holz ist angenehm zum Schneiden, schont die Messerschneide und sieht beim Servieren gut aus. Eine tiefe Saftrille ist ideal.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: mindestens 40 × 30 cm, besser 50 × 35 cm, sowie ausreichend Gewicht für einen sicheren Stand.
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - heading "2. HDPE-Kunststoff" [level=3]
+          - paragraph: Die praktische Wahl für häufiges Grillen. Das Brett ist pflegeleicht, robust und meist spülmaschinengeeignet. Besonders sinnvoll, wenn du rohes Fleisch hygienisch verarbeiten und das Brett anschließend gründlich reinigen möchtest.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: lebensmittelechten Kunststoff, eine großzügige Saftrille und rutschfeste Füße.
+          - img "XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - button "Open XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - heading "3. Teak oder anderes Hartholz für draußen" [level=3]
+          - paragraph: Gut für die Outdoor-Küche und zum Präsentieren von Grillfleisch. Teak ist relativ feuchtigkeitsbeständig. Trotzdem sollte das Brett nach dem Gebrauch gereinigt und vollständig getrocknet werden.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: eine große Arbeitsfläche, tiefe Saftrille und stabile Griffe.
+          - heading "Drei passende Schneidebretter" [level=2]
+          - img "End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - button "Open End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - paragraph:
+            - button "End-Grain Cutting Board – Oak":
+              - generic: End-Grain Cutting Board – Oak
+          - heading "129 €" [level=2]
+          - paragraph: Massives Eichen-Stirnholz mit Saftrille und Griffen. Meine Wahl, wenn du ein hochwertiges Brett zum Tranchieren suchst.
+          - paragraph: "Händler: Wooden Amsterdam"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=End-Grain+Cutting+Board+-+Oak+-+Juice+Groove+%26+Handles
+                - generic: Produkt
+                - generic: ansehen
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - paragraph:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - heading "28,44 €" [level=2]
+          - paragraph: Preiswerte Alternative aus Eiche mit Saftrille. Interessant für gelegentliches Grillen und das Tranchieren von Steaks.
+          - paragraph: "Händler: OTTO"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Produkt
+                - generic: ansehen
+          - img "Teakhaus Servierbrett Schneidebrett"
+          - button "Open Teakhaus Servierbrett Schneidebrett"
+          - paragraph:
+            - button "Teakhaus Servierbrett Schneidebrett":
+              - generic: Teakhaus Servierbrett Schneidebrett
+          - heading "179,95 €" [level=2]
+          - paragraph: Eine hochwertige Teakholz-Option, wenn dir die Optik und die Nutzung als Schneide- und Servierbrett wichtig sind.
+          - paragraph: "Händler: A-fine"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=Teakhaus+Servierbrett+Schneidebrett
+                - generic: Produkt
+                - generic: ansehen
+          - paragraph:
+            - text: Die grundsätzliche Empfehlung für saftiges Grillfleisch ist ein schweres Hartholzbrett mit ausreichend tiefer Saftrille; solche Bretter werden speziell zum Tranchieren empfohlen.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für Steaks und größere Fleischstücke würde ich ein massives Holzbrett wählen. Für rohes Fleisch und eine besonders unkomplizierte Reinigung ist ein zusätzliches Kunststoffbrett praktisch. Holz immer von Hand reinigen und gut trocknen lassen.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Was grillst du überwiegend?
+          - paragraph:
+            - generic: 1. Was kommt meist auf den Grill?
+          - radiogroup "Options":
+            - radio "Steaks und Koteletts" [checked]
+            - text: Steaks und Koteletts
+            - radio "Brisket, Rippchen und Pulled Pork"
+            - text: Brisket, Rippchen und Pulled Pork
+            - radio "Große Braten oder ganzes Geflügel"
+            - text: Große Braten oder ganzes Geflügel
+            - radio "Von allem etwas"
+            - text: Von allem etwas
+          - paragraph:
+            - generic: 2. Wie viel möchtest du ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "100–200 €"
+            - text: 100–200 €
+            - radio "Über 200 € für Premiumqualität"
+            - text: Über 200 € für Premiumqualität
+          - paragraph:
+            - generic: 3. Welche Größe bevorzugst du?
+          - radiogroup "Options":
+            - radio "Kompakt (ca. 40 cm)"
+            - text: Kompakt (ca. 40 cm)
+            - radio "Groß (50–60 cm)" [checked]
+            - text: Groß (50–60 cm)
+            - radio "Extra groß (über 60 cm)"
+            - text: Extra groß (über 60 cm)
+          - button "Passendes Brett finden":
+            - generic: Passendes Brett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ef9d2309-3d7f-4af1-8f88-89e96754ef83":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Brisket, Rippchen oder einem ganzen Braten eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille und rutschfestem Stand
+            - text: . Entscheidend ist, dass es Fleischsaft auffängt, dem Messer nicht zu viel Widerstand bietet und genügend Platz zum Arbeiten lässt.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - button "Open Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - heading "1. Stirnholz oder massives Hartholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders geeignet für Steaks, Roastbeef und Brisket. Holz ist angenehm zum Schneiden, schont die Messerschneide und sieht beim Servieren gut aus. Eine tiefe Saftrille ist ideal.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: mindestens 40 × 30 cm, besser 50 × 35 cm, sowie ausreichend Gewicht für einen sicheren Stand.
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - heading "2. HDPE-Kunststoff" [level=3]
+          - paragraph: Die praktische Wahl für häufiges Grillen. Das Brett ist pflegeleicht, robust und meist spülmaschinengeeignet. Besonders sinnvoll, wenn du rohes Fleisch hygienisch verarbeiten und das Brett anschließend gründlich reinigen möchtest.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: lebensmittelechten Kunststoff, eine großzügige Saftrille und rutschfeste Füße.
+          - img "XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - button "Open XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - heading "3. Teak oder anderes Hartholz für draußen" [level=3]
+          - paragraph: Gut für die Outdoor-Küche und zum Präsentieren von Grillfleisch. Teak ist relativ feuchtigkeitsbeständig. Trotzdem sollte das Brett nach dem Gebrauch gereinigt und vollständig getrocknet werden.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: eine große Arbeitsfläche, tiefe Saftrille und stabile Griffe.
+          - heading "Drei passende Schneidebretter" [level=2]
+          - img "End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - button "Open End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - paragraph:
+            - button "End-Grain Cutting Board – Oak":
+              - generic: End-Grain Cutting Board – Oak
+          - heading "129 €" [level=2]
+          - paragraph: Massives Eichen-Stirnholz mit Saftrille und Griffen. Meine Wahl, wenn du ein hochwertiges Brett zum Tranchieren suchst.
+          - paragraph: "Händler: Wooden Amsterdam"
+          - paragraph:
+            - button "Produkt ansehen" [expanded] [active]:
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=End-Grain+Cutting+Board+-+Oak+-+Juice+Groove+%26+Handles
+                - generic: Produkt
+                - generic: ansehen
+            - dialog "Produkt ansehen":
+              - link "https://chatgpt.com/?hints=search&q=End-...":
+                - /url: https://chatgpt.com/?hints=search&q=End-Grain+Cutting+Board+-+Oak+-+Juice+Groove+%26+Handles
+                - generic: https://chatgpt.com/?hints=search&q=End-...
+              - button "Copy URL":
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - paragraph:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - heading "28,44 €" [level=2]
+          - paragraph: Preiswerte Alternative aus Eiche mit Saftrille. Interessant für gelegentliches Grillen und das Tranchieren von Steaks.
+          - paragraph: "Händler: OTTO"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Produkt
+                - generic: ansehen
+          - img "Teakhaus Servierbrett Schneidebrett"
+          - button "Open Teakhaus Servierbrett Schneidebrett"
+          - paragraph:
+            - button "Teakhaus Servierbrett Schneidebrett":
+              - generic: Teakhaus Servierbrett Schneidebrett
+          - heading "179,95 €" [level=2]
+          - paragraph: Eine hochwertige Teakholz-Option, wenn dir die Optik und die Nutzung als Schneide- und Servierbrett wichtig sind.
+          - paragraph: "Händler: A-fine"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=Teakhaus+Servierbrett+Schneidebrett
+                - generic: Produkt
+                - generic: ansehen
+          - paragraph:
+            - text: Die grundsätzliche Empfehlung für saftiges Grillfleisch ist ein schweres Hartholzbrett mit ausreichend tiefer Saftrille; solche Bretter werden speziell zum Tranchieren empfohlen.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für Steaks und größere Fleischstücke würde ich ein massives Holzbrett wählen. Für rohes Fleisch und eine besonders unkomplizierte Reinigung ist ein zusätzliches Kunststoffbrett praktisch. Holz immer von Hand reinigen und gut trocknen lassen.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Was grillst du überwiegend?
+          - paragraph:
+            - generic: 1. Was kommt meist auf den Grill?
+          - radiogroup "Options":
+            - radio "Steaks und Koteletts" [checked]
+            - text: Steaks und Koteletts
+            - radio "Brisket, Rippchen und Pulled Pork"
+            - text: Brisket, Rippchen und Pulled Pork
+            - radio "Große Braten oder ganzes Geflügel"
+            - text: Große Braten oder ganzes Geflügel
+            - radio "Von allem etwas"
+            - text: Von allem etwas
+          - paragraph:
+            - generic: 2. Wie viel möchtest du ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "100–200 €"
+            - text: 100–200 €
+            - radio "Über 200 € für Premiumqualität"
+            - text: Über 200 € für Premiumqualität
+          - paragraph:
+            - generic: 3. Welche Größe bevorzugst du?
+          - radiogroup "Options":
+            - radio "Kompakt (ca. 40 cm)"
+            - text: Kompakt (ca. 40 cm)
+            - radio "Groß (50–60 cm)" [checked]
+            - text: Groß (50–60 cm)
+            - radio "Extra groß (über 60 cm)"
+            - text: Extra groß (über 60 cm)
+          - button "Passendes Brett finden":
+            - generic: Passendes Brett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ef9d2309-3d7f-4af1-8f88-89e96754ef83":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Brisket, Rippchen oder einem ganzen Braten eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille und rutschfestem Stand
+            - text: . Entscheidend ist, dass es Fleischsaft auffängt, dem Messer nicht zu viel Widerstand bietet und genügend Platz zum Arbeiten lässt.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - button "Open Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - heading "1. Stirnholz oder massives Hartholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders geeignet für Steaks, Roastbeef und Brisket. Holz ist angenehm zum Schneiden, schont die Messerschneide und sieht beim Servieren gut aus. Eine tiefe Saftrille ist ideal.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: mindestens 40 × 30 cm, besser 50 × 35 cm, sowie ausreichend Gewicht für einen sicheren Stand.
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - heading "2. HDPE-Kunststoff" [level=3]
+          - paragraph: Die praktische Wahl für häufiges Grillen. Das Brett ist pflegeleicht, robust und meist spülmaschinengeeignet. Besonders sinnvoll, wenn du rohes Fleisch hygienisch verarbeiten und das Brett anschließend gründlich reinigen möchtest.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: lebensmittelechten Kunststoff, eine großzügige Saftrille und rutschfeste Füße.
+          - img "XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - button "Open XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - heading "3. Teak oder anderes Hartholz für draußen" [level=3]
+          - paragraph: Gut für die Outdoor-Küche und zum Präsentieren von Grillfleisch. Teak ist relativ feuchtigkeitsbeständig. Trotzdem sollte das Brett nach dem Gebrauch gereinigt und vollständig getrocknet werden.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: eine große Arbeitsfläche, tiefe Saftrille und stabile Griffe.
+          - heading "Drei passende Schneidebretter" [level=2]
+          - img "End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - button "Open End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - paragraph:
+            - button "End-Grain Cutting Board – Oak":
+              - generic: End-Grain Cutting Board – Oak
+          - heading "129 €" [level=2]
+          - paragraph: Massives Eichen-Stirnholz mit Saftrille und Griffen. Meine Wahl, wenn du ein hochwertiges Brett zum Tranchieren suchst.
+          - paragraph: "Händler: Wooden Amsterdam"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=End-Grain+Cutting+Board+-+Oak+-+Juice+Groove+%26+Handles
+                - generic: Produkt
+                - generic: ansehen
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - paragraph:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - heading "28,44 €" [level=2]
+          - paragraph: Preiswerte Alternative aus Eiche mit Saftrille. Interessant für gelegentliches Grillen und das Tranchieren von Steaks.
+          - paragraph: "Händler: OTTO"
+          - paragraph:
+            - button "Produkt ansehen" [expanded] [active]:
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Produkt
+                - generic: ansehen
+            - dialog "Produkt ansehen":
+              - link "https://chatgpt.com/?hints=search&q=XL+4...":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: https://chatgpt.com/?hints=search&q=XL+4...
+              - button "Copy URL":
+          - img "Teakhaus Servierbrett Schneidebrett"
+          - button "Open Teakhaus Servierbrett Schneidebrett"
+          - paragraph:
+            - button "Teakhaus Servierbrett Schneidebrett":
+              - generic: Teakhaus Servierbrett Schneidebrett
+          - heading "179,95 €" [level=2]
+          - paragraph: Eine hochwertige Teakholz-Option, wenn dir die Optik und die Nutzung als Schneide- und Servierbrett wichtig sind.
+          - paragraph: "Händler: A-fine"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=Teakhaus+Servierbrett+Schneidebrett
+                - generic: Produkt
+                - generic: ansehen
+          - paragraph:
+            - text: Die grundsätzliche Empfehlung für saftiges Grillfleisch ist ein schweres Hartholzbrett mit ausreichend tiefer Saftrille; solche Bretter werden speziell zum Tranchieren empfohlen.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für Steaks und größere Fleischstücke würde ich ein massives Holzbrett wählen. Für rohes Fleisch und eine besonders unkomplizierte Reinigung ist ein zusätzliches Kunststoffbrett praktisch. Holz immer von Hand reinigen und gut trocknen lassen.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Was grillst du überwiegend?
+          - paragraph:
+            - generic: 1. Was kommt meist auf den Grill?
+          - radiogroup "Options":
+            - radio "Steaks und Koteletts" [checked]
+            - text: Steaks und Koteletts
+            - radio "Brisket, Rippchen und Pulled Pork"
+            - text: Brisket, Rippchen und Pulled Pork
+            - radio "Große Braten oder ganzes Geflügel"
+            - text: Große Braten oder ganzes Geflügel
+            - radio "Von allem etwas"
+            - text: Von allem etwas
+          - paragraph:
+            - generic: 2. Wie viel möchtest du ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "100–200 €"
+            - text: 100–200 €
+            - radio "Über 200 € für Premiumqualität"
+            - text: Über 200 € für Premiumqualität
+          - paragraph:
+            - generic: 3. Welche Größe bevorzugst du?
+          - radiogroup "Options":
+            - radio "Kompakt (ca. 40 cm)"
+            - text: Kompakt (ca. 40 cm)
+            - radio "Groß (50–60 cm)" [checked]
+            - text: Groß (50–60 cm)
+            - radio "Extra groß (über 60 cm)"
+            - text: Extra groß (über 60 cm)
+          - button "Passendes Brett finden":
+            - generic: Passendes Brett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ef9d2309-3d7f-4af1-8f88-89e96754ef83":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Brisket, Rippchen oder einem ganzen Braten eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille und rutschfestem Stand
+            - text: . Entscheidend ist, dass es Fleischsaft auffängt, dem Messer nicht zu viel Widerstand bietet und genügend Platz zum Arbeiten lässt.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - button "Open Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - heading "1. Stirnholz oder massives Hartholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders geeignet für Steaks, Roastbeef und Brisket. Holz ist angenehm zum Schneiden, schont die Messerschneide und sieht beim Servieren gut aus. Eine tiefe Saftrille ist ideal.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: mindestens 40 × 30 cm, besser 50 × 35 cm, sowie ausreichend Gewicht für einen sicheren Stand.
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - heading "2. HDPE-Kunststoff" [level=3]
+          - paragraph: Die praktische Wahl für häufiges Grillen. Das Brett ist pflegeleicht, robust und meist spülmaschinengeeignet. Besonders sinnvoll, wenn du rohes Fleisch hygienisch verarbeiten und das Brett anschließend gründlich reinigen möchtest.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: lebensmittelechten Kunststoff, eine großzügige Saftrille und rutschfeste Füße.
+          - img "XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - button "Open XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - heading "3. Teak oder anderes Hartholz für draußen" [level=3]
+          - paragraph: Gut für die Outdoor-Küche und zum Präsentieren von Grillfleisch. Teak ist relativ feuchtigkeitsbeständig. Trotzdem sollte das Brett nach dem Gebrauch gereinigt und vollständig getrocknet werden.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: eine große Arbeitsfläche, tiefe Saftrille und stabile Griffe.
+          - heading "Drei passende Schneidebretter" [level=2]
+          - img "End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - button "Open End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - paragraph:
+            - button "End-Grain Cutting Board – Oak":
+              - generic: End-Grain Cutting Board – Oak
+          - heading "129 €" [level=2]
+          - paragraph: Massives Eichen-Stirnholz mit Saftrille und Griffen. Meine Wahl, wenn du ein hochwertiges Brett zum Tranchieren suchst.
+          - paragraph: "Händler: Wooden Amsterdam"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=End-Grain+Cutting+Board+-+Oak+-+Juice+Groove+%26+Handles
+                - generic: Produkt
+                - generic: ansehen
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - paragraph:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - heading "28,44 €" [level=2]
+          - paragraph: Preiswerte Alternative aus Eiche mit Saftrille. Interessant für gelegentliches Grillen und das Tranchieren von Steaks.
+          - paragraph: "Händler: OTTO"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Produkt
+                - generic: ansehen
+          - img "Teakhaus Servierbrett Schneidebrett"
+          - button "Open Teakhaus Servierbrett Schneidebrett"
+          - paragraph:
+            - button "Teakhaus Servierbrett Schneidebrett":
+              - generic: Teakhaus Servierbrett Schneidebrett
+          - heading "179,95 €" [level=2]
+          - paragraph: Eine hochwertige Teakholz-Option, wenn dir die Optik und die Nutzung als Schneide- und Servierbrett wichtig sind.
+          - paragraph: "Händler: A-fine"
+          - paragraph:
+            - button "Produkt ansehen" [expanded] [active]:
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=Teakhaus+Servierbrett+Schneidebrett
+                - generic: Produkt
+                - generic: ansehen
+            - dialog "Produkt ansehen":
+              - link "https://chatgpt.com/?hints=search&q=Teak...":
+                - /url: https://chatgpt.com/?hints=search&q=Teakhaus+Servierbrett+Schneidebrett
+                - generic: https://chatgpt.com/?hints=search&q=Teak...
+              - button "Copy URL":
+          - paragraph:
+            - text: Die grundsätzliche Empfehlung für saftiges Grillfleisch ist ein schweres Hartholzbrett mit ausreichend tiefer Saftrille; solche Bretter werden speziell zum Tranchieren empfohlen.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für Steaks und größere Fleischstücke würde ich ein massives Holzbrett wählen. Für rohes Fleisch und eine besonders unkomplizierte Reinigung ist ein zusätzliches Kunststoffbrett praktisch. Holz immer von Hand reinigen und gut trocknen lassen.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Was grillst du überwiegend?
+          - paragraph:
+            - generic: 1. Was kommt meist auf den Grill?
+          - radiogroup "Options":
+            - radio "Steaks und Koteletts" [checked]
+            - text: Steaks und Koteletts
+            - radio "Brisket, Rippchen und Pulled Pork"
+            - text: Brisket, Rippchen und Pulled Pork
+            - radio "Große Braten oder ganzes Geflügel"
+            - text: Große Braten oder ganzes Geflügel
+            - radio "Von allem etwas"
+            - text: Von allem etwas
+          - paragraph:
+            - generic: 2. Wie viel möchtest du ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "100–200 €"
+            - text: 100–200 €
+            - radio "Über 200 € für Premiumqualität"
+            - text: Über 200 € für Premiumqualität
+          - paragraph:
+            - generic: 3. Welche Größe bevorzugst du?
+          - radiogroup "Options":
+            - radio "Kompakt (ca. 40 cm)"
+            - text: Kompakt (ca. 40 cm)
+            - radio "Groß (50–60 cm)" [checked]
+            - text: Groß (50–60 cm)
+            - radio "Extra groß (über 60 cm)"
+            - text: Extra groß (über 60 cm)
+          - button "Passendes Brett finden":
+            - generic: Passendes Brett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ef9d2309-3d7f-4af1-8f88-89e96754ef83":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Brisket, Rippchen oder einem ganzen Braten eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille und rutschfestem Stand
+            - text: . Entscheidend ist, dass es Fleischsaft auffängt, dem Messer nicht zu viel Widerstand bietet und genügend Platz zum Arbeiten lässt.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - button "Open Hackblock, Nussbaum Stirnholz 54 x 30 x 4 cm | 54 cm | 057317"
+          - heading "1. Stirnholz oder massives Hartholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders geeignet für Steaks, Roastbeef und Brisket. Holz ist angenehm zum Schneiden, schont die Messerschneide und sieht beim Servieren gut aus. Eine tiefe Saftrille ist ideal.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: mindestens 40 × 30 cm, besser 50 × 35 cm, sowie ausreichend Gewicht für einen sicheren Stand.
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - heading "2. HDPE-Kunststoff" [level=3]
+          - paragraph: Die praktische Wahl für häufiges Grillen. Das Brett ist pflegeleicht, robust und meist spülmaschinengeeignet. Besonders sinnvoll, wenn du rohes Fleisch hygienisch verarbeiten und das Brett anschließend gründlich reinigen möchtest.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: lebensmittelechten Kunststoff, eine großzügige Saftrille und rutschfeste Füße.
+          - img "XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - button "Open XXL Cutting Board in Natural End Grain TEAK Wood SIDNEY, Non-Slip Base – ERREKE"
+          - heading "3. Teak oder anderes Hartholz für draußen" [level=3]
+          - paragraph: Gut für die Outdoor-Küche und zum Präsentieren von Grillfleisch. Teak ist relativ feuchtigkeitsbeständig. Trotzdem sollte das Brett nach dem Gebrauch gereinigt und vollständig getrocknet werden.
+          - paragraph:
+            - generic: "Achte auf:"
+            - text: eine große Arbeitsfläche, tiefe Saftrille und stabile Griffe.
+          - heading "Drei passende Schneidebretter" [level=2]
+          - img "End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - button "Open End-Grain Cutting Board - Oak - Juice Groove & Handles"
+          - paragraph:
+            - button "End-Grain Cutting Board – Oak":
+              - generic: End-Grain Cutting Board – Oak
+          - heading "129 €" [level=2]
+          - paragraph: Massives Eichen-Stirnholz mit Saftrille und Griffen. Meine Wahl, wenn du ein hochwertiges Brett zum Tranchieren suchst.
+          - paragraph: "Händler: Wooden Amsterdam"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=End-Grain+Cutting+Board+-+Oak+-+Juice+Groove+%26+Handles
+                - generic: Produkt
+                - generic: ansehen
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - paragraph:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - heading "28,44 €" [level=2]
+          - paragraph: Preiswerte Alternative aus Eiche mit Saftrille. Interessant für gelegentliches Grillen und das Tranchieren von Steaks.
+          - paragraph: "Händler: OTTO"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Produkt
+                - generic: ansehen
+          - img "Teakhaus Servierbrett Schneidebrett"
+          - button "Open Teakhaus Servierbrett Schneidebrett"
+          - paragraph:
+            - button "Teakhaus Servierbrett Schneidebrett":
+              - generic: Teakhaus Servierbrett Schneidebrett
+          - heading "179,95 €" [level=2]
+          - paragraph: Eine hochwertige Teakholz-Option, wenn dir die Optik und die Nutzung als Schneide- und Servierbrett wichtig sind.
+          - paragraph: "Händler: A-fine"
+          - paragraph:
+            - button "Produkt ansehen":
+              - link "Produkt ansehen":
+                - /url: https://chatgpt.com/?hints=search&q=Teakhaus+Servierbrett+Schneidebrett
+                - generic: Produkt
+                - generic: ansehen
+          - paragraph:
+            - text: Die grundsätzliche Empfehlung für saftiges Grillfleisch ist ein schweres Hartholzbrett mit ausreichend tiefer Saftrille; solche Bretter werden speziell zum Tranchieren empfohlen.
+            - button "boosblocks.de +1" [expanded] [active]:
+              - generic: boosblocks.de
+              - generic: "+1"
+            - dialog "boosblocks.de +1":
+              - button "Open boosblocks.de":
+                - generic: boosblocks.de
+                - paragraph: "cutting board with juice groove: perfect carving"
+                - paragraph: Juni 16, 2021
+              - button "Open Bevel & Bond":
+                - generic: Bevel & Bond
+                - paragraph: "Best Carving Board for Meat (2026): 8 Boards Tested & Ranked"
+                - paragraph: August 21, 2026
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für Steaks und größere Fleischstücke würde ich ein massives Holzbrett wählen. Für rohes Fleisch und eine besonders unkomplizierte Reinigung ist ein zusätzliches Kunststoffbrett praktisch. Holz immer von Hand reinigen und gut trocknen lassen.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Was grillst du überwiegend?
+          - paragraph:
+            - generic: 1. Was kommt meist auf den Grill?
+          - radiogroup "Options":
+            - radio "Steaks und Koteletts" [checked]
+            - text: Steaks und Koteletts
+            - radio "Brisket, Rippchen und Pulled Pork"
+            - text: Brisket, Rippchen und Pulled Pork
+            - radio "Große Braten oder ganzes Geflügel"
+            - text: Große Braten oder ganzes Geflügel
+            - radio "Von allem etwas"
+            - text: Von allem etwas
+          - paragraph:
+            - generic: 2. Wie viel möchtest du ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "100–200 €"
+            - text: 100–200 €
+            - radio "Über 200 € für Premiumqualität"
+            - text: Über 200 € für Premiumqualität
+          - paragraph:
+            - generic: 3. Welche Größe bevorzugst du?
+          - radiogroup "Options":
+            - radio "Kompakt (ca. 40 cm)"
+            - text: Kompakt (ca. 40 cm)
+            - radio "Groß (50–60 cm)" [checked]
+            - text: Groß (50–60 cm)
+            - radio "Extra groß (über 60 cm)"
+            - text: Extra groß (über 60 cm)
+          - button "Passendes Brett finden":
+            - generic: Passendes Brett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

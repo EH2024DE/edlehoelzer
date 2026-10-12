@@ -1,0 +1,269 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-b9bde874-9c1e-4212-9d2c-5e63e045acd3":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Ist ein Stirnholzbrett besser für hochwertige Küchenmesser?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ja –
+            - generic: ein Stirnholzbrett ist für hochwertige Küchenmesser oft eine sehr gute Wahl
+            - text: ", besonders wenn du teure japanische Messer oder dünn ausgeschliffene Kochmesser verwendest. Es ist allerdings nicht automatisch besser als jedes andere Schneidebrett."
+          - heading "Was macht ein Stirnholzbrett so gut?" [level=2]
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - paragraph:
+            - generic: 1. Besonders messerschonend
+          - paragraph: Die Holzfasern stehen senkrecht zur Schneidefläche. Beim Schneiden kann die Klinge etwas zwischen die Fasern eindringen, statt quer über sie hinwegzuschaben. Das kann die Schneide schonen.
+          - img "Kako izabrati savršenu drvenu dasku za serviranje ili za kuhinju? – Holma Srbija"
+          - button "Open Kako izabrati savršenu drvenu dasku za serviranje ili za kuhinju? – Holma Srbija"
+          - paragraph:
+            - generic: 2. Angenehmes Schneidgefühl
+          - paragraph: Die Oberfläche wirkt bei vielen Stirnholzbrettern etwas nachgiebiger. Das ist besonders angenehm, wenn du viel Gemüse schneidest oder häufig mit hochwertigen Messern arbeitest.
+          - img "Classic Walnut Edge Grain Cutting Board Large Chopping - TikTok Shop"
+          - button "Open Classic Walnut Edge Grain Cutting Board Large Chopping - TikTok Shop"
+          - paragraph:
+            - generic: 3. Weniger sichtbare Schnittspuren – aber nicht immer
+          - paragraph: Kleine Einschnitte können optisch weniger auffallen. Allerdings hängt die tatsächliche Haltbarkeit stark von Holzart, Verarbeitung und Pflege ab.
+          - heading "Welches Holz ist am besten?" [level=2]
+          - img "Professional End Grain Maple Board | 16x16 – International Imports The Chefs Shop"
+          - button "Open Professional End Grain Maple Board | 16x16 – International Imports The Chefs Shop"
+          - paragraph:
+            - generic: Ahorn – meine erste Wahl
+          - paragraph: Hart, feinporig und ein bewährtes Material für hochwertige Schneidebretter. Besonders gut für sehr scharfe Kochmesser.
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | SOPHIOR"
+          - paragraph:
+            - generic: Nussbaum – edel und messerfreundlich
+          - paragraph: Dunkle, attraktive Optik und gute Schneideigenschaften. Eine hervorragende Wahl für die hochwertige Küche.
+          - img "Beech End Grain Cutting Board, Handmade In Yorkshire | The Viking Workshop"
+          - button "Open Beech End Grain Cutting Board, Handmade In Yorkshire | The Viking Workshop"
+          - paragraph:
+            - generic: Buche – solide und preiswerter
+          - paragraph: In Deutschland gut verfügbar und bei guter Verarbeitung ebenfalls geeignet. Auf sorgfältige Trocknung und Verleimung achten.
+          - heading "Worauf solltest du beim Kauf achten?" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: Saubere Verleimung, keine Risse und eine ebene Schneidefläche.
+            - paragraph:
+              - generic: "Holzart:"
+              - text: Ahorn, Nussbaum oder Buche sind gute Optionen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Regelmäßig mit lebensmittelechtem Pflegeöl behandeln und nach dem Reinigen aufrecht trocknen lassen.
+            - paragraph:
+              - generic: "Keine Spülmaschine:"
+              - text: Hitze und Feuchtigkeit können das Brett verziehen oder Risse verursachen.
+            - paragraph:
+              - generic: "Keine Glas- oder Steinbretter:"
+              - text: Diese harten Oberflächen sind für scharfe Messerschneiden ungünstig.
+          - paragraph:
+            - text: Ein Stirnholzbrett ist schwerer, teurer und pflegeintensiver als ein längs zur Faser aufgebautes Brett. Beide Holzvarianten können aber sehr gut sein.
+            - button "Serious Eats +1":
+              - generic: Serious Eats
+              - generic: "+1"
+          - paragraph:
+            - generic: "Mein Fazit:"
+            - text: Wenn du in hochwertige Messer investierst und häufig kochst, lohnt sich ein gut verarbeitetes Stirnholzbrett aus Ahorn oder Nussbaum. Für den normalen Küchenalltag ist ein hochwertiges Längsholzbrett allerdings ebenfalls völlig ausreichend.
+          - paragraph: "Eine Frage noch: Welche Messer verwendest du hauptsächlich?"
+          - list:
+            - paragraph: Japanische Messer (z. B. Gyuto, Santoku)
+            - paragraph: Deutsche Messer (z. B. Wüsthof, Zwilling)
+            - paragraph: Eine Mischung aus beiden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-b9bde874-9c1e-4212-9d2c-5e63e045acd3":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Ist ein Stirnholzbrett besser für hochwertige Küchenmesser?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ja –
+            - generic: ein Stirnholzbrett ist für hochwertige Küchenmesser oft eine sehr gute Wahl
+            - text: ", besonders wenn du teure japanische Messer oder dünn ausgeschliffene Kochmesser verwendest. Es ist allerdings nicht automatisch besser als jedes andere Schneidebrett."
+          - heading "Was macht ein Stirnholzbrett so gut?" [level=2]
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - paragraph:
+            - generic: 1. Besonders messerschonend
+          - paragraph: Die Holzfasern stehen senkrecht zur Schneidefläche. Beim Schneiden kann die Klinge etwas zwischen die Fasern eindringen, statt quer über sie hinwegzuschaben. Das kann die Schneide schonen.
+          - img "Kako izabrati savršenu drvenu dasku za serviranje ili za kuhinju? – Holma Srbija"
+          - button "Open Kako izabrati savršenu drvenu dasku za serviranje ili za kuhinju? – Holma Srbija"
+          - paragraph:
+            - generic: 2. Angenehmes Schneidgefühl
+          - paragraph: Die Oberfläche wirkt bei vielen Stirnholzbrettern etwas nachgiebiger. Das ist besonders angenehm, wenn du viel Gemüse schneidest oder häufig mit hochwertigen Messern arbeitest.
+          - img "Classic Walnut Edge Grain Cutting Board Large Chopping - TikTok Shop"
+          - button "Open Classic Walnut Edge Grain Cutting Board Large Chopping - TikTok Shop"
+          - paragraph:
+            - generic: 3. Weniger sichtbare Schnittspuren – aber nicht immer
+          - paragraph: Kleine Einschnitte können optisch weniger auffallen. Allerdings hängt die tatsächliche Haltbarkeit stark von Holzart, Verarbeitung und Pflege ab.
+          - heading "Welches Holz ist am besten?" [level=2]
+          - img "Professional End Grain Maple Board | 16x16 – International Imports The Chefs Shop"
+          - button "Open Professional End Grain Maple Board | 16x16 – International Imports The Chefs Shop"
+          - paragraph:
+            - generic: Ahorn – meine erste Wahl
+          - paragraph: Hart, feinporig und ein bewährtes Material für hochwertige Schneidebretter. Besonders gut für sehr scharfe Kochmesser.
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | SOPHIOR"
+          - paragraph:
+            - generic: Nussbaum – edel und messerfreundlich
+          - paragraph: Dunkle, attraktive Optik und gute Schneideigenschaften. Eine hervorragende Wahl für die hochwertige Küche.
+          - img "Beech End Grain Cutting Board, Handmade In Yorkshire | The Viking Workshop"
+          - button "Open Beech End Grain Cutting Board, Handmade In Yorkshire | The Viking Workshop"
+          - paragraph:
+            - generic: Buche – solide und preiswerter
+          - paragraph: In Deutschland gut verfügbar und bei guter Verarbeitung ebenfalls geeignet. Auf sorgfältige Trocknung und Verleimung achten.
+          - heading "Worauf solltest du beim Kauf achten?" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: Saubere Verleimung, keine Risse und eine ebene Schneidefläche.
+            - paragraph:
+              - generic: "Holzart:"
+              - text: Ahorn, Nussbaum oder Buche sind gute Optionen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Regelmäßig mit lebensmittelechtem Pflegeöl behandeln und nach dem Reinigen aufrecht trocknen lassen.
+            - paragraph:
+              - generic: "Keine Spülmaschine:"
+              - text: Hitze und Feuchtigkeit können das Brett verziehen oder Risse verursachen.
+            - paragraph:
+              - generic: "Keine Glas- oder Steinbretter:"
+              - text: Diese harten Oberflächen sind für scharfe Messerschneiden ungünstig.
+          - paragraph:
+            - text: Ein Stirnholzbrett ist schwerer, teurer und pflegeintensiver als ein längs zur Faser aufgebautes Brett. Beide Holzvarianten können aber sehr gut sein.
+            - button "Serious Eats +1" [expanded] [active]:
+              - generic: Serious Eats
+              - generic: "+1"
+            - dialog "Serious Eats +1":
+              - button "Open Serious Eats":
+                - generic: Serious Eats
+                - paragraph: I Tested 23 Wooden Cutting Boards-8 Emerged (Nearly) Unscathed
+                - paragraph: Juli 9, 2019 — In an extensive review by Serious Eats, 23 wooden cutting boards were tested to determine the most durable and knife-friendly options. The Boardsmith Maple End Grain Cutting Board emerged as the top…
+              - button "Open Vivront":
+                - generic: Vivront
+                - paragraph: End Grain vs Edge Grain Cutting Boards
+                - paragraph: Mai 7, 2026
+          - paragraph:
+            - generic: "Mein Fazit:"
+            - text: Wenn du in hochwertige Messer investierst und häufig kochst, lohnt sich ein gut verarbeitetes Stirnholzbrett aus Ahorn oder Nussbaum. Für den normalen Küchenalltag ist ein hochwertiges Längsholzbrett allerdings ebenfalls völlig ausreichend.
+          - paragraph: "Eine Frage noch: Welche Messer verwendest du hauptsächlich?"
+          - list:
+            - paragraph: Japanische Messer (z. B. Gyuto, Santoku)
+            - paragraph: Deutsche Messer (z. B. Wüsthof, Zwilling)
+            - paragraph: Eine Mischung aus beiden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

@@ -1,0 +1,304 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-d93ff186-f6e5-46b5-8d75-eabb977af184":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Eiche oder Nussbaum – welches Holz ist besser für ein Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für ein Schneidebrett sind
+            - generic: sowohl Eiche als auch Nussbaum sehr gut geeignet
+            - text: . Wenn ich mich entscheiden müsste, würde ich für ein hochwertiges Küchenbrett eher
+            - generic: Nussbaum
+            - text: wählen, während Eiche besonders interessant ist, wenn dir Robustheit und ein helleres, rustikales Aussehen wichtig sind.
+          - heading "Eiche vs. Nussbaum im Vergleich" [level=2]
+          - img "Solid Oak End Grain Chopping Board – LUXEHOUSE Decor"
+          - button "Open Solid Oak End Grain Chopping Board – LUXEHOUSE Decor"
+          - heading "Eiche" [level=2]
+          - paragraph: Hell bis mittelbraun · markante Maserung
+          - list:
+            - paragraph: Sehr robust und langlebig
+            - paragraph: Charakteristische, lebhafte Maserung
+            - paragraph: Enthält Gerbstoffe (Tannine)
+            - paragraph: Relativ schwer und hart
+          - img "Walnut End Grain Cutting Board - The Beaumont"
+          - button "Open Walnut End Grain Cutting Board - The Beaumont"
+          - heading "Nussbaum" [level=2]
+          - paragraph: Dunkelbraun · elegante Maserung
+          - list:
+            - paragraph: Etwas weicher und messerschonender
+            - paragraph: Hochwertige, warme Optik
+            - paragraph: Weniger ausgeprägte Gerbstoffproblematik
+            - paragraph: Häufig teurer
+          - heading "Welches Holz ist im Alltag besser?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Kriterium Vorteil":
+                - columnheader "Kriterium":
+                  - paragraph: Kriterium
+                - columnheader "Vorteil":
+                  - paragraph: Vorteil
+              - row "Messerschonung Nussbaum":
+                - cell "Messerschonung":
+                  - paragraph: Messerschonung
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+              - row "Widerstand gegen Dellen Eiche":
+                - cell "Widerstand gegen Dellen":
+                  - paragraph: Widerstand gegen Dellen
+                - cell "Eiche":
+                  - paragraph: Eiche
+              - row "Feine, elegante Optik Nussbaum":
+                - cell "Feine, elegante Optik":
+                  - paragraph: Feine, elegante Optik
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+              - row "Helle, rustikale Optik Eiche":
+                - cell "Helle, rustikale Optik":
+                  - paragraph: Helle, rustikale Optik
+                - cell "Eiche":
+                  - paragraph: Eiche
+              - row "Feuchtigkeit und Porenstruktur Eher Nussbaum":
+                - cell "Feuchtigkeit und Porenstruktur":
+                  - paragraph: Feuchtigkeit und Porenstruktur
+                - cell "Eher Nussbaum":
+                  - paragraph: Eher Nussbaum
+              - row "Preis Häufig Eiche":
+                - cell "Preis":
+                  - paragraph: Preis
+                - cell "Häufig Eiche":
+                  - paragraph: Häufig Eiche
+          - paragraph:
+            - text: "Ein wichtiger Punkt:"
+            - generic: Eiche hat relativ große Poren
+            - text: ", die bei einem Schneidebrett ungünstiger sein können. Nussbaum besitzt eine feinere Porenstruktur und ist deshalb für ein Brett, auf dem regelmäßig geschnitten wird, meist die bessere Wahl."
+            - button "which wood for a chopping board? +1":
+              - generic: which wood for a chopping board?
+              - generic: "+1"
+          - heading "Meine Empfehlung" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Für ein hochwertiges Schneidebrett zum täglichen Schneiden:"
+              - text: Nussbaum.
+            - paragraph:
+              - generic: "Für ein Servierbrett für Käse, Brot und Antipasti:"
+              - text: Eiche ist ebenfalls eine schöne Wahl.
+            - paragraph:
+              - generic: "Für ein besonders praktisches Alltagsbrett:"
+              - text: Schau dir auch Buche oder Ahorn an – beide sind bewährte Alternativen.
+          - paragraph: "Unabhängig vom Holz gilt: Das Brett von Hand mit warmem Wasser und etwas Spülmittel reinigen, nicht einweichen und regelmäßig mit lebensmittelechtem Pflegeöl behandeln."
+          - paragraph:
+            - generic: "Mein Fazit:"
+            - text: Wenn du zwischen Eiche und Nussbaum wählen möchtest, nimm Nussbaum – besonders, wenn du gute Messer hast und das Brett tatsächlich zum Schneiden verwendest.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-d93ff186-f6e5-46b5-8d75-eabb977af184":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Eiche oder Nussbaum – welches Holz ist besser für ein Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für ein Schneidebrett sind
+            - generic: sowohl Eiche als auch Nussbaum sehr gut geeignet
+            - text: . Wenn ich mich entscheiden müsste, würde ich für ein hochwertiges Küchenbrett eher
+            - generic: Nussbaum
+            - text: wählen, während Eiche besonders interessant ist, wenn dir Robustheit und ein helleres, rustikales Aussehen wichtig sind.
+          - heading "Eiche vs. Nussbaum im Vergleich" [level=2]
+          - img "Solid Oak End Grain Chopping Board – LUXEHOUSE Decor"
+          - button "Open Solid Oak End Grain Chopping Board – LUXEHOUSE Decor"
+          - heading "Eiche" [level=2]
+          - paragraph: Hell bis mittelbraun · markante Maserung
+          - list:
+            - paragraph: Sehr robust und langlebig
+            - paragraph: Charakteristische, lebhafte Maserung
+            - paragraph: Enthält Gerbstoffe (Tannine)
+            - paragraph: Relativ schwer und hart
+          - img "Walnut End Grain Cutting Board - The Beaumont"
+          - button "Open Walnut End Grain Cutting Board - The Beaumont"
+          - heading "Nussbaum" [level=2]
+          - paragraph: Dunkelbraun · elegante Maserung
+          - list:
+            - paragraph: Etwas weicher und messerschonender
+            - paragraph: Hochwertige, warme Optik
+            - paragraph: Weniger ausgeprägte Gerbstoffproblematik
+            - paragraph: Häufig teurer
+          - heading "Welches Holz ist im Alltag besser?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Kriterium Vorteil":
+                - columnheader "Kriterium":
+                  - paragraph: Kriterium
+                - columnheader "Vorteil":
+                  - paragraph: Vorteil
+              - row "Messerschonung Nussbaum":
+                - cell "Messerschonung":
+                  - paragraph: Messerschonung
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+              - row "Widerstand gegen Dellen Eiche":
+                - cell "Widerstand gegen Dellen":
+                  - paragraph: Widerstand gegen Dellen
+                - cell "Eiche":
+                  - paragraph: Eiche
+              - row "Feine, elegante Optik Nussbaum":
+                - cell "Feine, elegante Optik":
+                  - paragraph: Feine, elegante Optik
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+              - row "Helle, rustikale Optik Eiche":
+                - cell "Helle, rustikale Optik":
+                  - paragraph: Helle, rustikale Optik
+                - cell "Eiche":
+                  - paragraph: Eiche
+              - row "Feuchtigkeit und Porenstruktur Eher Nussbaum":
+                - cell "Feuchtigkeit und Porenstruktur":
+                  - paragraph: Feuchtigkeit und Porenstruktur
+                - cell "Eher Nussbaum":
+                  - paragraph: Eher Nussbaum
+              - row "Preis Häufig Eiche":
+                - cell "Preis":
+                  - paragraph: Preis
+                - cell "Häufig Eiche":
+                  - paragraph: Häufig Eiche
+          - paragraph:
+            - text: "Ein wichtiger Punkt:"
+            - generic: Eiche hat relativ große Poren
+            - text: ", die bei einem Schneidebrett ungünstiger sein können. Nussbaum besitzt eine feinere Porenstruktur und ist deshalb für ein Brett, auf dem regelmäßig geschnitten wird, meist die bessere Wahl."
+            - button "which wood for a chopping board? +1" [expanded] [active]:
+              - generic: which wood for a chopping board?
+              - generic: "+1"
+            - dialog "which wood for a chopping board? +1":
+              - button "Open which wood for a chopping board?":
+                - generic: which wood for a chopping board?
+                - paragraph: Oak vs. walnut
+              - button "Open Amanda Yoder Studio":
+                - generic: Amanda Yoder Studio
+                - paragraph: The best wood for a cutting board
+          - heading "Meine Empfehlung" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Für ein hochwertiges Schneidebrett zum täglichen Schneiden:"
+              - text: Nussbaum.
+            - paragraph:
+              - generic: "Für ein Servierbrett für Käse, Brot und Antipasti:"
+              - text: Eiche ist ebenfalls eine schöne Wahl.
+            - paragraph:
+              - generic: "Für ein besonders praktisches Alltagsbrett:"
+              - text: Schau dir auch Buche oder Ahorn an – beide sind bewährte Alternativen.
+          - paragraph: "Unabhängig vom Holz gilt: Das Brett von Hand mit warmem Wasser und etwas Spülmittel reinigen, nicht einweichen und regelmäßig mit lebensmittelechtem Pflegeöl behandeln."
+          - paragraph:
+            - generic: "Mein Fazit:"
+            - text: Wenn du zwischen Eiche und Nussbaum wählen möchtest, nimm Nussbaum – besonders, wenn du gute Messer hast und das Brett tatsächlich zum Schneiden verwendest.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

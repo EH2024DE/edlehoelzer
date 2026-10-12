@@ -1,0 +1,729 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-79fe9780-152f-4459-9ceb-1d53575dd566":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett nach Maß ist für eine Kücheninsel sinnvoll?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für eine Kücheninsel ist ein
+            - generic: maßgefertigtes Schneidebrett aus massivem Holz mit ausreichend großer Arbeitsfläche und rutschfestem Halt
+            - text: meistens die sinnvollste Lösung. Entscheidend ist, ob du es täglich zum Schneiden verwendest, direkt auf der Insel liegen lassen möchtest oder die gesamte Inseloberfläche damit abdecken willst.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - button "Open Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - paragraph:
+            - generic: 1. Stirnholz aus Eiche oder Nussbaum
+          - generic: Meine Empfehlung für intensive Nutzung
+          - paragraph: Besonders wertig, schwer und langlebig. Bei Stirnholz stehen die Holzfasern aufrecht, was messerschonend ist. Ideal für eine große, dauerhaft genutzte Schneidefläche. Allerdings teuer, schwer und pflegeintensiver.
+          - img "Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - button "Open Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - paragraph:
+            - generic: 2. Längsholz aus Eiche
+          - paragraph:
+            - generic: Der beste Allrounder.
+            - text: Robust, optisch ruhig und meist günstiger als Stirnholz. Passt besonders gut zu modernen Kücheninseln und lässt sich gut nach Maß fertigen.
+          - img "Schneidebrett Maxi / Backbrett | Holzgeil"
+          - button "Open Schneidebrett Maxi / Backbrett | Holzgeil"
+          - paragraph:
+            - generic: 3. Buche
+          - paragraph: Preislich oft attraktiver und als Schneideholz bewährt. Sie ist allerdings empfindlich gegenüber länger anhaltender Feuchtigkeit und sollte sorgfältig getrocknet und gepflegt werden.
+          - heading "Welche Maße würde ich für eine Kücheninsel wählen?" [level=2]
+          - img "Chopping board Oak - End grain (60 x 45 cm)"
+          - button "Open Chopping board Oak - End grain (60 x 45 cm)"
+          - paragraph:
+            - generic: 60 × 40 × 4 cm
+          - paragraph: Mein Favorit für den Alltag
+          - paragraph: Viel Platz für Gemüse, Fleisch, Kräuter und mehrere Zutaten. Vier Zentimeter Stärke geben dem Brett einen massiven Charakter.
+          - img "Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - button "Open Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - paragraph:
+            - generic: 80 × 50 × 4–5 cm
+          - paragraph: Für ambitionierte Hobbyköche, die das Brett als feste Vorbereitungsstation nutzen möchten. Beachte das hohe Gewicht und den Platzbedarf.
+          - paragraph:
+            - text: Die Maße sind Empfehlungen, keine festen Regeln. Für eine Sonderanfertigung kannst du beispielsweise bei
+            - button "Holz-Liebling":
+              - link "Holz-Liebling":
+                - /url: https://www.holz-liebling.de/shop/stirnholz-schneidebrett-kuechenbrett-konfigurator/
+                - generic: Holz-Liebling
+            - text: Holzart, Abmessungen und Extras individuell wählen.
+            - button "Stirnholz & Längsholz nach Maß +1":
+              - generic: Stirnholz & Längsholz nach Maß
+              - generic: "+1"
+          - heading "Diese Details sind bei der Anfertigung wichtig" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche für einen natürlichen, zurückhaltenden Look; Nussbaum für eine dunkle, edle Optik.
+            - paragraph:
+              - generic: "Unterseite:"
+              - text: Rutschfeste Füße, wenn das Brett auf der Insel liegen bleibt. Alternativ eine flache Unterseite, wenn du es häufig wegräumen möchtest.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: Sinnvoll beim Schneiden von Fleisch oder saftigem Obst; für Gemüse nicht unbedingt nötig.
+            - paragraph:
+              - generic: "Oberfläche:"
+              - text: Mit lebensmittelechtem Öl behandelt.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in der Spülmaschine reinigen.
+              - button "Tramontina +1":
+                - generic: Tramontina
+                - generic: "+1"
+          - paragraph:
+            - generic: "Wichtig:"
+            - text: Wenn du das Brett passgenau in eine Aussparung der Küchenarbeitsplatte einlegen möchtest, sollte es nicht so eng sitzen, dass Feuchtigkeit eingeschlossen wird. Ein herausnehmbares Brett ist in der Regel praktischer.
+          - heading "Damit ich dir die passende Ausführung empfehlen kann:" [level=2]
+          - paragraph:
+            - generic: 1. Wie soll das Brett auf der Insel liegen?
+          - radiogroup "Options":
+            - radio "Lose auf der Arbeitsplatte, dauerhaft oder flexibel" [checked]
+            - text: Lose auf der Arbeitsplatte, dauerhaft oder flexibel
+            - radio "Passgenau in eine Aussparung eingelassen"
+            - text: Passgenau in eine Aussparung eingelassen
+            - radio "Als große, integrierte Holzfläche auf der Insel"
+            - text: Als große, integrierte Holzfläche auf der Insel
+          - paragraph:
+            - generic: 2. Welche Breite stellst du dir vor?
+          - radiogroup "Options":
+            - radio "40–60 cm"
+            - text: 40–60 cm
+            - radio "60–80 cm" [checked]
+            - text: 60–80 cm
+            - radio "80–120 cm"
+            - text: 80–120 cm
+            - radio "Fast die gesamte Inselbreite"
+            - text: Fast die gesamte Inselbreite
+          - paragraph:
+            - generic: 3. Welches Holz gefällt dir?
+          - radiogroup "Options":
+            - radio "Eiche – hell und zeitlos" [checked]
+            - text: Eiche – hell und zeitlos
+            - radio "Nussbaum – dunkel und edel"
+            - text: Nussbaum – dunkel und edel
+            - radio "Ahorn – sehr hell"
+            - text: Ahorn – sehr hell
+            - radio "Noch offen"
+            - text: Noch offen
+          - paragraph:
+            - generic: 4. Welches Budget hast du?
+          - radiogroup "Options":
+            - radio "Bis 100 €"
+            - text: Bis 100 €
+            - radio "100–200 €" [checked]
+            - text: 100–200 €
+            - radio "200–400 €"
+            - text: 200–400 €
+            - radio "Über 400 €"
+            - text: Über 400 €
+          - button "Passendes Schneidebrett finden":
+            - generic: Passendes Schneidebrett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-79fe9780-152f-4459-9ceb-1d53575dd566":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett nach Maß ist für eine Kücheninsel sinnvoll?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für eine Kücheninsel ist ein
+            - generic: maßgefertigtes Schneidebrett aus massivem Holz mit ausreichend großer Arbeitsfläche und rutschfestem Halt
+            - text: meistens die sinnvollste Lösung. Entscheidend ist, ob du es täglich zum Schneiden verwendest, direkt auf der Insel liegen lassen möchtest oder die gesamte Inseloberfläche damit abdecken willst.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - button "Open Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - paragraph:
+            - generic: 1. Stirnholz aus Eiche oder Nussbaum
+          - generic: Meine Empfehlung für intensive Nutzung
+          - paragraph: Besonders wertig, schwer und langlebig. Bei Stirnholz stehen die Holzfasern aufrecht, was messerschonend ist. Ideal für eine große, dauerhaft genutzte Schneidefläche. Allerdings teuer, schwer und pflegeintensiver.
+          - img "Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - button "Open Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - paragraph:
+            - generic: 2. Längsholz aus Eiche
+          - paragraph:
+            - generic: Der beste Allrounder.
+            - text: Robust, optisch ruhig und meist günstiger als Stirnholz. Passt besonders gut zu modernen Kücheninseln und lässt sich gut nach Maß fertigen.
+          - img "Schneidebrett Maxi / Backbrett | Holzgeil"
+          - button "Open Schneidebrett Maxi / Backbrett | Holzgeil"
+          - paragraph:
+            - generic: 3. Buche
+          - paragraph: Preislich oft attraktiver und als Schneideholz bewährt. Sie ist allerdings empfindlich gegenüber länger anhaltender Feuchtigkeit und sollte sorgfältig getrocknet und gepflegt werden.
+          - heading "Welche Maße würde ich für eine Kücheninsel wählen?" [level=2]
+          - img "Chopping board Oak - End grain (60 x 45 cm)"
+          - button "Open Chopping board Oak - End grain (60 x 45 cm)"
+          - paragraph:
+            - generic: 60 × 40 × 4 cm
+          - paragraph: Mein Favorit für den Alltag
+          - paragraph: Viel Platz für Gemüse, Fleisch, Kräuter und mehrere Zutaten. Vier Zentimeter Stärke geben dem Brett einen massiven Charakter.
+          - img "Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - button "Open Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - paragraph:
+            - generic: 80 × 50 × 4–5 cm
+          - paragraph: Für ambitionierte Hobbyköche, die das Brett als feste Vorbereitungsstation nutzen möchten. Beachte das hohe Gewicht und den Platzbedarf.
+          - paragraph:
+            - text: Die Maße sind Empfehlungen, keine festen Regeln. Für eine Sonderanfertigung kannst du beispielsweise bei
+            - button "Holz-Liebling" [expanded] [active]:
+              - link "Holz-Liebling":
+                - /url: https://www.holz-liebling.de/shop/stirnholz-schneidebrett-kuechenbrett-konfigurator/
+                - generic: Holz-Liebling
+            - dialog "Holz-Liebling":
+              - link "https://www.holz-liebling.de/shop/stirnh...":
+                - /url: https://www.holz-liebling.de/shop/stirnholz-schneidebrett-kuechenbrett-konfigurator/
+                - generic: https://www.holz-liebling.de/shop/stirnh...
+              - button "Copy URL":
+            - text: Holzart, Abmessungen und Extras individuell wählen.
+            - button "Stirnholz & Längsholz nach Maß +1":
+              - generic: Stirnholz & Längsholz nach Maß
+              - generic: "+1"
+          - heading "Diese Details sind bei der Anfertigung wichtig" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche für einen natürlichen, zurückhaltenden Look; Nussbaum für eine dunkle, edle Optik.
+            - paragraph:
+              - generic: "Unterseite:"
+              - text: Rutschfeste Füße, wenn das Brett auf der Insel liegen bleibt. Alternativ eine flache Unterseite, wenn du es häufig wegräumen möchtest.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: Sinnvoll beim Schneiden von Fleisch oder saftigem Obst; für Gemüse nicht unbedingt nötig.
+            - paragraph:
+              - generic: "Oberfläche:"
+              - text: Mit lebensmittelechtem Öl behandelt.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in der Spülmaschine reinigen.
+              - button "Tramontina +1":
+                - generic: Tramontina
+                - generic: "+1"
+          - paragraph:
+            - generic: "Wichtig:"
+            - text: Wenn du das Brett passgenau in eine Aussparung der Küchenarbeitsplatte einlegen möchtest, sollte es nicht so eng sitzen, dass Feuchtigkeit eingeschlossen wird. Ein herausnehmbares Brett ist in der Regel praktischer.
+          - heading "Damit ich dir die passende Ausführung empfehlen kann:" [level=2]
+          - paragraph:
+            - generic: 1. Wie soll das Brett auf der Insel liegen?
+          - radiogroup "Options":
+            - radio "Lose auf der Arbeitsplatte, dauerhaft oder flexibel" [checked]
+            - text: Lose auf der Arbeitsplatte, dauerhaft oder flexibel
+            - radio "Passgenau in eine Aussparung eingelassen"
+            - text: Passgenau in eine Aussparung eingelassen
+            - radio "Als große, integrierte Holzfläche auf der Insel"
+            - text: Als große, integrierte Holzfläche auf der Insel
+          - paragraph:
+            - generic: 2. Welche Breite stellst du dir vor?
+          - radiogroup "Options":
+            - radio "40–60 cm"
+            - text: 40–60 cm
+            - radio "60–80 cm" [checked]
+            - text: 60–80 cm
+            - radio "80–120 cm"
+            - text: 80–120 cm
+            - radio "Fast die gesamte Inselbreite"
+            - text: Fast die gesamte Inselbreite
+          - paragraph:
+            - generic: 3. Welches Holz gefällt dir?
+          - radiogroup "Options":
+            - radio "Eiche – hell und zeitlos" [checked]
+            - text: Eiche – hell und zeitlos
+            - radio "Nussbaum – dunkel und edel"
+            - text: Nussbaum – dunkel und edel
+            - radio "Ahorn – sehr hell"
+            - text: Ahorn – sehr hell
+            - radio "Noch offen"
+            - text: Noch offen
+          - paragraph:
+            - generic: 4. Welches Budget hast du?
+          - radiogroup "Options":
+            - radio "Bis 100 €"
+            - text: Bis 100 €
+            - radio "100–200 €" [checked]
+            - text: 100–200 €
+            - radio "200–400 €"
+            - text: 200–400 €
+            - radio "Über 400 €"
+            - text: Über 400 €
+          - button "Passendes Schneidebrett finden":
+            - generic: Passendes Schneidebrett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-79fe9780-152f-4459-9ceb-1d53575dd566":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett nach Maß ist für eine Kücheninsel sinnvoll?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für eine Kücheninsel ist ein
+            - generic: maßgefertigtes Schneidebrett aus massivem Holz mit ausreichend großer Arbeitsfläche und rutschfestem Halt
+            - text: meistens die sinnvollste Lösung. Entscheidend ist, ob du es täglich zum Schneiden verwendest, direkt auf der Insel liegen lassen möchtest oder die gesamte Inseloberfläche damit abdecken willst.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - button "Open Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - paragraph:
+            - generic: 1. Stirnholz aus Eiche oder Nussbaum
+          - generic: Meine Empfehlung für intensive Nutzung
+          - paragraph: Besonders wertig, schwer und langlebig. Bei Stirnholz stehen die Holzfasern aufrecht, was messerschonend ist. Ideal für eine große, dauerhaft genutzte Schneidefläche. Allerdings teuer, schwer und pflegeintensiver.
+          - img "Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - button "Open Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - paragraph:
+            - generic: 2. Längsholz aus Eiche
+          - paragraph:
+            - generic: Der beste Allrounder.
+            - text: Robust, optisch ruhig und meist günstiger als Stirnholz. Passt besonders gut zu modernen Kücheninseln und lässt sich gut nach Maß fertigen.
+          - img "Schneidebrett Maxi / Backbrett | Holzgeil"
+          - button "Open Schneidebrett Maxi / Backbrett | Holzgeil"
+          - paragraph:
+            - generic: 3. Buche
+          - paragraph: Preislich oft attraktiver und als Schneideholz bewährt. Sie ist allerdings empfindlich gegenüber länger anhaltender Feuchtigkeit und sollte sorgfältig getrocknet und gepflegt werden.
+          - heading "Welche Maße würde ich für eine Kücheninsel wählen?" [level=2]
+          - img "Chopping board Oak - End grain (60 x 45 cm)"
+          - button "Open Chopping board Oak - End grain (60 x 45 cm)"
+          - paragraph:
+            - generic: 60 × 40 × 4 cm
+          - paragraph: Mein Favorit für den Alltag
+          - paragraph: Viel Platz für Gemüse, Fleisch, Kräuter und mehrere Zutaten. Vier Zentimeter Stärke geben dem Brett einen massiven Charakter.
+          - img "Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - button "Open Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - paragraph:
+            - generic: 80 × 50 × 4–5 cm
+          - paragraph: Für ambitionierte Hobbyköche, die das Brett als feste Vorbereitungsstation nutzen möchten. Beachte das hohe Gewicht und den Platzbedarf.
+          - paragraph:
+            - text: Die Maße sind Empfehlungen, keine festen Regeln. Für eine Sonderanfertigung kannst du beispielsweise bei
+            - button "Holz-Liebling":
+              - link "Holz-Liebling":
+                - /url: https://www.holz-liebling.de/shop/stirnholz-schneidebrett-kuechenbrett-konfigurator/
+                - generic: Holz-Liebling
+            - text: Holzart, Abmessungen und Extras individuell wählen.
+            - button "Stirnholz & Längsholz nach Maß +1" [expanded] [active]:
+              - generic: Stirnholz & Längsholz nach Maß
+              - generic: "+1"
+            - dialog "Stirnholz & Längsholz nach Maß +1":
+              - button "Open Stirnholz & Längsholz nach Maß":
+                - generic: Stirnholz & Längsholz nach Maß
+                - paragraph: Schneidebrett Konfigurator
+              - button "Open Aboutwood":
+                - generic: Aboutwood
+                - paragraph: Stirnholz Schneidebrett in Eiche
+          - heading "Diese Details sind bei der Anfertigung wichtig" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche für einen natürlichen, zurückhaltenden Look; Nussbaum für eine dunkle, edle Optik.
+            - paragraph:
+              - generic: "Unterseite:"
+              - text: Rutschfeste Füße, wenn das Brett auf der Insel liegen bleibt. Alternativ eine flache Unterseite, wenn du es häufig wegräumen möchtest.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: Sinnvoll beim Schneiden von Fleisch oder saftigem Obst; für Gemüse nicht unbedingt nötig.
+            - paragraph:
+              - generic: "Oberfläche:"
+              - text: Mit lebensmittelechtem Öl behandelt.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in der Spülmaschine reinigen.
+              - button "Tramontina +1":
+                - generic: Tramontina
+                - generic: "+1"
+          - paragraph:
+            - generic: "Wichtig:"
+            - text: Wenn du das Brett passgenau in eine Aussparung der Küchenarbeitsplatte einlegen möchtest, sollte es nicht so eng sitzen, dass Feuchtigkeit eingeschlossen wird. Ein herausnehmbares Brett ist in der Regel praktischer.
+          - heading "Damit ich dir die passende Ausführung empfehlen kann:" [level=2]
+          - paragraph:
+            - generic: 1. Wie soll das Brett auf der Insel liegen?
+          - radiogroup "Options":
+            - radio "Lose auf der Arbeitsplatte, dauerhaft oder flexibel" [checked]
+            - text: Lose auf der Arbeitsplatte, dauerhaft oder flexibel
+            - radio "Passgenau in eine Aussparung eingelassen"
+            - text: Passgenau in eine Aussparung eingelassen
+            - radio "Als große, integrierte Holzfläche auf der Insel"
+            - text: Als große, integrierte Holzfläche auf der Insel
+          - paragraph:
+            - generic: 2. Welche Breite stellst du dir vor?
+          - radiogroup "Options":
+            - radio "40–60 cm"
+            - text: 40–60 cm
+            - radio "60–80 cm" [checked]
+            - text: 60–80 cm
+            - radio "80–120 cm"
+            - text: 80–120 cm
+            - radio "Fast die gesamte Inselbreite"
+            - text: Fast die gesamte Inselbreite
+          - paragraph:
+            - generic: 3. Welches Holz gefällt dir?
+          - radiogroup "Options":
+            - radio "Eiche – hell und zeitlos" [checked]
+            - text: Eiche – hell und zeitlos
+            - radio "Nussbaum – dunkel und edel"
+            - text: Nussbaum – dunkel und edel
+            - radio "Ahorn – sehr hell"
+            - text: Ahorn – sehr hell
+            - radio "Noch offen"
+            - text: Noch offen
+          - paragraph:
+            - generic: 4. Welches Budget hast du?
+          - radiogroup "Options":
+            - radio "Bis 100 €"
+            - text: Bis 100 €
+            - radio "100–200 €" [checked]
+            - text: 100–200 €
+            - radio "200–400 €"
+            - text: 200–400 €
+            - radio "Über 400 €"
+            - text: Über 400 €
+          - button "Passendes Schneidebrett finden":
+            - generic: Passendes Schneidebrett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-79fe9780-152f-4459-9ceb-1d53575dd566":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett nach Maß ist für eine Kücheninsel sinnvoll?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für eine Kücheninsel ist ein
+            - generic: maßgefertigtes Schneidebrett aus massivem Holz mit ausreichend großer Arbeitsfläche und rutschfestem Halt
+            - text: meistens die sinnvollste Lösung. Entscheidend ist, ob du es täglich zum Schneiden verwendest, direkt auf der Insel liegen lassen möchtest oder die gesamte Inseloberfläche damit abdecken willst.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - button "Open Walnut End Grain Butcher Block Cutting Board \"The Beaumont XXL\" (2 Sizes)"
+          - paragraph:
+            - generic: 1. Stirnholz aus Eiche oder Nussbaum
+          - generic: Meine Empfehlung für intensive Nutzung
+          - paragraph: Besonders wertig, schwer und langlebig. Bei Stirnholz stehen die Holzfasern aufrecht, was messerschonend ist. Ideal für eine große, dauerhaft genutzte Schneidefläche. Allerdings teuer, schwer und pflegeintensiver.
+          - img "Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - button "Open Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - paragraph:
+            - generic: 2. Längsholz aus Eiche
+          - paragraph:
+            - generic: Der beste Allrounder.
+            - text: Robust, optisch ruhig und meist günstiger als Stirnholz. Passt besonders gut zu modernen Kücheninseln und lässt sich gut nach Maß fertigen.
+          - img "Schneidebrett Maxi / Backbrett | Holzgeil"
+          - button "Open Schneidebrett Maxi / Backbrett | Holzgeil"
+          - paragraph:
+            - generic: 3. Buche
+          - paragraph: Preislich oft attraktiver und als Schneideholz bewährt. Sie ist allerdings empfindlich gegenüber länger anhaltender Feuchtigkeit und sollte sorgfältig getrocknet und gepflegt werden.
+          - heading "Welche Maße würde ich für eine Kücheninsel wählen?" [level=2]
+          - img "Chopping board Oak - End grain (60 x 45 cm)"
+          - button "Open Chopping board Oak - End grain (60 x 45 cm)"
+          - paragraph:
+            - generic: 60 × 40 × 4 cm
+          - paragraph: Mein Favorit für den Alltag
+          - paragraph: Viel Platz für Gemüse, Fleisch, Kräuter und mehrere Zutaten. Vier Zentimeter Stärke geben dem Brett einen massiven Charakter.
+          - img "Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - button "Open Legnoart Grand Gourmand leikkuulauta XL 75 x 50 x 4 cm | KitchenOne"
+          - paragraph:
+            - generic: 80 × 50 × 4–5 cm
+          - paragraph: Für ambitionierte Hobbyköche, die das Brett als feste Vorbereitungsstation nutzen möchten. Beachte das hohe Gewicht und den Platzbedarf.
+          - paragraph:
+            - text: Die Maße sind Empfehlungen, keine festen Regeln. Für eine Sonderanfertigung kannst du beispielsweise bei
+            - button "Holz-Liebling":
+              - link "Holz-Liebling":
+                - /url: https://www.holz-liebling.de/shop/stirnholz-schneidebrett-kuechenbrett-konfigurator/
+                - generic: Holz-Liebling
+            - text: Holzart, Abmessungen und Extras individuell wählen.
+            - button "Stirnholz & Längsholz nach Maß +1":
+              - generic: Stirnholz & Längsholz nach Maß
+              - generic: "+1"
+          - heading "Diese Details sind bei der Anfertigung wichtig" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche für einen natürlichen, zurückhaltenden Look; Nussbaum für eine dunkle, edle Optik.
+            - paragraph:
+              - generic: "Unterseite:"
+              - text: Rutschfeste Füße, wenn das Brett auf der Insel liegen bleibt. Alternativ eine flache Unterseite, wenn du es häufig wegräumen möchtest.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: Sinnvoll beim Schneiden von Fleisch oder saftigem Obst; für Gemüse nicht unbedingt nötig.
+            - paragraph:
+              - generic: "Oberfläche:"
+              - text: Mit lebensmittelechtem Öl behandelt.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in der Spülmaschine reinigen.
+              - button "Tramontina +1" [expanded] [active]:
+                - generic: Tramontina
+                - generic: "+1"
+              - dialog "Tramontina +1":
+                - button "Open Tramontina":
+                  - generic: Tramontina
+                  - paragraph: Tramontina FOLIUM Stirnholzbrett mit Saftrille
+                - button "Open Stirnholz & Langholz, handgefertigt":
+                  - generic: Stirnholz & Langholz, handgefertigt
+                  - paragraph: Schneidebretter aus Holz
+          - paragraph:
+            - generic: "Wichtig:"
+            - text: Wenn du das Brett passgenau in eine Aussparung der Küchenarbeitsplatte einlegen möchtest, sollte es nicht so eng sitzen, dass Feuchtigkeit eingeschlossen wird. Ein herausnehmbares Brett ist in der Regel praktischer.
+          - heading "Damit ich dir die passende Ausführung empfehlen kann:" [level=2]
+          - paragraph:
+            - generic: 1. Wie soll das Brett auf der Insel liegen?
+          - radiogroup "Options":
+            - radio "Lose auf der Arbeitsplatte, dauerhaft oder flexibel" [checked]
+            - text: Lose auf der Arbeitsplatte, dauerhaft oder flexibel
+            - radio "Passgenau in eine Aussparung eingelassen"
+            - text: Passgenau in eine Aussparung eingelassen
+            - radio "Als große, integrierte Holzfläche auf der Insel"
+            - text: Als große, integrierte Holzfläche auf der Insel
+          - paragraph:
+            - generic: 2. Welche Breite stellst du dir vor?
+          - radiogroup "Options":
+            - radio "40–60 cm"
+            - text: 40–60 cm
+            - radio "60–80 cm" [checked]
+            - text: 60–80 cm
+            - radio "80–120 cm"
+            - text: 80–120 cm
+            - radio "Fast die gesamte Inselbreite"
+            - text: Fast die gesamte Inselbreite
+          - paragraph:
+            - generic: 3. Welches Holz gefällt dir?
+          - radiogroup "Options":
+            - radio "Eiche – hell und zeitlos" [checked]
+            - text: Eiche – hell und zeitlos
+            - radio "Nussbaum – dunkel und edel"
+            - text: Nussbaum – dunkel und edel
+            - radio "Ahorn – sehr hell"
+            - text: Ahorn – sehr hell
+            - radio "Noch offen"
+            - text: Noch offen
+          - paragraph:
+            - generic: 4. Welches Budget hast du?
+          - radiogroup "Options":
+            - radio "Bis 100 €"
+            - text: Bis 100 €
+            - radio "100–200 €" [checked]
+            - text: 100–200 €
+            - radio "200–400 €"
+            - text: 200–400 €
+            - radio "Über 400 €"
+            - text: Über 400 €
+          - button "Passendes Schneidebrett finden":
+            - generic: Passendes Schneidebrett finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

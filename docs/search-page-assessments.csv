@@ -1,0 +1,43 @@
+file,intent,primary_query,secondary_clusters,citation_fit,intent_fit,first_party_fit,conversion_fit,first_party_signals,conversion_path,action
+index.html,commercial,handgemachte Schneidebretter,Manufaktur;Portfolio;Vertrauen,3,5,5,5,Werkstatt;Produkte;Kundenstimmen,Brettfinder;Produkte;Anfrage,Erhalten;JS-Karten separat berücksichtigen
+produkte.html,transactional,Schneidebrett kaufen,Brettfinder;Bestellen;Vergleich,3,5,5,5,Reale Katalogdaten;Produktbilder,Detailfenster;Etsy;Direktanfrage,Erhalten;keine Produktdaten ändern
+schneidebrett-nach-mass/index.html,commercial,schneidebrett nach maß,XXL;Kücheninsel;Anschlagkante,5,5,5,5,Eiche und Yellow Poplar Kundenaufträge;XXL-Referenz,Fotoanfrage;E-Mail,Reale Maße und Gewichtsanker ergänzen;Gewinner schützen
+schneidebretter-massivholz/index.html,commercial,massivholzbretter,Holzarten;Auswahl;Bauweise,4,5,4,5,Produktbilder;Katalogauswahl,Brettfinder;Produkte,Erhalten;Snippet nach Beobachtungsphase prüfen
+schneidebrett-eiche/index.html,commercial,schneidebrett eiche,Langholz;Stirnholz;Pflege,4,5,5,5,Reale Eiche-Produkte;Materialauswahl,Produkte;Anfrage,Kein Vollrewrite trotz niedriger CTR
+schneidebrett-nussbaum/index.html,commercial,schneidebrett nussbaum,Nussbaum;Designküche;Pflege,5,5,5,5,Reale Nussbaum-Produkte;Holzbild,Produkte;Anfrage,Position 5–15 beobachten;Bestand erhalten
+schneidebrett-eiche-vs-nussbaum/index.html,comparison,eiche oder nussbaum schneidebrett,Optik;Bauweise;Pflege,5,5,5,5,Vergleich eigener Produkte,Holzartseiten;Produkte,Erhalten;steigende Sichtbarkeit schützen
+stirnholz-vs-langholz/index.html,comparison,stirnholz oder langholz,Bauweise;Gewicht;Messer,5,5,4,5,Konkreter Bauweisenvergleich,Vergleich;Produkte,Erhalten;keine Messer-Garantie ergänzen
+stirnholz-schneidebrett/index.html,commercial,stirnholz schneidebrett,Hackblock;Stand;Pflege,4,5,5,5,Reale Stirnholzformate,Brettfinder;Produkte,Gezielte Beispiele statt neuer URL
+messerschonendes-schneidebrett/index.html,informational,messerschonendes schneidebrett,Stirnholz;Langholz;Messerpflege,4,5,4,5,Reale Modelle;externe Herstellerquelle,Produkte;Anfrage,Überzogene Messerclaims korrigiert;FAQ synchronisiert
+holzarten-schneidebrett/index.html,informational,holzarten schneidebrett,Eiche;Buche;Ahorn;Esche;Nussbaum,5,5,5,5,Materialprüfung;Holzbeispiele,Holzartseiten;Finder,Erhalten;starker First-Party-Inhalt
+hochwertiges-schneidebrett-erkennen/index.html,informational,hochwertiges schneidebrett erkennen,Fugen;Stand;Material;Verarbeitung,5,5,5,5,Werkstattprüfung;konkrete Qualitätsmerkmale,Produkte;Anfrage,Erhalten;gute Position bei kleinem Volumen
+schneidebrett-made-in-germany/index.html,commercial,schneidebrett made in germany,Herkunft;regional;Fertigung,5,5,5,5,11 Fertigungsschritte;Herkunft differenziert,Produkte;Werkstattkontakt,Erhalten;kein pauschaler Regionalitätsclaim
+schneidebrett-saftrille/index.html,comparison,schneidebrett mit oder ohne saftrille,Fleisch;Reinigung;Arbeitsfläche,5,5,4,5,Optionen und Produktbeispiele,Produkte;Anfrage,Gewinner erhalten;keine zusätzlichen FAQs
+barbecue-geschenk/index.html,commercial,geschenk grillfan,BBQ;Gravur;Hackblock,4,5,4,5,Reale BBQ-Produktbeispiele,Produkte;Gravuranfrage,Erhalten;kleine kaufnahe Nachfrage
+brotzeitbrett/index.html,commercial,brotzeitbrett,Frühstück;Servieren;Größe,4,5,4,5,Reale kompakte Bretter,Produkte;Finder,Serving und Arbeitsbretter klar unterscheiden;keine neue URL
+hochwertige-geschenke-holz/index.html,commercial,holzgeschenke,Hobbykoch;Hochzeit;Gravur,4,4,4,5,Eigene Geschenkprodukte,Produkte;Anfrage,Breite schwache Rankings nicht priorisieren
+schneidebrett-mit-gravur/index.html,commercial,schneidebrett mit gravur,Geschenk;Personalisierung;Maßanfertigung,4,5,5,5,Gravurdetails eigener Produkte,Gravuranfrage;Produkte,Nachfrage real;kein Vollrewrite ohne SERP-Intent-Test
+welches-oel-schneidebrett/index.html,informational,welches öl für schneidebrett,Leinöl;Pflege;Aushärtung,5,5,4,5,Produktbezogene Pflege;ehrliche Grenzen,Pflegebalsam;Fotoeinschätzung,Konsolidierung erst nach Canonical-Inspektion;Bestand erhalten
+schneidebrett-oel-vergleich/index.html,comparison,schneidebrett öl vergleich,Leinölfirnis;Tungöl;Mineralöl,4,5,4,4,Werkstattpflege;Herstellermerkblatt,Pflegeprodukte;aktueller Ölratgeber,P0 statischen Fallback korrigiert;bestehende Weiterleitung und Canonical erhalten
+schneidebrett-aufbereiten/index.html,informational,holzschneidebrett abschleifen,Aufbereitung;Risse;Pflege;Service,5,5,5,5,Vorher-Nachher;Servicepreise;Werkstattgrenzen,Selbstpflege;Fotos;Werkstattauftrag,Gewinner erhalten;CTR messen statt pauschal umtexten
+pflege.html,informational,schneidebrett pflege,Reinigung;Trocknen;Ölen,4,5,4,5,Pflegeanleitung;Pflegebalsam,Pflegebalsam;Aufbereitung,Als Anleitung erhalten;Öl-Intent auf Ratgeber verweisen
+atelier/index.html,commercial,schneidebrett offene küche,Kücheninsel;Designküche;XXL,5,5,5,5,Reale Raumwirkung;Serien;Werkstatt,Produkte;Maßanfertigung,Kücheninsel bestehendem Cluster zuordnen;keine neue URL
+erbstueck/index.html,commercial,schneidebrett altes fachwerkholz,Historie;Nummerierung;Materiallage,5,5,5,5,Reales Fachwerkholz;nummerierte Stücke,Produkt;individuelle Anfrage,Preisanker erhalten;keine erfundene Herkunft
+b2b.html,commercial,firmenkundengeschenk holz,Gastronomie;Gravur;Serie,4,5,5,5,Projektabstimmung;Fertigung,Kundenprojektanfrage,Keine neue B2B-URL
+presse/index.html,navigational,edle hölzer werkstatt,Özgür Koç;Manufaktur;Presse,5,5,5,4,Reale Person und Werkstattrolle,Pressekontakt;Werkstatt,Als Autorenkontext verlinkbar;keine fingierte Fachprüfung
+holz-statt-plastik/index.html,comparison,holz oder plastik schneidebrett,Hygiene;Pflege;Material,5,5,4,4,Differenzierter Materialvergleich,Holzarten;Pflege;Produkte,Erhalten;keine Hygiene-Garantie
+en/index.html,commercial,handmade cutting boards Germany,Workshop;Portfolio;Trust,4,5,5,5,Real products;workshop,Products;inquiry,Protect strongest landing page
+en/products.html,transactional,buy wooden cutting board,Finder;comparison;ordering,3,5,5,5,Real product catalogue,Product modal;Etsy;inquiry,Preserve conversion logic
+en/butcher-block/index.html,commercial,butcher block,End grain;size;BBQ,4,5,4,5,Real block examples,Products;inquiry,Position 5–15 opportunity;preserve
+en/snack-board/index.html,commercial,snack board,Breakfast;serving;size,4,5,4,5,Compact product examples,Products,Preserve;avoid overstating work surface
+en/wood-types-for-cutting-boards/index.html,informational,best wood for cutting board,Oak;walnut;beech;construction,5,5,5,5,Material selection;real examples,Products;comparison,Preserve
+en/end-grain-vs-edge-grain/index.html,comparison,end grain vs edge grain,Handling;care;knives,5,5,4,5,Construction comparison,Products;wood types,Preserve limitations
+en/knife-friendly-cutting-board/index.html,informational,knife friendly cutting board,End grain;edge grain;knife care,4,5,4,5,Real models;knife maker source,Products;inquiry,Remove guaranteed edge-retention claim;sync FAQ
+en/how-to-recognise-a-quality-cutting-board/index.html,informational,quality cutting board,Construction;finish;stability,5,5,5,5,Workshop checks;actual products,Products;inquiry,Preserve
+en/cutting-board-juice-groove/index.html,comparison,cutting board juice groove,Cleaning;meat;surface,4,5,4,5,Real groove options,Products;inquiry,Preserve
+en/cutting-board-oil-comparison/index.html,informational,cutting board oil,Linseed;care;curing,5,5,4,5,Specific care limits;manufacturer source,Care balm;photo assessment,Add product-specific curing and cloth safety
+en/refurbishment/index.html,informational,cutting board refurbishment,Damage;care;Germany service,5,5,5,5,Real workshop service;limits,Photo assessment,Preserve geographical limits
+en/care.html,informational,wooden board care,Cleaning;drying;oil,4,5,4,5,Care instructions;balm,Care product;refurbishment,Preserve
+en/wood-instead-of-plastic/index.html,comparison,wood or plastic cutting board,Hygiene;cleaning;material,5,5,4,4,Differentiated materials,Products;care,No blanket hygiene advantage
+en/erbstueck/index.html,commercial,reclaimed timber cutting board,History;numbered boards;availability,5,5,5,5,Actual reclaimed timber;numbered pieces,Products;inquiry,Preserve
+en/wooden-dough-scraper/index.html,commercial,wooden dough scraper,Baking;dough cutter;personalisation,4,5,5,5,Actual scraper;Product schema,Product;Etsy,Protect current traffic;out of board-only scope

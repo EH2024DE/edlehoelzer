@@ -1,0 +1,1125 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-60c0fe20-d9b9-4033-b256-f35a3c96001a":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Braten oder einem ganzen Hähnchen eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: . Es sollte Fleischsaft auffangen, beim Schneiden nicht verrutschen und genügend Platz für Messer und Fleisch bieten.
+          - heading "Worauf du achten solltest" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - paragraph:
+            - generic: 1. Massivholz – mein Favorit für Steaks
+          - list:
+            - paragraph: Schonend zur Messerklinge
+            - paragraph: Stabil und angenehm beim Tranchieren
+            - paragraph: Eine Saftrille fängt Fleischsaft auf
+          - paragraph: "Besonders gut: Eiche, Ahorn oder Nussbaum. Das Brett sollte für die Lebensmittelverwendung geeignet und gut gepflegt sein."
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - paragraph:
+            - generic: 2. Dickes Kunststoffbrett – besonders pflegeleicht
+          - list:
+            - paragraph: Leicht zu reinigen
+            - paragraph: Je nach Modell spülmaschinengeeignet
+            - paragraph: Ideal für häufiges Grillen und den Umgang mit rohem Fleisch
+          - paragraph: Achte auf lebensmittelechten Kunststoff, eine rutschfeste Unterseite und ausreichend Dicke.
+          - img "John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - button "Open John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - paragraph:
+            - generic: 3. Tranchierbrett mit Auffangschale – für große Braten
+          - list:
+            - paragraph: Fängt besonders viel Fleischsaft auf
+            - paragraph: Praktisch für Roastbeef, Rippchen und Geflügel
+            - paragraph: Häufig mit erhöhtem Rand oder herausnehmbarer Schale
+          - paragraph: Ideal, wenn du regelmäßig große Fleischstücke aufschneidest.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - heading "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…" [level=3]:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - paragraph: Eiche · Preis-Leistungs-Tipp
+          - heading "28,44 €" [level=2]
+          - paragraph: Ein preisgünstiger Einstieg für Steaks und kleinere Braten, mit Saftrille.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Zum
+                - generic: Produkt
+          - img "Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - button "Open Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - heading "Schneidebrett aus amerikanischer Walnuss mit Saftrinne" [level=3]:
+            - button "Schneidebrett aus amerikanischer Walnuss mit Saftrinne":
+              - generic: Schneidebrett aus amerikanischer Walnuss mit Saftrinne
+          - paragraph: Amerikanischer Nussbaum
+          - heading "80,00 €" [level=2]
+          - paragraph: Eine hochwertige Holzvariante, die sich auch zum Servieren von Steaks eignet.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Schneidebrett+aus+amerikanischer+Walnuss+mit+Saftrinne
+                - generic: Zum
+                - generic: Produkt
+          - img "Boos Blocks Schneidebrett Pro Chef-Groove"
+          - button "Open Boos Blocks Schneidebrett Pro Chef-Groove"
+          - heading "Boos Blocks Schneidebrett Pro Chef-Groove" [level=3]:
+            - button "Boos Blocks Schneidebrett Pro Chef-Groove":
+              - generic: Boos Blocks Schneidebrett Pro Chef-Groove
+          - paragraph: Boos Blocks Pro Chef-Groove
+          - heading "154,90 €" [level=2]
+          - paragraph:
+            - text: Eine hochwertigere Option für ambitionierte Grillfans. Die Boos-Groove-Serie ist auf das Tranchieren und Auffangen von Fleischsaft ausgelegt.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Boos+Blocks+Schneidebrett+Pro+Chef-Groove
+                - generic: Zum
+                - generic: Produkt
+          - heading "Meine Kaufempfehlung" [level=2]
+          - paragraph:
+            - text: Ich würde ein
+            - generic: Holzbrett mit mindestens 45 × 30 cm, einer Saftrille und etwa 3–4 cm Stärke
+            - text: wählen. Für große Briskets oder mehrere Steaks ist mehr Fläche sinnvoll. Holz muss von Hand gereinigt und regelmäßig gepflegt werden; für die Spülmaschine ist es in der Regel nicht geeignet.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - text: "Damit ich dir das passende Brett empfehlen kann:"
+            - generic: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Rippchen" [checked]
+            - text: Steaks und Rippchen
+            - radio "Brisket und große Braten"
+            - text: Brisket und große Braten
+            - radio "Geflügel und gemischtes Grillgut"
+            - text: Geflügel und gemischtes Grillgut
+          - paragraph: Material
+          - radiogroup "Options":
+            - radio "Holz – hochwertig und messerschonend" [checked]
+            - text: Holz – hochwertig und messerschonend
+            - radio "Kunststoff – pflegeleicht"
+            - text: Kunststoff – pflegeleicht
+            - radio "Egal – Hauptsache praktisch"
+            - text: Egal – Hauptsache praktisch
+          - button "Passende Bretter empfehlen":
+            - generic: Passende Bretter empfehlen
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-60c0fe20-d9b9-4033-b256-f35a3c96001a":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Braten oder einem ganzen Hähnchen eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: . Es sollte Fleischsaft auffangen, beim Schneiden nicht verrutschen und genügend Platz für Messer und Fleisch bieten.
+          - heading "Worauf du achten solltest" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - paragraph:
+            - generic: 1. Massivholz – mein Favorit für Steaks
+          - list:
+            - paragraph: Schonend zur Messerklinge
+            - paragraph: Stabil und angenehm beim Tranchieren
+            - paragraph: Eine Saftrille fängt Fleischsaft auf
+          - paragraph: "Besonders gut: Eiche, Ahorn oder Nussbaum. Das Brett sollte für die Lebensmittelverwendung geeignet und gut gepflegt sein."
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - paragraph:
+            - generic: 2. Dickes Kunststoffbrett – besonders pflegeleicht
+          - list:
+            - paragraph: Leicht zu reinigen
+            - paragraph: Je nach Modell spülmaschinengeeignet
+            - paragraph: Ideal für häufiges Grillen und den Umgang mit rohem Fleisch
+          - paragraph: Achte auf lebensmittelechten Kunststoff, eine rutschfeste Unterseite und ausreichend Dicke.
+          - img "John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - button "Open John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - paragraph:
+            - generic: 3. Tranchierbrett mit Auffangschale – für große Braten
+          - list:
+            - paragraph: Fängt besonders viel Fleischsaft auf
+            - paragraph: Praktisch für Roastbeef, Rippchen und Geflügel
+            - paragraph: Häufig mit erhöhtem Rand oder herausnehmbarer Schale
+          - paragraph: Ideal, wenn du regelmäßig große Fleischstücke aufschneidest.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - heading "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…" [level=3]:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - paragraph: Eiche · Preis-Leistungs-Tipp
+          - heading "28,44 €" [level=2]
+          - paragraph: Ein preisgünstiger Einstieg für Steaks und kleinere Braten, mit Saftrille.
+          - paragraph:
+            - button "Zum Produkt" [expanded] [active]:
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Zum
+                - generic: Produkt
+            - dialog "Zum Produkt":
+              - link "https://chatgpt.com/?hints=search&q=XL+4...":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: https://chatgpt.com/?hints=search&q=XL+4...
+              - button "Copy URL":
+          - img "Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - button "Open Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - heading "Schneidebrett aus amerikanischer Walnuss mit Saftrinne" [level=3]:
+            - button "Schneidebrett aus amerikanischer Walnuss mit Saftrinne":
+              - generic: Schneidebrett aus amerikanischer Walnuss mit Saftrinne
+          - paragraph: Amerikanischer Nussbaum
+          - heading "80,00 €" [level=2]
+          - paragraph: Eine hochwertige Holzvariante, die sich auch zum Servieren von Steaks eignet.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Schneidebrett+aus+amerikanischer+Walnuss+mit+Saftrinne
+                - generic: Zum
+                - generic: Produkt
+          - img "Boos Blocks Schneidebrett Pro Chef-Groove"
+          - button "Open Boos Blocks Schneidebrett Pro Chef-Groove"
+          - heading "Boos Blocks Schneidebrett Pro Chef-Groove" [level=3]:
+            - button "Boos Blocks Schneidebrett Pro Chef-Groove":
+              - generic: Boos Blocks Schneidebrett Pro Chef-Groove
+          - paragraph: Boos Blocks Pro Chef-Groove
+          - heading "154,90 €" [level=2]
+          - paragraph:
+            - text: Eine hochwertigere Option für ambitionierte Grillfans. Die Boos-Groove-Serie ist auf das Tranchieren und Auffangen von Fleischsaft ausgelegt.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Boos+Blocks+Schneidebrett+Pro+Chef-Groove
+                - generic: Zum
+                - generic: Produkt
+          - heading "Meine Kaufempfehlung" [level=2]
+          - paragraph:
+            - text: Ich würde ein
+            - generic: Holzbrett mit mindestens 45 × 30 cm, einer Saftrille und etwa 3–4 cm Stärke
+            - text: wählen. Für große Briskets oder mehrere Steaks ist mehr Fläche sinnvoll. Holz muss von Hand gereinigt und regelmäßig gepflegt werden; für die Spülmaschine ist es in der Regel nicht geeignet.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - text: "Damit ich dir das passende Brett empfehlen kann:"
+            - generic: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Rippchen" [checked]
+            - text: Steaks und Rippchen
+            - radio "Brisket und große Braten"
+            - text: Brisket und große Braten
+            - radio "Geflügel und gemischtes Grillgut"
+            - text: Geflügel und gemischtes Grillgut
+          - paragraph: Material
+          - radiogroup "Options":
+            - radio "Holz – hochwertig und messerschonend" [checked]
+            - text: Holz – hochwertig und messerschonend
+            - radio "Kunststoff – pflegeleicht"
+            - text: Kunststoff – pflegeleicht
+            - radio "Egal – Hauptsache praktisch"
+            - text: Egal – Hauptsache praktisch
+          - button "Passende Bretter empfehlen":
+            - generic: Passende Bretter empfehlen
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-60c0fe20-d9b9-4033-b256-f35a3c96001a":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Braten oder einem ganzen Hähnchen eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: . Es sollte Fleischsaft auffangen, beim Schneiden nicht verrutschen und genügend Platz für Messer und Fleisch bieten.
+          - heading "Worauf du achten solltest" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - paragraph:
+            - generic: 1. Massivholz – mein Favorit für Steaks
+          - list:
+            - paragraph: Schonend zur Messerklinge
+            - paragraph: Stabil und angenehm beim Tranchieren
+            - paragraph: Eine Saftrille fängt Fleischsaft auf
+          - paragraph: "Besonders gut: Eiche, Ahorn oder Nussbaum. Das Brett sollte für die Lebensmittelverwendung geeignet und gut gepflegt sein."
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - paragraph:
+            - generic: 2. Dickes Kunststoffbrett – besonders pflegeleicht
+          - list:
+            - paragraph: Leicht zu reinigen
+            - paragraph: Je nach Modell spülmaschinengeeignet
+            - paragraph: Ideal für häufiges Grillen und den Umgang mit rohem Fleisch
+          - paragraph: Achte auf lebensmittelechten Kunststoff, eine rutschfeste Unterseite und ausreichend Dicke.
+          - img "John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - button "Open John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - paragraph:
+            - generic: 3. Tranchierbrett mit Auffangschale – für große Braten
+          - list:
+            - paragraph: Fängt besonders viel Fleischsaft auf
+            - paragraph: Praktisch für Roastbeef, Rippchen und Geflügel
+            - paragraph: Häufig mit erhöhtem Rand oder herausnehmbarer Schale
+          - paragraph: Ideal, wenn du regelmäßig große Fleischstücke aufschneidest.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - heading "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…" [level=3]:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - paragraph: Eiche · Preis-Leistungs-Tipp
+          - heading "28,44 €" [level=2]
+          - paragraph: Ein preisgünstiger Einstieg für Steaks und kleinere Braten, mit Saftrille.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Zum
+                - generic: Produkt
+          - img "Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - button "Open Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - heading "Schneidebrett aus amerikanischer Walnuss mit Saftrinne" [level=3]:
+            - button "Schneidebrett aus amerikanischer Walnuss mit Saftrinne":
+              - generic: Schneidebrett aus amerikanischer Walnuss mit Saftrinne
+          - paragraph: Amerikanischer Nussbaum
+          - heading "80,00 €" [level=2]
+          - paragraph: Eine hochwertige Holzvariante, die sich auch zum Servieren von Steaks eignet.
+          - paragraph:
+            - button "Zum Produkt" [expanded] [active]:
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Schneidebrett+aus+amerikanischer+Walnuss+mit+Saftrinne
+                - generic: Zum
+                - generic: Produkt
+            - dialog "Zum Produkt":
+              - link "https://chatgpt.com/?hints=search&q=Schn...":
+                - /url: https://chatgpt.com/?hints=search&q=Schneidebrett+aus+amerikanischer+Walnuss+mit+Saftrinne
+                - generic: https://chatgpt.com/?hints=search&q=Schn...
+              - button "Copy URL":
+          - img "Boos Blocks Schneidebrett Pro Chef-Groove"
+          - button "Open Boos Blocks Schneidebrett Pro Chef-Groove"
+          - heading "Boos Blocks Schneidebrett Pro Chef-Groove" [level=3]:
+            - button "Boos Blocks Schneidebrett Pro Chef-Groove":
+              - generic: Boos Blocks Schneidebrett Pro Chef-Groove
+          - paragraph: Boos Blocks Pro Chef-Groove
+          - heading "154,90 €" [level=2]
+          - paragraph:
+            - text: Eine hochwertigere Option für ambitionierte Grillfans. Die Boos-Groove-Serie ist auf das Tranchieren und Auffangen von Fleischsaft ausgelegt.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Boos+Blocks+Schneidebrett+Pro+Chef-Groove
+                - generic: Zum
+                - generic: Produkt
+          - heading "Meine Kaufempfehlung" [level=2]
+          - paragraph:
+            - text: Ich würde ein
+            - generic: Holzbrett mit mindestens 45 × 30 cm, einer Saftrille und etwa 3–4 cm Stärke
+            - text: wählen. Für große Briskets oder mehrere Steaks ist mehr Fläche sinnvoll. Holz muss von Hand gereinigt und regelmäßig gepflegt werden; für die Spülmaschine ist es in der Regel nicht geeignet.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - text: "Damit ich dir das passende Brett empfehlen kann:"
+            - generic: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Rippchen" [checked]
+            - text: Steaks und Rippchen
+            - radio "Brisket und große Braten"
+            - text: Brisket und große Braten
+            - radio "Geflügel und gemischtes Grillgut"
+            - text: Geflügel und gemischtes Grillgut
+          - paragraph: Material
+          - radiogroup "Options":
+            - radio "Holz – hochwertig und messerschonend" [checked]
+            - text: Holz – hochwertig und messerschonend
+            - radio "Kunststoff – pflegeleicht"
+            - text: Kunststoff – pflegeleicht
+            - radio "Egal – Hauptsache praktisch"
+            - text: Egal – Hauptsache praktisch
+          - button "Passende Bretter empfehlen":
+            - generic: Passende Bretter empfehlen
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-60c0fe20-d9b9-4033-b256-f35a3c96001a":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Braten oder einem ganzen Hähnchen eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: . Es sollte Fleischsaft auffangen, beim Schneiden nicht verrutschen und genügend Platz für Messer und Fleisch bieten.
+          - heading "Worauf du achten solltest" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - paragraph:
+            - generic: 1. Massivholz – mein Favorit für Steaks
+          - list:
+            - paragraph: Schonend zur Messerklinge
+            - paragraph: Stabil und angenehm beim Tranchieren
+            - paragraph: Eine Saftrille fängt Fleischsaft auf
+          - paragraph: "Besonders gut: Eiche, Ahorn oder Nussbaum. Das Brett sollte für die Lebensmittelverwendung geeignet und gut gepflegt sein."
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - paragraph:
+            - generic: 2. Dickes Kunststoffbrett – besonders pflegeleicht
+          - list:
+            - paragraph: Leicht zu reinigen
+            - paragraph: Je nach Modell spülmaschinengeeignet
+            - paragraph: Ideal für häufiges Grillen und den Umgang mit rohem Fleisch
+          - paragraph: Achte auf lebensmittelechten Kunststoff, eine rutschfeste Unterseite und ausreichend Dicke.
+          - img "John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - button "Open John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - paragraph:
+            - generic: 3. Tranchierbrett mit Auffangschale – für große Braten
+          - list:
+            - paragraph: Fängt besonders viel Fleischsaft auf
+            - paragraph: Praktisch für Roastbeef, Rippchen und Geflügel
+            - paragraph: Häufig mit erhöhtem Rand oder herausnehmbarer Schale
+          - paragraph: Ideal, wenn du regelmäßig große Fleischstücke aufschneidest.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - heading "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…" [level=3]:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - paragraph: Eiche · Preis-Leistungs-Tipp
+          - heading "28,44 €" [level=2]
+          - paragraph: Ein preisgünstiger Einstieg für Steaks und kleinere Braten, mit Saftrille.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Zum
+                - generic: Produkt
+          - img "Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - button "Open Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - heading "Schneidebrett aus amerikanischer Walnuss mit Saftrinne" [level=3]:
+            - button "Schneidebrett aus amerikanischer Walnuss mit Saftrinne":
+              - generic: Schneidebrett aus amerikanischer Walnuss mit Saftrinne
+          - paragraph: Amerikanischer Nussbaum
+          - heading "80,00 €" [level=2]
+          - paragraph: Eine hochwertige Holzvariante, die sich auch zum Servieren von Steaks eignet.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Schneidebrett+aus+amerikanischer+Walnuss+mit+Saftrinne
+                - generic: Zum
+                - generic: Produkt
+          - img "Boos Blocks Schneidebrett Pro Chef-Groove"
+          - button "Open Boos Blocks Schneidebrett Pro Chef-Groove"
+          - heading "Boos Blocks Schneidebrett Pro Chef-Groove" [level=3]:
+            - button "Boos Blocks Schneidebrett Pro Chef-Groove":
+              - generic: Boos Blocks Schneidebrett Pro Chef-Groove
+          - paragraph: Boos Blocks Pro Chef-Groove
+          - heading "154,90 €" [level=2]
+          - paragraph:
+            - text: Eine hochwertigere Option für ambitionierte Grillfans. Die Boos-Groove-Serie ist auf das Tranchieren und Auffangen von Fleischsaft ausgelegt.
+            - button "boosblocks.de +1" [expanded] [active]:
+              - generic: boosblocks.de
+              - generic: "+1"
+            - dialog "boosblocks.de +1":
+              - button "Open boosblocks.de":
+                - generic: boosblocks.de
+                - paragraph: Pro Chef Black Walnut cutting board juice groove and finger grooves; reversible Boos Blocks | High-quality wooden cutting boards and more since 1887
+              - button "Open boosblocks.de":
+                - generic: boosblocks.de
+                - paragraph: Pro Chef Hard Maple cutting board juice groove and finger grooves; reversible Boos Blocks | High-quality wooden cutting boards and more since 1887
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Boos+Blocks+Schneidebrett+Pro+Chef-Groove
+                - generic: Zum
+                - generic: Produkt
+          - heading "Meine Kaufempfehlung" [level=2]
+          - paragraph:
+            - text: Ich würde ein
+            - generic: Holzbrett mit mindestens 45 × 30 cm, einer Saftrille und etwa 3–4 cm Stärke
+            - text: wählen. Für große Briskets oder mehrere Steaks ist mehr Fläche sinnvoll. Holz muss von Hand gereinigt und regelmäßig gepflegt werden; für die Spülmaschine ist es in der Regel nicht geeignet.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - text: "Damit ich dir das passende Brett empfehlen kann:"
+            - generic: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Rippchen" [checked]
+            - text: Steaks und Rippchen
+            - radio "Brisket und große Braten"
+            - text: Brisket und große Braten
+            - radio "Geflügel und gemischtes Grillgut"
+            - text: Geflügel und gemischtes Grillgut
+          - paragraph: Material
+          - radiogroup "Options":
+            - radio "Holz – hochwertig und messerschonend" [checked]
+            - text: Holz – hochwertig und messerschonend
+            - radio "Kunststoff – pflegeleicht"
+            - text: Kunststoff – pflegeleicht
+            - radio "Egal – Hauptsache praktisch"
+            - text: Egal – Hauptsache praktisch
+          - button "Passende Bretter empfehlen":
+            - generic: Passende Bretter empfehlen
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-60c0fe20-d9b9-4033-b256-f35a3c96001a":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Braten oder einem ganzen Hähnchen eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: . Es sollte Fleischsaft auffangen, beim Schneiden nicht verrutschen und genügend Platz für Messer und Fleisch bieten.
+          - heading "Worauf du achten solltest" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - paragraph:
+            - generic: 1. Massivholz – mein Favorit für Steaks
+          - list:
+            - paragraph: Schonend zur Messerklinge
+            - paragraph: Stabil und angenehm beim Tranchieren
+            - paragraph: Eine Saftrille fängt Fleischsaft auf
+          - paragraph: "Besonders gut: Eiche, Ahorn oder Nussbaum. Das Brett sollte für die Lebensmittelverwendung geeignet und gut gepflegt sein."
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - paragraph:
+            - generic: 2. Dickes Kunststoffbrett – besonders pflegeleicht
+          - list:
+            - paragraph: Leicht zu reinigen
+            - paragraph: Je nach Modell spülmaschinengeeignet
+            - paragraph: Ideal für häufiges Grillen und den Umgang mit rohem Fleisch
+          - paragraph: Achte auf lebensmittelechten Kunststoff, eine rutschfeste Unterseite und ausreichend Dicke.
+          - img "John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - button "Open John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - paragraph:
+            - generic: 3. Tranchierbrett mit Auffangschale – für große Braten
+          - list:
+            - paragraph: Fängt besonders viel Fleischsaft auf
+            - paragraph: Praktisch für Roastbeef, Rippchen und Geflügel
+            - paragraph: Häufig mit erhöhtem Rand oder herausnehmbarer Schale
+          - paragraph: Ideal, wenn du regelmäßig große Fleischstücke aufschneidest.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - heading "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…" [level=3]:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - paragraph: Eiche · Preis-Leistungs-Tipp
+          - heading "28,44 €" [level=2]
+          - paragraph: Ein preisgünstiger Einstieg für Steaks und kleinere Braten, mit Saftrille.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Zum
+                - generic: Produkt
+          - img "Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - button "Open Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - heading "Schneidebrett aus amerikanischer Walnuss mit Saftrinne" [level=3]:
+            - button "Schneidebrett aus amerikanischer Walnuss mit Saftrinne":
+              - generic: Schneidebrett aus amerikanischer Walnuss mit Saftrinne
+          - paragraph: Amerikanischer Nussbaum
+          - heading "80,00 €" [level=2]
+          - paragraph: Eine hochwertige Holzvariante, die sich auch zum Servieren von Steaks eignet.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Schneidebrett+aus+amerikanischer+Walnuss+mit+Saftrinne
+                - generic: Zum
+                - generic: Produkt
+          - img "Boos Blocks Schneidebrett Pro Chef-Groove"
+          - button "Open Boos Blocks Schneidebrett Pro Chef-Groove"
+          - heading "Boos Blocks Schneidebrett Pro Chef-Groove" [level=3]:
+            - button "Boos Blocks Schneidebrett Pro Chef-Groove":
+              - generic: Boos Blocks Schneidebrett Pro Chef-Groove
+          - paragraph: Boos Blocks Pro Chef-Groove
+          - heading "154,90 €" [level=2]
+          - paragraph:
+            - text: Eine hochwertigere Option für ambitionierte Grillfans. Die Boos-Groove-Serie ist auf das Tranchieren und Auffangen von Fleischsaft ausgelegt.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - button "Zum Produkt" [expanded] [active]:
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Boos+Blocks+Schneidebrett+Pro+Chef-Groove
+                - generic: Zum
+                - generic: Produkt
+            - dialog "Zum Produkt":
+              - link "https://chatgpt.com/?hints=search&q=Boos...":
+                - /url: https://chatgpt.com/?hints=search&q=Boos+Blocks+Schneidebrett+Pro+Chef-Groove
+                - generic: https://chatgpt.com/?hints=search&q=Boos...
+              - button "Copy URL":
+          - heading "Meine Kaufempfehlung" [level=2]
+          - paragraph:
+            - text: Ich würde ein
+            - generic: Holzbrett mit mindestens 45 × 30 cm, einer Saftrille und etwa 3–4 cm Stärke
+            - text: wählen. Für große Briskets oder mehrere Steaks ist mehr Fläche sinnvoll. Holz muss von Hand gereinigt und regelmäßig gepflegt werden; für die Spülmaschine ist es in der Regel nicht geeignet.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - text: "Damit ich dir das passende Brett empfehlen kann:"
+            - generic: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Rippchen" [checked]
+            - text: Steaks und Rippchen
+            - radio "Brisket und große Braten"
+            - text: Brisket und große Braten
+            - radio "Geflügel und gemischtes Grillgut"
+            - text: Geflügel und gemischtes Grillgut
+          - paragraph: Material
+          - radiogroup "Options":
+            - radio "Holz – hochwertig und messerschonend" [checked]
+            - text: Holz – hochwertig und messerschonend
+            - radio "Kunststoff – pflegeleicht"
+            - text: Kunststoff – pflegeleicht
+            - radio "Egal – Hauptsache praktisch"
+            - text: Egal – Hauptsache praktisch
+          - button "Passende Bretter empfehlen":
+            - generic: Passende Bretter empfehlen
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-60c0fe20-d9b9-4033-b256-f35a3c96001a":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Zum Grillen und Tranchieren von Steaks, Braten oder einem ganzen Hähnchen eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: . Es sollte Fleischsaft auffangen, beim Schneiden nicht verrutschen und genügend Platz für Messer und Fleisch bieten.
+          - heading "Worauf du achten solltest" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - paragraph:
+            - generic: 1. Massivholz – mein Favorit für Steaks
+          - list:
+            - paragraph: Schonend zur Messerklinge
+            - paragraph: Stabil und angenehm beim Tranchieren
+            - paragraph: Eine Saftrille fängt Fleischsaft auf
+          - paragraph: "Besonders gut: Eiche, Ahorn oder Nussbaum. Das Brett sollte für die Lebensmittelverwendung geeignet und gut gepflegt sein."
+          - img "Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - button "Open Wholesale Cutting Board HDPE – Thirteen Chefs 24x18 Extra Large NSF"
+          - paragraph:
+            - generic: 2. Dickes Kunststoffbrett – besonders pflegeleicht
+          - list:
+            - paragraph: Leicht zu reinigen
+            - paragraph: Je nach Modell spülmaschinengeeignet
+            - paragraph: Ideal für häufiges Grillen und den Umgang mit rohem Fleisch
+          - paragraph: Achte auf lebensmittelechten Kunststoff, eine rutschfeste Unterseite und ausreichend Dicke.
+          - img "John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - button "Open John Boos Block Reversible Wood Carving Board with Juice Groove & Tray, Maple & Reviews | Wayfair"
+          - paragraph:
+            - generic: 3. Tranchierbrett mit Auffangschale – für große Braten
+          - list:
+            - paragraph: Fängt besonders viel Fleischsaft auf
+            - paragraph: Praktisch für Roastbeef, Rippchen und Geflügel
+            - paragraph: Häufig mit erhöhtem Rand oder herausnehmbarer Schale
+          - paragraph: Ideal, wenn du regelmäßig große Fleischstücke aufschneidest.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - button "Open XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenbrett Holzbrett"
+          - heading "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…" [level=3]:
+            - button "XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…":
+              - generic: XL 40cm Schneidebrett Eiche Saftrille Tranchierbrett Eichenb…
+          - paragraph: Eiche · Preis-Leistungs-Tipp
+          - heading "28,44 €" [level=2]
+          - paragraph: Ein preisgünstiger Einstieg für Steaks und kleinere Braten, mit Saftrille.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=XL+40cm+Schneidebrett+Eiche+Saftrille+Tranchierbrett+Eichenbrett+Holzbrett
+                - generic: Zum
+                - generic: Produkt
+          - img "Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - button "Open Schneidebrett aus amerikanischer Walnuss mit Saftrinne"
+          - heading "Schneidebrett aus amerikanischer Walnuss mit Saftrinne" [level=3]:
+            - button "Schneidebrett aus amerikanischer Walnuss mit Saftrinne":
+              - generic: Schneidebrett aus amerikanischer Walnuss mit Saftrinne
+          - paragraph: Amerikanischer Nussbaum
+          - heading "80,00 €" [level=2]
+          - paragraph: Eine hochwertige Holzvariante, die sich auch zum Servieren von Steaks eignet.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Schneidebrett+aus+amerikanischer+Walnuss+mit+Saftrinne
+                - generic: Zum
+                - generic: Produkt
+          - img "Boos Blocks Schneidebrett Pro Chef-Groove"
+          - button "Open Boos Blocks Schneidebrett Pro Chef-Groove"
+          - heading "Boos Blocks Schneidebrett Pro Chef-Groove" [level=3]:
+            - button "Boos Blocks Schneidebrett Pro Chef-Groove":
+              - generic: Boos Blocks Schneidebrett Pro Chef-Groove
+          - paragraph: Boos Blocks Pro Chef-Groove
+          - heading "154,90 €" [level=2]
+          - paragraph:
+            - text: Eine hochwertigere Option für ambitionierte Grillfans. Die Boos-Groove-Serie ist auf das Tranchieren und Auffangen von Fleischsaft ausgelegt.
+            - button "boosblocks.de +1":
+              - generic: boosblocks.de
+              - generic: "+1"
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Boos+Blocks+Schneidebrett+Pro+Chef-Groove
+                - generic: Zum
+                - generic: Produkt
+          - heading "Meine Kaufempfehlung" [level=2]
+          - paragraph:
+            - text: Ich würde ein
+            - generic: Holzbrett mit mindestens 45 × 30 cm, einer Saftrille und etwa 3–4 cm Stärke
+            - text: wählen. Für große Briskets oder mehrere Steaks ist mehr Fläche sinnvoll. Holz muss von Hand gereinigt und regelmäßig gepflegt werden; für die Spülmaschine ist es in der Regel nicht geeignet.
+            - button "boosblocks.de +1" [expanded] [active]:
+              - generic: boosblocks.de
+              - generic: "+1"
+            - dialog "boosblocks.de +1":
+              - button "Open boosblocks.de":
+                - generic: boosblocks.de
+                - paragraph: Pro Chef Black Walnut cutting board juice groove and finger grooves; reversible Boos Blocks | High-quality wooden cutting boards and more since 1887
+              - button "Open boosblocks.de":
+                - generic: boosblocks.de
+                - paragraph: Pro Chef Hard Maple cutting board juice groove and finger grooves; reversible Boos Blocks | High-quality wooden cutting boards and more since 1887
+          - paragraph:
+            - text: "Damit ich dir das passende Brett empfehlen kann:"
+            - generic: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Rippchen" [checked]
+            - text: Steaks und Rippchen
+            - radio "Brisket und große Braten"
+            - text: Brisket und große Braten
+            - radio "Geflügel und gemischtes Grillgut"
+            - text: Geflügel und gemischtes Grillgut
+          - paragraph: Material
+          - radiogroup "Options":
+            - radio "Holz – hochwertig und messerschonend" [checked]
+            - text: Holz – hochwertig und messerschonend
+            - radio "Kunststoff – pflegeleicht"
+            - text: Kunststoff – pflegeleicht
+            - radio "Egal – Hauptsache praktisch"
+            - text: Egal – Hauptsache praktisch
+          - button "Passende Bretter empfehlen":
+            - generic: Passende Bretter empfehlen
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

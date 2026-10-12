@@ -1,0 +1,901 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-88bbd45f-c924-4754-be65-2f5a22f383f6":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Fürs Grillen und Tranchieren eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: ", das Fleischsaft auffängt und genügend Platz für Steaks, Braten oder ganze Hähnchen bietet."
+          - paragraph: Entscheidend sind das Material, die Größe und die Standfestigkeit – gerade wenn du frisch gegrilltes Fleisch direkt auf dem Brett aufschneiden möchtest.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - heading "1. Stirnholz oder hochwertiges Hirnholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders hochwertig, schwer und messerschonend. Ideal zum Tranchieren von Steaks und Braten. Eine Saftrille ist sehr sinnvoll.
+          - paragraph: "Nachteil: schwerer und pflegeintensiver; nicht dauerhaft nass lagern."
+          - 'img "Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - 'button "Open Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - heading "2. Akazienholz" [level=3]
+          - paragraph: "Eine sehr gute Allround-Lösung für Grillfans: robust, attraktiv und meist preiswerter als hochwertiges Stirnholz."
+          - paragraph: Achte auf ausreichende Dicke, rutschfeste Füße und eine tiefe Saftrille.
+          - img "Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - button "Open Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - heading "3. Dickes Kunststoffbrett (HDPE)" [level=3]
+          - paragraph: Besonders praktisch und hygienisch im Alltag. Je nach Hersteller spülmaschinengeeignet und gut für rohes Fleisch.
+          - paragraph: Weniger edel, aber pflegeleicht. Auf rutschfeste Ausführung achten.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "HOLM Schneidebrett, 50x35 cm"
+          - button "Open HOLM Schneidebrett, 50x35 cm"
+          - paragraph:
+            - button "HOLM Schneidebrett, 50x35 cm":
+              - generic: HOLM Schneidebrett, 50x35 cm
+          - heading "45,00 €" [level=2]
+          - paragraph: 50 × 35 cm · für größere Steaks und Braten
+          - paragraph: Eine großzügige Größe für Grillabende mit mehreren Personen. Prüfe vor dem Kauf, ob die Ausführung eine Saftrille besitzt.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=HOLM+Schneidebrett%2C+50x35+cm
+                - generic: Zum
+                - generic: Produkt
+          - img "Zassenhaus Hackblock Akazie Stirnholz"
+          - button "Open Zassenhaus Hackblock Akazie Stirnholz"
+          - paragraph:
+            - button "Zassenhaus Hackblock Akazie Stirnholz":
+              - generic: Zassenhaus Hackblock Akazie Stirnholz
+          - heading "79,99 €" [level=2]
+          - paragraph: Akazie · massiver Hackblock
+          - paragraph: Interessant, wenn du eine besonders massive Arbeitsfläche zum Schneiden und Portionieren suchst. Fürs Tranchieren sollte die Saftrille separat geprüft werden.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Zassenhaus+Hackblock+Akazie+Stirnholz
+                - generic: Zum
+                - generic: Produkt
+          - img "METRO Professional Schneidebrett"
+          - button "Open METRO Professional Schneidebrett"
+          - paragraph:
+            - button "METRO Professional Schneidebrett":
+              - generic: METRO Professional Schneidebrett
+          - heading "21,41 €" [level=2]
+          - paragraph: Kunststoff · praktische Ergänzung
+          - paragraph: Eine preiswerte Alternative für die Vorbereitung von rohem Fleisch. Die genauen Maße und die Spülmaschineneignung solltest du beim Händler prüfen.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=METRO+Professional+Schneidebrett
+                - generic: Zum
+                - generic: Produkt
+          - paragraph: Die Produktpreise stammen aus den gefundenen Händlerangeboten und können sich ändern.
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: mindestens 45 × 30 cm, für größere Braten lieber 50 × 35 cm oder mehr.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: möglichst umlaufend und tief genug für Fleischsaft.
+            - paragraph:
+              - generic: "Stabilität:"
+              - text: etwa 3–4 cm Dicke bei einem massiven Holzbrett oder rutschfeste Füße.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Holz von Hand reinigen und gründlich trocknen; rohes Geflügel am besten auf einem separaten, leicht zu reinigenden Brett vorbereiten.
+              - button "Restaurantware +2":
+                - generic: Restaurantware
+                - generic: "+2"
+          - paragraph:
+            - generic: "Meine Wahl:"
+            - text: Ein massives Akazien- oder Walnussholzbrett mit Saftrille und rutschfestem Stand.
+          - paragraph:
+            - text: "Eine Frage noch:"
+            - generic: Was möchtest du ungefähr ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Braten" [checked]
+            - text: Steaks und Braten
+            - radio "Brisket, Ribs und große Fleischstücke"
+            - text: Brisket, Ribs und große Fleischstücke
+            - radio "Ganzes Hähnchen oder Geflügel"
+            - text: Ganzes Hähnchen oder Geflügel
+            - radio "Alles rund ums Grillen"
+            - text: Alles rund ums Grillen
+          - button "Passende Bretter finden":
+            - generic: Passende Bretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-88bbd45f-c924-4754-be65-2f5a22f383f6":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Fürs Grillen und Tranchieren eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: ", das Fleischsaft auffängt und genügend Platz für Steaks, Braten oder ganze Hähnchen bietet."
+          - paragraph: Entscheidend sind das Material, die Größe und die Standfestigkeit – gerade wenn du frisch gegrilltes Fleisch direkt auf dem Brett aufschneiden möchtest.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - heading "1. Stirnholz oder hochwertiges Hirnholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders hochwertig, schwer und messerschonend. Ideal zum Tranchieren von Steaks und Braten. Eine Saftrille ist sehr sinnvoll.
+          - paragraph: "Nachteil: schwerer und pflegeintensiver; nicht dauerhaft nass lagern."
+          - 'img "Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - 'button "Open Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - heading "2. Akazienholz" [level=3]
+          - paragraph: "Eine sehr gute Allround-Lösung für Grillfans: robust, attraktiv und meist preiswerter als hochwertiges Stirnholz."
+          - paragraph: Achte auf ausreichende Dicke, rutschfeste Füße und eine tiefe Saftrille.
+          - img "Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - button "Open Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - heading "3. Dickes Kunststoffbrett (HDPE)" [level=3]
+          - paragraph: Besonders praktisch und hygienisch im Alltag. Je nach Hersteller spülmaschinengeeignet und gut für rohes Fleisch.
+          - paragraph: Weniger edel, aber pflegeleicht. Auf rutschfeste Ausführung achten.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "HOLM Schneidebrett, 50x35 cm"
+          - button "Open HOLM Schneidebrett, 50x35 cm"
+          - paragraph:
+            - button "HOLM Schneidebrett, 50x35 cm":
+              - generic: HOLM Schneidebrett, 50x35 cm
+          - heading "45,00 €" [level=2]
+          - paragraph: 50 × 35 cm · für größere Steaks und Braten
+          - paragraph: Eine großzügige Größe für Grillabende mit mehreren Personen. Prüfe vor dem Kauf, ob die Ausführung eine Saftrille besitzt.
+          - paragraph:
+            - button "Zum Produkt" [expanded] [active]:
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=HOLM+Schneidebrett%2C+50x35+cm
+                - generic: Zum
+                - generic: Produkt
+            - dialog "Zum Produkt":
+              - link "https://chatgpt.com/?hints=search&q=HOLM...":
+                - /url: https://chatgpt.com/?hints=search&q=HOLM+Schneidebrett%2C+50x35+cm
+                - generic: https://chatgpt.com/?hints=search&q=HOLM...
+              - button "Copy URL":
+          - img "Zassenhaus Hackblock Akazie Stirnholz"
+          - button "Open Zassenhaus Hackblock Akazie Stirnholz"
+          - paragraph:
+            - button "Zassenhaus Hackblock Akazie Stirnholz":
+              - generic: Zassenhaus Hackblock Akazie Stirnholz
+          - heading "79,99 €" [level=2]
+          - paragraph: Akazie · massiver Hackblock
+          - paragraph: Interessant, wenn du eine besonders massive Arbeitsfläche zum Schneiden und Portionieren suchst. Fürs Tranchieren sollte die Saftrille separat geprüft werden.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Zassenhaus+Hackblock+Akazie+Stirnholz
+                - generic: Zum
+                - generic: Produkt
+          - img "METRO Professional Schneidebrett"
+          - button "Open METRO Professional Schneidebrett"
+          - paragraph:
+            - button "METRO Professional Schneidebrett":
+              - generic: METRO Professional Schneidebrett
+          - heading "21,41 €" [level=2]
+          - paragraph: Kunststoff · praktische Ergänzung
+          - paragraph: Eine preiswerte Alternative für die Vorbereitung von rohem Fleisch. Die genauen Maße und die Spülmaschineneignung solltest du beim Händler prüfen.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=METRO+Professional+Schneidebrett
+                - generic: Zum
+                - generic: Produkt
+          - paragraph: Die Produktpreise stammen aus den gefundenen Händlerangeboten und können sich ändern.
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: mindestens 45 × 30 cm, für größere Braten lieber 50 × 35 cm oder mehr.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: möglichst umlaufend und tief genug für Fleischsaft.
+            - paragraph:
+              - generic: "Stabilität:"
+              - text: etwa 3–4 cm Dicke bei einem massiven Holzbrett oder rutschfeste Füße.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Holz von Hand reinigen und gründlich trocknen; rohes Geflügel am besten auf einem separaten, leicht zu reinigenden Brett vorbereiten.
+              - button "Restaurantware +2":
+                - generic: Restaurantware
+                - generic: "+2"
+          - paragraph:
+            - generic: "Meine Wahl:"
+            - text: Ein massives Akazien- oder Walnussholzbrett mit Saftrille und rutschfestem Stand.
+          - paragraph:
+            - text: "Eine Frage noch:"
+            - generic: Was möchtest du ungefähr ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Braten" [checked]
+            - text: Steaks und Braten
+            - radio "Brisket, Ribs und große Fleischstücke"
+            - text: Brisket, Ribs und große Fleischstücke
+            - radio "Ganzes Hähnchen oder Geflügel"
+            - text: Ganzes Hähnchen oder Geflügel
+            - radio "Alles rund ums Grillen"
+            - text: Alles rund ums Grillen
+          - button "Passende Bretter finden":
+            - generic: Passende Bretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-88bbd45f-c924-4754-be65-2f5a22f383f6":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Fürs Grillen und Tranchieren eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: ", das Fleischsaft auffängt und genügend Platz für Steaks, Braten oder ganze Hähnchen bietet."
+          - paragraph: Entscheidend sind das Material, die Größe und die Standfestigkeit – gerade wenn du frisch gegrilltes Fleisch direkt auf dem Brett aufschneiden möchtest.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - heading "1. Stirnholz oder hochwertiges Hirnholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders hochwertig, schwer und messerschonend. Ideal zum Tranchieren von Steaks und Braten. Eine Saftrille ist sehr sinnvoll.
+          - paragraph: "Nachteil: schwerer und pflegeintensiver; nicht dauerhaft nass lagern."
+          - 'img "Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - 'button "Open Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - heading "2. Akazienholz" [level=3]
+          - paragraph: "Eine sehr gute Allround-Lösung für Grillfans: robust, attraktiv und meist preiswerter als hochwertiges Stirnholz."
+          - paragraph: Achte auf ausreichende Dicke, rutschfeste Füße und eine tiefe Saftrille.
+          - img "Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - button "Open Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - heading "3. Dickes Kunststoffbrett (HDPE)" [level=3]
+          - paragraph: Besonders praktisch und hygienisch im Alltag. Je nach Hersteller spülmaschinengeeignet und gut für rohes Fleisch.
+          - paragraph: Weniger edel, aber pflegeleicht. Auf rutschfeste Ausführung achten.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "HOLM Schneidebrett, 50x35 cm"
+          - button "Open HOLM Schneidebrett, 50x35 cm"
+          - paragraph:
+            - button "HOLM Schneidebrett, 50x35 cm":
+              - generic: HOLM Schneidebrett, 50x35 cm
+          - heading "45,00 €" [level=2]
+          - paragraph: 50 × 35 cm · für größere Steaks und Braten
+          - paragraph: Eine großzügige Größe für Grillabende mit mehreren Personen. Prüfe vor dem Kauf, ob die Ausführung eine Saftrille besitzt.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=HOLM+Schneidebrett%2C+50x35+cm
+                - generic: Zum
+                - generic: Produkt
+          - img "Zassenhaus Hackblock Akazie Stirnholz"
+          - button "Open Zassenhaus Hackblock Akazie Stirnholz"
+          - paragraph:
+            - button "Zassenhaus Hackblock Akazie Stirnholz":
+              - generic: Zassenhaus Hackblock Akazie Stirnholz
+          - heading "79,99 €" [level=2]
+          - paragraph: Akazie · massiver Hackblock
+          - paragraph: Interessant, wenn du eine besonders massive Arbeitsfläche zum Schneiden und Portionieren suchst. Fürs Tranchieren sollte die Saftrille separat geprüft werden.
+          - paragraph:
+            - button "Zum Produkt" [expanded] [active]:
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Zassenhaus+Hackblock+Akazie+Stirnholz
+                - generic: Zum
+                - generic: Produkt
+            - dialog "Zum Produkt":
+              - link "https://chatgpt.com/?hints=search&q=Zass...":
+                - /url: https://chatgpt.com/?hints=search&q=Zassenhaus+Hackblock+Akazie+Stirnholz
+                - generic: https://chatgpt.com/?hints=search&q=Zass...
+              - button "Copy URL":
+          - img "METRO Professional Schneidebrett"
+          - button "Open METRO Professional Schneidebrett"
+          - paragraph:
+            - button "METRO Professional Schneidebrett":
+              - generic: METRO Professional Schneidebrett
+          - heading "21,41 €" [level=2]
+          - paragraph: Kunststoff · praktische Ergänzung
+          - paragraph: Eine preiswerte Alternative für die Vorbereitung von rohem Fleisch. Die genauen Maße und die Spülmaschineneignung solltest du beim Händler prüfen.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=METRO+Professional+Schneidebrett
+                - generic: Zum
+                - generic: Produkt
+          - paragraph: Die Produktpreise stammen aus den gefundenen Händlerangeboten und können sich ändern.
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: mindestens 45 × 30 cm, für größere Braten lieber 50 × 35 cm oder mehr.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: möglichst umlaufend und tief genug für Fleischsaft.
+            - paragraph:
+              - generic: "Stabilität:"
+              - text: etwa 3–4 cm Dicke bei einem massiven Holzbrett oder rutschfeste Füße.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Holz von Hand reinigen und gründlich trocknen; rohes Geflügel am besten auf einem separaten, leicht zu reinigenden Brett vorbereiten.
+              - button "Restaurantware +2":
+                - generic: Restaurantware
+                - generic: "+2"
+          - paragraph:
+            - generic: "Meine Wahl:"
+            - text: Ein massives Akazien- oder Walnussholzbrett mit Saftrille und rutschfestem Stand.
+          - paragraph:
+            - text: "Eine Frage noch:"
+            - generic: Was möchtest du ungefähr ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Braten" [checked]
+            - text: Steaks und Braten
+            - radio "Brisket, Ribs und große Fleischstücke"
+            - text: Brisket, Ribs und große Fleischstücke
+            - radio "Ganzes Hähnchen oder Geflügel"
+            - text: Ganzes Hähnchen oder Geflügel
+            - radio "Alles rund ums Grillen"
+            - text: Alles rund ums Grillen
+          - button "Passende Bretter finden":
+            - generic: Passende Bretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-88bbd45f-c924-4754-be65-2f5a22f383f6":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Fürs Grillen und Tranchieren eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: ", das Fleischsaft auffängt und genügend Platz für Steaks, Braten oder ganze Hähnchen bietet."
+          - paragraph: Entscheidend sind das Material, die Größe und die Standfestigkeit – gerade wenn du frisch gegrilltes Fleisch direkt auf dem Brett aufschneiden möchtest.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - heading "1. Stirnholz oder hochwertiges Hirnholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders hochwertig, schwer und messerschonend. Ideal zum Tranchieren von Steaks und Braten. Eine Saftrille ist sehr sinnvoll.
+          - paragraph: "Nachteil: schwerer und pflegeintensiver; nicht dauerhaft nass lagern."
+          - 'img "Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - 'button "Open Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - heading "2. Akazienholz" [level=3]
+          - paragraph: "Eine sehr gute Allround-Lösung für Grillfans: robust, attraktiv und meist preiswerter als hochwertiges Stirnholz."
+          - paragraph: Achte auf ausreichende Dicke, rutschfeste Füße und eine tiefe Saftrille.
+          - img "Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - button "Open Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - heading "3. Dickes Kunststoffbrett (HDPE)" [level=3]
+          - paragraph: Besonders praktisch und hygienisch im Alltag. Je nach Hersteller spülmaschinengeeignet und gut für rohes Fleisch.
+          - paragraph: Weniger edel, aber pflegeleicht. Auf rutschfeste Ausführung achten.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "HOLM Schneidebrett, 50x35 cm"
+          - button "Open HOLM Schneidebrett, 50x35 cm"
+          - paragraph:
+            - button "HOLM Schneidebrett, 50x35 cm":
+              - generic: HOLM Schneidebrett, 50x35 cm
+          - heading "45,00 €" [level=2]
+          - paragraph: 50 × 35 cm · für größere Steaks und Braten
+          - paragraph: Eine großzügige Größe für Grillabende mit mehreren Personen. Prüfe vor dem Kauf, ob die Ausführung eine Saftrille besitzt.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=HOLM+Schneidebrett%2C+50x35+cm
+                - generic: Zum
+                - generic: Produkt
+          - img "Zassenhaus Hackblock Akazie Stirnholz"
+          - button "Open Zassenhaus Hackblock Akazie Stirnholz"
+          - paragraph:
+            - button "Zassenhaus Hackblock Akazie Stirnholz":
+              - generic: Zassenhaus Hackblock Akazie Stirnholz
+          - heading "79,99 €" [level=2]
+          - paragraph: Akazie · massiver Hackblock
+          - paragraph: Interessant, wenn du eine besonders massive Arbeitsfläche zum Schneiden und Portionieren suchst. Fürs Tranchieren sollte die Saftrille separat geprüft werden.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Zassenhaus+Hackblock+Akazie+Stirnholz
+                - generic: Zum
+                - generic: Produkt
+          - img "METRO Professional Schneidebrett"
+          - button "Open METRO Professional Schneidebrett"
+          - paragraph:
+            - button "METRO Professional Schneidebrett":
+              - generic: METRO Professional Schneidebrett
+          - heading "21,41 €" [level=2]
+          - paragraph: Kunststoff · praktische Ergänzung
+          - paragraph: Eine preiswerte Alternative für die Vorbereitung von rohem Fleisch. Die genauen Maße und die Spülmaschineneignung solltest du beim Händler prüfen.
+          - paragraph:
+            - button "Zum Produkt" [expanded] [active]:
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=METRO+Professional+Schneidebrett
+                - generic: Zum
+                - generic: Produkt
+            - dialog "Zum Produkt":
+              - link "https://chatgpt.com/?hints=search&q=METR...":
+                - /url: https://chatgpt.com/?hints=search&q=METRO+Professional+Schneidebrett
+                - generic: https://chatgpt.com/?hints=search&q=METR...
+              - button "Copy URL":
+          - paragraph: Die Produktpreise stammen aus den gefundenen Händlerangeboten und können sich ändern.
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: mindestens 45 × 30 cm, für größere Braten lieber 50 × 35 cm oder mehr.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: möglichst umlaufend und tief genug für Fleischsaft.
+            - paragraph:
+              - generic: "Stabilität:"
+              - text: etwa 3–4 cm Dicke bei einem massiven Holzbrett oder rutschfeste Füße.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Holz von Hand reinigen und gründlich trocknen; rohes Geflügel am besten auf einem separaten, leicht zu reinigenden Brett vorbereiten.
+              - button "Restaurantware +2":
+                - generic: Restaurantware
+                - generic: "+2"
+          - paragraph:
+            - generic: "Meine Wahl:"
+            - text: Ein massives Akazien- oder Walnussholzbrett mit Saftrille und rutschfestem Stand.
+          - paragraph:
+            - text: "Eine Frage noch:"
+            - generic: Was möchtest du ungefähr ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Braten" [checked]
+            - text: Steaks und Braten
+            - radio "Brisket, Ribs und große Fleischstücke"
+            - text: Brisket, Ribs und große Fleischstücke
+            - radio "Ganzes Hähnchen oder Geflügel"
+            - text: Ganzes Hähnchen oder Geflügel
+            - radio "Alles rund ums Grillen"
+            - text: Alles rund ums Grillen
+          - button "Passende Bretter finden":
+            - generic: Passende Bretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-88bbd45f-c924-4754-be65-2f5a22f383f6":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Schneidebrett eignet sich zum Grillen und Tranchieren?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Fürs Grillen und Tranchieren eignet sich am besten ein
+            - generic: großes, stabiles Schneidebrett mit Saftrille
+            - text: ", das Fleischsaft auffängt und genügend Platz für Steaks, Braten oder ganze Hähnchen bietet."
+          - paragraph: Entscheidend sind das Material, die Größe und die Standfestigkeit – gerade wenn du frisch gegrilltes Fleisch direkt auf dem Brett aufschneiden möchtest.
+          - heading "Welches Material ist am besten?" [level=2]
+          - img "End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - button "Open End Grain Butcher Block with Juice Grooves and Handles 20x13x2'' - Mevell.com"
+          - heading "1. Stirnholz oder hochwertiges Hirnholz" [level=3]
+          - generic: Meine Empfehlung
+          - paragraph: Besonders hochwertig, schwer und messerschonend. Ideal zum Tranchieren von Steaks und Braten. Eine Saftrille ist sehr sinnvoll.
+          - paragraph: "Nachteil: schwerer und pflegeintensiver; nicht dauerhaft nass lagern."
+          - 'img "Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - 'button "Open Wholesale Heavy Duty Meat Carving Platter and Reversible Acacia Wood Cutting Block Set | Cutting & Chopping Boards | Shape Your Success: Custom Acacia Wood Cutting Boards"'
+          - heading "2. Akazienholz" [level=3]
+          - paragraph: "Eine sehr gute Allround-Lösung für Grillfans: robust, attraktiv und meist preiswerter als hochwertiges Stirnholz."
+          - paragraph: Achte auf ausreichende Dicke, rutschfeste Füße und eine tiefe Saftrille.
+          - img "Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - button "Open Planche à découper - rigole et récupérateur de jus 600 x 400 HACCP - Blanc"
+          - heading "3. Dickes Kunststoffbrett (HDPE)" [level=3]
+          - paragraph: Besonders praktisch und hygienisch im Alltag. Je nach Hersteller spülmaschinengeeignet und gut für rohes Fleisch.
+          - paragraph: Weniger edel, aber pflegeleicht. Auf rutschfeste Ausführung achten.
+          - heading "Drei konkrete Empfehlungen" [level=2]
+          - img "HOLM Schneidebrett, 50x35 cm"
+          - button "Open HOLM Schneidebrett, 50x35 cm"
+          - paragraph:
+            - button "HOLM Schneidebrett, 50x35 cm":
+              - generic: HOLM Schneidebrett, 50x35 cm
+          - heading "45,00 €" [level=2]
+          - paragraph: 50 × 35 cm · für größere Steaks und Braten
+          - paragraph: Eine großzügige Größe für Grillabende mit mehreren Personen. Prüfe vor dem Kauf, ob die Ausführung eine Saftrille besitzt.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=HOLM+Schneidebrett%2C+50x35+cm
+                - generic: Zum
+                - generic: Produkt
+          - img "Zassenhaus Hackblock Akazie Stirnholz"
+          - button "Open Zassenhaus Hackblock Akazie Stirnholz"
+          - paragraph:
+            - button "Zassenhaus Hackblock Akazie Stirnholz":
+              - generic: Zassenhaus Hackblock Akazie Stirnholz
+          - heading "79,99 €" [level=2]
+          - paragraph: Akazie · massiver Hackblock
+          - paragraph: Interessant, wenn du eine besonders massive Arbeitsfläche zum Schneiden und Portionieren suchst. Fürs Tranchieren sollte die Saftrille separat geprüft werden.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=Zassenhaus+Hackblock+Akazie+Stirnholz
+                - generic: Zum
+                - generic: Produkt
+          - img "METRO Professional Schneidebrett"
+          - button "Open METRO Professional Schneidebrett"
+          - paragraph:
+            - button "METRO Professional Schneidebrett":
+              - generic: METRO Professional Schneidebrett
+          - heading "21,41 €" [level=2]
+          - paragraph: Kunststoff · praktische Ergänzung
+          - paragraph: Eine preiswerte Alternative für die Vorbereitung von rohem Fleisch. Die genauen Maße und die Spülmaschineneignung solltest du beim Händler prüfen.
+          - paragraph:
+            - button "Zum Produkt":
+              - link "Zum Produkt":
+                - /url: https://chatgpt.com/?hints=search&q=METRO+Professional+Schneidebrett
+                - generic: Zum
+                - generic: Produkt
+          - paragraph: Die Produktpreise stammen aus den gefundenen Händlerangeboten und können sich ändern.
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Größe:"
+              - text: mindestens 45 × 30 cm, für größere Braten lieber 50 × 35 cm oder mehr.
+            - paragraph:
+              - generic: "Saftrille:"
+              - text: möglichst umlaufend und tief genug für Fleischsaft.
+            - paragraph:
+              - generic: "Stabilität:"
+              - text: etwa 3–4 cm Dicke bei einem massiven Holzbrett oder rutschfeste Füße.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Holz von Hand reinigen und gründlich trocknen; rohes Geflügel am besten auf einem separaten, leicht zu reinigenden Brett vorbereiten.
+              - button "Restaurantware +2" [expanded] [active]:
+                - generic: Restaurantware
+                - generic: "+2"
+              - dialog "Restaurantware +2":
+                - button "Open Restaurantware":
+                  - generic: Restaurantware
+                  - paragraph: Cutting Boards Buying Guide
+                  - paragraph: April 18, 2026
+                - button "Open Customcuts":
+                  - generic: Customcuts
+                  - paragraph: How to Choose the Best Cutting Board for BBQ and Grilling
+                  - paragraph: August 30, 2026
+                - button "Open Bon Appétit":
+                  - generic: Bon Appétit
+                  - paragraph: Best Cutting Boards for Slicing, Dicing, and Chopping (2026)
+                  - paragraph: Juni 22, 2026
+          - paragraph:
+            - generic: "Meine Wahl:"
+            - text: Ein massives Akazien- oder Walnussholzbrett mit Saftrille und rutschfestem Stand.
+          - paragraph:
+            - text: "Eine Frage noch:"
+            - generic: Was möchtest du ungefähr ausgeben?
+          - radiogroup "Options":
+            - radio "Bis 30 €"
+            - text: Bis 30 €
+            - radio "30–50 €"
+            - text: 30–50 €
+            - radio "50–100 €" [checked]
+            - text: 50–100 €
+            - radio "Über 100 € – Premium"
+            - text: Über 100 € – Premium
+          - paragraph: Was tranchierst du hauptsächlich?
+          - radiogroup "Options":
+            - radio "Steaks und Braten" [checked]
+            - text: Steaks und Braten
+            - radio "Brisket, Ribs und große Fleischstücke"
+            - text: Brisket, Ribs und große Fleischstücke
+            - radio "Ganzes Hähnchen oder Geflügel"
+            - text: Ganzes Hähnchen oder Geflügel
+            - radio "Alles rund ums Grillen"
+            - text: Alles rund ums Grillen
+          - button "Passende Bretter finden":
+            - generic: Passende Bretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

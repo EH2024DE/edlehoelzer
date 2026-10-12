@@ -1,0 +1,1053 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-093e8b41-cced-4b7a-a52f-4533ec63d8a0":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Woran erkennt man ein hochwertiges Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein hochwertiges Schneidebrett erkennt man vor allem an
+            - generic: dem Material, der Verarbeitung, der Stabilität und der Pflegeleichtigkeit
+            - text: . Es sollte beim Schneiden sicher liegen, die Messerklinge möglichst schonen und bei richtiger Pflege viele Jahre halten.
+          - 'heading "1. Das Material: Worauf es ankommt" [level=2]'
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - heading "Stirnholz – die Premiumklasse" [level=3]
+          - generic: Besonders hochwertig
+          - paragraph: Die Holzfasern stehen senkrecht zur Schneidfläche. Dadurch kann die Klinge teilweise zwischen die Fasern gleiten. Das ist besonders messerschonend. Solche Bretter sind oft dick, schwer und langlebig.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: ambitionierte Hobbyköche und hochwertige Küchenmesser.
+          - img "Solid Walnut – Grizzly Grade"
+          - button "Open Solid Walnut – Grizzly Grade"
+          - heading "Längsholz oder Längs-/Seitenholz" [level=3]
+          - paragraph: Eine sehr gute Wahl für den Alltag. Die Holzfasern verlaufen überwiegend parallel zur Brettoberfläche. Gute Bretter aus Ahorn, Buche, Eiche oder Nussbaum sind robust und messerschonend.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: tägliches Schneiden von Gemüse, Fleisch und Kräutern.
+          - img "Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - button "Open Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - heading "Hochwertiger Kunststoff" [level=3]
+          - paragraph: Gute Bretter aus lebensmittelechtem HDPE oder vergleichbarem Material sind praktisch, relativ pflegeleicht und häufig spülmaschinengeeignet, sofern der Hersteller das ausdrücklich angibt. Sie können allerdings mit der Zeit tiefe Schnittspuren bekommen.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: hygienische Arbeitsabläufe und den häufigen Wechsel zwischen verschiedenen Lebensmitteln.
+          - img "Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - button "Open Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - heading "Glas, Stein und Keramik" [level=3]
+          - text: Diese Materialien sind leicht zu reinigen, aber für hochwertige Küchenmesser meist keine gute Wahl. Die harte Oberfläche lässt Klingen schnell stumpf werden; außerdem kann das Schneiden unangenehm laut sein.
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für ein langlebiges Schneidebrett aus Holz sind ein gut verarbeitetes Stirnholzbrett oder ein solides Brett aus Ahorn oder Nussbaum besonders interessant. Ein dickes Stirnholzbrett ist allerdings schwerer und benötigt mehr Pflege.
+          - heading "2. Fünf Qualitätsmerkmale, die du beim Kauf prüfen solltest" [level=2]
+          - paragraph:
+            - generic: 1. Ausreichende Dicke und Gewicht
+          - paragraph: Ein massives Brett von etwa 3–5 cm Dicke liegt häufig stabiler als ein dünnes Brett. Es sollte auf der Arbeitsfläche nicht kippeln oder sich leicht verziehen.
+          - paragraph:
+            - generic: 2. Saubere Verleimung
+          - paragraph:
+            - text: Bei verleimten Brettern sollten die Fugen gleichmäßig und geschlossen sein. Keine offenen Spalten, Risse oder sich lösenden Holzstücke. Der verwendete Klebstoff sollte für den vorgesehenen Lebensmittelkontakt geeignet sein.
+            - button "Bevel & Bond +1":
+              - generic: Bevel & Bond
+              - generic: "+1"
+          - paragraph:
+            - generic: 3. Glatte, splitterfreie Oberfläche
+          - paragraph: Das Brett sollte sich angenehm glatt anfühlen, ohne raue Stellen, Splitter oder scharfe Kanten. Eine glatte Oberfläche ist jedoch kein Ersatz für gründliche Reinigung.
+          - paragraph:
+            - generic: 4. Geeignete Oberflächenbehandlung
+          - paragraph: Bei Holz sind lebensmittelechtes Mineralöl oder geeignete Pflegewachse, beispielsweise mit Bienenwachs, eine gute Wahl. Lackierte Oberflächen sind zum regelmäßigen Schneiden ungeeignet, wenn die Beschichtung durch Messerschnitte beschädigt werden kann.
+          - paragraph:
+            - generic: 5. Gute Hygiene und Pflege
+          - paragraph:
+            - text: Das Brett muss gründlich zu reinigen und vollständig zu trocknen sein. Tiefe Schnittrillen, Risse und beschädigte Stellen sind problematisch, weil sie sich schwerer reinigen lassen.
+            - button "Food Safety Authority of Ireland +1":
+              - generic: Food Safety Authority of Ireland
+              - generic: "+1"
+          - heading "3. Welche Holzart ist die beste?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Holzart Eigenschaften Einschätzung":
+                - columnheader "Holzart":
+                  - paragraph: Holzart
+                - columnheader "Eigenschaften":
+                  - paragraph: Eigenschaften
+                - columnheader "Einschätzung":
+                  - paragraph: Einschätzung
+              - row "Ahorn Feinporig, robust, messerschonend Sehr gute Wahl":
+                - cell "Ahorn":
+                  - paragraph: Ahorn
+                - cell "Feinporig, robust, messerschonend":
+                  - paragraph: Feinporig, robust, messerschonend
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Nussbaum Angenehm zu bearbeiten, schöne dunkle Farbe Sehr gute Wahl":
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+                - cell "Angenehm zu bearbeiten, schöne dunkle Farbe":
+                  - paragraph: Angenehm zu bearbeiten, schöne dunkle Farbe
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Buche Robust, meist preiswerter Sehr gutes Preis-Leistungs-Verhältnis":
+                - cell "Buche":
+                  - paragraph: Buche
+                - cell "Robust, meist preiswerter":
+                  - paragraph: Robust, meist preiswerter
+                - cell "Sehr gutes Preis-Leistungs-Verhältnis":
+                  - paragraph: Sehr gutes Preis-Leistungs-Verhältnis
+              - row "Eiche Robust, aber grobporiger Auf Verarbeitung und Eignung achten":
+                - cell "Eiche":
+                  - paragraph: Eiche
+                - cell "Robust, aber grobporiger":
+                  - paragraph: Robust, aber grobporiger
+                - cell "Auf Verarbeitung und Eignung achten":
+                  - paragraph: Auf Verarbeitung und Eignung achten
+              - row "Bambus Hart, leicht und oft günstig Kann Messer stärker beanspruchen":
+                - cell "Bambus":
+                  - paragraph: Bambus
+                - cell "Hart, leicht und oft günstig":
+                  - paragraph: Hart, leicht und oft günstig
+                - cell "Kann Messer stärker beanspruchen":
+                  - paragraph: Kann Messer stärker beanspruchen
+          - paragraph:
+            - text: "Die Holzart allein entscheidet nicht über die Qualität: Konstruktion, Trocknung, Verleimung und Verarbeitung sind ebenso wichtig."
+            - button "Wood Identifier +1":
+              - generic: Wood Identifier
+              - generic: "+1"
+          - heading "4. So bleibt ein hochwertiges Brett lange schön" [level=2]
+          - list:
+            - paragraph: Mit warmem Wasser und etwas Spülmittel reinigen.
+            - paragraph: Direkt danach gründlich abtrocknen und möglichst hochkant nachtrocknen lassen.
+            - paragraph: Holzschneidebretter nicht in die Spülmaschine geben und nicht im Wasser liegen lassen.
+            - paragraph: Bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+            - paragraph: Für rohes Fleisch und verzehrfertige Lebensmittel möglichst getrennte Bretter verwenden.
+          - button "Food Safety Authority of Ireland +1":
+            - generic: Food Safety Authority of Ireland
+            - generic: "+1"
+          - heading "Meine Empfehlung" [level=2]
+          - paragraph: "Wenn du ein wirklich hochwertiges Schneidebrett suchst, würde ich auf diese Kombination achten:"
+          - list:
+            - paragraph:
+              - generic: "Material:"
+              - text: Ahorn oder Nussbaum
+            - paragraph:
+              - generic: "Bauart:"
+              - text: Stirnholz für besonders messerschonendes Arbeiten; Längsholz für ein leichteres, günstigeres Alltagsbrett
+            - paragraph:
+              - generic: "Dicke:"
+              - text: ungefähr 3–5 cm bei einem massiven Premiumbrett
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: geschlossene Leimfugen, glatte Oberfläche, kein Wackeln
+            - paragraph:
+              - generic: "Pflege:"
+              - text: unbehandelt oder mit lebensmittelechtem Öl beziehungsweise Pflegewachs behandelt
+          - paragraph: Ein teures Brett ist nicht automatisch ein gutes Brett. Eine sorgfältig verarbeitete, stabile Holzplatte kann im Alltag die bessere Wahl sein als ein dekoratives, schweres Premiumbrett.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Suchst du ein Schneidebrett für den täglichen Gebrauch oder eines der Premiumklasse, das dich möglichst viele Jahre begleitet? Dann kann ich dir auch sagen, welche Bauart und welches Budget sich dafür lohnen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-093e8b41-cced-4b7a-a52f-4533ec63d8a0":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Woran erkennt man ein hochwertiges Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein hochwertiges Schneidebrett erkennt man vor allem an
+            - generic: dem Material, der Verarbeitung, der Stabilität und der Pflegeleichtigkeit
+            - text: . Es sollte beim Schneiden sicher liegen, die Messerklinge möglichst schonen und bei richtiger Pflege viele Jahre halten.
+          - 'heading "1. Das Material: Worauf es ankommt" [level=2]'
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - heading "Stirnholz – die Premiumklasse" [level=3]
+          - generic: Besonders hochwertig
+          - paragraph: Die Holzfasern stehen senkrecht zur Schneidfläche. Dadurch kann die Klinge teilweise zwischen die Fasern gleiten. Das ist besonders messerschonend. Solche Bretter sind oft dick, schwer und langlebig.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: ambitionierte Hobbyköche und hochwertige Küchenmesser.
+          - img "Solid Walnut – Grizzly Grade"
+          - button "Open Solid Walnut – Grizzly Grade"
+          - heading "Längsholz oder Längs-/Seitenholz" [level=3]
+          - paragraph: Eine sehr gute Wahl für den Alltag. Die Holzfasern verlaufen überwiegend parallel zur Brettoberfläche. Gute Bretter aus Ahorn, Buche, Eiche oder Nussbaum sind robust und messerschonend.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: tägliches Schneiden von Gemüse, Fleisch und Kräutern.
+          - img "Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - button "Open Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - heading "Hochwertiger Kunststoff" [level=3]
+          - paragraph: Gute Bretter aus lebensmittelechtem HDPE oder vergleichbarem Material sind praktisch, relativ pflegeleicht und häufig spülmaschinengeeignet, sofern der Hersteller das ausdrücklich angibt. Sie können allerdings mit der Zeit tiefe Schnittspuren bekommen.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: hygienische Arbeitsabläufe und den häufigen Wechsel zwischen verschiedenen Lebensmitteln.
+          - img "Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - button "Open Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - heading "Glas, Stein und Keramik" [level=3]
+          - text: Diese Materialien sind leicht zu reinigen, aber für hochwertige Küchenmesser meist keine gute Wahl. Die harte Oberfläche lässt Klingen schnell stumpf werden; außerdem kann das Schneiden unangenehm laut sein.
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für ein langlebiges Schneidebrett aus Holz sind ein gut verarbeitetes Stirnholzbrett oder ein solides Brett aus Ahorn oder Nussbaum besonders interessant. Ein dickes Stirnholzbrett ist allerdings schwerer und benötigt mehr Pflege.
+          - heading "2. Fünf Qualitätsmerkmale, die du beim Kauf prüfen solltest" [level=2]
+          - paragraph:
+            - generic: 1. Ausreichende Dicke und Gewicht
+          - paragraph: Ein massives Brett von etwa 3–5 cm Dicke liegt häufig stabiler als ein dünnes Brett. Es sollte auf der Arbeitsfläche nicht kippeln oder sich leicht verziehen.
+          - paragraph:
+            - generic: 2. Saubere Verleimung
+          - paragraph:
+            - text: Bei verleimten Brettern sollten die Fugen gleichmäßig und geschlossen sein. Keine offenen Spalten, Risse oder sich lösenden Holzstücke. Der verwendete Klebstoff sollte für den vorgesehenen Lebensmittelkontakt geeignet sein.
+            - button "Bevel & Bond +1" [expanded] [active]:
+              - generic: Bevel & Bond
+              - generic: "+1"
+            - dialog "Bevel & Bond +1":
+              - button "Open Bevel & Bond":
+                - generic: Bevel & Bond
+                - paragraph: How Edge Grain Cutting Boards Are Made (Step by Step)
+                - paragraph: September 27, 2026
+              - button "Open Manufactum":
+                - generic: Manufactum
+                - paragraph: High-Quality Wooden Cutting Boards
+          - paragraph:
+            - generic: 3. Glatte, splitterfreie Oberfläche
+          - paragraph: Das Brett sollte sich angenehm glatt anfühlen, ohne raue Stellen, Splitter oder scharfe Kanten. Eine glatte Oberfläche ist jedoch kein Ersatz für gründliche Reinigung.
+          - paragraph:
+            - generic: 4. Geeignete Oberflächenbehandlung
+          - paragraph: Bei Holz sind lebensmittelechtes Mineralöl oder geeignete Pflegewachse, beispielsweise mit Bienenwachs, eine gute Wahl. Lackierte Oberflächen sind zum regelmäßigen Schneiden ungeeignet, wenn die Beschichtung durch Messerschnitte beschädigt werden kann.
+          - paragraph:
+            - generic: 5. Gute Hygiene und Pflege
+          - paragraph:
+            - text: Das Brett muss gründlich zu reinigen und vollständig zu trocknen sein. Tiefe Schnittrillen, Risse und beschädigte Stellen sind problematisch, weil sie sich schwerer reinigen lassen.
+            - button "Food Safety Authority of Ireland +1":
+              - generic: Food Safety Authority of Ireland
+              - generic: "+1"
+          - heading "3. Welche Holzart ist die beste?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Holzart Eigenschaften Einschätzung":
+                - columnheader "Holzart":
+                  - paragraph: Holzart
+                - columnheader "Eigenschaften":
+                  - paragraph: Eigenschaften
+                - columnheader "Einschätzung":
+                  - paragraph: Einschätzung
+              - row "Ahorn Feinporig, robust, messerschonend Sehr gute Wahl":
+                - cell "Ahorn":
+                  - paragraph: Ahorn
+                - cell "Feinporig, robust, messerschonend":
+                  - paragraph: Feinporig, robust, messerschonend
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Nussbaum Angenehm zu bearbeiten, schöne dunkle Farbe Sehr gute Wahl":
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+                - cell "Angenehm zu bearbeiten, schöne dunkle Farbe":
+                  - paragraph: Angenehm zu bearbeiten, schöne dunkle Farbe
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Buche Robust, meist preiswerter Sehr gutes Preis-Leistungs-Verhältnis":
+                - cell "Buche":
+                  - paragraph: Buche
+                - cell "Robust, meist preiswerter":
+                  - paragraph: Robust, meist preiswerter
+                - cell "Sehr gutes Preis-Leistungs-Verhältnis":
+                  - paragraph: Sehr gutes Preis-Leistungs-Verhältnis
+              - row "Eiche Robust, aber grobporiger Auf Verarbeitung und Eignung achten":
+                - cell "Eiche":
+                  - paragraph: Eiche
+                - cell "Robust, aber grobporiger":
+                  - paragraph: Robust, aber grobporiger
+                - cell "Auf Verarbeitung und Eignung achten":
+                  - paragraph: Auf Verarbeitung und Eignung achten
+              - row "Bambus Hart, leicht und oft günstig Kann Messer stärker beanspruchen":
+                - cell "Bambus":
+                  - paragraph: Bambus
+                - cell "Hart, leicht und oft günstig":
+                  - paragraph: Hart, leicht und oft günstig
+                - cell "Kann Messer stärker beanspruchen":
+                  - paragraph: Kann Messer stärker beanspruchen
+          - paragraph:
+            - text: "Die Holzart allein entscheidet nicht über die Qualität: Konstruktion, Trocknung, Verleimung und Verarbeitung sind ebenso wichtig."
+            - button "Wood Identifier +1":
+              - generic: Wood Identifier
+              - generic: "+1"
+          - heading "4. So bleibt ein hochwertiges Brett lange schön" [level=2]
+          - list:
+            - paragraph: Mit warmem Wasser und etwas Spülmittel reinigen.
+            - paragraph: Direkt danach gründlich abtrocknen und möglichst hochkant nachtrocknen lassen.
+            - paragraph: Holzschneidebretter nicht in die Spülmaschine geben und nicht im Wasser liegen lassen.
+            - paragraph: Bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+            - paragraph: Für rohes Fleisch und verzehrfertige Lebensmittel möglichst getrennte Bretter verwenden.
+          - button "Food Safety Authority of Ireland +1":
+            - generic: Food Safety Authority of Ireland
+            - generic: "+1"
+          - heading "Meine Empfehlung" [level=2]
+          - paragraph: "Wenn du ein wirklich hochwertiges Schneidebrett suchst, würde ich auf diese Kombination achten:"
+          - list:
+            - paragraph:
+              - generic: "Material:"
+              - text: Ahorn oder Nussbaum
+            - paragraph:
+              - generic: "Bauart:"
+              - text: Stirnholz für besonders messerschonendes Arbeiten; Längsholz für ein leichteres, günstigeres Alltagsbrett
+            - paragraph:
+              - generic: "Dicke:"
+              - text: ungefähr 3–5 cm bei einem massiven Premiumbrett
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: geschlossene Leimfugen, glatte Oberfläche, kein Wackeln
+            - paragraph:
+              - generic: "Pflege:"
+              - text: unbehandelt oder mit lebensmittelechtem Öl beziehungsweise Pflegewachs behandelt
+          - paragraph: Ein teures Brett ist nicht automatisch ein gutes Brett. Eine sorgfältig verarbeitete, stabile Holzplatte kann im Alltag die bessere Wahl sein als ein dekoratives, schweres Premiumbrett.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Suchst du ein Schneidebrett für den täglichen Gebrauch oder eines der Premiumklasse, das dich möglichst viele Jahre begleitet? Dann kann ich dir auch sagen, welche Bauart und welches Budget sich dafür lohnen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-093e8b41-cced-4b7a-a52f-4533ec63d8a0":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Woran erkennt man ein hochwertiges Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein hochwertiges Schneidebrett erkennt man vor allem an
+            - generic: dem Material, der Verarbeitung, der Stabilität und der Pflegeleichtigkeit
+            - text: . Es sollte beim Schneiden sicher liegen, die Messerklinge möglichst schonen und bei richtiger Pflege viele Jahre halten.
+          - 'heading "1. Das Material: Worauf es ankommt" [level=2]'
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - heading "Stirnholz – die Premiumklasse" [level=3]
+          - generic: Besonders hochwertig
+          - paragraph: Die Holzfasern stehen senkrecht zur Schneidfläche. Dadurch kann die Klinge teilweise zwischen die Fasern gleiten. Das ist besonders messerschonend. Solche Bretter sind oft dick, schwer und langlebig.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: ambitionierte Hobbyköche und hochwertige Küchenmesser.
+          - img "Solid Walnut – Grizzly Grade"
+          - button "Open Solid Walnut – Grizzly Grade"
+          - heading "Längsholz oder Längs-/Seitenholz" [level=3]
+          - paragraph: Eine sehr gute Wahl für den Alltag. Die Holzfasern verlaufen überwiegend parallel zur Brettoberfläche. Gute Bretter aus Ahorn, Buche, Eiche oder Nussbaum sind robust und messerschonend.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: tägliches Schneiden von Gemüse, Fleisch und Kräutern.
+          - img "Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - button "Open Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - heading "Hochwertiger Kunststoff" [level=3]
+          - paragraph: Gute Bretter aus lebensmittelechtem HDPE oder vergleichbarem Material sind praktisch, relativ pflegeleicht und häufig spülmaschinengeeignet, sofern der Hersteller das ausdrücklich angibt. Sie können allerdings mit der Zeit tiefe Schnittspuren bekommen.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: hygienische Arbeitsabläufe und den häufigen Wechsel zwischen verschiedenen Lebensmitteln.
+          - img "Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - button "Open Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - heading "Glas, Stein und Keramik" [level=3]
+          - text: Diese Materialien sind leicht zu reinigen, aber für hochwertige Küchenmesser meist keine gute Wahl. Die harte Oberfläche lässt Klingen schnell stumpf werden; außerdem kann das Schneiden unangenehm laut sein.
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für ein langlebiges Schneidebrett aus Holz sind ein gut verarbeitetes Stirnholzbrett oder ein solides Brett aus Ahorn oder Nussbaum besonders interessant. Ein dickes Stirnholzbrett ist allerdings schwerer und benötigt mehr Pflege.
+          - heading "2. Fünf Qualitätsmerkmale, die du beim Kauf prüfen solltest" [level=2]
+          - paragraph:
+            - generic: 1. Ausreichende Dicke und Gewicht
+          - paragraph: Ein massives Brett von etwa 3–5 cm Dicke liegt häufig stabiler als ein dünnes Brett. Es sollte auf der Arbeitsfläche nicht kippeln oder sich leicht verziehen.
+          - paragraph:
+            - generic: 2. Saubere Verleimung
+          - paragraph:
+            - text: Bei verleimten Brettern sollten die Fugen gleichmäßig und geschlossen sein. Keine offenen Spalten, Risse oder sich lösenden Holzstücke. Der verwendete Klebstoff sollte für den vorgesehenen Lebensmittelkontakt geeignet sein.
+            - button "Bevel & Bond +1":
+              - generic: Bevel & Bond
+              - generic: "+1"
+          - paragraph:
+            - generic: 3. Glatte, splitterfreie Oberfläche
+          - paragraph: Das Brett sollte sich angenehm glatt anfühlen, ohne raue Stellen, Splitter oder scharfe Kanten. Eine glatte Oberfläche ist jedoch kein Ersatz für gründliche Reinigung.
+          - paragraph:
+            - generic: 4. Geeignete Oberflächenbehandlung
+          - paragraph: Bei Holz sind lebensmittelechtes Mineralöl oder geeignete Pflegewachse, beispielsweise mit Bienenwachs, eine gute Wahl. Lackierte Oberflächen sind zum regelmäßigen Schneiden ungeeignet, wenn die Beschichtung durch Messerschnitte beschädigt werden kann.
+          - paragraph:
+            - generic: 5. Gute Hygiene und Pflege
+          - paragraph:
+            - text: Das Brett muss gründlich zu reinigen und vollständig zu trocknen sein. Tiefe Schnittrillen, Risse und beschädigte Stellen sind problematisch, weil sie sich schwerer reinigen lassen.
+            - button "Food Safety Authority of Ireland +1" [expanded] [active]:
+              - generic: Food Safety Authority of Ireland
+              - generic: "+1"
+            - dialog "Food Safety Authority of Ireland +1":
+              - button "Open Food Safety Authority of Ireland":
+                - generic: Food Safety Authority of Ireland
+                - paragraph: Wooden Chopping Boards
+              - button "Open Amanda Yoder Studio":
+                - generic: Amanda Yoder Studio
+                - paragraph: The best wood for a cutting board
+          - heading "3. Welche Holzart ist die beste?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Holzart Eigenschaften Einschätzung":
+                - columnheader "Holzart":
+                  - paragraph: Holzart
+                - columnheader "Eigenschaften":
+                  - paragraph: Eigenschaften
+                - columnheader "Einschätzung":
+                  - paragraph: Einschätzung
+              - row "Ahorn Feinporig, robust, messerschonend Sehr gute Wahl":
+                - cell "Ahorn":
+                  - paragraph: Ahorn
+                - cell "Feinporig, robust, messerschonend":
+                  - paragraph: Feinporig, robust, messerschonend
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Nussbaum Angenehm zu bearbeiten, schöne dunkle Farbe Sehr gute Wahl":
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+                - cell "Angenehm zu bearbeiten, schöne dunkle Farbe":
+                  - paragraph: Angenehm zu bearbeiten, schöne dunkle Farbe
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Buche Robust, meist preiswerter Sehr gutes Preis-Leistungs-Verhältnis":
+                - cell "Buche":
+                  - paragraph: Buche
+                - cell "Robust, meist preiswerter":
+                  - paragraph: Robust, meist preiswerter
+                - cell "Sehr gutes Preis-Leistungs-Verhältnis":
+                  - paragraph: Sehr gutes Preis-Leistungs-Verhältnis
+              - row "Eiche Robust, aber grobporiger Auf Verarbeitung und Eignung achten":
+                - cell "Eiche":
+                  - paragraph: Eiche
+                - cell "Robust, aber grobporiger":
+                  - paragraph: Robust, aber grobporiger
+                - cell "Auf Verarbeitung und Eignung achten":
+                  - paragraph: Auf Verarbeitung und Eignung achten
+              - row "Bambus Hart, leicht und oft günstig Kann Messer stärker beanspruchen":
+                - cell "Bambus":
+                  - paragraph: Bambus
+                - cell "Hart, leicht und oft günstig":
+                  - paragraph: Hart, leicht und oft günstig
+                - cell "Kann Messer stärker beanspruchen":
+                  - paragraph: Kann Messer stärker beanspruchen
+          - paragraph:
+            - text: "Die Holzart allein entscheidet nicht über die Qualität: Konstruktion, Trocknung, Verleimung und Verarbeitung sind ebenso wichtig."
+            - button "Wood Identifier +1":
+              - generic: Wood Identifier
+              - generic: "+1"
+          - heading "4. So bleibt ein hochwertiges Brett lange schön" [level=2]
+          - list:
+            - paragraph: Mit warmem Wasser und etwas Spülmittel reinigen.
+            - paragraph: Direkt danach gründlich abtrocknen und möglichst hochkant nachtrocknen lassen.
+            - paragraph: Holzschneidebretter nicht in die Spülmaschine geben und nicht im Wasser liegen lassen.
+            - paragraph: Bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+            - paragraph: Für rohes Fleisch und verzehrfertige Lebensmittel möglichst getrennte Bretter verwenden.
+          - button "Food Safety Authority of Ireland +1":
+            - generic: Food Safety Authority of Ireland
+            - generic: "+1"
+          - heading "Meine Empfehlung" [level=2]
+          - paragraph: "Wenn du ein wirklich hochwertiges Schneidebrett suchst, würde ich auf diese Kombination achten:"
+          - list:
+            - paragraph:
+              - generic: "Material:"
+              - text: Ahorn oder Nussbaum
+            - paragraph:
+              - generic: "Bauart:"
+              - text: Stirnholz für besonders messerschonendes Arbeiten; Längsholz für ein leichteres, günstigeres Alltagsbrett
+            - paragraph:
+              - generic: "Dicke:"
+              - text: ungefähr 3–5 cm bei einem massiven Premiumbrett
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: geschlossene Leimfugen, glatte Oberfläche, kein Wackeln
+            - paragraph:
+              - generic: "Pflege:"
+              - text: unbehandelt oder mit lebensmittelechtem Öl beziehungsweise Pflegewachs behandelt
+          - paragraph: Ein teures Brett ist nicht automatisch ein gutes Brett. Eine sorgfältig verarbeitete, stabile Holzplatte kann im Alltag die bessere Wahl sein als ein dekoratives, schweres Premiumbrett.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Suchst du ein Schneidebrett für den täglichen Gebrauch oder eines der Premiumklasse, das dich möglichst viele Jahre begleitet? Dann kann ich dir auch sagen, welche Bauart und welches Budget sich dafür lohnen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-093e8b41-cced-4b7a-a52f-4533ec63d8a0":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Woran erkennt man ein hochwertiges Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein hochwertiges Schneidebrett erkennt man vor allem an
+            - generic: dem Material, der Verarbeitung, der Stabilität und der Pflegeleichtigkeit
+            - text: . Es sollte beim Schneiden sicher liegen, die Messerklinge möglichst schonen und bei richtiger Pflege viele Jahre halten.
+          - 'heading "1. Das Material: Worauf es ankommt" [level=2]'
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - heading "Stirnholz – die Premiumklasse" [level=3]
+          - generic: Besonders hochwertig
+          - paragraph: Die Holzfasern stehen senkrecht zur Schneidfläche. Dadurch kann die Klinge teilweise zwischen die Fasern gleiten. Das ist besonders messerschonend. Solche Bretter sind oft dick, schwer und langlebig.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: ambitionierte Hobbyköche und hochwertige Küchenmesser.
+          - img "Solid Walnut – Grizzly Grade"
+          - button "Open Solid Walnut – Grizzly Grade"
+          - heading "Längsholz oder Längs-/Seitenholz" [level=3]
+          - paragraph: Eine sehr gute Wahl für den Alltag. Die Holzfasern verlaufen überwiegend parallel zur Brettoberfläche. Gute Bretter aus Ahorn, Buche, Eiche oder Nussbaum sind robust und messerschonend.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: tägliches Schneiden von Gemüse, Fleisch und Kräutern.
+          - img "Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - button "Open Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - heading "Hochwertiger Kunststoff" [level=3]
+          - paragraph: Gute Bretter aus lebensmittelechtem HDPE oder vergleichbarem Material sind praktisch, relativ pflegeleicht und häufig spülmaschinengeeignet, sofern der Hersteller das ausdrücklich angibt. Sie können allerdings mit der Zeit tiefe Schnittspuren bekommen.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: hygienische Arbeitsabläufe und den häufigen Wechsel zwischen verschiedenen Lebensmitteln.
+          - img "Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - button "Open Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - heading "Glas, Stein und Keramik" [level=3]
+          - text: Diese Materialien sind leicht zu reinigen, aber für hochwertige Küchenmesser meist keine gute Wahl. Die harte Oberfläche lässt Klingen schnell stumpf werden; außerdem kann das Schneiden unangenehm laut sein.
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für ein langlebiges Schneidebrett aus Holz sind ein gut verarbeitetes Stirnholzbrett oder ein solides Brett aus Ahorn oder Nussbaum besonders interessant. Ein dickes Stirnholzbrett ist allerdings schwerer und benötigt mehr Pflege.
+          - heading "2. Fünf Qualitätsmerkmale, die du beim Kauf prüfen solltest" [level=2]
+          - paragraph:
+            - generic: 1. Ausreichende Dicke und Gewicht
+          - paragraph: Ein massives Brett von etwa 3–5 cm Dicke liegt häufig stabiler als ein dünnes Brett. Es sollte auf der Arbeitsfläche nicht kippeln oder sich leicht verziehen.
+          - paragraph:
+            - generic: 2. Saubere Verleimung
+          - paragraph:
+            - text: Bei verleimten Brettern sollten die Fugen gleichmäßig und geschlossen sein. Keine offenen Spalten, Risse oder sich lösenden Holzstücke. Der verwendete Klebstoff sollte für den vorgesehenen Lebensmittelkontakt geeignet sein.
+            - button "Bevel & Bond +1":
+              - generic: Bevel & Bond
+              - generic: "+1"
+          - paragraph:
+            - generic: 3. Glatte, splitterfreie Oberfläche
+          - paragraph: Das Brett sollte sich angenehm glatt anfühlen, ohne raue Stellen, Splitter oder scharfe Kanten. Eine glatte Oberfläche ist jedoch kein Ersatz für gründliche Reinigung.
+          - paragraph:
+            - generic: 4. Geeignete Oberflächenbehandlung
+          - paragraph: Bei Holz sind lebensmittelechtes Mineralöl oder geeignete Pflegewachse, beispielsweise mit Bienenwachs, eine gute Wahl. Lackierte Oberflächen sind zum regelmäßigen Schneiden ungeeignet, wenn die Beschichtung durch Messerschnitte beschädigt werden kann.
+          - paragraph:
+            - generic: 5. Gute Hygiene und Pflege
+          - paragraph:
+            - text: Das Brett muss gründlich zu reinigen und vollständig zu trocknen sein. Tiefe Schnittrillen, Risse und beschädigte Stellen sind problematisch, weil sie sich schwerer reinigen lassen.
+            - button "Food Safety Authority of Ireland +1":
+              - generic: Food Safety Authority of Ireland
+              - generic: "+1"
+          - heading "3. Welche Holzart ist die beste?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Holzart Eigenschaften Einschätzung":
+                - columnheader "Holzart":
+                  - paragraph: Holzart
+                - columnheader "Eigenschaften":
+                  - paragraph: Eigenschaften
+                - columnheader "Einschätzung":
+                  - paragraph: Einschätzung
+              - row "Ahorn Feinporig, robust, messerschonend Sehr gute Wahl":
+                - cell "Ahorn":
+                  - paragraph: Ahorn
+                - cell "Feinporig, robust, messerschonend":
+                  - paragraph: Feinporig, robust, messerschonend
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Nussbaum Angenehm zu bearbeiten, schöne dunkle Farbe Sehr gute Wahl":
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+                - cell "Angenehm zu bearbeiten, schöne dunkle Farbe":
+                  - paragraph: Angenehm zu bearbeiten, schöne dunkle Farbe
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Buche Robust, meist preiswerter Sehr gutes Preis-Leistungs-Verhältnis":
+                - cell "Buche":
+                  - paragraph: Buche
+                - cell "Robust, meist preiswerter":
+                  - paragraph: Robust, meist preiswerter
+                - cell "Sehr gutes Preis-Leistungs-Verhältnis":
+                  - paragraph: Sehr gutes Preis-Leistungs-Verhältnis
+              - row "Eiche Robust, aber grobporiger Auf Verarbeitung und Eignung achten":
+                - cell "Eiche":
+                  - paragraph: Eiche
+                - cell "Robust, aber grobporiger":
+                  - paragraph: Robust, aber grobporiger
+                - cell "Auf Verarbeitung und Eignung achten":
+                  - paragraph: Auf Verarbeitung und Eignung achten
+              - row "Bambus Hart, leicht und oft günstig Kann Messer stärker beanspruchen":
+                - cell "Bambus":
+                  - paragraph: Bambus
+                - cell "Hart, leicht und oft günstig":
+                  - paragraph: Hart, leicht und oft günstig
+                - cell "Kann Messer stärker beanspruchen":
+                  - paragraph: Kann Messer stärker beanspruchen
+          - paragraph:
+            - text: "Die Holzart allein entscheidet nicht über die Qualität: Konstruktion, Trocknung, Verleimung und Verarbeitung sind ebenso wichtig."
+            - button "Wood Identifier +1" [expanded] [active]:
+              - generic: Wood Identifier
+              - generic: "+1"
+            - dialog "Wood Identifier +1":
+              - button "Open Wood Identifier":
+                - generic: Wood Identifier
+                - paragraph: "Best Wood for Cutting Boards: End Grain vs Edge Grain"
+              - button "Open Manufactum":
+                - generic: Manufactum
+                - paragraph: High-Quality Wooden Cutting Boards
+          - heading "4. So bleibt ein hochwertiges Brett lange schön" [level=2]
+          - list:
+            - paragraph: Mit warmem Wasser und etwas Spülmittel reinigen.
+            - paragraph: Direkt danach gründlich abtrocknen und möglichst hochkant nachtrocknen lassen.
+            - paragraph: Holzschneidebretter nicht in die Spülmaschine geben und nicht im Wasser liegen lassen.
+            - paragraph: Bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+            - paragraph: Für rohes Fleisch und verzehrfertige Lebensmittel möglichst getrennte Bretter verwenden.
+          - button "Food Safety Authority of Ireland +1":
+            - generic: Food Safety Authority of Ireland
+            - generic: "+1"
+          - heading "Meine Empfehlung" [level=2]
+          - paragraph: "Wenn du ein wirklich hochwertiges Schneidebrett suchst, würde ich auf diese Kombination achten:"
+          - list:
+            - paragraph:
+              - generic: "Material:"
+              - text: Ahorn oder Nussbaum
+            - paragraph:
+              - generic: "Bauart:"
+              - text: Stirnholz für besonders messerschonendes Arbeiten; Längsholz für ein leichteres, günstigeres Alltagsbrett
+            - paragraph:
+              - generic: "Dicke:"
+              - text: ungefähr 3–5 cm bei einem massiven Premiumbrett
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: geschlossene Leimfugen, glatte Oberfläche, kein Wackeln
+            - paragraph:
+              - generic: "Pflege:"
+              - text: unbehandelt oder mit lebensmittelechtem Öl beziehungsweise Pflegewachs behandelt
+          - paragraph: Ein teures Brett ist nicht automatisch ein gutes Brett. Eine sorgfältig verarbeitete, stabile Holzplatte kann im Alltag die bessere Wahl sein als ein dekoratives, schweres Premiumbrett.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Suchst du ein Schneidebrett für den täglichen Gebrauch oder eines der Premiumklasse, das dich möglichst viele Jahre begleitet? Dann kann ich dir auch sagen, welche Bauart und welches Budget sich dafür lohnen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-093e8b41-cced-4b7a-a52f-4533ec63d8a0":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Woran erkennt man ein hochwertiges Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein hochwertiges Schneidebrett erkennt man vor allem an
+            - generic: dem Material, der Verarbeitung, der Stabilität und der Pflegeleichtigkeit
+            - text: . Es sollte beim Schneiden sicher liegen, die Messerklinge möglichst schonen und bei richtiger Pflege viele Jahre halten.
+          - 'heading "1. Das Material: Worauf es ankommt" [level=2]'
+          - img "Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - button "Open Houten snijplank walnoot kopshout 45×35×4 cm | FSC | SOPHIOR"
+          - heading "Stirnholz – die Premiumklasse" [level=3]
+          - generic: Besonders hochwertig
+          - paragraph: Die Holzfasern stehen senkrecht zur Schneidfläche. Dadurch kann die Klinge teilweise zwischen die Fasern gleiten. Das ist besonders messerschonend. Solche Bretter sind oft dick, schwer und langlebig.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: ambitionierte Hobbyköche und hochwertige Küchenmesser.
+          - img "Solid Walnut – Grizzly Grade"
+          - button "Open Solid Walnut – Grizzly Grade"
+          - heading "Längsholz oder Längs-/Seitenholz" [level=3]
+          - paragraph: Eine sehr gute Wahl für den Alltag. Die Holzfasern verlaufen überwiegend parallel zur Brettoberfläche. Gute Bretter aus Ahorn, Buche, Eiche oder Nussbaum sind robust und messerschonend.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: tägliches Schneiden von Gemüse, Fleisch und Kräutern.
+          - img "Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - button "Open Tagliere e tagliere da cucina antiscivolo in HDPE 50x35cm - Hendi 826386"
+          - heading "Hochwertiger Kunststoff" [level=3]
+          - paragraph: Gute Bretter aus lebensmittelechtem HDPE oder vergleichbarem Material sind praktisch, relativ pflegeleicht und häufig spülmaschinengeeignet, sofern der Hersteller das ausdrücklich angibt. Sie können allerdings mit der Zeit tiefe Schnittspuren bekommen.
+          - paragraph:
+            - generic: "Ideal für:"
+            - text: hygienische Arbeitsabläufe und den häufigen Wechsel zwischen verschiedenen Lebensmitteln.
+          - img "Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - button "Open Garvee Tempered Glass Cutting Board With Non-Slip Rubber Feet, Rectangular, Heat-Resistant, Clear, 16x12In & 12x8In"
+          - heading "Glas, Stein und Keramik" [level=3]
+          - text: Diese Materialien sind leicht zu reinigen, aber für hochwertige Küchenmesser meist keine gute Wahl. Die harte Oberfläche lässt Klingen schnell stumpf werden; außerdem kann das Schneiden unangenehm laut sein.
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Für ein langlebiges Schneidebrett aus Holz sind ein gut verarbeitetes Stirnholzbrett oder ein solides Brett aus Ahorn oder Nussbaum besonders interessant. Ein dickes Stirnholzbrett ist allerdings schwerer und benötigt mehr Pflege.
+          - heading "2. Fünf Qualitätsmerkmale, die du beim Kauf prüfen solltest" [level=2]
+          - paragraph:
+            - generic: 1. Ausreichende Dicke und Gewicht
+          - paragraph: Ein massives Brett von etwa 3–5 cm Dicke liegt häufig stabiler als ein dünnes Brett. Es sollte auf der Arbeitsfläche nicht kippeln oder sich leicht verziehen.
+          - paragraph:
+            - generic: 2. Saubere Verleimung
+          - paragraph:
+            - text: Bei verleimten Brettern sollten die Fugen gleichmäßig und geschlossen sein. Keine offenen Spalten, Risse oder sich lösenden Holzstücke. Der verwendete Klebstoff sollte für den vorgesehenen Lebensmittelkontakt geeignet sein.
+            - button "Bevel & Bond +1":
+              - generic: Bevel & Bond
+              - generic: "+1"
+          - paragraph:
+            - generic: 3. Glatte, splitterfreie Oberfläche
+          - paragraph: Das Brett sollte sich angenehm glatt anfühlen, ohne raue Stellen, Splitter oder scharfe Kanten. Eine glatte Oberfläche ist jedoch kein Ersatz für gründliche Reinigung.
+          - paragraph:
+            - generic: 4. Geeignete Oberflächenbehandlung
+          - paragraph: Bei Holz sind lebensmittelechtes Mineralöl oder geeignete Pflegewachse, beispielsweise mit Bienenwachs, eine gute Wahl. Lackierte Oberflächen sind zum regelmäßigen Schneiden ungeeignet, wenn die Beschichtung durch Messerschnitte beschädigt werden kann.
+          - paragraph:
+            - generic: 5. Gute Hygiene und Pflege
+          - paragraph:
+            - text: Das Brett muss gründlich zu reinigen und vollständig zu trocknen sein. Tiefe Schnittrillen, Risse und beschädigte Stellen sind problematisch, weil sie sich schwerer reinigen lassen.
+            - button "Food Safety Authority of Ireland +1":
+              - generic: Food Safety Authority of Ireland
+              - generic: "+1"
+          - heading "3. Welche Holzart ist die beste?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Holzart Eigenschaften Einschätzung":
+                - columnheader "Holzart":
+                  - paragraph: Holzart
+                - columnheader "Eigenschaften":
+                  - paragraph: Eigenschaften
+                - columnheader "Einschätzung":
+                  - paragraph: Einschätzung
+              - row "Ahorn Feinporig, robust, messerschonend Sehr gute Wahl":
+                - cell "Ahorn":
+                  - paragraph: Ahorn
+                - cell "Feinporig, robust, messerschonend":
+                  - paragraph: Feinporig, robust, messerschonend
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Nussbaum Angenehm zu bearbeiten, schöne dunkle Farbe Sehr gute Wahl":
+                - cell "Nussbaum":
+                  - paragraph: Nussbaum
+                - cell "Angenehm zu bearbeiten, schöne dunkle Farbe":
+                  - paragraph: Angenehm zu bearbeiten, schöne dunkle Farbe
+                - cell "Sehr gute Wahl":
+                  - paragraph: Sehr gute Wahl
+              - row "Buche Robust, meist preiswerter Sehr gutes Preis-Leistungs-Verhältnis":
+                - cell "Buche":
+                  - paragraph: Buche
+                - cell "Robust, meist preiswerter":
+                  - paragraph: Robust, meist preiswerter
+                - cell "Sehr gutes Preis-Leistungs-Verhältnis":
+                  - paragraph: Sehr gutes Preis-Leistungs-Verhältnis
+              - row "Eiche Robust, aber grobporiger Auf Verarbeitung und Eignung achten":
+                - cell "Eiche":
+                  - paragraph: Eiche
+                - cell "Robust, aber grobporiger":
+                  - paragraph: Robust, aber grobporiger
+                - cell "Auf Verarbeitung und Eignung achten":
+                  - paragraph: Auf Verarbeitung und Eignung achten
+              - row "Bambus Hart, leicht und oft günstig Kann Messer stärker beanspruchen":
+                - cell "Bambus":
+                  - paragraph: Bambus
+                - cell "Hart, leicht und oft günstig":
+                  - paragraph: Hart, leicht und oft günstig
+                - cell "Kann Messer stärker beanspruchen":
+                  - paragraph: Kann Messer stärker beanspruchen
+          - paragraph:
+            - text: "Die Holzart allein entscheidet nicht über die Qualität: Konstruktion, Trocknung, Verleimung und Verarbeitung sind ebenso wichtig."
+            - button "Wood Identifier +1":
+              - generic: Wood Identifier
+              - generic: "+1"
+          - heading "4. So bleibt ein hochwertiges Brett lange schön" [level=2]
+          - list:
+            - paragraph: Mit warmem Wasser und etwas Spülmittel reinigen.
+            - paragraph: Direkt danach gründlich abtrocknen und möglichst hochkant nachtrocknen lassen.
+            - paragraph: Holzschneidebretter nicht in die Spülmaschine geben und nicht im Wasser liegen lassen.
+            - paragraph: Bei Bedarf mit lebensmittelechtem Pflegeöl behandeln.
+            - paragraph: Für rohes Fleisch und verzehrfertige Lebensmittel möglichst getrennte Bretter verwenden.
+          - button "Food Safety Authority of Ireland +1" [expanded] [active]:
+            - generic: Food Safety Authority of Ireland
+            - generic: "+1"
+          - dialog "Food Safety Authority of Ireland +1":
+            - button "Open Food Safety Authority of Ireland":
+              - generic: Food Safety Authority of Ireland
+              - paragraph: Wooden Chopping Boards
+            - button "Open Miele Media":
+              - generic: Miele Media
+              - paragraph: CHOPPING BOARD MADE OF OAK END GRAIN
+              - paragraph: März 26, 2024
+          - heading "Meine Empfehlung" [level=2]
+          - paragraph: "Wenn du ein wirklich hochwertiges Schneidebrett suchst, würde ich auf diese Kombination achten:"
+          - list:
+            - paragraph:
+              - generic: "Material:"
+              - text: Ahorn oder Nussbaum
+            - paragraph:
+              - generic: "Bauart:"
+              - text: Stirnholz für besonders messerschonendes Arbeiten; Längsholz für ein leichteres, günstigeres Alltagsbrett
+            - paragraph:
+              - generic: "Dicke:"
+              - text: ungefähr 3–5 cm bei einem massiven Premiumbrett
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: geschlossene Leimfugen, glatte Oberfläche, kein Wackeln
+            - paragraph:
+              - generic: "Pflege:"
+              - text: unbehandelt oder mit lebensmittelechtem Öl beziehungsweise Pflegewachs behandelt
+          - paragraph: Ein teures Brett ist nicht automatisch ein gutes Brett. Eine sorgfältig verarbeitete, stabile Holzplatte kann im Alltag die bessere Wahl sein als ein dekoratives, schweres Premiumbrett.
+          - paragraph:
+            - generic: "Eine Frage noch:"
+            - text: Suchst du ein Schneidebrett für den täglichen Gebrauch oder eines der Premiumklasse, das dich möglichst viele Jahre begleitet? Dann kann ich dir auch sagen, welche Bauart und welches Budget sich dafür lohnen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

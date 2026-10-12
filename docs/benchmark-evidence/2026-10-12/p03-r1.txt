@@ -1,0 +1,227 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-a95c3c19-e9e9-4dae-beef-6836f4058484":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wie groß sollte ein Schneidebrett für eine Kücheninsel sein?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für eine Kücheninsel würde ich ein Schneidebrett wählen, das großzügig genug zum Arbeiten ist, aber die Arbeitsfläche nicht komplett einnimmt.
+            - generic: Für die meisten Kücheninseln ist ein Brett mit etwa 60 × 40 cm ein sehr guter Ausgangspunkt.
+            - text: Wenn du viel Gemüse schneidest, Fleisch vorbereitest oder häufig für mehrere Personen kochst, darf es auch größer sein.
+          - heading "Welche Größe passt zu deiner Kücheninsel?" [level=2]
+          - img "Deska drewniana sztorcowa - 60x40x5 OK Woodcarver"
+          - button "Open Deska drewniana sztorcowa - 60x40x5 OK Woodcarver"
+          - paragraph:
+            - generic: 40 × 30 cm – kompakt
+          - paragraph: Ideal für kleinere Kücheninseln, Obst, Brot und schnelle Vorbereitungen.
+          - img "Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - button "Open Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - paragraph:
+            - generic: 60 × 40 cm – meine Empfehlung
+          - paragraph: Viel Platz zum Schneiden von Gemüse, Fleisch und Kräutern, ohne dass das Brett überdimensioniert wirkt.
+          - img "Stabiler Hackblock Stirnholz Eiche geölt 40 x 30 cm von HOFMEISTER®"
+          - button "Open Stabiler Hackblock Stirnholz Eiche geölt 40 x 30 cm von HOFMEISTER®"
+          - paragraph:
+            - generic: 80 × 50 cm – für ambitionierte Köche
+          - paragraph: Ideal für große Inseln, umfangreiche Essensvorbereitungen und wenn du mehrere Zutaten gleichzeitig verarbeiten möchtest.
+          - heading "Worauf du bei einer Kücheninsel achten solltest" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Freie Arbeitsfläche:"
+              - text: Lass neben dem Brett genügend Platz für Schüsseln, Zutaten und Teller. Die passende Größe hängt von der tatsächlich freien Fläche ab.
+              - button "Kraterholz +1":
+                - generic: Kraterholz
+                - generic: "+1"
+            - paragraph:
+              - generic: "Dicke bei Holz:"
+              - text: Wenn das Brett dauerhaft auf der Insel liegen soll, wirken etwa 3–4 cm besonders wertig und massiv.
+            - paragraph:
+              - generic: "Form:"
+              - text: Auf einer länglichen Insel kann ein Format von 60 × 30 cm eleganter wirken als ein quadratischeres Brett.
+            - paragraph:
+              - generic: "Material:"
+              - text: Eiche wirkt hell und natürlich, Nussbaum dunkler und edler.
+          - paragraph:
+            - generic: "Meine Empfehlung:"
+            - text: Wenn du ein hochwertiges Holzbrett als festen Blickfang auf deiner Kücheninsel möchtest, würde ich mit
+            - generic: 60 × 40 cm
+            - text: beginnen. Bei einer sehr großen Insel sind auch 70 × 40 cm eine schöne Option.
+          - paragraph:
+            - text: Wie groß ist deine Kücheninsel ungefähr – beispielsweise
+            - generic: 180 × 90 cm, 240 × 100 cm oder noch größer
+            - text: "? Dann kann ich dir die passende Brettgröße genauer empfehlen."
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-a95c3c19-e9e9-4dae-beef-6836f4058484":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wie groß sollte ein Schneidebrett für eine Kücheninsel sein?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für eine Kücheninsel würde ich ein Schneidebrett wählen, das großzügig genug zum Arbeiten ist, aber die Arbeitsfläche nicht komplett einnimmt.
+            - generic: Für die meisten Kücheninseln ist ein Brett mit etwa 60 × 40 cm ein sehr guter Ausgangspunkt.
+            - text: Wenn du viel Gemüse schneidest, Fleisch vorbereitest oder häufig für mehrere Personen kochst, darf es auch größer sein.
+          - heading "Welche Größe passt zu deiner Kücheninsel?" [level=2]
+          - img "Deska drewniana sztorcowa - 60x40x5 OK Woodcarver"
+          - button "Open Deska drewniana sztorcowa - 60x40x5 OK Woodcarver"
+          - paragraph:
+            - generic: 40 × 30 cm – kompakt
+          - paragraph: Ideal für kleinere Kücheninseln, Obst, Brot und schnelle Vorbereitungen.
+          - img "Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - button "Open Skærebræt med forkant og detaljer i messing, kobber eller aluminium. Størrelser fra 40x40 cm - 80x50 cm"
+          - paragraph:
+            - generic: 60 × 40 cm – meine Empfehlung
+          - paragraph: Viel Platz zum Schneiden von Gemüse, Fleisch und Kräutern, ohne dass das Brett überdimensioniert wirkt.
+          - img "Stabiler Hackblock Stirnholz Eiche geölt 40 x 30 cm von HOFMEISTER®"
+          - button "Open Stabiler Hackblock Stirnholz Eiche geölt 40 x 30 cm von HOFMEISTER®"
+          - paragraph:
+            - generic: 80 × 50 cm – für ambitionierte Köche
+          - paragraph: Ideal für große Inseln, umfangreiche Essensvorbereitungen und wenn du mehrere Zutaten gleichzeitig verarbeiten möchtest.
+          - heading "Worauf du bei einer Kücheninsel achten solltest" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Freie Arbeitsfläche:"
+              - text: Lass neben dem Brett genügend Platz für Schüsseln, Zutaten und Teller. Die passende Größe hängt von der tatsächlich freien Fläche ab.
+              - button "Kraterholz +1" [expanded] [active]:
+                - generic: Kraterholz
+                - generic: "+1"
+              - dialog "Kraterholz +1":
+                - button "Open Kraterholz":
+                  - generic: Kraterholz
+                  - paragraph: "Schneidebrett für Kücheninsel: Größe & Tipps"
+                  - paragraph: September 24, 2026
+                - button "Open Größe, Holzart & Empfehlungen":
+                  - generic: Größe, Holzart & Empfehlungen
+                  - paragraph: Schneidebrett für Kochinsel
+            - paragraph:
+              - generic: "Dicke bei Holz:"
+              - text: Wenn das Brett dauerhaft auf der Insel liegen soll, wirken etwa 3–4 cm besonders wertig und massiv.
+            - paragraph:
+              - generic: "Form:"
+              - text: Auf einer länglichen Insel kann ein Format von 60 × 30 cm eleganter wirken als ein quadratischeres Brett.
+            - paragraph:
+              - generic: "Material:"
+              - text: Eiche wirkt hell und natürlich, Nussbaum dunkler und edler.
+          - paragraph:
+            - generic: "Meine Empfehlung:"
+            - text: Wenn du ein hochwertiges Holzbrett als festen Blickfang auf deiner Kücheninsel möchtest, würde ich mit
+            - generic: 60 × 40 cm
+            - text: beginnen. Bei einer sehr großen Insel sind auch 70 × 40 cm eine schöne Option.
+          - paragraph:
+            - text: Wie groß ist deine Kücheninsel ungefähr – beispielsweise
+            - generic: 180 × 90 cm, 240 × 100 cm oder noch größer
+            - text: "? Dann kann ich dir die passende Brettgröße genauer empfehlen."
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

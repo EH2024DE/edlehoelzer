@@ -1,0 +1,209 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-b2c0ac9e-c447-4b1f-a1c2-ce3ded071f55":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Ist eine Saftrille bei einem Schneidebrett sinnvoll?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ja, eine
+            - generic: Saftrille bei einem Schneidebrett ist sinnvoll – aber nicht für jeden Einsatzzweck.
+            - text: Sie ist besonders praktisch, wenn du Fleisch, Tomaten oder saftiges Obst und Gemüse schneidest.
+          - heading "Was spricht für und gegen eine Saftrille?" [level=2]
+          - img "Welches Schneidebrett für Fleisch? Größen, Holzarten & Empfehlungen"
+          - button "Open Welches Schneidebrett für Fleisch? Größen, Holzarten & Empfehlungen"
+          - heading "Vorteile" [level=3]
+          - list:
+            - paragraph: Fängt Fleischsaft, Tomatensaft und andere Flüssigkeiten auf.
+            - paragraph: Verhindert, dass Flüssigkeit auf die Arbeitsplatte läuft.
+            - paragraph: Besonders nützlich beim Tranchieren von Braten und beim Schneiden sehr saftiger Lebensmittel.
+          - img "Choice 24\" x 18\" x 1 3/4\" Wood Cutting Board with Rounded Edges"
+          - button "Open Choice 24\" x 18\" x 1 3/4\" Wood Cutting Board with Rounded Edges"
+          - heading "Nachteile" [level=3]
+          - list:
+            - paragraph: Die Rille nimmt nutzbare Schneidefläche weg.
+            - paragraph: Krümel und Speisereste können sich darin sammeln.
+            - paragraph: Die Reinigung ist etwas aufwendiger.
+            - paragraph: Beim Schneiden kleiner Zutaten kann die Rille stören.
+          - heading "Meine Empfehlung" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Für ein universelles Schneidebrett:"
+              - text: lieber ohne Saftrille. Du hast mehr Platz und kannst geschnittene Zutaten leichter herunterfegen.
+            - paragraph:
+              - generic: "Für Fleisch, Braten und Melonen:"
+              - text: eine Saftrille ist praktisch.
+            - paragraph:
+              - generic: "Wenn du nur ein Brett haben möchtest:"
+              - text: Ein ausreichend großes Brett mit Saftrille auf einer Seite und einer glatten Rückseite ist ein guter Kompromiss.
+              - button "Bevel & Bond +1":
+                - generic: Bevel & Bond
+                - generic: "+1"
+          - paragraph:
+            - generic: "Falls du selbst ein Schneidebrett baust:"
+            - text: Plane die Rille nur auf einer Seite ein und achte darauf, dass genügend Materialstärke darunter bleibt. Reinige sie nach Gebrauch mit einer Bürste und trockne das Brett gründlich.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-b2c0ac9e-c447-4b1f-a1c2-ce3ded071f55":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Ist eine Saftrille bei einem Schneidebrett sinnvoll?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ja, eine
+            - generic: Saftrille bei einem Schneidebrett ist sinnvoll – aber nicht für jeden Einsatzzweck.
+            - text: Sie ist besonders praktisch, wenn du Fleisch, Tomaten oder saftiges Obst und Gemüse schneidest.
+          - heading "Was spricht für und gegen eine Saftrille?" [level=2]
+          - img "Welches Schneidebrett für Fleisch? Größen, Holzarten & Empfehlungen"
+          - button "Open Welches Schneidebrett für Fleisch? Größen, Holzarten & Empfehlungen"
+          - heading "Vorteile" [level=3]
+          - list:
+            - paragraph: Fängt Fleischsaft, Tomatensaft und andere Flüssigkeiten auf.
+            - paragraph: Verhindert, dass Flüssigkeit auf die Arbeitsplatte läuft.
+            - paragraph: Besonders nützlich beim Tranchieren von Braten und beim Schneiden sehr saftiger Lebensmittel.
+          - img "Choice 24\" x 18\" x 1 3/4\" Wood Cutting Board with Rounded Edges"
+          - button "Open Choice 24\" x 18\" x 1 3/4\" Wood Cutting Board with Rounded Edges"
+          - heading "Nachteile" [level=3]
+          - list:
+            - paragraph: Die Rille nimmt nutzbare Schneidefläche weg.
+            - paragraph: Krümel und Speisereste können sich darin sammeln.
+            - paragraph: Die Reinigung ist etwas aufwendiger.
+            - paragraph: Beim Schneiden kleiner Zutaten kann die Rille stören.
+          - heading "Meine Empfehlung" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Für ein universelles Schneidebrett:"
+              - text: lieber ohne Saftrille. Du hast mehr Platz und kannst geschnittene Zutaten leichter herunterfegen.
+            - paragraph:
+              - generic: "Für Fleisch, Braten und Melonen:"
+              - text: eine Saftrille ist praktisch.
+            - paragraph:
+              - generic: "Wenn du nur ein Brett haben möchtest:"
+              - text: Ein ausreichend großes Brett mit Saftrille auf einer Seite und einer glatten Rückseite ist ein guter Kompromiss.
+              - button "Bevel & Bond +1" [expanded] [active]:
+                - generic: Bevel & Bond
+                - generic: "+1"
+              - dialog "Bevel & Bond +1":
+                - button "Open Bevel & Bond":
+                  - generic: Bevel & Bond
+                  - paragraph: "Best Cutting Board With Juice Groove (2026): 6 Compared"
+                  - paragraph: August 19, 2026
+                - button "Open University of Maine Cooperative Extension":
+                  - generic: University of Maine Cooperative Extension
+                  - paragraph: "Bulletin #3108, Safe Cutting Boards: Materials, Usage, and Cleaning Tips - Cooperative Extension Publications"
+          - paragraph:
+            - generic: "Falls du selbst ein Schneidebrett baust:"
+            - text: Plane die Rille nur auf einer Seite ein und achte darauf, dass genügend Materialstärke darunter bleibt. Reinige sie nach Gebrauch mit einer Bürste und trockne das Brett gründlich.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

@@ -1,0 +1,331 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-7f021a62-0f13-4a1c-be93-f572cbba6c33":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Öl eignet sich für ein Holzschneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für ein Holzschneidebrett eignet sich am besten
+            - generic: lebensmittelechtes, nicht ranzig werdendes bzw. gut haltbares Pflegeöl
+            - text: . Es schützt das Holz vor dem Austrocknen, vermindert das Eindringen von Wasser und hilft, Risse zu vermeiden.
+          - heading "Die besten Öle für dein Schneidebrett" [level=2]
+          - img "Nestelle™ - Natural Food Grade Mineral Oil"
+          - button "Open Nestelle™ - Natural Food Grade Mineral Oil"
+          - paragraph:
+            - generic: 1. Weißöl / lebensmittelechtes Mineralöl
+          - generic: Beste Wahl
+          - paragraph: Geruchs- und geschmacksneutral, wird nicht ranzig und lässt sich leicht auftragen. Achte auf die Kennzeichnung „lebensmittelecht“ oder darauf, dass es ausdrücklich für Schneidebretter geeignet ist.
+          - img "Kokosolie bedst i test 2026 til madlavning og hud 🌿 | Kosttilskudsvalg"
+          - button "Open Kokosolie bedst i test 2026 til madlavning og hud 🌿 | Kosttilskudsvalg"
+          - paragraph:
+            - generic: 2. Fraktioniertes Kokosöl
+          - paragraph: Ebenfalls gut geeignet, wenn es für den Lebensmittelkontakt geeignet ist. Es bleibt flüssig und ist deutlich weniger anfällig für Ranzigkeit als normales Kokosöl.
+          - img "Cutting Board Wax – Food Safe Wood Conditioner, Beeswax & Mineral Oil, Butcher Block Care, Protects and Restores Wooden Kitchenware, Gift - Etsy"
+          - button "Open Cutting Board Wax – Food Safe Wood Conditioner, Beeswax & Mineral Oil, Butcher Block Care, Protects and Restores Wooden Kitchenware, Gift - Etsy"
+          - paragraph:
+            - generic: 3. Schneidebrett-Balsam aus Öl und Bienenwachs
+          - paragraph: Besonders gut, wenn du zusätzlich eine wasserabweisende Oberfläche möchtest. Das Wachs ergänzt die Pflege durch Öl.
+          - heading "So ölst du das Brett richtig" [level=2]
+          - list:
+            - paragraph: Das Brett gründlich reinigen und vollständig trocknen lassen.
+            - paragraph: Öl mit einem sauberen Tuch auf beiden Seiten und an den Kanten verteilen.
+            - paragraph: Einige Stunden oder über Nacht einziehen lassen.
+            - paragraph:
+              - text: Überschüssiges Öl mit einem Tuch abwischen.
+              - button "How To Make A Cutting Board - +1":
+                - generic: How To Make A Cutting Board -
+                - generic: "+1"
+          - paragraph: Wiederhole die Pflege ungefähr einmal im Monat oder sobald das Holz trocken und blass wirkt.
+          - paragraph:
+            - generic: "Nicht empfehlenswert:"
+            - text: Olivenöl, Sonnenblumenöl und gewöhnliches Speiseöl, da sie mit der Zeit ranzig werden können. Auch Leinöl aus dem Baumarkt solltest du nicht verwenden, sofern es nicht ausdrücklich für den Lebensmittelkontakt geeignet ist.
+            - button "How To Make A Cutting Board - +1":
+              - generic: How To Make A Cutting Board -
+              - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Kaufe einfach ein spezielles Schneidebrettöl auf Basis von lebensmittelechtem Weißöl. Das ist unkompliziert und eine zuverlässige Wahl.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-7f021a62-0f13-4a1c-be93-f572cbba6c33":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Öl eignet sich für ein Holzschneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für ein Holzschneidebrett eignet sich am besten
+            - generic: lebensmittelechtes, nicht ranzig werdendes bzw. gut haltbares Pflegeöl
+            - text: . Es schützt das Holz vor dem Austrocknen, vermindert das Eindringen von Wasser und hilft, Risse zu vermeiden.
+          - heading "Die besten Öle für dein Schneidebrett" [level=2]
+          - img "Nestelle™ - Natural Food Grade Mineral Oil"
+          - button "Open Nestelle™ - Natural Food Grade Mineral Oil"
+          - paragraph:
+            - generic: 1. Weißöl / lebensmittelechtes Mineralöl
+          - generic: Beste Wahl
+          - paragraph: Geruchs- und geschmacksneutral, wird nicht ranzig und lässt sich leicht auftragen. Achte auf die Kennzeichnung „lebensmittelecht“ oder darauf, dass es ausdrücklich für Schneidebretter geeignet ist.
+          - img "Kokosolie bedst i test 2026 til madlavning og hud 🌿 | Kosttilskudsvalg"
+          - button "Open Kokosolie bedst i test 2026 til madlavning og hud 🌿 | Kosttilskudsvalg"
+          - paragraph:
+            - generic: 2. Fraktioniertes Kokosöl
+          - paragraph: Ebenfalls gut geeignet, wenn es für den Lebensmittelkontakt geeignet ist. Es bleibt flüssig und ist deutlich weniger anfällig für Ranzigkeit als normales Kokosöl.
+          - img "Cutting Board Wax – Food Safe Wood Conditioner, Beeswax & Mineral Oil, Butcher Block Care, Protects and Restores Wooden Kitchenware, Gift - Etsy"
+          - button "Open Cutting Board Wax – Food Safe Wood Conditioner, Beeswax & Mineral Oil, Butcher Block Care, Protects and Restores Wooden Kitchenware, Gift - Etsy"
+          - paragraph:
+            - generic: 3. Schneidebrett-Balsam aus Öl und Bienenwachs
+          - paragraph: Besonders gut, wenn du zusätzlich eine wasserabweisende Oberfläche möchtest. Das Wachs ergänzt die Pflege durch Öl.
+          - heading "So ölst du das Brett richtig" [level=2]
+          - list:
+            - paragraph: Das Brett gründlich reinigen und vollständig trocknen lassen.
+            - paragraph: Öl mit einem sauberen Tuch auf beiden Seiten und an den Kanten verteilen.
+            - paragraph: Einige Stunden oder über Nacht einziehen lassen.
+            - paragraph:
+              - text: Überschüssiges Öl mit einem Tuch abwischen.
+              - button "How To Make A Cutting Board - +1" [expanded] [active]:
+                - generic: How To Make A Cutting Board -
+                - generic: "+1"
+              - dialog "How To Make A Cutting Board - +1":
+                - button "Open How To Make A Cutting Board -":
+                  - generic: How To Make A Cutting Board -
+                  - paragraph: How to oil a cutting board (and how often)
+                  - paragraph: Juni 24, 2026
+                - button "Open Help & contact":
+                  - generic: Help & contact
+                  - paragraph: How do I keep my wooden cutting board in top condition?
+          - paragraph: Wiederhole die Pflege ungefähr einmal im Monat oder sobald das Holz trocken und blass wirkt.
+          - paragraph:
+            - generic: "Nicht empfehlenswert:"
+            - text: Olivenöl, Sonnenblumenöl und gewöhnliches Speiseöl, da sie mit der Zeit ranzig werden können. Auch Leinöl aus dem Baumarkt solltest du nicht verwenden, sofern es nicht ausdrücklich für den Lebensmittelkontakt geeignet ist.
+            - button "How To Make A Cutting Board - +1":
+              - generic: How To Make A Cutting Board -
+              - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Kaufe einfach ein spezielles Schneidebrettöl auf Basis von lebensmittelechtem Weißöl. Das ist unkompliziert und eine zuverlässige Wahl.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-7f021a62-0f13-4a1c-be93-f572cbba6c33":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Öl eignet sich für ein Holzschneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Für ein Holzschneidebrett eignet sich am besten
+            - generic: lebensmittelechtes, nicht ranzig werdendes bzw. gut haltbares Pflegeöl
+            - text: . Es schützt das Holz vor dem Austrocknen, vermindert das Eindringen von Wasser und hilft, Risse zu vermeiden.
+          - heading "Die besten Öle für dein Schneidebrett" [level=2]
+          - img "Nestelle™ - Natural Food Grade Mineral Oil"
+          - button "Open Nestelle™ - Natural Food Grade Mineral Oil"
+          - paragraph:
+            - generic: 1. Weißöl / lebensmittelechtes Mineralöl
+          - generic: Beste Wahl
+          - paragraph: Geruchs- und geschmacksneutral, wird nicht ranzig und lässt sich leicht auftragen. Achte auf die Kennzeichnung „lebensmittelecht“ oder darauf, dass es ausdrücklich für Schneidebretter geeignet ist.
+          - img "Kokosolie bedst i test 2026 til madlavning og hud 🌿 | Kosttilskudsvalg"
+          - button "Open Kokosolie bedst i test 2026 til madlavning og hud 🌿 | Kosttilskudsvalg"
+          - paragraph:
+            - generic: 2. Fraktioniertes Kokosöl
+          - paragraph: Ebenfalls gut geeignet, wenn es für den Lebensmittelkontakt geeignet ist. Es bleibt flüssig und ist deutlich weniger anfällig für Ranzigkeit als normales Kokosöl.
+          - img "Cutting Board Wax – Food Safe Wood Conditioner, Beeswax & Mineral Oil, Butcher Block Care, Protects and Restores Wooden Kitchenware, Gift - Etsy"
+          - button "Open Cutting Board Wax – Food Safe Wood Conditioner, Beeswax & Mineral Oil, Butcher Block Care, Protects and Restores Wooden Kitchenware, Gift - Etsy"
+          - paragraph:
+            - generic: 3. Schneidebrett-Balsam aus Öl und Bienenwachs
+          - paragraph: Besonders gut, wenn du zusätzlich eine wasserabweisende Oberfläche möchtest. Das Wachs ergänzt die Pflege durch Öl.
+          - heading "So ölst du das Brett richtig" [level=2]
+          - list:
+            - paragraph: Das Brett gründlich reinigen und vollständig trocknen lassen.
+            - paragraph: Öl mit einem sauberen Tuch auf beiden Seiten und an den Kanten verteilen.
+            - paragraph: Einige Stunden oder über Nacht einziehen lassen.
+            - paragraph:
+              - text: Überschüssiges Öl mit einem Tuch abwischen.
+              - button "How To Make A Cutting Board - +1":
+                - generic: How To Make A Cutting Board -
+                - generic: "+1"
+          - paragraph: Wiederhole die Pflege ungefähr einmal im Monat oder sobald das Holz trocken und blass wirkt.
+          - paragraph:
+            - generic: "Nicht empfehlenswert:"
+            - text: Olivenöl, Sonnenblumenöl und gewöhnliches Speiseöl, da sie mit der Zeit ranzig werden können. Auch Leinöl aus dem Baumarkt solltest du nicht verwenden, sofern es nicht ausdrücklich für den Lebensmittelkontakt geeignet ist.
+            - button "How To Make A Cutting Board - +1" [expanded] [active]:
+              - generic: How To Make A Cutting Board -
+              - generic: "+1"
+            - dialog "How To Make A Cutting Board - +1":
+              - button "Open How To Make A Cutting Board -":
+                - generic: How To Make A Cutting Board -
+                - paragraph: "Best cutting board oil: what to use and what to skip"
+                - paragraph: Juli 3, 2026
+              - button "Open Bevel & Bond":
+                - generic: Bevel & Bond
+                - paragraph: "Safest Oil for Cutting Boards: Every Oil Ranked (2026)"
+                - paragraph: September 5, 2026
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Kaufe einfach ein spezielles Schneidebrettöl auf Basis von lebensmittelechtem Weißöl. Das ist unkompliziert und eine zuverlässige Wahl.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
