@@ -1,0 +1,793 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-9b24578d-5bb5-4e79-91fc-1df373d32810":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Was ist ein guter Hackblock aus Holz?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein guter Hackblock aus Holz sollte
+            - generic: massiv, standfest, messerschonend und langlebig
+            - text: sein. Meine erste Wahl wäre ein Block aus
+            - generic: Stirnholz (Hirnholz)
+            - text: – besonders, wenn du regelmäßig Gemüse schneidest, Fleisch zerlegst oder mit einem Küchenbeil arbeitest.
+          - paragraph:
+            - text: Wichtig sind vor allem die Holzart, die Dicke und das Gewicht. Für eine gute Haushaltsküche sind etwa 4–7 cm Dicke ein sinnvoller Ausgangspunkt; ein besonders massiver Block darf auch dicker sein.
+            - button "Produktvergleich.io +1":
+              - generic: Produktvergleich.io
+              - generic: "+1"
+          - heading "Drei gute Optionen" [level=2]
+          - img "Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - button "Open Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - paragraph:
+            - text: "1."
+            - button "Zassenhaus Hackblock Eiche Stirnholz":
+              - generic: Zassenhaus Hackblock Eiche Stirnholz
+          - generic: Meine Empfehlung
+          - paragraph: Eine gute Wahl für eine hochwertige Küche, wenn du einen massiven Block mit klassischer Optik suchst. Ein Händlerangebot lag bei rund 99 €.
+          - img "Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - button "Open Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - paragraph:
+            - text: "2."
+            - button "Continenta Profi Hackblock":
+              - generic: Continenta Profi Hackblock
+          - paragraph:
+            - text: Für intensives Schneiden und Hacken. Mit 48 × 36 × 7,3 cm bietet er viel Fläche und ordentlich Masse. Besonders interessant, wenn der Block dauerhaft auf der Arbeitsplatte stehen soll.
+            - button "WhichOne":
+              - generic: WhichOne
+          - img "Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - button "Open Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - paragraph:
+            - text: "3."
+            - button "Holz-Liebling Hackblock aus Eiche":
+              - generic: Holz-Liebling Hackblock aus Eiche
+          - paragraph:
+            - text: "Für alle, die es besonders massiv mögen: 10 cm Stärke, konfigurierbare Größe und optionale rutschfeste Auflage. Eher eine langfristige Investition als ein günstiges Schneidebrett."
+            - button "massiver Schneideblock aus Holz":
+              - generic: massiver Schneideblock aus Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche, Buche oder Gummibaum sind gute Ausgangspunkte.
+            - paragraph:
+              - generic: "Bauweise:"
+              - text: Echtes Stirnholz bevorzugen, nicht nur eine Stirnholzoptik.
+            - paragraph:
+              - generic: "Standfestigkeit:"
+              - text: Hohes Gewicht und rutschfeste Füße oder Unterlagen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, nicht einweichen und regelmäßig mit lebensmittelechtem Pflegeöl behandeln.
+              - button "expertmensch.de +1":
+                - generic: expertmensch.de
+                - generic: "+1"
+          - paragraph: Ein Holzblock ist allerdings nicht die beste Unterlage, wenn du regelmäßig Knochen mit kräftigen Beilhieben durchtrennen möchtest.
+          - paragraph:
+            - generic: "Eine Frage, damit ich dir den richtigen empfehlen kann:"
+            - text: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–80 €"
+            - text: 50–80 €
+            - radio "80–150 €" [checked]
+            - text: 80–150 €
+            - radio "Über 150 € – Premium"
+            - text: Über 150 € – Premium
+          - paragraph: Wofür hauptsächlich?
+          - radiogroup "Options":
+            - radio "Gemüse, Fleisch und tägliches Schneiden" [checked]
+            - text: Gemüse, Fleisch und tägliches Schneiden
+            - radio "Fleisch zerlegen und kräftiges Hacken"
+            - text: Fleisch zerlegen und kräftiges Hacken
+            - radio "Massiver Block als dauerhafter Blickfang"
+            - text: Massiver Block als dauerhafter Blickfang
+          - paragraph: Gewünschte Größe
+          - radiogroup "Options":
+            - radio "Ca. 40 × 30 cm" [checked]
+            - text: Ca. 40 × 30 cm
+            - radio "Ca. 50 × 35 cm"
+            - text: Ca. 50 × 35 cm
+            - radio "Mindestens 60 cm breit"
+            - text: Mindestens 60 cm breit
+          - button "Passende Hackblöcke finden":
+            - generic: Passende Hackblöcke finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-9b24578d-5bb5-4e79-91fc-1df373d32810":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Was ist ein guter Hackblock aus Holz?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein guter Hackblock aus Holz sollte
+            - generic: massiv, standfest, messerschonend und langlebig
+            - text: sein. Meine erste Wahl wäre ein Block aus
+            - generic: Stirnholz (Hirnholz)
+            - text: – besonders, wenn du regelmäßig Gemüse schneidest, Fleisch zerlegst oder mit einem Küchenbeil arbeitest.
+          - paragraph:
+            - text: Wichtig sind vor allem die Holzart, die Dicke und das Gewicht. Für eine gute Haushaltsküche sind etwa 4–7 cm Dicke ein sinnvoller Ausgangspunkt; ein besonders massiver Block darf auch dicker sein.
+            - button "Produktvergleich.io +1" [expanded] [active]:
+              - generic: Produktvergleich.io
+              - generic: "+1"
+            - dialog "Produktvergleich.io +1":
+              - button "Open Produktvergleich.io":
+                - generic: Produktvergleich.io
+                - paragraph: Hackblöcke Vergleich 2026
+                - paragraph: September 1, 2026
+              - button "Open DIE WELT":
+                - generic: DIE WELT
+                - paragraph: Hackblock Test und Vergleich 2026
+                - paragraph: September 25, 2026
+          - heading "Drei gute Optionen" [level=2]
+          - img "Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - button "Open Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - paragraph:
+            - text: "1."
+            - button "Zassenhaus Hackblock Eiche Stirnholz":
+              - generic: Zassenhaus Hackblock Eiche Stirnholz
+          - generic: Meine Empfehlung
+          - paragraph: Eine gute Wahl für eine hochwertige Küche, wenn du einen massiven Block mit klassischer Optik suchst. Ein Händlerangebot lag bei rund 99 €.
+          - img "Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - button "Open Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - paragraph:
+            - text: "2."
+            - button "Continenta Profi Hackblock":
+              - generic: Continenta Profi Hackblock
+          - paragraph:
+            - text: Für intensives Schneiden und Hacken. Mit 48 × 36 × 7,3 cm bietet er viel Fläche und ordentlich Masse. Besonders interessant, wenn der Block dauerhaft auf der Arbeitsplatte stehen soll.
+            - button "WhichOne":
+              - generic: WhichOne
+          - img "Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - button "Open Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - paragraph:
+            - text: "3."
+            - button "Holz-Liebling Hackblock aus Eiche":
+              - generic: Holz-Liebling Hackblock aus Eiche
+          - paragraph:
+            - text: "Für alle, die es besonders massiv mögen: 10 cm Stärke, konfigurierbare Größe und optionale rutschfeste Auflage. Eher eine langfristige Investition als ein günstiges Schneidebrett."
+            - button "massiver Schneideblock aus Holz":
+              - generic: massiver Schneideblock aus Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche, Buche oder Gummibaum sind gute Ausgangspunkte.
+            - paragraph:
+              - generic: "Bauweise:"
+              - text: Echtes Stirnholz bevorzugen, nicht nur eine Stirnholzoptik.
+            - paragraph:
+              - generic: "Standfestigkeit:"
+              - text: Hohes Gewicht und rutschfeste Füße oder Unterlagen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, nicht einweichen und regelmäßig mit lebensmittelechtem Pflegeöl behandeln.
+              - button "expertmensch.de +1":
+                - generic: expertmensch.de
+                - generic: "+1"
+          - paragraph: Ein Holzblock ist allerdings nicht die beste Unterlage, wenn du regelmäßig Knochen mit kräftigen Beilhieben durchtrennen möchtest.
+          - paragraph:
+            - generic: "Eine Frage, damit ich dir den richtigen empfehlen kann:"
+            - text: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–80 €"
+            - text: 50–80 €
+            - radio "80–150 €" [checked]
+            - text: 80–150 €
+            - radio "Über 150 € – Premium"
+            - text: Über 150 € – Premium
+          - paragraph: Wofür hauptsächlich?
+          - radiogroup "Options":
+            - radio "Gemüse, Fleisch und tägliches Schneiden" [checked]
+            - text: Gemüse, Fleisch und tägliches Schneiden
+            - radio "Fleisch zerlegen und kräftiges Hacken"
+            - text: Fleisch zerlegen und kräftiges Hacken
+            - radio "Massiver Block als dauerhafter Blickfang"
+            - text: Massiver Block als dauerhafter Blickfang
+          - paragraph: Gewünschte Größe
+          - radiogroup "Options":
+            - radio "Ca. 40 × 30 cm" [checked]
+            - text: Ca. 40 × 30 cm
+            - radio "Ca. 50 × 35 cm"
+            - text: Ca. 50 × 35 cm
+            - radio "Mindestens 60 cm breit"
+            - text: Mindestens 60 cm breit
+          - button "Passende Hackblöcke finden":
+            - generic: Passende Hackblöcke finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-9b24578d-5bb5-4e79-91fc-1df373d32810":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Was ist ein guter Hackblock aus Holz?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein guter Hackblock aus Holz sollte
+            - generic: massiv, standfest, messerschonend und langlebig
+            - text: sein. Meine erste Wahl wäre ein Block aus
+            - generic: Stirnholz (Hirnholz)
+            - text: – besonders, wenn du regelmäßig Gemüse schneidest, Fleisch zerlegst oder mit einem Küchenbeil arbeitest.
+          - paragraph:
+            - text: Wichtig sind vor allem die Holzart, die Dicke und das Gewicht. Für eine gute Haushaltsküche sind etwa 4–7 cm Dicke ein sinnvoller Ausgangspunkt; ein besonders massiver Block darf auch dicker sein.
+            - button "Produktvergleich.io +1":
+              - generic: Produktvergleich.io
+              - generic: "+1"
+          - heading "Drei gute Optionen" [level=2]
+          - img "Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - button "Open Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - paragraph:
+            - text: "1."
+            - button "Zassenhaus Hackblock Eiche Stirnholz":
+              - generic: Zassenhaus Hackblock Eiche Stirnholz
+          - generic: Meine Empfehlung
+          - paragraph: Eine gute Wahl für eine hochwertige Küche, wenn du einen massiven Block mit klassischer Optik suchst. Ein Händlerangebot lag bei rund 99 €.
+          - img "Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - button "Open Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - paragraph:
+            - text: "2."
+            - button "Continenta Profi Hackblock":
+              - generic: Continenta Profi Hackblock
+          - paragraph:
+            - text: Für intensives Schneiden und Hacken. Mit 48 × 36 × 7,3 cm bietet er viel Fläche und ordentlich Masse. Besonders interessant, wenn der Block dauerhaft auf der Arbeitsplatte stehen soll.
+            - button "WhichOne" [expanded] [active]:
+              - generic: WhichOne
+            - dialog "WhichOne":
+              - button "Open WhichOne":
+                - generic: WhichOne
+                - paragraph: Hackblock Eiche Stirnholz Vergleich - Oktober 2026
+          - img "Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - button "Open Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - paragraph:
+            - text: "3."
+            - button "Holz-Liebling Hackblock aus Eiche":
+              - generic: Holz-Liebling Hackblock aus Eiche
+          - paragraph:
+            - text: "Für alle, die es besonders massiv mögen: 10 cm Stärke, konfigurierbare Größe und optionale rutschfeste Auflage. Eher eine langfristige Investition als ein günstiges Schneidebrett."
+            - button "massiver Schneideblock aus Holz":
+              - generic: massiver Schneideblock aus Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche, Buche oder Gummibaum sind gute Ausgangspunkte.
+            - paragraph:
+              - generic: "Bauweise:"
+              - text: Echtes Stirnholz bevorzugen, nicht nur eine Stirnholzoptik.
+            - paragraph:
+              - generic: "Standfestigkeit:"
+              - text: Hohes Gewicht und rutschfeste Füße oder Unterlagen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, nicht einweichen und regelmäßig mit lebensmittelechtem Pflegeöl behandeln.
+              - button "expertmensch.de +1":
+                - generic: expertmensch.de
+                - generic: "+1"
+          - paragraph: Ein Holzblock ist allerdings nicht die beste Unterlage, wenn du regelmäßig Knochen mit kräftigen Beilhieben durchtrennen möchtest.
+          - paragraph:
+            - generic: "Eine Frage, damit ich dir den richtigen empfehlen kann:"
+            - text: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–80 €"
+            - text: 50–80 €
+            - radio "80–150 €" [checked]
+            - text: 80–150 €
+            - radio "Über 150 € – Premium"
+            - text: Über 150 € – Premium
+          - paragraph: Wofür hauptsächlich?
+          - radiogroup "Options":
+            - radio "Gemüse, Fleisch und tägliches Schneiden" [checked]
+            - text: Gemüse, Fleisch und tägliches Schneiden
+            - radio "Fleisch zerlegen und kräftiges Hacken"
+            - text: Fleisch zerlegen und kräftiges Hacken
+            - radio "Massiver Block als dauerhafter Blickfang"
+            - text: Massiver Block als dauerhafter Blickfang
+          - paragraph: Gewünschte Größe
+          - radiogroup "Options":
+            - radio "Ca. 40 × 30 cm" [checked]
+            - text: Ca. 40 × 30 cm
+            - radio "Ca. 50 × 35 cm"
+            - text: Ca. 50 × 35 cm
+            - radio "Mindestens 60 cm breit"
+            - text: Mindestens 60 cm breit
+          - button "Passende Hackblöcke finden":
+            - generic: Passende Hackblöcke finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-9b24578d-5bb5-4e79-91fc-1df373d32810":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Was ist ein guter Hackblock aus Holz?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein guter Hackblock aus Holz sollte
+            - generic: massiv, standfest, messerschonend und langlebig
+            - text: sein. Meine erste Wahl wäre ein Block aus
+            - generic: Stirnholz (Hirnholz)
+            - text: – besonders, wenn du regelmäßig Gemüse schneidest, Fleisch zerlegst oder mit einem Küchenbeil arbeitest.
+          - paragraph:
+            - text: Wichtig sind vor allem die Holzart, die Dicke und das Gewicht. Für eine gute Haushaltsküche sind etwa 4–7 cm Dicke ein sinnvoller Ausgangspunkt; ein besonders massiver Block darf auch dicker sein.
+            - button "Produktvergleich.io +1":
+              - generic: Produktvergleich.io
+              - generic: "+1"
+          - heading "Drei gute Optionen" [level=2]
+          - img "Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - button "Open Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - paragraph:
+            - text: "1."
+            - button "Zassenhaus Hackblock Eiche Stirnholz":
+              - generic: Zassenhaus Hackblock Eiche Stirnholz
+          - generic: Meine Empfehlung
+          - paragraph: Eine gute Wahl für eine hochwertige Küche, wenn du einen massiven Block mit klassischer Optik suchst. Ein Händlerangebot lag bei rund 99 €.
+          - img "Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - button "Open Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - paragraph:
+            - text: "2."
+            - button "Continenta Profi Hackblock":
+              - generic: Continenta Profi Hackblock
+          - paragraph:
+            - text: Für intensives Schneiden und Hacken. Mit 48 × 36 × 7,3 cm bietet er viel Fläche und ordentlich Masse. Besonders interessant, wenn der Block dauerhaft auf der Arbeitsplatte stehen soll.
+            - button "WhichOne":
+              - generic: WhichOne
+          - img "Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - button "Open Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - paragraph:
+            - text: "3."
+            - button "Holz-Liebling Hackblock aus Eiche":
+              - generic: Holz-Liebling Hackblock aus Eiche
+          - paragraph:
+            - text: "Für alle, die es besonders massiv mögen: 10 cm Stärke, konfigurierbare Größe und optionale rutschfeste Auflage. Eher eine langfristige Investition als ein günstiges Schneidebrett."
+            - button "massiver Schneideblock aus Holz" [expanded] [active]:
+              - generic: massiver Schneideblock aus Holz
+            - dialog "massiver Schneideblock aus Holz":
+              - button "Open massiver Schneideblock aus Holz":
+                - generic: massiver Schneideblock aus Holz
+                - paragraph: Hackblock aus Stirnholz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche, Buche oder Gummibaum sind gute Ausgangspunkte.
+            - paragraph:
+              - generic: "Bauweise:"
+              - text: Echtes Stirnholz bevorzugen, nicht nur eine Stirnholzoptik.
+            - paragraph:
+              - generic: "Standfestigkeit:"
+              - text: Hohes Gewicht und rutschfeste Füße oder Unterlagen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, nicht einweichen und regelmäßig mit lebensmittelechtem Pflegeöl behandeln.
+              - button "expertmensch.de +1":
+                - generic: expertmensch.de
+                - generic: "+1"
+          - paragraph: Ein Holzblock ist allerdings nicht die beste Unterlage, wenn du regelmäßig Knochen mit kräftigen Beilhieben durchtrennen möchtest.
+          - paragraph:
+            - generic: "Eine Frage, damit ich dir den richtigen empfehlen kann:"
+            - text: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–80 €"
+            - text: 50–80 €
+            - radio "80–150 €" [checked]
+            - text: 80–150 €
+            - radio "Über 150 € – Premium"
+            - text: Über 150 € – Premium
+          - paragraph: Wofür hauptsächlich?
+          - radiogroup "Options":
+            - radio "Gemüse, Fleisch und tägliches Schneiden" [checked]
+            - text: Gemüse, Fleisch und tägliches Schneiden
+            - radio "Fleisch zerlegen und kräftiges Hacken"
+            - text: Fleisch zerlegen und kräftiges Hacken
+            - radio "Massiver Block als dauerhafter Blickfang"
+            - text: Massiver Block als dauerhafter Blickfang
+          - paragraph: Gewünschte Größe
+          - radiogroup "Options":
+            - radio "Ca. 40 × 30 cm" [checked]
+            - text: Ca. 40 × 30 cm
+            - radio "Ca. 50 × 35 cm"
+            - text: Ca. 50 × 35 cm
+            - radio "Mindestens 60 cm breit"
+            - text: Mindestens 60 cm breit
+          - button "Passende Hackblöcke finden":
+            - generic: Passende Hackblöcke finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-9b24578d-5bb5-4e79-91fc-1df373d32810":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Was ist ein guter Hackblock aus Holz?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein guter Hackblock aus Holz sollte
+            - generic: massiv, standfest, messerschonend und langlebig
+            - text: sein. Meine erste Wahl wäre ein Block aus
+            - generic: Stirnholz (Hirnholz)
+            - text: – besonders, wenn du regelmäßig Gemüse schneidest, Fleisch zerlegst oder mit einem Küchenbeil arbeitest.
+          - paragraph:
+            - text: Wichtig sind vor allem die Holzart, die Dicke und das Gewicht. Für eine gute Haushaltsküche sind etwa 4–7 cm Dicke ein sinnvoller Ausgangspunkt; ein besonders massiver Block darf auch dicker sein.
+            - button "Produktvergleich.io +1":
+              - generic: Produktvergleich.io
+              - generic: "+1"
+          - heading "Drei gute Optionen" [level=2]
+          - img "Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - button "Open Hackblock, hell Stirnholz 45 x 30 x 8,5 cm 51100 | Zassenhaus, 76,20 €"
+          - paragraph:
+            - text: "1."
+            - button "Zassenhaus Hackblock Eiche Stirnholz":
+              - generic: Zassenhaus Hackblock Eiche Stirnholz
+          - generic: Meine Empfehlung
+          - paragraph: Eine gute Wahl für eine hochwertige Küche, wenn du einen massiven Block mit klassischer Optik suchst. Ein Händlerangebot lag bei rund 99 €.
+          - img "Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - button "Open Continenta | Schneidebrett, Messerblock → NordicNest.de"
+          - paragraph:
+            - text: "2."
+            - button "Continenta Profi Hackblock":
+              - generic: Continenta Profi Hackblock
+          - paragraph:
+            - text: Für intensives Schneiden und Hacken. Mit 48 × 36 × 7,3 cm bietet er viel Fläche und ordentlich Masse. Besonders interessant, wenn der Block dauerhaft auf der Arbeitsplatte stehen soll.
+            - button "WhichOne":
+              - generic: WhichOne
+          - img "Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - button "Open Hackblock »Hannibal« aus Premium Eichenholz – Anton Doll Holzmanufaktur"
+          - paragraph:
+            - text: "3."
+            - button "Holz-Liebling Hackblock aus Eiche":
+              - generic: Holz-Liebling Hackblock aus Eiche
+          - paragraph:
+            - text: "Für alle, die es besonders massiv mögen: 10 cm Stärke, konfigurierbare Größe und optionale rutschfeste Auflage. Eher eine langfristige Investition als ein günstiges Schneidebrett."
+            - button "massiver Schneideblock aus Holz":
+              - generic: massiver Schneideblock aus Holz
+          - heading "Worauf ich beim Kauf achten würde" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holz:"
+              - text: Eiche, Buche oder Gummibaum sind gute Ausgangspunkte.
+            - paragraph:
+              - generic: "Bauweise:"
+              - text: Echtes Stirnholz bevorzugen, nicht nur eine Stirnholzoptik.
+            - paragraph:
+              - generic: "Standfestigkeit:"
+              - text: Hohes Gewicht und rutschfeste Füße oder Unterlagen.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, nicht einweichen und regelmäßig mit lebensmittelechtem Pflegeöl behandeln.
+              - button "expertmensch.de +1" [expanded] [active]:
+                - generic: expertmensch.de
+                - generic: "+1"
+              - dialog "expertmensch.de +1":
+                - button "Open expertmensch.de":
+                  - generic: expertmensch.de
+                  - paragraph: "Hackblöcke Vergleich 2026: Stirnholz, Größe & Pflege"
+                  - paragraph: September 17, 2026
+                - button "Open hawato.de":
+                  - generic: hawato.de
+                  - paragraph: Hackbretter kaufen – Hackblock aus Stirnholz
+          - paragraph: Ein Holzblock ist allerdings nicht die beste Unterlage, wenn du regelmäßig Knochen mit kräftigen Beilhieben durchtrennen möchtest.
+          - paragraph:
+            - generic: "Eine Frage, damit ich dir den richtigen empfehlen kann:"
+            - text: Wie viel möchtest du ungefähr ausgeben?
+          - paragraph: Budget
+          - radiogroup "Options":
+            - radio "Bis 50 €"
+            - text: Bis 50 €
+            - radio "50–80 €"
+            - text: 50–80 €
+            - radio "80–150 €" [checked]
+            - text: 80–150 €
+            - radio "Über 150 € – Premium"
+            - text: Über 150 € – Premium
+          - paragraph: Wofür hauptsächlich?
+          - radiogroup "Options":
+            - radio "Gemüse, Fleisch und tägliches Schneiden" [checked]
+            - text: Gemüse, Fleisch und tägliches Schneiden
+            - radio "Fleisch zerlegen und kräftiges Hacken"
+            - text: Fleisch zerlegen und kräftiges Hacken
+            - radio "Massiver Block als dauerhafter Blickfang"
+            - text: Massiver Block als dauerhafter Blickfang
+          - paragraph: Gewünschte Größe
+          - radiogroup "Options":
+            - radio "Ca. 40 × 30 cm" [checked]
+            - text: Ca. 40 × 30 cm
+            - radio "Ca. 50 × 35 cm"
+            - text: Ca. 50 × 35 cm
+            - radio "Mindestens 60 cm breit"
+            - text: Mindestens 60 cm breit
+          - button "Passende Hackblöcke finden":
+            - generic: Passende Hackblöcke finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

@@ -1,0 +1,436 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-e0f60c6f-f96a-4439-b281-d4b362a90bac":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wie schleift man ein Holzschneidebrett richtig ab?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein Holzschneidebrett schleift man am besten
+            - generic: in mehreren Schleifgängen mit zunehmender Körnung
+            - text: ab. So entfernst du Messerspuren, raue Stellen und leichte Verfärbungen, ohne unnötig viel Holz abzutragen. Anschließend wird das Brett gründlich gereinigt und mit lebensmittelechtem Öl gepflegt.
+          - heading "Schritt für Schritt" [level=2]
+          - img "나무 도마, 쟁반 새것처럼 관리하는법! 사포와 오일만 있으면 끝!"
+          - button "Open 나무 도마, 쟁반 새것처럼 관리하는법! 사포와 오일만 있으면 끝!"
+          - paragraph:
+            - generic: 1. Brett vorbereiten
+          - paragraph: Reinige das Brett und lasse es vollständig trocknen. Befestige es rutschfest auf einer Werkbank. Bei tiefen Rillen oder starken Gebrauchsspuren ist Schleifen besonders sinnvoll.
+          - img "Use a sanding block — Little Red Industries"
+          - button "Open Use a sanding block — Little Red Industries"
+          - paragraph:
+            - generic: 2. Mit passender Körnung beginnen
+          - list:
+            - paragraph:
+              - generic: "Körnung 80–100:"
+              - text: nur bei tiefen Riefen oder starken Unebenheiten.
+            - paragraph:
+              - generic: "Körnung 120:"
+              - text: für normale Gebrauchsspuren.
+            - paragraph:
+              - generic: "Körnung 180–240:"
+              - text: für eine glatte Oberfläche.
+          - paragraph: Ist das Brett nur leicht rau, kannst du direkt mit 120 oder 180 beginnen.
+          - img "3M Garnet Sandpaper - Lee Valley Tools"
+          - button "Open 3M Garnet Sandpaper - Lee Valley Tools"
+          - paragraph:
+            - generic: 3. Gleichmäßig schleifen
+          - paragraph:
+            - text: Schleife möglichst
+            - generic: in Richtung der Holzmaserung
+            - text: . Übe gleichmäßigen Druck aus und bearbeite die gesamte Fläche, damit keine Mulden entstehen. Wechsle anschließend zur feineren Körnung und entferne die Schleifspuren des vorherigen Durchgangs.
+          - img "How to Remove Cutting Board Scratches - iFixit Repair Guide"
+          - button "Open How to Remove Cutting Board Scratches - iFixit Repair Guide"
+          - paragraph:
+            - generic: 4. Schleifstaub entfernen
+          - paragraph: Entferne den Staub sorgfältig mit einer sauberen, leicht feuchten oder trockenen fusselfreien Bürste beziehungsweise einem Tuch. Falls du ein feuchtes Tuch verwendest, lass das Brett danach wieder vollständig trocknen.
+          - img "Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - button "Open Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - paragraph:
+            - generic: 5. Mit lebensmittelechtem Öl pflegen
+          - paragraph: Trage ein für Schneidebretter geeignetes Pflegeöl auf, beispielsweise reines lebensmittelechtes Mineralöl. Lass es einziehen und wische überschüssiges Öl ab. Beachte die Herstellerangaben.
+          - heading "Welche Schleifmittel brauchst du?" [level=2]
+          - list:
+            - paragraph:
+              - text: Schleifpapier in Körnung
+              - generic: 120, 180 und 220
+              - text: (für die meisten Bretter ausreichend)
+            - paragraph: Einen Schleifklotz für gleichmäßigen Druck
+            - paragraph: Ein sauberes Tuch oder eine Bürste
+            - paragraph: Lebensmittelechtes Schneidebrettöl
+          - paragraph:
+            - text: Bei tiefen Messerspuren kannst du mit Körnung 80 beginnen und dich über 120 bis 220 hocharbeiten.
+            - button "Martha Stewart +1":
+              - generic: Martha Stewart
+              - generic: "+1"
+          - heading "Drei wichtige Fehler vermeiden" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Nicht nass schleifen:"
+              - text: Das Holz muss vor dem Schleifen vollständig trocken sein.
+            - paragraph:
+              - generic: "Kein normales Speiseöl verwenden:"
+              - text: Oliven- oder Sonnenblumenöl kann ranzig werden. Verwende lieber lebensmittelechtes Mineralöl oder spezielles Schneidebrettöl.
+            - paragraph:
+              - generic: "Beide Seiten bearbeiten:"
+              - text: Schleife Ober- und Unterseite möglichst gleichmäßig und öle auch die Kanten. Das hilft, einseitige Feuchtigkeitsaufnahme und Verziehen zu vermeiden.
+              - button "Martha Stewart +1":
+                - generic: Martha Stewart
+                - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Bei einem normalen, leicht zerkratzten Schneidebrett reicht meistens Körnung 120, danach 180 und zum Schluss 220. Wenn du mir sagst, ob dein Brett aus
+            - generic: Buche, Eiche, Bambus oder Stirnholz
+            - text: besteht und wie tief die Schnitte sind, kann ich dir die passende Schleiffolge empfehlen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-e0f60c6f-f96a-4439-b281-d4b362a90bac":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wie schleift man ein Holzschneidebrett richtig ab?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein Holzschneidebrett schleift man am besten
+            - generic: in mehreren Schleifgängen mit zunehmender Körnung
+            - text: ab. So entfernst du Messerspuren, raue Stellen und leichte Verfärbungen, ohne unnötig viel Holz abzutragen. Anschließend wird das Brett gründlich gereinigt und mit lebensmittelechtem Öl gepflegt.
+          - heading "Schritt für Schritt" [level=2]
+          - img "나무 도마, 쟁반 새것처럼 관리하는법! 사포와 오일만 있으면 끝!"
+          - button "Open 나무 도마, 쟁반 새것처럼 관리하는법! 사포와 오일만 있으면 끝!"
+          - paragraph:
+            - generic: 1. Brett vorbereiten
+          - paragraph: Reinige das Brett und lasse es vollständig trocknen. Befestige es rutschfest auf einer Werkbank. Bei tiefen Rillen oder starken Gebrauchsspuren ist Schleifen besonders sinnvoll.
+          - img "Use a sanding block — Little Red Industries"
+          - button "Open Use a sanding block — Little Red Industries"
+          - paragraph:
+            - generic: 2. Mit passender Körnung beginnen
+          - list:
+            - paragraph:
+              - generic: "Körnung 80–100:"
+              - text: nur bei tiefen Riefen oder starken Unebenheiten.
+            - paragraph:
+              - generic: "Körnung 120:"
+              - text: für normale Gebrauchsspuren.
+            - paragraph:
+              - generic: "Körnung 180–240:"
+              - text: für eine glatte Oberfläche.
+          - paragraph: Ist das Brett nur leicht rau, kannst du direkt mit 120 oder 180 beginnen.
+          - img "3M Garnet Sandpaper - Lee Valley Tools"
+          - button "Open 3M Garnet Sandpaper - Lee Valley Tools"
+          - paragraph:
+            - generic: 3. Gleichmäßig schleifen
+          - paragraph:
+            - text: Schleife möglichst
+            - generic: in Richtung der Holzmaserung
+            - text: . Übe gleichmäßigen Druck aus und bearbeite die gesamte Fläche, damit keine Mulden entstehen. Wechsle anschließend zur feineren Körnung und entferne die Schleifspuren des vorherigen Durchgangs.
+          - img "How to Remove Cutting Board Scratches - iFixit Repair Guide"
+          - button "Open How to Remove Cutting Board Scratches - iFixit Repair Guide"
+          - paragraph:
+            - generic: 4. Schleifstaub entfernen
+          - paragraph: Entferne den Staub sorgfältig mit einer sauberen, leicht feuchten oder trockenen fusselfreien Bürste beziehungsweise einem Tuch. Falls du ein feuchtes Tuch verwendest, lass das Brett danach wieder vollständig trocknen.
+          - img "Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - button "Open Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - paragraph:
+            - generic: 5. Mit lebensmittelechtem Öl pflegen
+          - paragraph: Trage ein für Schneidebretter geeignetes Pflegeöl auf, beispielsweise reines lebensmittelechtes Mineralöl. Lass es einziehen und wische überschüssiges Öl ab. Beachte die Herstellerangaben.
+          - heading "Welche Schleifmittel brauchst du?" [level=2]
+          - list:
+            - paragraph:
+              - text: Schleifpapier in Körnung
+              - generic: 120, 180 und 220
+              - text: (für die meisten Bretter ausreichend)
+            - paragraph: Einen Schleifklotz für gleichmäßigen Druck
+            - paragraph: Ein sauberes Tuch oder eine Bürste
+            - paragraph: Lebensmittelechtes Schneidebrettöl
+          - paragraph:
+            - text: Bei tiefen Messerspuren kannst du mit Körnung 80 beginnen und dich über 120 bis 220 hocharbeiten.
+            - button "Martha Stewart +1" [expanded] [active]:
+              - generic: Martha Stewart
+              - generic: "+1"
+            - dialog "Martha Stewart +1":
+              - button "Open Martha Stewart":
+                - generic: Martha Stewart
+                - paragraph: How to Restore a Wooden Cutting Board in a Few Easy Steps
+                - paragraph: März 31, 2026
+              - button "Open Care Instructions":
+                - generic: Care Instructions
+                - paragraph: Blackwood Hill
+          - heading "Drei wichtige Fehler vermeiden" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Nicht nass schleifen:"
+              - text: Das Holz muss vor dem Schleifen vollständig trocken sein.
+            - paragraph:
+              - generic: "Kein normales Speiseöl verwenden:"
+              - text: Oliven- oder Sonnenblumenöl kann ranzig werden. Verwende lieber lebensmittelechtes Mineralöl oder spezielles Schneidebrettöl.
+            - paragraph:
+              - generic: "Beide Seiten bearbeiten:"
+              - text: Schleife Ober- und Unterseite möglichst gleichmäßig und öle auch die Kanten. Das hilft, einseitige Feuchtigkeitsaufnahme und Verziehen zu vermeiden.
+              - button "Martha Stewart +1":
+                - generic: Martha Stewart
+                - generic: "+1"
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Bei einem normalen, leicht zerkratzten Schneidebrett reicht meistens Körnung 120, danach 180 und zum Schluss 220. Wenn du mir sagst, ob dein Brett aus
+            - generic: Buche, Eiche, Bambus oder Stirnholz
+            - text: besteht und wie tief die Schnitte sind, kann ich dir die passende Schleiffolge empfehlen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-e0f60c6f-f96a-4439-b281-d4b362a90bac":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wie schleift man ein Holzschneidebrett richtig ab?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ein Holzschneidebrett schleift man am besten
+            - generic: in mehreren Schleifgängen mit zunehmender Körnung
+            - text: ab. So entfernst du Messerspuren, raue Stellen und leichte Verfärbungen, ohne unnötig viel Holz abzutragen. Anschließend wird das Brett gründlich gereinigt und mit lebensmittelechtem Öl gepflegt.
+          - heading "Schritt für Schritt" [level=2]
+          - img "나무 도마, 쟁반 새것처럼 관리하는법! 사포와 오일만 있으면 끝!"
+          - button "Open 나무 도마, 쟁반 새것처럼 관리하는법! 사포와 오일만 있으면 끝!"
+          - paragraph:
+            - generic: 1. Brett vorbereiten
+          - paragraph: Reinige das Brett und lasse es vollständig trocknen. Befestige es rutschfest auf einer Werkbank. Bei tiefen Rillen oder starken Gebrauchsspuren ist Schleifen besonders sinnvoll.
+          - img "Use a sanding block — Little Red Industries"
+          - button "Open Use a sanding block — Little Red Industries"
+          - paragraph:
+            - generic: 2. Mit passender Körnung beginnen
+          - list:
+            - paragraph:
+              - generic: "Körnung 80–100:"
+              - text: nur bei tiefen Riefen oder starken Unebenheiten.
+            - paragraph:
+              - generic: "Körnung 120:"
+              - text: für normale Gebrauchsspuren.
+            - paragraph:
+              - generic: "Körnung 180–240:"
+              - text: für eine glatte Oberfläche.
+          - paragraph: Ist das Brett nur leicht rau, kannst du direkt mit 120 oder 180 beginnen.
+          - img "3M Garnet Sandpaper - Lee Valley Tools"
+          - button "Open 3M Garnet Sandpaper - Lee Valley Tools"
+          - paragraph:
+            - generic: 3. Gleichmäßig schleifen
+          - paragraph:
+            - text: Schleife möglichst
+            - generic: in Richtung der Holzmaserung
+            - text: . Übe gleichmäßigen Druck aus und bearbeite die gesamte Fläche, damit keine Mulden entstehen. Wechsle anschließend zur feineren Körnung und entferne die Schleifspuren des vorherigen Durchgangs.
+          - img "How to Remove Cutting Board Scratches - iFixit Repair Guide"
+          - button "Open How to Remove Cutting Board Scratches - iFixit Repair Guide"
+          - paragraph:
+            - generic: 4. Schleifstaub entfernen
+          - paragraph: Entferne den Staub sorgfältig mit einer sauberen, leicht feuchten oder trockenen fusselfreien Bürste beziehungsweise einem Tuch. Falls du ein feuchtes Tuch verwendest, lass das Brett danach wieder vollständig trocknen.
+          - img "Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - button "Open Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - paragraph:
+            - generic: 5. Mit lebensmittelechtem Öl pflegen
+          - paragraph: Trage ein für Schneidebretter geeignetes Pflegeöl auf, beispielsweise reines lebensmittelechtes Mineralöl. Lass es einziehen und wische überschüssiges Öl ab. Beachte die Herstellerangaben.
+          - heading "Welche Schleifmittel brauchst du?" [level=2]
+          - list:
+            - paragraph:
+              - text: Schleifpapier in Körnung
+              - generic: 120, 180 und 220
+              - text: (für die meisten Bretter ausreichend)
+            - paragraph: Einen Schleifklotz für gleichmäßigen Druck
+            - paragraph: Ein sauberes Tuch oder eine Bürste
+            - paragraph: Lebensmittelechtes Schneidebrettöl
+          - paragraph:
+            - text: Bei tiefen Messerspuren kannst du mit Körnung 80 beginnen und dich über 120 bis 220 hocharbeiten.
+            - button "Martha Stewart +1":
+              - generic: Martha Stewart
+              - generic: "+1"
+          - heading "Drei wichtige Fehler vermeiden" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Nicht nass schleifen:"
+              - text: Das Holz muss vor dem Schleifen vollständig trocken sein.
+            - paragraph:
+              - generic: "Kein normales Speiseöl verwenden:"
+              - text: Oliven- oder Sonnenblumenöl kann ranzig werden. Verwende lieber lebensmittelechtes Mineralöl oder spezielles Schneidebrettöl.
+            - paragraph:
+              - generic: "Beide Seiten bearbeiten:"
+              - text: Schleife Ober- und Unterseite möglichst gleichmäßig und öle auch die Kanten. Das hilft, einseitige Feuchtigkeitsaufnahme und Verziehen zu vermeiden.
+              - button "Martha Stewart +1" [expanded] [active]:
+                - generic: Martha Stewart
+                - generic: "+1"
+              - dialog "Martha Stewart +1":
+                - button "Open Martha Stewart":
+                  - generic: Martha Stewart
+                  - paragraph: How to Restore a Wooden Cutting Board in a Few Easy Steps
+                  - paragraph: März 31, 2026
+                - button "Open Deer & Oak":
+                  - generic: Deer & Oak
+                  - paragraph: How to sand a wooden cutting board?
+          - paragraph:
+            - generic: "Mein Tipp:"
+            - text: Bei einem normalen, leicht zerkratzten Schneidebrett reicht meistens Körnung 120, danach 180 und zum Schluss 220. Wenn du mir sagst, ob dein Brett aus
+            - generic: Buche, Eiche, Bambus oder Stirnholz
+            - text: besteht und wie tief die Schnitte sind, kann ich dir die passende Schleiffolge empfehlen.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

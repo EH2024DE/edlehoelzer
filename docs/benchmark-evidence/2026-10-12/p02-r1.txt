@@ -1,0 +1,2629 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid" [expanded] [active]:
+              - generic: Holz Manufaktur Schmid
+            - dialog "Holz Manufaktur Schmid":
+              - button "View details for Holz Manufaktur Schmid":
+                - img "Holz Manufaktur Schmid"
+              - button "View details for Holz Manufaktur Schmid":
+                - generic: Holz Manufaktur Schmid
+              - generic: "5"
+              - generic: •
+              - generic: Holzanbieter
+              - button "Directions":
+                - generic: Directions
+              - button "Website":
+                - generic: Website
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt" [expanded] [active]:
+              - generic: Die Wurzelwelt
+            - dialog "Die Wurzelwelt":
+              - button "Open Die Wurzelwelt":
+                - generic: Die Wurzelwelt
+                - paragraph: Individuelle Schneidebretter aus Holz
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator" [expanded] [active]:
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+            - dialog "Zur Manufaktur und zum Konfigurator":
+              - link "https://die-wurzelwelt.de/":
+                - /url: https://die-wurzelwelt.de/
+                - generic: https://die-wurzelwelt.de/
+              - button "Copy URL":
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de" [expanded] [active]:
+              - generic: schneidebrettkonfigurator.de
+            - dialog "schneidebrettkonfigurator.de":
+              - button "Open schneidebrettkonfigurator.de":
+                - generic: schneidebrettkonfigurator.de
+                - paragraph: Schneidebrett nach Maß konfigurieren| Manufaktur Schmid
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator" [expanded] [active]:
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+            - dialog "Zum Schneidebrett-Konfigurator":
+              - link "https://www.schneidebrettkonfigurator.de...":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: https://www.schneidebrettkonfigurator.de...
+              - button "Copy URL":
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß" [expanded] [active]:
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - dialog "Erhöhtes Schneidebrett nach Maß":
+              - link "https://www.spechtwerk.com/shop/erhoehte...":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: https://www.spechtwerk.com/shop/erhoehte...
+              - button "Copy URL":
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK" [expanded] [active]:
+              - generic: SPECHTWERK
+            - dialog "SPECHTWERK":
+              - button "Open SPECHTWERK":
+                - generic: SPECHTWERK
+                - paragraph: Schneidebrett nach Maß exklusiv für dich gefertigt
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß" [expanded] [active]:
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - dialog "Teak-Schneidebrett nach Maß":
+              - link "https://betterwood.de/schneidebrett/mass...":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: https://betterwood.de/schneidebrett/mass...
+              - button "Copy URL":
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung" [expanded] [active]:
+              - generic: Maßanfertigung
+            - dialog "Maßanfertigung":
+              - button "Open Maßanfertigung":
+                - generic: Maßanfertigung
+                - paragraph: Das Schneidebrett auf Maß aus Teakholz
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen" [expanded] [active]:
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - dialog "Schneidebretter und Sonderanfertigungen":
+              - link "https://www.rhwooddesign.de/shop/schneid...":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: https://www.rhwooddesign.de/shop/schneid...
+              - button "Copy URL":
+            - button "rh wood design":
+              - generic: rh wood design
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-0320bfbe-6894-464c-9928-5c653b4c5e64":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wo kann ich ein hochwertiges Schneidebrett nach Maß in Deutschland kaufen?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Wenn du ein
+            - generic: hochwertiges Schneidebrett nach Maß
+            - text: suchst, würde ich eine deutsche Holzmanufaktur wählen, die das Brett individuell fertigt und dir Holzart, Stärke und Ausstattung zur Auswahl stellt. Besonders interessant sind massive Eiche oder Nussbaum; für intensive Schneidarbeiten ist ein gut verarbeitetes Stirnholzbrett eine ausgezeichnete Wahl.
+          - heading "Meine Empfehlungen für maßgefertigte Schneidebretter" [level=2]
+          - img "Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - button "Open Stirnholz Schneidebrett Nussbaum 2,5 cm - mit Saftrille und Griffmulde"
+          - heading "1. Die Wurzelwelt" [level=2]:
+            - text: "1."
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - generic: Meine Empfehlung
+          - paragraph:
+            - text: Handgefertigte Schneidebretter aus einer Schreinerei in Welzheim. Größe, Form, Holz und Extras wie Saftrille, Griffmulde, Füße oder Gravur sind individuell wählbar. Besonders interessant, wenn du einen deutschen Hersteller mit persönlicher Beratung suchst.
+            - button "Die Wurzelwelt":
+              - generic: Die Wurzelwelt
+          - paragraph: "Standort: Welzheim, Baden-Württemberg"
+          - paragraph:
+            - button "Zur Manufaktur und zum Konfigurator":
+              - link "Zur Manufaktur und zum Konfigurator":
+                - /url: https://die-wurzelwelt.de/
+                - generic: Zur Manufaktur und zum
+                - generic: Konfigurator
+          - img "End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - button "Open End grain oak cutting board - Black Forest board – Schwarzwaldbrett"
+          - heading "2. Holz Manufaktur Schmid" [level=2]:
+            - text: "2."
+            - button "Holz Manufaktur Schmid":
+              - generic: Holz Manufaktur Schmid
+          - paragraph: Wiesau, Bayern
+          - paragraph:
+            - text: Eine gute Adresse für ein robustes Stirnholzbrett. Du kannst Eiche, Ahorn oder weitere Holzarten wählen und unter anderem Maße, Griffmulden, Saftrille, Füße und Gravur konfigurieren. Die Manufaktur gibt eine typische Fertigungszeit von 5–10 Werktagen an.
+            - button "schneidebrettkonfigurator.de":
+              - generic: schneidebrettkonfigurator.de
+          - paragraph:
+            - button "Zum Schneidebrett-Konfigurator":
+              - link "Zum Schneidebrett-Konfigurator":
+                - /url: https://www.schneidebrettkonfigurator.de/
+                - generic: Zum
+                - generic: Schneidebrett-Konfigurator
+          - img "Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - button "Open Eichenholz Stirnholz Schneidebrett mit Anschlagkante in Handarbeit – BAUMHIRSCH - Die Holzmanufaktur"
+          - heading "3. SPECHTWERK" [level=2]:
+            - text: "3."
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - paragraph:
+            - text: Besonders gut, wenn du ein
+            - generic: erhöhtes Schneidebrett
+            - text: suchst, etwa für eine angenehme Arbeitshöhe oder zum Unterstellen von Tellern und Pfannen. Länge, Breite und Höhe sind konfigurierbar; eine Gravur ist optional.
+          - paragraph: "Angegebener Einstiegspreis: 69 €"
+          - paragraph:
+            - button "Erhöhtes Schneidebrett nach Maß":
+              - link "Erhöhtes Schneidebrett nach Maß":
+                - /url: https://www.spechtwerk.com/shop/erhoehtes-schneidebrett-nach-mass/
+                - generic: Erhöhtes Schneidebrett nach
+                - generic: Maß
+            - button "SPECHTWERK":
+              - generic: SPECHTWERK
+          - img "Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - button "Open Teak-Schneidebrett (FSC 100%), 33x33cm, 3cm stark, mit Füßen"
+          - heading "4. Betterwood" [level=2]:
+            - text: "4."
+            - button "Betterwood":
+              - generic: Betterwood
+          - paragraph: Eine interessante Alternative, wenn du lieber Teakholz möchtest. Länge, Breite und Stärke sind wählbar, ebenso optional Füße und Lasergravur. Das Holz wird laut Anbieter FSC-100%-zertifiziert bezogen.
+          - paragraph: "Angegebener Einstiegspreis: ab 20 € je Stück, abhängig von der Ausführung"
+          - paragraph:
+            - button "Teak-Schneidebrett nach Maß":
+              - link "Teak-Schneidebrett nach Maß":
+                - /url: https://betterwood.de/schneidebrett/massanfertigung/
+                - generic: Teak-Schneidebrett nach
+                - generic: Maß
+            - button "Maßanfertigung":
+              - generic: Maßanfertigung
+          - img "Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - button "Open Stirnholz erklärt – Vorteile & Eigenschaften – Schwarzwaldbrett"
+          - heading "5. rh wood design" [level=2]:
+            - text: "5."
+            - button "rh wood design":
+              - generic: rh wood design
+          - paragraph: Für individuelle Vollholzbretter und hochwertige Stirnholzvarianten. Standardmodelle aus Eiche, Nussbaum und anderen Holzarten sind erhältlich; Sondermaße werden auf Anfrage gefertigt.
+          - paragraph:
+            - button "Schneidebretter und Sonderanfertigungen":
+              - link "Schneidebretter und Sonderanfertigungen":
+                - /url: https://www.rhwooddesign.de/shop/schneidebretter/
+                - generic: Schneidebretter und
+                - generic: Sonderanfertigungen
+            - button "rh wood design" [expanded] [active]:
+              - generic: rh wood design
+            - dialog "rh wood design":
+              - button "Open rh wood design":
+                - generic: rh wood design
+                - paragraph: Hochwertige Schneidebretter aus Vollholz online bestellen
+          - heading "Worauf ich bei einem Premium-Schneidebrett achten würde" [level=2]
+          - img "Planche à découper bois de bout luxe – Artisanat Made in France"
+          - button "Open Planche à découper bois de bout luxe – Artisanat Made in France"
+          - paragraph:
+            - generic: Stirnholz oder Längsholz?
+          - paragraph: Stirnholz ist bei hochwertigen, massiven Schneideblöcken beliebt und bei guter Verarbeitung sehr langlebig. Längsholz ist oft leichter, schlichter und günstiger.
+          - img "Planche à découper en bois massif, Noyer | Manufactum"
+          - button "Open Planche à découper en bois massif, Noyer | Manufactum"
+          - paragraph:
+            - generic: Holzart
+          - list:
+            - paragraph:
+              - generic: "Nussbaum:"
+              - text: edle, dunkle Optik.
+            - paragraph:
+              - generic: "Eiche:"
+              - text: robust und markant gemasert.
+            - paragraph:
+              - generic: "Ahorn:"
+              - text: hell, feinporig und klassisch.
+          - img "Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - button "Open Eiche 60mm, Schneidebrett aus Holz, Hackbrett mit Saftrille und Griffen, umlaufender Fase, verleimt"
+          - paragraph:
+            - generic: Verarbeitung
+          - paragraph: Achte auf eine lebensmittelechte Oberflächenbehandlung, sauber geschliffene Kanten, verzugsarmes Holz und eine Pflegeanleitung. Eine Saftrille ist vor allem für Fleisch und saftiges Gemüse praktisch.
+          - heading "Damit ich dir das beste Brett empfehlen kann" [level=2]
+          - paragraph: Mit vier kurzen Angaben kann ich die Auswahl gezielt eingrenzen.
+          - paragraph:
+            - generic: 1. Bevorzugte Holzart
+          - radiogroup "Options":
+            - radio "Nussbaum – dunkel und edel" [checked]
+            - text: Nussbaum – dunkel und edel
+            - radio "Eiche – robust und charaktervoll"
+            - text: Eiche – robust und charaktervoll
+            - radio "Ahorn – hell und schlicht"
+            - text: Ahorn – hell und schlicht
+            - radio "Offen für Empfehlungen"
+            - text: Offen für Empfehlungen
+          - paragraph:
+            - generic: 2. Wunschmaß
+          - radiogroup "Options":
+            - radio "40 × 30 cm"
+            - text: 40 × 30 cm
+            - radio "50 × 35 cm" [checked]
+            - text: 50 × 35 cm
+            - radio "60 × 40 cm oder größer"
+            - text: 60 × 40 cm oder größer
+            - radio "Sondermaß für eine Arbeitsplatte"
+            - text: Sondermaß für eine Arbeitsplatte
+          - paragraph:
+            - generic: 3. Bauart
+          - radiogroup "Options":
+            - radio "Massives Stirnholz / Hackblock" [checked]
+            - text: Massives Stirnholz / Hackblock
+            - radio "Klassisches Längsholzbrett"
+            - text: Klassisches Längsholzbrett
+            - radio "Noch unentschieden"
+            - text: Noch unentschieden
+          - paragraph:
+            - generic: 4. Budget
+          - radiogroup "Options":
+            - radio "Unter 100 €"
+            - text: Unter 100 €
+            - radio "100–150 €"
+            - text: 100–150 €
+            - radio "150–300 €" [checked]
+            - text: 150–300 €
+            - radio "Über 300 € – Premium"
+            - text: Über 300 € – Premium
+          - paragraph: Verwendung
+          - radiogroup "Options":
+            - radio "Tägliches intensives Schneiden" [checked]
+            - text: Tägliches intensives Schneiden
+            - radio "Große Arbeitsfläche oder Kochinsel"
+            - text: Große Arbeitsfläche oder Kochinsel
+            - radio "Servieren und Design"
+            - text: Servieren und Design
+          - button "Passende Schneidebretter finden":
+            - generic: Passende Schneidebretter finden
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

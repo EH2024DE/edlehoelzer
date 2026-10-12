@@ -1,0 +1,148 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-a0a41bfc-e1df-4824-a690-7866d0e38454":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Wann lohnt sich die professionelle Aufbereitung eines Schneidebretts?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Eine
+            - generic: professionelle Aufbereitung eines Schneidebretts lohnt sich vor allem dann, wenn das Brett hochwertig, stark beansprucht oder sichtbar abgenutzt ist, aber noch eine gute Substanz hat.
+            - text: Bei einem guten Holzbrett kann sich die Aufbereitung über viele Jahre auszahlen – bei einem günstigen Kunststoffbrett oder einem tief beschädigten Brett dagegen oft nicht.
+          - heading "Wann lohnt sich die Aufbereitung?" [level=2]
+          - img "Overused chopping board with cuts and scratches"
+          - button "Open Overused chopping board with cuts and scratches"
+          - paragraph:
+            - generic: 1. Tiefe Messerspuren und raue Oberfläche
+          - paragraph: Wenn das Brett stark zerkratzt ist, sich Fasern aufstellen oder sich Verfärbungen festgesetzt haben, kann Abschleifen die Oberfläche wieder glätten. Das ist besonders bei Massivholz sinnvoll.
+          - img "Stirnholz Hackblock - Nussbaum - Aboutwood"
+          - button "Open Stirnholz Hackblock - Nussbaum - Aboutwood"
+          - paragraph:
+            - generic: 2. Hochwertiges oder teures Schneidebrett
+          - paragraph: Bei Stirnholz-, Nussbaum-, Eichen- oder Ahornbrettern kann sich die Arbeit lohnen, weil der Ersatz eines vergleichbaren Bretts deutlich teurer sein kann als die Aufbereitung.
+          - img "Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - button "Open Restore Cutting Boards | How Cutting Board Refinishing Works"
+          - paragraph:
+            - generic: 3. Trockenes, stumpfes oder fleckiges Holz
+          - paragraph: Eine Reinigung, gegebenenfalls ein leichter Schliff und das Einölen mit lebensmittelechtem Pflegeöl können das Aussehen verbessern und das Holz vor Feuchtigkeit schützen.
+          - img "Can my Cutting Board be fixed? It splits! – Brooklyn Butcher Blocks (LLC)"
+          - button "Open Can my Cutting Board be fixed? It splits! – Brooklyn Butcher Blocks (LLC)"
+          - paragraph:
+            - generic: 4. Leichte Verformungen oder kleinere Schäden
+          - paragraph: Solange keine tiefen Risse, lockeren Verleimungen oder strukturellen Schäden vorliegen, kann eine fachgerechte Bearbeitung sinnvoll sein. Bei schweren Schäden muss geprüft werden, ob das Brett noch sicher nutzbar ist.
+          - heading "Wann ist eine Aufbereitung nicht mehr sinnvoll?" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Tiefe Risse oder Spalten:"
+              - text: Hier können sich Feuchtigkeit und Keime festsetzen. Bei strukturellen Schäden ist ein Austausch meist die bessere Wahl.
+            - paragraph:
+              - generic: "Tiefe, schwer zu reinigende Messerrillen:"
+              - text: Wenn eine glatte, hygienisch gut zu reinigende Oberfläche nicht mehr hergestellt werden kann, sollte das Brett ersetzt werden. Das empfiehlt auch das Bundesinstitut für Risikobewertung.
+              - button "BfR +1" [expanded] [active]:
+                - generic: BfR
+                - generic: "+1"
+              - dialog "BfR +1":
+                - button "Open BfR":
+                  - generic: BfR
+                  - paragraph: Lebensmittelinfektionen im Privathaushalt – Quellen erkennen, Risiken vermeiden
+                  - paragraph: August 22, 2024
+                - button "Open verbraucherzentrale.de":
+                  - generic: verbraucherzentrale.de
+                  - paragraph: "Hygiene in der Küche: Lebensmittel sicher zubereiten"
+                  - paragraph: September 15, 2025
+            - paragraph:
+              - generic: "Stark verzogenes oder aufgequollenes Brett:"
+              - text: Wenn es nicht mehr stabil aufliegt oder die Verleimung beschädigt ist, lohnt sich die Reparatur häufig nicht.
+            - paragraph:
+              - generic: "Günstiges Kunststoffbrett mit tiefen Rillen:"
+              - text: Professionelle Aufbereitung ist hier meist wirtschaftlich nicht sinnvoll; ein neues Brett ist die bessere Wahl.
+          - heading "Lohnt sich der Profi gegenüber der Eigenarbeit?" [level=2]
+          - table:
+            - rowgroup:
+              - row "Zustand des Bretts Meine Empfehlung":
+                - columnheader "Zustand des Bretts":
+                  - paragraph: Zustand des Bretts
+                - columnheader "Meine Empfehlung":
+                  - paragraph: Meine Empfehlung
+              - row "Nur trocken oder matt Selbst reinigen und mit lebensmittelechtem Öl pflegen":
+                - cell "Nur trocken oder matt":
+                  - paragraph: Nur trocken oder matt
+                - cell "Selbst reinigen und mit lebensmittelechtem Öl pflegen":
+                  - paragraph: Selbst reinigen und mit lebensmittelechtem Öl pflegen
+              - row "Leichte bis mittlere Kratzer Bei Holz selbst oder professionell schleifen lassen":
+                - cell "Leichte bis mittlere Kratzer":
+                  - paragraph: Leichte bis mittlere Kratzer
+                - cell "Bei Holz selbst oder professionell schleifen lassen":
+                  - paragraph: Bei Holz selbst oder professionell schleifen lassen
+              - row "Dickes, hochwertiges Stirnholzbrett Professionelle Aufbereitung prüfen":
+                - cell "Dickes, hochwertiges Stirnholzbrett":
+                  - paragraph: Dickes, hochwertiges Stirnholzbrett
+                - cell "Professionelle Aufbereitung prüfen":
+                  - paragraph: Professionelle Aufbereitung prüfen
+              - row "Tiefe Risse oder starke Schäden Eher ersetzen":
+                - cell "Tiefe Risse oder starke Schäden":
+                  - paragraph: Tiefe Risse oder starke Schäden
+                - cell "Eher ersetzen":
+                  - paragraph: Eher ersetzen
+          - paragraph:
+            - generic: "Mein Fazit:"
+            - text: Bei einem hochwertigen Holzbrett lohnt sich die professionelle Aufbereitung, wenn durch Schleifen wieder eine glatte, hygienisch nutzbare Oberfläche entsteht und genügend Materialstärke vorhanden ist. Bei einem günstigen oder stark beschädigten Brett ist ein Ersatz meist vernünftiger.
+          - paragraph:
+            - text: Wenn du mir sagst,
+            - generic: aus welchem Material dein Schneidebrett besteht und wie stark es beschädigt ist
+            - text: ", kann ich dir genauer sagen, ob sich eine professionelle Aufbereitung lohnt."
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

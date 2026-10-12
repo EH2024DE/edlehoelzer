@@ -1,0 +1,227 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-f282e9af-8a33-4f2b-8308-92359de3d39c":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Stirnholz oder Langholz – was ist besser?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ob Stirnholz oder Langholz besser ist, hängt vor allem davon ab,
+            - generic: wofür du das Holz verwenden möchtest
+            - text: . Stirnholz ist besonders robust gegenüber Druck, während Langholz meist einfacher zu bearbeiten ist und sich für viele klassische Holzarbeiten eignet.
+          - paragraph: Falls du Holz als Bodenbelag, Arbeitsplatte, Schneidebrett oder Möbelmaterial meinst, gibt es deutliche Unterschiede.
+          - heading "Stirnholz vs. Langholz im Vergleich" [level=2]
+          - img "Stirnholz Schneidebrett mit Schachbrettmuster - Aboutwood"
+          - button "Open Stirnholz Schneidebrett mit Schachbrettmuster - Aboutwood"
+          - paragraph:
+            - generic: Stirnholz
+          - paragraph: Faserenden zeigen nach oben
+          - list:
+            - paragraph: Sehr widerstandsfähig gegen Schnittspuren
+            - paragraph: Häufig messerschonend
+            - paragraph: Massiv und schwer
+            - paragraph: Meist teurer
+          - img "Oak serving board, 80 x 15.5 cm | Manufactum"
+          - button "Open Oak serving board, 80 x 15.5 cm | Manufactum"
+          - paragraph:
+            - generic: Langholz
+          - paragraph: Fasern verlaufen längs
+          - list:
+            - paragraph: Klassische Holzmaserung
+            - paragraph: Meist leichter und günstiger
+            - paragraph: Einfach im Alltag zu handhaben
+            - paragraph: Schnittspuren werden eher sichtbar
+          - paragraph:
+            - text: Die Unterschiede ergeben sich aus dem Faserverlauf und der Konstruktion. Beide Varianten können hochwertig sein.
+            - button "naturecrafts +2":
+              - generic: naturecrafts
+              - generic: "+2"
+          - paragraph:
+            - generic: "Meine Empfehlung für Schneidebretter:"
+          - list:
+            - paragraph:
+              - generic: Stirnholz
+              - text: ", wenn du häufig kochst, hochwertige Messer verwendest und ein massives, langlebiges Brett möchtest."
+            - paragraph:
+              - generic: Langholz
+              - text: ", wenn du ein preiswerteres, leichteres Brett für den täglichen Gebrauch suchst."
+          - paragraph: "Wichtig: Stirnholz benötigt ebenfalls Pflege und sollte nicht in die Spülmaschine."
+          - paragraph:
+            - generic: "Damit ich dir die richtige Empfehlung geben kann:"
+            - text: Meinst du Schneidebretter oder Stirn- und Langholz in einem anderen Bereich, beispielsweise beim Bauholz oder bei einer Holzterrasse?
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-f282e9af-8a33-4f2b-8308-92359de3d39c":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Stirnholz oder Langholz – was ist besser?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - text: Ob Stirnholz oder Langholz besser ist, hängt vor allem davon ab,
+            - generic: wofür du das Holz verwenden möchtest
+            - text: . Stirnholz ist besonders robust gegenüber Druck, während Langholz meist einfacher zu bearbeiten ist und sich für viele klassische Holzarbeiten eignet.
+          - paragraph: Falls du Holz als Bodenbelag, Arbeitsplatte, Schneidebrett oder Möbelmaterial meinst, gibt es deutliche Unterschiede.
+          - heading "Stirnholz vs. Langholz im Vergleich" [level=2]
+          - img "Stirnholz Schneidebrett mit Schachbrettmuster - Aboutwood"
+          - button "Open Stirnholz Schneidebrett mit Schachbrettmuster - Aboutwood"
+          - paragraph:
+            - generic: Stirnholz
+          - paragraph: Faserenden zeigen nach oben
+          - list:
+            - paragraph: Sehr widerstandsfähig gegen Schnittspuren
+            - paragraph: Häufig messerschonend
+            - paragraph: Massiv und schwer
+            - paragraph: Meist teurer
+          - img "Oak serving board, 80 x 15.5 cm | Manufactum"
+          - button "Open Oak serving board, 80 x 15.5 cm | Manufactum"
+          - paragraph:
+            - generic: Langholz
+          - paragraph: Fasern verlaufen längs
+          - list:
+            - paragraph: Klassische Holzmaserung
+            - paragraph: Meist leichter und günstiger
+            - paragraph: Einfach im Alltag zu handhaben
+            - paragraph: Schnittspuren werden eher sichtbar
+          - paragraph:
+            - text: Die Unterschiede ergeben sich aus dem Faserverlauf und der Konstruktion. Beide Varianten können hochwertig sein.
+            - button "naturecrafts +2" [expanded] [active]:
+              - generic: naturecrafts
+              - generic: "+2"
+            - dialog "naturecrafts +2":
+              - button "Open naturecrafts":
+                - generic: naturecrafts
+                - paragraph: Stirnholz oder Längsholz? Unterschiede im Vergleich
+                - paragraph: März 9, 2026
+              - button "Open Nordamerikanisches Premium-Hartholz":
+                - generic: Nordamerikanisches Premium-Hartholz
+                - paragraph: Boos | Das Material
+                - paragraph: September 2, 2021
+              - button "Open Wikipedia":
+                - generic: Wikipedia
+                - paragraph: Hirnholz
+          - paragraph:
+            - generic: "Meine Empfehlung für Schneidebretter:"
+          - list:
+            - paragraph:
+              - generic: Stirnholz
+              - text: ", wenn du häufig kochst, hochwertige Messer verwendest und ein massives, langlebiges Brett möchtest."
+            - paragraph:
+              - generic: Langholz
+              - text: ", wenn du ein preiswerteres, leichteres Brett für den täglichen Gebrauch suchst."
+          - paragraph: "Wichtig: Stirnholz benötigt ebenfalls Pflege und sollte nicht in die Spülmaschine."
+          - paragraph:
+            - generic: "Damit ich dir die richtige Empfehlung geben kann:"
+            - text: Meinst du Schneidebretter oder Stirn- und Langholz in einem anderen Bereich, beispielsweise beim Bauholz oder bei einer Holzterrasse?
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

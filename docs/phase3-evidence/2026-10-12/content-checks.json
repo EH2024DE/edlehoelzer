@@ -1,0 +1,362 @@
+[
+  {
+    "route": "schneidebrett-nach-mass/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/eiche-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/8-Foto-8.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/9-Foto-9.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/yellow-poplar-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/2-Foto-2.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/4-Foto-4.jpg"
+      }
+    ],
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "route": "schneidebrett-nach-mass/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/eiche-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/8-Foto-8.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/9-Foto-9.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/yellow-poplar-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/2-Foto-2.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/4-Foto-4.jpg"
+      }
+    ],
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "route": "schneidebrett-nach-mass/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/eiche-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/8-Foto-8.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/9-Foto-9.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/yellow-poplar-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/2-Foto-2.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/4-Foto-4.jpg"
+      }
+    ],
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "schneidebrett-nach-mass/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/eiche-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/8-Foto-8.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/9-Foto-9.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/yellow-poplar-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/2-Foto-2.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/4-Foto-4.jpg"
+      }
+    ],
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "route": "schneidebrett-nach-mass/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/eiche-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/8-Foto-8.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/9-Foto-9.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/yellow-poplar-xxl-dark.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/2-Foto-2.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/custom-projects/4-Foto-4.jpg"
+      }
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "hackblock/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "route": "hackblock/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "route": "hackblock/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "hackblock/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "route": "hackblock/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "stirnholz-vs-langholz/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "route": "stirnholz-vs-langholz/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "route": "stirnholz-vs-langholz/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "stirnholz-vs-langholz/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "route": "stirnholz-vs-langholz/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "route": "schneidebrett-aufbereiten/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "route": "schneidebrett-aufbereiten/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      }
+    ],
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "route": "schneidebrett-aufbereiten/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/altes-schneidebrett-kratzer-vorher-nahaufnahme.jpg"
+      }
+    ],
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "route": "schneidebrett-aufbereiten/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/altes-schneidebrett-kratzer-vorher-nahaufnahme.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/schneidebrett-aufbereiten-nachher-geoelte-holzstruktur.jpg"
+      }
+    ],
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "route": "schneidebrett-aufbereiten/",
+    "images": [
+      {
+        "loaded": true,
+        "src": "/assets/logo.png"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/altes-schneidebrett-kratzer-vorher-nahaufnahme.jpg"
+      },
+      {
+        "loaded": true,
+        "src": "/assets/schneidebrett-aufbereiten-nachher-geoelte-holzstruktur.jpg"
+      }
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+]

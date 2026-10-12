@@ -1,0 +1,352 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ad44758e-e8c3-4f5c-b5b2-014ac18daed2":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Stirnholz oder Langholz – was ist besser?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph: Das kommt darauf an, wofür du das Holz verwenden möchtest – zum Beispiel für einen Kaminofen, einen Holzherd oder einen offenen Kamin.
+          - paragraph:
+            - generic: "Grundsätzlich gilt bei Brennholz: Stirnholz trocknet häufig schneller, während Langholz bei der Lagerung und Verarbeitung Vorteile haben kann."
+            - text: Entscheidend sind aber auch Holzart, Scheitgröße, Lagerbedingungen und Restfeuchte.
+          - paragraph:
+            - text: Ich vermute, du meinst
+            - generic: Schneidebretter aus Stirnholz oder Langholz
+            - text: .
+            - button "naturecrafts +1":
+              - generic: naturecrafts
+              - generic: "+1"
+          - heading "Die wichtigsten Unterschiede" [level=2]
+          - img "End Grain Oak Boards – The Chopping Block Shop"
+          - button "Open End Grain Oak Boards – The Chopping Block Shop"
+          - paragraph:
+            - generic: Stirnholz
+          - list:
+            - paragraph: Fasern stehen senkrecht zur Schneidfläche
+            - paragraph: Schnittspuren fallen oft weniger auf
+            - paragraph: Meist schwerer und teurer
+            - paragraph: Markante, mosaikartige Optik
+          - img "Planche à découper en noyer | Grain debout | Boutique Giroux"
+          - button "Open Planche à découper en noyer | Grain debout | Boutique Giroux"
+          - paragraph:
+            - generic: Langholz
+          - list:
+            - paragraph: Fasern verlaufen längs zur Oberfläche
+            - paragraph: Meist leichter und günstiger
+            - paragraph: Klassische Holzmaserung
+            - paragraph: Einfach im Alltag zu handhaben
+          - heading "Was würde ich empfehlen?" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Für hochwertige Küchenmesser und intensive Schneidarbeit:"
+              - text: Stirnholz ist eine interessante Wahl, weil die Fasern beim Schneiden eher nachgeben.
+            - paragraph:
+              - generic: "Für den täglichen Gebrauch mit wenig Aufwand:"
+              - text: Langholz ist oft praktischer, besonders wenn du das Brett häufig wegräumst.
+            - paragraph:
+              - generic: "Für ein gutes Preis-Leistungs-Verhältnis:"
+              - text: Ein hochwertiges Langholzbrett kann vollkommen ausreichen. Verarbeitung und Holzqualität sind entscheidend.
+              - button "naturecrafts +1":
+                - generic: naturecrafts
+                - generic: "+1"
+          - paragraph:
+            - generic: "Eine kurze Rückfrage:"
+            - text: Geht es dir tatsächlich um ein Schneidebrett oder um Holz zum Bauen beziehungsweise als Brennholz? Dann kann ich dir den passenden Vergleich geben.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ad44758e-e8c3-4f5c-b5b2-014ac18daed2":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Stirnholz oder Langholz – was ist besser?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph: Das kommt darauf an, wofür du das Holz verwenden möchtest – zum Beispiel für einen Kaminofen, einen Holzherd oder einen offenen Kamin.
+          - paragraph:
+            - generic: "Grundsätzlich gilt bei Brennholz: Stirnholz trocknet häufig schneller, während Langholz bei der Lagerung und Verarbeitung Vorteile haben kann."
+            - text: Entscheidend sind aber auch Holzart, Scheitgröße, Lagerbedingungen und Restfeuchte.
+          - paragraph:
+            - text: Ich vermute, du meinst
+            - generic: Schneidebretter aus Stirnholz oder Langholz
+            - text: .
+            - button "naturecrafts +1" [expanded] [active]:
+              - generic: naturecrafts
+              - generic: "+1"
+            - dialog "naturecrafts +1":
+              - button "Open naturecrafts":
+                - generic: naturecrafts
+                - paragraph: Stirnholz oder Längsholz? Unterschiede im Vergleich
+                - paragraph: März 9, 2026
+              - button "Open Nordamerikanisches Premium-Hartholz":
+                - generic: Nordamerikanisches Premium-Hartholz
+                - paragraph: Boos | Das Material
+                - paragraph: September 2, 2021
+          - heading "Die wichtigsten Unterschiede" [level=2]
+          - img "End Grain Oak Boards – The Chopping Block Shop"
+          - button "Open End Grain Oak Boards – The Chopping Block Shop"
+          - paragraph:
+            - generic: Stirnholz
+          - list:
+            - paragraph: Fasern stehen senkrecht zur Schneidfläche
+            - paragraph: Schnittspuren fallen oft weniger auf
+            - paragraph: Meist schwerer und teurer
+            - paragraph: Markante, mosaikartige Optik
+          - img "Planche à découper en noyer | Grain debout | Boutique Giroux"
+          - button "Open Planche à découper en noyer | Grain debout | Boutique Giroux"
+          - paragraph:
+            - generic: Langholz
+          - list:
+            - paragraph: Fasern verlaufen längs zur Oberfläche
+            - paragraph: Meist leichter und günstiger
+            - paragraph: Klassische Holzmaserung
+            - paragraph: Einfach im Alltag zu handhaben
+          - heading "Was würde ich empfehlen?" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Für hochwertige Küchenmesser und intensive Schneidarbeit:"
+              - text: Stirnholz ist eine interessante Wahl, weil die Fasern beim Schneiden eher nachgeben.
+            - paragraph:
+              - generic: "Für den täglichen Gebrauch mit wenig Aufwand:"
+              - text: Langholz ist oft praktischer, besonders wenn du das Brett häufig wegräumst.
+            - paragraph:
+              - generic: "Für ein gutes Preis-Leistungs-Verhältnis:"
+              - text: Ein hochwertiges Langholzbrett kann vollkommen ausreichen. Verarbeitung und Holzqualität sind entscheidend.
+              - button "naturecrafts +1":
+                - generic: naturecrafts
+                - generic: "+1"
+          - paragraph:
+            - generic: "Eine kurze Rückfrage:"
+            - text: Geht es dir tatsächlich um ein Schneidebrett oder um Holz zum Bauen beziehungsweise als Brennholz? Dann kann ich dir den passenden Vergleich geben.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-ad44758e-e8c3-4f5c-b5b2-014ac18daed2":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Stirnholz oder Langholz – was ist besser?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph: Das kommt darauf an, wofür du das Holz verwenden möchtest – zum Beispiel für einen Kaminofen, einen Holzherd oder einen offenen Kamin.
+          - paragraph:
+            - generic: "Grundsätzlich gilt bei Brennholz: Stirnholz trocknet häufig schneller, während Langholz bei der Lagerung und Verarbeitung Vorteile haben kann."
+            - text: Entscheidend sind aber auch Holzart, Scheitgröße, Lagerbedingungen und Restfeuchte.
+          - paragraph:
+            - text: Ich vermute, du meinst
+            - generic: Schneidebretter aus Stirnholz oder Langholz
+            - text: .
+            - button "naturecrafts +1":
+              - generic: naturecrafts
+              - generic: "+1"
+          - heading "Die wichtigsten Unterschiede" [level=2]
+          - img "End Grain Oak Boards – The Chopping Block Shop"
+          - button "Open End Grain Oak Boards – The Chopping Block Shop"
+          - paragraph:
+            - generic: Stirnholz
+          - list:
+            - paragraph: Fasern stehen senkrecht zur Schneidfläche
+            - paragraph: Schnittspuren fallen oft weniger auf
+            - paragraph: Meist schwerer und teurer
+            - paragraph: Markante, mosaikartige Optik
+          - img "Planche à découper en noyer | Grain debout | Boutique Giroux"
+          - button "Open Planche à découper en noyer | Grain debout | Boutique Giroux"
+          - paragraph:
+            - generic: Langholz
+          - list:
+            - paragraph: Fasern verlaufen längs zur Oberfläche
+            - paragraph: Meist leichter und günstiger
+            - paragraph: Klassische Holzmaserung
+            - paragraph: Einfach im Alltag zu handhaben
+          - heading "Was würde ich empfehlen?" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Für hochwertige Küchenmesser und intensive Schneidarbeit:"
+              - text: Stirnholz ist eine interessante Wahl, weil die Fasern beim Schneiden eher nachgeben.
+            - paragraph:
+              - generic: "Für den täglichen Gebrauch mit wenig Aufwand:"
+              - text: Langholz ist oft praktischer, besonders wenn du das Brett häufig wegräumst.
+            - paragraph:
+              - generic: "Für ein gutes Preis-Leistungs-Verhältnis:"
+              - text: Ein hochwertiges Langholzbrett kann vollkommen ausreichen. Verarbeitung und Holzqualität sind entscheidend.
+              - button "naturecrafts +1" [expanded] [active]:
+                - generic: naturecrafts
+                - generic: "+1"
+              - dialog "naturecrafts +1":
+                - button "Open naturecrafts":
+                  - generic: naturecrafts
+                  - paragraph: Stirnholz oder Längsholz? Unterschiede im Vergleich
+                  - paragraph: März 9, 2026
+                - button "Open Nordamerikanisches Premium-Hartholz":
+                  - generic: Nordamerikanisches Premium-Hartholz
+                  - paragraph: Boos | Das Material
+                  - paragraph: September 2, 2021
+          - paragraph:
+            - generic: "Eine kurze Rückfrage:"
+            - text: Geht es dir tatsächlich um ein Schneidebrett oder um Holz zum Bauen beziehungsweise als Brennholz? Dann kann ich dir den passenden Vergleich geben.
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status

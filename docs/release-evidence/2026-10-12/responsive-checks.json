@@ -1,0 +1,365 @@
+{
+  "checks": [
+    {
+      "route": "schneidebrett-nach-mass/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-nach-mass/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-nach-mass/",
+      "width": 375
+    },
+    {
+      "route": "schneidebrett-nach-mass/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-nach-mass/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-nach-mass/",
+      "width": 430
+    },
+    {
+      "route": "schneidebrett-nach-mass/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-nach-mass/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-nach-mass/",
+      "width": 768
+    },
+    {
+      "route": "schneidebrett-nach-mass/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-nach-mass/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-nach-mass/",
+      "width": 1024
+    },
+    {
+      "route": "schneidebrett-nach-mass/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-nach-mass/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-nach-mass/",
+      "width": 1440
+    },
+    {
+      "route": "hackblock/",
+      "canonical": "https://edlehoelzer.de/hackblock/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/hackblock/",
+      "width": 375
+    },
+    {
+      "route": "hackblock/",
+      "canonical": "https://edlehoelzer.de/hackblock/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/hackblock/",
+      "width": 430
+    },
+    {
+      "route": "hackblock/",
+      "canonical": "https://edlehoelzer.de/hackblock/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/hackblock/",
+      "width": 768
+    },
+    {
+      "route": "hackblock/",
+      "canonical": "https://edlehoelzer.de/hackblock/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/hackblock/",
+      "width": 1024
+    },
+    {
+      "route": "hackblock/",
+      "canonical": "https://edlehoelzer.de/hackblock/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/hackblock/",
+      "width": 1440
+    },
+    {
+      "route": "stirnholz-vs-langholz/",
+      "canonical": "https://edlehoelzer.de/stirnholz-vs-langholz/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/stirnholz-vs-langholz/",
+      "width": 375
+    },
+    {
+      "route": "stirnholz-vs-langholz/",
+      "canonical": "https://edlehoelzer.de/stirnholz-vs-langholz/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/stirnholz-vs-langholz/",
+      "width": 430
+    },
+    {
+      "route": "stirnholz-vs-langholz/",
+      "canonical": "https://edlehoelzer.de/stirnholz-vs-langholz/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/stirnholz-vs-langholz/",
+      "width": 768
+    },
+    {
+      "route": "stirnholz-vs-langholz/",
+      "canonical": "https://edlehoelzer.de/stirnholz-vs-langholz/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/stirnholz-vs-langholz/",
+      "width": 1024
+    },
+    {
+      "route": "stirnholz-vs-langholz/",
+      "canonical": "https://edlehoelzer.de/stirnholz-vs-langholz/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/stirnholz-vs-langholz/",
+      "width": 1440
+    },
+    {
+      "route": "schneidebrett-aufbereiten/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-aufbereiten/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-aufbereiten/",
+      "width": 375
+    },
+    {
+      "route": "schneidebrett-aufbereiten/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-aufbereiten/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-aufbereiten/",
+      "width": 430
+    },
+    {
+      "route": "schneidebrett-aufbereiten/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-aufbereiten/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-aufbereiten/",
+      "width": 768
+    },
+    {
+      "route": "schneidebrett-aufbereiten/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-aufbereiten/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-aufbereiten/",
+      "width": 1024
+    },
+    {
+      "route": "schneidebrett-aufbereiten/",
+      "canonical": "https://edlehoelzer.de/schneidebrett-aufbereiten/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/schneidebrett-aufbereiten/",
+      "width": 1440
+    },
+    {
+      "route": "messerschonendes-schneidebrett/",
+      "canonical": "https://edlehoelzer.de/messerschonendes-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/messerschonendes-schneidebrett/",
+      "width": 375
+    },
+    {
+      "route": "messerschonendes-schneidebrett/",
+      "canonical": "https://edlehoelzer.de/messerschonendes-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/messerschonendes-schneidebrett/",
+      "width": 430
+    },
+    {
+      "route": "messerschonendes-schneidebrett/",
+      "canonical": "https://edlehoelzer.de/messerschonendes-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/messerschonendes-schneidebrett/",
+      "width": 768
+    },
+    {
+      "route": "messerschonendes-schneidebrett/",
+      "canonical": "https://edlehoelzer.de/messerschonendes-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/messerschonendes-schneidebrett/",
+      "width": 1024
+    },
+    {
+      "route": "messerschonendes-schneidebrett/",
+      "canonical": "https://edlehoelzer.de/messerschonendes-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/messerschonendes-schneidebrett/",
+      "width": 1440
+    },
+    {
+      "route": "schneidebrett-oel-vergleich/",
+      "canonical": "https://edlehoelzer.de/welches-oel-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/welches-oel-schneidebrett/",
+      "width": 375
+    },
+    {
+      "route": "schneidebrett-oel-vergleich/",
+      "canonical": "https://edlehoelzer.de/welches-oel-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/welches-oel-schneidebrett/",
+      "width": 430
+    },
+    {
+      "route": "schneidebrett-oel-vergleich/",
+      "canonical": "https://edlehoelzer.de/welches-oel-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/welches-oel-schneidebrett/",
+      "width": 768
+    },
+    {
+      "route": "schneidebrett-oel-vergleich/",
+      "canonical": "https://edlehoelzer.de/welches-oel-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/welches-oel-schneidebrett/",
+      "width": 1024
+    },
+    {
+      "route": "schneidebrett-oel-vergleich/",
+      "canonical": "https://edlehoelzer.de/welches-oel-schneidebrett/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/welches-oel-schneidebrett/",
+      "width": 1440
+    },
+    {
+      "route": "en/cutting-board-oil-comparison/",
+      "canonical": "https://edlehoelzer.de/en/cutting-board-oil-comparison/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/cutting-board-oil-comparison/",
+      "width": 375
+    },
+    {
+      "route": "en/cutting-board-oil-comparison/",
+      "canonical": "https://edlehoelzer.de/en/cutting-board-oil-comparison/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/cutting-board-oil-comparison/",
+      "width": 430
+    },
+    {
+      "route": "en/cutting-board-oil-comparison/",
+      "canonical": "https://edlehoelzer.de/en/cutting-board-oil-comparison/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/cutting-board-oil-comparison/",
+      "width": 768
+    },
+    {
+      "route": "en/cutting-board-oil-comparison/",
+      "canonical": "https://edlehoelzer.de/en/cutting-board-oil-comparison/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/cutting-board-oil-comparison/",
+      "width": 1024
+    },
+    {
+      "route": "en/cutting-board-oil-comparison/",
+      "canonical": "https://edlehoelzer.de/en/cutting-board-oil-comparison/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/cutting-board-oil-comparison/",
+      "width": 1440
+    },
+    {
+      "route": "en/knife-friendly-cutting-board/",
+      "canonical": "https://edlehoelzer.de/en/knife-friendly-cutting-board/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/knife-friendly-cutting-board/",
+      "width": 375
+    },
+    {
+      "route": "en/knife-friendly-cutting-board/",
+      "canonical": "https://edlehoelzer.de/en/knife-friendly-cutting-board/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/knife-friendly-cutting-board/",
+      "width": 430
+    },
+    {
+      "route": "en/knife-friendly-cutting-board/",
+      "canonical": "https://edlehoelzer.de/en/knife-friendly-cutting-board/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/knife-friendly-cutting-board/",
+      "width": 768
+    },
+    {
+      "route": "en/knife-friendly-cutting-board/",
+      "canonical": "https://edlehoelzer.de/en/knife-friendly-cutting-board/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/knife-friendly-cutting-board/",
+      "width": 1024
+    },
+    {
+      "route": "en/knife-friendly-cutting-board/",
+      "canonical": "https://edlehoelzer.de/en/knife-friendly-cutting-board/",
+      "h1": 1,
+      "images": true,
+      "overflow": false,
+      "url": "/en/knife-friendly-cutting-board/",
+      "width": 1440
+    }
+  ],
+  "logs": []
+}

@@ -1,0 +1,608 @@
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-33f4f3be-bf33-4df4-b8c6-cbbffdbc1c76":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Holz eignet sich am besten für ein Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - generic: Am besten eignet sich Ahornholz für ein Schneidebrett.
+            - text: Es ist hart, langlebig, messerschonend und hat eine feine, gleichmäßige Porenstruktur. In Deutschland ist allerdings auch
+            - generic: Buche eine hervorragende Wahl
+            - text: ", weil sie gut verfügbar und meist günstiger ist."
+            - button "WOOD Magazine +1":
+              - generic: WOOD Magazine
+              - generic: "+1"
+          - heading "Die 4 besten Holzarten im Vergleich" [level=2]
+          - img "Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - button "Open Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - heading "1. Ahorn – der beste Allrounder" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Sehr feinporig und widerstandsfähig
+            - paragraph: Schont die Messerschneide
+            - paragraph: Helle, neutrale Optik
+            - paragraph: "Nachteil: Flecken sind auf der hellen Oberfläche gut sichtbar"
+          - img "Handmade Beech Cutting Boards | Cyanowood"
+          - button "Open Handmade Beech Cutting Boards | Cyanowood"
+          - heading "2. Buche – die beste heimische Wahl" [level=3]
+          - list:
+            - paragraph: Preiswert und in Deutschland leicht erhältlich
+            - paragraph: Robust und relativ messerschonend
+            - paragraph: Feine Poren, gut für den täglichen Gebrauch
+            - paragraph: "Nachteil: Reagiert empfindlich auf starke Feuchtigkeitsschwankungen"
+          - img "WindsetStudio - Etsy New Zealand"
+          - button "Open WindsetStudio - Etsy New Zealand"
+          - heading "3. Nussbaum – die edle Variante" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Etwas weicher und dadurch besonders messerfreundlich
+            - paragraph: Gebrauchsspuren fallen weniger auf
+            - paragraph: "Nachteil: Häufig teurer als Buche oder Ahorn"
+          - img "Reversible Cherry Wood Cutting Board | Smith Custom"
+          - button "Open Reversible Cherry Wood Cutting Board | Smith Custom"
+          - heading "4. Kirschbaum – schön und messerschonend" [level=3]
+          - list:
+            - paragraph: Warmer, rötlicher Farbton
+            - paragraph: Feine Holzstruktur
+            - paragraph: Angenehm zum Schneiden
+            - paragraph: "Nachteil: Weicher als Ahorn und daher etwas anfälliger für Schnittspuren"
+          - paragraph:
+            - text: Die Auswahl orientiert sich an Härte, Porenstruktur, Haltbarkeit und Messerschonung.
+            - button "WOOD Magazine +2":
+              - generic: WOOD Magazine
+              - generic: "+2"
+          - heading "Worauf du beim Kauf achten solltest" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holzart:"
+              - text: Ahorn oder Buche für den Alltag, Nussbaum für eine hochwertige Optik.
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: Ein Stirnholzbrett ist besonders interessant, wenn du viel und intensiv schneidest. Es ist allerdings oft schwerer und teurer.
+            - paragraph:
+              - generic: "Oberflächenbehandlung:"
+              - text: Verwende lebensmittelechtes Schneidebrettöl, beispielsweise reines Mineralöl in Lebensmittelqualität.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in Wasser einweichen. Holzschneidebretter gehören nicht in die Spülmaschine.
+          - paragraph:
+            - generic: "Eher vermeiden:"
+            - text: Eiche wegen ihrer groben Porenstruktur sowie weiche Nadelhölzer wie Kiefer, die schnell tiefe Schnittspuren bekommen.
+            - button "WOOD Magazine +1":
+              - generic: WOOD Magazine
+              - generic: "+1"
+          - heading "Mein Fazit" [level=2]
+          - paragraph:
+            - text: Für ein langlebiges Schneidebrett würde ich
+            - generic: Ahorn
+            - text: wählen. Wenn du ein gutes Preis-Leistungs-Verhältnis und ein regional gut erhältliches Holz möchtest, ist
+            - generic: Buche
+            - text: wahrscheinlich die praktischste Wahl.
+          - paragraph:
+            - text: "Eine Frage noch: Möchtest du das Schneidebrett"
+            - generic: selbst bauen
+            - text: oder ein
+            - generic: fertiges Brett kaufen
+            - text: "? Dann kann ich dir die passendste Holzart und die ideale Bauweise empfehlen."
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten" [active]:
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-33f4f3be-bf33-4df4-b8c6-cbbffdbc1c76":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Holz eignet sich am besten für ein Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - generic: Am besten eignet sich Ahornholz für ein Schneidebrett.
+            - text: Es ist hart, langlebig, messerschonend und hat eine feine, gleichmäßige Porenstruktur. In Deutschland ist allerdings auch
+            - generic: Buche eine hervorragende Wahl
+            - text: ", weil sie gut verfügbar und meist günstiger ist."
+            - button "WOOD Magazine +1" [expanded] [active]:
+              - generic: WOOD Magazine
+              - generic: "+1"
+            - dialog "WOOD Magazine +1":
+              - button "Open WOOD Magazine":
+                - generic: WOOD Magazine
+                - paragraph: What's the best food-safe wood for cutting boards?
+                - paragraph: Januar 20, 2021
+              - button "Open Bob Vila":
+                - generic: Bob Vila
+                - paragraph: Best Wood for Cutting Board and Butcher Block Materials
+                - paragraph: November 21, 2018
+          - heading "Die 4 besten Holzarten im Vergleich" [level=2]
+          - img "Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - button "Open Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - heading "1. Ahorn – der beste Allrounder" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Sehr feinporig und widerstandsfähig
+            - paragraph: Schont die Messerschneide
+            - paragraph: Helle, neutrale Optik
+            - paragraph: "Nachteil: Flecken sind auf der hellen Oberfläche gut sichtbar"
+          - img "Handmade Beech Cutting Boards | Cyanowood"
+          - button "Open Handmade Beech Cutting Boards | Cyanowood"
+          - heading "2. Buche – die beste heimische Wahl" [level=3]
+          - list:
+            - paragraph: Preiswert und in Deutschland leicht erhältlich
+            - paragraph: Robust und relativ messerschonend
+            - paragraph: Feine Poren, gut für den täglichen Gebrauch
+            - paragraph: "Nachteil: Reagiert empfindlich auf starke Feuchtigkeitsschwankungen"
+          - img "WindsetStudio - Etsy New Zealand"
+          - button "Open WindsetStudio - Etsy New Zealand"
+          - heading "3. Nussbaum – die edle Variante" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Etwas weicher und dadurch besonders messerfreundlich
+            - paragraph: Gebrauchsspuren fallen weniger auf
+            - paragraph: "Nachteil: Häufig teurer als Buche oder Ahorn"
+          - img "Reversible Cherry Wood Cutting Board | Smith Custom"
+          - button "Open Reversible Cherry Wood Cutting Board | Smith Custom"
+          - heading "4. Kirschbaum – schön und messerschonend" [level=3]
+          - list:
+            - paragraph: Warmer, rötlicher Farbton
+            - paragraph: Feine Holzstruktur
+            - paragraph: Angenehm zum Schneiden
+            - paragraph: "Nachteil: Weicher als Ahorn und daher etwas anfälliger für Schnittspuren"
+          - paragraph:
+            - text: Die Auswahl orientiert sich an Härte, Porenstruktur, Haltbarkeit und Messerschonung.
+            - button "WOOD Magazine +2":
+              - generic: WOOD Magazine
+              - generic: "+2"
+          - heading "Worauf du beim Kauf achten solltest" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holzart:"
+              - text: Ahorn oder Buche für den Alltag, Nussbaum für eine hochwertige Optik.
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: Ein Stirnholzbrett ist besonders interessant, wenn du viel und intensiv schneidest. Es ist allerdings oft schwerer und teurer.
+            - paragraph:
+              - generic: "Oberflächenbehandlung:"
+              - text: Verwende lebensmittelechtes Schneidebrettöl, beispielsweise reines Mineralöl in Lebensmittelqualität.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in Wasser einweichen. Holzschneidebretter gehören nicht in die Spülmaschine.
+          - paragraph:
+            - generic: "Eher vermeiden:"
+            - text: Eiche wegen ihrer groben Porenstruktur sowie weiche Nadelhölzer wie Kiefer, die schnell tiefe Schnittspuren bekommen.
+            - button "WOOD Magazine +1":
+              - generic: WOOD Magazine
+              - generic: "+1"
+          - heading "Mein Fazit" [level=2]
+          - paragraph:
+            - text: Für ein langlebiges Schneidebrett würde ich
+            - generic: Ahorn
+            - text: wählen. Wenn du ein gutes Preis-Leistungs-Verhältnis und ein regional gut erhältliches Holz möchtest, ist
+            - generic: Buche
+            - text: wahrscheinlich die praktischste Wahl.
+          - paragraph:
+            - text: "Eine Frage noch: Möchtest du das Schneidebrett"
+            - generic: selbst bauen
+            - text: oder ein
+            - generic: fertiges Brett kaufen
+            - text: "? Dann kann ich dir die passendste Holzart und die ideale Bauweise empfehlen."
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-33f4f3be-bf33-4df4-b8c6-cbbffdbc1c76":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Holz eignet sich am besten für ein Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - generic: Am besten eignet sich Ahornholz für ein Schneidebrett.
+            - text: Es ist hart, langlebig, messerschonend und hat eine feine, gleichmäßige Porenstruktur. In Deutschland ist allerdings auch
+            - generic: Buche eine hervorragende Wahl
+            - text: ", weil sie gut verfügbar und meist günstiger ist."
+            - button "WOOD Magazine +1":
+              - generic: WOOD Magazine
+              - generic: "+1"
+          - heading "Die 4 besten Holzarten im Vergleich" [level=2]
+          - img "Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - button "Open Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - heading "1. Ahorn – der beste Allrounder" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Sehr feinporig und widerstandsfähig
+            - paragraph: Schont die Messerschneide
+            - paragraph: Helle, neutrale Optik
+            - paragraph: "Nachteil: Flecken sind auf der hellen Oberfläche gut sichtbar"
+          - img "Handmade Beech Cutting Boards | Cyanowood"
+          - button "Open Handmade Beech Cutting Boards | Cyanowood"
+          - heading "2. Buche – die beste heimische Wahl" [level=3]
+          - list:
+            - paragraph: Preiswert und in Deutschland leicht erhältlich
+            - paragraph: Robust und relativ messerschonend
+            - paragraph: Feine Poren, gut für den täglichen Gebrauch
+            - paragraph: "Nachteil: Reagiert empfindlich auf starke Feuchtigkeitsschwankungen"
+          - img "WindsetStudio - Etsy New Zealand"
+          - button "Open WindsetStudio - Etsy New Zealand"
+          - heading "3. Nussbaum – die edle Variante" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Etwas weicher und dadurch besonders messerfreundlich
+            - paragraph: Gebrauchsspuren fallen weniger auf
+            - paragraph: "Nachteil: Häufig teurer als Buche oder Ahorn"
+          - img "Reversible Cherry Wood Cutting Board | Smith Custom"
+          - button "Open Reversible Cherry Wood Cutting Board | Smith Custom"
+          - heading "4. Kirschbaum – schön und messerschonend" [level=3]
+          - list:
+            - paragraph: Warmer, rötlicher Farbton
+            - paragraph: Feine Holzstruktur
+            - paragraph: Angenehm zum Schneiden
+            - paragraph: "Nachteil: Weicher als Ahorn und daher etwas anfälliger für Schnittspuren"
+          - paragraph:
+            - text: Die Auswahl orientiert sich an Härte, Porenstruktur, Haltbarkeit und Messerschonung.
+            - button "WOOD Magazine +2" [expanded] [active]:
+              - generic: WOOD Magazine
+              - generic: "+2"
+            - dialog "WOOD Magazine +2":
+              - button "Open WOOD Magazine":
+                - generic: WOOD Magazine
+                - paragraph: What's the best food-safe wood for cutting boards?
+                - paragraph: Januar 20, 2021
+              - button "Open Bob Vila":
+                - generic: Bob Vila
+                - paragraph: Best Wood for Cutting Board and Butcher Block Materials
+                - paragraph: November 21, 2018
+              - button "Open Scott's Woodcrafts":
+                - generic: Scott's Woodcrafts
+                - paragraph: "Best Wood for a Cutting Board: Maple vs Walnut vs Cherry"
+                - paragraph: Juni 22, 2024
+          - heading "Worauf du beim Kauf achten solltest" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holzart:"
+              - text: Ahorn oder Buche für den Alltag, Nussbaum für eine hochwertige Optik.
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: Ein Stirnholzbrett ist besonders interessant, wenn du viel und intensiv schneidest. Es ist allerdings oft schwerer und teurer.
+            - paragraph:
+              - generic: "Oberflächenbehandlung:"
+              - text: Verwende lebensmittelechtes Schneidebrettöl, beispielsweise reines Mineralöl in Lebensmittelqualität.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in Wasser einweichen. Holzschneidebretter gehören nicht in die Spülmaschine.
+          - paragraph:
+            - generic: "Eher vermeiden:"
+            - text: Eiche wegen ihrer groben Porenstruktur sowie weiche Nadelhölzer wie Kiefer, die schnell tiefe Schnittspuren bekommen.
+            - button "WOOD Magazine +1":
+              - generic: WOOD Magazine
+              - generic: "+1"
+          - heading "Mein Fazit" [level=2]
+          - paragraph:
+            - text: Für ein langlebiges Schneidebrett würde ich
+            - generic: Ahorn
+            - text: wählen. Wenn du ein gutes Preis-Leistungs-Verhältnis und ein regional gut erhältliches Holz möchtest, ist
+            - generic: Buche
+            - text: wahrscheinlich die praktischste Wahl.
+          - paragraph:
+            - text: "Eine Frage noch: Möchtest du das Schneidebrett"
+            - generic: selbst bauen
+            - text: oder ein
+            - generic: fertiges Brett kaufen
+            - text: "? Dann kann ich dir die passendste Holzart und die ideale Bauweise empfehlen."
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button "Nach unten scrollen":
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
+
+SOURCE POPOVER
+- main "ChatGPT":
+  - complementary "Seitenleiste":
+    - link "ChatGPT-Logo":
+      - /url: /?noauth_recent_chat_failed=1
+    - button "Seitenleiste schließen" [expanded]:
+    - link "Neuer Chat":
+      - /url: /?noauth_recent_chat_failed=1
+      - generic: Neuer Chat
+    - navigation "Seitenleiste":
+      - link "Bilder":
+        - /url: /images
+        - generic: Bilder
+      - link "Plugins":
+        - /url: https://chatgpt.com/plugins
+        - generic: Plugins
+      - button "Deep Research":
+        - generic: Deep Research
+      - link "Pläne und Preise anzeigen":
+        - /url: https://openai.com/chatgpt/pricing/
+        - generic: Pläne und Preise anzeigen
+      - link "OpenAI Hilfe":
+        - /url: https://help.openai.com/de-de/collections/3742473-chatgpt
+        - generic: Hilfe
+      - button "Einstellungen":
+        - generic: Einstellungen
+    - region "Erhalte Antworten, die auf dich zugeschnitten sind":
+      - heading "Erhalte Antworten, die auf dich zugeschnitten sind" [level=2]
+      - paragraph: Melde dich an, um Antworten basierend auf gespeicherten Chats zu erhalten sowie Bilder zu erstellen und Dateien hochzuladen.
+      - button "Anmelden"
+  - button "ChatGPT":
+    - generic: ChatGPT
+  - button "Anmelden"
+  - button "Kostenlos registrieren"
+  - region "Gespräch":
+    - region "Gespräch chat-33f4f3be-bf33-4df4-b8c6-cbbffdbc1c76":
+      - list "Gespräch":
+        - heading "Du:" [level=4]
+        - paragraph: Welches Holz eignet sich am besten für ein Schneidebrett?
+        - button "Kopieren":
+        - status
+        - heading "ChatGPT:" [level=4]
+        - region "DIL content":
+          - paragraph:
+            - generic: Am besten eignet sich Ahornholz für ein Schneidebrett.
+            - text: Es ist hart, langlebig, messerschonend und hat eine feine, gleichmäßige Porenstruktur. In Deutschland ist allerdings auch
+            - generic: Buche eine hervorragende Wahl
+            - text: ", weil sie gut verfügbar und meist günstiger ist."
+            - button "WOOD Magazine +1":
+              - generic: WOOD Magazine
+              - generic: "+1"
+          - heading "Die 4 besten Holzarten im Vergleich" [level=2]
+          - img "Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - button "Open Houten Snijplank Esdoorn, 35×25×2,5 cm | SOPHIOR"
+          - heading "1. Ahorn – der beste Allrounder" [level=3]
+          - generic: Meine Empfehlung
+          - list:
+            - paragraph: Sehr feinporig und widerstandsfähig
+            - paragraph: Schont die Messerschneide
+            - paragraph: Helle, neutrale Optik
+            - paragraph: "Nachteil: Flecken sind auf der hellen Oberfläche gut sichtbar"
+          - img "Handmade Beech Cutting Boards | Cyanowood"
+          - button "Open Handmade Beech Cutting Boards | Cyanowood"
+          - heading "2. Buche – die beste heimische Wahl" [level=3]
+          - list:
+            - paragraph: Preiswert und in Deutschland leicht erhältlich
+            - paragraph: Robust und relativ messerschonend
+            - paragraph: Feine Poren, gut für den täglichen Gebrauch
+            - paragraph: "Nachteil: Reagiert empfindlich auf starke Feuchtigkeitsschwankungen"
+          - img "WindsetStudio - Etsy New Zealand"
+          - button "Open WindsetStudio - Etsy New Zealand"
+          - heading "3. Nussbaum – die edle Variante" [level=3]
+          - list:
+            - paragraph: Dunkle, hochwertige Optik
+            - paragraph: Etwas weicher und dadurch besonders messerfreundlich
+            - paragraph: Gebrauchsspuren fallen weniger auf
+            - paragraph: "Nachteil: Häufig teurer als Buche oder Ahorn"
+          - img "Reversible Cherry Wood Cutting Board | Smith Custom"
+          - button "Open Reversible Cherry Wood Cutting Board | Smith Custom"
+          - heading "4. Kirschbaum – schön und messerschonend" [level=3]
+          - list:
+            - paragraph: Warmer, rötlicher Farbton
+            - paragraph: Feine Holzstruktur
+            - paragraph: Angenehm zum Schneiden
+            - paragraph: "Nachteil: Weicher als Ahorn und daher etwas anfälliger für Schnittspuren"
+          - paragraph:
+            - text: Die Auswahl orientiert sich an Härte, Porenstruktur, Haltbarkeit und Messerschonung.
+            - button "WOOD Magazine +2":
+              - generic: WOOD Magazine
+              - generic: "+2"
+          - heading "Worauf du beim Kauf achten solltest" [level=2]
+          - list:
+            - paragraph:
+              - generic: "Holzart:"
+              - text: Ahorn oder Buche für den Alltag, Nussbaum für eine hochwertige Optik.
+            - paragraph:
+              - generic: "Verarbeitung:"
+              - text: Ein Stirnholzbrett ist besonders interessant, wenn du viel und intensiv schneidest. Es ist allerdings oft schwerer und teurer.
+            - paragraph:
+              - generic: "Oberflächenbehandlung:"
+              - text: Verwende lebensmittelechtes Schneidebrettöl, beispielsweise reines Mineralöl in Lebensmittelqualität.
+            - paragraph:
+              - generic: "Pflege:"
+              - text: Von Hand reinigen, direkt abtrocknen und nicht in Wasser einweichen. Holzschneidebretter gehören nicht in die Spülmaschine.
+          - paragraph:
+            - generic: "Eher vermeiden:"
+            - text: Eiche wegen ihrer groben Porenstruktur sowie weiche Nadelhölzer wie Kiefer, die schnell tiefe Schnittspuren bekommen.
+            - button "WOOD Magazine +1" [expanded] [active]:
+              - generic: WOOD Magazine
+              - generic: "+1"
+            - dialog "WOOD Magazine +1":
+              - button "Open WOOD Magazine":
+                - generic: WOOD Magazine
+                - paragraph: What's the best food-safe wood for cutting boards?
+                - paragraph: Januar 20, 2021
+              - button "Open Bob Vila":
+                - generic: Bob Vila
+                - paragraph: Best Wood for Cutting Board and Butcher Block Materials
+                - paragraph: November 21, 2018
+          - heading "Mein Fazit" [level=2]
+          - paragraph:
+            - text: Für ein langlebiges Schneidebrett würde ich
+            - generic: Ahorn
+            - text: wählen. Wenn du ein gutes Preis-Leistungs-Verhältnis und ein regional gut erhältliches Holz möchtest, ist
+            - generic: Buche
+            - text: wahrscheinlich die praktischste Wahl.
+          - paragraph:
+            - text: "Eine Frage noch: Möchtest du das Schneidebrett"
+            - generic: selbst bauen
+            - text: oder ein
+            - generic: fertiges Brett kaufen
+            - text: "? Dann kann ich dir die passendste Holzart und die ideale Bauweise empfehlen."
+        - status
+        - group "Antwortaktionen":
+          - button "Antwort kopieren":
+          - status
+          - button "Weitergeben":
+      - paragraph:
+        - generic: ChatGPT ist KI und kann Fehler machen.
+  - button
+  - button
+  - button
+  - button "Dateien und mehr hinzufügen":
+  - button "Websuche, zum Entfernen klicken":
+    - generic: Websuche
+  - generic: Mit ChatGPT chatten
+  - textbox "Mit ChatGPT chatten":
+    - /placeholder: Im Web suchen
+  - button "Diktat starten":
+  - button "Nachricht senden" [disabled]:
+- alert
+- status
