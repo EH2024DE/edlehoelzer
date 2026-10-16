@@ -13,9 +13,27 @@
   },
   {
     "listingId": "4417507555",
-    "name": "Eiche Stirnholz – Premium Hackblock",
+    "variant": "oak",
+    "availability": "made_to_order",
+    "name": "Eiche Stirnholz – Mit Griffen",
     "image": "/brettvorschau/assets/review/4417507555.jpg",
-    "dimensions": "59.5 × 38 × 4.9 cm"
+    "dimensions": "ca. 60 × 40 × 5 cm"
+  },
+  {
+    "listingId": "4417507555",
+    "variant": "tropical",
+    "availability": "available",
+    "name": "Tropenholz Stirnholz – Mit Griffen",
+    "image": "/brettvorschau/assets/tropical-top.jpg",
+    "dimensions": "44.2 × 36 × 5 cm"
+  },
+  {
+    "listingId": "4417507555",
+    "variant": "beech",
+    "availability": "available",
+    "name": "Buche Stirnholz – Mit Griffen",
+    "image": "/brettvorschau/assets/beech-handled.jpg",
+    "dimensions": "50 × 37 × 5 cm"
   },
   {
     "listingId": "4451487112",

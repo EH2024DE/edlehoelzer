@@ -117,6 +117,7 @@ const catalog = {
 let cameraInfo=null, paperWhite=null;
 for(const key of Object.keys(catalog)){
   if(!eligibility.listingIds.includes(catalog[key].listingId))delete catalog[key];
+  else if(english&&catalog[key].nameEn)catalog[key].name=catalog[key].nameEn;
 }
 let referenceProposed=false;
 const rawTextures={};
@@ -266,6 +267,8 @@ async function select(key) {
   presentation=nextPresentation;
   selected = key;
   $('modelChoice').value=key;
+  $('boardVariantLabel').hidden=!p.variant;
+  if(p.variant)$('boardVariant').value=p.variant;
   const materials=new Set();
   board.traverse(child=>{
     if(!child.isMesh)return;
@@ -344,7 +347,7 @@ async function select(key) {
   document
     .querySelectorAll(".product")
     .forEach((b) => b.classList.toggle("selected", b.dataset.product === key));
-  $("size").textContent = `${p.name} · ${p.dimensionLabel || `${p.approximateDimensions ? (english?'approx. ':'ca. ') : ''}${p.w} × ${p.d} cm · ${p.h} cm ${english?'thick':'Stärke'}`}`;
+  $("size").textContent = `${p.name} · ${p.dimensionLabel || `${p.approximateDimensions ? (english?'approx. ':'ca. ') : ''}${p.w} × ${p.d} cm · ${p.h} cm ${english?'thick':'Stärke'}`}${p.variant ? (p.availability==='made_to_order' ? (english?' · Made to order; reference appearance':' · Fertigung auf Bestellung; Holzbild als Referenz') : (english?' · Available':' · Verfügbar')) : ''}`;
   const purchaseUrl=new URL(`https://www.etsy.com/listing/${p.listingId}`);
   purchaseUrl.search=new URLSearchParams({utm_source:'edlehoelzer.de',utm_medium:'referral',utm_campaign:'kitchen_preview',utm_content:`buy_${p.listingId}_${entryPoint}`}).toString();
   $('purchase').href=purchaseUrl.href;
@@ -618,6 +621,12 @@ async function changePresentation(next){
 $('lyingView').onclick=()=>changePresentation('lying');
 $('holderView').onclick=()=>changePresentation('holder');
 $('holderWood').onchange=()=>select(selected);
+$('boardVariantLabel').firstChild.textContent=english?'Wood species':'Holzart';
+for(const option of $('boardVariant').options)option.textContent=english?{oak:'Oak',tropical:'Tropical hardwood',beech:'Beech'}[option.value]:option.textContent;
+$('boardVariant').onchange=()=>{
+  const key=Object.keys(catalog).find(key=>catalog[key].listingId===catalog[selected].listingId&&catalog[key].variant===$('boardVariant').value);
+  if(key)select(key);
+};
 document
   .querySelectorAll(".product")
   .forEach((b) => (b.onclick = () => select(b.dataset.product)));
@@ -747,7 +756,7 @@ savedViews=createSavedViews({host:viewDock,english,onCompare:id=>measurePreview(
  const factor=Math.min(1,1000/Math.max(source.width,source.height));small.width=Math.round(source.width*factor);small.height=Math.round(source.height*factor);
  small.getContext('2d').drawImage(source,0,0,small.width,small.height);
  const p=catalog[selected];
- return {id:p.listingId,name:p.name,details:p.dimensionLabel||`${p.approximateDimensions?(english?'approx. ':'ca. '):''}${p.w} × ${p.d} cm · ${p.h} cm ${english?'thick':'Stärke'}`,cleanImage:true,image:small.toDataURL('image/jpeg',.82)};
+ return {id:p.listingId,modelKey:selected,name:p.name,details:p.dimensionLabel||`${p.approximateDimensions?(english?'approx. ':'ca. '):''}${p.w} × ${p.d} cm · ${p.h} cm ${english?'thick':'Stärke'}`,cleanImage:true,image:small.toDataURL('image/jpeg',.82)};
 },onBuy:id=>{window.EdleAnalytics?.track('kitchen_preview_buy_click',{product_id:id,product_category:'board',cta_location:'saved_comparison',source:entryPoint});if(window.parent!==window)window.parent.postMessage({type:'kitchen-preview-buy',listingId:id,entry:'saved_comparison'},location.origin);}});
 $('color').oninput=()=>{$('colorValue').value=`${$('color').value} %`;refreshColor();};
 for(const id of ['angle','color']){
@@ -841,7 +850,8 @@ renderer.setAnimationLoop(() => {
 const params=new URLSearchParams(location.search);
 const entryPoint=params.get('entry')==='product'?'product':'homepage';
 const requestedListing=params.get('listing');
-const initialKey=requestedListing?Object.keys(catalog).find(key=>catalog[key].listingId===requestedListing):'walnut';
+const requestedVariant=params.get('variant');
+const initialKey=requestedListing?Object.keys(catalog).find(key=>catalog[key].listingId===requestedListing&&(!requestedVariant||catalog[key].variant===requestedVariant))||Object.keys(catalog).find(key=>catalog[key].listingId===requestedListing):'walnut';
 document.querySelector('.products').hidden=true;
 const quickChoice=document.querySelector('.model-choice');
 quickChoice.hidden=true;

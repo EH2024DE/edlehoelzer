@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {tropicalGeometry,handledGeometry,swissEdgeGeometry} from './model-shapes.js';
+import models from './additional-models.js';
 
-for(const [name,build,w,d,h] of [['tropical',tropicalGeometry,44.2,36,5],['oak',handledGeometry,59.5,38,4.9]]){
+for(const [name,build,w,d,h] of [['tropical',tropicalGeometry,44.2,36,5],['oak',handledGeometry,60,40,5],['beech',handledGeometry,50,37,5]]){
   test(`${name} grips keep a flush cutting face and taper only underneath`,()=>{
     const geometry=build(w,d,h),positions=geometry.getAttribute('position');
     let flushGrip=false,taperedGrip=false,flatBase=false;
@@ -20,6 +21,23 @@ for(const [name,build,w,d,h] of [['tropical',tropicalGeometry,44.2,36,5],['oak',
     geometry.dispose();
   });
 }
+test('merged listing exposes three dimensioned models without removing the standalone tropical board',()=>{
+  const variants=Object.values(models).filter(p=>p.listingId==='4417507555');
+  assert.deepEqual(variants.map(p=>p.variant),['oak','tropical','beech']);
+  assert.deepEqual(variants.map(p=>[p.w,p.d,p.h]),[[60,40,5],[44.2,36,5],[50,37,5]]);
+  assert.equal(models.premiumOak.availability,'made_to_order');
+  assert.equal(models.tropical.listingId,'4451487112');
+});
+test('shared handle template rounds the four cutting-face body corners',()=>{
+  for(const p of [models.premiumOak,models.handledTropical,models.handledBeech]){
+    const geometry=handledGeometry(p.w,p.d,p.h),positions=geometry.getAttribute('position');
+    for(let i=0;i<positions.count;i++){
+      const x=Math.abs(positions.getX(i)),z=Math.abs(positions.getZ(i));
+      assert.ok(!(Math.abs(x-(p.w/2-4.5))<.001&&Math.abs(z-p.d/2)<.001),'no sharp body corner');
+    }
+    geometry.dispose();
+  }
+});
 test('Swiss edge retains full cutting face above a recessed sloping underside',()=>{
   const {bevel,lip,inset}=swissEdgeGeometry(40,30,3),p=bevel.getAttribute('position');
   for(let i=0;i<p.count;i++)if(p.getY(i)===0){
