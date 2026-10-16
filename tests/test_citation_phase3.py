@@ -113,12 +113,13 @@ class Phase3Tests(unittest.TestCase):
         p = self.products["4417507555"]
         self.assertTrue(p["dataVerified"])
         self.assertEqual(p["woodCut"], "end")
-        self.assertEqual(p["material"], "Eiche")
-        self.assertIn("7,9 kg", p["badges"])
-        self.assertEqual(p["sizeLabel"], "59,5 x 38 cm")
-        self.assertEqual(p["thicknessLabel"], "4,9 cm")
+        reference = p.get("referenceProduct", p)
+        self.assertEqual(reference["material"], "Eiche")
+        self.assertIn("7,9 kg", reference["badges"])
+        self.assertEqual(reference["sizeLabel"], "59,5 x 38 cm")
+        self.assertEqual(reference["thicknessLabel"], "4,9 cm")
         self.assertFalse(p["finderProfile"]["juiceGroove"])
-        self.assertEqual(p["availabilityStatus"], "made_to_order")
+        self.assertEqual(reference["availabilityStatus"], "made_to_order")
         text = self.sources["hackblock"]
         for value in ("59,5 × 38 cm", "4,9 cm", "7,9 kg", "keine Saftrille", "auf Bestellung", "Ohne ausdrückliche produktbezogene Freigabe"):
             self.assertIn(value, text)

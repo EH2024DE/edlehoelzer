@@ -1552,6 +1552,15 @@ function initProductExperience() {
   }, { passive: true });
 
   document.addEventListener("change", function (event) {
+    var variantInput = event.target.closest("[data-purchase-variant]");
+    if (variantInput) {
+      var variantProduct = productMap[variantInput.getAttribute("data-product-id")];
+      if (!variantProduct || !(variantProduct.variants || []).some(function (variant) { return variant.id === variantInput.value; })) return;
+      purchaseSelections[variantProduct.id] = purchaseSelections[variantProduct.id] || {};
+      purchaseSelections[variantProduct.id].woodVariant = variantInput.value;
+      updatePreviewPurchaseSummary(variantProduct);
+      return;
+    }
     var optionInput = event.target.closest("[data-purchase-option]");
     if (!optionInput) {
       return;
@@ -1644,6 +1653,7 @@ function initProductExperience() {
         activeOverlay.setAttribute("data-current-product-id", product.id);
         activeOverlay.setAttribute("data-current-product-source", source || "preview");
         activeOverlay.setAttribute("data-current-product-reason", reason || "");
+        updatePreviewPurchaseSummary(product);
         var mainMedia = activeOverlay.querySelector(".productPreview__mainMedia");
         startDesktopPreviewVideo(mainMedia);
         if (mainMedia && mainMedia.querySelector("video[autoplay]")) {
@@ -2789,6 +2799,18 @@ function initProductExperience() {
     return purchaseSelections[product.id] || {};
   }
 
+  function purchaseVariant(product) {
+    var variants = product.variants || [];
+    return variants.find(function (variant) { return variant.id === purchaseSelection(product).woodVariant; }) || variants[0];
+  }
+
+  function purchaseVariantSummary(product) {
+    var variant = purchaseVariant(product);
+    if (!variant) return "";
+    return (isEnglish ? variant.nameEn : variant.name) + " · " + variant.dimensions + " · " +
+      (variant.availabilityStatus === "made_to_order" ? (isEnglish ? "Made to order; timing agreed individually" : "Fertigung auf Bestellung; Zeit nach Abstimmung") : (isEnglish ? "Available" : "Verfügbar"));
+  }
+
   function purchaseTotal(product) {
     var subtotal = purchaseSubtotalWithoutCareBalm(product);
     if (!Number.isFinite(subtotal)) {
@@ -2807,7 +2829,8 @@ function initProductExperience() {
   }
 
   function purchaseSubtotalWithoutCareBalm(product) {
-    var subtotal = Number(product.priceOrder);
+    var variant = purchaseVariant(product);
+    var subtotal = Number(variant ? variant.priceOrder : product.priceOrder);
     if (!Number.isFinite(subtotal)) {
       return null;
     }
@@ -2860,6 +2883,8 @@ function initProductExperience() {
   }
 
   function purchaseDeliveryText(product) {
+    var variant = purchaseVariant(product);
+    if (variant && variant.availabilityStatus === "made_to_order") return isEnglish ? "Made to order; production and delivery time agreed individually" : "Auf Bestellung; Fertigungs- und Lieferzeit nach Abstimmung";
     var selection = purchaseSelection(product);
     var selectedCustomOptions = purchaseOptions(product).filter(function (option) {
       return option.id !== "careBalm" && selection[option.id];
@@ -2963,6 +2988,9 @@ function initProductExperience() {
     var options = purchaseOptions(product);
     var selection = purchaseSelection(product);
     return '<section class="productPreview__configuration">' +
+      ((product.variants || []).length ? '<label class="productPreview__variant">' + escapeHtml(isEnglish ? 'Wood species' : 'Holzart') + '<select data-purchase-variant data-product-id="' + escapeAttribute(product.id) + '">' + product.variants.map(function (variant) {
+        return '<option value="' + escapeAttribute(variant.id) + '"' + (purchaseVariant(product).id === variant.id ? ' selected' : '') + '>' + escapeHtml((isEnglish ? variant.nameEn : variant.name) + ' · ' + formatCurrency(variant.priceOrder)) + '</option>';
+      }).join('') + '</select></label><p data-purchase-variant-summary>' + escapeHtml(purchaseVariantSummary(product)) + '</p><p class="productPreview__trust">' + escapeHtml(isEnglish ? 'Base prices exclude the optional juice groove (+€15). The oak photos show the reference piece; use the worktop preview for the other woods.' : 'Grundpreise ohne optionale Saftrille (+15 €). Die Eichenfotos zeigen das Referenzstück; die anderen Holzarten findest du in der Tresenvorschau.') + '</p>' : '') +
       (options.length ? '<h3>' + escapeHtml(labels.configuration) + '</h3><div class="productPreview__optionList">' +
         '<div class="productPreview__option productPreview__option--standard"><span>' + escapeHtml(labels.standardVersion) + '</span><strong>' + escapeHtml(labels.included) + '</strong></div>' +
         options.map(function (option) {
@@ -2981,6 +3009,15 @@ function initProductExperience() {
     if (!activeOverlay) {
       return;
     }
+    activeOverlay.querySelectorAll('[data-purchase-variant-summary]').forEach(function (element) { element.textContent = purchaseVariantSummary(product); });
+    activeOverlay.querySelectorAll('[data-kitchen-preview]').forEach(function (element) {
+      var variant = purchaseVariant(product);
+      if (variant) element.setAttribute('data-kitchen-variant', variant.id);
+    });
+    var selectedVariant = purchaseVariant(product);
+    if (selectedVariant) activeOverlay.querySelectorAll('.productPreview__whatsapp a').forEach(function (element) {
+      element.href = productWhatsappUrl(product, displayProductName(product) + ' · ' + (isEnglish ? selectedVariant.nameEn : selectedVariant.name));
+    });
     activeOverlay.querySelectorAll("[data-purchase-price-label]").forEach(function (element) {
       element.textContent = purchasePriceLabel(product);
     });
