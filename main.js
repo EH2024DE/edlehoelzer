@@ -1,4 +1,19 @@
 document.documentElement.classList.add("js");
+function buildCardGalleryItems(product) {
+  var images = [product.image].concat(product.gallery || []).filter(Boolean).map(function (src) {
+    return src.replace(/^(https:\/\/i\.etsystatic\.com\/.+\/)il_fullxfull\./, "$1il_794xN.");
+  }).filter(function (src, index, all) { return all.indexOf(src) === index; }).slice(0, 5);
+  var videos = (product.videos || []).filter(function (item) { return item && item.src && item.poster; }).slice(0, 3);
+  var items = images.map(function (src) { return { type: "image", src: src }; });
+  items.splice.apply(items, [1, 0].concat(videos.map(function (item) { return { type: "video", src: item.src, poster: item.poster, alt: item.alt }; })));
+  return items;
+}
+if (!document.querySelector('[data-product-hover-loader]')) {
+  var hoverScript = document.createElement("script");
+  hoverScript.src = "/assets/js/product-hover-video.js?v=20261016";
+  hoverScript.setAttribute("data-product-hover-loader", "");
+  document.head.appendChild(hoverScript);
+}
 if (!document.querySelector('[data-site-search-loader]')) {
   var searchStyle=document.createElement('link');searchStyle.rel='stylesheet';searchStyle.href='/assets/css/site-search.css';document.head.appendChild(searchStyle);
   var searchScript=document.createElement('script');searchScript.src='/assets/js/site-search.js';searchScript.setAttribute('data-site-search-loader','');document.head.appendChild(searchScript);
@@ -1648,6 +1663,9 @@ function initProductExperience() {
       }
 
       previousFocus = trigger || document.activeElement;
+      if (trigger && trigger.matches('.productCard__cta, .productCard .btn--emphasis')) {
+        track("product_card_cta_click", product, { source: source });
+      }
       renderOverlay(renderProductPreview(product, source, reason), "product-preview", source);
       if (activeOverlay) {
         activeOverlay.setAttribute("data-current-product-id", product.id);
@@ -1660,7 +1678,7 @@ function initProductExperience() {
           track("product_video_view", product, { source: source || "preview", playback: "desktop_autoplay" });
         }
       }
-      track("product_preview_open", product, { source: source });
+      track("product_preview_open", product, { source: source, entry_point: trigger && trigger.matches('.productCard__cta, .productCard .btn--emphasis') ? "card_cta" : "product_image_or_other" });
     }).catch(function (error) {
       console.warn("[Edle Hölzer] Produktvorschau konnte nicht geöffnet werden:", error);
     });
@@ -3285,6 +3303,8 @@ function initProductExperience() {
   function track(eventName, product, extra) {
     var payload = Object.assign({
       product_id: product && product.id,
+      listing_id: product && product.listingId,
+      product_name: product && (product.displayName || product.name),
       product_category: product && product.category,
       wood: product && product.material
     }, extra || {});
@@ -4533,6 +4553,9 @@ function initProductsPage() {
   }
 
   function buildProductMedia(product, source) {
+    var hoverVideo = Array.isArray(product.videos) && product.videos.find(function (video) { return video && video.src; });
+    var hoverAttribute = hoverVideo ? ' data-product-hover-video="' + escapeAttribute(hoverVideo.src) + '"' : "";
+    hoverAttribute += ' data-product-card-gallery="' + escapeAttribute(JSON.stringify(buildCardGalleryItems(product))) + '"';
     if (!product.image || product.imageVerified !== true) {
       return '<div class="productCard__media productCard__media--pending">' +
         '<span>' + (isEnglish ? "Product image coming soon" : "Produktbild folgt") + '</span>' +
@@ -4540,12 +4563,12 @@ function initProductsPage() {
     }
 
     if (source === false) {
-      return '<div class="productCard__media"' + productImageStyle(product) + '>' +
+      return '<div class="productCard__media"' + hoverAttribute + productImageStyle(product) + '>' +
         '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
       '</div>';
     }
 
-    return '<button class="productCard__media productCard__mediaButton" type="button" aria-label="' + escapeAttribute((isEnglish ? "View " : "Ansehen: ") + displayProductName(product)) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "grid") + '"' + productImageStyle(product) + '>' +
+    return '<button class="productCard__media productCard__mediaButton" type="button" aria-label="' + escapeAttribute((isEnglish ? "View " : "Ansehen: ") + displayProductName(product)) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(source || "grid") + '"' + hoverAttribute + productImageStyle(product) + '>' +
       '<img src="' + escapeAttribute(product.image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
     '</button>';
   }

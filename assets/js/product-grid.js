@@ -82,6 +82,9 @@
   }
 
   function renderCard(product) {
+    var hoverVideo = Array.isArray(product.videos) && product.videos.find(function (video) { return video && video.src; });
+    var hoverAttribute = hoverVideo ? ' data-product-hover-video="' + escapeAttribute(hoverVideo.src) + '"' : "";
+    if (typeof buildCardGalleryItems === "function") hoverAttribute += ' data-product-card-gallery="' + escapeAttribute(JSON.stringify(buildCardGalleryItems(product))) + '"';
     var image = Array.isArray(product.gallery) && product.gallery[0] ? product.gallery[0] : product.image;
     var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
     var detailsText = primaryCardCta(product, isEnglish);
@@ -93,7 +96,7 @@
 
     return '<article class="' + productCardClass(product) + '">' +
       '<button class="productCard__link productCard__previewLink" type="button" aria-label="' + escapeAttribute(previewLabel) + '" data-product-preview="' + escapeAttribute(product.id) + '" data-product-source="landing">' +
-        '<span class="productCard__media productCard__imgWrap"' + productImageStyle(product) + '>' +
+        '<span class="productCard__media productCard__imgWrap"' + hoverAttribute + productImageStyle(product) + '>' +
           '<img src="' + escapeAttribute(image) + '" alt="' + escapeAttribute(productImageAlt(product)) + '" loading="lazy" decoding="async">' +
         '</span>' +
       '</button>' +
