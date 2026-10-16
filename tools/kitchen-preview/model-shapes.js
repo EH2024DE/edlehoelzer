@@ -42,23 +42,28 @@ function taperGrips(source,width,height,leftCore,rightCore){
   geometry.groups=groups;geometry.computeVertexNormals();source.dispose();return geometry;
 }
 
-// Trace of listing 4451487112: broad rounded grips, gently rounded shoulders.
+// Shared workshop template: rounded shoulders and corners, flush top, tapered underside.
 export function tropicalGeometry(width, depth, height) {
   const shape = new THREE.Shape();
   const p = (u,v) => [width*(u-.5),depth*(.5-v)];
-  shape.moveTo(...p(.10,0));
-  shape.lineTo(...p(.90,0));
-  shape.bezierCurveTo(...p(.914,.05),...p(.911,.17),...p(.915,.23));
-  shape.bezierCurveTo(...p(.918,.29),...p(.968,.28),...p(.984,.35));
+  const a=4.5/width,r=.8/width,s=.8/depth;
+  shape.moveTo(...p(a+r,0));
+  shape.lineTo(...p(1-a-r,0));
+  shape.quadraticCurveTo(...p(1-a,0),...p(1-a,s));
+  shape.lineTo(...p(1-a,.23));
+  shape.bezierCurveTo(...p(1-a,.29),...p(.968,.28),...p(.984,.35));
   shape.bezierCurveTo(...p(1,.40),...p(1,.59),...p(.984,.65));
-  shape.bezierCurveTo(...p(.968,.73),...p(.918,.71),...p(.915,.77));
-  shape.bezierCurveTo(...p(.911,.84),...p(.914,.95),...p(.90,1));
-  shape.lineTo(...p(.10,1));
-  shape.bezierCurveTo(...p(.086,.95),...p(.089,.84),...p(.085,.77));
-  shape.bezierCurveTo(...p(.082,.71),...p(.032,.73),...p(.016,.65));
+  shape.bezierCurveTo(...p(.968,.73),...p(1-a,.71),...p(1-a,.77));
+  shape.lineTo(...p(1-a,1-s));
+  shape.quadraticCurveTo(...p(1-a,1),...p(1-a-r,1));
+  shape.lineTo(...p(a+r,1));
+  shape.quadraticCurveTo(...p(a,1),...p(a,1-s));
+  shape.lineTo(...p(a,.77));
+  shape.bezierCurveTo(...p(a,.71),...p(.032,.73),...p(.016,.65));
   shape.bezierCurveTo(...p(0,.59),...p(0,.40),...p(.016,.35));
-  shape.bezierCurveTo(...p(.032,.28),...p(.082,.29),...p(.085,.23));
-  shape.bezierCurveTo(...p(.089,.17),...p(.086,.05),...p(.10,0));
+  shape.bezierCurveTo(...p(.032,.28),...p(a,.29),...p(a,.23));
+  shape.lineTo(...p(a,s));
+  shape.quadraticCurveTo(...p(a,0),...p(a+r,0));
   shape.closePath();
   const contour=shape.getPoints(24), distances=[0];
   for(let i=1;i<contour.length;i++) distances.push(distances[i-1]+contour[i].distanceTo(contour[i-1]));
@@ -76,41 +81,11 @@ export function tropicalGeometry(width, depth, height) {
     }
   });
   geometry.rotateX(-Math.PI/2);
-  return taperGrips(geometry,width,height,-width*.415,width*.415);
+  return taperGrips(geometry,width,height,-width/2+4.5,width/2-4.5);
 }
 
 export function handledGeometry(width, depth, height) {
-  const shape = new THREE.Shape();
-  const point = (u, v) => [width * (u - .5), depth * (.5 - v)];
-  shape.moveTo(...point(.115, 0));
-  shape.lineTo(...point(.925, 0));
-  shape.lineTo(...point(.925, .23));
-  shape.bezierCurveTo(...point(.925,.30), ...point(1,.27), ...point(1,.39));
-  shape.lineTo(...point(1,.62));
-  shape.bezierCurveTo(...point(1,.74), ...point(.925,.70), ...point(.925,.77));
-  shape.lineTo(...point(.925,1));
-  shape.lineTo(...point(.115,1));
-  shape.lineTo(...point(.115,.77));
-  shape.bezierCurveTo(...point(.115,.70), ...point(0,.74), ...point(0,.62));
-  shape.lineTo(...point(0,.39));
-  shape.bezierCurveTo(...point(0,.27), ...point(.115,.30), ...point(.115,.23));
-  shape.closePath();
-  const contour=shape.getPoints(24),distances=[0];
-  for(let i=1;i<contour.length;i++)distances.push(distances[i-1]+contour[i].distanceTo(contour[i-1]));
-  const edgeUV=(vertices,i)=>{
-    let nearest=0,best=Infinity;
-    contour.forEach((point,index)=>{const distance=(point.x-vertices[i*3])**2+(point.y-vertices[i*3+1])**2;if(distance<best){best=distance;nearest=index;}});
-    return new THREE.Vector2(distances[nearest]/(width*.8),vertices[i*3+2]/height);
-  };
-  const geometry = new THREE.ExtrudeGeometry(shape, {
-    depth: height, bevelEnabled: false, curveSegments: 12,
-    UVGenerator: {
-      generateTopUV: (_, vertices, a, b, c) => [a,b,c].map(i => new THREE.Vector2(vertices[i*3]/width+.5, vertices[i*3+1]/depth+.5)),
-      generateSideWallUV: (_,vertices,a,b,c,d) => [a,b,c,d].map(i=>edgeUV(vertices,i))
-    }
-  });
-  geometry.rotateX(-Math.PI/2);
-  return taperGrips(geometry,width,height,-width*.385,width*.425);
+  return tropicalGeometry(width,depth,height);
 }
 
 export function swissEdgeGeometry(width,depth,height){

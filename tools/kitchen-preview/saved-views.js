@@ -1,6 +1,7 @@
 import { createIcons, ArrowLeft, ArrowRight } from 'lucide';
 export function createSavedViews({host,capture,english,onBuy,models=[],onChoose,onCompare}){
  const key='edle-worktop-comparisons-v1',ttl=86400000;
+ const identity=view=>view.modelKey||view.id;
  const words=english?{save:'Save comparison view',title:'Your saved views',note:'On your device for 24 hours. Photos may show different positions and angles.',remove:'Remove',buy:'Buy this board in the shop',close:'Close',full:'Two views saved. Remove one before adding another.',error:'Could not save on this device. Please use the image download instead.'}:{save:'Ansicht zum Vergleich merken',title:'Deine gemerkten Ansichten',note:'Für 24 Stunden auf deinem Gerät. Fotos können unterschiedliche Positionen und Blickwinkel zeigen.',remove:'Entfernen',buy:'Dieses Brett im Shop kaufen',close:'Schließen',full:'Zwei Ansichten gemerkt. Entferne eine, bevor du eine weitere hinzufügst.',error:'Speichern auf diesem Gerät nicht möglich. Nutze bitte den Bild-Download.'};
  const save=document.createElement('button');save.textContent=words.save;save.hidden=true;
  const section=document.createElement('section');section.className='saved-views';
@@ -57,21 +58,21 @@ export function createSavedViews({host,capture,english,onBuy,models=[],onChoose,
    figure.append(image,caption,purchaseLink(view));return figure;
   }));
   opener=button;zoom.showModal();
-  if(read().length===2)onCompare?.(id||read()[0].id);
-  slides.scrollLeft=wide.matches?0:Math.max(0,views.findIndex(view=>view.id===id))*slides.clientWidth;sync();
+  if(read().length===2)onCompare?.(views.find(view=>identity(view)===id)?.id||views[0].id);
+  slides.scrollLeft=wide.matches?0:Math.max(0,views.findIndex(view=>identity(view)===id))*slides.clientWidth;sync();
  }
  function render(){
   const views=read();section.hidden=!views.length;grid.replaceChildren();
   addSecond.hidden=views.length!==1;
   if(views.length!==1){chooser.hidden=true;addSecond.setAttribute('aria-expanded','false');}
-  for(const option of chooser.children){const model=models.find(m=>m.key===option.dataset.model);option.disabled=!!model&&views.some(v=>v.id===model.id);}
+  for(const option of chooser.children){const model=models.find(m=>m.key===option.dataset.model);option.disabled=!!model&&views.some(v=>v.modelKey?v.modelKey===model.key:v.id===model.id);}
   for(const view of views){
    const card=document.createElement('article'),open=document.createElement('button'),thumb=document.createElement('img');
    thumb.src=view.image;thumb.alt=view.name;open.setAttribute('aria-label',`${view.name} · ${english?'Enlarge':'Vergrößern'}`);open.append(thumb);
-   open.onclick=()=>openComparison(view.id,open);
+   open.onclick=()=>openComparison(identity(view),open);
    const name=document.createElement('p');name.textContent=view.cleanImage?`${view.name}${view.details?' · '+view.details:''}`:'';
    const buy=purchaseLink(view);
-   const remove=document.createElement('button');remove.textContent=words.remove;remove.onclick=()=>{if(write(read().filter(v=>v.id!==view.id))){message.textContent='';render();}};
+   const remove=document.createElement('button');remove.textContent=words.remove;remove.onclick=()=>{if(write(read().filter(v=>identity(v)!==identity(view)))){message.textContent='';render();}};
    card.append(open,name,buy,remove);grid.append(card);
   }
  }
@@ -79,8 +80,8 @@ export function createSavedViews({host,capture,english,onBuy,models=[],onChoose,
   const views=read();
   try{
    const view=capture();if(!view)return;
-   if(views.length===2&&!views.some(v=>v.id===view.id)){message.textContent=words.full;section.hidden=false;section.scrollIntoView({block:'nearest'});return;}
-   const next=[...views.filter(v=>v.id!==view.id),{...view,expires:Date.now()+ttl}];
+   if(views.length===2&&!views.some(v=>identity(v)===identity(view))){message.textContent=words.full;section.hidden=false;section.scrollIntoView({block:'nearest'});return;}
+   const next=[...views.filter(v=>identity(v)!==identity(view)),{...view,expires:Date.now()+ttl}];
    if(write(next)){render();message.textContent=english?'View saved. You can now try another board.':'Ansicht gemerkt. Du kannst jetzt ein anderes Brett ausprobieren.';}
    else section.hidden=false;
   }catch{section.hidden=false;message.textContent=words.error;}

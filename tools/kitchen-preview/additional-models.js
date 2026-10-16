@@ -1,8 +1,14 @@
 // Reviewed surface corners in normalized source-photo coordinates, clockwise.
 export default {
-  premiumOak: { listingId:'4417507555',name:'Eiche Stirnholz – Premium Hackblock',w:59.5,d:38,h:4.9,
+  premiumOak: { listingId:'4417507555',variant:'oak',name:'Eiche Stirnholz – Mit Griffen',nameEn:'Oak end grain – With handles',w:60,d:40,h:5,approximateDimensions:true,
+    availability:'made_to_order',
     image:'/assets/review/4417507555.jpg',quad:[.218,.151,.784,.188,.784,.742,.218,.799],handles:true,
     edge:{image:'/assets/premium-oak-edge.jpg',quad:[.526,.662,.965,.460,.965,.658,.526,.939],w:30,d:4.9} },
+  handledTropical: { listingId:'4417507555',variant:'tropical',name:'Tropenholz Stirnholz – Mit Griffen',nameEn:'Tropical hardwood end grain – With handles',w:44.2,d:36,h:5,
+    availability:'available',image:'/assets/tropical-top.jpg',quad:[.151,.149,.846,.139,.846,.823,.151,.823],handles:true,
+    edge:{image:'/assets/tropical-edge.jpg',quad:[.185,.793,.705,.791,.705,.879,.185,.881],w:31,d:5} },
+  handledBeech: { listingId:'4417507555',variant:'beech',name:'Buche Stirnholz – Mit Griffen',nameEn:'Beech end grain – With handles',w:50,d:37,h:5,
+    availability:'available',image:'/assets/beech-handled.jpg',quad:[.315,.155,.700,.190,.700,.694,.315,.738],handles:true },
   tropical: { listingId:'4451487112',name:'Tropenholz Stirnholz – Mit Griffen',w:44.2,d:36,h:5,
     image:'/assets/tropical-top.jpg',quad:[.151,.149,.846,.139,.846,.823,.151,.823],handles:true,profile:'tropical',
     edge:{image:'/assets/tropical-edge.jpg',quad:[.185,.793,.705,.791,.705,.879,.185,.881],w:31,d:5} },

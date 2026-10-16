@@ -23,7 +23,7 @@ for(const model of models){
   await copyFile(path.join(root,relative),path.join(output,relative));
 }
 await writeFile(path.join(output,'models.json'),JSON.stringify(models.map(model=>({
-  listingId:model.listingId,name:model.name,image:'/brettvorschau'+model.image,dimensions:model.dimensionLabel || `${model.approximateDimensions ? 'ca. ' : ''}${model.w} × ${model.d} × ${model.h} cm`
+  listingId:model.listingId,...(model.variant?{variant:model.variant,availability:model.availability}:{}),name:model.name,image:'/brettvorschau'+model.image,dimensions:model.dimensionLabel || `${model.approximateDimensions ? 'ca. ' : ''}${model.w} × ${model.d} × ${model.h} cm`
 })),null,2)+'\n');
 await copyFile(path.join(root,'vendor/LICENSE-perspective-transform'),path.join(output,'LICENSE-perspective-transform'));
 await copyFile(path.join(root,'assets/worktop-example.jpg'),path.join(output,'assets/worktop-example.jpg'));

@@ -97,6 +97,8 @@ button svg,
 .presentation-controls label { display:flex; align-items:center; gap:8px; font-size:14px; }
 .presentation-controls label[hidden] { display:none; }
 .presentation-controls select { width:auto; min-width:110px; }
+#boardVariant { min-height:44px; max-width:100%; padding:8px 12px; border:1px solid #bac7bf; border-radius:4px; font:inherit; background:#fff; color:#202722; }
+#boardVariant:focus-visible { outline:3px solid #418b72; outline-offset:3px; }
 .modes button[aria-pressed="true"] {
   background: #203f33;
   color: white;
