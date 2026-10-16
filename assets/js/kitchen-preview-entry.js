@@ -42,11 +42,11 @@
       const show = model => {
         content.replaceChildren();content.removeAttribute('role');
         const frame=element('iframe','kitchenPreviewDialog__frame');frame.title=copy.title;
-        frame.src=`/brettvorschau/?listing=${encodeURIComponent(model.listingId)}&entry=${id?'product':'homepage'}&lang=${en?'en':'de'}&embedded=1`;
+        frame.src=`/brettvorschau/?listing=${encodeURIComponent(model.listingId)}${model.variant?'&variant='+encodeURIComponent(model.variant):''}&entry=${id?'product':'homepage'}&lang=${en?'en':'de'}&embedded=1`;
         frame.allow='fullscreen';content.append(frame);
         window.EdleAnalytics?.track('kitchen_preview_open',{product_id:model.listingId,source:id?'product':'homepage'});
       };
-      const chosen=list.find(model=>model.listingId===id);
+      const chosen=list.find(model=>model.listingId===id&&(!trigger?.dataset.kitchenVariant||model.variant===trigger.dataset.kitchenVariant));
       if(chosen){show(chosen);return;}
       if(id){content.textContent=en?'This board is not yet available in the room preview.':'Dieses Brett ist noch nicht für die Raumvorschau aufbereitet.';return;}
       content.replaceChildren();content.removeAttribute('role');
@@ -60,7 +60,9 @@
         img.width=144;img.height=144;
         const details=element('span','kitchenPreviewDialog__details');
         const name=element('strong','kitchenPreviewDialog__name',model.name);name.title=model.name;
-        const price=element('span','kitchenPreviewDialog__price',product?.priceLabel?.replace('EUR','€')||(en?'Price on request':'Preis auf Anfrage'));
+        const variant=product?.variants?.find(item=>item.id===model.variant);
+        const priceText=variant?new Intl.NumberFormat(en?'en-GB':'de-DE',{style:'currency',currency:'EUR'}).format(variant.priceOrder):product?.priceLabel?.replace('EUR','€');
+        const price=element('span','kitchenPreviewDialog__price',variant?(en?'from ':'ab ')+priceText:priceText||(en?'Price on request':'Preis auf Anfrage'));
         const dimensions=element('span','kitchenPreviewDialog__dimensions',model.dimensions.replace(/(\d)\.(\d)/g,en?'$1.$2':'$1,$2'));
         details.append(name,price,dimensions);button.append(img,details);
         button.setAttribute('aria-label',`${model.name}: ${copy.view}`);button.onclick=()=>show(model);grid.append(button);

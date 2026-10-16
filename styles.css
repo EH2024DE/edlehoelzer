@@ -7266,3 +7266,6 @@ section[id]{scroll-margin-top:88px}
   .productCard .productCard__buy .productCard__cta:first-child,
   .productCard .ctaRow--product-card>.btn:first-child{width:100%}
 }
+/* Species prices share the existing product configuration surface. */
+.productPreview__variant { display:grid; gap:8px; margin-bottom:12px; font-weight:600; }
+.productPreview__variant select { width:100%; min-height:44px; padding:10px 12px; font:inherit; color:inherit; background:#fff; border:1px solid #d7d4cf; border-radius:4px; }
