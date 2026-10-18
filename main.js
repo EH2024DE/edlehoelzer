@@ -1,4 +1,14 @@
 document.documentElement.classList.add("js");
+if (!document.querySelector('[data-photo-viewer-loader]')) {
+  var photoStyle = document.createElement("link");
+  photoStyle.rel = "stylesheet";
+  photoStyle.href = "/assets/css/product-photo-viewer.css?v=20261018-detail-only";
+  document.head.appendChild(photoStyle);
+  var photoScript = document.createElement("script");
+  photoScript.src = "/assets/js/product-photo-viewer.js?v=20261018-detail-only";
+  photoScript.setAttribute("data-photo-viewer-loader", "");
+  document.head.appendChild(photoScript);
+}
 function buildCardGalleryItems(product) {
   var images = [product.image].concat(product.gallery || []).filter(Boolean).map(function (src) {
     return src.replace(/^(https:\/\/i\.etsystatic\.com\/.+\/)il_fullxfull\./, "$1il_794xN.");
@@ -10,7 +20,7 @@ function buildCardGalleryItems(product) {
 }
 if (!document.querySelector('[data-product-hover-loader]')) {
   var hoverScript = document.createElement("script");
-  hoverScript.src = "/assets/js/product-hover-video.js?v=20261016";
+  hoverScript.src = "/assets/js/product-hover-video.js?v=20261018-image-entry";
   hoverScript.setAttribute("data-product-hover-loader", "");
   document.head.appendChild(hoverScript);
 }
@@ -1599,7 +1609,7 @@ function initProductExperience() {
   });
 
   document.addEventListener("keydown", function (event) {
-    if (!activeDialog || document.querySelector('.kitchenPreviewDialog[open]')) {
+    if (!activeDialog || document.querySelector('.kitchenPreviewDialog[open], .productPhotoViewer[open]')) {
       return;
     }
 
@@ -2218,7 +2228,7 @@ function initProductExperience() {
       '</div>';
     }
 
-    return '<img data-preview-main src="' + escapeAttribute(item.src) + '" alt="' + escapeAttribute(item.alt) + '" decoding="async">';
+    return '<button type="button" class="productPreview__photoButton" data-photo-viewer aria-label="' + escapeAttribute(isEnglish ? "Enlarge product photo" : "Produktfoto vergrößern") + '"><img data-preview-main src="' + escapeAttribute(item.src) + '" alt="' + escapeAttribute(item.alt) + '" decoding="async"><span class="productPhotoExpand"><img src="/assets/icons/lucide/maximize.svg" alt="" aria-hidden="true"></span></button>';
   }
 
   function shouldAutoplayPreviewVideo() {
