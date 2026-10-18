@@ -95,11 +95,26 @@
       var track = document.createElement("div");
       track.className = "productCard__swipeTrack";
       var alt = media.querySelector("img") ? media.querySelector("img").alt : "";
+      var detailTrigger = original.matches("[data-product-preview]") ? original :
+        original.querySelector("[data-product-preview]");
+      if (!detailTrigger) {
+        var card = original.closest(".productCard, .finderMatchCard, .finderNear");
+        detailTrigger = card && card.querySelector("[data-product-preview]");
+      }
       items.forEach(function (item, index) {
-        var slide = document.createElement("div");
+        var opensDetail = item.type !== "video" && detailTrigger;
+        var slide = document.createElement(opensDetail ? "button" : "div");
         slide.className = "productCard__slide";
-        slide.setAttribute("role", "group");
-        slide.setAttribute("aria-label", (index + 1) + " / " + items.length);
+        if (opensDetail) {
+          slide.type = "button";
+          ["data-product-preview", "data-product-source", "data-product-reason"].forEach(function (name) {
+            if (detailTrigger.hasAttribute(name)) slide.setAttribute(name, detailTrigger.getAttribute(name));
+          });
+          slide.setAttribute("aria-label", (english ? "View product: " : "Produkt ansehen: ") + alt + " (" + (index + 1) + " / " + items.length + ")");
+        } else {
+          slide.setAttribute("role", "group");
+          slide.setAttribute("aria-label", (index + 1) + " / " + items.length);
+        }
         var content = document.createElement(item.type === "video" ? "video" : "img");
         if (item.type === "video") {
           content.controls = true;
@@ -147,6 +162,24 @@
       }
       toolbar.appendChild(count);
       gallery.append(track, toolbar);
+      var gestureStart = null;
+      var swiped = false;
+      track.addEventListener("pointerdown", function (event) {
+        gestureStart = { x: event.clientX, y: event.clientY, scroll: track.scrollLeft };
+        swiped = false;
+      }, { passive: true });
+      track.addEventListener("pointermove", function (event) {
+        if (gestureStart && Math.hypot(event.clientX - gestureStart.x, event.clientY - gestureStart.y) > 10) swiped = true;
+      }, { passive: true });
+      track.addEventListener("scroll", function () {
+        if (gestureStart && Math.abs(track.scrollLeft - gestureStart.scroll) > 10) swiped = true;
+      }, { passive: true });
+      track.addEventListener("click", function (event) {
+        if (swiped && event.detail !== 0) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }, true);
       track.addEventListener("scroll", update, { passive: true });
       track.addEventListener("keydown", function (event) {
         if (event.target.tagName === "VIDEO") return;

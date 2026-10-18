@@ -11,6 +11,15 @@ test('fullscreen entry is restricted to product details, not card galleries', ()
   assert.match(read('main.js'), /productPreview__photoButton.*data-photo-viewer/);
 });
 
+test('mobile photos use product-detail buttons while swipes suppress accidental clicks', () => {
+  const source = fs.readFileSync(path.join(__dirname, '../assets/js/product-hover-video.js'), 'utf8');
+  assert.match(source, /item\.type !== "video" && detailTrigger/);
+  assert.match(source, /document\.createElement\(opensDetail \? "button" : "div"\)/);
+  assert.match(source, /\["data-product-preview", "data-product-source", "data-product-reason"\]/);
+  assert.match(source, /if \(swiped && event\.detail !== 0\)/);
+  assert.match(source, /event\.stopPropagation\(\)/);
+});
+
 test('portrait and landscape photos fit fully in the viewport without distortion', () => {
   for (const [w, h] of [[4000, 2000], [2000, 4000], [3000, 3000]]) {
     const size = fit(w, h, 375, 650);

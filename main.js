@@ -20,7 +20,7 @@ function buildCardGalleryItems(product) {
 }
 if (!document.querySelector('[data-product-hover-loader]')) {
   var hoverScript = document.createElement("script");
-  hoverScript.src = "/assets/js/product-hover-video.js?v=20261018-detail-only";
+  hoverScript.src = "/assets/js/product-hover-video.js?v=20261018-image-entry";
   hoverScript.setAttribute("data-product-hover-loader", "");
   document.head.appendChild(hoverScript);
 }
