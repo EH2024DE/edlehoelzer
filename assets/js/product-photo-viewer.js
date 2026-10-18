@@ -171,17 +171,11 @@
   }
   document.addEventListener("click", function (event) {
     var trigger = event.target.closest("[data-photo-viewer]");
-    if (!trigger) return;
+    if (!trigger || !trigger.closest(".productPreview")) return;
     event.preventDefault(); event.stopPropagation();
-    var gallery = trigger.closest(".productCard__swipeGallery");
     var preview = trigger.closest(".productPreview");
     var current;
-    if (gallery) {
-      photos = Array.from(gallery.querySelectorAll(".productCard__slide > img")).map(function (img) { return { src: img.src, alt: img.alt }; });
-      var track = gallery.querySelector(".productCard__swipeTrack");
-      var slide = track.children[Math.round(track.scrollLeft / track.clientWidth)];
-      current = slide && slide.querySelector("img");
-    } else if (preview) {
+    if (preview) {
       photos = Array.from(preview.querySelectorAll('[data-preview-type="image"]')).map(function (b) { return { src: b.getAttribute("data-preview-src"), alt: b.getAttribute("data-preview-alt") }; });
       current = trigger.querySelector("img[data-preview-main]");
     }

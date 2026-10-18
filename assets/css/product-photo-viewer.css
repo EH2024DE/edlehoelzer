@@ -1,7 +1,6 @@
 .productPreview__photoButton{position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:zoom-in}
-.productPhotoExpand,.productCard .productCard__photoExpand{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:44px;height:44px;padding:10px;border:1px solid #d5d3cf;border-radius:4px;background:#fff;color:#191919;box-shadow:0 1px 5px #0002;z-index:2;cursor:zoom-in}
-.productCard .productCard__photoExpand[hidden]{display:none}
-.productPhotoExpand img,.productCard .productCard__photoExpand img{position:static;width:22px;height:22px;object-fit:contain;padding:0;background:transparent}
+.productPhotoExpand{position:absolute;right:12px;top:12px;display:grid;place-items:center;width:44px;height:44px;padding:10px;border:1px solid #d5d3cf;border-radius:4px;background:#fff;color:#191919;box-shadow:0 1px 5px #0002;z-index:2;cursor:zoom-in}
+.productPhotoExpand img{position:static;width:22px;height:22px;object-fit:contain;padding:0;background:transparent}
 .productPhotoViewer{position:fixed;inset:0;width:100%;height:100vh;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#171717;color:#fff;overflow:hidden;box-sizing:border-box}
 .productPhotoViewer[open]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto}
 .productPhotoViewer::backdrop{background:#171717}
@@ -10,7 +9,7 @@
 .productPhotoViewer button{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:10px;border:1px solid #ffffff38;border-radius:4px;background:#292929;color:#fff;cursor:pointer}
 .productPhotoViewer button img{width:22px;height:22px;filter:invert(1)}
 .productPhotoViewer button:disabled{opacity:.3;cursor:default}
-.productPhotoViewer button:focus-visible,.productPreview__photoButton:focus-visible,.productCard__photoExpand:focus-visible{outline:2px solid #b88857;outline-offset:2px}
+.productPhotoViewer button:focus-visible,.productPreview__photoButton:focus-visible{outline:2px solid #b88857;outline-offset:2px}
 .productPhotoViewer__stage{position:relative;min-width:0;min-height:0;overflow:hidden;touch-action:none;user-select:none;cursor:zoom-in;overscroll-behavior:contain}
 .productPhotoViewer__stage.is-zoomed{cursor:grab}
 .productPhotoViewer__stage.is-dragging{cursor:grabbing}

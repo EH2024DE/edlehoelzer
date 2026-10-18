@@ -133,23 +133,11 @@
         return dot;
       });
       var current = 0;
-      var expand = document.createElement("button");
-      expand.type = "button";
-      expand.className = "productCard__photoExpand";
-      expand.setAttribute("data-photo-viewer", "");
-      expand.setAttribute("aria-label", english ? "Enlarge product photo" : "Produktfoto vergrößern");
-      expand.title = english ? "Enlarge product photo" : "Produktfoto vergrößern";
-      var expandIcon = document.createElement("img");
-      expandIcon.src = "/assets/icons/lucide/maximize.svg";
-      expandIcon.alt = "";
-      expandIcon.setAttribute("aria-hidden", "true");
-      expand.appendChild(expandIcon);
       function update() {
         var next = Math.max(0, Math.min(items.length - 1, Math.round(track.scrollLeft / (track.clientWidth || 1))));
         if (next === current && count.textContent) return;
         if (current !== next) track.querySelectorAll("video").forEach(function (v) { v.pause(); });
         current = next;
-        expand.hidden = items[current].type === "video";
         count.textContent = (current + 1) + " / " + items.length;
         dots.forEach(function (dot, index) { dot.classList.toggle("is-active", index === current); });
       }
@@ -158,7 +146,7 @@
         track.scrollTo({ left: target * track.clientWidth, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       }
       toolbar.appendChild(count);
-      gallery.append(track, toolbar, expand);
+      gallery.append(track, toolbar);
       track.addEventListener("scroll", update, { passive: true });
       track.addEventListener("keydown", function (event) {
         if (event.target.tagName === "VIDEO") return;

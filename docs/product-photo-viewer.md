@@ -1,8 +1,9 @@
 # Full-viewport product photo viewer
 
-The product-detail photo is a keyboard-accessible enlarge button. Mobile card
-galleries also have an enlarge icon for the current photo; it is hidden on video
-slides. The existing card CTA, comparison, purchase and analytics paths are not
+The product-detail photo is a keyboard-accessible enlarge button. Fullscreen is
+only available after opening a product detail. Mobile card galleries keep their
+swipe media and dots, without an enlarge button. The existing card CTA,
+comparison, purchase and analytics paths are not
 changed. Detail videos keep their existing controls.
 
 The viewer is a native modal dialog. It loads one original-resolution photo at
@@ -23,6 +24,21 @@ no new runtime dependency or framework. Error/loading status is localized DE/EN.
 
 Tests: geometry fits, natural-resolution handling, pan/zoom boundaries,
 pointer-centered zoom and original-image URL selection. Browser verification
-covers desktop detail entry, mobile-card entry, high-resolution loading, zoom,
+covers desktop detail entry, high-resolution loading, zoom,
 dragging, reset, photo navigation, Escape/focus restoration and responsive bounds.
 Physical multi-touch iPhone Safari testing remains an owner check.
+
+## Existing product-click analytics
+
+`product_card_cta_click` records card CTA clicks; `product_preview_open` records
+detail opens from all entry points, with `entry_point` distinguishing the CTA.
+Payloads include product/listing IDs, product name, category, wood and source.
+The consent manager sends these through Umami only with statistics consent.
+Do not add both event totals together: a CTA opening emits both events.
+
+These events support product-interest comparisons by clicks, not true card CTR.
+Product-card visibility impressions are not currently recorded. A future CTR
+measurement needs a matching visible-card impression event, scoped consistently
+by product and source, with a defined visibility threshold and deduplication.
+CTR would then be CTA clicks divided by card impressions for the same scope.
+Repeated clicks and consent coverage must be considered when interpreting it.

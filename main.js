@@ -2,10 +2,10 @@ document.documentElement.classList.add("js");
 if (!document.querySelector('[data-photo-viewer-loader]')) {
   var photoStyle = document.createElement("link");
   photoStyle.rel = "stylesheet";
-  photoStyle.href = "/assets/css/product-photo-viewer.css?v=20261018";
+  photoStyle.href = "/assets/css/product-photo-viewer.css?v=20261018-detail-only";
   document.head.appendChild(photoStyle);
   var photoScript = document.createElement("script");
-  photoScript.src = "/assets/js/product-photo-viewer.js?v=20261018";
+  photoScript.src = "/assets/js/product-photo-viewer.js?v=20261018-detail-only";
   photoScript.setAttribute("data-photo-viewer-loader", "");
   document.head.appendChild(photoScript);
 }
@@ -20,7 +20,7 @@ function buildCardGalleryItems(product) {
 }
 if (!document.querySelector('[data-product-hover-loader]')) {
   var hoverScript = document.createElement("script");
-  hoverScript.src = "/assets/js/product-hover-video.js?v=20261018-photo-zoom";
+  hoverScript.src = "/assets/js/product-hover-video.js?v=20261018-detail-only";
   hoverScript.setAttribute("data-product-hover-loader", "");
   document.head.appendChild(hoverScript);
 }

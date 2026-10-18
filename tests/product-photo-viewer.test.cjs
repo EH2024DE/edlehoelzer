@@ -1,6 +1,15 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
 const { fit, constrain, zoom, originalUrl } = require('../assets/js/product-photo-viewer.js');
+
+test('fullscreen entry is restricted to product details, not card galleries', () => {
+  const read = file => fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
+  assert.doesNotMatch(read('assets/js/product-hover-video.js'), /data-photo-viewer|productCard__photoExpand/);
+  assert.match(read('assets/js/product-photo-viewer.js'), /if \(!trigger \|\| !trigger\.closest\("\.productPreview"\)\) return/);
+  assert.match(read('main.js'), /productPreview__photoButton.*data-photo-viewer/);
+});
 
 test('portrait and landscape photos fit fully in the viewport without distortion', () => {
   for (const [w, h] of [[4000, 2000], [2000, 4000], [3000, 3000]]) {
