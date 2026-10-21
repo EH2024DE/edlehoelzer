@@ -4,7 +4,17 @@ UTM-Parameter immer verwenden, wenn ein Link außerhalb der Website geteilt wird
 So bleibt in Umami beziehungsweise Etsy nachvollziehbar, woher ein Besuch oder Klick kam.
 
 ## Zur Website: Instagram Bio
+Kurzer Link zum Teilen (nach Veröffentlichung):
+https://edlehoelzer.de/instagram/
+
+Leitet ohne eigene Analytics-Skripte auf den bestehenden UTM-Link weiter:
 https://edlehoelzer.de/?utm_source=instagram&utm_medium=social&utm_campaign=bio
+
+Die UTM-Parameter bleiben nach der Weiterleitung in der Adresszeile sichtbar.
+Der Kurzlink ist für die Bio gedacht; Story-, Reel- und Post-Links bleiben separat.
+Der feste Zielpfad übernimmt keine beliebigen URL-Parameter oder Weiterleitungsziele.
+Die Weiterleitung ist bewusst `noindex` und nicht Teil der Sitemap. Eine
+Search-Console-Indexierungsanfrage für `/instagram/` ist deshalb nicht vorgesehen.
 
 ## Zur Website: Instagram Post
 https://edlehoelzer.de/?utm_source=instagram&utm_medium=social&utm_campaign=post
