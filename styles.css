@@ -2253,7 +2253,7 @@ button.productCard__slide:focus-visible{outline:2px solid var(--accent);outline-
 .productPreview__compareControls{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;border:1px solid rgba(17,17,17,.08);border-radius:8px;background:#fbf8f4}
 .productPreview__compareControls p{grid-column:1 / -1;margin:0;color:rgba(17,17,17,.58);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 .productPreview__compareControls .btn:first-of-type:last-of-type{grid-column:1 / -1}
-.productPreview__relatedGrid{display:grid;grid-template-columns:repeat(3,minmax(190px,1fr));gap:14px}
+.productPreview__relatedGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));gap:14px}
 .productPreview__relatedGrid article{display:grid;gap:8px;align-content:start;min-width:0;padding:10px;border:1px solid var(--line);border-radius:8px;background:#fbf8f4;overflow:hidden}
 .productPreview__relatedGrid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px}
 .productPreview__relatedGrid strong{font-size:13px;line-height:1.3}

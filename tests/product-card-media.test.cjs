@@ -28,9 +28,11 @@ test('mobile gallery uses the existing Etsy card-image size, not full-size photo
   assert.equal(context.buildCardGalleryItems({ image: 'https://i.etsystatic.com/1/r/il/a/b/il_fullxfull.b.jpg' })[0].src, 'https://i.etsystatic.com/1/r/il/a/b/il_794xN.b.jpg');
 });
 
-test('catalog changes are limited to media, not names, prices or matching data', () => {
+test('existing catalog entries retain names, prices and matching data when media or new listings are added', () => {
   const before = JSON.parse(require('node:child_process').execFileSync('git', ['show', 'HEAD:products.json'], { cwd: root, encoding: 'utf8' }));
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  const existingIds = new Set(before.products.map(p => p.id));
+  after.products = after.products.filter(p => existingIds.has(p.id));
   const withoutVideos = data => { data.products.forEach(p => delete p.videos); return data; };
   assert.deepEqual(withoutVideos(after), withoutVideos(before));
 });

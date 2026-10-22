@@ -129,7 +129,7 @@ test('serving sets remain eligible without inventing an unknown thickness', () =
     assert.equal(matcher.supports(byListing(id), 'dailyPrep'), false);
     assert.equal(matcher.supports(byListing(id), 'bbq'), false);
   }
-  assert.equal(products.filter(matcher.eligible).length, 33);
+  assert.equal(products.filter(matcher.eligible).length, 36);
 });
 test('handled tropical block is large and stationary; walnut reissue is made to order', () => {
   const p = byListing('4451487112');
