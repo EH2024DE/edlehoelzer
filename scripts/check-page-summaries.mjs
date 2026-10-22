@@ -6,8 +6,16 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=file=>readFileSync(path.join(root,file),'utf8');
 const rows=JSON.parse(read('docs/page-summaries.json'));
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
-for(const {route,items} of rows){
+for(const {route,items,summaryRequired=true} of rows){
  const html=read(route.slice(1)+(route.endsWith('/')?'index.html':''));
+ if(!summaryRequired){
+  assert.equal(route,'/firmengeschenke-holz/');
+  assert.equal((html.match(/<h1(?:\s|>)/g)||[]).length,1,route);
+  assert.ok(html.includes(`<link rel="canonical" href="https://edlehoelzer.de${route}"`),route);
+  assert.ok(html.includes('class="b2b-form"'),route);
+  assert.ok(!html.includes('class="pageSummary"'),route);
+  continue;
+ }
  assert.equal((html.match(/class="pageSummary"/g)||[]).length,1,route);
  assert.equal((html.match(/<h1(?:\s|>)/g)||[]).length,1,route);
  assert.equal((html.match(/id="summary-title"/g)||[]).length,1,route);

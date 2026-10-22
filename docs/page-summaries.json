@@ -306,7 +306,8 @@
     ]
   },
   {
-    "route": "/b2b.html",
+    "route": "/firmengeschenke-holz/",
+    "summaryRequired": false,
     "items": [
       {
         "label": "Für Unternehmen",

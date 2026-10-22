@@ -26,7 +26,7 @@ class Structure(HTMLParser):
             self.stack.pop()
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = (ROOT / 'b2b.html').read_text()
+SOURCE = (ROOT / 'firmengeschenke-holz/index.html').read_text()
 
 
 class B2BClarityTests(unittest.TestCase):
@@ -64,6 +64,7 @@ class B2BClarityTests(unittest.TestCase):
 
     def test_form_contract_and_metadata_preserved(self):
         before = subprocess.check_output(['git', 'show', 'origin/main:b2b.html'], cwd=ROOT, text=True)
+        before = before.replace('/b2b.html', '/firmengeschenke-holz/')
         for marker in [r'<title>.*?</title>', r'<link rel="canonical"[^>]+>',
                        r'<form class="b2b-form"[^>]+>']:
             self.assertEqual(re.search(marker, SOURCE).group(), re.search(marker, before).group())
