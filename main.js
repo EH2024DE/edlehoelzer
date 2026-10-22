@@ -3,7 +3,6 @@ var EdleProductCopy = (function () {
   var names = {
     "Kleines Stirnholzbrett – Verschiedene Holzdesigns": "Small end-grain board – Choice of wood designs",
     "Erbstück – Historische Eiche mit Halter & Pflegebalsam": "Erbstück – Historic oak with stand & care balm",
-    "Walnuss Stirnholz – Saftrille, Halter & Pflegebalsam": "Walnut end grain – Juice groove, stand & care balm",
     "Buttermesser – Nussbaum oder Zwetschge": "Butter knife – Walnut or plum wood",
     "Teigschaber aus Massivholz": "Solid wood dough scraper",
     "Buche Stirnholz – Jahresring-Struktur": "Beech end grain – Growth-ring pattern",
@@ -54,7 +53,6 @@ var EdleProductCopy = (function () {
     "Kompaktes Stirnholzbrett in fünf Holzdesigns, ca. 2 cm stark. Maße je nach Ausführung; Gravur optional auf Anfrage.": "Compact end-grain board in five wood designs, approx. 2 cm thick. Dimensions vary by design; optional engraving by arrangement.",
     "Kompakt, Maße je nach Ausführung": "Compact; dimensions vary by design",
     "Historische Eiche mit Buche-Akzenten, ca. 41,5 × 39,8 × 5 cm und ca. 5,8 kg. Halter und Pflegebalsam inklusive; ohne Saftrille ab 284,99 EUR, mit Saftrille 299,99 EUR.": "Historic oak with beech accents, approx. 41.5 × 39.8 × 5 cm and 5.8 kg. Stand and care balm included; from EUR 284.99 without a juice groove, EUR 299.99 with a juice groove.",
-    "Walnuss-Stirnholzbrett mit Saftrille, ca. 45,8 × 35,9 × 4,6 cm und ca. 3,7 kg. Passender Halter und Pflegebalsam inklusive.": "Walnut end-grain board with juice groove, approx. 45.8 × 35.9 × 4.6 cm and 3.7 kg. Matching stand and care balm included.",
     "Nussbaum oder Zwetschge, ca. 17 cm lang und ca. 8 mm stark.": "Walnut or plum wood, approx. 17 cm long and 8 mm thick.",
     "Massiver Teigschaber aus Eiche, Nussbaum, Buche, Esche und weiteren Hölzern, ca. 9 x 13 cm.": "Solid wood dough scraper in oak, walnut, beech, ash and other woods, approx. 9 x 13 cm.",
     "Massiver Bretthalter aus Eiche, Nussbaum oder Buche, passgenau für Bretter bis 5 cm Stärke.": "Solid wood stand in oak, walnut or beech, fitted for boards up to 5 cm thick.",
@@ -158,7 +156,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261022-new-listings";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261022-walnut-deduplicated";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
