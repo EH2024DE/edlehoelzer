@@ -28,9 +28,14 @@ test('mobile gallery uses the existing Etsy card-image size, not full-size photo
   assert.equal(context.buildCardGalleryItems({ image: 'https://i.etsystatic.com/1/r/il/a/b/il_fullxfull.b.jpg' })[0].src, 'https://i.etsystatic.com/1/r/il/a/b/il_794xN.b.jpg');
 });
 
-test('catalog changes are limited to media, not names, prices or matching data', () => {
-  const before = JSON.parse(require('node:child_process').execFileSync('git', ['show', 'HEAD:products.json'], { cwd: root, encoding: 'utf8' }));
+test('existing catalog entries remain unchanged except the verified original walnut price correction', () => {
+  const before = JSON.parse(require('node:child_process').execFileSync('git', ['show', 'origin/main:products.json'], { cwd: root, encoding: 'utf8' }));
+  const walnut = before.products.find(p => p.listingId === '1850610674');
+  walnut.priceOrder = 279.99;
+  walnut.priceLabel = '279,99 EUR';
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  const existingIds = new Set(before.products.map(p => p.id));
+  after.products = after.products.filter(p => existingIds.has(p.id));
   const withoutVideos = data => { data.products.forEach(p => delete p.videos); return data; };
   assert.deepEqual(withoutVideos(after), withoutVideos(before));
 });

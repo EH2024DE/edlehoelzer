@@ -122,7 +122,7 @@
           content.muted = true;
           content.preload = "none";
           content.poster = item.poster;
-          content.setAttribute("aria-label", item.alt || (english ? "Product video" : "Produktvideo"));
+          content.setAttribute("aria-label", english ? "Product video: " + alt : (item.alt || "Produktvideo"));
           content.addEventListener("play", function () {
             document.querySelectorAll(".productCard__swipeGallery video").forEach(function (other) { if (other !== content) other.pause(); });
           });

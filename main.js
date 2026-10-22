@@ -1,3 +1,124 @@
+// Translate display copy only; catalog values stay unchanged for matching and analytics.
+var EdleProductCopy = (function () {
+  var names = {
+    "Kleines Stirnholzbrett – Verschiedene Holzdesigns": "Small end-grain board – Choice of wood designs",
+    "Erbstück – Historische Eiche mit Halter & Pflegebalsam": "Erbstück – Historic oak with stand & care balm",
+    "Buttermesser – Nussbaum oder Zwetschge": "Butter knife – Walnut or plum wood",
+    "Teigschaber aus Massivholz": "Solid wood dough scraper",
+    "Buche Stirnholz – Jahresring-Struktur": "Beech end grain – Growth-ring pattern",
+    "Bambus & Buche – Frühstücksbrett": "Bamboo & beech – Breakfast board",
+    "Eiche Stirnholz – XXL mit Saftrille": "Oak end grain – XXL with juice groove",
+    "Lärche Stirnholz – Kompakt": "Larch end grain – Compact",
+    "Mahagoni Stirnholz – Ruhiger Block": "Mahogany end grain – Understated block",
+    "Bretthalter – Eiche, Nussbaum oder Buche": "Board stand – Oak, walnut or beech",
+    "Untersetzer-Set – Holz mit Halter": "Wooden coaster set with stand",
+    "Wenge Nussbaum Eiche – Kariert": "Wenge, walnut & oak – Chequered",
+    "XXL Stirnholz – Nach Maß": "XXL end grain – Made to measure",
+    "XXL Streifenbrett – Thermobambus & Birke": "XXL striped board – Thermally treated bamboo & birch",
+    "Stirnholz mit Griffen – Drei Holzarten": "End grain with handles – Three wood species",
+    "Pflegebalsam – Leinöl & Bienenwachs": "Wood care balm – Linseed oil & beeswax",
+    "Kambala Schneidebrett – Kompakt": "Kambala cutting board – Compact",
+    "Pfannenwender – Massivholz-Mix": "Wooden spatula – Choice of wood species",
+    "Servierbrett-Set – Dreiteilig": "Serving board set – Three pieces",
+    "Nussbaum Langholz – Flankenoptik": "Walnut edge grain – Natural grain pattern",
+    "3D Stirnholz – Nussbaum & weitere": "3D end grain – Walnut & other woods",
+    "Eiche Servierbrett – Doppelgriff": "Oak serving board – Double handle",
+    "Servierbrett-Set – Schwertform": "Serving board set – Sword shape",
+    "Padouk & Eiche – Kompakt kariert": "Padauk & oak – Compact chequered board",
+    "Padouk & Eiche – Großformat kariert": "Padauk & oak – Large chequered board",
+    "Eiche Stirnholz – Massiver Hackblock": "Oak end grain – Solid chopping block",
+    "Buche & Mooreiche – Servierbrett": "Beech & bog oak – Serving board",
+    "Eiche & Kambala – Quadrat": "Oak & Kambala – Square board",
+    "Esche Stirnholz – BBQ Hackblock": "Ash end grain – BBQ chopping block",
+    "Tropenholz Stirnholz – Mit Griffen": "Tropical hardwood end grain – With handles",
+    "Nussbaum & Ahorn – Streifenbrett": "Walnut & maple – Striped board",
+    "Stockbuche Stirnholz – Schachbrett": "Spalted beech end grain – Chequered board",
+    "Buche & Kambala – Schachbrett": "Beech & Kambala – Chequered board",
+    "Nussbaum Stirnholz – Mit Saftrille": "Walnut end grain – With juice groove",
+    "3D Stirnholz – Eiche & weitere": "3D end grain – Oak & other woods",
+    "Stockbuche Stirnholz – Naturmaserung": "Spalted beech end grain – Natural grain",
+    "Buche Stirnholz – Mit Saftrille": "Beech end grain – With juice groove",
+    "Eiche Langholz – Schweizer Kante": "Oak edge grain – Swiss bevel",
+    "Eiche & Wenge – Schachbrett": "Oak & wenge – Chequered board",
+    "Eiche & Buche – Kompakt mit Astloch": "Oak & beech – Compact board with knot hole",
+    "Walnuss & Eiche – Rahmenbrett": "Walnut & oak – Framed board",
+    "Eiche Stirnholz – Schmales Design": "Oak end grain – Slim design",
+    "Eiche Esche Buche – Mit Saftrille": "Oak, ash & beech – With juice groove",
+    "Buche Massiv – Mit Griffmulden": "Solid beech – With recessed grips",
+    "Eiche Massiv – Astloch & Kante": "Solid oak – Knot hole & edge options",
+    "Teigschaber-Set – 2er oder 3er": "Dough scraper set – Two or three pieces",
+    "Erbstück No. 004 – Eiche & Buche": "Erbstück No. 004 – Oak & beech"
+  };
+  var phrases = {
+    "Kompaktes Stirnholzbrett in fünf Holzdesigns, ca. 2 cm stark. Maße je nach Ausführung; Gravur optional auf Anfrage.": "Compact end-grain board in five wood designs, approx. 2 cm thick. Dimensions vary by design; optional engraving by arrangement.",
+    "Kompakt, Maße je nach Ausführung": "Compact; dimensions vary by design",
+    "Historische Eiche mit Buche-Akzenten, ca. 41,5 × 39,8 × 5 cm und ca. 5,8 kg. Halter und Pflegebalsam inklusive; ohne Saftrille ab 284,99 EUR, mit Saftrille 299,99 EUR.": "Historic oak with beech accents, approx. 41.5 × 39.8 × 5 cm and 5.8 kg. Stand and care balm included; from EUR 284.99 without a juice groove, EUR 299.99 with a juice groove.",
+    "Nussbaum oder Zwetschge, ca. 17 cm lang und ca. 8 mm stark.": "Walnut or plum wood, approx. 17 cm long and 8 mm thick.",
+    "Massiver Teigschaber aus Eiche, Nussbaum, Buche, Esche und weiteren Hölzern, ca. 9 x 13 cm.": "Solid wood dough scraper in oak, walnut, beech, ash and other woods, approx. 9 x 13 cm.",
+    "Massiver Bretthalter aus Eiche, Nussbaum oder Buche, passgenau für Bretter bis 5 cm Stärke.": "Solid wood stand in oak, walnut or beech, fitted for boards up to 5 cm thick.",
+    "Drei Holzarten mit eigenen Maßen und Preisen. Ab 264,99 EUR für Buche ohne Saftrille; Tropenholz ab 274,99 EUR und Eiche ab 284,99 EUR.": "Three wood species with individual dimensions and prices. From EUR 264.99 for beech without a juice groove; tropical hardwood from EUR 274.99 and oak from EUR 284.99.",
+    "Dreiteiliges Servierbrett-Set mit Halter: 44 × 21,5 cm, 39 × 18 cm und 34 × 14 cm.": "Three-piece serving board set with stand: 44 × 21.5 cm, 39 × 18 cm and 34 × 14 cm.",
+    "Servierbretter in Schwertform aus Eiche, Esche oder Nussbaum; je nach Variante ca. 40–66 cm lang.": "Sword-shaped serving boards in oak, ash or walnut; approx. 40–66 cm long, depending on the version.",
+    "Massives Eiche-Stirnholzbrett, ca. 41,5 × 39,8 × 5 cm und rund 5,8 kg, mit großzügigen Griffmulden.": "Solid oak end-grain board, approx. 41.5 × 39.8 × 5 cm and 5.8 kg, with generous recessed grips.",
+    "Kompaktes Servierbrett aus Buche und Mooreiche, 33 × 17 × 2,3 cm.": "Compact serving board in beech and bog oak, 33 × 17 × 2.3 cm.",
+    "Stockbuche in Stirnholz-Bauweise mit Schachbrettmuster, 53 × 36 × 4 cm.": "Spalted beech end-grain board with a chequered pattern, 53 × 36 × 4 cm.",
+    "Massive Buche in Flankenholz-Bauweise mit Griffmulden, 37,8 × 25,1 × 3,2 cm.": "Solid beech edge-grain board with recessed grips, 37.8 × 25.1 × 3.2 cm.",
+    "Massive Eiche mit Astloch; gerade Kante 34 × 20,5 × 3,6 cm oder Schweizer Kante 38 × 20,5 × 3,3 cm.": "Solid oak with a knot hole; straight edge 34 × 20.5 × 3.6 cm or Swiss bevel 38 × 20.5 × 3.3 cm.",
+    "Set aus zwei oder drei handgemachten Teigschabern aus Massivholz für Backen, Sauerteig und Küche.": "Set of two or three handmade solid wood dough scrapers for baking, sourdough and kitchen use.",
+    "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay, ca. 40 × 40 × 4,5 cm und ca. 4,5 kg.": "Historic oak end-grain board with a beech inlay, approx. 40 × 40 × 4.5 cm and 4.5 kg.",
+    "Stirnholz aus Eiche und Buche mit Astloch, 31,1 × 30,1 × 3,8 cm, ca. 2,44 kg.": "Oak and beech end-grain board with a knot hole, 31.1 × 30.1 × 3.8 cm, approx. 2.44 kg.",
+    "3D-Stirnholz aus Nussbaum, Eiche, Buche, Esche und Kambala, 48,5 × 35,3 × 4 cm.": "3D end-grain board in walnut, oak, beech, ash and Kambala, 48.5 × 35.3 × 4 cm.",
+    "3D-Stirnholz aus Eiche, Buche, Esche, Kambala und Wenge, 46 × 46 × 5 cm.": "3D end-grain board in oak, beech, ash, Kambala and wenge, 46 × 46 × 5 cm.",
+    "Stirnholz aus Tropenholz, 44,2 × 36 × 5 cm, ca. 4,1 kg.": "Tropical hardwood end-grain board, 44.2 × 36 × 5 cm, approx. 4.1 kg."
+  };
+  var terms = {
+    "Saftrille": "Juice groove",
+    "Wird auf Bestellung gefertigt.": "Made to order.",
+    "Schweizer Kante möglich": "Swiss bevel available",
+    "bis 5 cm Brettstärke": "For boards up to 5 cm thick",
+    "2 Kantenvarianten": "2 edge options",
+    "2er / 3er Set": "Set of 2 or 3",
+    "Geschenk für Bäcker": "Gift for bakers",
+    "je nach Holzart": "depending on wood species",
+    "Stirnholz-Bauweise": "end-grain construction",
+    "Stirnholz-Aufbau": "end-grain construction",
+    "mit Griffmulden": "With recessed grips",
+    "nicht angegeben": "Not specified",
+    "und weiteren Hölzern": "and other woods",
+    "und weitere": "and other woods",
+    "weitere": "other woods",
+    "Leinölfirnis": "Linseed oil varnish",
+    "Bienenwachs": "Beeswax",
+    "Thermobambus": "Thermally treated bamboo",
+    "Stockbuche": "Spalted beech",
+    "Mooreiche": "Bog oak", "Mohreiche": "Bog oak",
+    "Stirnholz": "End grain", "Langholz": "Edge grain", "Flankenholz": "Edge grain", "Längsholz": "Edge grain",
+    "Servierbrett-Set": "Serving board set", "Servierbrett": "Serving board",
+    "Schneidebrett": "Cutting board", "Pflegeprodukt": "Care product",
+    "Zubehoer": "Accessories", "Zubehör": "Accessories", "Pflege": "Care",
+    "personalisierbar": "Personalisable", "Massivholz": "Solid wood", "massiv": "Solid",
+    "Nussbaum": "Walnut", "Walnuss": "Walnut", "Zwetschge": "Plum wood",
+    "Eiche": "Oak", "Buche": "Beech", "Esche": "Ash", "Ahorn": "Maple",
+    "Laerche": "Larch", "Lärche": "Larch", "Mahagoni": "Mahogany", "Birke": "Birch",
+    "Bambus": "Bamboo", "Kastanie": "Chestnut", "Tropenholz": "Tropical hardwood", "Padouk": "Padauk",
+    "Leinöl": "Linseed oil", "Metall": "Metal", "Länge": "long",
+    "ca.": "approx.", "aus": "in", "oder": "or", "und": "and", "ab": "from"
+  };
+  var escapedTerms = Object.keys(terms).sort(function (a, b) { return b.length - a.length; }).map(function (key) {
+    return key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  });
+  var pattern = new RegExp("(^|[^\\p{L}])(" + escapedTerms.join("|") + ")(?=$|[^\\p{L}])", "gu");
+  function text(value, english) {
+    var source = String(value == null ? "" : value);
+    if (!english) return source;
+    if (Object.prototype.hasOwnProperty.call(names, source)) return names[source];
+    if (Object.prototype.hasOwnProperty.call(phrases, source)) return phrases[source];
+    return source.replace(pattern, function (_, prefix, term) { return prefix + terms[term]; })
+      .replace(/(\d),(\d)/g, "$1.$2");
+  }
+  return { text: text };
+}());
+
 document.documentElement.classList.add("js");
 if (!document.querySelector('[data-photo-viewer-loader]')) {
   var photoStyle = document.createElement("link");
@@ -20,7 +141,7 @@ function buildCardGalleryItems(product) {
 }
 if (!document.querySelector('[data-product-hover-loader]')) {
   var hoverScript = document.createElement("script");
-  hoverScript.src = "/assets/js/product-hover-video.js?v=20261018-image-entry";
+  hoverScript.src = "/assets/js/product-hover-video.js?v=20261022-product-copy-en";
   hoverScript.setAttribute("data-product-hover-loader", "");
   document.head.appendChild(hoverScript);
 }
@@ -35,7 +156,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261011-finder-v2";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261022-walnut-deduplicated";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -1584,6 +1705,13 @@ function initProductExperience() {
       purchaseSelections[variantProduct.id] = purchaseSelections[variantProduct.id] || {};
       purchaseSelections[variantProduct.id].woodVariant = variantInput.value;
       updatePreviewPurchaseSummary(variantProduct);
+      var selectedVariant = purchaseVariant(variantProduct);
+      if (selectedVariant.image && activeOverlay) {
+        var matchingThumb = Array.from(activeOverlay.querySelectorAll('[data-preview-media]')).find(function (thumb) {
+          return thumb.getAttribute('data-preview-src') === selectedVariant.image;
+        });
+        if (matchingThumb) switchPreviewMedia(matchingThumb);
+      }
       return;
     }
     var optionInput = event.target.closest("[data-purchase-option]");
@@ -1696,6 +1824,10 @@ function initProductExperience() {
 
   function renderProductPreview(product, source, reason) {
     var media = productMedia(product);
+    var variant = purchaseVariant(product);
+    if (variant && variant.image) {
+      media.sort(function (a, b) { return Number(b.src === variant.image) - Number(a.src === variant.image); });
+    }
     var main = media[0];
     var title = displayProductName(product);
     var facts = productFacts(product);
@@ -1716,7 +1848,7 @@ function initProductExperience() {
         }).join("") + '</div>' : "") +
       '</div>' +
       '<div class="productPreview__content">' +
-        '<p class="productPreview__eyebrow">' + escapeHtml(product.segment || product.category || "Edle Hölzer") + '</p>' +
+        '<p class="productPreview__eyebrow">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || "Edle Hölzer", isEnglish)) + '</p>' +
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
         renderPurchaseHeadline(product) +
         renderEarlyPurchaseAction(product) +
@@ -2178,7 +2310,7 @@ function initProductExperience() {
           type: item.type || "image",
           src: item.src,
           poster: item.poster || item.src,
-          alt: item.alt || productImageAlt(product)
+          alt: isEnglish ? productImageAlt(product) : (item.alt || productImageAlt(product))
         };
       });
     }
@@ -2190,7 +2322,7 @@ function initProductExperience() {
     if (product.image && urls.indexOf(product.image) === -1) {
       urls.unshift(product.image);
     }
-    var images = urls.slice(0, 9).map(function (url) {
+    var images = urls.map(function (url) {
       return {
         type: "image",
         src: url,
@@ -2206,11 +2338,11 @@ function initProductExperience() {
         type: "video",
         src: item.src,
         poster: item.poster,
-        alt: item.alt || productImageAlt(product)
+        alt: isEnglish ? "Product video: " + displayProductName(product) : (item.alt || productImageAlt(product))
       };
     }) : [];
 
-    return videos.concat(images).slice(0, 10);
+    return videos.concat(images);
   }
 
   function renderPreviewMainMedia(item) {
@@ -2274,7 +2406,8 @@ function initProductExperience() {
 
   function renderPreviewThumb(item, index) {
     var poster = item.poster || item.src;
-    return '<button class="productPreview__thumb' + (index === 0 ? " is-active" : "") + '" type="button" data-preview-media="' + index + '" data-preview-type="' + escapeAttribute(item.type || "image") + '" data-preview-src="' + escapeAttribute(item.src) + '" data-preview-poster="' + escapeAttribute(poster) + '" data-preview-alt="' + escapeAttribute(item.alt) + '"><img src="' + escapeAttribute(poster) + '" alt="" loading="lazy" decoding="async">' + (item.type === "video" ? '<span class="productPreview__videoBadge">Video</span>' : "") + '</button>';
+    var thumbnail = poster.replace('/il_fullxfull.', '/il_794xN.');
+    return '<button class="productPreview__thumb' + (index === 0 ? " is-active" : "") + '" type="button" data-preview-media="' + index + '" data-preview-type="' + escapeAttribute(item.type || "image") + '" data-preview-src="' + escapeAttribute(item.src) + '" data-preview-poster="' + escapeAttribute(poster) + '" data-preview-alt="' + escapeAttribute(item.alt) + '"><img src="' + escapeAttribute(thumbnail) + '" alt="" loading="lazy" decoding="async">' + (item.type === "video" ? '<span class="productPreview__videoBadge">Video</span>' : "") + '</button>';
   }
 
   function mediaCountLabel(count) {
@@ -2444,7 +2577,7 @@ function initProductExperience() {
 
   function pushFact(facts, label, value) {
     if (value) {
-      facts.push([label, value]);
+      facts.push([label, EdleProductCopy.text(value, isEnglish)]);
     }
   }
 
@@ -2475,7 +2608,7 @@ function initProductExperience() {
     if (!value) {
       return "";
     }
-    return String(value).replace(/ca\.\s*0,8\s*cm/i, "ca. 8 mm");
+    return EdleProductCopy.text(String(value).replace(/ca\.\s*0,8\s*cm/i, "ca. 8 mm"), isEnglish);
   }
 
   function productMoment(product) {
@@ -2495,6 +2628,9 @@ function initProductExperience() {
     if (/erbst/.test(text)) {
       return isEnglish ? "For people who do not want a reproducible standard product." : "Für Menschen, die kein reproduzierbares Serienprodukt suchen.";
     }
+    if (product.listingId === "4599650982") {
+      return isEnglish ? "For small prep jobs, breakfast and a cheese selection for one." : "Für kleine Schneidarbeiten, Frühstück und eine Käseauswahl für eine Person.";
+    }
     if (isEndGrain(product)) {
       return isEnglish ? "For intensive kitchen work with good knives." : "Für intensive Küchenarbeit mit guten Messern.";
     }
@@ -2509,7 +2645,7 @@ function initProductExperience() {
 
   function productProof(product) {
     if (product.shortDescription) {
-      return normalizeConstructionTerms(product.shortDescription).replace(/\s+/g, " ").trim();
+      return (isEnglish ? EdleProductCopy.text(product.shortDescription, true) : normalizeConstructionTerms(product.shortDescription)).replace(/\s+/g, " ").trim();
     }
     if (product.longDescription) {
       var normalized = normalizeConstructionTerms(product.longDescription).replace(/\s+/g, " ").trim();
@@ -2676,7 +2812,7 @@ function initProductExperience() {
     if (!product || product.category !== "board") {
       return "";
     }
-    return isEndGrain(product) ? "Stirnholz" : "Langholz";
+    return isEndGrain(product) ? (isEnglish ? "End grain" : "Stirnholz") : (isEnglish ? "Edge grain" : "Langholz");
   }
 
   function isEndGrain(product) {
@@ -2692,7 +2828,7 @@ function initProductExperience() {
   }
 
   function dimensionLabel(product) {
-    return meaningful(product.sizeLabel) ||
+    return EdleProductCopy.text(meaningful(product.sizeLabel) ||
       meaningful(product.dimensions) ||
       extractDimensionsFromText([
         product.displayName,
@@ -2700,7 +2836,7 @@ function initProductExperience() {
         product.title,
         product.shortDescription,
         product.longDescription
-      ].join(" "));
+      ].join(" ")), isEnglish);
   }
 
   function extractDimensionsFromText(text) {
@@ -2722,15 +2858,15 @@ function initProductExperience() {
   }
 
   function normalizeConstructionTerms(value) {
-    return String(value || "")
+    return EdleProductCopy.text(String(value || "")
       .replace(/Face\s*Grain|Edge\s*Grain|Long\s*Grain/gi, "Langholz")
-      .replace(/Flankenholz|Längsholz/gi, "Langholz");
+      .replace(/Flankenholz|Längsholz/gi, "Langholz"), isEnglish);
   }
 
   function weightLabel(product) {
     var weight = product.weight || product.weightLabel;
     if (weight) {
-      return weight;
+      return EdleProductCopy.text(weight, isEnglish);
     }
     if (product.weightClass === "heavy") {
       return isEnglish ? "heavy" : "schwer";
@@ -2753,14 +2889,14 @@ function initProductExperience() {
   }
 
   function displayPriceLabel(product) {
-    return String(product && product.priceLabel ? product.priceLabel : "")
+    return EdleProductCopy.text(String(product && product.priceLabel ? product.priceLabel : "")
       .replace(/\s*EUR\b/g, " €")
       .replace(/\s{2,}/g, " ")
-      .trim();
+      .trim(), isEnglish);
   }
 
   function purchaseOptions(product) {
-    if (!hasVerifiedListing(product)) {
+    if (!hasVerifiedListing(product) || product.etsyOptionsOnly) {
       return [];
     }
 
@@ -2835,7 +2971,7 @@ function initProductExperience() {
   function purchaseVariantSummary(product) {
     var variant = purchaseVariant(product);
     if (!variant) return "";
-    return (isEnglish ? variant.nameEn : variant.name) + " · " + variant.dimensions + " · " +
+    return (isEnglish ? variant.nameEn : variant.name) + (variant.dimensions ? " · " + EdleProductCopy.text(variant.dimensions, isEnglish) : "") + " · " +
       (variant.availabilityStatus === "made_to_order" ? (isEnglish ? "Made to order; timing agreed individually" : "Fertigung auf Bestellung; Zeit nach Abstimmung") : (isEnglish ? "Available" : "Verfügbar"));
   }
 
@@ -3016,9 +3152,9 @@ function initProductExperience() {
     var options = purchaseOptions(product);
     var selection = purchaseSelection(product);
     return '<section class="productPreview__configuration">' +
-      ((product.variants || []).length ? '<label class="productPreview__variant">' + escapeHtml(isEnglish ? 'Wood species' : 'Holzart') + '<select data-purchase-variant data-product-id="' + escapeAttribute(product.id) + '">' + product.variants.map(function (variant) {
+      ((product.variants || []).length ? '<label class="productPreview__variant">' + escapeHtml(isEnglish ? (product.variantLabelEn || 'Wood species') : (product.variantLabel || 'Holzart')) + '<select data-purchase-variant data-product-id="' + escapeAttribute(product.id) + '">' + product.variants.map(function (variant) {
         return '<option value="' + escapeAttribute(variant.id) + '"' + (purchaseVariant(product).id === variant.id ? ' selected' : '') + '>' + escapeHtml((isEnglish ? variant.nameEn : variant.name) + ' · ' + formatCurrency(variant.priceOrder)) + '</option>';
-      }).join('') + '</select></label><p data-purchase-variant-summary>' + escapeHtml(purchaseVariantSummary(product)) + '</p><p class="productPreview__trust">' + escapeHtml(isEnglish ? 'Base prices exclude the optional juice groove (+€15). The oak photos show the reference piece; use the worktop preview for the other woods.' : 'Grundpreise ohne optionale Saftrille (+15 €). Die Eichenfotos zeigen das Referenzstück; die anderen Holzarten findest du in der Tresenvorschau.') + '</p>' : '') +
+      }).join('') + '</select></label><p data-purchase-variant-summary>' + escapeHtml(purchaseVariantSummary(product)) + '</p><p class="productPreview__trust">' + escapeHtml(product.etsyOptionsOnly ? (isEnglish ? 'Prices depend on the selected design. Confirm dimensions, personalisation and the final price on Etsy.' : 'Der Preis richtet sich nach der gewählten Ausführung. Maße, Personalisierung und Endpreis bestätigst du auf Etsy.') : (isEnglish ? 'Base prices exclude the optional juice groove (+€15). The oak photos show the reference piece; use the worktop preview for the other woods.' : 'Grundpreise ohne optionale Saftrille (+15 €). Die Eichenfotos zeigen das Referenzstück; die anderen Holzarten findest du in der Tresenvorschau.')) + '</p>' : '') +
       (options.length ? '<h3>' + escapeHtml(labels.configuration) + '</h3><div class="productPreview__optionList">' +
         '<div class="productPreview__option productPreview__option--standard"><span>' + escapeHtml(labels.standardVersion) + '</span><strong>' + escapeHtml(labels.included) + '</strong></div>' +
         options.map(function (option) {
@@ -3236,7 +3372,7 @@ function initProductExperience() {
   }
 
   function displayProductName(product) {
-    var name = String(product.displayName || product.name || "");
+    var name = EdleProductCopy.text(product.displayName || product.name || "", isEnglish);
     if (name.indexOf("|") !== -1) {
       name = name.split("|")[0];
     }
@@ -3254,7 +3390,7 @@ function initProductExperience() {
     if (product.category === "accessory") {
       return isEnglish ? "Handmade wooden kitchen accessory by Edle Hölzer" : "Handgefertigtes Küchenaccessoire aus Holz von Edle Hölzer";
     }
-    return (isEnglish ? "Wooden cutting board by Edle Hölzer" : "Schneidebrett aus Holz von Edle Hölzer") + (product.material ? " - " + product.material : "");
+    return (isEnglish ? "Wooden cutting board by Edle Hölzer" : "Schneidebrett aus Holz von Edle Hölzer") + (product.material ? " - " + EdleProductCopy.text(product.material, isEnglish) : "");
   }
 
   function meaningful(value) {
@@ -3269,7 +3405,7 @@ function initProductExperience() {
   }
 
   function displayValue(value) {
-    return meaningful(value) || "";
+    return EdleProductCopy.text(meaningful(value) || "", isEnglish);
   }
 
   function hasBadge(product, term) {
@@ -4512,12 +4648,11 @@ function initProductsPage() {
         buildProductMedia(product, "grid") +
         '<div class="productCard__body">' +
           (inspiration ? '<span class="productCard__inspirationBadge">' + escapeHtml(isEnglish ? "Sold · Inspiration" : "Verkauft · Inspiration") + '</span>' : '') +
-          '<p class="productCard__segment">' + escapeHtml(product.segment) + '</p>' +
+          '<p class="productCard__segment">' + escapeHtml(EdleProductCopy.text(product.segment, isEnglish)) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(displayProductName(product)) + '</h3>' +
           buildCardMeta(product) +
           buildFeatureBadges(product) +
           '<p class="productCard__price">' + escapeHtml(inspiration ? (isEnglish ? "Sold one-off piece" : "Verkauftes Einzelstück") : displayPriceLabel(product)) + '</p>' +
-          (isEnglish ? buildServiceSignals(product) : "") +
           buildProductActions(product, "grid") +
         '</div>' +
       '</article>';
@@ -4624,7 +4759,7 @@ function initProductsPage() {
       return true;
     });
 
-    var segment = String(product.segment || "").toLowerCase();
+    var segment = EdleProductCopy.text(product.segment, isEnglish).toLowerCase();
     filtered = filtered.filter(function (badge) {
       var normalized = normalizeConstructionTerms(badge).toLowerCase();
       return !segment || segment.indexOf(normalized) === -1;
@@ -4653,24 +4788,24 @@ function initProductsPage() {
     var facts = [];
 
     if (product.material) {
-      facts.push([isEnglish ? "Material" : "Material", product.material]);
+      facts.push(["Material", EdleProductCopy.text(product.material, isEnglish)]);
     }
 
     if (product.category === "board" && dimensionLabel(product)) {
-      facts.push([isEnglish ? "Size" : "Maße", dimensionLabel(product)]);
+      facts.push([isEnglish ? "Size" : "Maße", EdleProductCopy.text(dimensionLabel(product), isEnglish)]);
     }
 
     if (product.category === "care") {
       facts = [
         [isEnglish ? "Type" : "Typ", isEnglish ? "Care product" : "Pflegeprodukt"],
-        [isEnglish ? "Base" : "Basis", product.material || (isEnglish ? "Beeswax and oil" : "Bienenwachs und Öl")]
+        [isEnglish ? "Base" : "Basis", EdleProductCopy.text(product.material || (isEnglish ? "Beeswax and oil" : "Bienenwachs und Öl"), isEnglish)]
       ];
     }
 
     if (product.category === "accessory") {
       facts = [
-        [isEnglish ? "Type" : "Typ", product.productType === "accessory" ? (isEnglish ? "Kitchen tool" : "Küchenhelfer") : product.segment],
-        [isEnglish ? "Material" : "Material", product.material || (isEnglish ? "Wood" : "Holz")]
+        [isEnglish ? "Type" : "Typ", product.productType === "accessory" ? (isEnglish ? "Kitchen tool" : "Küchenhelfer") : EdleProductCopy.text(product.segment, isEnglish)],
+        ["Material", EdleProductCopy.text(product.material || (isEnglish ? "Wood" : "Holz"), isEnglish)]
       ];
     }
 
@@ -4681,21 +4816,6 @@ function initProductsPage() {
     return '<dl class="productFacts productFacts--compact">' + facts.slice(0, 2).map(function (fact) {
       return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
     }).join("") + '</dl>';
-  }
-
-  function buildServiceSignals(product) {
-    var signals = [labels.cardServicePhoto, labels.cardServiceQuestion];
-    if (product.category === "accessory" && hasSelectableWoodLook(product)) {
-      signals.splice(1, 0, labels.cardServiceVariant);
-    }
-    if (product.category === "care") {
-      signals = [labels.cardServiceCare, labels.cardServiceQuestion];
-    }
-    return '<ul class="productCard__serviceSignals" aria-label="' + escapeAttribute(labels.controlPromise) + '">' +
-      signals.slice(0, 3).map(function (signal) {
-        return '<li>' + escapeHtml(signal) + '</li>';
-      }).join("") +
-    '</ul>';
   }
 
   function hasSelectableWoodLook(product) {
@@ -4723,7 +4843,7 @@ function initProductsPage() {
 
   function displayProductName(product) {
     if (product.displayName) {
-      return product.displayName;
+      return EdleProductCopy.text(product.displayName, isEnglish);
     }
 
     var name = String(product.name || "");
@@ -4742,6 +4862,9 @@ function initProductsPage() {
   }
 
   function productImageAlt(product) {
+    if (isEnglish) {
+      return displayProductName(product) + (product.material ? " – " + EdleProductCopy.text(product.material, true) : "");
+    }
     if (product.category === "care") {
       return "Holzpflege für Schneidebretter mit Pflegebalsam, Pflegetuch und Pflegeanleitung";
     }
@@ -4904,14 +5027,14 @@ function initProductsPage() {
   }
 
   function displayPriceLabel(product) {
-    return String(product && product.priceLabel ? product.priceLabel : "")
+    return EdleProductCopy.text(String(product && product.priceLabel ? product.priceLabel : "")
       .replace(/\s*EUR\b/g, " €")
       .replace(/\s{2,}/g, " ")
-      .trim();
+      .trim(), isEnglish);
   }
 
   function dimensionLabel(product) {
-    return hasMeaningfulValue(product.sizeLabel) ? product.sizeLabel :
+    return EdleProductCopy.text(hasMeaningfulValue(product.sizeLabel) ? product.sizeLabel :
       hasMeaningfulValue(product.dimensions) ? product.dimensions :
       extractDimensionsFromText([
         product.displayName,
@@ -4919,7 +5042,7 @@ function initProductsPage() {
         product.title,
         product.shortDescription,
         product.longDescription
-      ].join(" "));
+      ].join(" ")), isEnglish);
   }
 
   function extractDimensionsFromText(text) {
@@ -4941,9 +5064,9 @@ function initProductsPage() {
   }
 
   function normalizeConstructionTerms(value) {
-    return String(value || "")
+    return EdleProductCopy.text(String(value || "")
       .replace(/Face\s*Grain|Edge\s*Grain|Long\s*Grain/gi, "Langholz")
-      .replace(/Flankenholz|Längsholz/gi, "Langholz");
+      .replace(/Flankenholz|Längsholz/gi, "Langholz"), isEnglish);
   }
 
   function labelFor(value) {
