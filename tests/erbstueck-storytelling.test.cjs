@@ -125,7 +125,7 @@ test('process photos preserve owner sequence, screenshot crops and matching stud
   assert.equal(photos.length,19);
   assert.ok(photos[0].includes('/assets/historische-fachwerkbalken.jpg'));
   for(let i=1;i<18;i++){
-    const source=i===6?'verleimen-zusammenfuegen':i===7?'verleimen-zwingen':String(i<6?i+1:i-1).padStart(2,'0');
+    const source=i===6?'verleimen-zusammenfuegen':i===7?'verleimen-zwingen':({10:'11',11:'09',12:'10'}[i]||String(i<6?i+1:i-1).padStart(2,'0'));
     assert.ok(photos[i].includes(`/assets/erbstueck-entstehung/${source}.jpg`));
     assert.ok(photos[i].includes('--crop-shift:'));
     assert.ok(photos[i].includes('loading="lazy"'));
@@ -135,6 +135,14 @@ test('process photos preserve owner sequence, screenshot crops and matching stud
   assert.ok(html.includes('.erbstueckProcessCrop{width:100%;aspect-ratio:1;overflow:hidden}'));
   assert.ok(photos[6].includes('Die Teile zusammenfügen'));
   assert.ok(photos[7].includes('Mit Zwingen spannen'));
+  assert.ok(photos[10].includes('Die Griffmulde fräsen'));
+  assert.ok(photos[11].includes('Die Kanten brechen'));
+  assert.ok(photos[11].includes('eine Fase'));
+  assert.ok(!photos[11].includes('abgerundet'));
+  assert.ok(photos[12].includes('Bandschleifmaschine'));
+  assert.ok(photos[13].includes('Exzenterschleifer'));
+  assert.ok(photos[14].includes('gewässert'));
+  assert.ok(photos[14].includes('wieder trocken'));
   assert.equal((section.match(/data-process-index=/g)||[]).length,6);
   assert.ok(section.includes('<details class="erbstueckProcessSummary">'));
   assert.ok(!section.includes('autoplay'));
