@@ -28,11 +28,19 @@ test('mobile gallery uses the existing Etsy card-image size, not full-size photo
   assert.equal(context.buildCardGalleryItems({ image: 'https://i.etsystatic.com/1/r/il/a/b/il_fullxfull.b.jpg' })[0].src, 'https://i.etsystatic.com/1/r/il/a/b/il_794xN.b.jpg');
 });
 
-test('existing catalog entries remain unchanged except the verified original walnut price correction', () => {
+test('existing catalog entries remain unchanged except verified walnut and No.004 corrections', () => {
   const before = JSON.parse(require('node:child_process').execFileSync('git', ['show', 'origin/main:products.json'], { cwd: root, encoding: 'utf8' }));
   const walnut = before.products.find(p => p.listingId === '1850610674');
   walnut.priceOrder = 279.99;
   walnut.priceLabel = '279,99 EUR';
+  const heirloom = before.products.find(p => p.listingId === '4370769708');
+  Object.assign(heirloom, {
+    priceOrder: 284.99, priceLabel: 'ab 284,99 EUR', priceVerifiedAt: '2026-10-23',
+    etsyOptionsOnly: true, dimensionsReviewRequired: true,
+    includesMatchingHolder: true, includesCareBalm: true,
+    shortDescription: 'Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay. Passender Halter, Pflegebalsam und Pflegeanleitung inklusive. Maße und Gewicht findest du im aktuellen Angebot.',
+    badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
+  });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
   const existingIds = new Set(before.products.map(p => p.id));
   after.products = after.products.filter(p => existingIds.has(p.id));

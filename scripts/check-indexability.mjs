@@ -7,6 +7,10 @@ const failures = [];
 const pages = [];
 const allowedCanonicalAliases = new Map([
   [
+    "erbstueck/index.html",
+    "https://edlehoelzer.de/schneidebrett-fachwerk-eiche/",
+  ],
+  [
     "schneidebrett-oel-vergleich/index.html",
     "https://edlehoelzer.de/welches-oel-schneidebrett/",
   ],

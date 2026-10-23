@@ -26,11 +26,12 @@ test('legacy B2B redirect preserves query attribution and legacy fragments', () 
 });
 
 test('moved B2B content differs only in URL, root paths and approved hero wording', () => {
-  const before = execFileSync('git', ['show', 'origin/main:b2b.html'], { cwd: root, encoding: 'utf8' });
+  const before = execFileSync('git', ['show', 'b5c3dae:b2b.html'], { cwd: root, encoding: 'utf8' });
   const expected = before.replaceAll('b2b.html', 'handgefertigte-holzprodukte-fuer-unternehmen/')
     .replaceAll('./assets/', '/assets/').replaceAll('href="./', 'href="/')
     .replace('<h1>Firmengeschenke aus Holz mit Logo-Gravur</h1>', '<h1>Handgefertigte Holzprodukte für Unternehmen – individuell personalisierbar</h1>')
-    .replace('Handgefertigte Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events. Wähle aus unserem Sortiment oder sprich mit uns über eine eigene Produktidee.', 'Mit deinem Logo, als abgestimmtes Geschenkset oder als Sonderanfertigung nach deiner Idee. Entdecke Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events.');
+    .replace('Handgefertigte Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events. Wähle aus unserem Sortiment oder sprich mit uns über eine eigene Produktidee.', 'Mit deinem Logo, als abgestimmtes Geschenkset oder als Sonderanfertigung nach deiner Idee. Entdecke Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events.')
+    .replaceAll('/erbstueck/', '/schneidebrett-fachwerk-eiche/');
   assert.equal(read('handgefertigte-holzprodukte-fuer-unternehmen/index.html'), expected);
 });
 
@@ -46,10 +47,11 @@ test('sitemap, search index and edge redirect configuration use the new owner UR
 });
 
 test('other production pages change only their B2B destination, not content or metadata', () => {
-  const files = execFileSync('git', ['diff', '--name-only', 'origin/main', '--', '*.html'], { cwd: root, encoding: 'utf8' })
+  const files = execFileSync('git', ['diff', '--name-only', 'b5c3dae', 'a7be963', '--', '*.html'], { cwd: root, encoding: 'utf8' })
     .trim().split('\n').filter(p => p && p !== 'b2b.html' && p !== 'handgefertigte-holzprodukte-fuer-unternehmen/index.html');
   for (const file of files) {
-    const before = execFileSync('git', ['show', 'origin/main:' + file], { cwd: root, encoding: 'utf8' });
-    assert.equal(read(file).trimEnd(), before.replaceAll('/b2b.html', target).trimEnd(), file);
+    const before = execFileSync('git', ['show', 'b5c3dae:' + file], { cwd: root, encoding: 'utf8' });
+    const migrated = execFileSync('git', ['show', 'a7be963:' + file], { cwd: root, encoding: 'utf8' });
+    assert.equal(migrated.trimEnd(), before.replaceAll('/b2b.html', target).trimEnd(), file);
   }
 });

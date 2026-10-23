@@ -66,6 +66,7 @@ var EdleProductCopy = (function () {
     "Massive Eiche mit Astloch; gerade Kante 34 × 20,5 × 3,6 cm oder Schweizer Kante 38 × 20,5 × 3,3 cm.": "Solid oak with a knot hole; straight edge 34 × 20.5 × 3.6 cm or Swiss bevel 38 × 20.5 × 3.3 cm.",
     "Set aus zwei oder drei handgemachten Teigschabern aus Massivholz für Backen, Sauerteig und Küche.": "Set of two or three handmade solid wood dough scrapers for baking, sourdough and kitchen use.",
     "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay, ca. 40 × 40 × 4,5 cm und ca. 4,5 kg.": "Historic oak end-grain board with a beech inlay, approx. 40 × 40 × 4.5 cm and 4.5 kg.",
+    "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay. Passender Halter, Pflegebalsam und Pflegeanleitung inklusive. Maße und Gewicht findest du im aktuellen Angebot.": "Historic oak end-grain board with a beech inlay. Matching stand, care balm and care instructions included. See the current listing for dimensions and weight.",
     "Stirnholz aus Eiche und Buche mit Astloch, 31,1 × 30,1 × 3,8 cm, ca. 2,44 kg.": "Oak and beech end-grain board with a knot hole, 31.1 × 30.1 × 3.8 cm, approx. 2.44 kg.",
     "3D-Stirnholz aus Nussbaum, Eiche, Buche, Esche und Kambala, 48,5 × 35,3 × 4 cm.": "3D end-grain board in walnut, oak, beech, ash and Kambala, 48.5 × 35.3 × 4 cm.",
     "3D-Stirnholz aus Eiche, Buche, Esche, Kambala und Wenge, 46 × 46 × 5 cm.": "3D end-grain board in oak, beech, ash, Kambala and wenge, 46 × 46 × 5 cm.",
@@ -156,7 +157,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261022-walnut-deduplicated";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261023-erbstueck-series";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -675,7 +676,7 @@ function initStickyMobileCta() {
     "/schneidebretter-massivholz/": { label: "Schneidebretter ansehen", href: "#products-massivholz", secondary: "Individuelles Brett anfragen", secondaryHref: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett", event: null },
     "/schneidebrett-nach-mass/": { label: "Maßanfertigung anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20nach%20Ma%C3%9F", secondary: "Produkte ansehen", secondaryHref: "/produkte.html#produkte-grid", event: "email-kontakt" },
     "/schneidebrett-mit-gravur/": { label: "Gravierbares Brett ansehen", href: "#products-gravur", secondary: "B2B-Gravur anfragen", secondaryHref: "/handgefertigte-holzprodukte-fuer-unternehmen/", event: null },
-    "/erbstueck/": { label: "Erbstück anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Erbst%C3%BCck", secondary: "Verfügbare Stücke ansehen", secondaryHref: "#verfuegbare-hoelzer", event: "email-kontakt" },
+    "/schneidebrett-fachwerk-eiche/": { label: "Erbstück anfragen", href: "mailto:info@edlehoelzer.de?subject=Anfrage%20Erbst%C3%BCck", secondary: "Verfügbare Stücke ansehen", secondaryHref: "#verfuegbare-hoelzer", event: "email-kontakt" },
     "/barbecue-geschenk/": { label: "BBQ-Brett ansehen", href: "#products-bbq", secondary: "Gravur anfragen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
     "/hochwertige-geschenke-holz/": { label: "Geschenk finden", href: "#products-geschenke", secondary: "Gravur ansehen", secondaryHref: "/schneidebrett-mit-gravur/", event: null },
     "/pflege.html": { label: "Pflegebalsam kaufen", href: "https://www.etsy.com/de/listing/1881802291/holzpflege-set-fur-schneidebretter", secondary: "Aufbereitung prüfen", secondaryHref: "/schneidebrett-aufbereiten/", event: "care_selfservice_click", external: true },
@@ -1851,8 +1852,10 @@ function initProductExperience() {
         '<p class="productPreview__eyebrow">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || "Edle Hölzer", isEnglish)) + '</p>' +
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
         renderPurchaseHeadline(product) +
+        (product.includesMatchingHolder ? renderPurchaseBenefit(product) : "") +
         renderEarlyPurchaseAction(product) +
         (product.category === 'board' && product.active !== false && String(product.listingId) !== '4440690649' && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt"><p>' + (isEnglish ? 'Will it fit your kitchen?' : 'Passt es in deine Küche?') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
+        (source === "erbstueck" ? '<p class="productPreview__trust">Lieber ein anderes Brett? <a href="/produkte.html#produktfinder" data-umami-event="produktfinder-gestartet">Zum Produktfinder</a></p>' : '') +
         '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
         '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
         renderExperiencePromise(product) +
@@ -2035,7 +2038,7 @@ function initProductExperience() {
       [hasCare ? (isEnglish ? "Use" : "Einsatz") : labels.dimensions, hasCare ? productUseLabel(a) : dimensionLabel(a), hasCare ? productUseLabel(b) : dimensionLabel(b)],
       [hasCare ? (isEnglish ? "Application" : "Anwendungsfall") : labels.wood, hasCare ? productApplication(a) : displayValue(a.material), hasCare ? productApplication(b) : displayValue(b.material)],
       [bothBoards ? labels.construction : "", bothBoards ? constructionLabel(a) : "", bothBoards ? constructionLabel(b) : ""],
-      [bothBoards ? labels.thickness : "", bothBoards ? meaningful(a.thicknessLabel) : "", bothBoards ? meaningful(b.thicknessLabel) : ""],
+      [bothBoards ? labels.thickness : "", bothBoards && !a.dimensionsReviewRequired ? meaningful(a.thicknessLabel) : "", bothBoards && !b.dimensionsReviewRequired ? meaningful(b.thicknessLabel) : ""],
       [labels.weight, exactWeightLabel(a), exactWeightLabel(b)],
       [bothBoards ? labels.juiceGroove : "", bothBoards ? booleanLabel(hasBadge(a, "Saftrille")) : "", bothBoards ? booleanLabel(hasBadge(b, "Saftrille")) : ""],
       [bothBoards || hasAccessory ? labels.engraving : "", bothBoards || hasAccessory ? engravingLabel(a) : "", bothBoards || hasAccessory ? engravingLabel(b) : ""],
@@ -2604,6 +2607,7 @@ function initProductExperience() {
   }
 
   function displayThicknessLabel(product) {
+    if (product.dimensionsReviewRequired) return "";
     var value = meaningful(product.thicknessLabel);
     if (!value) {
       return "";
@@ -2828,6 +2832,7 @@ function initProductExperience() {
   }
 
   function dimensionLabel(product) {
+    if (product.dimensionsReviewRequired) return isEnglish ? "See current listing" : "Siehe aktuelles Angebot";
     return EdleProductCopy.text(meaningful(product.sizeLabel) ||
       meaningful(product.dimensions) ||
       extractDimensionsFromText([
@@ -3082,6 +3087,13 @@ function initProductExperience() {
   }
 
   function purchaseBenefit(product) {
+    if (product.includesMatchingHolder && product.includesCareBalm) {
+      return {
+        title: isEnglish ? "Matching stand, care balm and care instructions included" : "Passender Halter, Pflegebalsam und Pflegeanleitung inklusive",
+        detail: isEnglish ? "Care for your board and give it a place in your kitchen between shared meals." : "Zum Pflegen und Aufstellen in deiner Küche, bis zum nächsten gemeinsamen Genussmoment.",
+        active: true
+      };
+    }
     var goodsValue = purchaseSubtotalWithoutCareBalm(product);
     var careThreshold = Number(purchaseRules.careBalmMinimumGoodsValue || 150);
     var holderThreshold = Number(purchaseRules.holderMinimumGoodsValue || 350);
@@ -3165,7 +3177,7 @@ function initProductExperience() {
           return '<label class="productPreview__option"' + (hidden ? " hidden" : "") + ' data-purchase-option-row="' + escapeAttribute(option.id) + '"><input type="checkbox" data-purchase-option="' + escapeAttribute(option.id) + '" data-product-id="' + escapeAttribute(product.id) + '"' + (selection[option.id] ? " checked" : "") + '>' + optionCopy + '<strong>+ ' + escapeHtml(formatCurrency(option.price)) + '</strong></label>';
         }).join("") +
       '</div>' : "") +
-      renderPurchaseBenefit(product) +
+      (product.includesMatchingHolder ? "" : renderPurchaseBenefit(product)) +
     '</section>';
   }
 
@@ -5034,6 +5046,7 @@ function initProductsPage() {
   }
 
   function dimensionLabel(product) {
+    if (product.dimensionsReviewRequired) return isEnglish ? "See current listing" : "Siehe aktuelles Angebot";
     return EdleProductCopy.text(hasMeaningfulValue(product.sizeLabel) ? product.sizeLabel :
       hasMeaningfulValue(product.dimensions) ? product.dimensions :
       extractDimensionsFromText([
