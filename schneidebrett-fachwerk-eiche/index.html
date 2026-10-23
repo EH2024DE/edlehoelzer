@@ -75,8 +75,10 @@
     .erbstueckPage h2{letter-spacing:0;font-size:34px;line-height:1.2}
     .erbstueckPage .btn{min-height:44px;white-space:normal;text-align:center}
     .erbstueckPage .btn--emphasis{background:var(--accent);color:var(--ink-warm-deep)}
+    .erbstueckPage .btn--ghost{color:var(--ink-warm);border-color:var(--ink-warm);background:transparent}
+    .erbstueckPage .btn--ghost:hover{color:var(--white);background:var(--ink-warm)}
     .erbstueckSteps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;padding-left:24px}
-    .erbstueckSteps li{padding-left:4px}.erbstueckSteps p{line-height:1.6}
+    .erbstueckSteps li{padding-left:4px;min-width:0;overflow-wrap:anywhere;hyphens:auto}.erbstueckSteps p{line-height:1.6}
     .erbstueckProduct>img,.erbstueckArchive img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
     .erbstueckPrice{font-size:28px!important;font-weight:700}
     .erbstueckMicrocopy{font-size:14px!important;line-height:1.5!important}
@@ -97,6 +99,28 @@
     .erbstueckPage :focus-visible{outline:3px solid currentColor;outline-offset:4px}
     @media(max-width:900px){.erbstueckSteps{grid-template-columns:1fr 1fr}.erbstueckPage .erbstueckSplit{grid-template-columns:1fr;gap:28px}.erbstueckDetails{grid-template-columns:1fr}.erbstueckPage .erbstueckHero h1{font-size:42px}}
     @media(max-width:600px){.erbstueckPage .erbstueckHero__content{padding-top:32px;padding-bottom:32px}.erbstueckPage .erbstueckHero h1{font-size:34px}.erbstueckPage .erbstueckHero__lead{font-size:17px;margin-top:16px}.erbstueckPage .erbstueckSection{padding:40px 0}.erbstueckPage h2{font-size:28px}.erbstueckSteps{grid-template-columns:1fr;gap:12px}.erbstueckSteps p{margin:6px 0}.erbstueckArchive{grid-template-columns:1fr}.erbstueckPage .erbstueckActions{gap:12px}.erbstueckPage .erbstueckBadges{margin-top:20px}}
+    .erbstueckPage .erbstueckHero{min-height:560px;align-items:center}
+    .erbstueckPage .erbstueckHero__image{left:auto;right:0;width:78%;object-position:center;filter:none}
+    .erbstueckPage .erbstueckHero__shade{background:linear-gradient(90deg,var(--ink-warm-deep) 0%,var(--ink-warm-deep) 22%,rgba(19,15,12,.8) 36%,rgba(19,15,12,.15) 60%,transparent 78%)}
+    .erbstueckPage .erbstueckHero h1{max-width:min(540px,42%);font-size:48px}
+    .erbstueckPage .erbstueckHero__lead{max-width:min(440px,40%);font-size:18px;color:var(--white-soft);margin-top:20px}
+    .erbstueckPage .erbstueckHero .eyebrow{color:var(--white-soft)}
+    .erbstueckIntro{padding:24px 0;border-bottom:1px solid var(--line)}
+    .erbstueckIntro .container{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;flex-wrap:wrap}
+    .erbstueckIntro p{margin:0;line-height:1.6}
+    .erbstueckPage .erbstueckIntro .erbstueckAvailability{color:var(--ink);margin:0;font-weight:600}
+    .erbstueckIntro a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--ink-warm)}
+    @media(max-width:900px){
+      .erbstueckPage .erbstueckHero{min-height:0;background:var(--ink-warm-deep)}
+      .erbstueckPage .erbstueckHero__image{inset:0 auto auto 0;width:100%;height:auto;aspect-ratio:1588/1059;object-fit:contain}
+      .erbstueckPage .erbstueckHero__shade{background:linear-gradient(180deg,transparent 0,transparent calc(66.69vw - 40px),var(--ink-warm-deep) calc(66.69vw + 1px))}
+      .erbstueckPage .erbstueckHero .erbstueckHero__content{padding-top:calc(66.69vw + 8px);padding-bottom:28px}
+      .erbstueckPage .erbstueckHero h1{font-size:36px;max-width:650px}
+      .erbstueckPage .erbstueckHero__lead{max-width:600px;font-size:17px;margin-top:16px}
+      .erbstueckPage .erbstueckHero .eyebrow{margin-bottom:12px}
+      .erbstueckPage .erbstueckActions{margin-top:20px}
+    }
+    @media(max-width:600px){.erbstueckPage .erbstueckHero h1{font-size:30px}.erbstueckPage .erbstueckHero__lead{font-size:16px}.erbstueckIntro{padding:20px 0}}
   </style>
 </head>
 <body>
@@ -141,23 +165,23 @@
 
 <main class="erbstueckPage">
   <section class="erbstueckHero">
-    <img class="erbstueckHero__image" src="/assets/Erbstueck.jpg" alt="Erbstück-Schneidebrett aus historischem Eichenholz" width="1588" height="1059" fetchpriority="high" decoding="async">
+    <img class="erbstueckHero__image" src="/assets/Erbstueck.jpg" alt="Erbstück-Schneidebrett aus historischer Eiche mit hellen Buchenlinien" width="1588" height="1059" loading="eager" fetchpriority="high" decoding="async">
     <div class="erbstueckHero__shade"></div>
     <div class="container erbstueckHero__content">
-      <nav class="breadcrumb erbstueckBreadcrumb" aria-label="Breadcrumb"><a href="/">Startseite</a> / Erbstück-Serie</nav>
-      <p class="eyebrow">Erbstück-Serie · Schneidebretter aus Fachwerk-Eiche</p>
+      <p class="eyebrow">Erbstück · Fachwerk-Eiche</p>
       <h1>Es hat ein Haus getragen. Jetzt trägt es dein Abendessen.</h1>
-      <p class="erbstueckHero__lead">Schneidebretter aus historischen Eichenbalken aus Mittelhessen, verbunden mit Linien aus Buche. Von Hand gefertigt, nummeriert und jedes für sich einzigartig.</p>
-      <!-- STATUS-No004 -->
-      <p class="erbstueckAvailability">Aktuell verfügbar: Erbstück No. 004 · ab 284,99 €</p>
+      <p class="erbstueckHero__lead">Ein Schneidebrett aus historischer Eiche. Mit Buchenlinien, die deine Geschichte erzählen können.</p>
       <div class="erbstueckActions">
         <!-- STATUS-No004 -->
         <a href="#verfuegbar" class="btn btn--emphasis">Erbstück No. 004 ansehen</a>
-        <a href="#anfrage" class="btn btn--ghost">Eigenes Erbstück anfragen</a>
       </div>
-      <ul class="erbstueckBadges" aria-label="Merkmale"><li>Historisches Eichenholz</li><li>Nummerierte Einzelstücke</li><li>Gefertigt in Mittelhessen</li></ul>
     </div>
   </section>
+
+  <section class="erbstueckIntro" aria-label="Verfügbarkeit und Anfertigung"><div class="container">
+    <div><!-- STATUS-No004 --><p class="erbstueckAvailability">Aktuell verfügbar: Erbstück No. 004 · ab 284,99 €</p><p>Nummerierte Einzelstücke, von Hand gefertigt in Mittelhessen.</p></div>
+    <a href="#anfrage">Eigenes Erbstück anfragen</a>
+  </div></section>
 
   <section class="erbstueckSection" id="balken"><div class="container erbstueckSplit">
     <div><p class="eyebrow eyebrow--dark">Herkunft</p><h2>Zuerst war da ein Baum.</h2></div>

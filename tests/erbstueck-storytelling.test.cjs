@@ -65,3 +65,14 @@ test('beech is integral to the series and personal line design stays optional',(
   assert.match(html,/for="erbstueck-lines"/);
   assert.ok(html.includes('Welche weiteren Details interessieren dich?'));
 });
+test('hero has one clear action; availability and secondary enquiry follow below',()=>{
+  const hero=html.split('<section class="erbstueckHero">')[1].split('</section>')[0];
+  assert.equal((hero.match(/class="btn /g)||[]).length,1);
+  assert.ok(!hero.includes('erbstueckBadges'));
+  assert.ok(!hero.includes('erbstueckAvailability'));
+  assert.ok(!hero.includes('breadcrumb'));
+  assert.match(html,/<section class="erbstueckIntro"/);
+  assert.ok(html.includes('.erbstueckPage .btn--ghost{color:var(--ink-warm);border-color:var(--ink-warm)'));
+  assert.ok(html.includes('aspect-ratio:1588/1059;object-fit:contain'));
+  assert.match(hero,/loading="eager" fetchpriority="high"/);
+});
