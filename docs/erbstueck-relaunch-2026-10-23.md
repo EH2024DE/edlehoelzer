@@ -124,3 +124,9 @@ Nach weiterem Owner-Feedback den Bedeutungsabschnitt von vier längeren auf drei
 Drei Fotos als manuelle Scroll-Snap-Galerie, ohne Autoplay/Library. Touch-Swipe, drei dezente Punktbuttons mit 44px-Zielen, Tastaturpfeile/Home/End, `aria-current`, Reduced Motion berücksichtigt. Ohne JS bleibt natives horizontales Scrollen verfügbar, JS-Punktsteuerung bleibt dann verborgen. Alle Bilder vollständig im Bildrahmen, stabile Höhe für die Bildunterschriften.
 
 Owner-bestätigte Beschreibungen: erstes Brett drei senkrechte Linien für drei Kinder; zweites homogeneres Holzbild mit einer senkrechten/einer waagerechten Buchenlinie; drittes aus ehemals in Lehm liegendem Fachwerkbalken, markantes Holzbild mit zwei senkrechten und je einer waagerechten Linie oben/unten. Keine zusätzlichen Familiengeschichten oder chemischen Erklärungen zur Lehmwirkung erfunden. Muster visuell mit den vorhandenen Originalfotos abgeglichen.
+
+## Echtes Ausgangsmaterial: Owner-Foto
+
+Neu bereitgestelltes Foto historischer Balken als `assets/historische-fachwerkbalken.jpg` übernommen (728 × 1280 px, ca. 195 KB). Nur EXIF-/Editor-Metadatensegmente entfernt; komprimierte Bilddaten unverändert. Keine generative Bearbeitung, keine Retusche oder erfundene Fertigungsszene. Seitenspezifischer responsiver 4:3-Ausschnitt mit `object-position:50% 43%` zeigt den mittleren Bereich: alte Aussparungen, Bohrungen und Oberflächen. Steckdose oben und Holzreste unten rechts werden im sichtbaren Ausschnitt ausgeblendet. Vollständiger Bildinhalt bleibt erhalten. Lazy Loading und feste Bildgeometrie.
+
+Platzierung im Herkunftsabschnitt unter der H2, auf Desktop neben dem Text, auf Mobile davor. Beschriftung benennt Ausgangsmaterial, keinen aktiven Arbeitsschritt. Ein künftig bereitgestelltes echtes Abricht-Foto kann die Verarbeitung illustrieren; derzeit fehlt diese Aufnahme, daher kein Platzhalter und kein weiteres Video eingebaut.

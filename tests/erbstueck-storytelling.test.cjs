@@ -110,3 +110,11 @@ test('gallery explains the three confirmed line patterns before the processing s
   assert.ok(html.includes('scroll-snap-type:x mandatory'));
   assert.ok(!html.includes('setInterval('));
 });
+test('real beam photo supports origin with a bounded responsive crop',()=>{
+  const origin=html.split('id="balken"')[1].split('</section>')[0];
+  assert.ok(origin.includes('src="/assets/historische-fachwerkbalken.jpg"'));
+  assert.match(origin,/width="728" height="1280" loading="lazy"/);
+  assert.ok(html.includes('aspect-ratio:4/3;object-fit:cover;object-position:50% 43%'));
+  assert.ok(origin.includes('Aussparungen, Bohrungen und Bearbeitungsspuren'));
+  assert.ok(origin.includes('vor der weiteren Bearbeitung'));
+});
