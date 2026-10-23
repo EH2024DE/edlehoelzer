@@ -112,3 +112,7 @@ Eigener Abschnitt zwischen Herkunft und Verarbeitung, Hero-Einleitung und OG-Bes
 Hero auf kurze Material-/Serienzeile, emotionale H1, zwei kurze Sätze und einen Hauptbutton reduziert. Preis/Verfügbarkeit und der sekundäre Anfrage-Link stehen jetzt in einem ungerahmten Band direkt darunter. Redundante Merkmals-Chips und sichtbarer Breadcrumb aus dem Hero entfernt; Breadcrumb-JSON-LD bleibt. Mobile zeigt das ganze Foto im ursprünglichen Seitenverhältnis ohne Text darüber, anschließend den Text auf dunkler Grundfläche. Desktop bleibt eine durchgehende Bildszene mit Text links und sichtbar freiem Brett rechts, ohne Kartenrahmen. Hero-LCP-Bild explizit eager mit hoher Priorität.
 
 Ghost-Button auf den hellen Seitenbereichen jetzt mit dunkler Schrift und dunklem Rahmen, dunklem Hover und heller Hover-Schrift. Nur seitenspezifische Regeln geändert, keine globale Palette. Preis-/Produkt-/Formulardaten unverändert. Hero- und Kontrastregression ergänzt; Browserprüfungen siehe PR.
+
+## Bestätigtes Beispiel mit drei Linien
+
+Owner bestätigt: Das Hero-Brett (`assets/Erbstueck.jpg`) ist verkauft; seine drei senkrechten Buchenlinien stehen für drei Kinder. Zusätzlich als erstes Beispiel im Archiv aufgenommen, dort ausdrücklich als vergeben mit dieser Bedeutung beschriftet. Hero-Alttext ebenfalls präzisiert. Keine Namen oder weiteren Familienangaben ergänzt. Das separate verfügbare No. 004 und dessen Kaufweg bleiben unverändert.

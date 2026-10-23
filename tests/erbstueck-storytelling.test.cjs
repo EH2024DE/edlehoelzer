@@ -76,3 +76,12 @@ test('hero has one clear action; availability and secondary enquiry follow below
   assert.ok(html.includes('aspect-ratio:1588/1059;object-fit:contain'));
   assert.match(hero,/loading="eager" fetchpriority="high"/);
 });
+test('hero board is archived as sold with its owner-confirmed meaning',()=>{
+  const archive=html.split('class="erbstueckArchive"')[1].split('</section>')[0];
+  assert.equal((archive.match(/<figure>/g)||[]).length,3);
+  assert.ok(archive.includes('src="/assets/Erbstueck.jpg"'));
+  assert.ok(archive.includes('Vergeben · Drei senkrechte Buchenlinien stehen bei diesem Erbstück für drei Kinder.'));
+  const available=html.split('id="verfuegbar"')[1].split('</section>')[0];
+  assert.ok(available.includes('src="/assets/Erbstueck3.jpg"'));
+  assert.ok(available.includes('Erbstück No. 004 kaufen'));
+});
