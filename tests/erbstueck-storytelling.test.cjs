@@ -108,7 +108,8 @@ test('gallery explains the three confirmed line patterns before the processing s
   assert.ok(html.includes('Fachwerk-Eiche, die in Lehm lag'));
   assert.ok(html.includes('Zwei senkrechte Buchenlinien kreuzen zwei waagerechte: eine oben, eine unten.'));
   assert.ok(html.includes('scroll-snap-type:x mandatory'));
-  assert.ok(!html.includes('setInterval('));
+  const galleryScript=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-2)[1];
+  assert.ok(!galleryScript.includes('setInterval('));
 });
 test('real beam photo supports origin with a bounded responsive crop',()=>{
   const origin=html.split('id="balken"')[1].split('</section>')[0];
@@ -121,15 +122,19 @@ test('real beam photo supports origin with a bounded responsive crop',()=>{
 test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
   const section=html.split('id="transformation"')[1].split('</section>')[0];
   const photos=[...section.matchAll(/<figure class="erbstueckProcessFrame"[\s\S]*?<\/figure>/g)].map(m=>m[0]);
-  assert.equal(photos.length,17);
+  assert.equal(photos.length,19);
   assert.ok(photos[0].includes('/assets/historische-fachwerkbalken.jpg'));
-  for(let i=1;i<16;i++){
-    assert.ok(photos[i].includes(`/assets/erbstueck-entstehung/${String(i+1).padStart(2,'0')}.jpg`));
-    assert.ok(photos[i].includes(i===1?'--crop-shift:-7.03125%':'--crop-shift:-11.875%'));
+  for(let i=1;i<18;i++){
+    const source=i===6?'verleimen-zusammenfuegen':i===7?'verleimen-zwingen':String(i<6?i+1:i-1).padStart(2,'0');
+    assert.ok(photos[i].includes(`/assets/erbstueck-entstehung/${source}.jpg`));
+    assert.ok(photos[i].includes('--crop-shift:'));
     assert.ok(photos[i].includes('loading="lazy"'));
   }
-  assert.ok(photos[16].includes('/assets/Erbstueck2.webp'));
-  assert.ok(photos[16].includes('Dieses Brett ist bereits vergeben.'));
+  assert.ok(photos[18].includes('/assets/Erbstueck2.webp'));
+  assert.ok(photos[18].includes('Dieses Brett ist bereits vergeben.'));
+  assert.ok(html.includes('.erbstueckProcessCrop{width:100%;aspect-ratio:1;overflow:hidden}'));
+  assert.ok(photos[6].includes('Die Teile zusammenfügen'));
+  assert.ok(photos[7].includes('Mit Zwingen spannen'));
   assert.equal((section.match(/data-process-index=/g)||[]).length,6);
   assert.ok(section.includes('<details class="erbstueckProcessSummary">'));
   assert.ok(!section.includes('autoplay'));
@@ -139,21 +144,34 @@ test('process navigation updates chapters, endpoints, progress and reduced-motio
   for(const reduced of [false,true]){
     const events={},calls=[];
     const control=()=>({disabled:false,attrs:{},addEventListener(k,fn){this[k]=fn;},setAttribute(k,v){this.attrs[k]=v;}});
-    const previous=control(),next=control(),count={},progress=control();
+    const previous=control(),next=control(),count=control(),progress=control(),play=control(),playIcon={},pauseIcon={};
     progress.style={setProperty(){}};
     const names=['Material','Hobeln','Aufbau','Form & Schliff','Ölen','Ergebnis'];
-    const starts=[0,1,6,8,14,15];
+    const starts=[0,1,6,10,16,17];
     const chapters=names.map((name,i)=>Object.assign(control(),{textContent:name,dataset:{processIndex:String(starts[i])}}));
-    const slides=Array.from({length:17},(_,i)=>({dataset:{processChapter:names[starts.findLastIndex(start=>start<=i)]},querySelector:()=>({textContent:`Step ${i}`}),getBoundingClientRect:()=>({left:i*400-track.scrollLeft})}));
-    const story={querySelectorAll:s=>s==='[data-process-index]'?chapters:[{hidden:true}],querySelector:s=>({'[data-process-prev]':previous,'[data-process-next]':next,'[data-process-count]':count,'[role="progressbar"]':progress}[s])};
+    const slides=Array.from({length:19},(_,i)=>({dataset:{processChapter:names[starts.findLastIndex(start=>start<=i)]},querySelector:()=>({textContent:`Step ${i}`}),getBoundingClientRect:()=>({left:i*400-track.scrollLeft})}));
+    const story={querySelectorAll:s=>s==='[data-process-index]'?chapters:[{hidden:true}],querySelector:s=>({'[data-process-prev]':previous,'[data-process-next]':next,'[data-process-count]':count,'[role="progressbar"]':progress,'[data-process-play]':play,'[data-process-play-icon]':playIcon,'[data-process-pause-icon]':pauseIcon}[s])};
     const track={scrollLeft:0,closest:()=>story,querySelectorAll:()=>slides,getBoundingClientRect:()=>({left:0}),addEventListener:(k,fn)=>{events[k]=fn;},scrollTo(options){calls.push(options);this.scrollLeft=options.left;events.scroll();}};
-    vm.runInNewContext(code,{document:{querySelector:()=>track},window:{matchMedia:()=>({matches:reduced}),addEventListener(){}}});
-    assert.equal(previous.disabled,true);assert.equal(count.textContent,'01 / 17');
-    chapters[4].click();assert.equal(count.textContent,'15 / 17');assert.equal(chapters[4].attrs['aria-pressed'],'true');
+    let timer=null,started=0,intersection;const documentEvents={},windowEvents={};
+    const document={hidden:false,querySelector:()=>track,addEventListener:(k,fn)=>{documentEvents[k]=fn;}};
+    class IntersectionObserver{constructor(fn){intersection=fn;}observe(element){assert.equal(element,track);}}
+    vm.runInNewContext(code,{document,window:{IntersectionObserver,matchMedia:()=>({matches:reduced}),addEventListener(k,fn){windowEvents[k]=fn;},setInterval(fn,ms){assert.equal(ms,5000);started++;timer=fn;return 1;},clearInterval(){timer=null;}}});
+    assert.equal(started,0);
+    assert.equal(previous.disabled,true);assert.equal(count.textContent,'01 / 19');
+    play.click();assert.equal(play.attrs['aria-label'],'Bildfolge pausieren');assert.equal(count.attrs['aria-live'],'off');
+    timer();assert.equal(count.textContent,'02 / 19');
+    play.click();assert.equal(timer,null);assert.equal(play.attrs['aria-label'],'Bildfolge abspielen');
+    play.click();events.pointerdown();assert.equal(timer,null);
+    play.click();intersection([{isIntersecting:false}]);assert.equal(timer,null);
+    play.click();document.hidden=true;documentEvents.visibilitychange();assert.equal(timer,null);document.hidden=false;
+    chapters[4].click();assert.equal(count.textContent,'17 / 19');assert.equal(chapters[4].attrs['aria-pressed'],'true');
     assert.equal(calls.at(-1).behavior,reduced?'auto':'smooth');
-    next.click();assert.equal(count.textContent,'16 / 17');
-    events.keydown({key:'End',preventDefault(){}});assert.equal(next.disabled,true);assert.equal(progress.attrs['aria-valuenow'],'17');
-    previous.click();assert.equal(count.textContent,'16 / 17');
+    windowEvents.resize();assert.equal(calls.at(-1).behavior,'auto');assert.equal(count.textContent,'17 / 19');
+    next.click();assert.equal(count.textContent,'18 / 19');
+    play.click();timer();assert.equal(timer,null);assert.equal(next.disabled,true);assert.equal(count.textContent,'19 / 19');
+    play.click();assert.equal(count.textContent,'01 / 19');assert.ok(timer);play.click();
+    events.keydown({key:'End',preventDefault(){}});assert.equal(next.disabled,true);assert.equal(progress.attrs['aria-valuenow'],'19');
+    previous.click();assert.equal(count.textContent,'18 / 19');
     events.keydown({key:'Home',preventDefault(){}});assert.equal(previous.disabled,true);
   }
 });
