@@ -118,3 +118,42 @@ test('real beam photo supports origin with a bounded responsive crop',()=>{
   assert.ok(origin.includes('Aussparungen, Bohrungen und Bearbeitungsspuren'));
   assert.ok(origin.includes('vor der weiteren Bearbeitung'));
 });
+test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
+  const section=html.split('id="transformation"')[1].split('</section>')[0];
+  const photos=[...section.matchAll(/<figure class="erbstueckProcessFrame"[\s\S]*?<\/figure>/g)].map(m=>m[0]);
+  assert.equal(photos.length,17);
+  assert.ok(photos[0].includes('/assets/historische-fachwerkbalken.jpg'));
+  for(let i=1;i<16;i++){
+    assert.ok(photos[i].includes(`/assets/erbstueck-entstehung/${String(i+1).padStart(2,'0')}.jpg`));
+    assert.ok(photos[i].includes(i===1?'--crop-shift:-7.03125%':'--crop-shift:-11.875%'));
+    assert.ok(photos[i].includes('loading="lazy"'));
+  }
+  assert.ok(photos[16].includes('/assets/Erbstueck2.webp'));
+  assert.ok(photos[16].includes('Dieses Brett ist bereits vergeben.'));
+  assert.equal((section.match(/data-process-index=/g)||[]).length,6);
+  assert.ok(section.includes('<details class="erbstueckProcessSummary">'));
+  assert.ok(!section.includes('autoplay'));
+});
+test('process navigation updates chapters, endpoints, progress and reduced-motion behaviour',()=>{
+  const code=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-3)[1];
+  for(const reduced of [false,true]){
+    const events={},calls=[];
+    const control=()=>({disabled:false,attrs:{},addEventListener(k,fn){this[k]=fn;},setAttribute(k,v){this.attrs[k]=v;}});
+    const previous=control(),next=control(),count={},progress=control();
+    progress.style={setProperty(){}};
+    const names=['Material','Hobeln','Aufbau','Form & Schliff','Ölen','Ergebnis'];
+    const starts=[0,1,6,8,14,15];
+    const chapters=names.map((name,i)=>Object.assign(control(),{textContent:name,dataset:{processIndex:String(starts[i])}}));
+    const slides=Array.from({length:17},(_,i)=>({dataset:{processChapter:names[starts.findLastIndex(start=>start<=i)]},querySelector:()=>({textContent:`Step ${i}`}),getBoundingClientRect:()=>({left:i*400-track.scrollLeft})}));
+    const story={querySelectorAll:s=>s==='[data-process-index]'?chapters:[{hidden:true}],querySelector:s=>({'[data-process-prev]':previous,'[data-process-next]':next,'[data-process-count]':count,'[role="progressbar"]':progress}[s])};
+    const track={scrollLeft:0,closest:()=>story,querySelectorAll:()=>slides,getBoundingClientRect:()=>({left:0}),addEventListener:(k,fn)=>{events[k]=fn;},scrollTo(options){calls.push(options);this.scrollLeft=options.left;events.scroll();}};
+    vm.runInNewContext(code,{document:{querySelector:()=>track},window:{matchMedia:()=>({matches:reduced}),addEventListener(){}}});
+    assert.equal(previous.disabled,true);assert.equal(count.textContent,'01 / 17');
+    chapters[4].click();assert.equal(count.textContent,'15 / 17');assert.equal(chapters[4].attrs['aria-pressed'],'true');
+    assert.equal(calls.at(-1).behavior,reduced?'auto':'smooth');
+    next.click();assert.equal(count.textContent,'16 / 17');
+    events.keydown({key:'End',preventDefault(){}});assert.equal(next.disabled,true);assert.equal(progress.attrs['aria-valuenow'],'17');
+    previous.click();assert.equal(count.textContent,'16 / 17');
+    events.keydown({key:'Home',preventDefault(){}});assert.equal(previous.disabled,true);
+  }
+});

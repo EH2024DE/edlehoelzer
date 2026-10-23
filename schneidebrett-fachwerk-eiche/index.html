@@ -106,6 +106,39 @@
     .erbstueckOriginPhoto{margin:24px 0 0}
     .erbstueckOriginPhoto img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 43%;border-radius:4px}
     .erbstueckOriginPhoto figcaption{margin-top:10px;font-size:14px;line-height:1.5}
+    .erbstueckProcessStory{--process-height:520px;margin:28px 0 24px}
+    .erbstueckProcessControls[hidden]{display:none}
+    .erbstueckProcessChapters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+    .erbstueckProcessChapters button{font:inherit;font-size:14px;color:var(--white-soft);background:transparent;border:1px solid var(--white-soft);border-radius:4px;padding:10px 16px;min-height:44px;cursor:pointer}
+    .erbstueckProcessChapters button[aria-pressed=true]{color:var(--ink-warm-deep);background:var(--accent);border-color:var(--accent)}
+    .erbstueckProcessTrack{display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:32px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin}
+    .erbstueckProcessFrame{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.75fr);gap:48px;align-items:center;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+    .erbstueckProcessMedia{height:var(--process-height);display:grid;place-items:center;min-width:0;background:var(--ink-warm-deep)}
+    .erbstueckProcessCrop{width:min(100%,calc(var(--process-height) * var(--crop-factor)));aspect-ratio:var(--crop-ratio);overflow:hidden}
+    .erbstueckProcessCrop img{display:block;width:100%;max-width:none;height:auto;transform:translateY(var(--crop-shift))}
+    .erbstueckProcessFrame figcaption{max-width:32em;padding:12px 0;overflow-wrap:break-word}
+    .erbstueckProcessFrame figcaption .eyebrow{color:var(--white-soft);margin:0 0 16px}
+    .erbstueckProcessFrame figcaption h3{font-size:30px;line-height:1.2;margin:0 0 20px}
+    .erbstueckProcessFrame figcaption p:last-child{font-size:18px;line-height:1.6;color:var(--white-soft);margin:0}
+    .erbstueckProcessTransport{display:grid;grid-template-columns:44px minmax(65px,auto) 44px minmax(0,1fr);gap:16px;align-items:center;margin-top:20px}
+    .erbstueckProcessTransport button{font:inherit;font-size:24px;width:44px;height:44px;background:transparent;color:var(--white);border:1px solid var(--white-soft);border-radius:4px;cursor:pointer}
+    .erbstueckProcessTransport button:disabled{opacity:.35;cursor:default}
+    .erbstueckProcessTransport p{margin:0;font-size:14px;text-align:center;font-variant-numeric:tabular-nums}
+    .erbstueckProcessProgress{height:2px;background:var(--white-soft);margin-left:12px}
+    .erbstueckProcessProgress span{display:block;width:var(--process-progress,5.882353%);height:2px;background:var(--accent)}
+    .erbstueckProcessSummary{border-top:1px solid var(--white-soft);margin-top:32px}
+    .erbstueckProcessSummary summary{cursor:pointer;min-height:44px;padding:12px 0;font-weight:600}
+    @media(max-width:700px){
+      .erbstueckProcessStory{--process-height:min(55svh,460px)}
+      .erbstueckProcessChapters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:20px}
+      .erbstueckProcessChapters button{font-size:13px;padding:8px 6px}
+      .erbstueckProcessFrame{grid-template-columns:1fr;gap:20px;align-content:start}
+      .erbstueckProcessFrame figcaption{padding:0;min-height:140px}
+      .erbstueckProcessFrame figcaption .eyebrow{margin-bottom:8px}
+      .erbstueckProcessFrame figcaption h3{font-size:24px;margin-bottom:10px}
+      .erbstueckProcessFrame figcaption p:last-child{font-size:16px}
+      .erbstueckProcessTransport{gap:12px;margin-top:12px}
+    }
     .erbstueckPage :focus-visible{outline:3px solid currentColor;outline-offset:4px}
     @media(max-width:900px){.erbstueckSteps{grid-template-columns:1fr 1fr}.erbstueckPage .erbstueckSplit{grid-template-columns:1fr;gap:28px}.erbstueckDetails{grid-template-columns:1fr}.erbstueckPage .erbstueckHero h1{font-size:42px}}
     @media(max-width:600px){.erbstueckPage .erbstueckHero__content{padding-top:32px;padding-bottom:32px}.erbstueckPage .erbstueckHero h1{font-size:34px}.erbstueckPage .erbstueckHero__lead{font-size:17px;margin-top:16px}.erbstueckPage .erbstueckSection{padding:40px 0}.erbstueckPage h2{font-size:28px}.erbstueckSteps{grid-template-columns:1fr;gap:12px}.erbstueckSteps p{margin:6px 0}.erbstueckArchive{grid-template-columns:1fr}.erbstueckPage .erbstueckActions{gap:12px}.erbstueckPage .erbstueckBadges{margin-top:20px}}
@@ -211,13 +244,38 @@
 
   <section class="erbstueckSection erbstueckSection--dark" id="transformation"><div class="container">
     <div class="erbstueckSectionHead"><h2>Vom Balken zum Erbstück.</h2><p>Was einst ein Haus getragen hat, bekommt eine neue Aufgabe. Seine Vergangenheit verschwindet dabei nicht. Sie wird Teil seiner neuen Form.</p></div>
+  <div class="erbstueckProcessStory">
+<div class="erbstueckProcessControls" hidden><div class="erbstueckProcessChapters" role="group" aria-label="Kapitel der Entstehung"><button type="button" data-process-index="0" aria-controls="erbstueck-process" aria-pressed="true">Material</button><button type="button" data-process-index="1" aria-controls="erbstueck-process" aria-pressed="false">Hobeln</button><button type="button" data-process-index="6" aria-controls="erbstueck-process" aria-pressed="false">Aufbau</button><button type="button" data-process-index="8" aria-controls="erbstueck-process" aria-pressed="false">Form &amp; Schliff</button><button type="button" data-process-index="14" aria-controls="erbstueck-process" aria-pressed="false">Ölen</button><button type="button" data-process-index="15" aria-controls="erbstueck-process" aria-pressed="false">Ergebnis</button></div></div>
+  <div class="erbstueckProcessTrack" id="erbstueck-process" role="region" aria-label="Vom Balken zum fertigen Erbstück in 17 Fotos" tabindex="0">
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 1 von 17" data-process-chapter="Material"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:4/3;--crop-factor:1.333333;--crop-shift:-24.6%"><img src="/assets/historische-fachwerkbalken.jpg" alt="Historische Balken vor der Bearbeitung" width="728" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">01 · Material</p><h3>Das Ausgangsmaterial</h3><p>Historische Balken mit alten Verbindungen und Bearbeitungsspuren. Hier beginnt die Auswahl.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 2 von 17" data-process-chapter="Hobeln"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/1050;--crop-factor:.562857;--crop-shift:-7.03125%"><img src="/assets/erbstueck-entstehung/02.jpg" alt="Bearbeitung eines historischen Balkens auf der Abrichthobelmaschine" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">02 · Hobeln</p><h3>Eine Fläche abrichten</h3><p>Der historische Balken wird über die Abrichte geführt.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 3 von 17" data-process-chapter="Hobeln"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/03.jpg" alt="Balken am Anschlag der Abrichte" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">03 · Hobeln</p><h3>Eine Kante abrichten</h3><p>Der Balken liegt zur weiteren Bearbeitung am Anschlag der Abrichte.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 4 von 17" data-process-chapter="Hobeln"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/04.jpg" alt="Balken mit frisch bearbeiteter Fläche neben rauem Holz" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">04 · Hobeln</p><h3>Die bearbeitete Fläche</h3><p>Die frisch bearbeitete Fläche und die raue Oberfläche des Balkens bleiben im Vergleich sichtbar.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 5 von 17" data-process-chapter="Hobeln"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/05.jpg" alt="Historischer Balken im Dickenhobel" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">05 · Hobeln</p><h3>Auf Stärke hobeln</h3><p>Der Balken läuft durch den Dickenhobel.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 6 von 17" data-process-chapter="Hobeln"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/06.jpg" alt="Zugesägte Holzstücke werden im Dickenhobel bearbeitet" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">06 · Hobeln</p><h3>Die Einzelteile vorbereiten</h3><p>Auch die zugesägten Teile werden durch den Dickenhobel geführt.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 7 von 17" data-process-chapter="Aufbau"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/07.jpg" alt="Zuschnitt des verleimten Holzes am Sägeanschlag" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">07 · Aufbau</p><h3>Platz für die Buchenlinien</h3><p>Am Sägeanschlag wird der verleimte Aufbau für die Buchenakzente zugeschnitten.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 8 von 17" data-process-chapter="Aufbau"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/08.jpg" alt="Verleimtes Stirnholzbrett mit gekreuzten Buchenlinien vor der Endbearbeitung" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">08 · Aufbau</p><h3>Das Brett nimmt Form an</h3><p>Stirnholz und Buchenlinien bilden jetzt die gemeinsame Fläche. Die weitere Bearbeitung folgt.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 9 von 17" data-process-chapter="Form &amp; Schliff"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/09.jpg" alt="Kantenfräser an der Außenkante des Erbstück-Bretts" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">09 · Form &amp; Schliff</p><h3>Die Außenkante bearbeiten</h3><p>Mit dem Kantenfräser wird die Außenkante abgerundet.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 10 von 17" data-process-chapter="Form &amp; Schliff"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/10.jpg" alt="Erbstück-Schneidebrett an der Bandschleifmaschine" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">10 · Form &amp; Schliff</p><h3>Die Fläche schleifen</h3><p>Das Brett wird an der Bandschleifmaschine bearbeitet.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 11 von 17" data-process-chapter="Form &amp; Schliff"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/11.jpg" alt="Fräsen einer Griffmulde mit der Oberfräse" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">11 · Form &amp; Schliff</p><h3>Die Griffmulde fräsen</h3><p>Die Oberfräse arbeitet die Griffmulde in die Brettseite ein.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 12 von 17" data-process-chapter="Form &amp; Schliff"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/12.jpg" alt="Schleifen der Brettfläche mit einem Exzenterschleifer" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">12 · Form &amp; Schliff</p><h3>Der Maschinenschliff</h3><p>Mit dem Exzenterschleifer wird die Oberfläche weiter geschliffen.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 13 von 17" data-process-chapter="Form &amp; Schliff"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/13.jpg" alt="Nachschleifen des Erbstück-Bretts von Hand" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">13 · Form &amp; Schliff</p><h3>Von Hand nachschleifen</h3><p>Der abschließende Handschliff gehört genauso dazu wie die Arbeit an den Maschinen.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 14 von 17" data-process-chapter="Form &amp; Schliff"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/14.jpg" alt="Manufakturzeichen von Edle Hölzer an einer gerundeten Brettkante" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">14 · Form &amp; Schliff</p><h3>Unser Zeichen</h3><p>Das Manufakturzeichen an der bearbeiteten Brettkante.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 15 von 17" data-process-chapter="Ölen"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/15.jpg" alt="Öl wird mit einem Tuch auf die Brettfläche aufgetragen" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">15 · Ölen</p><h3>Die Maserung tritt hervor</h3><p>Beim Auftragen des Öls werden Farbe und Holzbild sichtbar intensiver.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 16 von 17" data-process-chapter="Ergebnis"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:591/886;--crop-factor:.667043;--crop-shift:-11.875%"><img src="/assets/erbstueck-entstehung/16.jpg" alt="Fertiges Erbstück-Schneidebrett mit sich kreuzenden Buchenlinien" width="591" height="1280" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">16 · Ergebnis</p><h3>Das fertige Erbstück</h3><p>Das Ergebnis mit einer senkrechten und einer waagerechten Buchenlinie.</p></figcaption></figure>
+    <figure class="erbstueckProcessFrame" role="group" aria-label="Foto 17 von 17" data-process-chapter="Ergebnis"><div class="erbstueckProcessMedia"><div class="erbstueckProcessCrop" style="--crop-ratio:1588/1059;--crop-factor:1.499528;--crop-shift:0%"><img src="/assets/Erbstueck2.webp" alt="Studioaufnahme des bereits vergebenen Erbstücks mit einer senkrechten und einer waagerechten Buchenlinie" width="1588" height="1059" loading="lazy" decoding="async"></div></div><figcaption><p class="eyebrow">17 · Ergebnis</p><h3>Ein Zuhause gefunden</h3><p>Dasselbe Erbstück im Studio. Dieses Brett ist bereits vergeben.</p></figcaption></figure>
+  </div>
+<div class="erbstueckProcessControls erbstueckProcessTransport" hidden><button type="button" data-process-prev aria-label="Vorheriges Foto" aria-controls="erbstueck-process" disabled>←</button><p data-process-count role="status" aria-live="polite">01 / 17</p><button type="button" data-process-next aria-label="Nächstes Foto" aria-controls="erbstueck-process">→</button><div class="erbstueckProcessProgress" role="progressbar" aria-label="Fortschritt der Bildgeschichte" aria-valuemin="1" aria-valuemax="17" aria-valuenow="1"><span></span></div></div>
+  </div>
+    <details class="erbstueckProcessSummary"><summary>Die Handwerksschritte auf einen Blick</summary>
     <ol class="erbstueckSteps">
       <li><strong>Balken prüfen</strong><p>Wir beurteilen Substanz, Risse, Faserverlauf, alte Verbindungen und mögliche Einschränkungen des Materials.</p></li>
       <li><strong>Zuschneiden</strong><p>Das vorhandene Holz bestimmt die sinnvollen Abmessungen. Nicht jedes Wunschformat ist möglich.</p></li>
       <li><strong>Fremdkörper entfernen</strong><p>Nägel, Schrauben und andere Fremdkörper werden vor der weiteren Bearbeitung gesucht und entfernt.</p></li>
       <li><strong>Aufbauen</strong><p>Wir ergänzen das historische Eichenholz durch helle Streifen aus Buche und arbeiten die abgestimmten Linien von Hand ein.</p></li>
       <li><strong>Schleifen und ölen</strong><p>Die Oberfläche wird sorgfältig bearbeitet, geschliffen und mit einer für den vorgesehenen Einsatz geeigneten Oberflächenbehandlung geschützt.</p></li>
-    </ol><p>Zum Benutzen gemacht. Nicht nur zum Anschauen.</p>
+    </ol>
+    </details><p>Zum Benutzen gemacht. Nicht nur zum Anschauen.</p>
   </div></section>
 
   <!-- STATUS-No004 -->
@@ -316,6 +374,57 @@
   </div>
 </footer>
 <script src="/main.js?v=20260826-google-visible-feedback"></script>
+<script>
+(() => {
+  const track = document.querySelector('.erbstueckProcessTrack');
+  if (!track) return;
+  const story = track.closest('.erbstueckProcessStory');
+  const slides = Array.from(track.querySelectorAll('figure'));
+  const chapters = Array.from(story.querySelectorAll('[data-process-index]'));
+  const previous = story.querySelector('[data-process-prev]');
+  const next = story.querySelector('[data-process-next]');
+  const count = story.querySelector('[data-process-count]');
+  const progress = story.querySelector('[role="progressbar"]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let active = -1;
+  function update() {
+    const left = track.getBoundingClientRect().left;
+    let nearest = 0;
+    let distance = Infinity;
+    slides.forEach((slide, index) => {
+      const delta = Math.abs(slide.getBoundingClientRect().left - left);
+      if (delta < distance) { distance = delta; nearest = index; }
+    });
+    if (nearest === active) return;
+    active = nearest;
+    count.textContent = String(active + 1).padStart(2, '0') + ' / ' + slides.length;
+    previous.disabled = active === 0;
+    next.disabled = active === slides.length - 1;
+    progress.setAttribute('aria-valuenow', String(active + 1));
+    progress.setAttribute('aria-valuetext', 'Foto ' + (active + 1) + ' von ' + slides.length + ': ' + slides[active].querySelector('h3').textContent);
+    progress.style.setProperty('--process-progress', ((active + 1) / slides.length * 100) + '%');
+    chapters.forEach(button => button.setAttribute('aria-pressed', String(slides[active].dataset.processChapter === button.textContent)));
+  }
+  function show(index) {
+    index = Math.max(0, Math.min(slides.length - 1, index));
+    const offset = slides[index].getBoundingClientRect().left - track.getBoundingClientRect().left;
+    track.scrollTo({ left: track.scrollLeft + offset, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+  }
+  chapters.forEach(button => button.addEventListener('click', () => show(Number(button.dataset.processIndex))));
+  previous.addEventListener('click', () => show(active - 1));
+  next.addEventListener('click', () => show(active + 1));
+  track.addEventListener('scroll', update, { passive: true });
+  track.addEventListener('keydown', event => {
+    const targets = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: slides.length - 1 };
+    if (!(event.key in targets)) return;
+    event.preventDefault();
+    show(targets[event.key]);
+  });
+  window.addEventListener('resize', update, { passive: true });
+  story.querySelectorAll('.erbstueckProcessControls').forEach(element => { element.hidden = false; });
+  update();
+})();
+</script>
 <script>
 (() => {
   const archive = document.querySelector('.erbstueckArchive');
