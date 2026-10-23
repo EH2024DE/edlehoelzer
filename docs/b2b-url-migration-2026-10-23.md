@@ -31,11 +31,11 @@ Performance report: https://search.google.com/search-console/performance/search-
 
 ## Decision
 
-Use `/firmengeschenke-holz/`: clearer to visitors and consistent with the observed main query. Existing performance does not identify this page as a high-traffic ranking winner. A descriptive URL alone is not evidence of improved ranking. Retain the old address as a redirect, never a 404.
+Use `/handgefertigte-holzprodukte-fuer-unternehmen/`, as approved by the owner, to cover handmade products, personalisation and bespoke work beyond corporate gifts. The observed GSC query supports the corporate-gifts theme, not measured demand for this broader exact phrase. This is a positioning decision, not a demonstrated search-volume or ranking advantage. Existing performance does not identify this page as a high-traffic ranking winner. Retain the old address as a redirect, never a 404. The shorter route proposed in the initial PR was never published and is not retained as an extra redirect.
 
 ## Implemented scope
 
-- Move the already approved page without rewriting its content or design.
+- Move the approved page with only the owner-approved H1 and first introductory paragraph revised to communicate handmade products, personalisation and bespoke work. Design, remaining content, metadata, prices and forms stay unchanged.
 - Root-relative asset, language and privacy URLs so the nested directory works.
 - Update public internal links, generated search index, sitemap, one dynamic CTA URL and the llms reference. Event names and form endpoint stay unchanged; analytics page paths naturally change.
 - Historical audit snapshots stay unchanged; they describe the URL at their observation time.

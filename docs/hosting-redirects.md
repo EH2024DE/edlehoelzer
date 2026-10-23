@@ -3,7 +3,7 @@
 ## Corporate gifts URL migration
 
 - Source: `https://edlehoelzer.de/b2b.html`
-- Target: `https://edlehoelzer.de/firmengeschenke-holz/`
+- Target: `https://edlehoelzer.de/handgefertigte-holzprodukte-fuer-unternehmen/`
 - Desired status: `301`, preserving query strings.
 
 The current GitHub Pages origin has no per-path HTTP redirect support. The old HTML therefore provides an immediate meta refresh, a visible fallback link and `location.replace` preserving query strings and fragments. This is a client-side redirect returning HTTP 200, **not a deployed HTTP 301**. The target is self-canonical and the old URL is excluded from the sitemap. The source remains available for existing inbound links.

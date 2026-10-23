@@ -6,7 +6,7 @@ const vm = require('node:vm');
 const { execFileSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const read = p => fs.readFileSync(path.join(root, p), 'utf8');
-const target = '/firmengeschenke-holz/';
+const target = '/handgefertigte-holzprodukte-fuer-unternehmen/';
 
 test('legacy B2B redirect preserves query attribution and legacy fragments', () => {
   const html = read('b2b.html');
@@ -18,18 +18,20 @@ test('legacy B2B redirect preserves query attribution and legacy fragments', () 
       replace: value => { destination = value; }
     } } });
     assert.equal(destination, target + '?utm_source=instagram&utm_campaign=company' + hash);
-    if (hash) assert.ok(read('firmengeschenke-holz/index.html').includes('id="' + hash.slice(1) + '"'));
+    if (hash) assert.ok(read('handgefertigte-holzprodukte-fuer-unternehmen/index.html').includes('id="' + hash.slice(1) + '"'));
   }
-  assert.match(html, /http-equiv="refresh" content="0; url=https:\/\/edlehoelzer.de\/firmengeschenke-holz\/"/);
+  assert.match(html, /http-equiv="refresh" content="0; url=https:\/\/edlehoelzer.de\/handgefertigte-holzprodukte-fuer-unternehmen\/"/);
   assert.match(html, /name="robots" content="noindex,follow"/);
   assert.ok(html.includes('href="' + target + '"'));
 });
 
-test('moved B2B content differs only in canonical URL and root-relative paths', () => {
+test('moved B2B content differs only in URL, root paths and approved hero wording', () => {
   const before = execFileSync('git', ['show', 'origin/main:b2b.html'], { cwd: root, encoding: 'utf8' });
-  const expected = before.replaceAll('b2b.html', 'firmengeschenke-holz/')
-    .replaceAll('./assets/', '/assets/').replaceAll('href="./', 'href="/');
-  assert.equal(read('firmengeschenke-holz/index.html'), expected);
+  const expected = before.replaceAll('b2b.html', 'handgefertigte-holzprodukte-fuer-unternehmen/')
+    .replaceAll('./assets/', '/assets/').replaceAll('href="./', 'href="/')
+    .replace('<h1>Firmengeschenke aus Holz mit Logo-Gravur</h1>', '<h1>Handgefertigte Holzprodukte für Unternehmen – individuell personalisierbar</h1>')
+    .replace('Handgefertigte Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events. Wähle aus unserem Sortiment oder sprich mit uns über eine eigene Produktidee.', 'Mit deinem Logo, als abgestimmtes Geschenkset oder als Sonderanfertigung nach deiner Idee. Entdecke Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events.');
+  assert.equal(read('handgefertigte-holzprodukte-fuer-unternehmen/index.html'), expected);
 });
 
 test('sitemap, search index and edge redirect configuration use the new owner URL', () => {
@@ -40,12 +42,12 @@ test('sitemap, search index and edge redirect configuration use the new owner UR
   assert.equal(index.filter(p => p.url === target).length, 1);
   assert.ok(!index.some(p => p.url === '/b2b.html'));
   assert.ok(read('config/cloudflare-bulk-redirects.csv').includes(
-    'https://edlehoelzer.de/b2b.html,https://edlehoelzer.de/firmengeschenke-holz/,301,false,false,true,false'));
+    'https://edlehoelzer.de/b2b.html,https://edlehoelzer.de/handgefertigte-holzprodukte-fuer-unternehmen/,301,false,false,true,false'));
 });
 
 test('other production pages change only their B2B destination, not content or metadata', () => {
   const files = execFileSync('git', ['diff', '--name-only', 'origin/main', '--', '*.html'], { cwd: root, encoding: 'utf8' })
-    .trim().split('\n').filter(p => p && p !== 'b2b.html' && p !== 'firmengeschenke-holz/index.html');
+    .trim().split('\n').filter(p => p && p !== 'b2b.html' && p !== 'handgefertigte-holzprodukte-fuer-unternehmen/index.html');
   for (const file of files) {
     const before = execFileSync('git', ['show', 'origin/main:' + file], { cwd: root, encoding: 'utf8' });
     assert.equal(read(file).trimEnd(), before.replaceAll('/b2b.html', target).trimEnd(), file);

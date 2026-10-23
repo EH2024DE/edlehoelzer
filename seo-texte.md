@@ -513,7 +513,7 @@ Für Logo-Gravuren: SVG oder AI-Datei mitschicken, JPG nach Möglichkeit meiden.
 - [Schneidebrett Eiche](https://edlehoelzer.de/schneidebrett-eiche/)
 - [Schneidebrett Nussbaum](https://edlehoelzer.de/schneidebrett-nussbaum/)
 - [Hochwertige Geschenke aus Holz](https://edlehoelzer.de/hochwertige-geschenke-holz/)
-- [Firmengeschenke aus Holz](https://edlehoelzer.de/firmengeschenke-holz/)
+- [Firmengeschenke aus Holz](https://edlehoelzer.de/handgefertigte-holzprodukte-fuer-unternehmen/)
 
 ---
 ---

@@ -43,7 +43,7 @@ class ReleaseTests(phase3.Phase3Tests):
             before = subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=ROOT)
             current = (ROOT / path).read_bytes()
             # Only the owner-approved B2B URL migration may alter protected pages.
-            current = current.replace(b'/firmengeschenke-holz/', b'/b2b.html')
+            current = current.replace(b'/handgefertigte-holzprodukte-fuer-unternehmen/', b'/b2b.html')
             self.assertEqual(current, before, path)
 
     def test_oil_redirect_preserved(self):

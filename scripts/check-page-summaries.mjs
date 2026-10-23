@@ -9,7 +9,7 @@ const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"',
 for(const {route,items,summaryRequired=true} of rows){
  const html=read(route.slice(1)+(route.endsWith('/')?'index.html':''));
  if(!summaryRequired){
-  assert.equal(route,'/firmengeschenke-holz/');
+  assert.equal(route,'/handgefertigte-holzprodukte-fuer-unternehmen/');
   assert.equal((html.match(/<h1(?:\s|>)/g)||[]).length,1,route);
   assert.ok(html.includes(`<link rel="canonical" href="https://edlehoelzer.de${route}"`),route);
   assert.ok(html.includes('class="b2b-form"'),route);

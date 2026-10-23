@@ -1,3 +1,3 @@
 source_url,target_url,status_code,include_subdomains,subpath_matching,preserve_query_string,preserve_path_suffix
 https://edlehoelzer.de/teigschaber-sauerteig/,https://edlehoelzer.de/teigschaber-holz/,301,false,true,true,false
-https://edlehoelzer.de/b2b.html,https://edlehoelzer.de/firmengeschenke-holz/,301,false,false,true,false
+https://edlehoelzer.de/b2b.html,https://edlehoelzer.de/handgefertigte-holzprodukte-fuer-unternehmen/,301,false,false,true,false
