@@ -52,3 +52,16 @@ test('legacy redirect preserves attribution and anchors without duplicating cont
   assert.match(source,/http-equiv="refresh"/);assert.ok(!source.includes('noindex'));assert.ok(!source.includes('<h1>'));
   const sitemap=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');assert.ok(sitemap.includes('https://edlehoelzer.de/schneidebrett-fachwerk-eiche/'));assert.ok(!sitemap.includes('<loc>https://edlehoelzer.de/erbstueck/</loc>'));
 });
+test('beech is integral to the series and personal line design stays optional',()=>{
+  assert.ok(html.includes('Zu jedem Erbstück gehört Buche.'));
+  assert.ok(html.includes('Für uns steht Eiche für die Substanz unseres Lebens.'));
+  assert.ok(html.includes('Drei senkrechte Linien können etwa für drei Kinder stehen.'));
+  assert.ok(html.includes('keinen festen Zeichencode'));
+  assert.ok(html.includes('ohne CNC-Maschine'));
+  assert.ok(html.includes('Format und Substanz des historischen Eichenholzes'));
+  assert.ok(!html.includes('Ahorn'));
+  const field=html.match(/<input[^>]*name="beech_lines"[^>]*>/)[0];
+  assert.ok(!field.includes('required'));
+  assert.match(html,/for="erbstueck-lines"/);
+  assert.ok(html.includes('Welche weiteren Details interessieren dich?'));
+});

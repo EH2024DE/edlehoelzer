@@ -100,3 +100,9 @@ Vor Veröffentlichung:
 - [ ] Neue URL erst nach tatsächlichem Deployment in GSC prüfen/Indexierung anstoßen, alte URL beobachten, nicht entfernen.
 
 Noch nicht veröffentlicht. Draft-PR ist eine Vorschau, keine fachliche Freigabe der offenen Produkt-/Materialdaten.
+
+## Ergänzung nach Owner-Feedback: Eiche und Buche
+
+Der Owner bestätigt Buche als festen Bestandteil jedes Erbstücks, nicht als austauschbare Kontrastholz-Option. Eiche steht im Serienkonzept für die Lebensbasis, Buchenlinien für prägende Momente und Innehalten. Diese Bedeutung wird ausdrücklich als Gestaltungsidee der Manufaktur beschrieben, nicht als naturwissenschaftliche Holzeigenschaft oder als festgelegter Zeichencode.
+
+Eigener Abschnitt zwischen Herkunft und Verarbeitung, Hero-Einleitung und OG-Beschreibung ergänzt. Beispiele für drei Kinder bzw. zwei Menschen sind Möglichkeiten, keine Behauptung über die Geschichte des verfügbaren No. 004. Anzahl/Anordnung gemeinsam abstimmbar, abhängig von Format und Materialsubstanz. Handarbeit ohne CNC ist eine ausdrückliche Owner-Angabe. Ahorn als Serienoption entfernt. Optionales Formularfeld `beech_lines` ersetzt die irreführende Holzart-Auswahl; zusätzliche Pflichtfelder entstehen nicht. FAQ entsprechend ergänzt. Dieser nachträgliche Wunsch ist ein eigener Folgecommit; die beiden ursprünglichen Umbau-/Umzugscommits bleiben getrennt erhalten.
