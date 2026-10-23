@@ -306,7 +306,8 @@
     ]
   },
   {
-    "route": "/b2b.html",
+    "route": "/handgefertigte-holzprodukte-fuer-unternehmen/",
+    "summaryRequired": false,
     "items": [
       {
         "label": "Für Unternehmen",

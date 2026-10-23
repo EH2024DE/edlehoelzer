@@ -41,7 +41,10 @@ class ReleaseTests(phase3.Phase3Tests):
                      "welches-oel-schneidebrett/index.html", "en/index.html",
                      "schneidebrett-eiche-vs-nussbaum/index.html", "schneidebrett-saftrille/index.html"):
             before = subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=ROOT)
-            self.assertEqual((ROOT / path).read_bytes(), before, path)
+            current = (ROOT / path).read_bytes()
+            # Only the owner-approved B2B URL migration may alter protected pages.
+            current = current.replace(b'/handgefertigte-holzprodukte-fuer-unternehmen/', b'/b2b.html')
+            self.assertEqual(current, before, path)
 
     def test_oil_redirect_preserved(self):
         source = self.sources["schneidebrett-oel-vergleich"]
