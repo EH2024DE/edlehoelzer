@@ -63,7 +63,7 @@ class B2BClarityTests(unittest.TestCase):
         self.assertNotIn('hochwertige-kuechenaccessoires-800.jpg', products)
 
     def test_form_contract_and_metadata_preserved(self):
-        before = subprocess.check_output(['git', 'show', 'origin/main:b2b.html'], cwd=ROOT, text=True)
+        before = subprocess.check_output(['git', 'show', 'origin/main:handgefertigte-holzprodukte-fuer-unternehmen/index.html'], cwd=ROOT, text=True)
         before = before.replace('/b2b.html', '/handgefertigte-holzprodukte-fuer-unternehmen/')
         for marker in [r'<title>.*?</title>', r'<link rel="canonical"[^>]+>',
                        r'<form class="b2b-form"[^>]+>']:

@@ -42,8 +42,12 @@ class ReleaseTests(phase3.Phase3Tests):
                      "schneidebrett-eiche-vs-nussbaum/index.html", "schneidebrett-saftrille/index.html"):
             before = subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=ROOT)
             current = (ROOT / path).read_bytes()
-            # Only the owner-approved B2B URL migration may alter protected pages.
-            current = current.replace(b'/handgefertigte-holzprodukte-fuer-unternehmen/', b'/b2b.html')
+            # Approved route migrations may update links, not protected content.
+            current = current.replace(b'/schneidebrett-fachwerk-eiche/', b'/erbstueck/')
+            before = before.replace(b'/schneidebrett-fachwerk-eiche/', b'/erbstueck/')
+            if path == "sitemap.xml":
+                current = re.sub(rb'(<loc>https://edlehoelzer.de/erbstueck/</loc>\s*<lastmod>)[^<]+', rb'\g<1>DATE', current)
+                before = re.sub(rb'(<loc>https://edlehoelzer.de/erbstueck/</loc>\s*<lastmod>)[^<]+', rb'\g<1>DATE', before)
             self.assertEqual(current, before, path)
 
     def test_oil_redirect_preserved(self):
