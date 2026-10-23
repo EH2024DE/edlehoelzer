@@ -55,7 +55,7 @@ test('legacy redirect preserves attribution and anchors without duplicating cont
 test('beech is integral to the series and personal line design stays optional',()=>{
   assert.ok(html.includes('Zu jedem Erbstück gehört Buche.'));
   assert.ok(html.includes('Für uns steht Eiche für die Substanz unseres Lebens.'));
-  assert.ok(html.includes('Drei senkrechte Linien können etwa für drei Kinder stehen.'));
+  assert.ok(html.includes('Drei senkrechte Buchenlinien stehen bei diesem Erbstück für drei Kinder.'));
   assert.ok(html.includes('keinen festen Zeichencode'));
   assert.ok(html.includes('ohne CNC-Maschine'));
   assert.ok(html.includes('Format und Substanz des historischen Eichenholzes'));
@@ -78,10 +78,35 @@ test('hero has one clear action; availability and secondary enquiry follow below
 });
 test('hero board is archived as sold with its owner-confirmed meaning',()=>{
   const archive=html.split('class="erbstueckArchive"')[1].split('</section>')[0];
-  assert.equal((archive.match(/<figure>/g)||[]).length,3);
+  assert.equal((archive.match(/<figure\b/g)||[]).length,3);
   assert.ok(archive.includes('src="/assets/Erbstueck.jpg"'));
   assert.ok(archive.includes('Vergeben · Drei senkrechte Buchenlinien stehen bei diesem Erbstück für drei Kinder.'));
   const available=html.split('id="verfuegbar"')[1].split('</section>')[0];
   assert.ok(available.includes('src="/assets/Erbstueck3.jpg"'));
   assert.ok(available.includes('Erbstück No. 004 kaufen'));
+});
+test('manual gallery controls and keyboard honour reduced motion and update current dot',()=>{
+  const galleryScript=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-2)[1];
+  for(const reduced of [false,true]){
+    const events={},calls=[];
+    const buttons=Array.from({length:3},()=>({attrs:{},addEventListener(name,fn){this[name]=fn;},setAttribute(k,v){this.attrs[k]=v;},removeAttribute(k){delete this.attrs[k];}}));
+    const slides=Array.from({length:3},(_,i)=>({getBoundingClientRect:()=>({left:i*400-archive.scrollLeft})}));
+    const archive={scrollLeft:0,querySelectorAll:()=>slides,getBoundingClientRect:()=>({left:0}),addEventListener:(name,fn)=>{events[name]=fn;},scrollTo(options){calls.push(options);this.scrollLeft=options.left;events.scroll();}};
+    const navigation={hidden:true,querySelectorAll:()=>buttons};
+    vm.runInNewContext(galleryScript,{document:{querySelector:s=>s==='.erbstueckArchive'?archive:navigation},window:{matchMedia:()=>({matches:reduced}),addEventListener(){}}});
+    assert.equal(navigation.hidden,false);assert.equal(buttons[0].attrs['aria-current'],'true');
+    buttons[2].click();assert.equal(archive.scrollLeft,800);assert.equal(buttons[2].attrs['aria-current'],'true');
+    assert.equal(calls.at(-1).behavior,reduced?'auto':'smooth');
+    events.keydown({key:'ArrowLeft',preventDefault(){}});assert.equal(archive.scrollLeft,400);
+    events.keydown({key:'Home',preventDefault(){}});assert.equal(archive.scrollLeft,0);
+    events.keydown({key:'End',preventDefault(){}});assert.equal(archive.scrollLeft,800);
+  }
+});
+test('gallery explains the three confirmed line patterns before the processing section',()=>{
+  assert.ok(html.indexOf('id="vergeben"')<html.indexOf('id="transformation"'));
+  assert.ok(html.includes('Eine senkrechte und eine waagerechte Buchenlinie kreuzen sich.'));
+  assert.ok(html.includes('Fachwerk-Eiche, die in Lehm lag'));
+  assert.ok(html.includes('Zwei senkrechte Buchenlinien kreuzen zwei waagerechte: eine oben, eine unten.'));
+  assert.ok(html.includes('scroll-snap-type:x mandatory'));
+  assert.ok(!html.includes('setInterval('));
 });

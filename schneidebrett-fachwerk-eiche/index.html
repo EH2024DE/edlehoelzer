@@ -85,7 +85,14 @@
     .erbstueckDetails{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:32px}
     .erbstueckDetails article{border-top:1px solid var(--accent);padding-top:20px}
     .erbstueckDetails h3{font-size:20px}.erbstueckDetails p{line-height:1.6}
-    .erbstueckArchive{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.erbstueckArchive figure{margin:0}.erbstueckArchive figcaption{font-size:14px;margin-top:12px}
+    .erbstueckArchive{display:grid;grid-auto-flow:column;grid-auto-columns:100%;grid-template-columns:none;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;max-width:1000px;margin:0 auto;scrollbar-width:thin}
+    .erbstueckArchive figure{margin:0;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+    .erbstueckArchive img{max-height:500px}
+    .erbstueckArchive figcaption{font-size:15px;line-height:1.6;margin-top:12px;min-height:4.8em}
+    .erbstueckArchiveNav{display:flex;justify-content:center;gap:4px;margin-top:12px}.erbstueckArchiveNav[hidden]{display:none}
+    .erbstueckArchiveNav button{display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;cursor:pointer;padding:0;color:var(--ink-warm)}
+    .erbstueckArchiveNav button::before{content:"";width:8px;height:8px;border:1px solid currentColor;border-radius:50%;background:transparent}
+    .erbstueckArchiveNav button[aria-current=true]::before{background:currentColor}
     .erbstueckMaterial{margin:0;padding-left:20px;line-height:1.7}.erbstueckMaterial li+li{margin-top:16px}
     .erbstueckQuote{margin:0}.erbstueckQuote blockquote{margin:0 0 20px;line-height:1.7;font-size:19px}
     .erbstueckForm,.erbstueckFormOptional{display:grid;gap:12px;min-width:0}.erbstueckForm label{font-weight:600}
@@ -120,7 +127,7 @@
       .erbstueckPage .erbstueckHero .eyebrow{margin-bottom:12px}
       .erbstueckPage .erbstueckActions{margin-top:20px}
     }
-    @media(max-width:600px){.erbstueckPage .erbstueckHero h1{font-size:30px}.erbstueckPage .erbstueckHero__lead{font-size:16px}.erbstueckIntro{padding:20px 0}}
+    @media(max-width:600px){.erbstueckPage .erbstueckHero h1{font-size:30px}.erbstueckPage .erbstueckHero__lead{font-size:16px}.erbstueckIntro{padding:20px 0}.erbstueckPage .erbstueckArchive{grid-template-columns:none}}
   </style>
 </head>
 <body>
@@ -190,8 +197,14 @@
 
   <section class="erbstueckSection" id="bedeutung"><div class="container erbstueckSplit">
     <div><p class="eyebrow eyebrow--dark">Eiche und Buche</p><h2>Die Basis bleibt. Das Leben setzt Zeichen.</h2></div>
-    <div class="erbstueckText"><p>Zu jedem Erbstück gehört Buche. Nicht nur als heller Kontrast: Die beiden Hölzer erzählen gemeinsam, was uns an dieser Serie wichtig ist.</p><p>Für uns steht Eiche für die Substanz unseres Lebens. Sie bildet die Basis für das, was wir erfahren und mit uns tragen. Die Buche unterbricht diese Fläche. Ihre Linien stehen für Momente, die uns prägen: Meilensteine, schöne Begegnungen, Schicksalsschläge oder einen Neubeginn. Sie laden dazu ein, kurz innezuhalten und sich zu besinnen.</p><p>Bei einem eigenen Erbstück können Anzahl und Anordnung der Buchenlinien eine persönliche Bedeutung bekommen. Drei senkrechte Linien können etwa für drei Kinder stehen. Zwei Linien, die sich begegnen oder kreuzen, für zwei Menschen und ihren gemeinsamen Weg. Es gibt dafür keinen festen Zeichencode. Was die Linien für dich bedeuten, entscheidest du.</p><p>Waagerecht, senkrecht oder als sich kreuzende Linien: Wir stimmen die Gestaltung gemeinsam ab und arbeiten die Buche von Hand ein, ohne CNC-Maschine. Welche Anordnung möglich ist, richtet sich auch nach Format und Substanz des historischen Eichenholzes.</p></div>
+    <div class="erbstueckText"><p>Für uns steht Eiche für die Substanz unseres Lebens. Zu jedem Erbstück gehört Buche. Ihre hellen Linien unterbrechen die Fläche wie Momente, die uns prägen: Meilensteine, Begegnungen, Schicksalsschläge oder ein Neubeginn. Sie laden ein, innezuhalten.</p><p>Anzahl und Anordnung können deine Geschichte aufnehmen. Es gibt dafür keinen festen Zeichencode. Was die Linien für dich bedeuten, entscheidest du.</p><p>Wir stimmen die Gestaltung gemeinsam ab und arbeiten die Buche von Hand ein, ohne CNC-Maschine. Was möglich ist, richtet sich nach Format und Substanz des historischen Eichenholzes.</p></div>
   </div></section>
+
+  <section class="erbstueckSection" id="vergeben"><div class="container"><div class="erbstueckSectionHead"><h2>Vergebene Erbstücke</h2><p>Drei Einzelstücke, drei Linienbilder. Eine ähnliche Gestaltung kannst du anfragen, wenn das vorhandene Holz sie zulässt.</p></div><div class="erbstueckArchive" id="erbstueck-archive" role="region" aria-label="Vergebene Erbstücke" tabindex="0">
+    <figure role="group" aria-label="Erbstück 1 von 3"><img src="/assets/Erbstueck.jpg" alt="Vergebenes Erbstück aus Fachwerk-Eiche mit drei senkrechten Buchenlinien" width="1588" height="1059" loading="lazy" decoding="async"><figcaption>Vergeben · Drei senkrechte Buchenlinien stehen bei diesem Erbstück für drei Kinder.</figcaption></figure>
+    <figure role="group" aria-label="Erbstück 2 von 3"><img src="/assets/Erbstueck2.webp" alt="Vergebenes Erbstück mit ruhigem Eichenholzbild und einer senkrechten sowie einer waagerechten Buchenlinie" width="1588" height="1059" loading="lazy" decoding="async"><figcaption>Vergeben · Ruhiges, homogenes Holzbild. Eine senkrechte und eine waagerechte Buchenlinie kreuzen sich.</figcaption></figure>
+    <figure role="group" aria-label="Erbstück 3 von 3"><img src="/assets/Erbstueck4.webp" alt="Vergebenes Erbstück aus ehemals in Lehm liegender Fachwerk-Eiche mit zwei senkrechten und zwei waagerechten Buchenlinien" width="1588" height="1059" loading="lazy" decoding="async"><figcaption>Vergeben · Fachwerk-Eiche, die in Lehm lag, mit besonders markantem Holzbild. Zwei senkrechte Buchenlinien kreuzen zwei waagerechte: eine oben, eine unten.</figcaption></figure>
+  </div><div class="erbstueckArchiveNav" role="group" aria-label="Erbstück auswählen" hidden><button type="button" aria-label="Erbstück 1 von 3 anzeigen" aria-controls="erbstueck-archive" aria-current="true"></button><button type="button" aria-label="Erbstück 2 von 3 anzeigen" aria-controls="erbstueck-archive"></button><button type="button" aria-label="Erbstück 3 von 3 anzeigen" aria-controls="erbstueck-archive"></button></div></div></section>
 
   <section class="erbstueckSection erbstueckSection--dark" id="transformation"><div class="container">
     <div class="erbstueckSectionHead"><h2>Vom Balken zum Erbstück.</h2><p>Was einst ein Haus getragen hat, bekommt eine neue Aufgabe. Seine Vergangenheit verschwindet dabei nicht. Sie wird Teil seiner neuen Form.</p></div>
@@ -219,7 +232,7 @@
   </div></section>
 
   <section class="erbstueckSection" id="weitergabe"><div class="container">
-    <div class="erbstueckSplit"><div><p class="eyebrow eyebrow--dark">Weitergabe</p><h2>Vielleicht wird es einmal dein Erbstück.</h2></div><div class="erbstueckText"><p>Am Anfang ist es ein Schneidebrett.</p><p>Dann wird darauf gekocht, Brot geschnitten und für Freunde angerichtet. Es begleitet Geburtstage, Feiertage und viele gewöhnliche Abende, an die man sich später gern erinnert.</p><p>Mit der Zeit bekommt das Holz neue Spuren. Diesmal aus deinem Leben, nicht aus einem Fachwerk.</p><p>Und eines Tages gibst du es vielleicht weiter. Dann erzählt es auch deine Geschichte.</p></div></div>
+    <div class="erbstueckSplit"><div><p class="eyebrow eyebrow--dark">Weitergabe</p><h2>Vielleicht wird es einmal dein Erbstück.</h2></div><div class="erbstueckText"><p>Darauf wird gekocht, Brot geschnitten und für Freunde angerichtet. Mit der Zeit bekommt das Holz neue Spuren. Diesmal aus deinem Leben, nicht aus einem Fachwerk.</p><p>Und eines Tages gibst du es vielleicht weiter. Dann erzählt es auch deine Geschichte.</p></div></div>
     <div class="erbstueckDetails">
       <article><h3>Nummer und Herkunft</h3><p>Eine eigene Nummer gehört zu jedem Erbstück. Bekannte Herkunftsangaben verbinden es mit seinem früheren Ort.</p></article>
       <article><h3>Pflege und Aufarbeitung</h3><p>Gebrauchsspuren gehören zu seiner Geschichte. Passende Pflegehinweise liegen bei. Bei geeigneter Materialsubstanz kann das Brett später in unserer Werkstatt aufgearbeitet werden.</p><a href="/pflege.html">Zur Pflege</a> · <a href="/schneidebrett-aufbereiten/">Zur Aufarbeitung</a></article>
@@ -227,11 +240,6 @@
     </div><p><a href="#anfrage" class="btn btn--ghost">Eigenes Erbstück anfragen</a></p>
   </div></section>
 
-  <section class="erbstueckSection" id="vergeben"><div class="container"><div class="erbstueckSectionHead"><h2>Bereits ein Zuhause gefunden.</h2><p>Diese Bretter sind bereits vergeben. Sie zeigen, wie unterschiedlich historische Eichenbalken in ihrer neuen Form wirken können. Eine ähnliche gestalterische Richtung kannst du anfragen, sofern das vorhandene Material es zulässt.</p></div><div class="erbstueckArchive">
-    <figure><img src="/assets/Erbstueck.jpg" alt="Vergebenes Erbstück aus Fachwerk-Eiche mit drei senkrechten Buchenlinien" width="1588" height="1059" loading="lazy" decoding="async"><figcaption>Vergeben · Drei senkrechte Buchenlinien stehen bei diesem Erbstück für drei Kinder.</figcaption></figure>
-    <figure><img src="/assets/Erbstueck2.webp" alt="Vergebenes Erbstück mit markanter Fachwerkholz-Struktur" width="1588" height="1059" loading="lazy" decoding="async"><figcaption>Vergeben · Markante Fachwerkholz-Struktur, ruhige Fläche</figcaption></figure>
-    <figure><img src="/assets/Erbstueck4.webp" alt="Vergebenes Erbstück-Schneidebrett mit individueller Maserung" width="1588" height="1059" loading="lazy" decoding="async"><figcaption>Vergeben · Format und Maserung folgten dem Balken</figcaption></figure>
-  </div></div></section>
 
   <section class="erbstueckSection erbstueckSection--dark" id="material"><div class="container erbstueckSplit"><h2>Nicht reproduzierbar. Das ist der Punkt.</h2><ul class="erbstueckMaterial"><li><strong>Die Maße folgen dem Balken.</strong> Nicht jedes Wunschformat ist möglich.</li><li><strong>Die Spuren bleiben.</strong> Verfärbungen, Maserung und geeignete historische Strukturen prägen das Brett.</li><li><strong>Nur ein Teil bleibt nutzbar.</strong> Prüfung und Zuschnitt begrenzen, was aus dem vorhandenen Holz entstehen kann.</li><li><strong>Jedes Brett ist einzigartig.</strong> Ein verarbeitetes Stück lässt sich nicht identisch nachbestellen.</li></ul></div></section>
 
@@ -305,6 +313,46 @@
   </div>
 </footer>
 <script src="/main.js?v=20260826-google-visible-feedback"></script>
+<script>
+(() => {
+  const archive = document.querySelector('.erbstueckArchive');
+  const navigation = document.querySelector('.erbstueckArchiveNav');
+  if (archive && navigation) {
+    const slides = Array.from(archive.querySelectorAll('figure'));
+    const buttons = Array.from(navigation.querySelectorAll('button'));
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let active = 0;
+    function update() {
+      let distance = Infinity;
+      const left = archive.getBoundingClientRect().left;
+      slides.forEach((slide, index) => {
+        const current = Math.abs(slide.getBoundingClientRect().left - left);
+        if (current < distance) { distance = current; active = index; }
+      });
+      buttons.forEach((button, index) => {
+        if (index === active) button.setAttribute('aria-current', 'true');
+        else button.removeAttribute('aria-current');
+      });
+    }
+    function show(index) {
+      index = Math.max(0, Math.min(slides.length - 1, index));
+      const offset = slides[index].getBoundingClientRect().left - archive.getBoundingClientRect().left;
+      archive.scrollTo({ left: archive.scrollLeft + offset, behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+    }
+    buttons.forEach((button, index) => button.addEventListener('click', () => show(index)));
+    archive.addEventListener('scroll', update, { passive: true });
+    archive.addEventListener('keydown', event => {
+      const targets = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: slides.length - 1 };
+      if (!(event.key in targets)) return;
+      event.preventDefault();
+      show(targets[event.key]);
+    });
+    window.addEventListener('resize', update, { passive: true });
+    navigation.hidden = false;
+    update();
+  }
+})();
+</script>
 <script>
 (() => {
   const form = document.querySelector('.erbstueckForm');

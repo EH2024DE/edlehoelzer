@@ -116,3 +116,11 @@ Ghost-Button auf den hellen Seitenbereichen jetzt mit dunkler Schrift und dunkle
 ## Bestätigtes Beispiel mit drei Linien
 
 Owner bestätigt: Das Hero-Brett (`assets/Erbstueck.jpg`) ist verkauft; seine drei senkrechten Buchenlinien stehen für drei Kinder. Zusätzlich als erstes Beispiel im Archiv aufgenommen, dort ausdrücklich als vergeben mit dieser Bedeutung beschriftet. Hero-Alttext ebenfalls präzisiert. Keine Namen oder weiteren Familienangaben ergänzt. Das separate verfügbare No. 004 und dessen Kaufweg bleiben unverändert.
+
+## Leserführung und manuelle Galerie
+
+Nach weiterem Owner-Feedback den Bedeutungsabschnitt von vier längeren auf drei kürzere Absätze reduziert; Wiederholung der Kinder-/Linienbeispiele entfällt dort zugunsten konkreter Bildunterschriften. Weitergabe ebenfalls verdichtet, bestehende Kundenbewertung nicht verändert. Das Archiv steht direkt nach der Bedeutung als früher visueller Beleg statt erst nach der Weitergabe.
+
+Drei Fotos als manuelle Scroll-Snap-Galerie, ohne Autoplay/Library. Touch-Swipe, drei dezente Punktbuttons mit 44px-Zielen, Tastaturpfeile/Home/End, `aria-current`, Reduced Motion berücksichtigt. Ohne JS bleibt natives horizontales Scrollen verfügbar, JS-Punktsteuerung bleibt dann verborgen. Alle Bilder vollständig im Bildrahmen, stabile Höhe für die Bildunterschriften.
+
+Owner-bestätigte Beschreibungen: erstes Brett drei senkrechte Linien für drei Kinder; zweites homogeneres Holzbild mit einer senkrechten/einer waagerechten Buchenlinie; drittes aus ehemals in Lehm liegendem Fachwerkbalken, markantes Holzbild mit zwei senkrechten und je einer waagerechten Linie oben/unten. Keine zusätzlichen Familiengeschichten oder chemischen Erklärungen zur Lehmwirkung erfunden. Muster visuell mit den vorhandenen Originalfotos abgeglichen.
