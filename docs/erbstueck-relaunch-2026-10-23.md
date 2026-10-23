@@ -164,3 +164,19 @@ Die oben dokumentierte 5-Sekunden-/Stopp-Regel ersetzt: explizit gestartete Wied
 Außerhalb des sichtbaren Bereichs und im Hintergrundtab ist nur der Timer ausgesetzt; der aktivierte Wiedergabestatus bleibt erhalten. Bei Rückkehr beginnt ein vollständiges neues Zeitfenster, ohne übersprungene Bilder nachzuholen. Kein mehrfacher Timer, kein Stoppen durch Fokus oder Bildklick. Regression prüft 3000 ms, Timer-Neustart, Tippen/Wischen, manuelles Blättern, Hintergrund/Rückkehr, Umlauf und explizite Pause.
 
 Einleitung der Bildfolge auf „Einige Ausschnitte aus der Fertigung eines Erbstücks.“ verkürzt. Damit ist der exemplarische Charakter klar, ohne eine vollständige Dokumentation aller Fertigungsschritte zu suggerieren oder zusätzliche Erklärungslast zu erzeugen.
+
+## Finale Repository- und Merge-Prüfung
+
+Am 23. Oktober 2026 gegen frisch abgerufenes `origin/main` geprüft: `a7be9638405e7cbb502b74848496b6c4bb2401cb` (Merge #194). Dieser Commit ist vollständig Vorfahr des Erbstück-Branches. Arbeitsverzeichnis vor Abschlussdokumentation sauber, letzter Inhaltscommit `9dbf00f`. Keine neueren Remote-Änderungen oder verlorenen B2B-Anpassungen festgestellt.
+
+Die beiden jüngsten fehlgeschlagenen Läufe gehören zu PR #193, nicht zu zwei verlorenen PRs:
+- PR-Prüfung: https://github.com/EH2024DE/edlehoelzer/actions/runs/39863702967
+- Main-Prüfung nach Merge: https://github.com/EH2024DE/edlehoelzer/actions/runs/39865214978
+
+Merge #193 war am 23. Oktober um 00:28:24 MESZ erfolgreich; auch das getrennte Pages-Deployment war erfolgreich (Run 39865214964). Ursache der roten Qualitätsprüfung: `scripts/check-page-summaries.mjs:11` erwartete noch genau einen `pageSummary`-Kasten auf `/b2b.html`, obwohl dieser im freigegebenen Umbau entfernt worden war (0 statt 1). Kein Commit-/Git-Merge-Fehler. #194 hat Manifest und Prüfregel passend zum neuen B2B-Aufbau aktualisiert; dessen Main-Prüfung 39898835865 und Pages-Deployment 39898835451 waren erfolgreich. Historische rote Läufe bleiben in der Historie sichtbar und müssen nicht auf veralteten Commits erneut gestartet werden. Die nächstälteren fehlgeschlagenen Läufe stammen vom 6. Oktober, nicht vom aktuellen Release.
+
+Live-HTML von `https://edlehoelzer.de/handgefertigte-holzprodukte-fuer-unternehmen/` abgerufen und bytegenau mit `origin/main` verglichen: identisch. Im Erbstück-Branch unterscheidet sich diese Seite ausschließlich durch die beiden internen Erbstück-Links. Keine Wiederherstellung oder erneute B2B-Inhaltsänderung erforderlich. Weitere HTML-Diffs geprüft: außerhalb der Erbstück-Seite/Weiterleitung nur Ziel-Links, auf EN nur deutsche Rückverweise bei unverändertem EN-Canonical, in der Themenübersicht zusätzlich die passend präzisierte Erbstück-Linkbezeichnung.
+
+Final erneut erfolgreich: 70 Node-Tests, 32 Python-Tests, Indexierbarkeit/Canonical/Sitemap, Seitenzusammenfassungen, Suchindex-Neubau ohne zusätzliche Änderung und vollständiges `git diff --check origin/main...HEAD`. Asset-Audit 265 Medien, 0 kritisch, 24 bekannte Hinweise. Keine Temp-/Debug-Dateien in der PR. Vorherige responsive und externe Browserprüfungen bleiben gültig; seitdem keine Layout-Änderung. Der letzte Inhaltscommit ist auch auf GitHub erfolgreich geprüft.
+
+Owner hat die finale PR zur Launch-Vorbereitung angefordert. PR #195 wird daher aus Draft auf bereit zur Prüfung gestellt. Nicht gemergt und nicht als veröffentlicht dokumentiert. Noch offene Datenpunkte aus dem früheren Abschnitt bleiben transparent: widersprüchliche No.-004-Maße/Gewichte nicht übernommen, `products.json` unverändert, Deutschlandpreis und echter Formulareingang nicht neu verifiziert, Fotowärme/Nachschärfung nicht ausgeführt. Das zukünftige YouTube-Video ist eine optionale spätere Ergänzung, keine Launch-Abhängigkeit. Nach tatsächlichem Merge sind Pages-Deployment und die neue Live-URL/alte Weiterleitung gesondert zu prüfen; erst dann Veröffentlichung und GSC-Indexierungsprüfung dokumentieren.
