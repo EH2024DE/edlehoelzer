@@ -176,8 +176,9 @@ test('series story explains presentation, standard kit and one-edge minimum with
   const story=html.split('id="weitergabe"')[1].split('</section>')[0];
   assert.ok(story.includes('Ein Erbstück ist nichts, was man versteckt.'));
   assert.ok(story.includes('Zu deinem Brett gehören immer ein passender Halter, Pflegebalsam und eine Pflegeanleitung.'));
-  assert.ok(story.includes('Können wir die Herkunft eindeutig belegen'));
-  assert.ok(story.includes('Holzkarte mit Herkunftsangaben'));
+  assert.ok(story.includes('Bei Balken aus unseren eigenen Rückbauten'));
+  assert.ok(story.includes('Erbstückkarte aus Holz'));
+  assert.ok(story.includes('Herkunftsort oder Ortsteil in Mittelhessen'));
   const material=html.split('id="material"')[1].split('</section>')[0];
   assert.ok(material.includes('Mindestens 30 cm an einer Seite.'));
   assert.ok(material.includes('Mindestens 4 cm stark.'));
@@ -185,6 +186,16 @@ test('series story explains presentation, standard kit and one-edge minimum with
   assert.ok(!material.includes('30 × 30'));
   assert.ok(html.includes('Mindestens eine Seite muss 30 cm lang sein'));
   assert.ok(html.includes('Das ist keine Garantie für jeden Schaden'));
+});
+test('origin card names locality for own reclamations without promising private building locations',()=>{
+  assert.ok(html.includes('<summary>Was erzählt die Erbstückkarte?</summary>'));
+  assert.ok(html.includes('Bei Erbstücken aus unseren eigenen Rückbauten'));
+  assert.ok(html.includes('Herkunftsort oder Ortsteil des Balkens in Mittelhessen'));
+  assert.ok(!html.includes('Können wir die Herkunft eindeutig belegen'));
+  assert.ok(!html.includes('Ist der Herkunftsort des Balkens dokumentiert'));
+  assert.ok(!html.includes('Holzvisitenkarte'));
+  assert.ok(!html.includes('GPS-Koordinaten'));
+  assert.ok(!html.includes('Herkunftszertifikat'));
 });
 test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
   const section=html.split('id="transformation"')[1].split('</section>')[0];
