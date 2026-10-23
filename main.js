@@ -66,7 +66,7 @@ var EdleProductCopy = (function () {
     "Massive Eiche mit Astloch; gerade Kante 34 × 20,5 × 3,6 cm oder Schweizer Kante 38 × 20,5 × 3,3 cm.": "Solid oak with a knot hole; straight edge 34 × 20.5 × 3.6 cm or Swiss bevel 38 × 20.5 × 3.3 cm.",
     "Set aus zwei oder drei handgemachten Teigschabern aus Massivholz für Backen, Sauerteig und Küche.": "Set of two or three handmade solid wood dough scrapers for baking, sourdough and kitchen use.",
     "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay, ca. 40 × 40 × 4,5 cm und ca. 4,5 kg.": "Historic oak end-grain board with a beech inlay, approx. 40 × 40 × 4.5 cm and 4.5 kg.",
-    "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay. Maße und Gewicht findest du im aktuellen Angebot.": "Historic oak end-grain board with a beech inlay. See the current listing for dimensions and weight.",
+    "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay. Passender Stirnholzhalter und Pflegebalsam inklusive. Maße und Gewicht findest du im aktuellen Angebot.": "Historic oak end-grain board with a beech inlay. Matching end-grain stand and care balm included. See the current listing for dimensions and weight.",
     "Stirnholz aus Eiche und Buche mit Astloch, 31,1 × 30,1 × 3,8 cm, ca. 2,44 kg.": "Oak and beech end-grain board with a knot hole, 31.1 × 30.1 × 3.8 cm, approx. 2.44 kg.",
     "3D-Stirnholz aus Nussbaum, Eiche, Buche, Esche und Kambala, 48,5 × 35,3 × 4 cm.": "3D end-grain board in walnut, oak, beech, ash and Kambala, 48.5 × 35.3 × 4 cm.",
     "3D-Stirnholz aus Eiche, Buche, Esche, Kambala und Wenge, 46 × 46 × 5 cm.": "3D end-grain board in oak, beech, ash, Kambala and wenge, 46 × 46 × 5 cm.",
@@ -157,7 +157,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261023-erbstueck-details";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261023-erbstueck-included";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -1852,8 +1852,10 @@ function initProductExperience() {
         '<p class="productPreview__eyebrow">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || "Edle Hölzer", isEnglish)) + '</p>' +
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
         renderPurchaseHeadline(product) +
+        (product.includesEndGrainHolder ? renderPurchaseBenefit(product) : "") +
         renderEarlyPurchaseAction(product) +
         (product.category === 'board' && product.active !== false && String(product.listingId) !== '4440690649' && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt"><p>' + (isEnglish ? 'Will it fit your kitchen?' : 'Passt es in deine Küche?') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
+        (source === "erbstueck" ? '<p class="productPreview__trust">Lieber ein anderes Brett? <a href="/produkte.html#produktfinder" data-umami-event="produktfinder-gestartet">Zum Produktfinder</a></p>' : '') +
         '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
         '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
         renderExperiencePromise(product) +
@@ -1875,7 +1877,6 @@ function initProductExperience() {
           renderProductWhatsappPrompt(product, hasEtsy) +
           renderPreviewCompareControls(product, source || "preview") +
           '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
-          (source === "erbstueck" ? '<a class="btn btn--ghost-dark" href="/produkte.html#produktfinder">Andere Bretter entdecken</a>' : '') +
         '</div>' +
       '</div>' +
     '</section>';
@@ -3086,6 +3087,13 @@ function initProductExperience() {
   }
 
   function purchaseBenefit(product) {
+    if (product.includesEndGrainHolder && product.includesCareBalm) {
+      return {
+        title: isEnglish ? "Matching end-grain stand and care balm included" : "Passender Stirnholzhalter und Pflegebalsam inklusive",
+        detail: isEnglish ? "Care for your board and give it a place in your kitchen between shared meals." : "Zum Pflegen und Aufstellen in deiner Küche, bis zum nächsten gemeinsamen Genussmoment.",
+        active: true
+      };
+    }
     var goodsValue = purchaseSubtotalWithoutCareBalm(product);
     var careThreshold = Number(purchaseRules.careBalmMinimumGoodsValue || 150);
     var holderThreshold = Number(purchaseRules.holderMinimumGoodsValue || 350);
@@ -3169,7 +3177,7 @@ function initProductExperience() {
           return '<label class="productPreview__option"' + (hidden ? " hidden" : "") + ' data-purchase-option-row="' + escapeAttribute(option.id) + '"><input type="checkbox" data-purchase-option="' + escapeAttribute(option.id) + '" data-product-id="' + escapeAttribute(product.id) + '"' + (selection[option.id] ? " checked" : "") + '>' + optionCopy + '<strong>+ ' + escapeHtml(formatCurrency(option.price)) + '</strong></label>';
         }).join("") +
       '</div>' : "") +
-      renderPurchaseBenefit(product) +
+      (product.includesEndGrainHolder ? "" : renderPurchaseBenefit(product)) +
     '</section>';
   }
 

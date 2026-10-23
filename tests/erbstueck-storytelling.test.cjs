@@ -132,6 +132,9 @@ test('product has its exact counter preview and the finder alternative follows t
   assert.ok(models.some(model=>model.listingId==='4370769708'));
   const main=html.split('<main')[1].split('</main>')[0];
   assert.ok(!main.includes('href="/pflege.html"'));
+  assert.ok(!main.includes('href="/schneidebrett-aufbereiten/"'));
+  assert.ok(!main.includes('<h3>Pflege und Aufarbeitung</h3>'));
+  assert.ok(main.includes('<summary>Wie pflege ich mein Erbstück?</summary>'));
   assert.equal((main.match(/href="\/produkte.html#produktfinder"/g)||[]).length,1);
   assert.ok(main.indexOf('erbstueckFinderAlternative')>main.indexOf('Häufige Fragen'));
   assert.ok(main.trimEnd().endsWith('</aside>'));
@@ -147,9 +150,26 @@ test('No.004 dialog uses the verified starting price and defers conflicting dime
   assert.ok(!product.badges.some(b=>/cm|kg/.test(b)));
   const js=fs.readFileSync(path.join(root,'main.js'),'utf8');
   assert.ok(js.includes('source === "erbstueck"'));
-  assert.ok(js.includes('Andere Bretter entdecken'));
+  assert.ok(js.includes('Zum Produktfinder'));
+  assert.ok(js.indexOf('Zum Produktfinder')<js.indexOf('renderExperiencePromise(product) +'));
+  assert.equal(product.includesEndGrainHolder,true);assert.equal(product.includesCareBalm,true);
+  assert.ok(html.includes('Passender Stirnholzhalter und Pflegebalsam inklusive.'));
+  assert.ok(html.includes('id="andere-bretter"'));
   assert.equal((js.match(/if \(product.dimensionsReviewRequired\) return isEnglish/g)||[]).length,2);
   assert.ok(js.includes('if (product.dimensionsReviewRequired) return "";'));
+});
+test('confirmed No.004 holder and balm are included independently of generic order thresholds',()=>{
+  const js=fs.readFileSync(path.join(root,'main.js'),'utf8');
+  const code=js.slice(js.indexOf('  function purchaseBenefit(product) {'),js.indexOf('  function renderPurchaseHeadline(product) {'));
+  for(const isEnglish of [false,true]){
+    const context={isEnglish,purchaseRules:{},labels:{careBalmThreshold:'threshold',benefitBasis:'basis'},purchaseSubtotalWithoutCareBalm:()=>100,minimumBoardThickness:()=>null,purchaseSelection:()=>({})};
+    vm.runInNewContext(code,context);
+    const included=context.purchaseBenefit({includesEndGrainHolder:true,includesCareBalm:true});
+    assert.equal(included.active,true);
+    assert.match(included.title,isEnglish?/end-grain stand and care balm included/:/Stirnholzhalter und Pflegebalsam inklusive/);
+    assert.equal(context.purchaseBenefit({}).active,false);
+    assert.equal(context.purchaseBenefit({}).title,'threshold');
+  }
 });
 test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
   const section=html.split('id="transformation"')[1].split('</section>')[0];
