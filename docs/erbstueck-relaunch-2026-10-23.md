@@ -236,3 +236,9 @@ Grundlage der Einordnung: DSGVO Artikel 4 Absatz 1 (auch indirekte Identifizierb
 Interne Rückbau-/Bezugsnachweise getrennt von der Kundenkarte behandeln, nicht ungeprüft weitergeben. Bei personenbezogenen Angaben sind Rechtsgrundlage, konkreter Zweck, erforderlicher Umfang, Zugriffsberechtigung und Aufbewahrungsdauer gesondert zu klären; die Website-Änderung schafft hierfür keine neue Erlaubnis. Keine internen Nachweise hochgeladen, keine aktuellen oder früheren Bewohnerdaten erfasst, keine Datenschutzerklärung ohne Prüfung des tatsächlichen Prozesses umgeschrieben.
 
 107 lokale Tests erfolgreich (75 Node/32 Python), Indexierbarkeit/Seitenzusammenfassungen und Diff-Prüfung erfolgreich. Externe Story/FAQ mit Herkunftsort/Ortsteil statt Gebäudestandort kontrolliert; drei responsive Viewport-Einstellungen ohne Überlauf. Lieferumfang, Mindestanforderungen und Produktdaten bleiben unverändert.
+
+## Mindeststärke als Voraussetzung der Weitergabe, nicht als Selbstzweck
+
+Nach Owner-Feedback den 4-cm-Punkt vom rein technischen Aufarbeitungsargument auf das eigentliche Ziel ausgerichtet: lange nutzen und weitergeben, mit eingeplanter Materialreserve für spätere Aufarbeitungen. Formulierung „mit dem Ziel, dass weitere Generationen …“ beschreibt den Manufakturanspruch, keine garantierte Lebensdauer oder garantierte Anzahl möglicher Überarbeitungen.
+
+Die bestehende Weitergabe-Story schlägt ausdrücklich den Bogen vom Baum über den Fachwerkbalken zur Küche und zur möglichen nächsten Generation. H2 „Seine Geschichte geht mit dir weiter.“ vermeidet den früheren Eindruck, das historisch bereits geprägte Holz müsse erst zum Erbstück werden. Keine neuen Alterszahlen, konkreten Gebäude- oder Generationenfolgen eines bestimmten Balkens erfunden. Zustandsabhängigkeit späterer Aufarbeitung bleibt sachlich in der Größen-FAQ; kein zusätzlicher Service-Link. Mindestseite 30 cm, Stärke 4 cm, Lieferumfang, Herkunftskarte und Produktdaten unverändert.

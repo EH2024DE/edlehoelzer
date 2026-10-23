@@ -182,10 +182,13 @@ test('series story explains presentation, standard kit and one-edge minimum with
   const material=html.split('id="material"')[1].split('</section>')[0];
   assert.ok(material.includes('Mindestens 30 cm an einer Seite.'));
   assert.ok(material.includes('Mindestens 4 cm stark.'));
-  assert.ok(material.includes('hängt vom Zustand des Bretts ab'));
+  assert.ok(material.includes('Gedacht zum Nutzen und Weitergeben.'));
+  assert.ok(material.includes('mit dem Ziel, dass weitere Generationen'));
+  assert.ok(story.includes('Seine Geschichte geht mit dir weiter.'));
+  assert.ok(story.includes('Vom gewachsenen Baum zum Fachwerkbalken, vom Gebäude in deine Küche'));
   assert.ok(!material.includes('30 × 30'));
   assert.ok(html.includes('Mindestens eine Seite muss 30 cm lang sein'));
-  assert.ok(html.includes('Das ist keine Garantie für jeden Schaden'));
+  assert.ok(html.includes('Ob eine Aufarbeitung möglich ist, hängt vom Zustand des Bretts ab.'));
 });
 test('origin card names locality for own reclamations without promising private building locations',()=>{
   assert.ok(html.includes('<summary>Was erzählt die Erbstückkarte?</summary>'));
