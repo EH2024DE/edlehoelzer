@@ -245,7 +245,7 @@
   </div><div class="erbstueckArchiveNav" role="group" aria-label="Erbstück auswählen" hidden><button type="button" aria-label="Erbstück 1 von 3 anzeigen" aria-controls="erbstueck-archive" aria-current="true"></button><button type="button" aria-label="Erbstück 2 von 3 anzeigen" aria-controls="erbstueck-archive"></button><button type="button" aria-label="Erbstück 3 von 3 anzeigen" aria-controls="erbstueck-archive"></button></div></div></section>
 
   <section class="erbstueckSection erbstueckSection--dark" id="transformation"><div class="container">
-    <div class="erbstueckSectionHead"><h2>Vom Balken zum Erbstück.</h2><p>Was einst ein Haus getragen hat, bekommt eine neue Aufgabe. Seine Vergangenheit verschwindet dabei nicht. Sie wird Teil seiner neuen Form.</p></div>
+    <div class="erbstueckSectionHead"><h2>Vom Balken zum Erbstück.</h2><p>Einige Ausschnitte aus der Fertigung eines Erbstücks.</p></div>
   <div class="erbstueckProcessStory">
 <div class="erbstueckProcessControls" hidden><div class="erbstueckProcessChapters" role="group" aria-label="Kapitel der Entstehung"><button type="button" data-process-index="0" aria-controls="erbstueck-process" aria-pressed="true">Material</button><button type="button" data-process-index="1" aria-controls="erbstueck-process" aria-pressed="false">Hobeln</button><button type="button" data-process-index="6" aria-controls="erbstueck-process" aria-pressed="false">Aufbau</button><button type="button" data-process-index="10" aria-controls="erbstueck-process" aria-pressed="false">Form &amp; Schliff</button><button type="button" data-process-index="16" aria-controls="erbstueck-process" aria-pressed="false">Ölen</button><button type="button" data-process-index="17" aria-controls="erbstueck-process" aria-pressed="false">Ergebnis</button></div></div>
   <div class="erbstueckProcessTrack" id="erbstueck-process" role="region" aria-label="Vom Balken zum fertigen Erbstück in 19 Fotos" tabindex="0">
@@ -397,8 +397,22 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let active = -1;
   let timer = null;
+  let playing = false;
+  let pointerDown = false;
+  let visible = true;
+  function schedule() {
+    window.clearTimeout(timer);
+    timer = null;
+    if (!playing || pointerDown || document.hidden || !visible) return;
+    timer = window.setTimeout(() => {
+      timer = null;
+      show((active + 1) % slides.length);
+      schedule();
+    }, 3000);
+  }
   function stop() {
-    window.clearInterval(timer);
+    playing = false;
+    window.clearTimeout(timer);
     timer = null;
     play.setAttribute('aria-label', 'Bildfolge abspielen');
     play.setAttribute('title', 'Bildfolge abspielen');
@@ -423,7 +437,6 @@
     progress.setAttribute('aria-valuetext', 'Foto ' + (active + 1) + ' von ' + slides.length + ': ' + slides[active].querySelector('h3').textContent);
     progress.style.setProperty('--process-progress', ((active + 1) / slides.length * 100) + '%');
     chapters.forEach(button => button.setAttribute('aria-pressed', String(slides[active].dataset.processChapter === button.textContent)));
-    if (active === slides.length - 1) stop();
   }
   function show(index, immediate = false) {
     index = Math.max(0, Math.min(slides.length - 1, index));
@@ -431,33 +444,39 @@
     track.scrollTo({ left: track.scrollLeft + offset, behavior: immediate || reducedMotion.matches ? 'auto' : 'smooth' });
   }
   play.addEventListener('click', () => {
-    if (timer !== null) { stop(); return; }
-    if (active === slides.length - 1) show(0);
+    if (playing) { stop(); return; }
+    playing = true;
     play.setAttribute('aria-label', 'Bildfolge pausieren');
     play.setAttribute('title', 'Bildfolge pausieren');
     playIcon.hidden = true;
     pauseIcon.hidden = false;
     count.setAttribute('aria-live', 'off');
-    timer = window.setInterval(() => show(active + 1), 5000);
+    schedule();
   });
-  chapters.forEach(button => button.addEventListener('click', () => { stop(); show(Number(button.dataset.processIndex)); }));
-  previous.addEventListener('click', () => { stop(); show(active - 1); });
-  next.addEventListener('click', () => { stop(); show(active + 1); });
-  ['pointerdown', 'wheel', 'focusin'].forEach(name => track.addEventListener(name, stop, { passive: true }));
-  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
+  chapters.forEach(button => button.addEventListener('click', () => { show(Number(button.dataset.processIndex)); schedule(); }));
+  previous.addEventListener('click', () => { show(active - 1); schedule(); });
+  next.addEventListener('click', () => { show(active + 1); schedule(); });
+  track.addEventListener('pointerdown', () => { pointerDown = true; schedule(); }, { passive: true });
+  ['pointerup', 'pointercancel'].forEach(name => window.addEventListener(name, () => {
+    if (!pointerDown) return;
+    pointerDown = false;
+    schedule();
+  }, { passive: true }));
+  document.addEventListener('visibilitychange', schedule);
   if ('IntersectionObserver' in window) {
     const observer = new window.IntersectionObserver(entries => {
-      if (!entries[0].isIntersecting) stop();
+      visible = entries[0].isIntersecting;
+      schedule();
     });
     observer.observe(track);
   }
-  track.addEventListener('scroll', update, { passive: true });
+  track.addEventListener('scroll', () => { update(); schedule(); }, { passive: true });
   track.addEventListener('keydown', event => {
     const targets = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: slides.length - 1 };
     if (!(event.key in targets)) return;
     event.preventDefault();
-    stop();
     show(targets[event.key]);
+    schedule();
   });
   window.addEventListener('resize', () => show(active, true), { passive: true });
   story.querySelectorAll('.erbstueckProcessControls').forEach(element => { element.hidden = false; });

@@ -156,3 +156,11 @@ Regression deckt Start/Pause, manuellen Eingriff, Seiten-Sichtbarkeit, Ende/Neus
 ## Korrektur der Endbearbeitungsfolge nach Owner-Angabe
 
 Fotos 11–15: Griffmulde fräsen, Außenkanten mit einer Fase brechen, Bandschliff, Exzenterschliff, Handschliff nach zwischenzeitlichem Wässern und erneutem Trocknen. Der zuvor als Abrunden beschriftete Frässchritt ist laut Owner ein Fasen zum Schutz vor Ausbrüchen bei der weiteren Bearbeitung; Beschriftung und Alttext korrigiert. Kein zusätzliches Foto für das Wässern oder einen erneuten Dickenhobeldurchgang erfunden. Quelldateinamen bleiben stabil; Reihenfolge, sichtbare Nummern und Regression angepasst. Quadratformat, Kapitelgrenzen und Wiedergabesteuerung unverändert.
+
+## Wiedergabe nach Bedienungsfeedback
+
+Die oben dokumentierte 5-Sekunden-/Stopp-Regel ersetzt: explizit gestartete Wiedergabe läuft jetzt im 3-Sekunden-Takt, nach dem letzten Foto wieder ab dem ersten. Nur Start/Pause ändert den Wiedergabestatus. Tippen, Swipen, Kapitel, Pfeile und Tastatur stoppen ihn nicht. Nach jedem Scrollereignis beginnt ein neuer 3-Sekunden-Timer, sodass das nach dem Wischen eingerastete Bild seine volle Zeit erhält. Während eines gehaltenen Fingers keine automatische Bewegung; nach Loslassen/Pointer-Abbruch wird neu gezählt. Eine pausierte Folge startet durch Wischen nicht von selbst.
+
+Außerhalb des sichtbaren Bereichs und im Hintergrundtab ist nur der Timer ausgesetzt; der aktivierte Wiedergabestatus bleibt erhalten. Bei Rückkehr beginnt ein vollständiges neues Zeitfenster, ohne übersprungene Bilder nachzuholen. Kein mehrfacher Timer, kein Stoppen durch Fokus oder Bildklick. Regression prüft 3000 ms, Timer-Neustart, Tippen/Wischen, manuelles Blättern, Hintergrund/Rückkehr, Umlauf und explizite Pause.
+
+Einleitung der Bildfolge auf „Einige Ausschnitte aus der Fertigung eines Erbstücks.“ verkürzt. Damit ist der exemplarische Charakter klar, ohne eine vollständige Dokumentation aller Fertigungsschritte zu suggerieren oder zusätzliche Erklärungslast zu erzeugen.

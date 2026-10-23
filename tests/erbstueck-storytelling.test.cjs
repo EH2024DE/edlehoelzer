@@ -121,6 +121,7 @@ test('real beam photo supports origin with a bounded responsive crop',()=>{
 });
 test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
   const section=html.split('id="transformation"')[1].split('</section>')[0];
+  assert.ok(section.includes('Einige Ausschnitte aus der Fertigung eines Erbstücks.'));
   const photos=[...section.matchAll(/<figure class="erbstueckProcessFrame"[\s\S]*?<\/figure>/g)].map(m=>m[0]);
   assert.equal(photos.length,19);
   assert.ok(photos[0].includes('/assets/historische-fachwerkbalken.jpg'));
@@ -163,23 +164,31 @@ test('process navigation updates chapters, endpoints, progress and reduced-motio
     let timer=null,started=0,intersection;const documentEvents={},windowEvents={};
     const document={hidden:false,querySelector:()=>track,addEventListener:(k,fn)=>{documentEvents[k]=fn;}};
     class IntersectionObserver{constructor(fn){intersection=fn;}observe(element){assert.equal(element,track);}}
-    vm.runInNewContext(code,{document,window:{IntersectionObserver,matchMedia:()=>({matches:reduced}),addEventListener(k,fn){windowEvents[k]=fn;},setInterval(fn,ms){assert.equal(ms,5000);started++;timer=fn;return 1;},clearInterval(){timer=null;}}});
+    vm.runInNewContext(code,{document,window:{IntersectionObserver,matchMedia:()=>({matches:reduced}),addEventListener(k,fn){windowEvents[k]=fn;},setTimeout(fn,ms){assert.equal(ms,3000);started++;timer=fn;return started;},clearTimeout(){timer=null;}}});
     assert.equal(started,0);
     assert.equal(previous.disabled,true);assert.equal(count.textContent,'01 / 19');
     play.click();assert.equal(play.attrs['aria-label'],'Bildfolge pausieren');assert.equal(count.attrs['aria-live'],'off');
     timer();assert.equal(count.textContent,'02 / 19');
     play.click();assert.equal(timer,null);assert.equal(play.attrs['aria-label'],'Bildfolge abspielen');
-    play.click();events.pointerdown();assert.equal(timer,null);
-    play.click();intersection([{isIntersecting:false}]);assert.equal(timer,null);
-    play.click();document.hidden=true;documentEvents.visibilitychange();assert.equal(timer,null);document.hidden=false;
+    play.click();events.pointerdown();assert.equal(timer,null);assert.equal(play.attrs['aria-label'],'Bildfolge pausieren');
+    windowEvents.pointerup();assert.ok(timer);
+    const beforeSwipe=started;track.scrollLeft=1200;events.scroll();assert.equal(count.textContent,'04 / 19');assert.ok(started>beforeSwipe);assert.ok(timer);
+    const beforeTap=started;events.pointerdown();windowEvents.pointerup();assert.ok(started>beforeTap);assert.equal(play.attrs['aria-label'],'Bildfolge pausieren');
+    assert.ok(!events.focusin);
+    intersection([{isIntersecting:false}]);assert.equal(timer,null);assert.equal(play.attrs['aria-label'],'Bildfolge pausieren');
+    intersection([{isIntersecting:true}]);assert.ok(timer);
+    document.hidden=true;documentEvents.visibilitychange();assert.equal(timer,null);document.hidden=false;documentEvents.visibilitychange();assert.ok(timer);
     chapters[4].click();assert.equal(count.textContent,'17 / 19');assert.equal(chapters[4].attrs['aria-pressed'],'true');
+    assert.ok(timer);assert.equal(play.attrs['aria-label'],'Bildfolge pausieren');
     assert.equal(calls.at(-1).behavior,reduced?'auto':'smooth');
     windowEvents.resize();assert.equal(calls.at(-1).behavior,'auto');assert.equal(count.textContent,'17 / 19');
     next.click();assert.equal(count.textContent,'18 / 19');
-    play.click();timer();assert.equal(timer,null);assert.equal(next.disabled,true);assert.equal(count.textContent,'19 / 19');
-    play.click();assert.equal(count.textContent,'01 / 19');assert.ok(timer);play.click();
+    timer();assert.ok(timer);assert.equal(next.disabled,true);assert.equal(count.textContent,'19 / 19');
+    timer();assert.equal(count.textContent,'01 / 19');assert.ok(timer);
+    play.click();assert.equal(timer,null);
     events.keydown({key:'End',preventDefault(){}});assert.equal(next.disabled,true);assert.equal(progress.attrs['aria-valuenow'],'19');
     previous.click();assert.equal(count.textContent,'18 / 19');
+    assert.equal(timer,null);
     events.keydown({key:'Home',preventDefault(){}});assert.equal(previous.disabled,true);
   }
 });
