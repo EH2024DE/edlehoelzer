@@ -37,8 +37,8 @@ test('existing catalog entries remain unchanged except verified walnut and No.00
   Object.assign(heirloom, {
     priceOrder: 284.99, priceLabel: 'ab 284,99 EUR', priceVerifiedAt: '2026-10-23',
     etsyOptionsOnly: true, dimensionsReviewRequired: true,
-    includesEndGrainHolder: true, includesCareBalm: true,
-    shortDescription: 'Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay. Passender Stirnholzhalter und Pflegebalsam inklusive. Maße und Gewicht findest du im aktuellen Angebot.',
+    includesMatchingHolder: true, includesCareBalm: true,
+    shortDescription: 'Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay. Passender Halter, Pflegebalsam und Pflegeanleitung inklusive. Maße und Gewicht findest du im aktuellen Angebot.',
     badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));

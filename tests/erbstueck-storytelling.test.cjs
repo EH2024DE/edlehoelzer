@@ -152,8 +152,9 @@ test('No.004 dialog uses the verified starting price and defers conflicting dime
   assert.ok(js.includes('source === "erbstueck"'));
   assert.ok(js.includes('Zum Produktfinder'));
   assert.ok(js.indexOf('Zum Produktfinder')<js.indexOf('renderExperiencePromise(product) +'));
-  assert.equal(product.includesEndGrainHolder,true);assert.equal(product.includesCareBalm,true);
-  assert.ok(html.includes('Passender Stirnholzhalter und Pflegebalsam inklusive.'));
+  assert.equal(product.includesMatchingHolder,true);assert.equal(product.includesCareBalm,true);
+  assert.ok(html.includes('Passender Halter, Pflegebalsam und Pflegeanleitung inklusive.'));
+  assert.ok(!html.includes('Stirnholzhalter'));
   assert.ok(html.includes('id="andere-bretter"'));
   assert.equal((js.match(/if \(product.dimensionsReviewRequired\) return isEnglish/g)||[]).length,2);
   assert.ok(js.includes('if (product.dimensionsReviewRequired) return "";'));
@@ -164,12 +165,26 @@ test('confirmed No.004 holder and balm are included independently of generic ord
   for(const isEnglish of [false,true]){
     const context={isEnglish,purchaseRules:{},labels:{careBalmThreshold:'threshold',benefitBasis:'basis'},purchaseSubtotalWithoutCareBalm:()=>100,minimumBoardThickness:()=>null,purchaseSelection:()=>({})};
     vm.runInNewContext(code,context);
-    const included=context.purchaseBenefit({includesEndGrainHolder:true,includesCareBalm:true});
+    const included=context.purchaseBenefit({includesMatchingHolder:true,includesCareBalm:true});
     assert.equal(included.active,true);
-    assert.match(included.title,isEnglish?/end-grain stand and care balm included/:/Stirnholzhalter und Pflegebalsam inklusive/);
+    assert.match(included.title,isEnglish?/Matching stand, care balm and care instructions included/:/Passender Halter, Pflegebalsam und Pflegeanleitung inklusive/);
     assert.equal(context.purchaseBenefit({}).active,false);
     assert.equal(context.purchaseBenefit({}).title,'threshold');
   }
+});
+test('series story explains presentation, standard kit and one-edge minimum without unconditional restoration promise',()=>{
+  const story=html.split('id="weitergabe"')[1].split('</section>')[0];
+  assert.ok(story.includes('Ein Erbstück ist nichts, was man versteckt.'));
+  assert.ok(story.includes('Zu deinem Brett gehören immer ein passender Halter, Pflegebalsam und eine Pflegeanleitung.'));
+  assert.ok(story.includes('Können wir die Herkunft eindeutig belegen'));
+  assert.ok(story.includes('Holzkarte mit Herkunftsangaben'));
+  const material=html.split('id="material"')[1].split('</section>')[0];
+  assert.ok(material.includes('Mindestens 30 cm an einer Seite.'));
+  assert.ok(material.includes('Mindestens 4 cm stark.'));
+  assert.ok(material.includes('hängt vom Zustand des Bretts ab'));
+  assert.ok(!material.includes('30 × 30'));
+  assert.ok(html.includes('Mindestens eine Seite muss 30 cm lang sein'));
+  assert.ok(html.includes('Das ist keine Garantie für jeden Schaden'));
 });
 test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
   const section=html.split('id="transformation"')[1].split('</section>')[0];
