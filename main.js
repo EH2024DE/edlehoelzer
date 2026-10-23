@@ -66,6 +66,7 @@ var EdleProductCopy = (function () {
     "Massive Eiche mit Astloch; gerade Kante 34 × 20,5 × 3,6 cm oder Schweizer Kante 38 × 20,5 × 3,3 cm.": "Solid oak with a knot hole; straight edge 34 × 20.5 × 3.6 cm or Swiss bevel 38 × 20.5 × 3.3 cm.",
     "Set aus zwei oder drei handgemachten Teigschabern aus Massivholz für Backen, Sauerteig und Küche.": "Set of two or three handmade solid wood dough scrapers for baking, sourdough and kitchen use.",
     "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay, ca. 40 × 40 × 4,5 cm und ca. 4,5 kg.": "Historic oak end-grain board with a beech inlay, approx. 40 × 40 × 4.5 cm and 4.5 kg.",
+    "Historische Eiche in Stirnholz-Bauweise mit Buche-Inlay. Maße und Gewicht findest du im aktuellen Angebot.": "Historic oak end-grain board with a beech inlay. See the current listing for dimensions and weight.",
     "Stirnholz aus Eiche und Buche mit Astloch, 31,1 × 30,1 × 3,8 cm, ca. 2,44 kg.": "Oak and beech end-grain board with a knot hole, 31.1 × 30.1 × 3.8 cm, approx. 2.44 kg.",
     "3D-Stirnholz aus Nussbaum, Eiche, Buche, Esche und Kambala, 48,5 × 35,3 × 4 cm.": "3D end-grain board in walnut, oak, beech, ash and Kambala, 48.5 × 35.3 × 4 cm.",
     "3D-Stirnholz aus Eiche, Buche, Esche, Kambala und Wenge, 46 × 46 × 5 cm.": "3D end-grain board in oak, beech, ash, Kambala and wenge, 46 × 46 × 5 cm.",
@@ -156,7 +157,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261022-walnut-deduplicated";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261023-erbstueck-details";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -1874,6 +1875,7 @@ function initProductExperience() {
           renderProductWhatsappPrompt(product, hasEtsy) +
           renderPreviewCompareControls(product, source || "preview") +
           '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
+          (source === "erbstueck" ? '<a class="btn btn--ghost-dark" href="/produkte.html#produktfinder">Andere Bretter entdecken</a>' : '') +
         '</div>' +
       '</div>' +
     '</section>';
@@ -2035,7 +2037,7 @@ function initProductExperience() {
       [hasCare ? (isEnglish ? "Use" : "Einsatz") : labels.dimensions, hasCare ? productUseLabel(a) : dimensionLabel(a), hasCare ? productUseLabel(b) : dimensionLabel(b)],
       [hasCare ? (isEnglish ? "Application" : "Anwendungsfall") : labels.wood, hasCare ? productApplication(a) : displayValue(a.material), hasCare ? productApplication(b) : displayValue(b.material)],
       [bothBoards ? labels.construction : "", bothBoards ? constructionLabel(a) : "", bothBoards ? constructionLabel(b) : ""],
-      [bothBoards ? labels.thickness : "", bothBoards ? meaningful(a.thicknessLabel) : "", bothBoards ? meaningful(b.thicknessLabel) : ""],
+      [bothBoards ? labels.thickness : "", bothBoards && !a.dimensionsReviewRequired ? meaningful(a.thicknessLabel) : "", bothBoards && !b.dimensionsReviewRequired ? meaningful(b.thicknessLabel) : ""],
       [labels.weight, exactWeightLabel(a), exactWeightLabel(b)],
       [bothBoards ? labels.juiceGroove : "", bothBoards ? booleanLabel(hasBadge(a, "Saftrille")) : "", bothBoards ? booleanLabel(hasBadge(b, "Saftrille")) : ""],
       [bothBoards || hasAccessory ? labels.engraving : "", bothBoards || hasAccessory ? engravingLabel(a) : "", bothBoards || hasAccessory ? engravingLabel(b) : ""],
@@ -2604,6 +2606,7 @@ function initProductExperience() {
   }
 
   function displayThicknessLabel(product) {
+    if (product.dimensionsReviewRequired) return "";
     var value = meaningful(product.thicknessLabel);
     if (!value) {
       return "";
@@ -2828,6 +2831,7 @@ function initProductExperience() {
   }
 
   function dimensionLabel(product) {
+    if (product.dimensionsReviewRequired) return isEnglish ? "See current listing" : "Siehe aktuelles Angebot";
     return EdleProductCopy.text(meaningful(product.sizeLabel) ||
       meaningful(product.dimensions) ||
       extractDimensionsFromText([
@@ -5034,6 +5038,7 @@ function initProductsPage() {
   }
 
   function dimensionLabel(product) {
+    if (product.dimensionsReviewRequired) return isEnglish ? "See current listing" : "Siehe aktuelles Angebot";
     return EdleProductCopy.text(hasMeaningfulValue(product.sizeLabel) ? product.sizeLabel :
       hasMeaningfulValue(product.dimensions) ? product.dimensions :
       extractDimensionsFromText([

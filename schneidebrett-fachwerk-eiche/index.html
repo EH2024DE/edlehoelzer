@@ -82,7 +82,8 @@
     .erbstueckProduct>img,.erbstueckArchive img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
     .erbstueckPrice{font-size:28px!important;font-weight:700}
     .erbstueckMicrocopy{font-size:14px!important;line-height:1.5!important}
-    .erbstueckPreviewLink{margin:12px 0 18px;font-size:15px!important}
+    .erbstueckProductActions{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 12px}
+    .erbstueckProductActions .btn{white-space:normal;text-align:center}
     .erbstueckFinderAlternative{margin:32px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
     .erbstueckDetails{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:32px}
     .erbstueckDetails article{border-top:1px solid var(--accent);padding-top:20px}
@@ -220,7 +221,7 @@
       <p class="erbstueckHero__lead">Ein Schneidebrett aus historischer Eiche. Mit Buchenlinien, die deine Geschichte erzählen können.</p>
       <div class="erbstueckActions">
         <!-- STATUS-No004 -->
-        <a href="#verfuegbar" class="btn btn--emphasis">Erbstück No. 004 ansehen</a>
+        <a href="/produkte.html#produkte-grid" class="btn btn--emphasis" data-product-preview="etsy-live-20260726-erbstueck-no-004-eiche-buche" data-product-source="erbstueck">Erbstück No. 004 ansehen</a>
       </div>
     </div>
   </section>
@@ -294,10 +295,9 @@
       <p class="erbstueckPrice">ab 284,99 €</p><p>Pur: 284,99 € · Mit Saftrille: 299,99 €. Versandkosten und aktuelle Verfügbarkeit findest du im Angebot.</p><p>Maße und Gewicht findest du im Angebot.</p>
       <p>Jedes Erbstück trägt eine eigene Nummer. Unsere Pflegehinweise liegen bei. Ist der Herkunftsort des Balkens dokumentiert, halten wir ihn auf einer Holzvisitenkarte fest.</p>
       <!-- STATUS-No004 -->
-      <a href="https://edlehoelzervonkoc.etsy.com/de/listing/4370769708/stirnholz-schneidebrett-eiche?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=erbstueck" class="btn btn--emphasis" target="_blank" rel="noopener" data-etsy-link data-umami-event="etsy-klick" data-umami-event-seite="erbstueck" title="Du wechselst jetzt zum konkreten Etsy-Angebot von Edle Hölzer">Erbstück No. 004 kaufen</a>
+      <div class="erbstueckProductActions"><a href="/produkte.html#produkte-grid" class="btn btn--emphasis" data-product-preview="etsy-live-20260726-erbstueck-no-004-eiche-buche" data-product-source="erbstueck">Erbstück No. 004 ansehen</a><a href="/brettvorschau/?listing=4370769708&amp;entry=product" class="btn btn--ghost" data-kitchen-preview="4370769708">Auf meinem Tresen ansehen</a></div>
       <!-- STATUS-No004 -->
-      <p class="erbstueckMicrocopy">Sicher über Etsy bestellen · Etsy-Käuferschutz nach den geltenden Bedingungen</p><a href="#anfrage">Lieber ein eigenes Stück? Erbstück anfragen</a>
-      <p class="erbstueckPreviewLink"><a href="/brettvorschau/?listing=4370769708&amp;entry=product" data-kitchen-preview="4370769708">No. 004 auf deinem eigenen Tresen ansehen</a></p>
+      <a href="#anfrage">Lieber ein eigenes Stück? Erbstück anfragen</a>
     </div>
   </div></section>
 
@@ -383,7 +383,7 @@
     <p class="footerCopyright">Alle Inhalte, Bilder, Fotografien, Renderings, Logos, Texte und Gestaltungen dieser Website sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist nicht gestattet.</p>
   </div>
 </footer>
-<script src="/main.js?v=20260826-google-visible-feedback"></script>
+<script src="/main.js?v=20261023-erbstueck-details"></script>
 <script>
 (() => {
   const track = document.querySelector('.erbstueckProcessTrack');

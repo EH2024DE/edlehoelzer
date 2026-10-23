@@ -36,7 +36,7 @@ test('native POST contract, validation, schema and status markers remain present
   const schemas=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
   assert.deepEqual(schemas.map(s=>s['@type']),['BreadcrumbList','Product']);
   assert.equal(schemas[1].offers.price,'284.99');assert.ok(!schemas[1].offers.url.includes('utm_'));
-  assert.ok(html.includes('utm_campaign=erbstueck'));assert.ok((html.match(/STATUS-No004/g)||[]).length>=7);
+  assert.ok((html.match(/STATUS-No004/g)||[]).length>=7);
   assert.ok(!html.includes('lebensmittelecht'));assert.ok(!html.includes('Ahornstreifen'));
   const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);
   for(const m of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),m[1]);
@@ -83,7 +83,8 @@ test('hero board is archived as sold with its owner-confirmed meaning',()=>{
   assert.ok(archive.includes('Vergeben · Drei senkrechte Buchenlinien stehen bei diesem Erbstück für drei Kinder.'));
   const available=html.split('id="verfuegbar"')[1].split('</section>')[0];
   assert.ok(available.includes('src="/assets/Erbstueck3.jpg"'));
-  assert.ok(available.includes('Erbstück No. 004 kaufen'));
+  assert.ok(available.includes('Erbstück No. 004 ansehen'));
+  assert.ok(!available.includes('data-etsy-link'));
 });
 test('manual gallery controls and keyboard honour reduced motion and update current dot',()=>{
   const galleryScript=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].at(-2)[1];
@@ -123,6 +124,10 @@ test('product has its exact counter preview and the finder alternative follows t
   const product=html.split('id="verfuegbar"')[1].split('</section>')[0];
   assert.ok(product.includes('href="/brettvorschau/?listing=4370769708&amp;entry=product"'));
   assert.ok(product.includes('data-kitchen-preview="4370769708"'));
+  assert.ok(product.includes('class="btn btn--ghost" data-kitchen-preview'));
+  assert.ok(product.includes('data-product-preview="etsy-live-20260726-erbstueck-no-004-eiche-buche"'));
+  const hero=html.split('<section class="erbstueckHero">')[1].split('</section>')[0];
+  assert.ok(hero.includes('data-product-source="erbstueck"'));
   const models=JSON.parse(fs.readFileSync(path.join(root,'brettvorschau/models.json'),'utf8'));
   assert.ok(models.some(model=>model.listingId==='4370769708'));
   const main=html.split('<main')[1].split('</main>')[0];
@@ -132,6 +137,19 @@ test('product has its exact counter preview and the finder alternative follows t
   assert.ok(main.trimEnd().endsWith('</aside>'));
   assert.ok(html.includes('min-height:112px'));
   assert.ok(html.includes('width:44px;height:44px'));
+});
+test('No.004 dialog uses the verified starting price and defers conflicting dimensions',()=>{
+  const data=JSON.parse(fs.readFileSync(path.join(root,'products.json'),'utf8'));
+  const product=data.products.find(p=>p.listingId==='4370769708');
+  assert.equal(product.priceOrder,284.99);assert.equal(product.priceLabel,'ab 284,99 EUR');
+  assert.equal(product.dimensionsReviewRequired,true);assert.equal(product.etsyOptionsOnly,true);
+  assert.ok(!/\d/.test(product.shortDescription));
+  assert.ok(!product.badges.some(b=>/cm|kg/.test(b)));
+  const js=fs.readFileSync(path.join(root,'main.js'),'utf8');
+  assert.ok(js.includes('source === "erbstueck"'));
+  assert.ok(js.includes('Andere Bretter entdecken'));
+  assert.equal((js.match(/if \(product.dimensionsReviewRequired\) return isEnglish/g)||[]).length,2);
+  assert.ok(js.includes('if (product.dimensionsReviewRequired) return "";'));
 });
 test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
   const section=html.split('id="transformation"')[1].split('</section>')[0];
