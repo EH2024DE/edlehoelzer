@@ -82,6 +82,8 @@
     .erbstueckProduct>img,.erbstueckArchive img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
     .erbstueckPrice{font-size:28px!important;font-weight:700}
     .erbstueckMicrocopy{font-size:14px!important;line-height:1.5!important}
+    .erbstueckPreviewLink{margin:12px 0 18px;font-size:15px!important}
+    .erbstueckFinderAlternative{margin:32px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:15px;line-height:1.6}
     .erbstueckDetails{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:32px}
     .erbstueckDetails article{border-top:1px solid var(--accent);padding-top:20px}
     .erbstueckDetails h3{font-size:20px}.erbstueckDetails p{line-height:1.6}
@@ -117,29 +119,29 @@
     .erbstueckProcessCrop{width:100%;aspect-ratio:1;overflow:hidden}
     .erbstueckProcessCrop img{display:block;width:100%;max-width:none;height:auto;transform:translateY(var(--crop-shift))}
     .erbstueckProcessFrame:last-child .erbstueckProcessCrop img{height:100%;object-fit:contain;transform:none}
-    .erbstueckProcessFrame figcaption{max-width:32em;padding:12px 0;overflow-wrap:break-word}
-    .erbstueckProcessFrame figcaption .eyebrow{color:var(--white-soft);margin:0 0 16px}
-    .erbstueckProcessFrame figcaption h3{font-size:30px;line-height:1.2;margin:0 0 20px}
-    .erbstueckProcessFrame figcaption p:last-child{font-size:18px;line-height:1.6;color:var(--white-soft);margin:0}
-    .erbstueckProcessTransport{display:grid;grid-template-columns:44px 44px minmax(65px,auto) 44px minmax(0,1fr);gap:16px;align-items:center;margin-top:20px}
-    .erbstueckProcessTransport button{font:inherit;font-size:24px;width:44px;height:44px;background:transparent;color:var(--white);border:1px solid var(--white-soft);border-radius:4px;cursor:pointer}
+    .erbstueckProcessFrame figcaption{max-width:32em;padding:8px 0;overflow-wrap:break-word}
+    .erbstueckProcessFrame figcaption .eyebrow{color:var(--white-soft);font-size:12px;line-height:1.3;margin:0 0 6px}
+    .erbstueckProcessFrame figcaption h3{font-size:24px;line-height:1.25;margin:0 0 8px}
+    .erbstueckProcessFrame figcaption p:last-child{font-size:16px;line-height:1.5;color:var(--white-soft);margin:0}
+    .erbstueckProcessTransport{display:grid;grid-template-columns:44px 44px minmax(58px,auto) 44px minmax(0,1fr);gap:8px;align-items:center;margin-top:8px}
+    .erbstueckProcessTransport button{font:inherit;font-size:20px;width:44px;height:44px;background:transparent;color:var(--white);border:1px solid var(--white-soft);border-radius:4px;cursor:pointer}
     .erbstueckProcessTransport button:disabled{opacity:.35;cursor:default}
     .erbstueckProcessTransport button img{display:block;width:20px;height:20px;margin:auto;filter:invert(1)}
     .erbstueckProcessTransport button img[hidden]{display:none}
-    .erbstueckProcessTransport p{margin:0;font-size:14px;text-align:center;font-variant-numeric:tabular-nums}
-    .erbstueckProcessProgress{height:2px;background:var(--white-soft);margin-left:12px}
+    .erbstueckProcessTransport p{margin:0;font-size:13px;text-align:center;font-variant-numeric:tabular-nums}
+    .erbstueckProcessProgress{height:2px;background:var(--white-soft);margin-left:4px}
     .erbstueckProcessProgress span{display:block;width:var(--process-progress,5.263158%);height:2px;background:var(--accent)}
     .erbstueckProcessSummary{border-top:1px solid var(--white-soft);margin-top:32px}
     .erbstueckProcessSummary summary{cursor:pointer;min-height:44px;padding:12px 0;font-weight:600}
     @media(max-width:700px){
       .erbstueckProcessChapters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:20px}
       .erbstueckProcessChapters button{font-size:13px;padding:8px 6px}
-      .erbstueckProcessFrame{grid-template-columns:1fr;gap:20px;align-content:start}
-      .erbstueckProcessFrame figcaption{padding:0;min-height:140px}
-      .erbstueckProcessFrame figcaption .eyebrow{margin-bottom:8px}
-      .erbstueckProcessFrame figcaption h3{font-size:24px;margin-bottom:10px}
-      .erbstueckProcessFrame figcaption p:last-child{font-size:16px}
-      .erbstueckProcessTransport{gap:12px;margin-top:12px}
+      .erbstueckProcessFrame{grid-template-columns:1fr;gap:12px;align-content:start}
+      .erbstueckProcessFrame figcaption{padding:0;min-height:112px}
+      .erbstueckProcessFrame figcaption .eyebrow{font-size:11px;margin-bottom:4px}
+      .erbstueckProcessFrame figcaption h3{font-size:20px;margin-bottom:6px}
+      .erbstueckProcessFrame figcaption p:last-child{font-size:14px}
+      .erbstueckProcessTransport{gap:8px;margin-top:8px}
     }
     .erbstueckPage :focus-visible{outline:3px solid currentColor;outline-offset:4px}
     @media(max-width:900px){.erbstueckSteps{grid-template-columns:1fr 1fr}.erbstueckPage .erbstueckSplit{grid-template-columns:1fr;gap:28px}.erbstueckDetails{grid-template-columns:1fr}.erbstueckPage .erbstueckHero h1{font-size:42px}}
@@ -295,6 +297,7 @@
       <a href="https://edlehoelzervonkoc.etsy.com/de/listing/4370769708/stirnholz-schneidebrett-eiche?utm_source=website&amp;utm_medium=cta&amp;utm_campaign=erbstueck" class="btn btn--emphasis" target="_blank" rel="noopener" data-etsy-link data-umami-event="etsy-klick" data-umami-event-seite="erbstueck" title="Du wechselst jetzt zum konkreten Etsy-Angebot von Edle Hölzer">Erbstück No. 004 kaufen</a>
       <!-- STATUS-No004 -->
       <p class="erbstueckMicrocopy">Sicher über Etsy bestellen · Etsy-Käuferschutz nach den geltenden Bedingungen</p><a href="#anfrage">Lieber ein eigenes Stück? Erbstück anfragen</a>
+      <p class="erbstueckPreviewLink"><a href="/brettvorschau/?listing=4370769708&amp;entry=product" data-kitchen-preview="4370769708">No. 004 auf deinem eigenen Tresen ansehen</a></p>
     </div>
   </div></section>
 
@@ -302,7 +305,7 @@
     <div class="erbstueckSplit"><div><p class="eyebrow eyebrow--dark">Weitergabe</p><h2>Vielleicht wird es einmal dein Erbstück.</h2></div><div class="erbstueckText"><p>Darauf wird gekocht, Brot geschnitten und für Freunde angerichtet. Mit der Zeit bekommt das Holz neue Spuren. Diesmal aus deinem Leben, nicht aus einem Fachwerk.</p><p>Und eines Tages gibst du es vielleicht weiter. Dann erzählt es auch deine Geschichte.</p></div></div>
     <div class="erbstueckDetails">
       <article><h3>Nummer und Herkunft</h3><p>Eine eigene Nummer gehört zu jedem Erbstück. Bekannte Herkunftsangaben verbinden es mit seinem früheren Ort.</p></article>
-      <article><h3>Pflege und Aufarbeitung</h3><p>Gebrauchsspuren gehören zu seiner Geschichte. Passende Pflegehinweise liegen bei. Bei geeigneter Materialsubstanz kann das Brett später in unserer Werkstatt aufgearbeitet werden.</p><a href="/pflege.html">Zur Pflege</a> · <a href="/schneidebrett-aufbereiten/">Zur Aufarbeitung</a></article>
+      <article><h3>Pflege und Aufarbeitung</h3><p>Gebrauchsspuren gehören zu seiner Geschichte. Passende Pflegehinweise liegen bei. Bei geeigneter Materialsubstanz kann das Brett später in unserer Werkstatt aufgearbeitet werden.</p><a href="/schneidebrett-aufbereiten/">Zur Aufarbeitung</a></article>
       <article><h3>Persönliche Details</h3><p>Auf Wunsch kann eine zurückhaltende Gravur ergänzt werden, etwa ein Name, ein Datum oder eine kurze Widmung. Ob und wo das möglich ist, hängt vom jeweiligen Stück ab.</p></article>
     </div><p><a href="#anfrage" class="btn btn--ghost">Eigenes Erbstück anfragen</a></p>
   </div></section>
@@ -330,7 +333,7 @@
       <p id="erbstueck-status" role="status" aria-live="polite" tabindex="-1"></p>
       <p class="erbstueckMicrocopy">Limitierte Fertigung. Das historische Holz bestimmt die Möglichkeiten. Fotos deiner Küche kannst du uns nach unserer ersten Antwort gerne per E-Mail schicken.</p><p>Lieber per E-Mail? <a href="mailto:info@edlehoelzer.de?subject=Erbst%C3%BCck-Anfrage" data-umami-event="email-kontakt">info@edlehoelzer.de</a></p>
     </form>
-  </div><div class="container"><p>Du suchst ein Schneidebrett aus unserer laufenden Kollektion? <a href="/produkte.html#produktfinder">Brettfinder starten</a></p></div></section>
+  </div></section>
 
   <section class="erbstueckSection"><div class="container"><div class="erbstueckSectionHead"><h2>Häufige Fragen zu deinem Erbstück</h2></div><div class="erbstueckFaq">
     <details><summary>Kann ich die Größe meines Erbstücks frei wählen?</summary><p>Nicht vollständig. Die Größe richtet sich nach dem verfügbaren historischen Holz. Wünsche sind möglich, aber das Material gibt die sinnvollen Grenzen vor.</p></details>
@@ -342,6 +345,7 @@
     <details><summary>Erhalte ich Informationen zur Herkunft meines Erbstücks?</summary><p>Jedes Erbstück trägt eine eigene Nummer. Wenn der Herkunftsort des historischen Eichenbalkens zuverlässig dokumentiert ist, nennen wir ihn auf einer Holzvisitenkarte. Eine Gebäudehistorie oder Altersbestätigung ist damit nicht verbunden.</p></details>
     <details><summary>Warum ist jedes Erbstück limitiert?</summary><p>Weil jedes Stück aus vorhandenem historischem Holz entsteht. Ist das Material verarbeitet, lässt es sich nicht identisch nachbestellen.</p></details>
   </div><nav class="erbstueckRelated" aria-label="Passende Themen"><a href="/schneidebrett-nach-mass/">Schneidebrett nach Maß</a><a href="/schneidebrett-mit-gravur/">Gravur</a><a href="/barbecue-geschenk/">Barbecue-Geschenk</a><a href="/hochwertige-geschenke-holz/">Geschenke aus Holz</a><a href="/schneidebrett-saftrille/">Saftrille</a><a href="/schneidebrett-eiche/">Eiche</a><a href="/holz-statt-plastik/">Holz statt Plastik</a></nav></div></section>
+  <aside class="container" aria-label="Andere Schneidebretter"><p class="erbstueckFinderAlternative">Du suchst doch ein anderes Brett? <a href="/produkte.html#produktfinder" data-umami-event="produktfinder-gestartet">Passendes Brett im Produktfinder finden</a></p></aside>
 </main>
 
 <footer class="footer">

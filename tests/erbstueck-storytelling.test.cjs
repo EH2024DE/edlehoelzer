@@ -119,6 +119,20 @@ test('real beam photo supports origin with a bounded responsive crop',()=>{
   assert.ok(origin.includes('Aussparungen, Bohrungen und Bearbeitungsspuren'));
   assert.ok(origin.includes('vor der weiteren Bearbeitung'));
 });
+test('product has its exact counter preview and the finder alternative follows the FAQs',()=>{
+  const product=html.split('id="verfuegbar"')[1].split('</section>')[0];
+  assert.ok(product.includes('href="/brettvorschau/?listing=4370769708&amp;entry=product"'));
+  assert.ok(product.includes('data-kitchen-preview="4370769708"'));
+  const models=JSON.parse(fs.readFileSync(path.join(root,'brettvorschau/models.json'),'utf8'));
+  assert.ok(models.some(model=>model.listingId==='4370769708'));
+  const main=html.split('<main')[1].split('</main>')[0];
+  assert.ok(!main.includes('href="/pflege.html"'));
+  assert.equal((main.match(/href="\/produkte.html#produktfinder"/g)||[]).length,1);
+  assert.ok(main.indexOf('erbstueckFinderAlternative')>main.indexOf('Häufige Fragen'));
+  assert.ok(main.trimEnd().endsWith('</aside>'));
+  assert.ok(html.includes('min-height:112px'));
+  assert.ok(html.includes('width:44px;height:44px'));
+});
 test('process photos preserve owner sequence, screenshot crops and matching studio ending',()=>{
   const section=html.split('id="transformation"')[1].split('</section>')[0];
   assert.ok(section.includes('Einige Ausschnitte aus der Fertigung eines Erbstücks.'));
