@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1eb">
+  <title>Edle Hölzer - Schneidebrett im Detail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bronze: #b88857;
+      --bronze-dark: #956b40;
+      --cream: #f5f1eb;
+      --cream-deep: #ebe4da;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --white: #ffffff;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--cream);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .story {
+      position: relative;
+      height: 430vh;
+      background:
+        radial-gradient(circle at 34% 42%, rgba(255, 255, 255, 0.88), transparent 38%),
+        linear-gradient(135deg, #f7f4ef 0%, var(--cream) 54%, #eee8e0 100%);
+    }
+
+    .story__sticky {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      min-height: 640px;
+      overflow: hidden;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(24px, 4vw, 72px);
+      border-bottom: 1px solid rgba(184, 136, 87, 0.18);
+      background: rgba(245, 241, 235, 0.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .brand-label {
+      color: var(--bronze);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.42em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .story__layout {
+      width: min(1600px, 100%);
+      height: 100%;
+      margin: 0 auto;
+      padding: 70px clamp(28px, 4.5vw, 76px) 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(330px, 0.62fr);
+      align-items: stretch;
+      gap: clamp(32px, 4vw, 76px);
+    }
+
+    .visual {
+      position: relative;
+      min-width: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      width: min(68vw, 980px);
+      aspect-ratio: 1.45 / 1;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 70%);
+      filter: blur(8px);
+      opacity: 0.78;
+    }
+
+    .board-stage {
+      position: relative;
+      z-index: 1;
+      width: min(68vw, 1060px);
+      height: min(72vh, 720px);
+      min-height: 460px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .board-frame {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transform: translate3d(0, 18px, 0) scale(0.94);
+      will-change: opacity, transform;
+      pointer-events: none;
+    }
+
+    .board-frame canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 30px 28px rgba(83, 49, 23, 0.15))
+        drop-shadow(0 8px 10px rgba(83, 49, 23, 0.09));
+    }
+
+    .board-shadow {
+      position: absolute;
+      z-index: -1;
+      left: 12%;
+      right: 8%;
+      bottom: 17%;
+      height: 15%;
+      border-radius: 50%;
+      background: rgba(92, 56, 28, 0.13);
+      filter: blur(28px);
+      transform: scaleX(var(--shadow-scale, 1));
+      opacity: var(--shadow-opacity, 0.72);
+      will-change: transform, opacity;
+    }
+
+    .scroll-cue {
+      position: absolute;
+      z-index: 8;
+      bottom: clamp(22px, 4vh, 42px);
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(26, 26, 26, 0.42);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      line-height: 1;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+      transition: opacity 220ms ease;
+    }
+
+    .scroll-cue::after {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--bronze);
+      transform-origin: left;
+      animation: cue-line 1.8s ease-in-out infinite;
+    }
+
+    .copy {
+      position: relative;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      padding: clamp(34px, 6vh, 76px) 0;
+    }
+
+    .copy__inner {
+      width: 100%;
+      max-width: 440px;
+      padding-left: 42px;
+    }
+
+    .copy__panels {
+      position: relative;
+      min-height: clamp(370px, 49vh, 430px);
+    }
+
+    .copy-panel {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: translate3d(0, 22px, 0);
+      transition:
+        opacity 280ms ease,
+        transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+
+    .copy-panel.is-active {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      color: var(--bronze);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2 {
+      max-width: 12ch;
+      margin-bottom: 22px;
+      color: var(--ink);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(40px, 3.7vw, 58px);
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 0.98;
+    }
+
+    .subtext {
+      max-width: 38ch;
+      color: rgba(26, 26, 26, 0.64);
+      font-size: clamp(13px, 1.1vw, 15px);
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .actions {
+      position: relative;
+      z-index: 5;
+      margin-top: 32px;
+    }
+
+    .cta-group {
+      width: min(100%, 390px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 11px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border: 1px solid var(--bronze);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+    }
+
+    .btn-primary {
+      background: var(--bronze);
+      color: var(--white);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      border-color: var(--bronze-dark);
+      background: var(--bronze-dark);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--bronze);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--bronze);
+      color: var(--white);
+    }
+
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible {
+      outline: 2px solid rgba(184, 136, 87, 0.34);
+      outline-offset: 3px;
+    }
+
+    .trust-note {
+      margin-top: 11px;
+      color: rgba(26, 26, 26, 0.43);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .progress {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 18px;
+      height: 280px;
+      transform: translateY(-50%);
+    }
+
+    .progress__track,
+    .progress__fill {
+      position: absolute;
+      top: 0;
+      left: 4px;
+      width: 1px;
+      height: 100%;
+      background: rgba(184, 136, 87, 0.24);
+    }
+
+    .progress__fill {
+      background: var(--bronze);
+      transform: scaleY(var(--progress, 0));
+      transform-origin: top;
+      will-change: transform;
+    }
+
+    .progress__steps {
+      position: absolute;
+      inset: 0;
+      list-style: none;
+    }
+
+    .progress__step {
+      position: absolute;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border: 1px solid rgba(184, 136, 87, 0.48);
+      border-radius: 50%;
+      background: var(--cream);
+      transform: translateY(-50%);
+      transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .progress__step:nth-child(1) { top: 0%; }
+    .progress__step:nth-child(2) { top: 33.333%; }
+    .progress__step:nth-child(3) { top: 66.666%; }
+    .progress__step:nth-child(4) { top: 100%; }
+
+    .progress__step.is-active {
+      border-color: var(--bronze);
+      background: var(--bronze);
+      transform: translateY(-50%) scale(1.25);
+    }
+
+    .loading-state,
+    .error-state {
+      position: absolute;
+      z-index: 12;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: rgba(26, 26, 26, 0.46);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: opacity 260ms ease;
+    }
+
+    .is-ready .loading-state {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .error-state {
+      display: none;
+      padding: 28px;
+      line-height: 1.7;
+      text-align: center;
+      text-transform: none;
+    }
+
+    .has-error .loading-state {
+      display: none;
+    }
+
+    .has-error .error-state {
+      display: grid;
+    }
+
+    @keyframes cue-line {
+      0%,
+      100% { transform: scaleX(0.35); opacity: 0.42; }
+      50% { transform: scaleX(1); opacity: 1; }
+    }
+
+    @media (max-width: 980px) {
+      .story {
+        height: 390vh;
+      }
+
+      .story__sticky {
+        min-height: 620px;
+      }
+
+      .story__layout {
+        padding: 62px 20px 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(300px, 53vh) minmax(0, 1fr);
+        gap: 0;
+      }
+
+      .site-header {
+        height: 62px;
+        justify-content: center;
+        padding: 0 20px;
+      }
+
+      .brand-label {
+        padding-left: 0.42em;
+        font-size: 9px;
+      }
+
+      .visual {
+        width: 100%;
+      }
+
+      .visual::before {
+        width: 120vw;
+      }
+
+      .board-stage {
+        width: min(112vw, 760px);
+        height: 52vh;
+        min-height: 300px;
+      }
+
+      .board-shadow {
+        bottom: 13%;
+      }
+
+      .scroll-cue {
+        bottom: 8px;
+      }
+
+      .copy {
+        align-items: flex-start;
+        padding: 20px 4px 24px;
+      }
+
+      .copy__inner {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 0 0 28px;
+      }
+
+      .copy__panels {
+        min-height: 230px;
+      }
+
+      h1,
+      h2 {
+        max-width: 14ch;
+        margin-bottom: 13px;
+        font-size: clamp(31px, 8vw, 43px);
+        line-height: 1.02;
+      }
+
+      .eyebrow {
+        margin-bottom: 10px;
+        font-size: 8px;
+      }
+
+      .subtext {
+        max-width: 48ch;
+        font-size: 12px;
+        line-height: 1.58;
+      }
+
+      .actions {
+        margin-top: 12px;
+      }
+
+      .progress {
+        top: 4px;
+        left: 0;
+        height: 176px;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .story__sticky {
+        min-height: 570px;
+      }
+
+      .story__layout {
+        padding-right: 14px;
+        padding-left: 14px;
+        grid-template-rows: minmax(270px, 48vh) minmax(0, 1fr);
+      }
+
+      .board-stage {
+        width: 122vw;
+        height: 48vh;
+      }
+
+      .copy {
+        padding-top: 12px;
+      }
+
+      .copy__inner {
+        padding-left: 24px;
+      }
+
+      .copy__panels {
+        min-height: 245px;
+      }
+
+      h1,
+      h2 {
+        font-size: clamp(29px, 9.2vw, 38px);
+      }
+
+      .cta-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        min-height: 42px;
+        padding: 10px 9px;
+        font-size: 8px;
+        letter-spacing: 0.1em;
+      }
+
+      .trust-note {
+        margin-top: 8px;
+        font-size: 9px;
+      }
+
+      .scroll-cue {
+        font-size: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .story {
+        height: 100svh;
+      }
+
+      .board-frame,
+      .copy-panel,
+      .scroll-cue::after {
+        transition: none;
+        animation: none;
+      }
+
+      .scroll-cue {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="story" id="board-story" aria-labelledby="story-title">
+      <div class="story__sticky">
+        <header class="site-header">
+          <span class="brand-label">Edle Hölzer</span>
+        </header>
+
+        <div class="story__layout">
+          <div class="visual" id="visual">
+            <div class="board-stage" id="board-stage" aria-label="Vier Ansichten eines handgefertigten Schneidebretts, gesteuert durch Scrollen">
+              <div class="board-frame" data-frame="0"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-frame" data-frame="1"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-frame" data-frame="2"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-frame" data-frame="3"><canvas aria-hidden="true"></canvas></div>
+              <div class="board-shadow" aria-hidden="true"></div>
+              <div class="loading-state" aria-live="polite">Ansichten werden geladen</div>
+              <div class="error-state">Die Brettansichten konnten nicht geladen werden. Bitte öffne die Seite erneut.</div>
+            </div>
+            <p class="scroll-cue">Scrollen zum Drehen</p>
+          </div>
+
+          <div class="copy">
+            <div class="copy__inner">
+              <div class="progress" aria-hidden="true">
+                <div class="progress__track"></div>
+                <div class="progress__fill"></div>
+                <ol class="progress__steps">
+                  <li class="progress__step is-active"></li>
+                  <li class="progress__step"></li>
+                  <li class="progress__step"></li>
+                  <li class="progress__step"></li>
+                </ol>
+              </div>
+
+              <div class="copy__panels" aria-live="polite">
+                <article class="copy-panel is-active" data-copy="0">
+                  <p class="eyebrow">Erbstück · Bereits vergeben · Unikat</p>
+                  <h1 id="story-title">Ein Erbstück aus historischem Holz.</h1>
+                  <p class="subtext">Dieses Brett ist bereits verkauft. Es zeigt, welche Richtung aus einem vorhandenen Balken entstehen kann, ohne zur Vorlage für eine Serie zu werden.</p>
+                </article>
+
+                <article class="copy-panel" data-copy="1">
+                  <p class="eyebrow">Historisches Material</p>
+                  <h2>Der Balken gibt die Richtung vor.</h2>
+                  <p class="subtext">Maserung, alte Spuren und nutzbare Substanz bestimmen das spätere Format. Genau deshalb kann dieses Brett nicht noch einmal identisch entstehen.</p>
+                </article>
+
+                <article class="copy-panel" data-copy="2">
+                  <p class="eyebrow">Kante und Aufbau</p>
+                  <h2>Alte Substanz, neu aufgebaut.</h2>
+                  <p class="subtext">Die niedrige Perspektive macht Stärke, Kantenverlauf und Griffmulde sichtbar. Die hellen Einlagen setzen eine klare Linie, ohne die Geschichte des Holzes zu überdecken.</p>
+                </article>
+
+                <article class="copy-panel" data-copy="3">
+                  <p class="eyebrow">Ein vergebenes Erbstück</p>
+                  <h2>Keine Vorlage. Eher eine Richtung.</h2>
+                  <p class="subtext">Dieses Stück hat seinen Besitzer bereits gefunden. Für ein neues Erbstück suchen wir gemeinsam ein verfügbares Holz, das seinen eigenen Charakter mitbringt.</p>
+                </article>
+              </div>
+
+              <div class="actions">
+                <div class="cta-group">
+                  <a
+                    href="mailto:info@edlehoelzer.de?subject=Anfrage%20Erbstueck"
+                    class="btn-primary"
+                  >
+                    Erbstück anfragen
+                  </a>
+                  <a href="https://edlehoelzer.de/erbstueck/" class="btn-secondary">
+                    Erbstück-Serie ansehen
+                  </a>
+                </div>
+                <p class="trust-note">Auf Anfrage · Einzelanfertigung · abhängig vom verfügbaren Holz</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <img id="board-source" src="./brett_render.png" alt="" hidden>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const story = document.getElementById("board-story");
+      const stage = document.getElementById("board-stage");
+      const source = document.getElementById("board-source");
+      const frames = Array.from(document.querySelectorAll(".board-frame"));
+      const panels = Array.from(document.querySelectorAll(".copy-panel"));
+      const steps = Array.from(document.querySelectorAll(".progress__step"));
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      const views = [
+        { quadrant: [0, 0], crop: [0.015, 0.14, 0.97, 0.64], scale: 1.05, rotate: -0.6, x: -1.5, y: 0 },
+        { quadrant: [0, 1], crop: [0.045, 0.035, 0.91, 0.90], scale: 0.94, rotate: 0, x: -1, y: -1 },
+        { quadrant: [1, 0], crop: [0.01, 0.17, 0.98, 0.62], scale: 1.06, rotate: 0.5, x: 1, y: 0 },
+        { quadrant: [1, 1], crop: [0.005, 0.18, 0.99, 0.70], scale: 1.03, rotate: -0.35, x: 1.5, y: 0 }
+      ];
+
+      let activeIndex = 0;
+      let ticking = false;
+
+      function clamp(value, minimum, maximum) {
+        return Math.min(maximum, Math.max(minimum, value));
+      }
+
+      function smoothStep(value) {
+        return value * value * (3 - 2 * value);
+      }
+
+      function framePositionWithHolds(progress) {
+        const segmentCount = frames.length - 1;
+        if (progress >= 1) return segmentCount;
+
+        const rawPosition = progress * segmentCount;
+        const segmentIndex = Math.floor(rawPosition);
+        const localProgress = rawPosition - segmentIndex;
+        const hold = 0.28;
+
+        if (localProgress <= hold) return segmentIndex;
+        if (localProgress >= 1 - hold) return segmentIndex + 1;
+
+        const transitionProgress = (localProgress - hold) / (1 - hold * 2);
+        return segmentIndex + smoothStep(transitionProgress);
+      }
+
+      function drawTransparentView(canvas, image, definition) {
+        const halfWidth = image.naturalWidth / 2;
+        const halfHeight = image.naturalHeight / 2;
+        const [quadrantX, quadrantY] = definition.quadrant;
+        const [cropX, cropY, cropWidth, cropHeight] = definition.crop;
+        const sourceX = quadrantX * halfWidth + cropX * halfWidth;
+        const sourceY = quadrantY * halfHeight + cropY * halfHeight;
+        const sourceWidth = cropWidth * halfWidth;
+        const sourceHeight = cropHeight * halfHeight;
+        const outputWidth = 1400;
+        const outputHeight = Math.round(outputWidth * sourceHeight / sourceWidth);
+
+        canvas.width = outputWidth;
+        canvas.height = outputHeight;
+        const context = canvas.getContext("2d", { willReadFrequently: true });
+        context.imageSmoothingEnabled = true;
+        context.imageSmoothingQuality = "high";
+        context.drawImage(
+          image,
+          sourceX,
+          sourceY,
+          sourceWidth,
+          sourceHeight,
+          0,
+          0,
+          outputWidth,
+          outputHeight
+        );
+
+        const imageData = context.getImageData(0, 0, outputWidth, outputHeight);
+        const pixels = imageData.data;
+
+        for (let offset = 0; offset < pixels.length; offset += 4) {
+          const red = pixels[offset];
+          const green = pixels[offset + 1];
+          const blue = pixels[offset + 2];
+          const minimum = Math.min(red, green, blue);
+          const maximum = Math.max(red, green, blue);
+          const neutrality = maximum - minimum;
+          const whiteDistance = 255 - minimum;
+
+          if (minimum > 247 && neutrality < 10) {
+            pixels[offset + 3] = 0;
+          } else if (minimum > 225 && neutrality < 18) {
+            pixels[offset + 3] = Math.round(clamp((whiteDistance - 7) / 23, 0, 1) * 255);
+          }
+        }
+
+        context.putImageData(imageData, 0, 0);
+      }
+
+      function setActivePanel(index) {
+        if (index === activeIndex && panels[index].classList.contains("is-active")) return;
+        activeIndex = index;
+        panels.forEach((panel, panelIndex) => {
+          panel.classList.toggle("is-active", panelIndex === index);
+          panel.setAttribute("aria-hidden", panelIndex === index ? "false" : "true");
+        });
+        steps.forEach((step, stepIndex) => {
+          step.classList.toggle("is-active", stepIndex <= index);
+        });
+      }
+
+      function updateStory() {
+        ticking = false;
+        if (!stage.classList.contains("is-ready")) return;
+
+        const storyTop = story.getBoundingClientRect().top + window.scrollY;
+        const scrollRange = Math.max(1, story.offsetHeight - window.innerHeight);
+        const progress = reducedMotion.matches
+          ? 0
+          : clamp((window.scrollY - storyTop) / scrollRange, 0, 1);
+        const framePosition = framePositionWithHolds(progress);
+        const lowerIndex = Math.floor(framePosition);
+        const upperIndex = Math.min(frames.length - 1, lowerIndex + 1);
+        const blend = framePosition - lowerIndex;
+
+        frames.forEach((frame, index) => {
+          let opacity = 0;
+          if (index === lowerIndex) opacity = 1 - blend;
+          if (index === upperIndex) opacity = Math.max(opacity, blend);
+
+          const distance = index - framePosition;
+          const view = views[index];
+          const transitionScale = 1 - Math.min(Math.abs(distance), 1) * 0.055;
+          const translateY = distance * 24;
+          const rotate = view.rotate + distance * 1.4;
+
+          frame.style.opacity = opacity.toFixed(4);
+          frame.style.transform = [
+            `translate3d(${view.x}%, calc(${view.y}% + ${translateY}px), 0)`,
+            `scale(${(view.scale * transitionScale).toFixed(4)})`,
+            `rotate(${rotate.toFixed(3)}deg)`
+          ].join(" ");
+        });
+
+        const nearestIndex = clamp(Math.round(framePosition), 0, frames.length - 1);
+        setActivePanel(nearestIndex);
+        story.style.setProperty("--progress", progress.toFixed(4));
+        story.style.setProperty("--shadow-scale", (1 - Math.sin(progress * Math.PI) * 0.14).toFixed(4));
+        story.style.setProperty("--shadow-opacity", (0.72 - Math.sin(progress * Math.PI) * 0.16).toFixed(4));
+
+        const cue = document.querySelector(".scroll-cue");
+        cue.style.opacity = progress > 0.08 ? "0" : "1";
+      }
+
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateStory);
+      }
+
+      function prepareFrames() {
+        try {
+          frames.forEach((frame, index) => {
+            drawTransparentView(frame.querySelector("canvas"), source, views[index]);
+          });
+          stage.classList.add("is-ready");
+          frames[0].style.opacity = "1";
+          setActivePanel(0);
+          requestUpdate();
+        } catch (error) {
+          console.error(error);
+          stage.classList.add("has-error");
+        }
+      }
+
+      window.addEventListener("scroll", requestUpdate, { passive: true });
+      window.addEventListener("resize", requestUpdate, { passive: true });
+      reducedMotion.addEventListener("change", requestUpdate);
+
+      source.addEventListener("load", prepareFrames);
+      source.addEventListener("error", () => stage.classList.add("has-error"));
+
+      if (source.complete && source.naturalWidth) {
+        prepareFrames();
+      }
+    })();
+  </script>
+</body>
+</html>
