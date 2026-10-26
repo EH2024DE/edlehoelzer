@@ -56,7 +56,7 @@ var EdleProductCopy = (function () {
     "Nussbaum oder Zwetschge, ca. 17 cm lang und ca. 8 mm stark.": "Walnut or plum wood, approx. 17 cm long and 8 mm thick.",
     "Massiver Teigschaber aus Eiche, Nussbaum, Buche, Esche und weiteren Hölzern, ca. 9 x 13 cm.": "Solid wood dough scraper in oak, walnut, beech, ash and other woods, approx. 9 x 13 cm.",
     "Massiver Bretthalter aus Eiche, Nussbaum oder Buche, passgenau für Bretter bis 5 cm Stärke.": "Solid wood stand in oak, walnut or beech, fitted for boards up to 5 cm thick.",
-    "Drei Holzarten mit eigenen Maßen und Preisen. Ab 264,99 EUR für Buche ohne Saftrille; Tropenholz ab 274,99 EUR und Eiche ab 284,99 EUR.": "Three wood species with individual dimensions and prices. From EUR 264.99 for beech without a juice groove; tropical hardwood from EUR 274.99 and oak from EUR 284.99.",
+    "Drei Holzarten mit eigenen Maßen und Preisen. Ab 254,99 EUR für Buche ohne Saftrille; Tropenholz ab 274,99 EUR und Eiche ab 284,99 EUR.": "Three wood species with individual dimensions and prices. From EUR 254.99 for beech without a juice groove; tropical hardwood from EUR 274.99 and oak from EUR 284.99.",
     "Dreiteiliges Servierbrett-Set mit Halter: 44 × 21,5 cm, 39 × 18 cm und 34 × 14 cm.": "Three-piece serving board set with stand: 44 × 21.5 cm, 39 × 18 cm and 34 × 14 cm.",
     "Servierbretter in Schwertform aus Eiche, Esche oder Nussbaum; je nach Variante ca. 40–66 cm lang.": "Sword-shaped serving boards in oak, ash or walnut; approx. 40–66 cm long, depending on the version.",
     "Massives Eiche-Stirnholzbrett, ca. 41,5 × 39,8 × 5 cm und rund 5,8 kg, mit großzügigen Griffmulden.": "Solid oak end-grain board, approx. 41.5 × 39.8 × 5 cm and 5.8 kg, with generous recessed grips.",
@@ -148,7 +148,7 @@ if (!document.querySelector('[data-product-hover-loader]')) {
 }
 if (!document.querySelector('[data-site-search-loader]')) {
   var searchStyle=document.createElement('link');searchStyle.rel='stylesheet';searchStyle.href='/assets/css/site-search.css';document.head.appendChild(searchStyle);
-  var searchScript=document.createElement('script');searchScript.src='/assets/js/site-search.js';searchScript.setAttribute('data-site-search-loader','');document.head.appendChild(searchScript);
+  var searchScript=document.createElement('script');searchScript.src='/assets/js/site-search.js?v=20261026-product-pages';searchScript.setAttribute('data-site-search-loader','');document.head.appendChild(searchScript);
 }
 if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var roomStyle=document.createElement('link');roomStyle.rel='stylesheet';roomStyle.href='/assets/css/room-discovery.css';document.head.appendChild(roomStyle);
@@ -157,7 +157,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261023-erbstueck-series";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-product-pages";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -1583,6 +1583,8 @@ function initProductExperience() {
   var products = [];
   var purchaseRules = {};
   var purchaseSelections = {};
+  var productPage = document.querySelector('[data-product-page]');
+  function previewRoot() { return activeOverlay || productPage; }
   var compareIds = readCompareState();
   var activeOverlay = null;
   var activeDialog = null;
@@ -1612,6 +1614,7 @@ function initProductExperience() {
 
     var previewTrigger = event.target.closest("[data-product-preview]");
     if (previewTrigger) {
+      if (previewTrigger.tagName === 'A' && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) return;
       event.preventDefault();
       openProduct(previewTrigger.getAttribute("data-product-preview"), previewTrigger.getAttribute("data-product-source") || "page", previewTrigger, previewTrigger.getAttribute("data-product-reason") || "");
       return;
@@ -1670,7 +1673,7 @@ function initProductExperience() {
   });
 
   document.addEventListener("touchstart", function (event) {
-    if (!activeDialog || !event.target.closest(".productPreview__mainMedia") || event.touches.length !== 1) {
+    if (!previewRoot() || !event.target.closest(".productPreview__mainMedia") || event.touches.length !== 1) {
       previewSwipeStart = null;
       return;
     }
@@ -1682,7 +1685,7 @@ function initProductExperience() {
   }, { passive: true });
 
   document.addEventListener("touchend", function (event) {
-    if (!previewSwipeStart || !activeDialog || event.changedTouches.length !== 1) {
+    if (!previewSwipeStart || !previewRoot() || event.changedTouches.length !== 1) {
       previewSwipeStart = null;
       return;
     }
@@ -1705,10 +1708,15 @@ function initProductExperience() {
       if (!variantProduct || !(variantProduct.variants || []).some(function (variant) { return variant.id === variantInput.value; })) return;
       purchaseSelections[variantProduct.id] = purchaseSelections[variantProduct.id] || {};
       purchaseSelections[variantProduct.id].woodVariant = variantInput.value;
+      if (productPage) {
+        var variantUrl = new URL(location.href);
+        variantUrl.searchParams.set('variante', variantInput.value);
+        history.replaceState(null, '', variantUrl);
+      }
       updatePreviewPurchaseSummary(variantProduct);
       var selectedVariant = purchaseVariant(variantProduct);
-      if (selectedVariant.image && activeOverlay) {
-        var matchingThumb = Array.from(activeOverlay.querySelectorAll('[data-preview-media]')).find(function (thumb) {
+      if (selectedVariant.image && previewRoot()) {
+        var matchingThumb = Array.from(previewRoot().querySelectorAll('[data-preview-media]')).find(function (thumb) {
           return thumb.getAttribute('data-preview-src') === selectedVariant.image;
         });
         if (matchingThumb) switchPreviewMedia(matchingThumb);
@@ -1763,6 +1771,52 @@ function initProductExperience() {
     getProducts: loadProducts
   };
 
+  // Keep native links usable (new tabs, keyboard and no-JS static pages).
+  function productUrl(product) {
+    var canonical = productMap[product.canonicalProductId] || product;
+    return (isEnglish ? '/en' : '') + canonical.productPath + (product.canonicalVariantId ? '?variante=' + encodeURIComponent(product.canonicalVariantId) : '');
+  }
+  function linkProducts(root) {
+    root.querySelectorAll('[data-product-preview]').forEach(function (button) {
+      var product = productMap[button.getAttribute('data-product-preview')];
+      if (!product || !product.productPath) return;
+      if (button.tagName === 'A') { button.href = productUrl(product); return; }
+      var link = document.createElement('a');
+      Array.from(button.attributes).forEach(function (attribute) {
+        if (attribute.name !== 'type') link.setAttribute(attribute.name, attribute.value);
+      });
+      link.href = productUrl(product);
+      while (button.firstChild) link.appendChild(button.firstChild);
+      button.replaceWith(link);
+    });
+  }
+  loadProducts().then(function () {
+    linkProducts(document);
+    new MutationObserver(function (changes) {
+      if (changes.some(function (change) { return change.addedNodes.length; })) linkProducts(document);
+    }).observe(document.body, {childList:true, subtree:true});
+    if (!productPage) return;
+    var product = productMap[productPage.dataset.productPage];
+    if (!product) return;
+    var variantId = new URLSearchParams(location.search).get('variante');
+    if ((product.variants || []).some(function (v) { return v.id === variantId; })) purchaseSelections[product.id] = {woodVariant:variantId};
+    productPage.innerHTML = renderProductPreview(product, 'product-page', '');
+    var section = productPage.querySelector('.productPreview');
+    section.removeAttribute('role'); section.removeAttribute('aria-modal');
+    section.querySelectorAll('[data-product-experience-close]').forEach(function (element) { element.remove(); });
+    var heading = section.querySelector('#product-preview-title');
+    var h1 = document.createElement('h1'); h1.id = heading.id;
+    h1.textContent = isEnglish ? displayProductName(product) : product.name;
+    heading.replaceWith(h1);
+    if (availabilityStatus(product) === 'sold') {
+      var sold = document.createElement('p'); sold.className = 'productCard__availability';
+      sold.textContent = isEnglish ? 'Sold · One-of-a-kind inspiration' : 'Verkauft · Ein Unikat als Inspiration';
+      h1.after(sold);
+    }
+    updatePreviewPurchaseSummary(product);
+    linkProducts(productPage);
+  }).catch(function (error) { console.warn('[Edle Hölzer] Product page:', error); });
+
   function loadProducts() {
     if (!catalogPromise) {
       catalogPromise = fetch(EDLE_HOELZER_PRODUCTS_URL)
@@ -1782,7 +1836,8 @@ function initProductExperience() {
               productMap[product.id] = product;
             }
           });
-          compareIds = compareIds.filter(function (id) {
+          compareIds = compareIds.map(function (id) { return productMap[id] && productMap[id].canonicalProductId || id; }).filter(function (id, index, ids) {
+            if (ids.indexOf(id) !== index) return false;
             return isComparableProduct(productMap[id]);
           });
           writeCompareState();
@@ -1798,6 +1853,11 @@ function initProductExperience() {
     loadProducts().then(function () {
       var product = productMap[productId];
       if (!product) {
+        return;
+      }
+
+      if (product.productPath) {
+        window.location.assign(productUrl(product));
         return;
       }
 
@@ -2264,7 +2324,7 @@ function initProductExperience() {
   }
 
   function switchPreviewMedia(button) {
-    var main = activeOverlay && activeOverlay.querySelector(".productPreview__mainMedia");
+    var main = previewRoot() && previewRoot().querySelector(".productPreview__mainMedia");
     if (!main) {
       return;
     }
@@ -2277,18 +2337,18 @@ function initProductExperience() {
     };
     main.innerHTML = renderPreviewMainMedia(item);
     startDesktopPreviewVideo(main);
-    activeOverlay.querySelectorAll("[data-preview-media]").forEach(function (item) {
+    previewRoot().querySelectorAll("[data-preview-media]").forEach(function (item) {
       item.classList.toggle("is-active", item === button);
     });
     button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
 
   function switchPreviewByOffset(offset) {
-    if (!activeOverlay) {
+    if (!previewRoot()) {
       return;
     }
 
-    var buttons = Array.prototype.slice.call(activeOverlay.querySelectorAll("[data-preview-media]"));
+    var buttons = Array.prototype.slice.call(previewRoot().querySelectorAll("[data-preview-media]"));
     if (buttons.length < 2) {
       return;
     }
@@ -2325,6 +2385,9 @@ function initProductExperience() {
     if (product.image && urls.indexOf(product.image) === -1) {
       urls.unshift(product.image);
     }
+    (product.variants || []).forEach(function (variant) {
+      if (variant.image && urls.indexOf(variant.image) === -1) urls.push(variant.image);
+    });
     var images = urls.map(function (url) {
       return {
         type: "image",
@@ -2345,7 +2408,7 @@ function initProductExperience() {
       };
     }) : [];
 
-    return videos.concat(images);
+    return productPage ? images.concat(videos) : videos.concat(images);
   }
 
   function renderPreviewMainMedia(item) {
@@ -2381,9 +2444,9 @@ function initProductExperience() {
     container.innerHTML = '<video data-preview-main controls playsinline autoplay muted' + (poster ? ' poster="' + escapeAttribute(poster) + '"' : "") + ' aria-label="' + escapeAttribute(alt) + '"><source src="' + escapeAttribute(src) + '" type="video/mp4"></video>';
     var video = container.querySelector("video");
     if (video && typeof video.play === "function") {
-      var productId = activeOverlay && activeOverlay.getAttribute("data-current-product-id");
+      var productId = previewRoot() && previewRoot().getAttribute("data-current-product-id");
       track("product_video_view", productMap[productId], {
-        source: (activeOverlay && activeOverlay.getAttribute("data-current-product-source")) || "preview",
+        source: (previewRoot() && previewRoot().getAttribute("data-current-product-source")) || "preview",
         playback: "manual"
       });
       var playPromise = video.play();
@@ -2566,13 +2629,15 @@ function initProductExperience() {
 
   function productFacts(product) {
     var facts = [];
-    pushFact(facts, labels.wood, product.material);
+    var variant = purchaseVariant(product);
+    var woodVariant = variant && ['4417507555', '4599650982'].includes(String(product.listingId));
+    pushFact(facts, labels.wood, woodVariant ? (isEnglish ? variant.nameEn : variant.name) : product.material);
     pushFact(facts, labels.construction, constructionLabel(product));
-    pushFact(facts, labels.dimensions, dimensionLabel(product));
+    pushFact(facts, labels.dimensions, variant && variant.dimensions ? variant.dimensions : dimensionLabel(product));
     pushFact(facts, labels.thickness, displayThicknessLabel(product));
-    pushFact(facts, labels.weight, exactWeightLabel(product));
+    if (!variant || !variant.dimensions) pushFact(facts, labels.weight, exactWeightLabel(product));
     if (product.category === "board") {
-      pushFact(facts, labels.juiceGroove, juiceGrooveFactLabel(product));
+      pushFact(facts, labels.juiceGroove, String(product.listingId) === '4598989614' && variant ? (variant.id === 'groove' ? labels.included : booleanLabel(false)) : juiceGrooveFactLabel(product));
     }
     pushFact(facts, labels.engraving, engravingLabel(product));
     return facts.slice(0, 9);
@@ -3182,9 +3247,14 @@ function initProductExperience() {
   }
 
   function updatePreviewPurchaseSummary(product) {
+    var activeOverlay = previewRoot();
     if (!activeOverlay) {
       return;
     }
+    var facts = activeOverlay.querySelector('.productPreview__facts');
+    if (facts) facts.innerHTML = productFacts(product).map(function (fact) {
+      return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
+    }).join('');
     activeOverlay.querySelectorAll('[data-purchase-variant-summary]').forEach(function (element) { element.textContent = purchaseVariantSummary(product); });
     activeOverlay.querySelectorAll('[data-kitchen-preview]').forEach(function (element) {
       var variant = purchaseVariant(product);
@@ -3347,7 +3417,7 @@ function initProductExperience() {
   }
 
   function isGridProduct(product) {
-    if (!product || product.visibility === "hidden" || product.visibility === "archive") {
+    if (!product || product.canonicalProductId || product.visibility === "hidden" || product.visibility === "archive") {
       return false;
     }
     if (product.visibility === "inspiration" && product.inspirationOnly === true && availabilityStatus(product) === "sold") {
@@ -3500,7 +3570,7 @@ function createFinderMatcher() {
   }
   function eligible(product) {
     var profile = product.finderProfile;
-    return Boolean(product.active === true && product.category === "board" &&
+    return Boolean(!product.canonicalProductId && product.active === true && product.category === "board" &&
       ["cuttingBoard", "servingBoard"].indexOf(product.productType) !== -1 &&
       ["available", "made_to_order"].indexOf(product.availabilityStatus) !== -1 &&
       !product.inspirationOnly && !["hidden", "archive", "inspiration"].includes(product.visibility) &&
@@ -5023,7 +5093,7 @@ function initProductsPage() {
   }
 
   function isGridProduct(product) {
-    if (!product || product.visibility === "hidden" || product.visibility === "archive") {
+    if (!product || product.canonicalProductId || product.visibility === "hidden" || product.visibility === "archive") {
       return false;
     }
     if (product.visibility === "inspiration" && product.inspirationOnly === true && availabilityStatus(product) === "sold") {

@@ -43,10 +43,13 @@ class ReleaseTests(phase3.Phase3Tests):
                      "schneidebrett-eiche-vs-nussbaum/index.html", "schneidebrett-saftrille/index.html"):
             before = subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=ROOT)
             current = (ROOT / path).read_bytes()
+            current = re.sub(rb'(/(?:main\.js|styles\.css|assets/js/product-grid\.js))\?v=[^"\s]+', rb'\1', current)
+            before = re.sub(rb'(/(?:main\.js|styles\.css|assets/js/product-grid\.js))\?v=[^"\s]+', rb'\1', before)
             # Approved route migrations may update links, not protected content.
             current = current.replace(b'/schneidebrett-fachwerk-eiche/', b'/erbstueck/')
             before = before.replace(b'/schneidebrett-fachwerk-eiche/', b'/erbstueck/')
             if path == "sitemap.xml":
+                current = re.sub(rb'\s*<!-- Generated product pages -->[\s\S]*?<!-- End generated product pages -->', b'', current)
                 current = re.sub(rb'(<loc>https://edlehoelzer.de/erbstueck/</loc>\s*<lastmod>)[^<]+', rb'\g<1>DATE', current)
                 before = re.sub(rb'(<loc>https://edlehoelzer.de/erbstueck/</loc>\s*<lastmod>)[^<]+', rb'\g<1>DATE', before)
                 # New landing-page entries are additive; existing URLs stay frozen.

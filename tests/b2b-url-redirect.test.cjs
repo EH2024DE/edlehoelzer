@@ -39,7 +39,8 @@ test('moved B2B content preserves migration and adds only approved gastro and co
     .replace(/    \{"@type":"Question","name":"Was kosten Anfrage und individuelle Planung\?"[^\n]+\n/, '')
     .replace(/        <div class="b2b-faq-item" data-concept-cost>[\s\S]*?<\/div>\n/, '')
     .replace(/          <p class="b2b-hint" data-concept-cost>[^\n]+<\/p>\n/, '');
-  assert.equal(withoutCosts.replace(gastroLink, ''), expected);
+  const withoutAssetVersions = html => html.replace(/(\/(?:main\.js|styles\.css))\?v=[^"\s]+/g, '$1');
+  assert.equal(withoutAssetVersions(withoutCosts.replace(gastroLink, '')), withoutAssetVersions(expected));
 });
 
 test('sitemap, search index and edge redirect configuration use the new owner URL', () => {

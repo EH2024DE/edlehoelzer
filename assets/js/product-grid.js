@@ -249,6 +249,7 @@
   }
 
   function isGridProduct(product) {
+    if (product && product.canonicalProductId) return false;
     if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
       return false;
     }

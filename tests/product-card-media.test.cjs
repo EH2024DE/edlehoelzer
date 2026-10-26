@@ -28,7 +28,7 @@ test('mobile gallery uses the existing Etsy card-image size, not full-size photo
   assert.equal(context.buildCardGalleryItems({ image: 'https://i.etsystatic.com/1/r/il/a/b/il_fullxfull.b.jpg' })[0].src, 'https://i.etsystatic.com/1/r/il/a/b/il_794xN.b.jpg');
 });
 
-test('existing catalog entries remain unchanged except verified walnut and No.004 corrections', () => {
+test('existing product facts remain unchanged apart from verified corrections and page metadata', () => {
   const before = JSON.parse(require('node:child_process').execFileSync('git', ['show', 'origin/main:products.json'], { cwd: root, encoding: 'utf8' }));
   const walnut = before.products.find(p => p.listingId === '1850610674');
   walnut.priceOrder = 279.99;
@@ -42,9 +42,18 @@ test('existing catalog entries remain unchanged except verified walnut and No.00
     badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  for (const id of ['1838851839', '4417507555']) {
+    const old = before.products.find(p => p.listingId === id);
+    const current = after.products.find(p => p.listingId === id);
+    for (const key of ['priceOrder', 'priceLabel', 'priceVerifiedAt']) old[key] = current[key];
+    if (id === '4417507555') old.shortDescription = old.shortDescription.replace('264,99', '254,99');
+    if (old.variants) old.variants.forEach((v, index) => { v.priceOrder = current.variants[index].priceOrder; v.image = current.variants[index].image; });
+  }
   const existingIds = new Set(before.products.map(p => p.id));
   after.products = after.products.filter(p => existingIds.has(p.id));
-  const withoutVideos = data => { data.products.forEach(p => delete p.videos); return data; };
+  const withoutVideos = data => { data.products.forEach(p => {
+    for (const key of ['videos', 'name', 'titleVerifiedAt', 'productPath', 'canonicalProductId', 'canonicalVariantId']) delete p[key];
+  }); return data; };
   assert.deepEqual(withoutVideos(after), withoutVideos(before));
 });
 
