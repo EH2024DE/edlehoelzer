@@ -3611,6 +3611,63 @@ function createFinderMatcher() {
   return { eligible: eligible, supports: supports, evaluate: evaluate, rank: rank, select: select, effectiveUse: effectiveUse, tradeoff: tradeoff };
 }
 
+function createCatalogMatcher() {
+  function uses(p) {
+    return [].concat(p.useCases || [], p.primaryUseCases || [], p.secondaryUseCases || []);
+  }
+  function groups(p) {
+    if (p.category === "care" || String(p.listingId) === "1874454440") return ["care"];
+    if (String(p.listingId) === "1838851839") return ["coasters"];
+    if (p.category === "accessory") return ["tools"];
+    if (p.category !== "board") return [];
+    var result = [];
+    var purposes = uses(p);
+    if (p.productType !== "servingBoard" || purposes.includes("dailyPrep") || purposes.includes("breakfast")) result.push("board");
+    if (p.servingSuitable === true || p.productType === "servingBoard" || purposes.includes("serving") || purposes.includes("breakfast")) result.push("serving");
+    return result;
+  }
+  function supportsUse(p, use) {
+    if (!use || use === "all") return true;
+    var purposes = uses(p);
+    return purposes.includes(use) || (use === "daily" && purposes.includes("dailyPrep")) || (use === "gift" && p.giftable === true);
+  }
+  function thicknessCm(p) {
+    if (p.dimensionsReviewRequired) return null;
+    var label = String(p.thicknessLabel || "").replace(/,/g, ".");
+    var match = label.match(/(\d+(?:\.\d+)?)\s*(?:[–-]\s*\d+(?:\.\d+)?)?\s*(mm|cm)\b/i);
+    return match ? Number(match[1]) / (match[2].toLowerCase() === "mm" ? 10 : 1) : null;
+  }
+  function matches(p, filters, rules) {
+    rules = rules || {};
+    var group = filters.category || "all";
+    if (group !== "all" && !groups(p).includes(group)) return false;
+    var boardFilters = ["all", "board", "serving"].includes(group);
+    if (boardFilters && filters.construction && filters.construction !== "all") {
+      if (p.category !== "board") return false;
+      if (filters.construction === "block") {
+        if (!(thicknessCm(p) >= 4)) return false;
+      } else if (p.woodCut !== filters.construction) return false;
+    }
+    if (boardFilters && filters.groove && filters.groove !== "all") {
+      var included = Boolean(p.finderProfile && p.finderProfile.juiceGroove === true);
+      var optional = (rules.juiceGrooveOptionListingIds || []).map(String).includes(String(p.listingId));
+      // The Erbstueck listing also exposes the groove as an explicit Etsy variant.
+      optional = optional || (p.variants || []).some(function (variant) {
+        return variant.id === "groove" && variant.availabilityStatus === "available";
+      });
+      if (p.category !== "board" || !(included || (filters.groove === "available" && optional))) return false;
+    }
+    if (group !== "care" && filters.wood && filters.wood !== "all") {
+      var wood = String(p.material || "").toLowerCase();
+      if (filters.wood === "other") {
+        if (!/kirsch|kambala|wenge|padouk|lärche|laerche|mahagoni|kastanie|bambus|birke|tropen/.test(wood)) return false;
+      } else if (!wood.includes(filters.wood)) return false;
+    }
+    return supportsUse(p, filters.useCase);
+  }
+  return { groups: groups, matches: matches, thicknessCm: thicknessCm };
+}
+
 function initProductsPage() {
   var finderRoot = document.querySelector("[data-product-finder]");
   var gridRoot = document.querySelector("[data-products-grid]");
@@ -4053,6 +4110,7 @@ function initProductsPage() {
         throw new Error("products.json enthält keine Produktliste.");
       }
 
+      state.purchaseRules = Array.isArray(data) ? {} : (data.purchaseRules || {});
       state.products = products;
       state.activeProducts = products.filter(isGridProduct);
 
@@ -4580,13 +4638,30 @@ function initProductsPage() {
     root.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   }
 
+  var catalogMatcher = createCatalogMatcher();
+
   function bindFilters() {
     var filterForm = document.querySelector("[data-product-filters]");
     if (!filterForm) {
       return;
     }
 
-    filterForm.addEventListener("change", renderGrid);
+    function changeGroup(category) {
+      filterForm.elements.category.value = category;
+      ["construction", "groove", "wood"].forEach(function (name) {
+        filterForm.elements[name].value = "all";
+      });
+      renderGrid();
+    }
+    filterForm.addEventListener("change", function (event) {
+      if (event.target.name === "category") changeGroup(event.target.value);
+      else renderGrid();
+    });
+    filterForm.addEventListener("submit", function (event) { event.preventDefault(); });
+    filterForm.addEventListener("reset", function () { setTimeout(renderGrid, 0); });
+    document.querySelectorAll("[data-catalog-category]").forEach(function (button) {
+      button.addEventListener("click", function () { changeGroup(button.dataset.catalogCategory); });
+    });
   }
 
   function renderGrid() {
@@ -4595,6 +4670,20 @@ function initProductsPage() {
     }
 
     var filterForm = document.querySelector("[data-product-filters]");
+    var selectedGroup = filterForm ? filterForm.elements.category.value : "all";
+    var boardFilters = ["all", "board", "serving"].includes(selectedGroup);
+    document.querySelectorAll("[data-board-filter], [data-wood-filter]").forEach(function (element) {
+      var visible = element.hasAttribute("data-board-filter") ? boardFilters : selectedGroup !== "care";
+      element.hidden = !visible;
+      var select = element.querySelector("select");
+      if (select) {
+        select.disabled = !visible;
+        if (!visible) select.value = "all";
+      }
+    });
+    document.querySelectorAll("[data-catalog-category]").forEach(function (button) {
+      button.setAttribute("aria-pressed", String(button.dataset.catalogCategory === selectedGroup));
+    });
     var filters = filterForm ? new FormData(filterForm) : null;
     var category = filters ? filters.get("category") : "all";
     var price = filters ? filters.get("price") : "all";
@@ -4603,14 +4692,23 @@ function initProductsPage() {
 
     var products = state.activeProducts
       .filter(function (product) {
-        return category === "all" || product.category === category;
+        return catalogMatcher.matches(product, {
+          category: category,
+          construction: filters && filters.get("construction"),
+          wood: filters && filters.get("wood"),
+          groove: filters && filters.get("groove"),
+          useCase: useCase
+        }, state.purchaseRules);
       })
       .filter(function (product) {
         if (price === "all") {
           return true;
         }
 
-        var order = Number(product.priceOrder || 0);
+        var order = Number(product.priceOrder);
+        if (!Number.isFinite(order) || order <= 0) return false;
+        if (price === "under50") return order < 50;
+        if (price === "50to100") return order >= 50 && order < 100;
         if (price === "under100") {
           return order < 100;
         }
@@ -4621,9 +4719,6 @@ function initProductsPage() {
           return order > 250;
         }
         return true;
-      })
-      .filter(function (product) {
-        return useCase === "all" || (Array.isArray(product.useCases) && product.useCases.indexOf(useCase) !== -1);
       });
 
     if (sort === "recommended") {
@@ -4647,6 +4742,8 @@ function initProductsPage() {
       });
     }
 
+    var count = document.querySelector("[data-catalog-count]");
+    if (count) count.textContent = products.length + (isEnglish ? (products.length === 1 ? " product" : " products") : (products.length === 1 ? " Produkt" : " Produkte"));
     if (!products.length) {
       gridRoot.innerHTML = '<p class="productEmpty">' + (isEnglish ? "There are currently no matching products for this filter combination." : "Für diese Filterkombination gibt es aktuell keine passenden Produkte.") + '</p>';
       return;
@@ -4685,6 +4782,7 @@ function initProductsPage() {
       if (Boolean(a.inspirationOnly) !== Boolean(b.inspirationOnly)) {
         return a.inspirationOnly ? 1 : -1;
       }
+      if ((a.category === "board") !== (b.category === "board")) return a.category === "board" ? -1 : 1;
       var aCurated = curatedIds.indexOf(a.id);
       var bCurated = curatedIds.indexOf(b.id);
       if (aCurated !== -1 || bCurated !== -1) {
