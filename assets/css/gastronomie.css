@@ -1,0 +1,85 @@
+.gastroPage{background:#fff;color:var(--ink);--gastro-green:#244c40}
+.gastroPage main{overflow-wrap:break-word}
+.gastroPage :is(h1,h2,h3,.eyebrow,.btn){letter-spacing:0}
+.gastroPage h2{font-size:36px;line-height:1.2;max-width:25ch}
+.gastroPage h3{font-size:21px;line-height:1.3}
+.gastroPage p{line-height:1.65}
+.gastroPage .section{padding:64px 0}
+.gastroPage .sectionIntro p{max-width:76ch}
+.gastroPage :is(a,button,input,select,textarea,summary):focus-visible{outline:3px solid #34745f;outline-offset:4px}
+.gastroPage .btn{min-height:48px;white-space:normal;text-transform:none;font-size:14px}
+.gastroPage .btn--emphasis{background:var(--gastro-green);border-color:var(--gastro-green);color:#fff}
+.gastroPage .btn--emphasis:hover{background:#17382e;border-color:#17382e}
+.gastroPage .btn--ghost-dark{background:transparent;color:var(--ink);border-color:#767676}
+.gastroPage .btn--ghost-dark:hover{background:var(--ink);color:#fff}
+.gastroPage .textLink{display:inline-flex;align-items:center;min-height:44px;max-width:100%;text-decoration:underline;text-underline-offset:5px}
+.gastroSkip{position:fixed;left:12px;top:12px;z-index:10000;transform:translateY(-180%);background:#fff;color:#111;padding:12px}
+.gastroSkip:focus{transform:none}
+.gastroHero{position:relative;isolation:isolate;background:#171919;color:#fff;height:min(720px,calc(100svh - 140px));min-height:550px}
+.gastroHero__image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;z-index:-1}
+.gastroHero__copy{padding-top:26px;position:relative}
+.gastroHero .breadcrumb{color:#fff;margin:0 0 20px;font-size:12px}
+.gastroHero .eyebrow{color:#fff;margin:0 0 12px;font-size:13px}
+.gastroHero h1{max-width:1020px;margin:0;font-size:44px;line-height:1.12;font-weight:500;text-shadow:0 2px 8px #171919}
+.gastroHero .ctaRow{margin-top:22px;gap:12px 26px}
+.gastroHero__link{color:#fff;font-size:14px;font-weight:600;min-height:48px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:5px}
+.gastroPage .gastroOverview{padding-top:36px;padding-bottom:32px}
+.gastroIntro{font-size:18px;max-width:90ch;margin:0 0 24px}
+.gastroPage .pageSummary{max-width:none;margin-bottom:0}
+.gastroPage .pageSummary h2{color:var(--gastro-green);max-width:none}
+.gastroPage .pageSummary dl{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.gastroSolutions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.gastroSolutions article{min-width:0}
+.gastroSolutions img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#f4f4f2;display:block;border-radius:4px}
+.gastroSolutions h3{margin:18px 0 10px}
+.gastroSolutions p{font-size:15px;margin:10px 0 0}
+.gastroSolutions .gastroDetail{font-size:13px;color:#505853}
+.gastroSolutions .gastroLabel{font-size:12px;color:var(--gastro-green);font-weight:700;margin-top:18px}
+.gastroSolutions .gastroLabel+h3{margin-top:8px}
+.gastroSplit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px;align-items:start}
+.gastroSplit>*{min-width:0}
+.gastroSplit h2{margin-top:0}
+.gastroSplit p{margin:16px 0}
+.gastroFeasibility{background:var(--gastro-green);color:#fff}
+.gastroFeasibility :is(.eyebrow,h2,h3){color:#fff}
+.gastroFeasibility .btn--emphasis{background:#fff;border-color:#fff;color:#17382e;margin-top:8px}
+.gastroFeasibility .btn--emphasis:hover{background:#e8f0ec;border-color:#e8f0ec}
+.gastroFeasibility :is(a,button):focus-visible{outline-color:#fff}
+.gastroCheck{margin:22px 0 0;padding:0;list-style:none}
+.gastroCheck li{padding:12px 0;border-top:1px solid #7f9c91;line-height:1.5}
+.gastroPlanning{align-items:center}
+.gastroPlanning figure{margin:0}
+.gastroPlanning img{display:block;width:100%;height:400px;object-fit:cover;object-position:50% 45%;border-radius:4px}
+.gastroPlanning figcaption{font-size:12px;color:#555;margin-top:12px;line-height:1.5}
+.gastroPage .gastroFit{background:#f1f4f2}
+.gastroFit>div>p{max-width:82ch}
+.gastroFit__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;margin:32px 0 0}
+.gastroFit__list dt{font-weight:700;font-size:20px;margin-bottom:10px}
+.gastroFit__list dd{margin:0;line-height:1.65}
+.gastroPage #products-gastro{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:24px}
+.gastroPage #products-gastro .productCard__name{font-size:19px}
+.gastroOptions{background:#f1f4f2}
+.gastroOptions__list{padding-left:20px;line-height:1.9}
+.gastroOptions h3{margin:0 0 12px}
+.gastroOptions p+h3{margin-top:32px}
+.gastroWorkshop{align-items:center}
+.gastroWorkshop>img{width:100%;height:360px;object-fit:cover;object-position:center 45%;border-radius:4px}
+.gastroSecondary{font-size:14px;color:#4c554f;margin-top:24px}
+.gastroStart{border-top:1px solid var(--line);background:#f1f4f2}
+.gastroSteps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin:28px 0 0;padding-left:20px}
+.gastroSteps li{padding-left:4px;line-height:1.5}
+.gastroSteps strong,.gastroSteps span{display:block;font-size:15px}
+.gastroSteps span{margin-top:8px;color:#45524a}
+.gastroPage .boardInquiry{background:#fff;padding:64px 0}
+.gastroPage .boardInquiry .container{max-width:960px}
+.gastroPage .boardInquiry form{max-width:none}
+.gastroPage .boardInquiry input,.gastroPage .boardInquiry select{min-height:48px}
+.gastroPage .boardInquiry select{font-size:16px}
+.gastroPage .boardInquiry summary{min-height:48px}
+.gastroPage .faqList{display:block;max-width:920px}
+.gastroPage .faqItem{padding:0;background:none;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
+.gastroPage .faqItem summary{padding:18px 0;min-height:48px;cursor:pointer;font-weight:600;line-height:1.5}
+.gastroPage .faqItem p{padding-bottom:20px;margin:0;font-size:16px}
+@media(max-width:1100px){.gastroSolutions{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.gastroPage #products-gastro{grid-template-columns:repeat(2,minmax(0,1fr))}.gastroPage .pageSummary dl{grid-template-columns:repeat(2,minmax(0,1fr))}.gastroSplit{gap:32px}.gastroSteps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.gastroPage .section{padding:40px 0}.gastroHero{height:min(660px,calc(100svh - 132px));min-height:560px}.gastroHero__copy{padding-top:20px}.gastroHero h1{font-size:30px;max-width:24ch}.gastroHero .breadcrumb{margin-bottom:18px}.gastroHero .eyebrow{font-size:11px}.gastroHero .ctaRow{margin-top:18px;gap:8px}.gastroHero .ctaRow .btn{font-size:13px}.gastroHero__link{padding:0 12px;font-size:13px}.gastroIntro{font-size:16px}.gastroPage h2{font-size:28px;max-width:none}.gastroSplit{grid-template-columns:1fr;gap:28px}.gastroSolutions{grid-template-columns:1fr;gap:36px}.gastroSolutions img{aspect-ratio:4/3}.gastroPage .pageSummary dl{grid-template-columns:1fr;gap:16px}.gastroFit__list{grid-template-columns:1fr;gap:24px}.gastroPlanning img{height:320px}.gastroWorkshop>img{height:280px}.gastroPage #products-gastro{grid-template-columns:1fr}.gastroPage .boardInquiry{padding:40px 0}.gastroPage .boardInquiry .boardInquiry__fields{grid-template-columns:1fr;gap:0}.gastroPage .boardInquiry .btn{width:100%}.gastroPage .gastroOverview{padding-top:28px;padding-bottom:28px}}
+@media(prefers-reduced-motion:reduce){.gastroPage *{scroll-behavior:auto!important}}

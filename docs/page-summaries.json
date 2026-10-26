@@ -1,5 +1,26 @@
 [
   {
+    "route": "/schneidebretter-gastronomie/",
+    "items": [
+      {
+        "label": "Einsatz",
+        "text": "Schneiden, Tranchieren, Servieren oder Präsentieren: Ausgangspunkt ist der konkrete Einsatz im Betrieb."
+      },
+      {
+        "label": "Individualisierung",
+        "text": "Maße, Holzart, Saftrille, Gravur, Aussparungen und Details stimmen wir projektbezogen ab."
+      },
+      {
+        "label": "Machbarkeit",
+        "text": "Wir prüfen Konstruktion, Material, Stückzahl und Nutzung, bevor wir eine Ausführung empfehlen."
+      },
+      {
+        "label": "Beratung",
+        "text": "Idee und Bedarf klären wir persönlich. Ein Termin in unserer Manufaktur ist nach Abstimmung möglich."
+      }
+    ]
+  },
+  {
     "route": "/schneidebretter-massivholz/",
     "items": [
       {

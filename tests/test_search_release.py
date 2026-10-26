@@ -1,6 +1,7 @@
 import subprocess
 import unittest
 import re
+import xml.etree.ElementTree as ET
 
 import test_citation_phase3 as phase3
 from test_citation_phase3 import Page, ROOT
@@ -48,6 +49,14 @@ class ReleaseTests(phase3.Phase3Tests):
             if path == "sitemap.xml":
                 current = re.sub(rb'(<loc>https://edlehoelzer.de/erbstueck/</loc>\s*<lastmod>)[^<]+', rb'\g<1>DATE', current)
                 before = re.sub(rb'(<loc>https://edlehoelzer.de/erbstueck/</loc>\s*<lastmod>)[^<]+', rb'\g<1>DATE', before)
+                # New landing-page entries are additive; existing URLs stay frozen.
+                trees = [ET.fromstring(value) for value in (current, before)]
+                for tree in trees:
+                    for entry in list(tree):
+                        location = entry.find("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")
+                        if location is not None and location.text == "https://edlehoelzer.de/schneidebretter-gastronomie/":
+                            tree.remove(entry)
+                current, before = (ET.tostring(tree) for tree in trees)
             self.assertEqual(current, before, path)
 
     def test_oil_redirect_preserved(self):
