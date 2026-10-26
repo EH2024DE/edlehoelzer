@@ -23,15 +23,15 @@ test('gastro page has one H1, indexable self canonical and focused metadata', ()
   const main = decode(html.split('<main id="gastro-inhalt">')[1]).split(/\s+/).slice(0, 120).join(' ');
   for (const phrase of ['Gastronomie', 'Restaurants', 'Hotels', 'Schneidebretter', 'Servierbretter', 'Massivholz', 'Maße', 'Machbarkeit', 'Mittelhessen']) assert.ok(main.includes(phrase), phrase);
 });
-test('WebPage, breadcrumb and six FAQ answers agree with visible content', () => {
+test('WebPage, breadcrumb and seven FAQ answers agree with visible content', () => {
   assert.deepEqual(graph.map(item => item['@type']), ['WebPage', 'BreadcrumbList', 'FAQPage']);
   const breadcrumb = graph[1].itemListElement;
   assert.equal(breadcrumb.at(-1).item, url);
   assert.equal(breadcrumb.at(-1).position, 2);
   const faq = graph[2].mainEntity;
-  assert.equal(faq.length, 6);
-  const visible = [...html.matchAll(/<details class="faqItem"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
-  assert.equal(visible.length, 6);
+  assert.equal(faq.length, 7);
+  const visible = [...html.matchAll(/<details class="faqItem"(?: data-concept-cost)?><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
+  assert.equal(visible.length, 7);
   for (const [index, item] of faq.entries()) {
     assert.equal(decode(visible[index][1]), item.name);
     assert.equal(decode(visible[index][2]), item.acceptedAnswer.text);
@@ -124,8 +124,8 @@ test('both languages expose reciprocal alternates, PE request wording and matchi
     const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
     assert.equal(schema[0].inLanguage, language);
     assert.equal(schema[0].url, 'https://edlehoelzer.de' + pageRoute);
-    const visible = [...source.matchAll(/<details class="faqItem"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
-    assert.equal(visible.length, 6);
+    const visible = [...source.matchAll(/<details class="faqItem"(?: data-concept-cost)?><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
+    assert.equal(visible.length, 7);
     schema[2].mainEntity.forEach((item, i) => {
       assert.equal(decode(visible[i][1]), item.name);
       assert.equal(decode(visible[i][2]), item.acceptedAnswer.text);
@@ -139,4 +139,32 @@ test('both languages expose reciprocal alternates, PE request wording and matchi
   assert.match(english, /Suitable material documentation and technical feasibility are prerequisites/);
   assert.match(read('schneidebretter-gastronomie/index.html'), /http-equiv="refresh"/);
   assert.ok(!read('sitemap.xml').includes('<loc>https://edlehoelzer.de/schneidebretter-gastronomie/</loc>'));
+});
+
+test('concept fees are explicit, separately approved and credited on all business pages', () => {
+  const b2b = read('handgefertigte-holzprodukte-fuer-unternehmen/index.html');
+  for (const source of [html, english, b2b]) {
+    assert.match(source, /data-concept-cost/);
+    const note = source.match(/<p class="(?:gastroBudgetHelp|b2b-hint)" data-concept-cost>([^<]+)<\/p>/)[1];
+    assert.match(note, /150/);
+    assert.ok(source.indexOf(note) < source.indexOf('<form '));
+    assert.doesNotMatch(source, /name="(?:concept_fee|payment|payment_method)"/);
+    const schemas = [...source.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
+    const faq = schemas.flatMap(s => s['@graph'] || [s]).find(s => s['@type'] === 'FAQPage');
+    const question = faq.mainEntity.find(q => /individuelle Planung|bespoke planning/.test(q.name));
+    assert.ok(question);
+    assert.match(question.acceptedAnswer.text, /150/);
+    assert.match(question.acceptedAnswer.text, /Umsatzsteuer wird nicht gesondert ausgewiesen|VAT is not shown separately/);
+    assert.match(question.acceptedAnswer.text, /vor Beginn gesondert freigegeben|separate approval before work begins/);
+    assert.match(question.acceptedAnswer.text, /desselben Projekts|same project/);
+    assert.match(question.acceptedAnswer.text, /Ohne Fertigungsauftrag|Without a production order/);
+    assert.ok(source.includes(question.acceptedAnswer.text));
+  }
+  const faq = JSON.parse([...b2b.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)][1][1]);
+  const visible = [...b2b.matchAll(/<div class="b2b-faq-item"(?: data-concept-cost)?>\s*<h3>(.*?)<\/h3>\s*<p>(.*?)<\/p>/g)];
+  assert.equal(visible.length, faq.mainEntity.length);
+  faq.mainEntity.forEach((q, i) => {
+    assert.equal(decode(visible[i][1]), q.name);
+    assert.equal(decode(visible[i][2]), q.acceptedAnswer.text);
+  });
 });

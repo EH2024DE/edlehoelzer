@@ -25,7 +25,7 @@ test('legacy B2B redirect preserves query attribution and legacy fragments', () 
   assert.ok(html.includes('href="' + target + '"'));
 });
 
-test('moved B2B content preserves migration and only adds the approved gastro cross-link', () => {
+test('moved B2B content preserves migration and adds only approved gastro and concept-cost information', () => {
   const before = execFileSync('git', ['show', 'b5c3dae:b2b.html'], { cwd: root, encoding: 'utf8' });
   const expected = before.replaceAll('b2b.html', 'handgefertigte-holzprodukte-fuer-unternehmen/')
     .replaceAll('./assets/', '/assets/').replaceAll('href="./', 'href="/')
@@ -35,7 +35,11 @@ test('moved B2B content preserves migration and only adds the approved gastro cr
   const gastroLink = '<p>Du suchst Holzprodukte für Restaurant oder Hotel? <a class="b2b-text-link" href="/schneidebretter-aus-holz-gastronomie/">Lösungen für Gastronomie</a>.</p>';
   const current = read('handgefertigte-holzprodukte-fuer-unternehmen/index.html');
   assert.equal(current.split(gastroLink).length - 1, 1);
-  assert.equal(current.replace(gastroLink, ''), expected);
+  const withoutCosts = current
+    .replace(/    \{"@type":"Question","name":"Was kosten Anfrage und individuelle Planung\?"[^\n]+\n/, '')
+    .replace(/        <div class="b2b-faq-item" data-concept-cost>[\s\S]*?<\/div>\n/, '')
+    .replace(/          <p class="b2b-hint" data-concept-cost>[^\n]+<\/p>\n/, '');
+  assert.equal(withoutCosts.replace(gastroLink, ''), expected);
 });
 
 test('sitemap, search index and edge redirect configuration use the new owner URL', () => {

@@ -69,6 +69,14 @@
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "What do an enquiry and bespoke planning cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your enquiry and an initial cost indication based on our existing range are free. If your project requires a new product concept or a bespoke solution to be developed, we agree a one-off concept and planning fee of €150 as the final price in advance. VAT is not shown separately. The scope and fee require separate approval before work begins. If you subsequently commission production for the same project, we deduct the full fee from its invoice. Without a production order, the fee remains payment for the agreed concept work."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Do you make products other than cutting boards?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -211,6 +219,7 @@
     <div class="container">
       <h2 id="inquiry-title">Tell us about your project.</h2>
       <p>Share your idea, approximate quantity and budget so we can assess suitable options. An enquiry is not an order.</p>
+      <p class="gastroBudgetHelp" data-concept-cost>Your enquiry is free. Development of a new concept requires separate approval of a one-off €150 fee (final price; VAT not shown separately). The full amount is credited if you subsequently commission production for the same project.</p>
       <form data-board-inquiry action="https://formspree.io/f/maqanpld" method="POST">
         <input type="hidden" name="_subject" value="Hospitality project enquiry via edlehoelzer.de">
         <input type="hidden" name="reference" value="">
@@ -272,6 +281,7 @@
 
   <section id="faq" class="section section--white" aria-labelledby="faq-title">
     <div class="container"><h2 id="faq-title">Frequently asked questions</h2><div class="faqList">
+      <details class="faqItem" data-concept-cost><summary>What do an enquiry and bespoke planning cost?</summary><p>Your enquiry and an initial cost indication based on our existing range are free. If your project requires a new product concept or a bespoke solution to be developed, we agree a one-off concept and planning fee of €150 as the final price in advance. VAT is not shown separately. The scope and fee require separate approval before work begins. If you subsequently commission production for the same project, we deduct the full fee from its invoice. Without a production order, the fee remains payment for the agreed concept work.</p></details>
       <details class="faqItem"><summary>Do you make products other than cutting boards?</summary><p>Yes. We can design custom breakfast, brunch and serving trays. Certain interior alterations may also be possible following consultation. We agree scope, materials, budget and feasibility in advance.</p></details>
       <details class="faqItem"><summary>Are small quantities possible?</summary><p>Yes. We can make single pieces and batches of up to 100. Design, unit price and delivery date are agreed to suit your project and budget.</p></details>
       <details class="faqItem"><summary>Can you make custom sizes?</summary><p>Yes, where the dimensions and construction are practical for the intended use. We agree dimensions, thickness, weight and handling before production.</p></details>

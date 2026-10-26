@@ -100,6 +100,15 @@ fs.mkdirSync(output, {recursive: true});
       const close = page.locator('[data-product-experience-close]').first();
       await close.waitFor({state: 'visible'});
       await close.click();
+      const costNote = page.locator('p[data-concept-cost]');
+      await costNote.scrollIntoViewIfNeeded();
+      assert.ok(await costNote.isVisible());
+      assert.match(await costNote.innerText(), /150/);
+      const costFaq = page.locator('details[data-concept-cost]');
+      await costFaq.locator('summary').click();
+      assert.ok(await costFaq.locator('p').isVisible());
+      assert.match(await costFaq.locator('p').innerText(), /150/);
+      await costFaq.locator('summary').click();
       const form = page.locator('[data-board-inquiry]');
       await form.scrollIntoViewIfNeeded();
       await form.locator('[type="submit"]').click();
@@ -178,6 +187,20 @@ fs.mkdirSync(output, {recursive: true});
       assert.deepEqual(errors, []);
       await page.close();
     }
+    }
+    for (const width of [375, 1440]) {
+      const page = await browser.newPage({viewport: {width, height: 1000}});
+      await page.goto(base + '/handgefertigte-holzprodukte-fuer-unternehmen/', {waitUntil: 'domcontentloaded'});
+      const consent = page.locator('[data-consent-necessary]').first();
+      if (await consent.isVisible()) await consent.click();
+      const note = page.locator('p[data-concept-cost]');
+      await note.scrollIntoViewIfNeeded();
+      assert.ok(await note.isVisible());
+      assert.match(await note.innerText(), /kostenlos.*150.*vollständig angerechnet/);
+      assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+      await page.locator('#anfrage').screenshot({path: output + '/b2b-' + width + '-costs.png'});
+      console.log('PASS B2B ' + width + ': concept-cost visibility and layout');
+      await page.close();
     }
   } finally { await browser.close(); }
 })().catch(error => {console.error(error); process.exitCode = 1;});

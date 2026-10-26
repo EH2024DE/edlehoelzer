@@ -41,13 +41,13 @@ Eine H1. Die expliziten Begriffe „Schneidebretter“ und „Servierbretter“ 
 5. Anfrageformular mit sichtbarem Pflichtbudget, noch vor den Referenzprodukten.
 6. Vier Einzelangebote als Preis- und Produktreferenz; mobil ebenfalls horizontal durchsehbar.
 7. Kurze Kompetenz-/Machbarkeitseinordnung und ein Werkstattabschnitt.
-8. Sechs synchronisierte, zugängliche FAQ.
+8. Sieben synchronisierte, zugängliche FAQ.
 
 Kein separater Planungs-/Fräsabschnitt, kein zusätzlicher Standardwaren-, Anpassungs- oder Ablaufblock. Die für die Entscheidung nötigen Punkte sind in Preisorientierung, Anfrage und Machbarkeit zusammengeführt.
 
 ## 6. Wortzahl
 
-771–783 zunächst sichtbare Wörter im Hauptinhalt einschließlich bedingter Pflichtbeschreibung, Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung, ursprünglich 1.025–1.037. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die zugängliche Textmenge. Navigation und Footer sind ausgeschlossen. Die mobile Swipe-Auswahl verkürzt zusätzlich die vertikale Strecke; eine Conversion-Wirkung wurde nicht gemessen.
+807–819 zunächst sichtbare Wörter im Hauptinhalt einschließlich bedingter Pflichtbeschreibung, Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung, ursprünglich 1.025–1.037. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die zugängliche Textmenge. Navigation und Footer sind ausgeschlossen. Die mobile Swipe-Auswahl verkürzt zusätzlich die vertikale Strecke; eine Conversion-Wirkung wurde nicht gemessen.
 
 ## 7. Bildaudit und Verwendung
 
@@ -98,7 +98,7 @@ Zwei Einträge (DE/EN) in der bestehenden `sitemap.xml`, `lastmod` 2026-10-26. K
 
 ## 12. Schema
 
-`WebPage`, `BreadcrumbList`, `FAQPage` mit sechs sichtbaren, inhaltlich identischen Fragen/Antworten. Zugeklappte Antworten sind über native `details` erreichbar. Kein Product-Schema, keine erfundenen Offers, Reviews oder Kundenreferenzen.
+`WebPage`, `BreadcrumbList`, `FAQPage` mit sieben sichtbaren, inhaltlich identischen Fragen/Antworten. Zugeklappte Antworten sind über native `details` erreichbar. Kein Product-Schema, keine erfundenen Offers, Reviews oder Kundenreferenzen.
 
 ## 13. Formularfelder und Übermittlung
 
@@ -120,7 +120,7 @@ Zwei vorhandene Umami-Klickattribute für `gastro_portfolio_open` und `gastro_cu
 
 ## 15. Tests und Screenshots
 
-- 85 JavaScript-Tests: 75 bestehende plus zehn Gastronomie-Prüfungen.
+- 86 JavaScript-Tests: 75 bestehende plus elf Gastronomie-Prüfungen.
 - 32 Python-Tests.
 - Indexierbarkeit und Zusammenfassungen: bestanden; Suchindex jetzt 45 Seiten.
 - Asset-Audit: 265 Medien, keine kritischen Befunde; 24 bestehende Hinweise außerhalb des Auftrags.
@@ -177,9 +177,22 @@ Nach erneuter Owner-Abstimmung sind individuelle Frühstücks-, Brunch- und Serv
 - DE: https://edlehoelzer.de/schneidebretter-aus-holz-gastronomie/
 - EN: https://edlehoelzer.de/en/wooden-cutting-boards-for-restaurants/
 - Die alte deutsche Vorschau-Route leitet per HTML-Weiterleitung weiter (noindex, nicht in der Sitemap). Dies ist kein serverseitiger HTTP-301; die Route war bisher nicht veröffentlicht.
-- Vollständige englische Seite mit denselben sechs FAQ, Referenzprodukten und bedingter Pflichtbeschreibung. Gegenseitige hreflang- und sichtbare Sprachlinks. Bestehende weiterführende Fachseiten ohne englische Entsprechung bleiben deutsch verlinkt.
+- Vollständige englische Seite mit denselben sieben FAQ, Referenzprodukten und bedingter Pflichtbeschreibung. Gegenseitige hreflang- und sichtbare Sprachlinks. Bestehende weiterführende Fachseiten ohne englische Entsprechung bleiben deutsch verlinkt.
 - Formularstatus und Beschreibungstexte werden sprachabhängig ausgegeben; Produktkarten verwenden die bestehende Produktübersetzung.
 - PE 500 wird ausschließlich als auf Anfrage zu prüfende Sonderlösung beschrieben. Materialnachweise, vorgesehener Einsatz, Hygieneanforderungen und technische Umsetzbarkeit sind Voraussetzungen. Keine pauschale Zulassung, Zertifizierung oder Eignung für Dauerkontakt behauptet.
 - Grundlagen: [EU-Lebensmittelhygieneverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A02004R0852-20210324), [LGL zu Kunststoff-Konformität](https://www.lgl.bayern.de/lebensmittel/ueberwachung/et_schwerpunktaktivitaeten_lebensmittelkontaktmaterialien_kunststoff.htm), [Röchling zu PE-Schneidplatten](https://www.roechling.com/de/industrial/produkte/thermoplastische-fertigteile/hygiene-schneidplatten).
-- Englische sichtbare Wortzahl je Breite: 832–865; deutsche Wortzahl 771–783. Beide Sprachen auf allen fünf Breiten mit Bildladen, internem Produktfenster, Touch/Tastatur und simuliertem Fehler-/Erfolgsversand geprüft.
+- Englische sichtbare Wortzahl je Breite: 877–910; deutsche Wortzahl 807–819. Beide Sprachen auf allen fünf Breiten mit Bildladen, internem Produktfenster, Touch/Tastatur und simuliertem Fehler-/Erfolgsversand geprüft.
 - Indexierung erst nach Merge und erfolgreichem Deployment beantragen. Vorschau bleibt noindex.
+
+## 20. Transparente Konzept- und Planungskosten
+
+Owner-Freigabe: einmalig 150 € Endpreis, kein gesonderter Umsatzsteuerausweis. Keine ungeprüfte Angabe einer steuerrechtlichen Begründung.
+
+Die Gastronomie-Seiten in DE/EN und die Firmengeschenke-Seite enthalten einen kurzen Hinweis vor dem Formular und eine ausführliche FAQ mit synchronem Schema:
+- Anfrage und erste Kostenindikation anhand bestehender Produkte bleiben kostenlos.
+- Eine neue Konzeptentwicklung erfordert vor Beginn eine gesonderte Freigabe von Leistungsumfang und Kosten.
+- Bei anschließender Fertigungsbeauftragung desselben Projekts wird die Pauschale vollständig auf die Rechnung angerechnet.
+- Ohne Fertigungsauftrag bleibt sie die Vergütung für die vereinbarte Konzeptarbeit.
+- Das Absenden des Formulars beauftragt keine kostenpflichtige Planung; kein Zahlungsfeld, kein automatischer Gebühreneinzug.
+- Der bestehende B2B-Migrationsschutz erlaubt ausschließlich diese freigegebenen Ergänzungen zusätzlich zum Gastro-Verweis.
+- Auf der Firmengeschenke-Seite existiert bisher keine eigene englische Route; die vorhandene englische Gastronomie-Seite ist vollständig angepasst.
