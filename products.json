@@ -3212,11 +3212,6 @@
           "id": "product",
           "label": "1 Walnuss-Stirnholzbrett mit Saftrille",
           "labelEn": "1 walnut end-grain board with juice groove"
-        },
-        {
-          "id": "card",
-          "label": "Persönlich adressierte Karte",
-          "labelEn": "Personally addressed card"
         }
       ]
     },
@@ -4486,7 +4481,19 @@
       "deliveryDays": "laut Etsy",
       "availabilityStatus": "available",
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/erbstueck-no-004-eiche-buche-4370769708/"
+      "productPath": "/produkte/erbstueck-no-004-eiche-buche-4370769708/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Erbstück in der gewählten Ausführung",
+          "labelEn": "1 Erbstück board in your chosen version"
+        },
+        {
+          "id": "card",
+          "label": "Persönlich adressierte Karte",
+          "labelEn": "Personally addressed card"
+        }
+      ]
     },
     {
       "id": "etsy-4599650982",
@@ -4700,7 +4707,19 @@
       "titleVerifiedAt": "2026-10-26",
       "productPath": "/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
       "includesMatchingHolder": true,
-      "includesCareBalm": true
+      "includesCareBalm": true,
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Erbstück in der gewählten Ausführung",
+          "labelEn": "1 Erbstück board in your chosen version"
+        },
+        {
+          "id": "card",
+          "label": "Persönlich adressierte Karte",
+          "labelEn": "Personally addressed card"
+        }
+      ]
     }
   ]
 }

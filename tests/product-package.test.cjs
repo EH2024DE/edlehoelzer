@@ -32,7 +32,11 @@ test('verified walnut and Erbstueck packages include stand, balm and instruction
     const result=ids(id);
     for(const item of ['holder','careBalm','careGuide']) assert.ok(result.includes(item),id+':'+item);
   }
-  assert.ok(ids('1850610674').includes('card'));
+  assert.ok(!ids('1850610674').includes('card'));
+});
+test('personally addressed cards belong exclusively to Erbstueck packages',()=>{
+  const heirlooms=['4370769708','4598989614'];
+  for(const product of data.products) assert.equal(ids(product.listingId).includes('card'),heirlooms.includes(product.listingId),product.id);
 });
 test('optional balm and order thresholds update contents without adding unselected accessories',()=>{
   assert.ok(!ids('4522458953').includes('careBalm'));

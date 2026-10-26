@@ -194,7 +194,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-product-decision-r3";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-erbstueck-card-r4";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";

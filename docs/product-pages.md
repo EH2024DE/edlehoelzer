@@ -14,6 +14,8 @@ The purchase panel now prioritises price, plain specification rows, configuratio
 
 `productPackageItems()` is shared by static generation and the interactive page. Explicit `packageContents` entries reflect checked Etsy descriptions, while existing purchase rules add applicable balm/stand entitlements. Selected balm and threshold changes update the list alongside the price. Do not infer a cloth or stand just because it appears in a photograph. Six coasters plus holder and three serving boards plus stand are distinct from the single sword-shaped serving board. The walnut board 1850610674 and Erbstueck family 4598989614 explicitly include stand and balm even below the general stand threshold. No origin card is promised without product-level confirmation.
 
+Owner clarification: personally addressed cards are exclusive to Erbstueck products (4370769708 and 4598989614), not the walnut board. This takes precedence over the earlier Etsy wording. A personally addressed card is not an unconditional promise of a wooden origin card.
+
 ## Etsy Check, 2026-10-26
 
 The read-only active-listing snapshot contained 40 listings, all mapped to the catalog. Twenty-four current titles differed and were adopted as German page titles. Short card labels and archived/sold baseline data were preserved. The combined handled board starts at EUR 254.99 (beech), EUR 274.99 (tropical hardwood), EUR 284.99 (oak); optional groove adds EUR 15. The visible Etsy selectors confirmed these prices. Coasters start at EUR 39.99. No Etsy listings were modified. The local API snapshot and credentials must not be committed.
