@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="/styles.css?v=20261023-erbstueck-series">
   <link rel="stylesheet" href="/assets/css/page-summary.css">
   <link rel="stylesheet" href="/assets/css/board-inquiry.css">
-  <link rel="stylesheet" href="/assets/css/gastronomie.css?v=20261026-kompakt">
+  <link rel="stylesheet" href="/assets/css/gastronomie.css?v=20261026-bilder-anfrage">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,7 +29,7 @@
       {"@type":"WebPage","@id":"https://edlehoelzer.de/schneidebretter-gastronomie/#webpage","url":"https://edlehoelzer.de/schneidebretter-gastronomie/","name":"Schneidebretter & Holzlösungen für Gastronomie | Edle Hölzer","description":"Individuelle Schneide- und Servierbretter aus Massivholz für Restaurants und Hotels. Maß, Logo, Saftrille und kompakte Holzlösungen aus Mittelhessen.","inLanguage":"de","isPartOf":{"@type":"WebSite","name":"Edle Hölzer","url":"https://edlehoelzer.de/"},"breadcrumb":{"@id":"https://edlehoelzer.de/schneidebretter-gastronomie/#breadcrumb"}},
       {"@type":"BreadcrumbList","@id":"https://edlehoelzer.de/schneidebretter-gastronomie/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Startseite","item":"https://edlehoelzer.de/"},{"@type":"ListItem","position":2,"name":"Schneidebretter für Gastronomie","item":"https://edlehoelzer.de/schneidebretter-gastronomie/"}]},
       {"@type":"FAQPage","@id":"https://edlehoelzer.de/schneidebretter-gastronomie/#faq","mainEntity":[
-        {"@type":"Question","name":"Fertigt ihr auch Produkte außerhalb klassischer Schneidebretter?","acceptedAnswer":{"@type":"Answer","text":"Ja, sofern Produktgröße, Material, Konstruktion und Nutzung zu unserer Werkstatt passen. Kompakte Holzlösungen prüfen wir vorab; Möbelbau und Innenausbau gehören nicht zu diesem Angebot."}},
+        {"@type":"Question","name":"Fertigt ihr auch Produkte außerhalb klassischer Schneidebretter?","acceptedAnswer":{"@type":"Answer","text":"Ja. Frühstücks-, Brunch- und Serviertabletts können wir individuell gestalten. Auch bestimmte Umbaumaßnahmen im Innenausbau sind nach gemeinsamer Abstimmung möglich. Umfang, Material, Budget und Machbarkeit klären wir vorab."}},
         {"@type":"Question","name":"Sind kleine Stückzahlen möglich?","acceptedAnswer":{"@type":"Answer","text":"Ja. Einzelstücke und Serien bis zu 100 Exemplaren sind möglich. Ausführung, Stückpreis und Liefertermin stimmen wir passend zu eurem Projekt und Budget ab."}},
         {"@type":"Question","name":"Sind Sondermaße möglich?","acceptedAnswer":{"@type":"Answer","text":"Ja, wenn Format und Aufbau für die geplante Nutzung technisch sinnvoll sind. Maße, Stärke, Gewicht und Handhabung stimmen wir vor der Fertigung ab."}},
         {"@type":"Question","name":"Kann unser Logo graviert werden?","acceptedAnswer":{"@type":"Answer","text":"Je nach Produkt und Motiv ist eine Logo-Gravur möglich. Größe, Position und Lesbarkeit prüfen wir auf dem gewählten Holz, bevor ihr die Ausführung freigebt."}},
@@ -41,7 +41,7 @@
   <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
   <script src="/assets/js/page-summary.js" defer></script>
   <script src="/assets/js/board-inquiry.js" defer></script>
-  <script src="/assets/js/gastronomie.js?v=20261026-kompakt" defer></script>
+  <script src="/assets/js/gastronomie.js?v=20261026-bilder-anfrage" defer></script>
 </head>
 <body class="gastroPage">
 <a class="gastroSkip" href="#gastro-inhalt">Zum Inhalt</a>
@@ -115,11 +115,6 @@
           <p>Holzuntersetzer und kompakte Präsentationsflächen für Café, Hotel und Service. Eigene Formen prüfen wir projektbezogen.</p>
         </article>
       </div>
-      <div class="gastroCarouselNav" data-carousel-controls="gastro-solutions">
-        <button type="button" data-carousel-prev aria-controls="gastro-solutions" aria-label="Vorherige Auswahl" title="Vorherige Auswahl"><img src="/assets/icons/lucide/chevron-left.svg" alt="" width="20" height="20" loading="eager" decoding="async"></button>
-        <span data-carousel-position aria-live="polite" aria-atomic="true">1 / 4</span>
-        <button type="button" data-carousel-next aria-controls="gastro-solutions" aria-label="Nächste Auswahl" title="Nächste Auswahl"><img src="/assets/icons/lucide/chevron-right.svg" alt="" width="20" height="20" loading="eager" decoding="async"></button>
-      </div>
     </div>
   </section>
 
@@ -145,9 +140,11 @@
         </div>
         <label>Unternehmen / Restaurant / Hotel (optional)<input name="company" autocomplete="organization" maxlength="120"></label>
         <div class="boardInquiry__fields">
-          <label>Produktidee<select name="product_idea"><option value="noch offen">Noch offen</option><option>Steak-/Tranchierbrett</option><option>Servierbrett</option><option>Kaffee-/Espressobrett</option><option>Untersetzer / kleine Holzlösung</option><option>Individuelle Sonderlösung</option></select></label>
+          <label>Produktidee<select name="product_idea"><option value="noch offen">Noch offen</option><option>Steak-/Tranchierbrett</option><option>Servierbrett</option><option>Frühstücks-, Brunch- oder Serviertablett</option><option>Kaffee-/Espressobrett</option><option>Untersetzer / kleine Holzlösung</option><option>Individuelle Sonderlösung</option></select></label>
           <label>Ungefähre Stückzahl<select name="quantity"><option value="noch offen">Noch offen</option><option>1–5</option><option>6–15</option><option>16–30</option><option>31–50</option><option>51–100</option></select></label>
         </div>
+        <div data-gastro-description-anchor></div>
+        <label data-gastro-description><span data-gastro-description-label>Beschreibung (Pflichtfeld)</span><textarea name="message" maxlength="3000" required aria-describedby="gastro-description-help" placeholder="Was soll die Lösung in eurem Betrieb leisten?"></textarea><span id="gastro-description-help" class="gastroBudgetHelp">Beschreibt kurz eure Idee oder den Einsatzzweck, damit wir einschätzen können, was ihr braucht.</span></label>
         <div class="boardInquiry__fields gastroBudgetFields">
           <label>Budgetrahmen (Pflichtfeld)<input name="budget" required maxlength="120" placeholder="z. B. 40–60 €" aria-describedby="budget-help"></label>
           <label>Budget gilt für (Pflichtfeld)<select name="budget_basis" required aria-describedby="budget-help"><option value="">Bitte wählen</option><option value="pro Stück">Pro Stück</option><option value="Gesamtprojekt">Gesamtprojekt</option></select></label>
@@ -159,7 +156,7 @@
           <label>Gravur / Logo<select name="engraving"><option value="">Noch offen</option><option>Logo oder Name gewünscht</option><option>Ohne Gravur</option></select></label>
           <label>Wunschtermin<input name="timing" maxlength="100" placeholder="Datum oder Zeitraum"></label>
           <label>Telefon<input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40"></label>
-        </div><label>Beschreibung / Nachricht<textarea name="message" maxlength="3000" placeholder="Was soll die Lösung in eurem Betrieb leisten?"></textarea></label><p>Skizzen, Fotos oder ein Logo könnt ihr uns anschließend per E-Mail schicken.</p></details>
+        </div><div data-gastro-optional-message></div><p>Skizzen, Fotos oder ein Logo könnt ihr uns anschließend per E-Mail schicken.</p></details>
         <p>Wir verwenden eure Angaben zur Bearbeitung der Anfrage. Informationen zur Verarbeitung durch Formspree stehen in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
         <button type="submit" class="btn btn--emphasis">Gastro-Projekt anfragen</button>
         <p role="status" aria-live="polite" tabindex="-1"></p>
@@ -172,11 +169,6 @@
     <div class="container">
       <div class="sectionIntro"><p class="eyebrow eyebrow--dark">Einzelangebote als Referenz</p><h2 id="portfolio-title">Bretter als Ausgangspunkt.</h2><p>Die angezeigten Preise gelten für die jeweiligen Einzelangebote. Für mehrere Exemplare kalkulieren wir einen eigenen, mengenabhängigen Stückpreis. Maß, Holz und Details können wir auf euer Projekt abstimmen.</p></div>
       <div id="products-gastro" class="landingProductGrid" data-gastro-carousel role="region" aria-label="Referenzprodukte" tabindex="0"></div>
-      <div class="gastroCarouselNav" data-carousel-controls="products-gastro">
-        <button type="button" data-carousel-prev aria-controls="products-gastro" aria-label="Vorherige Auswahl" title="Vorherige Auswahl"><img src="/assets/icons/lucide/chevron-left.svg" alt="" width="20" height="20" loading="eager" decoding="async"></button>
-        <span data-carousel-position aria-live="polite" aria-atomic="true">1 / 4</span>
-        <button type="button" data-carousel-next aria-controls="products-gastro" aria-label="Nächste Auswahl" title="Nächste Auswahl"><img src="/assets/icons/lucide/chevron-right.svg" alt="" width="20" height="20" loading="eager" decoding="async"></button>
-      </div>
       <noscript><p>Die Produktansichten benötigen JavaScript. Im <a href="/produkte.html">aktuellen Sortiment</a> findest du weitere Bretter; eine Sonderausführung kannst du über das Formular anfragen.</p></noscript>
       <div class="ctaRow"><a href="/produkte.html" class="btn btn--ghost-dark" data-umami-event="gastro_portfolio_open">Aktuelles Sortiment ansehen</a><a href="/schneidebrett-nach-mass/" class="textLink" data-umami-event="gastro_custom_solution_open">Schneidebrett nach Maß</a></div>
     </div>
@@ -184,7 +176,7 @@
 
   <section id="sonderloesungen" class="section gastroFeasibility" aria-labelledby="feasibility-title">
     <div class="container gastroSplit">
-      <div><p class="eyebrow">Nach eurem Einsatz gefertigt</p><h2 id="feasibility-title">Eure Idee. Handwerklich geprüft.</h2><p>Maße, Stärke, Holzart, Kanten, Griffmulden oder Aussparungen stimmen wir auf die Nutzung ab. Mehr zur <a href="/schneidebrett-saftrille/">Saftrille</a> und <a href="/schneidebrett-mit-gravur/">Logo-Gravur</a>.</p><p>Auch kompakte Sonderlösungen prüfen wir. Möbelbau, Innenausbau und komplette Gastronomieausstattung sind nicht Teil dieses Angebots.</p></div>
+      <div><p class="eyebrow">Nach eurem Einsatz gefertigt</p><h2 id="feasibility-title">Eure Idee. Handwerklich geprüft.</h2><p>Maße, Stärke, Holzart, Kanten, Griffmulden oder Aussparungen stimmen wir auf die Nutzung ab. Mehr zur <a href="/schneidebrett-saftrille/">Saftrille</a> und <a href="/schneidebrett-mit-gravur/">Logo-Gravur</a>.</p><p>Frühstücks-, Brunch- und Serviertabletts gestalten wir nach euren Vorstellungen. Auch bestimmte Umbaumaßnahmen im Innenausbau sind nach Abstimmung möglich. Was zu eurem Projekt passt, prüfen wir gemeinsam.</p></div>
       <div><h3>Vor dem Angebot klären wir:</h3><ul class="gastroCheck"><li>Funktion, Format und geeignetes Material</li><li>Stückzahl und Fertigungsaufwand</li><li>Was im Budgetrahmen möglich ist</li><li>Ausführung und verbindlichen Liefertermin</li></ul><p>Wenn eine Idee nicht sinnvoll umsetzbar ist, sagen wir das offen.</p></div>
     </div>
   </section>
@@ -198,7 +190,7 @@
 
   <section id="faq" class="section section--white" aria-labelledby="faq-title">
     <div class="container"><h2 id="faq-title">Häufige Fragen</h2><div class="faqList">
-      <details class="faqItem"><summary>Fertigt ihr auch Produkte außerhalb klassischer Schneidebretter?</summary><p>Ja, sofern Produktgröße, Material, Konstruktion und Nutzung zu unserer Werkstatt passen. Kompakte Holzlösungen prüfen wir vorab; Möbelbau und Innenausbau gehören nicht zu diesem Angebot.</p></details>
+      <details class="faqItem"><summary>Fertigt ihr auch Produkte außerhalb klassischer Schneidebretter?</summary><p>Ja. Frühstücks-, Brunch- und Serviertabletts können wir individuell gestalten. Auch bestimmte Umbaumaßnahmen im Innenausbau sind nach gemeinsamer Abstimmung möglich. Umfang, Material, Budget und Machbarkeit klären wir vorab.</p></details>
       <details class="faqItem"><summary>Sind kleine Stückzahlen möglich?</summary><p>Ja. Einzelstücke und Serien bis zu 100 Exemplaren sind möglich. Ausführung, Stückpreis und Liefertermin stimmen wir passend zu eurem Projekt und Budget ab.</p></details>
       <details class="faqItem"><summary>Sind Sondermaße möglich?</summary><p>Ja, wenn Format und Aufbau für die geplante Nutzung technisch sinnvoll sind. Maße, Stärke, Gewicht und Handhabung stimmen wir vor der Fertigung ab.</p></details>
       <details class="faqItem"><summary>Kann unser Logo graviert werden?</summary><p>Je nach Produkt und Motiv ist eine Logo-Gravur möglich. Größe, Position und Lesbarkeit prüfen wir auf dem gewählten Holz, bevor ihr die Ausführung freigebt.</p></details>

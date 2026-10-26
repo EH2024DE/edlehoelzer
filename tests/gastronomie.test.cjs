@@ -60,7 +60,9 @@ test('concept labels prevent invented inventory and unnecessary production image
   assert.match(html, /kein Espresso-Serienprodukt/);
   assert.doesNotMatch(html, /holzbrett-kanten-fraesen|id="planung"/);
   assert.doesNotMatch(html, /Burg Hotel|Stauffenberg|Referenzkunde|HACCP-konform|kostenlose Vor-Ort|erfolgreich umgesetzt für|Wir bauen alles/i);
-  assert.match(html, /Möbelbau, Innenausbau und komplette Gastronomieausstattung sind nicht Teil dieses Angebots/);
+  assert.match(html, /bestimmte Umbaumaßnahmen im Innenausbau sind nach Abstimmung möglich/);
+  assert.match(html, /Frühstücks-, Brunch- und Serviertabletts/);
+  assert.doesNotMatch(html, /data-carousel-(controls|position)/);
 });
 test('inquiry reuses shared Formspree handler, accessible labels and optional details', () => {
   assert.match(html, /form data-board-inquiry action="https:\/\/formspree.io\/f\/maqanpld" method="POST"/);
@@ -71,7 +73,9 @@ test('inquiry reuses shared Formspree handler, accessible labels and optional de
   assert.match(html, /name="budget_basis" required/);
   assert.match(html, /name="_gotcha" tabindex="-1" autocomplete="off"/);
   assert.match(html, /<summary>Weitere Angaben hinzufügen \(optional\)<\/summary>/);
-  assert.match(html, /<textarea name="message" maxlength="3000"/);
+  assert.match(html, /<textarea name="message" maxlength="3000" required/);
+  assert.equal((html.match(/name="message"/g) || []).length, 1);
+  assert.match(html, /data-gastro-optional-message/);
   assert.doesNotMatch(html, /type="file"/);
   for (const field of ['company', 'product_idea', 'quantity', 'dimensions', 'wood', 'engraving', 'timing', 'budget', 'phone', 'message', 'reference']) assert.ok(html.includes(`name="${field}"`), field);
   assert.match(html, /role="status" aria-live="polite" tabindex="-1"/);

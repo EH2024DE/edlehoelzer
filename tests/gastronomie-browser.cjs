@@ -34,19 +34,27 @@ fs.mkdirSync(output, {recursive: true});
       assert.ok(heroBottom < 1000 - 40, 'Next section remains visible');
       const initialWords = (await page.locator('main').innerText()).trim().split(/\s+/).length;
       assert.ok(await page.locator('#anfrage').evaluate(node => node.offsetTop < document.querySelector('#sortiment').offsetTop));
+      assert.equal(await page.locator('[data-carousel-controls], [data-carousel-position]').count(), 0);
+      for (const image of await page.locator('.gastroSolutions img').all()) {
+        const box = await image.boundingBox();
+        assert.ok(Math.abs(box.width - box.height) < 1, 'Square use-case images');
+        assert.equal(await image.evaluate(node => getComputedStyle(node).objectFit), 'cover');
+      }
       if (width <= 700) {
         for (const id of ['gastro-solutions', 'products-gastro']) {
           const track = page.locator('#' + id);
-          const controls = page.locator(`[data-carousel-controls="${id}"]`);
           await track.evaluate(node => node.scrollTo({left: 0, behavior: 'instant'}));
-          await controls.locator('[data-carousel-next]').click();
-          await page.waitForFunction(id => document.querySelector(`[data-carousel-controls="${id}"] [data-carousel-position]`).textContent === '2 / 4', id);
           await track.focus();
+          await page.keyboard.press('ArrowRight');
+          await page.waitForFunction(id => document.getElementById(id).scrollLeft > 100, id);
+
           await page.keyboard.press('End');
-          await page.waitForFunction(id => document.querySelector(`[data-carousel-controls="${id}"] [data-carousel-position]`).textContent === '4 / 4', id);
-          assert.equal(await controls.locator('[data-carousel-next]').isDisabled(), true);
+          await page.waitForFunction(id => {
+            const node = document.getElementById(id);
+            return node.scrollLeft >= node.scrollWidth - node.clientWidth - 1;
+          }, id);
           await page.keyboard.press('Home');
-          await page.waitForFunction(id => document.querySelector(`[data-carousel-controls="${id}"] [data-carousel-position]`).textContent === '1 / 4', id);
+          await page.waitForFunction(id => document.getElementById(id).scrollLeft < 1, id);
         }
         const track = page.locator('#gastro-solutions');
         await track.evaluate(node => node.scrollTo({left: 0, behavior: 'instant'}));
@@ -101,7 +109,20 @@ fs.mkdirSync(output, {recursive: true});
       await form.locator('[name="budget"]').fill('40–60 €');
       assert.equal(await form.evaluate(node => node.checkValidity()), false, 'Budget basis must be explicit');
       await form.locator('[name="budget_basis"]').selectOption('pro Stück');
+      assert.equal(await form.evaluate(node => node.checkValidity()), false, 'Open idea needs a description');
+      const message = form.locator('[name="message"]');
+      assert.ok(await message.isVisible());
+      await form.locator('[name="product_idea"]').selectOption('Servierbrett');
+      assert.equal(await message.evaluate(node => node.required), false);
       assert.equal(await form.evaluate(node => node.checkValidity()), true);
+      await form.locator('[name="product_idea"]').selectOption('Individuelle Sonderlösung');
+      assert.ok(await message.isVisible());
+      assert.equal(await form.evaluate(node => node.checkValidity()), false);
+      await message.fill('Zwischengespeicherte Idee');
+      await form.locator('[name="product_idea"]').selectOption('Servierbrett');
+      await form.locator('[name="product_idea"]').selectOption('noch offen');
+      assert.equal(await message.inputValue(), 'Zwischengespeicherte Idee');
+      assert.equal(await message.evaluate(node => node.required), true);
       await page.keyboard.press('Tab');
       await form.locator('summary').focus();
       assert.notEqual(await form.locator('summary').evaluate(node => getComputedStyle(node).outlineStyle), 'none');
@@ -122,6 +143,9 @@ fs.mkdirSync(output, {recursive: true});
       assert.equal(await form.locator('[name="message"]').inputValue(), 'Bitte Machbarkeit eines Servierbretts prüfen.');
       await form.locator('[type="submit"]').click();
       await page.waitForFunction(() => document.querySelector('[data-board-inquiry] [role="status"]').textContent.includes('Danke!'));
+      await page.waitForFunction(() => document.querySelector('[name="message"]').required && !document.querySelector('[name="message"]').closest('details'));
+      assert.ok(await message.isVisible());
+      assert.equal(await message.inputValue(), '');
       assert.equal(attempts, 2);
       assert.ok(body.includes('Gastronomie-Projektanfrage'));
       assert.ok(body.includes('40–60 €'));

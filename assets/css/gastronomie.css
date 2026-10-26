@@ -30,7 +30,7 @@
 .gastroPage .pageSummary dl{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .gastroSolutions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .gastroSolutions article{min-width:0}
-.gastroSolutions img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#f4f4f2;display:block;border-radius:4px}
+.gastroSolutions img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;background:#f4f4f2;display:block;border-radius:4px}
 .gastroSolutions h3{margin:18px 0 10px}
 .gastroSolutions p{font-size:15px;margin:10px 0 0}
 .gastroSolutions .gastroDetail{font-size:13px;color:#5b5149}
@@ -66,7 +66,6 @@
 .gastroPricing h2{margin-bottom:0}
 .gastroPricing p:first-child{margin-top:0}
 .gastroBudgetHelp{font-size:14px;color:#544b43;margin-top:0}
-.gastroCarouselNav{display:none}
 .gastroPage .boardInquiry{background:#faf8f5}
 .gastroFeasibility{background:var(--ink-warm)}
 .gastroFeasibility a:not(.btn){color:#fff;text-decoration:underline;text-underline-offset:4px}
@@ -86,15 +85,9 @@
   .gastroSplit{grid-template-columns:1fr;gap:18px}
   .gastroPage .pageSummary dl{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
   .gastroPage .pageSummary :is(dt,dd){font-size:14px}
-  .gastroSolutions,.gastroPage #products-gastro{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:88%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding-bottom:12px;scrollbar-width:thin}
+  .gastroSolutions,.gastroPage #products-gastro{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:88%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;padding:0 0 12px;margin-inline:0;scrollbar-width:thin}
   .gastroSolutions>article,.gastroPage #products-gastro>article{scroll-snap-align:start}
-  .gastroSolutions img{aspect-ratio:4/3}
   .gastroSolutions h3{font-size:20px}
-  .gastroCarouselNav{display:flex;align-items:center;justify-content:flex-end;gap:16px;margin-top:10px}
-  .gastroCarouselNav button{display:grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid #a9937c;border-radius:4px;background:transparent;color:var(--ink);cursor:pointer}
-  .gastroCarouselNav button:disabled{opacity:.35;cursor:default}
-  .gastroCarouselNav button img{width:20px;height:20px}
-  .gastroCarouselNav span{min-width:40px;text-align:center;font-size:14px}
   .gastroWorkshop>img{height:220px}
   .gastroPage .boardInquiry{padding:32px 0}
   .gastroPage .boardInquiry .boardInquiry__fields{grid-template-columns:1fr;gap:0}

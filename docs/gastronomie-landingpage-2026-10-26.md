@@ -36,7 +36,7 @@ Eine H1. Die expliziten Begriffe „Schneidebretter“ und „Servierbretter“ 
 
 1. Kompakter Produktfoto-Hero mit H1 und zwei Einstiegen.
 2. Kurzantwort und vier kompakte „Auf einen Blick“-Punkte.
-3. Vier Einsatzbereiche: mobil natives Swipe-Raster mit Pfeilen, Positionsanzeige und Tastaturbedienung.
+3. Vier Einsatzbereiche: mobil natives Swipe-Raster ohne zusätzliche Zähler-/Pfeilleiste, weiterhin mit Tastaturbedienung.
 4. Mengen-/Preisorientierung vom Einzelstück bis zu 100 Exemplaren.
 5. Anfrageformular mit sichtbarem Pflichtbudget, noch vor den Referenzprodukten.
 6. Vier Einzelangebote als Preis- und Produktreferenz; mobil ebenfalls horizontal durchsehbar.
@@ -47,9 +47,11 @@ Kein separater Planungs-/Fräsabschnitt, kein zusätzlicher Standardwaren-, Anpa
 
 ## 6. Wortzahl
 
-730–748 zunächst sichtbare Wörter im Hauptinhalt einschließlich Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung, zuvor 1.025–1.037. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die zugängliche Textmenge. Navigation und Footer sind ausgeschlossen. Die mobile Swipe-Auswahl verkürzt zusätzlich die vertikale Strecke; eine Conversion-Wirkung wurde nicht gemessen.
+761–773 zunächst sichtbare Wörter im Hauptinhalt einschließlich bedingter Pflichtbeschreibung, Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung, ursprünglich 1.025–1.037. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die zugängliche Textmenge. Navigation und Footer sind ausgeschlossen. Die mobile Swipe-Auswahl verkürzt zusätzlich die vertikale Strecke; eine Conversion-Wirkung wurde nicht gemessen.
 
 ## 7. Bildaudit und Verwendung
+
+Einsatzbilder werden auf jeder Breite quadratisch und bildfüllend zugeschnitten (`object-fit: cover`). Referenzprodukte verwenden weiterhin die vorhandenen quadratischen Produktkarten. Hero und Werkstattmotiv behalten ihre eigenständigen Formate.
 
 Keine neuen Stock- oder generierten Bilder. Vorhandene lokale Fotografien und Bildmotive bestehender Katalogeinträge; bei den Lösungsbildern mit der bereits für Produktgalerien verwendeten 794-Pixel-Ableitung statt unnötig großer Originale. Keine neuen Bilddateien für die öffentliche Seite. Die Abnahme-Screenshots sind nur Dokumentation.
 
@@ -104,7 +106,9 @@ Direkt sichtbar: Name und E-Mail als Pflichtfelder; Unternehmen/Restaurant/Hotel
 
 Budgetrahmen und die Zuordnung „Pro Stück / Gesamtprojekt“ sind sichtbar und verpflichtend. Ein ungefährer Betrag oder Bereich reicht; beide Felder müssen vor dem Senden ausgefüllt sein. Das Budget soll die Machbarkeitsprüfung und Angebotskalkulation von Anfang an eingrenzen.
 
-Optionale Angaben in einem nativen, per Tastatur bedienbaren Accordion: Wunschmaß, Holzvorstellung, Gravur/Logo, Wunschtermin, Telefon, Beschreibung/Nachricht. Keine versteckte Pflichtangabe im Accordion.
+Bei „Noch offen“ und „Individuelle Sonderlösung“ ist eine Beschreibung direkt sichtbar und verpflichtend. Bei konkreten Produktideen wandert dasselbe Feld in den optionalen Bereich; Eingaben bleiben beim Wechsel erhalten. Ein Formular-Reset stellt den Pflichtzustand der Vorauswahl wieder her. Frühstücks-, Brunch- oder Serviertablett ist zusätzlich auswählbar.
+
+Optionale Angaben in einem nativen, per Tastatur bedienbaren Accordion: Wunschmaß, Holzvorstellung, Gravur/Logo, Wunschtermin und Telefon. Keine versteckte Pflichtangabe im Accordion.
 
 Bestehendes `data-board-inquiry`, `board-inquiry.css`, `board-inquiry.js` und Formspree-Ziel `maqanpld`; eigener Betreff „Gastronomie-Projektanfrage“. Honeypot, browserseitige E-Mail-Validierung, Versandstatus, Timeout, Fehlerhinweis und Erhalt der Eingaben bei Fehlern bleiben im vorhandenen Handler. Skizzen/Logos später per E-Mail, kein neues Uploadsystem. Datenschutzlink direkt am Formular. Keine Bestellung oder Lieferzusage durch Auswahl einer Stückzahl.
 
@@ -122,8 +126,8 @@ Zwei vorhandene Umami-Klickattribute für `gastro_portfolio_open` und `gastro_cu
 - Asset-Audit: 265 Medien, keine kritischen Befunde; 24 bestehende Hinweise außerhalb des Auftrags.
 - Browser: 375, 430, 768, 1024 und 1440 px; keine JavaScript-Fehler und kein horizontaler Overflow. Hero lässt den nächsten Abschnitt erkennen, alle verwendeten Bilder laden.
 - Produktfenster auf allen fünf Breiten geöffnet und geschlossen.
-- Form: Pflichtfelder, ungültige E-Mail, fehlendes Budget und fehlende Budgetbasis blockieren den Versand. Optionaler Bereich, Fehlerfall 503, Eingabeerhalt, Wiederholung, simulierte Erfolgsantwort, Fokus und Status geprüft. Budget und Basis sind im simulierten Formular-POST enthalten, nicht in Analytics. Kein echter Formspree-Post.
-- Mobile: echte Touch-Gesten über Chromium geprüft; beide horizontalen Auswahlen zusätzlich über Pfeile, Home/End und Tastatur geprüft. Keine automatische Wiedergabe oder Bewegung.
+- Form: Pflichtfelder, ungültige E-Mail, fehlendes Budget und fehlende Budgetbasis blockieren den Versand. Optionaler Bereich, Fehlerfall 503, Eingabeerhalt, Wiederholung, simulierte Erfolgsantwort, Fokus und Status geprüft. Bedingte Pflichtbeschreibung für offene Ideen und Sonderlösungen, optionaler Zustand für konkrete Produkte, Eingabeerhalt beim Wechsel und Reset geprüft. Budget und Basis sind im simulierten Formular-POST enthalten, nicht in Analytics. Kein echter Formspree-Post.
+- Mobile: echte Touch-Gesten über Chromium geprüft; beide horizontalen Auswahlen zusätzlich über Pfeiltasten und Home/End geprüft. Sichtbare Zähler und Pfeilleisten entfernt. Keine automatische Wiedergabe oder Bewegung.
 - FAQ per Tastatur geöffnet; Schema-Antworten stimmen mit der Seite überein. Kein manueller Screenreader- oder vollständiger assistiver Gerätetest.
 - Interne Ziele und lokale Bilder auf Existenz geprüft, externe Vorschau HTTP 200; `.git/config` extern HTTP 404.
 - `git diff --check`: bestanden.
@@ -166,4 +170,4 @@ Sachlich notwendige Überschneidung bei Maß/Gravur, aber keine Kopie bestehende
 
 ## 18. Bewusst nicht versprochene Sonderlösungen
 
-Kein Möbelbau, Innenausbau, Ladenbau, Holzbau, Großobjekt oder komplette Gastronomieausstattung. Keine beliebigen Holzprodukte, erfundenen Mindestmengen, automatischen Mengenrabatte, pauschalen Lieferfristen ohne Abstimmung, pauschale HACCP-Eignung, technische Zertifizierung oder formale Ingenieursleistung. Nicht jede Konstruktion, Aussparung oder Holzart wird automatisch empfohlen. Eine Idee kann nach Prüfung auch abgelehnt oder vereinfacht werden.
+Nach erneuter Owner-Abstimmung sind individuelle Frühstücks-, Brunch- und Serviertabletts sowie bestimmte Umbaumaßnahmen im Innenausbau möglich. Kein pauschales Versprechen für jede Innenausbau- oder Komplettausstattung; Umfang, Material, Budget und Machbarkeit werden projektbezogen abgestimmt. Keine beliebigen Holzprodukte, erfundenen Mindestmengen, automatischen Mengenrabatte, pauschalen Lieferfristen ohne Abstimmung, pauschale HACCP-Eignung, technische Zertifizierung oder formale Ingenieursleistung. Nicht jede Konstruktion, Aussparung oder Holzart wird automatisch empfohlen. Eine Idee kann nach Prüfung auch abgelehnt oder vereinfacht werden.
