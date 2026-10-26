@@ -122,6 +122,15 @@ var EdleProductCopy = (function () {
   return { text: text };
 }());
 
+function renderLegalGuaranteeNotice(english) {
+  var title = english ? 'Your statutory warranty rights' : 'Deine gesetzlichen Gewährleistungsrechte';
+  var image = '/assets/legal/eu-legal-guarantee-' + (english ? 'en' : 'de') + '.svg';
+  return '<details class="legalGuarantee"><summary>' + title + '</summary><figure>' +
+    '<a href="' + image + '" target="_blank" rel="noopener" aria-label="' + (english ? 'Open the full-size EU notice (new tab)' : 'EU-Hinweis in voller Größe öffnen (neuer Tab)') + '">' +
+    '<img src="' + image + '" width="595" height="842" loading="lazy" alt="' + (english ? 'Official EU notice on statutory warranty rights: at least two years for goods sold in the EU, remedies for faulty goods and how to exercise your rights.' : 'Offizieller EU-Hinweis zur gesetzlichen Gewährleistung: mindestens zwei Jahre für in der EU verkaufte Waren, Abhilfe bei mangelhaften Waren und Ausübung deiner Rechte.') + '"></a>' +
+    '<figcaption><a href="https://europa.eu/youreurope/' + (english ? 'guarantees' : 'garantien') + '">' + (english ? 'Read the EU information on your rights' : 'EU-Informationen zu deinen Rechten lesen') + '</a></figcaption></figure></details>';
+}
+
 function productPackageItems(product, rules, selection) {
   rules = rules || {};
   selection = selection || {};
@@ -194,7 +203,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-erbstueck-card-r4";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-care-guarantee-r5";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -1504,7 +1513,8 @@ function initProductExperience() {
     benefitBasis: "Based on goods value before shipping.",
     juiceGrooveOption: "Juice groove",
     engravingOption: "Engraving",
-    careBalmOption: "Edle Hölzer care balm · 10% off",
+    careBalmOption: "Add matching wood care",
+    careBalmOptionNote: "Our care balm for refreshing your wooden board. Ready to hand when the surface needs care again.",
     productWhatsappHint: "Still have a question about this product? Message us.",
     productWhatsappCta: "Ask via WhatsApp",
     mediaProof: "Real product photos",
@@ -1597,7 +1607,8 @@ function initProductExperience() {
     benefitBasis: "Maßgeblich ist der Warenwert ohne Versand.",
     juiceGrooveOption: "Saftrille",
     engravingOption: "Gravur",
-    careBalmOption: "Edle Hölzer Pflegebalsam · 10 % günstiger",
+    careBalmOption: "Die passende Pflege gleich dazu",
+    careBalmOptionNote: "Unser Pflegebalsam zum Nachpflegen deines Holzbretts. So hast du ihn zur Hand, wenn die Oberfläche wieder Pflege braucht.",
     productWhatsappHint: "Noch offene Fragen zu diesem Produkt? Schreib uns kurz.",
     productWhatsappCta: "Per WhatsApp klären",
     mediaProof: "Echte Produktbilder",
@@ -1953,6 +1964,7 @@ function initProductExperience() {
         renderPurchaseConfigurator(product) +
         '<section class="productPreview__package"><h3>' + (isEnglish ? 'Included with your selection' : 'Das ist dabei') + '</h3><ul data-product-package>' + renderPackageItems(product) + '</ul><p>' + escapeHtml(isEnglish ? 'Other products and decorative items shown in photos are not included.' : 'Weitere abgebildete Produkte und Dekoration sind nicht enthalten.') + '</p></section>' +
         renderEarlyPurchaseAction(product) +
+        renderLegalGuaranteeNotice(isEnglish) +
         (!hasEtsy ? '<p class="productCard__availability">' + escapeHtml(isEnglish ? (product.availabilityNoteEn || labels.unavailableText) : (product.availabilityNote || labels.unavailableText)) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + escapeHtml(labels.askSimilar) + '</a>' : '') +
         (product.category === 'board' && product.active !== false && String(product.listingId) !== '4440690649' && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt" data-enhanced="true"><p>' + (isEnglish ? 'See this board in your own kitchen before deciding.' : 'Sieh dir dieses Brett vor dem Kauf in deiner Küche an.') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
         '<div class="productPreview__actions">' + renderProductWhatsappPrompt(product, hasEtsy) + renderPreviewCompareControls(product, source || 'preview') + '</div>' +
@@ -3272,6 +3284,7 @@ function initProductExperience() {
         options.map(function (option) {
           var hidden = option.id === "careBalm" && careBalmIsIncluded(product);
           var optionCopy = '<span class="productPreview__optionCopy"><span>' + escapeHtml(option.label) + '</span>' +
+            (option.id === 'careBalm' ? '<small class="productPreview__optionNote">' + escapeHtml(labels.careBalmOptionNote) + '</small>' : '') +
             (Number.isFinite(option.regularPrice) ? '<small>' + escapeHtml(labels.regularPrice) + ' ' + escapeHtml(formatCurrency(option.regularPrice)) + '</small>' : "") +
           '</span>';
           return '<label class="productPreview__option"' + (hidden ? " hidden" : "") + ' data-purchase-option-row="' + escapeAttribute(option.id) + '"><input type="checkbox" data-purchase-option="' + escapeAttribute(option.id) + '" data-product-id="' + escapeAttribute(product.id) + '"' + (selection[option.id] ? " checked" : "") + '>' + optionCopy + '<strong>+ ' + escapeHtml(formatCurrency(option.price)) + '</strong></label>';

@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
 const source = fs.readFileSync(path.join(root, 'main.js'), 'utf8');
-const view = vm.runInNewContext(source.slice(0, source.indexOf('document.documentElement.classList')) + '\n({copy:EdleProductCopy, packageItems:productPackageItems})', { });
+const view = vm.runInNewContext(source.slice(0, source.indexOf('document.documentElement.classList')) + '\n({copy:EdleProductCopy, packageItems:productPackageItems, legalNotice:renderLegalGuaranteeNotice})', { });
 const copy = view.copy;
 const esc = value => String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const json = value => JSON.stringify(value).replace(/</g, '\\u003c');
@@ -55,7 +55,7 @@ for (const en of [false, true]) {
 <meta property="og:type" content="product"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${origin + url}"><meta property="og:image" content="${esc(p.image)}">
 <link rel="icon" href="/assets/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20261026-product-decision-r3">
+<link rel="stylesheet" href="/styles.css?v=20261026-care-guarantee-r5">
 <script type="application/ld+json">${json(schema)}</script>
 <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
 </head><body class="productDetailPage">
@@ -71,10 +71,11 @@ ${variantText}
 <section class="productPreview__package"><h2>${en ? 'Included with your selection' : 'Das ist dabei'}</h2><ul>${view.packageItems(p,data.purchaseRules).map(item=>'<li>'+esc(en ? item.labelEn : item.label)+'</li>').join('')}</ul><p>${en ? 'Other products and decorative items shown in photos are not included.' : 'Weitere abgebildete Produkte und Dekoration sind nicht enthalten.'}</p></section>
 ${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.etsyUrl) + '" target="_blank" rel="noopener">' + (en ? 'Configure and buy on Etsy' : 'Auf Etsy konfigurieren und kaufen') + '</a>' : '<a class="btn btn--emphasis" href="' + (en ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + (en ? 'Request a similar piece' : 'Ähnliches Stück anfragen') + '</a>'}
 <details class="productPreview__detail"><summary>${en ? 'Material & craft' : 'Material & Handwerk'}</summary><p>${esc(description)}</p></details>
+${view.legalNotice(en)}
 </div></article></div>
 <section class="productDetail__browse"><h2>${en ? 'Find your next favourite' : 'Dein nächstes Lieblingsstück'}</h2><a href="${en ? '/en/products.html#produktfinder' : '/produkte.html#produktfinder'}">${en ? 'Explore the product finder' : 'Zum Produktfinder'}</a><details><summary>${en ? 'Browse all products' : 'Alle Produkte entdecken'}</summary><ul>${catalog.map(other => '<li><a href="' + (en ? '/en' : '') + other.productPath + '">' + esc(copy.text(other.displayName || other.name, en)) + '</a></li>').join('')}</ul></details></section>
 </main>${footer}
-<script src="/main.js?v=20261026-erbstueck-card-r4"></script>
+<script src="/main.js?v=20261026-care-guarantee-r5"></script>
 </body></html>\n`;
     const destination = path.join(root, url, 'index.html');
     fs.mkdirSync(path.dirname(destination), {recursive:true});
