@@ -6,9 +6,9 @@ Revision nach Owner-Sichtung: Waldgrün entfernt, Mokka/Elfenbein/warmes Schwarz
 
 ## 1. Finale URL und Freigabestatus
 
-Geplante Produktionsadresse: https://edlehoelzer.de/schneidebretter-gastronomie/
+Geplante Produktionsadresse: https://edlehoelzer.de/schneidebretter-aus-holz-gastronomie/
 
-Externe Sichtung: https://issue-identifier-reserve-drainage.trycloudflare.com/schneidebretter-gastronomie/
+Externe Sichtung: https://issue-identifier-reserve-drainage.trycloudflare.com/schneidebretter-aus-holz-gastronomie/
 
 Die Seite ist für die Veröffentlichung vorbereitet, aber noch nicht gemergt oder live veröffentlicht. Der temporäre Vorschau-Link setzt `X-Robots-Tag: noindex, nofollow`; Projektinterna sind gesperrt. In Produktion hat die Seite `index,follow` und einen selbstreferenziellen Canonical.
 
@@ -28,7 +28,7 @@ Die gewählte Variante enthält das vollständige Hauptwort „Schneidebretter�
 
 ## 4. H1
 
-`Individuelle Schneide-, Servier- und Holzlösungen für Gastronomie`
+`Individuelle Schneidebretter und Servierbretter aus Holz für die Gastronomie`
 
 Eine H1. Die expliziten Begriffe „Schneidebretter“ und „Servierbretter“ stehen zusätzlich im unmittelbar folgenden Antwort-/Introblock. Die ersten 120 Wörter decken Gastronomie, Restaurants, Hotels, Massivholz, individuelle Maße, Machbarkeit und Mittelhessen ab.
 
@@ -41,13 +41,13 @@ Eine H1. Die expliziten Begriffe „Schneidebretter“ und „Servierbretter“ 
 5. Anfrageformular mit sichtbarem Pflichtbudget, noch vor den Referenzprodukten.
 6. Vier Einzelangebote als Preis- und Produktreferenz; mobil ebenfalls horizontal durchsehbar.
 7. Kurze Kompetenz-/Machbarkeitseinordnung und ein Werkstattabschnitt.
-8. Fünf synchronisierte, zugängliche FAQ.
+8. Sechs synchronisierte, zugängliche FAQ.
 
 Kein separater Planungs-/Fräsabschnitt, kein zusätzlicher Standardwaren-, Anpassungs- oder Ablaufblock. Die für die Entscheidung nötigen Punkte sind in Preisorientierung, Anfrage und Machbarkeit zusammengeführt.
 
 ## 6. Wortzahl
 
-761–773 zunächst sichtbare Wörter im Hauptinhalt einschließlich bedingter Pflichtbeschreibung, Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung, ursprünglich 1.025–1.037. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die zugängliche Textmenge. Navigation und Footer sind ausgeschlossen. Die mobile Swipe-Auswahl verkürzt zusätzlich die vertikale Strecke; eine Conversion-Wirkung wurde nicht gemessen.
+771–783 zunächst sichtbare Wörter im Hauptinhalt einschließlich bedingter Pflichtbeschreibung, Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung, ursprünglich 1.025–1.037. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die zugängliche Textmenge. Navigation und Footer sind ausgeschlossen. Die mobile Swipe-Auswahl verkürzt zusätzlich die vertikale Strecke; eine Conversion-Wirkung wurde nicht gemessen.
 
 ## 7. Bildaudit und Verwendung
 
@@ -94,11 +94,11 @@ Produkte, allgemeine Maßanfertigung, Saftrillen-Ratgeber, Gravur, Atelier, Firm
 
 ## 11. Sitemap
 
-Ein Eintrag in der bestehenden `sitemap.xml`, `lastmod` 2026-10-26. Keine zusätzliche XML-Sitemap. Themenübersicht und interne Suche ergänzt. Audit: 64 HTML-Dateien, 52 selbstkanonische indexierbare Seiten und 52 Sitemap-URLs.
+Zwei Einträge (DE/EN) in der bestehenden `sitemap.xml`, `lastmod` 2026-10-26. Keine zusätzliche XML-Sitemap. Themenübersicht und interne Suche ergänzt. Audit: 66 HTML-Dateien, 53 selbstkanonische indexierbare Seiten und 53 Sitemap-URLs.
 
 ## 12. Schema
 
-`WebPage`, `BreadcrumbList`, `FAQPage` mit fünf sichtbaren, inhaltlich identischen Fragen/Antworten. Zugeklappte Antworten sind über native `details` erreichbar. Kein Product-Schema, keine erfundenen Offers, Reviews oder Kundenreferenzen.
+`WebPage`, `BreadcrumbList`, `FAQPage` mit sechs sichtbaren, inhaltlich identischen Fragen/Antworten. Zugeklappte Antworten sind über native `details` erreichbar. Kein Product-Schema, keine erfundenen Offers, Reviews oder Kundenreferenzen.
 
 ## 13. Formularfelder und Übermittlung
 
@@ -114,17 +114,17 @@ Bestehendes `data-board-inquiry`, `board-inquiry.css`, `board-inquiry.js` und Fo
 
 ## 14. Analytics
 
-Bestehender Consent-Manager und `EdleAnalytics`; keine neue Tracking-Architektur. Standard-Seitenmessung nach vorhandener Einwilligung. Formularereignisse `inquiry_form_start`, `inquiry_form_submit`, `inquiry_form_success`, `inquiry_form_error`, zuordenbar über `source: /schneidebretter-gastronomie/` und `form_id: board_inquiry`. Submit ist der Versuch, Success die Bestätigung des Anbieters, nicht der Nachweis des E-Mail-Eingangs.
+Bestehender Consent-Manager und `EdleAnalytics`; keine neue Tracking-Architektur. Standard-Seitenmessung nach vorhandener Einwilligung. Formularereignisse `inquiry_form_start`, `inquiry_form_submit`, `inquiry_form_success`, `inquiry_form_error`, zuordenbar über `source: /schneidebretter-aus-holz-gastronomie/` und `form_id: board_inquiry`. Submit ist der Versuch, Success die Bestätigung des Anbieters, nicht der Nachweis des E-Mail-Eingangs.
 
 Zwei vorhandene Umami-Klickattribute für `gastro_portfolio_open` und `gastro_custom_solution_open`. Der Summary-CTA verwendet das vorhandene `summary_cta_click`. Keine separaten, doppelt gezählten `gastro_page_view`-/Submit-Ereignisse ergänzt. Formularinhalte, E-Mail, Budget oder Nachricht werden nicht als Analytics-Nutzlast versendet.
 
 ## 15. Tests und Screenshots
 
-- 84 JavaScript-Tests: 75 bestehende plus neun Gastronomie-Prüfungen.
+- 85 JavaScript-Tests: 75 bestehende plus zehn Gastronomie-Prüfungen.
 - 32 Python-Tests.
-- Indexierbarkeit und Zusammenfassungen: bestanden; Suchindex jetzt 44 Seiten.
+- Indexierbarkeit und Zusammenfassungen: bestanden; Suchindex jetzt 45 Seiten.
 - Asset-Audit: 265 Medien, keine kritischen Befunde; 24 bestehende Hinweise außerhalb des Auftrags.
-- Browser: 375, 430, 768, 1024 und 1440 px; keine JavaScript-Fehler und kein horizontaler Overflow. Hero lässt den nächsten Abschnitt erkennen, alle verwendeten Bilder laden.
+- Browser in DE und EN: 375, 430, 768, 1024 und 1440 px; keine JavaScript-Fehler und kein horizontaler Overflow. Hero lässt den nächsten Abschnitt erkennen, alle verwendeten Bilder laden.
 - Produktfenster auf allen fünf Breiten geöffnet und geschlossen.
 - Form: Pflichtfelder, ungültige E-Mail, fehlendes Budget und fehlende Budgetbasis blockieren den Versand. Optionaler Bereich, Fehlerfall 503, Eingabeerhalt, Wiederholung, simulierte Erfolgsantwort, Fokus und Status geprüft. Bedingte Pflichtbeschreibung für offene Ideen und Sonderlösungen, optionaler Zustand für konkrete Produkte, Eingabeerhalt beim Wechsel und Reset geprüft. Budget und Basis sind im simulierten Formular-POST enthalten, nicht in Analytics. Kein echter Formspree-Post.
 - Mobile: echte Touch-Gesten über Chromium geprüft; beide horizontalen Auswahlen zusätzlich über Pfeiltasten und Home/End geprüft. Sichtbare Zähler und Pfeilleisten entfernt. Keine automatische Wiedergabe oder Bewegung.
@@ -149,7 +149,7 @@ Screenshots (Navigation bei isolierten Abschnittsbildern nur für die Aufnahme a
 
 | Seite | Klarer Intent |
 | --- | --- |
-| `/schneidebretter-gastronomie/` | Nutzung in Restaurant/Hotel/Café, betriebliches Servierkonzept, kompakte projektbezogene Lösungen |
+| `/schneidebretter-aus-holz-gastronomie/` | Nutzung in Restaurant/Hotel/Café, betriebliches Servierkonzept, kompakte projektbezogene Lösungen |
 | `/handgefertigte-holzprodukte-fuer-unternehmen/` (`b2b.html` als Weiterleitung) | Firmengeschenke für Mitarbeiter, Kunden und Events |
 | `/schneidebrett-nach-mass/` | Allgemeine Maßanfertigung, vom privaten Servierbrett bis zur Küchenarbeitsfläche |
 | `/schneidebrett-mit-gravur/` | Motiv, Position und Machbarkeit einer Gravur |
@@ -171,3 +171,15 @@ Sachlich notwendige Überschneidung bei Maß/Gravur, aber keine Kopie bestehende
 ## 18. Bewusst nicht versprochene Sonderlösungen
 
 Nach erneuter Owner-Abstimmung sind individuelle Frühstücks-, Brunch- und Serviertabletts sowie bestimmte Umbaumaßnahmen im Innenausbau möglich. Kein pauschales Versprechen für jede Innenausbau- oder Komplettausstattung; Umfang, Material, Budget und Machbarkeit werden projektbezogen abgestimmt. Keine beliebigen Holzprodukte, erfundenen Mindestmengen, automatischen Mengenrabatte, pauschalen Lieferfristen ohne Abstimmung, pauschale HACCP-Eignung, technische Zertifizierung oder formale Ingenieursleistung. Nicht jede Konstruktion, Aussparung oder Holzart wird automatisch empfohlen. Eine Idee kann nach Prüfung auch abgelehnt oder vereinfacht werden.
+
+## 19. Abschluss: PE-Sonderlösung, englische Seite und finale Route
+
+- DE: https://edlehoelzer.de/schneidebretter-aus-holz-gastronomie/
+- EN: https://edlehoelzer.de/en/wooden-cutting-boards-for-restaurants/
+- Die alte deutsche Vorschau-Route leitet per HTML-Weiterleitung weiter (noindex, nicht in der Sitemap). Dies ist kein serverseitiger HTTP-301; die Route war bisher nicht veröffentlicht.
+- Vollständige englische Seite mit denselben sechs FAQ, Referenzprodukten und bedingter Pflichtbeschreibung. Gegenseitige hreflang- und sichtbare Sprachlinks. Bestehende weiterführende Fachseiten ohne englische Entsprechung bleiben deutsch verlinkt.
+- Formularstatus und Beschreibungstexte werden sprachabhängig ausgegeben; Produktkarten verwenden die bestehende Produktübersetzung.
+- PE 500 wird ausschließlich als auf Anfrage zu prüfende Sonderlösung beschrieben. Materialnachweise, vorgesehener Einsatz, Hygieneanforderungen und technische Umsetzbarkeit sind Voraussetzungen. Keine pauschale Zulassung, Zertifizierung oder Eignung für Dauerkontakt behauptet.
+- Grundlagen: [EU-Lebensmittelhygieneverordnung](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A02004R0852-20210324), [LGL zu Kunststoff-Konformität](https://www.lgl.bayern.de/lebensmittel/ueberwachung/et_schwerpunktaktivitaeten_lebensmittelkontaktmaterialien_kunststoff.htm), [Röchling zu PE-Schneidplatten](https://www.roechling.com/de/industrial/produkte/thermoplastische-fertigteile/hygiene-schneidplatten).
+- Englische sichtbare Wortzahl je Breite: 832–865; deutsche Wortzahl 771–783. Beide Sprachen auf allen fünf Breiten mit Bildladen, internem Produktfenster, Touch/Tastatur und simuliertem Fehler-/Erfolgsversand geprüft.
+- Indexierung erst nach Merge und erfolgreichem Deployment beantragen. Vorschau bleibt noindex.

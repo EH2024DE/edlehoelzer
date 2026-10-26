@@ -54,7 +54,7 @@ class ReleaseTests(phase3.Phase3Tests):
                 for tree in trees:
                     for entry in list(tree):
                         location = entry.find("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")
-                        if location is not None and location.text == "https://edlehoelzer.de/schneidebretter-gastronomie/":
+                        if location is not None and location.text in {"https://edlehoelzer.de/schneidebretter-aus-holz-gastronomie/", "https://edlehoelzer.de/en/wooden-cutting-boards-for-restaurants/"}:
                             tree.remove(entry)
                 current, before = (ET.tostring(tree) for tree in trees)
             self.assertEqual(current, before, path)

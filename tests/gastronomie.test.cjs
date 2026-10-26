@@ -4,9 +4,11 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = name => fs.readFileSync(path.join(root, name), 'utf8');
-const html = read('schneidebretter-gastronomie/index.html');
-const route = '/schneidebretter-gastronomie/';
+const html = read('schneidebretter-aus-holz-gastronomie/index.html');
+const route = '/schneidebretter-aus-holz-gastronomie/';
 const url = 'https://edlehoelzer.de' + route;
+const englishRoute = '/en/wooden-cutting-boards-for-restaurants/';
+const english = read(englishRoute + 'index.html');
 const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
 const decode = text => text.replace(/&amp;/g, '&').replace(/<[^>]+>/g, '').trim();
 
@@ -21,15 +23,15 @@ test('gastro page has one H1, indexable self canonical and focused metadata', ()
   const main = decode(html.split('<main id="gastro-inhalt">')[1]).split(/\s+/).slice(0, 120).join(' ');
   for (const phrase of ['Gastronomie', 'Restaurants', 'Hotels', 'Schneidebretter', 'Servierbretter', 'Massivholz', 'Maße', 'Machbarkeit', 'Mittelhessen']) assert.ok(main.includes(phrase), phrase);
 });
-test('WebPage, breadcrumb and five FAQ answers agree with visible content', () => {
+test('WebPage, breadcrumb and six FAQ answers agree with visible content', () => {
   assert.deepEqual(graph.map(item => item['@type']), ['WebPage', 'BreadcrumbList', 'FAQPage']);
   const breadcrumb = graph[1].itemListElement;
   assert.equal(breadcrumb.at(-1).item, url);
   assert.equal(breadcrumb.at(-1).position, 2);
   const faq = graph[2].mainEntity;
-  assert.equal(faq.length, 5);
+  assert.equal(faq.length, 6);
   const visible = [...html.matchAll(/<details class="faqItem"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
-  assert.equal(visible.length, 5);
+  assert.equal(visible.length, 6);
   for (const [index, item] of faq.entries()) {
     assert.equal(decode(visible[index][1]), item.name);
     assert.equal(decode(visible[index][2]), item.acceptedAnswer.text);
@@ -40,7 +42,7 @@ test('sitemap, topic overview, site search and contextual incoming links include
   assert.equal(read('sitemap.xml').split(`<loc>${url}</loc>`).length - 1, 1);
   assert.ok(JSON.parse(read('assets/search-pages.json')).some(page => page.url === route));
   for (const file of ['sitemap-uebersicht.html', 'handgefertigte-holzprodukte-fuer-unternehmen/index.html', 'schneidebrett-nach-mass/index.html', 'atelier/index.html']) assert.ok(read(file).includes(`href="${route}"`), file);
-  assert.ok(!read('b2b.html').includes('href="/schneidebretter-gastronomie/"'), 'Legacy B2B redirect stays a redirect');
+  assert.ok(!read('b2b.html').includes('href="/schneidebretter-aus-holz-gastronomie/"'), 'Legacy B2B redirect stays a redirect');
 });
 test('portfolio selection comes from four active available catalog records', () => {
   const ids = JSON.parse(html.match(/var gastroProductIds = (\[[^;]+\]);/)[1]);
@@ -109,4 +111,32 @@ test('image references use existing local files or exact catalog photos, not gen
     else assert.ok(fs.existsSync(path.join(root, match[1])), match[1]);
     for (const attribute of ['alt=', 'width=', 'height=']) assert.ok(match[0].includes(attribute), attribute);
   }
+});
+
+test('both languages expose reciprocal alternates, PE request wording and matching FAQ schema', () => {
+  for (const [source, pageRoute, language] of [[html, route, 'de'], [english, englishRoute, 'en']]) {
+    assert.ok(source.includes('<html lang="' + language + '">'));
+    assert.ok(source.includes('rel="canonical" href="https://edlehoelzer.de' + pageRoute + '"'));
+    for (const [lang, target] of [['de', route], ['en', englishRoute], ['x-default', route]]) {
+      assert.ok(source.includes('hreflang="' + lang + '" href="https://edlehoelzer.de' + target + '"'));
+    }
+    assert.equal(read('sitemap.xml').split('<loc>https://edlehoelzer.de' + pageRoute + '</loc>').length - 1, 1);
+    const schema = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
+    assert.equal(schema[0].inLanguage, language);
+    assert.equal(schema[0].url, 'https://edlehoelzer.de' + pageRoute);
+    const visible = [...source.matchAll(/<details class="faqItem"><summary>(.*?)<\/summary><p>(.*?)<\/p><\/details>/g)];
+    assert.equal(visible.length, 6);
+    schema[2].mainEntity.forEach((item, i) => {
+      assert.equal(decode(visible[i][1]), item.name);
+      assert.equal(decode(visible[i][2]), item.acceptedAnswer.text);
+    });
+    assert.match(schema[2].mainEntity.at(-1).acceptedAnswer.text, /PE 500/);
+    assert.doesNotMatch(schema[2].mainEntity.at(-1).acceptedAnswer.text, /HACCP|certified|zertifiziert|zugelassen/i);
+    assert.ok(JSON.parse(read('assets/search-pages.json')).some(page => page.url === pageRoute));
+  }
+  assert.match(html, /<h1[^>]*>Individuelle Schneidebretter und Servierbretter aus Holz für die Gastronomie<\/h1>/);
+  assert.match(english, /<h1[^>]*>Custom wooden cutting and serving boards for restaurants and hotels<\/h1>/);
+  assert.match(english, /Suitable material documentation and technical feasibility are prerequisites/);
+  assert.match(read('schneidebretter-gastronomie/index.html'), /http-equiv="refresh"/);
+  assert.ok(!read('sitemap.xml').includes('<loc>https://edlehoelzer.de/schneidebretter-gastronomie/</loc>'));
 });

@@ -32,7 +32,7 @@ test('moved B2B content preserves migration and only adds the approved gastro cr
     .replace('<h1>Firmengeschenke aus Holz mit Logo-Gravur</h1>', '<h1>Handgefertigte Holzprodukte für Unternehmen – individuell personalisierbar</h1>')
     .replace('Handgefertigte Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events. Wähle aus unserem Sortiment oder sprich mit uns über eine eigene Produktidee.', 'Mit deinem Logo, als abgestimmtes Geschenkset oder als Sonderanfertigung nach deiner Idee. Entdecke Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events.')
     .replaceAll('/erbstueck/', '/schneidebrett-fachwerk-eiche/');
-  const gastroLink = '<p>Du suchst Holzprodukte für Restaurant oder Hotel? <a class="b2b-text-link" href="/schneidebretter-gastronomie/">Lösungen für Gastronomie</a>.</p>';
+  const gastroLink = '<p>Du suchst Holzprodukte für Restaurant oder Hotel? <a class="b2b-text-link" href="/schneidebretter-aus-holz-gastronomie/">Lösungen für Gastronomie</a>.</p>';
   const current = read('handgefertigte-holzprodukte-fuer-unternehmen/index.html');
   assert.equal(current.split(gastroLink).length - 1, 1);
   assert.equal(current.replace(gastroLink, ''), expected);

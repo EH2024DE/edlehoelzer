@@ -25,6 +25,7 @@
       go(event.key === "Home" ? 0 : event.key === "End" ? slides().length - 1 : index + (event.key === "ArrowRight" ? 1 : -1));
     });
   });
+  var isEnglish = document.documentElement.lang === "en";
   var form = document.querySelector("[data-board-inquiry]");
   if (!form) return;
   var idea = form.elements.product_idea;
@@ -32,9 +33,9 @@
   var anchor = form.querySelector("[data-gastro-description-anchor]");
   var optional = form.querySelector("[data-gastro-optional-message]");
   function updateDescription() {
-    var required = ["noch offen", "Individuelle Sonderlösung"].includes(idea.value);
+    var required = ["noch offen", "Individuelle Sonderlösung", "undecided", "Bespoke solution"].includes(idea.value);
     form.elements.message.required = required;
-    description.querySelector("[data-gastro-description-label]").textContent = required ? "Beschreibung (Pflichtfeld)" : "Beschreibung / Nachricht (optional)";
+    description.querySelector("[data-gastro-description-label]").textContent = required ? (isEnglish ? "Description (required)" : "Beschreibung (Pflichtfeld)") : (isEnglish ? "Description / message (optional)" : "Beschreibung / Nachricht (optional)");
     document.getElementById("gastro-description-help").hidden = !required;
     if (required) anchor.after(description);
     else optional.append(description);
