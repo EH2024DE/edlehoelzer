@@ -2,6 +2,8 @@
 
 Stand: 26. Oktober 2026. Basis: `origin/main` bei `2c94c0e`. Umsetzung im bestehenden Checkout, eigener Branch `codex/gastronomie-landingpage`. Der separate Katalog-Entwurf aus PR #196 wurde nicht vorausgesetzt oder überschrieben.
 
+Revision nach Owner-Sichtung: Waldgrün entfernt, Mokka/Elfenbein/warmes Schwarz wieder aufgenommen. Das Grün hatte Werkstattmaschinen und Machbarkeit optisch verbunden, war aber keine notwendige Gastro-Farbwahl. Einsatzbereiche und Referenzprodukte sind mobil horizontal bedienbar; Anfrage und Pflichtbudget stehen deutlich früher. Der Fertigungs-/Planungsabschnitt mit Kantenfräserfoto und wiederholende Erklärblöcke wurden entfernt.
+
 ## 1. Finale URL und Freigabestatus
 
 Geplante Produktionsadresse: https://edlehoelzer.de/schneidebretter-gastronomie/
@@ -32,20 +34,20 @@ Eine H1. Die expliziten Begriffe „Schneidebretter“ und „Servierbretter“ 
 
 ## 5. Seitenstruktur
 
-1. Ungeframtes Produktfoto mit H1 und zwei Einstiegen.
-2. Eigenständig verständliche Kurzantwort und „Auf einen Blick“ mit vier Punkten.
-3. Vier bebilderte Lösungen: Steak/Tranchieren, Servieren/Brotzeit, Kaffee/Espresso als Konzept, Untersetzer/kleine Ablagen.
-4. Projektbezogene Sonderlösungen mit konkreten Machbarkeitsfragen.
-5. Steakbrett als Planungsbeispiel, illustriert mit einem tatsächlichen Fertigungsfoto.
-6. Einordnung von Maß, Material und Detail gegenüber Standardbedarf.
-7. Vier echte Sortimentseinträge mit bestehenden Produktfenstern.
-8. Anpassungsmöglichkeiten, Stückzahlen und Logo-Gravur.
-9. Werkstatt, Beratung in der Manufaktur und sekundärer Firmengeschenke-Verweis.
-10. Kurzer Ablauf, Anfrageformular und fünf Fragen/Antworten.
+1. Kompakter Produktfoto-Hero mit H1 und zwei Einstiegen.
+2. Kurzantwort und vier kompakte „Auf einen Blick“-Punkte.
+3. Vier Einsatzbereiche: mobil natives Swipe-Raster mit Pfeilen, Positionsanzeige und Tastaturbedienung.
+4. Mengen-/Preisorientierung vom Einzelstück bis zu 100 Exemplaren.
+5. Anfrageformular mit sichtbarem Pflichtbudget, noch vor den Referenzprodukten.
+6. Vier Einzelangebote als Preis- und Produktreferenz; mobil ebenfalls horizontal durchsehbar.
+7. Kurze Kompetenz-/Machbarkeitseinordnung und ein Werkstattabschnitt.
+8. Fünf synchronisierte, zugängliche FAQ.
+
+Kein separater Planungs-/Fräsabschnitt, kein zusätzlicher Standardwaren-, Anpassungs- oder Ablaufblock. Die für die Entscheidung nötigen Punkte sind in Preisorientierung, Anfrage und Machbarkeit zusammengeführt.
 
 ## 6. Wortzahl
 
-1.025–1.037 zunächst sichtbare Wörter im Hauptinhalt einschließlich Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die vollständig zugängliche Textmenge. Navigation und Footer sind bei dieser Zählung ausgeschlossen. Es wurde keine Textmenge künstlich ergänzt, um eine Mindestlänge zu erreichen.
+730–748 zunächst sichtbare Wörter im Hauptinhalt einschließlich Produktkarten und ihrer je Bildschirmbreite sichtbaren Mediensteuerung, zuvor 1.025–1.037. Zugeklappte FAQ-Antworten und optionale Formularangaben erhöhen die zugängliche Textmenge. Navigation und Footer sind ausgeschlossen. Die mobile Swipe-Auswahl verkürzt zusätzlich die vertikale Strecke; eine Conversion-Wirkung wurde nicht gemessen.
 
 ## 7. Bildaudit und Verwendung
 
@@ -58,7 +60,7 @@ Keine neuen Stock- oder generierten Bilder. Vorhandene lokale Fotografien und Bi
 | `assets/board_b2b-800.jpg`, 1200er Variante | Zwei schlichte Eichenbretter | Möglich | Ja | 1 bestehende HTML-Seite mit diesem Asset-Stamm | Servier-/Brotzeitbereich, als Formatbeispiel |
 | `products.json`, Listing `1827805914`, Bild `6893380866_am0z.jpg` | Kompaktes Frühstücksbrett aus Buche/Bambus | Nein | Als Ausgangspunkt | Bestehender Katalog | Kaffee-Konzept ausdrücklich als Formatbeispiel, kein fertiges Espressobrett |
 | `products.json`, Listing `1838851839`, Bild `7026139480_i63y.jpg` | Untersetzer-Sortiment mit Halter | Nein | Ja | Bestehender Katalog | Untersetzerbereich, keine zusätzliche Produktvielfalt erfunden |
-| `assets/holzbrett-kanten-fraesen-oberfraese.jpg` | Bearbeitung einer Brettkante | Nein | Fertigung | 1 bestehende HTML-Seite mit diesem Asset-Stamm | Planungsbereich, ausdrücklich kein Foto eines Gastro-Kundenprojekts |
+| `assets/holzbrett-kanten-fraesen-oberfraese.jpg` | Bearbeitung einer Brettkante | Nein | Fertigung | 1 bestehende HTML-Seite mit diesem Asset-Stamm | Nach Owner-Sichtung entfernt; nicht auf der Seite verwendet |
 | `assets/workshop1-800.jpg`, responsive Varianten | Formatkreissäge und Werkzeuge | Nein | Werkstatt | 4 bestehende HTML-Seiten mit diesem Asset-Stamm | Ein Werkstattbild, als Ausschnitt ohne unnötige Galerie |
 | `assets/hackblock.jpg` | Reales massives Stirnholzbrett | Möglich | Ja | Bestehende Hackblockseite | Geprüfte Alternative; kein weiteres wiederholtes Bild nötig |
 | `assets/barbecue-geschenk.jpg`, `Brotzeitbrett.jpg`, `Schneidebrett_Saftrille2.avif` | Inszenierungen mit Lebensmitteln | Nur nach Quellenklärung | Nur nach Quellenklärung | Je 2 / 1 / 2 bestehende HTML-Seiten mit Asset-Stamm | Nicht eingesetzt, da für diesen Auftrag keine gesicherte fotografische Herkunft aus den Dateien ableitbar war |
@@ -98,9 +100,11 @@ Ein Eintrag in der bestehenden `sitemap.xml`, `lastmod` 2026-10-26. Keine zusät
 
 ## 13. Formularfelder und Übermittlung
 
-Direkt sichtbar: Name und E-Mail als Pflichtfelder; Unternehmen/Restaurant/Hotel optional; Produktidee und ungefähre Stückzahl jeweils mit „Noch offen“ als Vorauswahl.
+Direkt sichtbar: Name und E-Mail als Pflichtfelder; Unternehmen/Restaurant/Hotel optional; Produktidee und ungefähre Stückzahl jeweils mit „Noch offen“ als Vorauswahl. Mengenoptionen bis 51–100 Exemplare.
 
-Optionale Angaben in einem nativen, per Tastatur bedienbaren Accordion: Wunschmaß, Holzvorstellung, Gravur/Logo, Wunschtermin, Budgetrahmen, Telefon, Beschreibung/Nachricht. Keine versteckte Pflichtangabe im Accordion.
+Budgetrahmen und die Zuordnung „Pro Stück / Gesamtprojekt“ sind sichtbar und verpflichtend. Ein ungefährer Betrag oder Bereich reicht; beide Felder müssen vor dem Senden ausgefüllt sein. Das Budget soll die Machbarkeitsprüfung und Angebotskalkulation von Anfang an eingrenzen.
+
+Optionale Angaben in einem nativen, per Tastatur bedienbaren Accordion: Wunschmaß, Holzvorstellung, Gravur/Logo, Wunschtermin, Telefon, Beschreibung/Nachricht. Keine versteckte Pflichtangabe im Accordion.
 
 Bestehendes `data-board-inquiry`, `board-inquiry.css`, `board-inquiry.js` und Formspree-Ziel `maqanpld`; eigener Betreff „Gastronomie-Projektanfrage“. Honeypot, browserseitige E-Mail-Validierung, Versandstatus, Timeout, Fehlerhinweis und Erhalt der Eingaben bei Fehlern bleiben im vorhandenen Handler. Skizzen/Logos später per E-Mail, kein neues Uploadsystem. Datenschutzlink direkt am Formular. Keine Bestellung oder Lieferzusage durch Auswahl einer Stückzahl.
 
@@ -112,13 +116,14 @@ Zwei vorhandene Umami-Klickattribute für `gastro_portfolio_open` und `gastro_cu
 
 ## 15. Tests und Screenshots
 
-- 83 JavaScript-Tests: 75 bestehende plus acht neue Gastronomie-Prüfungen.
+- 84 JavaScript-Tests: 75 bestehende plus neun Gastronomie-Prüfungen.
 - 32 Python-Tests.
 - Indexierbarkeit und Zusammenfassungen: bestanden; Suchindex jetzt 44 Seiten.
 - Asset-Audit: 265 Medien, keine kritischen Befunde; 24 bestehende Hinweise außerhalb des Auftrags.
 - Browser: 375, 430, 768, 1024 und 1440 px; keine JavaScript-Fehler und kein horizontaler Overflow. Hero lässt den nächsten Abschnitt erkennen, alle verwendeten Bilder laden.
 - Produktfenster auf allen fünf Breiten geöffnet und geschlossen.
-- Form: Pflichtfelder und ungültige E-Mail, optionaler Bereich, Fehlerfall 503, Erhalt der Eingaben, erneutes Senden, simulierte Erfolgsantwort, Fokus und Status geprüft. Kein echter Formspree-Post.
+- Form: Pflichtfelder, ungültige E-Mail, fehlendes Budget und fehlende Budgetbasis blockieren den Versand. Optionaler Bereich, Fehlerfall 503, Eingabeerhalt, Wiederholung, simulierte Erfolgsantwort, Fokus und Status geprüft. Budget und Basis sind im simulierten Formular-POST enthalten, nicht in Analytics. Kein echter Formspree-Post.
+- Mobile: echte Touch-Gesten über Chromium geprüft; beide horizontalen Auswahlen zusätzlich über Pfeile, Home/End und Tastatur geprüft. Keine automatische Wiedergabe oder Bewegung.
 - FAQ per Tastatur geöffnet; Schema-Antworten stimmen mit der Seite überein. Kein manueller Screenreader- oder vollständiger assistiver Gerätetest.
 - Interne Ziele und lokale Bilder auf Existenz geprüft, externe Vorschau HTTP 200; `.git/config` extern HTTP 404.
 - `git diff --check`: bestanden.
@@ -133,6 +138,7 @@ Screenshots (Navigation bei isolierten Abschnittsbildern nur für die Aufnahme a
 - [Desktop Sonderlösungen](release-evidence/2026-10-26-gastronomie/1440-feasibility.png)
 - [Desktop Formular](release-evidence/2026-10-26-gastronomie/1440-form.png)
 - [Mobile Hero](release-evidence/2026-10-26-gastronomie/375-hero.png)
+- [Mobile Einsatzbereiche als Swipe-Auswahl](release-evidence/2026-10-26-gastronomie/375-solutions.png)
 - [Mobile Formular](release-evidence/2026-10-26-gastronomie/375-form.png)
 
 ## 16. Kannibalisierungsbewertung
@@ -151,12 +157,13 @@ Sachlich notwendige Überschneidung bei Maß/Gravur, aber keine Kopie bestehende
 ## 17. Owner-Checks vor Freigabe
 
 - Seite, Bildausschnitte und Gastronomie-Positionierung final freigeben.
-- Für eine reale Projektgeschichte: Unterlagen/Fotos und Status bereitstellen. Bisher ist nur ein Planungsbeispiel veröffentlicht; kein Hotel-/Kundenname.
+- Eine konkrete Kundenanfrage und Nutzung wurden intern durch den Owner eingeordnet. Ohne ausdrückliche öffentliche Freigabe werden weder Name noch Angebots-/Budgetdetails dieses Betriebs veröffentlicht. Auf der Seite ist keine Kundengeschichte erfunden.
 - Vor-Ort-Beratung ist bewusst nicht zugesagt. Erst nach ausdrücklicher Freigabe ergänzen; auch dann nicht automatisch kostenlos.
 - Kaffee-/Espressobrett bleibt Konzept, bis ein reales Muster und dessen Einsatzrahmen vorliegen.
 - Tatsächliche neue Anfragen und Eingang im Postfach nach Freigabe separat prüfen; Simulation ersetzt keinen Zustelltest.
+- Vom Einzelstück bis zu 100 Exemplaren wurde durch den Owner bestätigt. Stückpreis wird je nach Menge, Ausführung und Aufwand kalkuliert; kein automatischer Prozentrabatt. Liefertermin wird vor der Freigabe verbindlich abgestimmt.
 - Die Entscheidung, ob und wie ein Brett im jeweiligen Betrieb eingesetzt wird, bleibt produkt- und einsatzbezogen abzustimmen. Keine pauschale Hygiene-/Zertifizierungszusage.
 
 ## 18. Bewusst nicht versprochene Sonderlösungen
 
-Kein Möbelbau, Innenausbau, Ladenbau, Holzbau, Großobjekt oder komplette Gastronomieausstattung. Keine beliebigen Holzprodukte, garantierten Mengen, Mindestmengen, verbindlichen Lieferfristen, pauschale HACCP-Eignung, technische Zertifizierung oder formale Ingenieursleistung. Nicht jede Konstruktion, Aussparung oder Holzart wird automatisch empfohlen. Eine Idee kann nach Prüfung auch abgelehnt oder vereinfacht werden.
+Kein Möbelbau, Innenausbau, Ladenbau, Holzbau, Großobjekt oder komplette Gastronomieausstattung. Keine beliebigen Holzprodukte, erfundenen Mindestmengen, automatischen Mengenrabatte, pauschalen Lieferfristen ohne Abstimmung, pauschale HACCP-Eignung, technische Zertifizierung oder formale Ingenieursleistung. Nicht jede Konstruktion, Aussparung oder Holzart wird automatisch empfohlen. Eine Idee kann nach Prüfung auch abgelehnt oder vereinfacht werden.

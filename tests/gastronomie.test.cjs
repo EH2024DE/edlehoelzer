@@ -55,11 +55,10 @@ test('portfolio selection comes from four active available catalog records', () 
   assert.match(html, /product\.availabilityStatus === "available"/);
   assert.match(html, /renderProductGrid\("products-gastro"/);
 });
-test('concept and planning labels prevent invented inventory and customer references', () => {
+test('concept labels prevent invented inventory and unnecessary production imagery', () => {
   assert.match(html, /Sonderanfertigung \/ Konzept/);
   assert.match(html, /kein Espresso-Serienprodukt/);
-  assert.match(html, /Planungsbeispiel · Steakbrett/);
-  assert.match(html, /kein Gastro-Kundenprojekt/);
+  assert.doesNotMatch(html, /holzbrett-kanten-fraesen|id="planung"/);
   assert.doesNotMatch(html, /Burg Hotel|Stauffenberg|Referenzkunde|HACCP-konform|kostenlose Vor-Ort|erfolgreich umgesetzt für|Wir bauen alles/i);
   assert.match(html, /Möbelbau, Innenausbau und komplette Gastronomieausstattung sind nicht Teil dieses Angebots/);
 });
@@ -68,6 +67,8 @@ test('inquiry reuses shared Formspree handler, accessible labels and optional de
   assert.ok(html.includes('/assets/js/board-inquiry.js'));
   assert.match(html, /name="email" required autocomplete="email"/);
   assert.match(html, /name="name" required autocomplete="name"/);
+  assert.match(html, /name="budget" required maxlength="120"/);
+  assert.match(html, /name="budget_basis" required/);
   assert.match(html, /name="_gotcha" tabindex="-1" autocomplete="off"/);
   assert.match(html, /<summary>Weitere Angaben hinzufügen \(optional\)<\/summary>/);
   assert.match(html, /<textarea name="message" maxlength="3000"/);
@@ -75,6 +76,20 @@ test('inquiry reuses shared Formspree handler, accessible labels and optional de
   for (const field of ['company', 'product_idea', 'quantity', 'dimensions', 'wood', 'engraving', 'timing', 'budget', 'phone', 'message', 'reference']) assert.ok(html.includes(`name="${field}"`), field);
   assert.match(html, /role="status" aria-live="polite" tabindex="-1"/);
   assert.match(html, /href="\/datenschutz.html"/);
+});
+test('compact page puts mandatory budget inquiry before reference products and explains quantity pricing', () => {
+  assert.ok(html.indexOf('id="loesungen"') < html.indexOf('id="projektpreis"'));
+  assert.ok(html.indexOf('id="projektpreis"') < html.indexOf('id="anfrage"'));
+  assert.ok(html.indexOf('id="anfrage"') < html.indexOf('id="sortiment"'));
+  const form = html.split('<form data-board-inquiry')[1].split('</form>')[0];
+  assert.ok(form.indexOf('name="budget"') < form.indexOf('<details>'));
+  assert.equal((form.match(/name="budget"/g) || []).length, 1);
+  assert.match(html, /Preise gelten für die jeweiligen Einzelangebote/);
+  assert.match(html, /mengenabhängigen Stückpreis/);
+  assert.match(html, /100 Exemplaren/);
+  assert.match(form, /51–100/);
+  assert.match(html, /data-gastro-carousel/);
+  assert.ok(!read('assets/css/gastronomie.css').includes('#244c40'));
 });
 test('outgoing product, custom, groove, engraving and workshop paths are real', () => {
   for (const target of ['/produkte.html', '/schneidebrett-nach-mass/', '/schneidebrett-saftrille/', '/schneidebrett-mit-gravur/', '/atelier/']) {

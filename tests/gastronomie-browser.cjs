@@ -10,7 +10,7 @@ fs.mkdirSync(output, {recursive: true});
   const browser = await chromium.launch({headless: true, executablePath: process.env.CHROMIUM_PATH});
   try {
     for (const width of [375, 430, 768, 1024, 1440]) {
-      const page = await browser.newPage({viewport: {width, height: 1000}});
+      const page = await browser.newPage({viewport: {width, height: 1000}, hasTouch: width <= 700});
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       const response = await page.goto(base + '/schneidebretter-gastronomie/', {waitUntil: 'domcontentloaded'});
@@ -33,7 +33,51 @@ fs.mkdirSync(output, {recursive: true});
       const heroBottom = await page.locator('.gastroHero').evaluate(node => node.getBoundingClientRect().bottom);
       assert.ok(heroBottom < 1000 - 40, 'Next section remains visible');
       const initialWords = (await page.locator('main').innerText()).trim().split(/\s+/).length;
+      assert.ok(await page.locator('#anfrage').evaluate(node => node.offsetTop < document.querySelector('#sortiment').offsetTop));
+      if (width <= 700) {
+        for (const id of ['gastro-solutions', 'products-gastro']) {
+          const track = page.locator('#' + id);
+          const controls = page.locator(`[data-carousel-controls="${id}"]`);
+          await track.evaluate(node => node.scrollTo({left: 0, behavior: 'instant'}));
+          await controls.locator('[data-carousel-next]').click();
+          await page.waitForFunction(id => document.querySelector(`[data-carousel-controls="${id}"] [data-carousel-position]`).textContent === '2 / 4', id);
+          await track.focus();
+          await page.keyboard.press('End');
+          await page.waitForFunction(id => document.querySelector(`[data-carousel-controls="${id}"] [data-carousel-position]`).textContent === '4 / 4', id);
+          assert.equal(await controls.locator('[data-carousel-next]').isDisabled(), true);
+          await page.keyboard.press('Home');
+          await page.waitForFunction(id => document.querySelector(`[data-carousel-controls="${id}"] [data-carousel-position]`).textContent === '1 / 4', id);
+        }
+        const track = page.locator('#gastro-solutions');
+        await track.evaluate(node => node.scrollTo({left: 0, behavior: 'instant'}));
+        await page.waitForFunction(() => document.querySelector('#gastro-solutions').scrollLeft < 1);
+        await track.scrollIntoViewIfNeeded();
+        const box = await track.boundingBox();
+        const client = await page.context().newCDPSession(page);
+        const start = {x: Math.min(width - 30, box.x + box.width - 20), y: box.y + 100};
+        await client.send('Input.dispatchTouchEvent', {type: 'touchStart', touchPoints: [start]});
+        for (let step = 1; step <= 6; step++) {
+          await client.send('Input.dispatchTouchEvent', {type: 'touchMove', touchPoints: [{x: start.x - step * 40, y: start.y}]});
+          await page.waitForTimeout(25);
+        }
+        await client.send('Input.dispatchTouchEvent', {type: 'touchEnd', touchPoints: []});
+        await page.waitForFunction(() => document.querySelector('#gastro-solutions').scrollLeft > 100);
+        await client.detach();
+        await track.evaluate(node => new Promise(resolve => {
+          let last = node.scrollLeft, quiet = 0;
+          function settled() {
+            quiet = Math.abs(node.scrollLeft - last) < 0.1 ? quiet + 1 : 0;
+            last = node.scrollLeft;
+            if (quiet >= 8) resolve(); else requestAnimationFrame(settled);
+          }
+          settled();
+        }));
+        await track.evaluate(node => node.scrollTo({left: 0, behavior: 'instant'}));
+        await page.waitForFunction(() => document.querySelector('#gastro-solutions').scrollLeft < 1);
+        if (width === 375) await page.locator('#loesungen').screenshot({path: `${output}/375-solutions.png`});
+      }
       for (const img of await page.locator('main img').all()) {
+        if (!(await img.isVisible())) continue;
         await img.scrollIntoViewIfNeeded();
         await img.evaluate(node => node.decode());
         assert.ok(await img.evaluate(node => node.naturalWidth > 0));
@@ -52,7 +96,12 @@ fs.mkdirSync(output, {recursive: true});
       await form.locator('[name="email"]').fill('ungueltig');
       assert.equal(await form.evaluate(node => node.checkValidity()), false);
       await form.locator('[name="email"]').fill('browsertest@example.org');
-      assert.equal(await form.evaluate(node => node.checkValidity()), true, 'Only name and email are required');
+      assert.equal(await form.evaluate(node => node.checkValidity()), false, 'Budget must not be omitted');
+      assert.ok(await form.locator('[name="budget"]').isVisible());
+      await form.locator('[name="budget"]').fill('40–60 €');
+      assert.equal(await form.evaluate(node => node.checkValidity()), false, 'Budget basis must be explicit');
+      await form.locator('[name="budget_basis"]').selectOption('pro Stück');
+      assert.equal(await form.evaluate(node => node.checkValidity()), true);
       await page.keyboard.press('Tab');
       await form.locator('summary').focus();
       assert.notEqual(await form.locator('summary').evaluate(node => getComputedStyle(node).outlineStyle), 'none');
@@ -75,10 +124,13 @@ fs.mkdirSync(output, {recursive: true});
       await page.waitForFunction(() => document.querySelector('[data-board-inquiry] [role="status"]').textContent.includes('Danke!'));
       assert.equal(attempts, 2);
       assert.ok(body.includes('Gastronomie-Projektanfrage'));
+      assert.ok(body.includes('40–60 €'));
+      assert.ok(body.includes('pro Stück'));
       assert.equal(await form.locator('[name="email"]').inputValue(), '');
       assert.equal(await form.locator('[type="submit"]').isEnabled(), true);
       assert.deepEqual(await page.evaluate(() => window.gastroTestEvents.map(event => event.name)), ['inquiry_form_submit', 'inquiry_form_error', 'inquiry_form_submit', 'inquiry_form_success']);
       assert.ok(await page.evaluate(() => window.gastroTestEvents.every(event => !JSON.stringify(event.data).includes('example.org'))));
+      assert.ok(await page.evaluate(() => window.gastroTestEvents.every(event => !JSON.stringify(event.data).includes('40–60'))));
       await form.locator('summary').click();
       const faq = page.locator('#faq summary').first();
       await faq.focus();
