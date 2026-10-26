@@ -18,6 +18,22 @@ const canonical = data.products.filter(p => !p.canonicalProductId);
       assert.equal((html.match(/<h1>/g) || []).length, 1);
       assert.ok(html.includes(product.image));
       if (product.availabilityStatus === 'sold') assert.ok(html.includes(en ? 'Sold' : 'Verkauft'));
+      await page.goto(base + (en ? '/en' : '') + product.productPath, {waitUntil:'domcontentloaded'});
+      await page.locator('.productPreview__moment').waitFor();
+      const media = page.locator('[data-preview-media]');
+      const defaultImage = product.variants?.[0]?.image || product.image;
+      if (await media.count()) {
+        assert.equal(await media.first().getAttribute('data-preview-type'),'image',product.id);
+        assert.equal(await media.first().getAttribute('data-preview-src'),defaultImage,product.id);
+      }
+      if (product.videos?.length) assert.equal(await media.nth(1).getAttribute('data-preview-type'),'video',product.id);
+      assert.ok(await page.locator('.productPreview__mainMedia img[data-preview-main]').getAttribute('alt'),product.id);
+      const message = await page.locator('.productPreview__moment').innerText();
+      assert.doesNotMatch(message,/intensive Küchenarbeit|intensive kitchen work/,product.id);
+      if (product.listingId === '1838851839') {
+        assert.match(message,en ? /coasters/ : /Holzuntersetzer/);
+        assert.match(await page.locator('.productPreview__content').innerText(),en ? /glasses and cups/ : /Gläser und Tassen/);
+      }
     }
     const handled = canonical.find(p => p.listingId === '4417507555');
     const other = canonical.find(p => p.listingId === '1850610674');

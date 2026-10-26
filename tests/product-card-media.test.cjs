@@ -42,6 +42,7 @@ test('existing product facts remain unchanged apart from verified corrections an
     badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  before.products.find(p => p.listingId === '1881802291').shortDescription = 'Pflegebalsam mit Bienenwachs und Leinölfirnis für Schneidebretter und Küchenholz.';
   for (const id of ['1838851839', '4417507555']) {
     const old = before.products.find(p => p.listingId === id);
     const current = after.products.find(p => p.listingId === id);

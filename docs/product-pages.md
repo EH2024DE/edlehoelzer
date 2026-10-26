@@ -8,6 +8,8 @@ node scripts/build-product-pages.cjs
 
 The generator shares the existing site header/footer and English copy dictionary. Static product information, a product photo, product links, availability and checkout/request links work before JavaScript. The interactive page reuses the existing detail renderer for gallery/video, pricing, engraving/groove options, WhatsApp and worktop preview, without opening a product modal. Image zoom and the comparison dialog remain overlays.
 
+Gallery order is primary/selected-variant photo, product videos, then remaining photos. Video is always second when a video and a photo exist, including explicit media arrays and variant photos. Product-specific alt text replaces generic accessory labels; supplied image descriptions remain supported. Introductory copy distinguishes coasters, stands, care, kitchen tools, serving boards and cutting-board construction. End-grain mentions in accessory descriptions must not imply cutting-board use.
+
 ## Etsy Check, 2026-10-26
 
 The read-only active-listing snapshot contained 40 listings, all mapped to the catalog. Twenty-four current titles differed and were adopted as German page titles. Short card labels and archived/sold baseline data were preserved. The combined handled board starts at EUR 254.99 (beech), EUR 274.99 (tropical hardwood), EUR 284.99 (oak); optional groove adds EUR 15. The visible Etsy selectors confirmed these prices. Coasters start at EUR 39.99. No Etsy listings were modified. The local API snapshot and credentials must not be committed.

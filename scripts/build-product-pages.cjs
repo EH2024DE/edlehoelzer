@@ -71,7 +71,7 @@ ${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.
 </div></article></div>
 <section class="productDetail__browse"><h2>${en ? 'Find your next favourite' : 'Dein nächstes Lieblingsstück'}</h2><a href="${en ? '/en/products.html#produktfinder' : '/produkte.html#produktfinder'}">${en ? 'Explore the product finder' : 'Zum Produktfinder'}</a><details><summary>${en ? 'Browse all products' : 'Alle Produkte entdecken'}</summary><ul>${catalog.map(other => '<li><a href="' + (en ? '/en' : '') + other.productPath + '">' + esc(copy.text(other.displayName || other.name, en)) + '</a></li>').join('')}</ul></details></section>
 </main>${footer}
-<script src="/main.js?v=20261026-product-pages"></script>
+<script src="/main.js?v=20261026-product-details-r2"></script>
 </body></html>\n`;
     const destination = path.join(root, url, 'index.html');
     fs.mkdirSync(path.dirname(destination), {recursive:true});

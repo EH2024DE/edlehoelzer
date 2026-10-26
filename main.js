@@ -50,6 +50,7 @@ var EdleProductCopy = (function () {
     "Erbstück No. 004 – Eiche & Buche": "Erbstück No. 004 – Oak & beech"
   };
   var phrases = {
+    "Pflegebalsam mit Bienenwachs und Leinölfirnis für Schneidebretter und Küchenholz.": "Care balm with beeswax and linseed oil varnish for cutting boards and wooden kitchenware.",
     "Kompaktes Stirnholzbrett in fünf Holzdesigns, ca. 2 cm stark. Maße je nach Ausführung; Gravur optional auf Anfrage.": "Compact end-grain board in five wood designs, approx. 2 cm thick. Dimensions vary by design; optional engraving by arrangement.",
     "Kompakt, Maße je nach Ausführung": "Compact; dimensions vary by design",
     "Historische Eiche mit Buche-Akzenten, ca. 41,5 × 39,8 × 5 cm und ca. 5,8 kg. Halter und Pflegebalsam inklusive; ohne Saftrille ab 284,99 EUR, mit Saftrille 299,99 EUR.": "Historic oak with beech accents, approx. 41.5 × 39.8 × 5 cm and 5.8 kg. Stand and care balm included; from EUR 284.99 without a juice groove, EUR 299.99 with a juice groove.",
@@ -131,6 +132,13 @@ if (!document.querySelector('[data-photo-viewer-loader]')) {
   photoScript.setAttribute("data-photo-viewer-loader", "");
   document.head.appendChild(photoScript);
 }
+function orderProductMedia(items, primarySrc) {
+  var images = items.filter(function (item) { return item.type === 'image'; });
+  var primary = images.find(function (item) { return item.src === primarySrc; }) || images[0];
+  var videos = items.filter(function (item) { return item.type === 'video'; });
+  return (primary ? [primary] : []).concat(videos, images.filter(function (item) { return item !== primary; }));
+}
+
 function buildCardGalleryItems(product) {
   var images = [product.image].concat(product.gallery || []).filter(Boolean).map(function (src) {
     return src.replace(/^(https:\/\/i\.etsystatic\.com\/.+\/)il_fullxfull\./, "$1il_794xN.");
@@ -157,7 +165,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-product-pages";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-product-details-r2";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -1887,7 +1895,7 @@ function initProductExperience() {
     var media = productMedia(product);
     var variant = purchaseVariant(product);
     if (variant && variant.image) {
-      media.sort(function (a, b) { return Number(b.src === variant.image) - Number(a.src === variant.image); });
+      media = orderProductMedia(media, variant.image);
     }
     var main = media[0];
     var title = displayProductName(product);
@@ -2366,16 +2374,16 @@ function initProductExperience() {
 
   function productMedia(product) {
     if (Array.isArray(product.media) && product.media.length) {
-      return product.media.filter(function (item) {
+      return orderProductMedia(product.media.filter(function (item) {
         return item && item.src && (item.type === "image" || item.type === "video");
-      }).slice(0, 6).map(function (item) {
+      }).map(function (item) {
         return {
           type: item.type || "image",
           src: item.src,
           poster: item.poster || item.src,
           alt: isEnglish ? productImageAlt(product) : (item.alt || productImageAlt(product))
         };
-      });
+      }), product.image);
     }
 
     var urls = [];
@@ -2408,7 +2416,7 @@ function initProductExperience() {
       };
     }) : [];
 
-    return productPage ? images.concat(videos) : videos.concat(images);
+    return orderProductMedia(images.concat(videos), product.image);
   }
 
   function renderPreviewMainMedia(item) {
@@ -2683,33 +2691,39 @@ function initProductExperience() {
   function productMoment(product) {
     var text = [product.name, product.displayName, product.segment, product.shortDescription].join(" ").toLowerCase();
     if (product.category === "care") {
-      return isEnglish ? "For boards that should be cared for instead of replaced." : "Für Bretter, die gepflegt statt ersetzt werden sollen.";
+      return isEnglish ? "Wood care with beeswax and linseed oil varnish." : "Holzpflege mit Bienenwachs und Leinölfirnis.";
+    }
+    if (String(product.listingId) === '1838851839') {
+      return isEnglish ? "Wooden coasters with a matching holder." : "Holzuntersetzer mit passendem Halter.";
+    }
+    if (String(product.listingId) === '1874454440') {
+      return isEnglish ? "A dedicated place for your cutting board." : "Ein fester Platz für dein Schneidebrett.";
     }
     if (/buttermesser|butter\s*knife/.test(text)) {
-      return isEnglish ? "For breakfast, bread boards and small serving moments that should match your wooden kitchen tools." : "Für Frühstück, Brotzeit und kleine Serviermomente, die zu deinen Holzstücken passen sollen.";
+      return isEnglish ? "A solid wood butter knife for breakfast and bread boards." : "Ein Buttermesser aus Massivholz für Frühstück und Brotzeit.";
     }
     if (/pfannenwender|spatula|turner/.test(text)) {
-      return isEnglish ? "For the pan, grill and kitchen tools that may match your board instead of feeling random." : "Für Pfanne, Grill und Küchenhelfer, die zum Brett passen dürfen statt beliebig zu wirken.";
+      return isEnglish ? "A handmade solid wood spatula." : "Ein handgefertigter Pfannenwender aus Massivholz.";
     }
     if (/teigschaber|dough|scraper/.test(text)) {
-      return isEnglish ? "For sourdough, bread dough and a wooden tool family that can match your board." : "Für Sauerteig, Brotteig und eine Holzfamilie, die zum Brett passen kann.";
+      return isEnglish ? "Solid wood dough scrapers for baking." : "Teigschaber aus Massivholz zum Backen.";
     }
     if (/erbst/.test(text)) {
-      return isEnglish ? "For people who do not want a reproducible standard product." : "Für Menschen, die kein reproduzierbares Serienprodukt suchen.";
+      return isEnglish ? "Historic oak and beech, handcrafted into a one-of-a-kind board." : "Historische Eiche und Buche, von Hand zum Einzelstück gefertigt.";
     }
     if (product.listingId === "4599650982") {
       return isEnglish ? "For small prep jobs, breakfast and a cheese selection for one." : "Für kleine Schneidarbeiten, Frühstück und eine Käseauswahl für eine Person.";
     }
-    if (isEndGrain(product)) {
-      return isEnglish ? "For intensive kitchen work with good knives." : "Für intensive Küchenarbeit mit guten Messern.";
+    if (product.productType === 'servingBoard') {
+      return isEnglish ? "For breakfast, cheese and serving at the table." : "Für Brotzeit, Käse und das Anrichten am Tisch.";
     }
-    if (Array.isArray(product.useCases) && product.useCases.indexOf("bbq") !== -1) {
-      return isEnglish ? "For the moment after grilling." : "Für den Moment nach dem Grillen.";
+    if (product.category === 'board' && isEndGrain(product)) {
+      return isEnglish ? "End grain with cross-cut wood fibres." : "Stirnholz mit quer angeschnittenen Holzfasern.";
     }
-    if (product.servingSuitable || product.giftable) {
-      return isEnglish ? "For the moment when a board does not just cut, but stays on the table." : "Für den Moment, in dem ein Brett nicht nur schneidet, sondern auf dem Tisch bleibt.";
+    if (product.category === 'board' && product.woodCut === 'edge') {
+      return isEnglish ? "Edge grain with the grain running lengthwise." : "Langholz mit längs verlaufender Maserung.";
     }
-    return isEnglish ? "For kitchen moments where the board may stay visible." : "Für Küchenmomente, in denen das Brett sichtbar bleiben darf.";
+    return isEnglish ? "Handcrafted wood with its own character." : "Handgefertigtes Holz mit eigenem Charakter.";
   }
 
   function productProof(product) {
@@ -2724,7 +2738,7 @@ function initProductExperience() {
       }
       return normalized.length > 340 ? normalized.slice(0, 337).replace(/\s+\S*$/, "") + "…" : normalized;
     }
-    if (isEndGrain(product)) {
+    if (product.category === 'board' && isEndGrain(product)) {
       return isEnglish ? "Standing wood fibres make end grain more involved to produce and give it its dense, substantial character." : "Stehende Holzfasern machen Stirnholz aufwendiger in der Fertigung und geben dem Brett seinen dichten, massiven Charakter.";
     }
     if (product.material) {
@@ -2735,10 +2749,16 @@ function initProductExperience() {
 
   function productExperienceText(product) {
     var text = [product.name, product.displayName, product.segment].join(" ").toLowerCase();
+    if (String(product.listingId) === '1838851839') {
+      return isEnglish ? "Place under glasses and cups; store the coasters in their matching holder after use." : "Zum Unterlegen unter Gläser und Tassen. Nach Gebrauch finden die Untersetzer im passenden Halter ihren Platz.";
+    }
+    if (String(product.listingId) === '1874454440') {
+      return isEnglish ? "For storing and displaying your board upright. Check that the board thickness fits the holder before choosing." : "Für die aufrechte Aufbewahrung und Präsentation deines Bretts. Achte bei der Auswahl auf die passende Brettstärke.";
+    }
     if (/buttermesser|butter\s*knife/.test(text)) {
       return isEnglish
-        ? "For butter, cream cheese, spreads and breakfast boards. Choose walnut or plum wood and combine it with matching boards, spatulas or dough scrapers."
-        : "Für Butter, Frischkäse, Aufstriche und Brotzeit am Tisch. Du kannst Nussbaum oder Zwetschge wählen und es mit passenden Brettern, Pfannenwendern oder Teigschabern kombinieren.";
+        ? "For spreading butter, cream cheese and other spreads at the breakfast table."
+        : "Zum Verstreichen von Butter, Frischkäse und anderen Aufstrichen am Frühstückstisch.";
     }
     if (/pfannenwender|spatula|turner/.test(text)) {
       return isEnglish
@@ -3302,6 +3322,8 @@ function initProductExperience() {
   }
 
   function productUseLabel(product) {
+    if (String(product.listingId) === '1838851839') return isEnglish ? 'Under glasses and cups' : 'Unter Gläsern und Tassen';
+    if (String(product.listingId) === '1874454440') return isEnglish ? 'Upright board storage' : 'Aufrechte Brettaufbewahrung';
     if (product.category === "care") {
       return isEnglish ? "Care for wood surfaces" : "Pflege von Holzoberflächen";
     }
@@ -3325,6 +3347,8 @@ function initProductExperience() {
   }
 
   function productRole(product) {
+    if (String(product.listingId) === '1838851839') return isEnglish ? 'Coaster set' : 'Untersetzer-Set';
+    if (String(product.listingId) === '1874454440') return isEnglish ? 'Board stand' : 'Bretthalter';
     if (product.category === "accessory") {
       return isEnglish ? "tool" : "Werkzeug";
     }
@@ -3466,6 +3490,9 @@ function initProductExperience() {
   }
 
   function productImageAlt(product) {
+    var suppliedAlt = isEnglish ? product.imageAltEn : product.imageAlt;
+    if (suppliedAlt) return suppliedAlt;
+    if (product.displayName || product.name) return displayProductName(product);
     if (product.category === "care") {
       return isEnglish ? "Wood care product for cutting boards" : "Holzpflegeprodukt für Schneidebretter";
     }
