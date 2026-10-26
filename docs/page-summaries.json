@@ -1,5 +1,47 @@
 [
   {
+    "route": "/schneidebretter-aus-holz-gastronomie/",
+    "items": [
+      {
+        "label": "Einsatz",
+        "text": "Schneiden, Tranchieren, Servieren oder Präsentieren: Ausgangspunkt ist der konkrete Einsatz im Betrieb."
+      },
+      {
+        "label": "Individualisierung",
+        "text": "Maße, Holzart, Saftrille, Gravur, Aussparungen und Details stimmen wir projektbezogen ab."
+      },
+      {
+        "label": "Machbarkeit",
+        "text": "Wir prüfen Konstruktion, Material, Stückzahl und Nutzung, bevor wir eine Ausführung empfehlen."
+      },
+      {
+        "label": "Beratung",
+        "text": "Idee und Bedarf klären wir persönlich. Ein Termin in unserer Manufaktur ist nach Abstimmung möglich."
+      }
+    ]
+  },
+  {
+    "route": "/en/wooden-cutting-boards-for-restaurants/",
+    "items": [
+      {
+        "label": "Use",
+        "text": "Cutting, carving, serving or display: your intended use is our starting point."
+      },
+      {
+        "label": "Customisation",
+        "text": "Dimensions, wood, juice grooves, engraving, recesses and details are agreed for each project."
+      },
+      {
+        "label": "Feasibility",
+        "text": "We assess construction, materials, quantity and use before recommending a design."
+      },
+      {
+        "label": "Consultation",
+        "text": "We discuss your idea and requirements personally. Workshop visits are available by appointment."
+      }
+    ]
+  },
+  {
     "route": "/schneidebretter-massivholz/",
     "items": [
       {

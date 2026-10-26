@@ -32,7 +32,7 @@
       return;
     }
 
-    container.innerHTML = '<p class="productGridEmpty">Produkte werden geladen.</p>';
+    container.innerHTML = '<p class="productGridEmpty">' + (document.documentElement.lang === 'en' ? 'Loading products.' : 'Produkte werden geladen.') + '</p>';
 
     loadProducts()
       .then(function (products) {
@@ -90,7 +90,7 @@
     var detailsText = primaryCardCta(product, isEnglish);
     var compared = isProductCompared(product.id);
     var compareText = isEnglish ? (compared ? "✓ In comparison" : "+ Compare") : (compared ? "✓ Im Vergleich" : "+ Zum Vergleich");
-    var productName = product.displayName || displayProductName(product);
+    var productName = EdleProductCopy.text(product.displayName || displayProductName(product), isEnglish);
     var previewLabel = isEnglish ? "View " + productName : productName + " ansehen";
     var compareLabel = isEnglish ? "Compare " + productName : productName + " vergleichen";
 
@@ -101,7 +101,7 @@
         '</span>' +
       '</button>' +
       '<div class="productCard__body">' +
-          '<p class="productCard__segment">' + escapeHtml(product.segment || product.category || "Produkt") + '</p>' +
+          '<p class="productCard__segment">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || (isEnglish ? "Product" : "Produkt"), isEnglish)) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(productName) + '</h3>' +
           (isEnglish ? renderLegacyFacts(product) + renderLegacyServiceSignals(product) : renderCardMeta(product) + renderBadges(product)) +
           '<div class="productCard__footer">' +

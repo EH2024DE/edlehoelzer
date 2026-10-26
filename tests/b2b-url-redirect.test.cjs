@@ -25,14 +25,21 @@ test('legacy B2B redirect preserves query attribution and legacy fragments', () 
   assert.ok(html.includes('href="' + target + '"'));
 });
 
-test('moved B2B content differs only in URL, root paths and approved hero wording', () => {
+test('moved B2B content preserves migration and adds only approved gastro and concept-cost information', () => {
   const before = execFileSync('git', ['show', 'b5c3dae:b2b.html'], { cwd: root, encoding: 'utf8' });
   const expected = before.replaceAll('b2b.html', 'handgefertigte-holzprodukte-fuer-unternehmen/')
     .replaceAll('./assets/', '/assets/').replaceAll('href="./', 'href="/')
     .replace('<h1>Firmengeschenke aus Holz mit Logo-Gravur</h1>', '<h1>Handgefertigte Holzprodukte für Unternehmen – individuell personalisierbar</h1>')
     .replace('Handgefertigte Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events. Wähle aus unserem Sortiment oder sprich mit uns über eine eigene Produktidee.', 'Mit deinem Logo, als abgestimmtes Geschenkset oder als Sonderanfertigung nach deiner Idee. Entdecke Schneide- und Servierbretter, Küchenutensilien und Geschenksets für Mitarbeiter, Kunden, Geschäftspartner und Events.')
     .replaceAll('/erbstueck/', '/schneidebrett-fachwerk-eiche/');
-  assert.equal(read('handgefertigte-holzprodukte-fuer-unternehmen/index.html'), expected);
+  const gastroLink = '<p>Du suchst Holzprodukte für Restaurant oder Hotel? <a class="b2b-text-link" href="/schneidebretter-aus-holz-gastronomie/">Lösungen für Gastronomie</a>.</p>';
+  const current = read('handgefertigte-holzprodukte-fuer-unternehmen/index.html');
+  assert.equal(current.split(gastroLink).length - 1, 1);
+  const withoutCosts = current
+    .replace(/    \{"@type":"Question","name":"Was kosten Anfrage und individuelle Planung\?"[^\n]+\n/, '')
+    .replace(/        <div class="b2b-faq-item" data-concept-cost>[\s\S]*?<\/div>\n/, '')
+    .replace(/          <p class="b2b-hint" data-concept-cost>[^\n]+<\/p>\n/, '');
+  assert.equal(withoutCosts.replace(gastroLink, ''), expected);
 });
 
 test('sitemap, search index and edge redirect configuration use the new owner URL', () => {

@@ -1,6 +1,7 @@
 (() => {
   const form = document.querySelector('[data-board-inquiry]');
   if (!form) return;
+  const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
   const status = form.querySelector('[role="status"]');
   const submit = form.querySelector('[type="submit"]');
   let started = false;
@@ -12,7 +13,7 @@
   document.querySelectorAll('[data-inquiry-example]').forEach(link => link.addEventListener('click', () => {
     track('inquiry_reference_select');
     form.elements.reference.value = link.dataset.inquiryExample;
-    form.querySelector('[data-reference-note]').textContent = `Deine Referenz: ${link.dataset.inquiryExample}`;
+    form.querySelector('[data-reference-note]').textContent = `${isEnglish ? 'Your reference' : 'Deine Referenz'}: ${link.dataset.inquiryExample}`;
   }));
   document.querySelectorAll('.customProjects__gallery').forEach(gallery => {
     const nav = document.createElement('div');
@@ -48,7 +49,7 @@
     track('inquiry_form_submit');
     submit.disabled = true;
     form.setAttribute('aria-busy', 'true');
-    status.textContent = 'Deine Anfrage wird übermittelt …';
+    status.textContent = isEnglish ? 'Sending your enquiry...' : 'Deine Anfrage wird übermittelt …';
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 20000);
     try {
@@ -58,11 +59,11 @@
       track('inquiry_form_success');
       form.reset();
       form.querySelector('[data-reference-note]').textContent = '';
-      status.textContent = 'Danke! Deine Anfrage wurde übermittelt. Wir melden uns per E-Mail zu Machbarkeit, Preisrahmen und Fertigungszeit.';
+      status.textContent = isEnglish ? 'Thank you! Your enquiry has been submitted. We will email you about feasibility, budget and production time.' : 'Danke! Deine Anfrage wurde übermittelt. Wir melden uns per E-Mail zu Machbarkeit, Preisrahmen und Fertigungszeit.';
       started = false;
     } catch {
       track('inquiry_form_error');
-      status.textContent = 'Die Übermittlung konnte nicht bestätigt werden. Deine Eingaben bleiben erhalten. Bitte versuche es erneut oder schreibe uns per E-Mail.';
+      status.textContent = isEnglish ? 'Submission could not be confirmed. Your entries have been kept. Please try again or email us.' : 'Die Übermittlung konnte nicht bestätigt werden. Deine Eingaben bleiben erhalten. Bitte versuche es erneut oder schreibe uns per E-Mail.';
     } finally {
       clearTimeout(timeout);
       pending = false;
