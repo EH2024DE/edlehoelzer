@@ -8,7 +8,11 @@ node scripts/build-product-pages.cjs
 
 The generator shares the existing site header/footer and English copy dictionary. Static product information, a product photo, product links, availability and checkout/request links work before JavaScript. The interactive page reuses the existing detail renderer for gallery/video, pricing, engraving/groove options, WhatsApp and worktop preview, without opening a product modal. Image zoom and the comparison dialog remain overlays.
 
-Gallery order is primary/selected-variant photo, product videos, then remaining photos. Video is always second when a video and a photo exist, including explicit media arrays and variant photos. Product-specific alt text replaces generic accessory labels; supplied image descriptions remain supported. Introductory copy distinguishes coasters, stands, care, kitchen tools, serving boards and cutting-board construction. End-grain mentions in accessory descriptions must not imply cutting-board use.
+Gallery order is primary/selected-variant photo, product videos, then remaining photos. Video is always second when a video and a photo exist, including explicit media arrays and variant photos. Product-specific alt text replaces generic accessory labels; supplied image descriptions remain supported.
+
+The purchase panel now prioritises price, plain specification rows, configuration and a visible `Das ist dabei` / `Included with your selection` list before the single Etsy checkout action. Generic bold introductory slogans, repeated benefit panels and highlight chips are not rendered. Material/craft and care are native disclosure sections. Comparison and worktop preview remain available.
+
+`productPackageItems()` is shared by static generation and the interactive page. Explicit `packageContents` entries reflect checked Etsy descriptions, while existing purchase rules add applicable balm/stand entitlements. Selected balm and threshold changes update the list alongside the price. Do not infer a cloth or stand just because it appears in a photograph. Six coasters plus holder and three serving boards plus stand are distinct from the single sword-shaped serving board. The walnut board 1850610674 and Erbstueck family 4598989614 explicitly include stand and balm even below the general stand threshold. No origin card is promised without product-level confirmation.
 
 ## Etsy Check, 2026-10-26
 

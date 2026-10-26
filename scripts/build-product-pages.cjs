@@ -4,7 +4,8 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
 const source = fs.readFileSync(path.join(root, 'main.js'), 'utf8');
-const copy = vm.runInNewContext(source.slice(0, source.indexOf('document.documentElement.classList')) + '\nEdleProductCopy', { });
+const view = vm.runInNewContext(source.slice(0, source.indexOf('document.documentElement.classList')) + '\n({copy:EdleProductCopy, packageItems:productPackageItems})', { });
+const copy = view.copy;
 const esc = value => String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const json = value => JSON.stringify(value).replace(/</g, '\\u003c');
 const origin = 'https://edlehoelzer.de';
@@ -54,7 +55,7 @@ for (const en of [false, true]) {
 <meta property="og:type" content="product"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${origin + url}"><meta property="og:image" content="${esc(p.image)}">
 <link rel="icon" href="/assets/favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20261026-product-pages">
+<link rel="stylesheet" href="/styles.css?v=20261026-product-decision-r3">
 <script type="application/ld+json">${json(schema)}</script>
 <script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
 </head><body class="productDetailPage">
@@ -63,15 +64,17 @@ ${pageHeader}
 <nav class="productDetail__breadcrumb" aria-label="${en ? 'Breadcrumb' : 'Brotkrümelnavigation'}"><a href="${en ? '/en/products.html' : '/produkte.html'}">${en ? 'All products' : 'Alle Produkte'}</a> / <span>${esc(en ? copy.text(p.displayName || p.name, true) : p.displayName || p.name)}</span></nav>
 <div data-product-page="${esc(p.id)}" data-current-product-id="${esc(p.id)}" data-current-product-source="product-page">
 <article class="productPreview"><div class="productPreview__media"><img src="${esc(p.image)}" alt="${esc(title)}" width="900" height="900" loading="eager" fetchpriority="high"></div><div class="productPreview__content">
-<h1>${esc(title)}</h1><p>${esc(status)}</p><p>${esc(description)}</p>
+<h1>${esc(title)}</h1><p>${esc(status)}</p>
 ${available && !p.variants?.length ? '<p>' + esc(p.priceLabel) + '</p>' : ''}
 <dl class="productPreview__facts">${facts.filter(f => f[1]).map(f => '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(copy.text(f[1], en)) + '</dd></div>').join('')}</dl>
 ${variantText}
+<section class="productPreview__package"><h2>${en ? 'Included with your selection' : 'Das ist dabei'}</h2><ul>${view.packageItems(p,data.purchaseRules).map(item=>'<li>'+esc(en ? item.labelEn : item.label)+'</li>').join('')}</ul><p>${en ? 'Other products and decorative items shown in photos are not included.' : 'Weitere abgebildete Produkte und Dekoration sind nicht enthalten.'}</p></section>
 ${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.etsyUrl) + '" target="_blank" rel="noopener">' + (en ? 'Configure and buy on Etsy' : 'Auf Etsy konfigurieren und kaufen') + '</a>' : '<a class="btn btn--emphasis" href="' + (en ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + (en ? 'Request a similar piece' : 'Ähnliches Stück anfragen') + '</a>'}
+<details class="productPreview__detail"><summary>${en ? 'Material & craft' : 'Material & Handwerk'}</summary><p>${esc(description)}</p></details>
 </div></article></div>
 <section class="productDetail__browse"><h2>${en ? 'Find your next favourite' : 'Dein nächstes Lieblingsstück'}</h2><a href="${en ? '/en/products.html#produktfinder' : '/produkte.html#produktfinder'}">${en ? 'Explore the product finder' : 'Zum Produktfinder'}</a><details><summary>${en ? 'Browse all products' : 'Alle Produkte entdecken'}</summary><ul>${catalog.map(other => '<li><a href="' + (en ? '/en' : '') + other.productPath + '">' + esc(copy.text(other.displayName || other.name, en)) + '</a></li>').join('')}</ul></details></section>
 </main>${footer}
-<script src="/main.js?v=20261026-product-details-r2"></script>
+<script src="/main.js?v=20261026-product-decision-r3"></script>
 </body></html>\n`;
     const destination = path.join(root, url, 'index.html');
     fs.mkdirSync(path.dirname(destination), {recursive:true});

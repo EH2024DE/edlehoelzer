@@ -7302,4 +7302,21 @@ button.productCard__slide:focus-visible{outline:2px solid var(--accent);outline-
 .productDetail__browse ul{columns:2;padding-left:20px}
 .productDetail__browse li{margin-bottom:10px;break-inside:avoid}
 .productDetail a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.productDetail .productPreview h3,.productDetail .productPreview__package h2{font-size:15px;line-height:1.4;letter-spacing:0;text-transform:none;font-weight:600}
+.productDetail .productPreview__facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.productDetail .productPreview__facts div{padding:10px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent}
+.productDetail .productPreview__facts dt{font-size:12px;font-weight:500;letter-spacing:0;text-transform:none}
+.productDetail .productPreview__facts dd{font-size:14px;font-weight:500}
+.productDetail .productPreview__package{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.productDetail .productPreview__package ul{margin:10px 0;padding-left:20px;line-height:1.7}
+.productDetail .productPreview__package p{margin:10px 0 0;font-size:12px;line-height:1.6;color:var(--muted)}
+.productDetail .productPreview__detail{border-top:1px solid var(--line);padding:14px 0}
+.productDetail .productPreview__detail summary{cursor:pointer;font-weight:600;font-size:15px}
+.productDetail .productPreview__detail p{font-size:14px;line-height:1.7;color:var(--muted);margin:12px 0 0}
+.productDetail .productPreview__roomPrompt[data-enhanced]{display:grid;gap:12px;margin:0;padding:16px 0;border:0;border-top:1px solid var(--line);background:transparent;border-radius:0}
+.productDetail .productPreview__roomPrompt p{font-size:14px;line-height:1.6;margin:0}
+.productDetail .productPreview__roomPrompt .btn{justify-self:start}
+.productDetail .productPreview__earlyPurchase{align-items:stretch;flex-direction:column}
+.productDetail .productPreview__earlyPurchase span{max-width:none}
+.productDetail .productPreview__actions{position:static;padding:0;background:transparent;backdrop-filter:none}
 @media(max-width:900px){.productDetail .productPreview{grid-template-columns:minmax(0,1fr)}.productDetail .productPreview__media{position:static}.productDetail .productPreview__content{padding:24px 0}.productDetail h1{font-size:26px}.productDetail__browse ul{columns:1}}

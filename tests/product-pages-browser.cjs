@@ -19,7 +19,7 @@ const canonical = data.products.filter(p => !p.canonicalProductId);
       assert.ok(html.includes(product.image));
       if (product.availabilityStatus === 'sold') assert.ok(html.includes(en ? 'Sold' : 'Verkauft'));
       await page.goto(base + (en ? '/en' : '') + product.productPath, {waitUntil:'domcontentloaded'});
-      await page.locator('.productPreview__moment').waitFor();
+      await page.locator('[data-product-package]').waitFor();
       const media = page.locator('[data-preview-media]');
       const defaultImage = product.variants?.[0]?.image || product.image;
       if (await media.count()) {
@@ -28,12 +28,19 @@ const canonical = data.products.filter(p => !p.canonicalProductId);
       }
       if (product.videos?.length) assert.equal(await media.nth(1).getAttribute('data-preview-type'),'video',product.id);
       assert.ok(await page.locator('.productPreview__mainMedia img[data-preview-main]').getAttribute('alt'),product.id);
-      const message = await page.locator('.productPreview__moment').innerText();
-      assert.doesNotMatch(message,/intensive Küchenarbeit|intensive kitchen work/,product.id);
+      assert.equal(await page.locator('.productPreview__moment, .productPreview__experiencePromise, .productPreview__chips').count(),0);
+      assert.equal(await page.locator('[data-preferred-source-cta]').count(),0,'No unrelated outbound promotion on product pages');
+      const packageText = await page.locator('[data-product-package]').innerText();
+      assert.ok(packageText.trim(),product.id);
       if (product.listingId === '1838851839') {
-        assert.match(message,en ? /coasters/ : /Holzuntersetzer/);
-        assert.match(await page.locator('.productPreview__content').innerText(),en ? /glasses and cups/ : /Gläser und Tassen/);
+        assert.match(packageText,en ? /6 wooden coasters/ : /6 Holzuntersetzer/);
+        assert.match(packageText,en ? /holder/ : /Untersetzerhalter/);
       }
+      if (['1850610674','4370769708','4598989614'].includes(product.listingId)) {
+        assert.equal(await page.locator('[data-package-item="holder"]').count(),1,product.id);
+        assert.equal(await page.locator('[data-package-item="careBalm"]').count(),1,product.id);
+      }
+      if (product.active !== false && ['available','made_to_order'].includes(product.availabilityStatus)) assert.equal(await page.locator('[data-product-page] [data-product-etsy]').count(),1,product.id);
     }
     const handled = canonical.find(p => p.listingId === '4417507555');
     const other = canonical.find(p => p.listingId === '1850610674');
@@ -56,8 +63,19 @@ const canonical = data.products.filter(p => !p.canonicalProductId);
         const room = page.locator('[data-kitchen-preview]');
         assert.equal(await room.getAttribute('data-kitchen-variant'), variant.id);
       }
+      await page.locator('.productPreview__related img').evaluateAll(images=>images.forEach(image=>{image.loading='eager';}));
+      await page.waitForFunction(()=>Array.from(document.querySelectorAll('.productPreview__related img')).every(image=>image.complete && image.naturalWidth>0));
       await page.screenshot({path:`/tmp/edle-product-pages/${en?'en':'de'}-${width}.png`,fullPage:true});
     }
+    const compact = canonical.find(p=>p.listingId==='4522458953');
+    await page.goto(base + compact.productPath);
+    const balmOption = page.locator('[data-purchase-option="careBalm"]');
+    await balmOption.waitFor();
+    assert.equal(await page.locator('[data-package-item="careBalm"]').count(),0);
+    await balmOption.check();
+    assert.equal(await page.locator('[data-package-item="careBalm"]').count(),1);
+    await balmOption.uncheck();
+    assert.equal(await page.locator('[data-package-item="careBalm"]').count(),0);
     await page.goto(base + handled.productPath);
     await page.locator('[data-purchase-variant]').waitFor();
     await page.locator('.productPreview__compareControls [data-product-compare]').click();

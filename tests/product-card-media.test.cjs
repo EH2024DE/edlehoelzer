@@ -43,6 +43,11 @@ test('existing product facts remain unchanged apart from verified corrections an
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
   before.products.find(p => p.listingId === '1881802291').shortDescription = 'Pflegebalsam mit Bienenwachs und Leinölfirnis für Schneidebretter und Küchenholz.';
+  for (const id of ['1850610674', '4598989614']) Object.assign(before.products.find(p=>p.listingId===id),{includesMatchingHolder:true,includesCareBalm:true});
+  const framedBeech=before.products.find(p=>p.listingId==='4370784882');
+  framedBeech.material='Stockbuche, Nussbaum';
+  framedBeech.shortDescription='Stockbuche in Stirnholzbauweise mit Nussbaumrahmen, ca. 41 × 30 × 4,7 cm und ca. 4 kg.';
+  framedBeech.badges=framedBeech.badges.map(b=>b==='Buche, Esche'?'Stockbuche, Nussbaum':b);
   for (const id of ['1838851839', '4417507555']) {
     const old = before.products.find(p => p.listingId === id);
     const current = after.products.find(p => p.listingId === id);
@@ -53,7 +58,7 @@ test('existing product facts remain unchanged apart from verified corrections an
   const existingIds = new Set(before.products.map(p => p.id));
   after.products = after.products.filter(p => existingIds.has(p.id));
   const withoutVideos = data => { data.products.forEach(p => {
-    for (const key of ['videos', 'name', 'titleVerifiedAt', 'productPath', 'canonicalProductId', 'canonicalVariantId']) delete p[key];
+    for (const key of ['videos', 'name', 'titleVerifiedAt', 'productPath', 'canonicalProductId', 'canonicalVariantId', 'packageContents']) delete p[key];
   }); return data; };
   assert.deepEqual(withoutVideos(after), withoutVideos(before));
 });

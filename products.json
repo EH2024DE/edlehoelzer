@@ -137,7 +137,14 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/"
+      "productPath": "/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Buttermesser in der gewählten Holzart",
+          "labelEn": "1 butter knife in your chosen wood"
+        }
+      ]
     },
     {
       "id": "etsy-export-01-holz-teigschaber-aus-massivholz-handgemachte-teigkarte-fur-backen-und-ku",
@@ -230,7 +237,14 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/teigschaber-aus-massivholz-4471048251/"
+      "productPath": "/produkte/teigschaber-aus-massivholz-4471048251/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Teigschaber in der gewählten Holzart",
+          "labelEn": "1 dough scraper in your chosen wood"
+        }
+      ]
     },
     {
       "id": "etsy-export-02-schneidebrett-buche-stirnholz-handgefertigt-besondere-jahresring-struktu",
@@ -864,7 +878,24 @@
       ],
       "titleVerifiedAt": "2026-10-26",
       "productPath": "/produkte/untersetzer-set-holz-mit-halter-1838851839/",
-      "priceVerifiedAt": "2026-10-26"
+      "priceVerifiedAt": "2026-10-26",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "6 Holzuntersetzer",
+          "labelEn": "6 wooden coasters"
+        },
+        {
+          "id": "holder",
+          "label": "Passender Untersetzerhalter",
+          "labelEn": "Matching coaster holder"
+        },
+        {
+          "id": "careGuide",
+          "label": "Pflegeanleitung",
+          "labelEn": "Care instructions"
+        }
+      ]
     },
     {
       "id": "etsy-export-09-schneidebrett-kariert-stirnholz-wenge-nussbaum-und-eiche-unikat",
@@ -959,7 +990,19 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/wenge-nussbaum-eiche-kariert-1894223313/"
+      "productPath": "/produkte/wenge-nussbaum-eiche-kariert-1894223313/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Schneidebrett in der gewählten Ausführung",
+          "labelEn": "1 cutting board in your chosen version"
+        },
+        {
+          "id": "careCloth",
+          "label": "Pflegetuch",
+          "labelEn": "Care cloth"
+        }
+      ]
     },
     {
       "id": "etsy-export-10-stirnholz-schneidebrett-nach-ma-massives-xxl-kuchenbrett-mit-anschlagkan",
@@ -1389,7 +1432,19 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/"
+      "productPath": "/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Dose Pflegebalsam",
+          "labelEn": "1 tin of care balm"
+        },
+        {
+          "id": "careGuide",
+          "label": "Pflegeanleitung",
+          "labelEn": "Care instructions"
+        }
+      ]
     },
     {
       "id": "etsy-export-14-schneidebrett-kambala-holz-kompakt-personalisierbar-handgefertigt",
@@ -1573,7 +1628,14 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/pfannenwender-massivholz-mix-4470469056/"
+      "productPath": "/produkte/pfannenwender-massivholz-mix-4470469056/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Pfannenwender in der gewählten Ausführung",
+          "labelEn": "1 spatula in your chosen version"
+        }
+      ]
     },
     {
       "id": "etsy-export-16-servierbrett-set-aus-massivholz-mit-halter-3-teilig-handgefertigtes-tapa",
@@ -1669,7 +1731,19 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/servierbrett-set-dreiteilig-4440690649/"
+      "productPath": "/produkte/servierbrett-set-dreiteilig-4440690649/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "3 aufeinander abgestimmte Servierbretter",
+          "labelEn": "3 coordinated serving boards"
+        },
+        {
+          "id": "holder",
+          "label": "Passender Halter für das Set",
+          "labelEn": "Matching stand for the set"
+        }
+      ]
     },
     {
       "id": "etsy-export-17-schneidebrett-nussbaum-holz-flankenholz-design-personalisierbar-minimale",
@@ -3130,7 +3204,21 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/"
+      "productPath": "/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/",
+      "includesMatchingHolder": true,
+      "includesCareBalm": true,
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Walnuss-Stirnholzbrett mit Saftrille",
+          "labelEn": "1 walnut end-grain board with juice groove"
+        },
+        {
+          "id": "card",
+          "label": "Persönlich adressierte Karte",
+          "labelEn": "Personally addressed card"
+        }
+      ]
     },
     {
       "id": "etsy-export-32-stirnholz-schneidebrett-3d-design-eiche-buche-wenge-handgefertigtes-prem",
@@ -3230,7 +3318,19 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/3d-stirnholz-eiche-weitere-1776273564/"
+      "productPath": "/produkte/3d-stirnholz-eiche-weitere-1776273564/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Schneidebrett in der gewählten Ausführung",
+          "labelEn": "1 cutting board in your chosen version"
+        },
+        {
+          "id": "careCloth",
+          "label": "Pflegetuch",
+          "labelEn": "Care cloth"
+        }
+      ]
     },
     {
       "id": "etsy-export-33-stirnholz-schneidebrett-stockbuche-einzigartige-maserung-durch-naturfarb",
@@ -3253,10 +3353,10 @@
       "priceLabel": "ab 194,99 EUR",
       "priceOrder": 194.99,
       "stock": 1,
-      "shortDescription": "Stirnholz, Buche, Esche, 41 x 30 x 4,7 cm, 4,0 kg.",
+      "shortDescription": "Stockbuche in Stirnholzbauweise mit Nussbaumrahmen, ca. 41 × 30 × 4,7 cm und ca. 4 kg.",
       "longDescription": "Viele denken, Holz sei gleich Holz. Stockbuche beweist das Gegenteil. Durch natürlichen Pilzbefall entstehen intensive Farbspiele – von warmen Goldtönen bis zu dunklen Kontrasten. Keine Fläche ist planbar, kein Brett identisch. Dieses Holz wird bewusst gewählt – nicht sortiert. Dieses Stirnholz-Schneidebrett ist für den täglichen Einsatz gemacht. Schwer,.",
       "badges": [
-        "Buche, Esche",
+        "Stockbuche, Nussbaum",
         "Stirnholz",
         "41 x 30 x 4,7 cm",
         "4,0 kg",
@@ -3286,7 +3386,7 @@
       "dataVerifiedAt": "2026-06-22",
       "source": "etsy-shop-live-20260622",
       "productType": "cuttingBoard",
-      "material": "Buche, Esche",
+      "material": "Stockbuche, Nussbaum",
       "woodCut": "end",
       "sizeLabel": "41 x 30 cm",
       "thicknessLabel": "4,7 cm",
@@ -3802,7 +3902,19 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/walnuss-eiche-rahmenbrett-4297472161/"
+      "productPath": "/produkte/walnuss-eiche-rahmenbrett-4297472161/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Schneidebrett in der gewählten Ausführung",
+          "labelEn": "1 cutting board in your chosen version"
+        },
+        {
+          "id": "careCloth",
+          "label": "Pflegetuch",
+          "labelEn": "Care cloth"
+        }
+      ]
     },
     {
       "id": "etsy-export-39-stirnholz-schneidebrett-eiche-minimalistisch-schmales-design-handgeferti",
@@ -3996,7 +4108,19 @@
         }
       ],
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/eiche-esche-buche-mit-saftrille-4297451235/"
+      "productPath": "/produkte/eiche-esche-buche-mit-saftrille-4297451235/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "1 Schneidebrett in der gewählten Ausführung",
+          "labelEn": "1 cutting board in your chosen version"
+        },
+        {
+          "id": "careCloth",
+          "label": "Pflegetuch",
+          "labelEn": "Care cloth"
+        }
+      ]
     },
     {
       "id": "etsy-live-20260619-schneidebrett-buche-massiv-griffmulden",
@@ -4261,7 +4385,14 @@
       "soldReason": "Automatischer Etsy-Abgleich am 2026-09-07: Listing nicht in aktiven Etsy-Listings.",
       "replacementStrategy": "request_similar",
       "requestUrl": "/schneidebrett-nach-mass/",
-      "productPath": "/produkte/teigschaber-set-2er-oder-3er-4493690534/"
+      "productPath": "/produkte/teigschaber-set-2er-oder-3er-4493690534/",
+      "packageContents": [
+        {
+          "id": "product",
+          "label": "Teigschaber-Set in der gezeigten Ausführung",
+          "labelEn": "Dough scraper set in the version shown"
+        }
+      ]
     },
     {
       "id": "etsy-live-20260726-erbstueck-no-004-eiche-buche",
@@ -4567,7 +4698,9 @@
       "variantLabel": "Ausführung",
       "variantLabelEn": "Design",
       "titleVerifiedAt": "2026-10-26",
-      "productPath": "/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/"
+      "productPath": "/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
+      "includesMatchingHolder": true,
+      "includesCareBalm": true
     }
   ]
 }
