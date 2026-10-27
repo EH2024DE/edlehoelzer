@@ -69,8 +69,8 @@
   function text() {
     if (isEnglish()) {
       return {
-        title: "Your privacy. Your choice.",
-        intro: "We use necessary technologies so this website works reliably. With your consent, we would also like to understand which content and products are relevant to visitors. We only use marketing technologies if you explicitly allow them.",
+        title: "Cookies and privacy",
+        intro: "Necessary technologies keep this website working. With your consent, we use Umami and GoatCounter for statistics and show external media such as YouTube.",
         acceptAll: "Accept all",
         necessaryOnly: "Necessary only",
         settings: "Settings",
@@ -89,8 +89,8 @@
     }
 
     return {
-      title: "Ihre Privatsphäre. Ihre Entscheidung.",
-      intro: "Wir verwenden notwendige Technologien, damit diese Website zuverlässig funktioniert. Mit Ihrer Zustimmung möchten wir zusätzlich verstehen, welche Inhalte und Produkte für Besucher relevant sind. Marketing-Technologien setzen wir nur ein, wenn Sie ihnen ausdrücklich zustimmen.",
+      title: "Cookies und Datenschutz",
+      intro: "Notwendige Technologien halten die Website funktionsfähig. Mit deiner Zustimmung nutzen wir Umami und GoatCounter für Statistik und zeigen externe Medien wie YouTube.",
       acceptAll: "Alle akzeptieren",
       necessaryOnly: "Nur notwendige",
       settings: "Einstellungen",
@@ -325,14 +325,14 @@
     var style = document.createElement("style");
     style.setAttribute("data-consent-styles", "");
     style.textContent = [
-      ".consentBanner{position:fixed;right:clamp(12px,3vw,28px);bottom:calc(12px + env(safe-area-inset-bottom));left:clamp(12px,3vw,28px);z-index:9999;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:end;max-width:980px;margin:0 auto;padding:18px;border:1px solid rgba(17,17,17,.12);border-radius:10px;background:rgba(250,247,241,.96);box-shadow:0 18px 52px rgba(34,24,16,.18);backdrop-filter:blur(14px)}",
-      ".consentBanner__copy h2,.consentModal h2{margin:0 0 8px;font-family:Georgia,serif;font-size:clamp(24px,3.2vw,38px);line-height:1.05;letter-spacing:0}.consentBanner__copy p,.consentChoice p{margin:0;color:rgba(17,17,17,.68);font-size:14px;line-height:1.55}",
-      ".consentBanner__actions,.consentModal__actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}.consentButton,.consentMedia__button{min-height:44px;padding:12px 16px;border:1px solid rgba(170,113,65,.45);border-radius:6px;background:#fff;color:#9a633a;font:800 12px/1.1 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.consentButton--primary{border-color:#bd8655;background:#bd8655;color:#fff}.consentButton--text{background:transparent}",
+      ".consentBanner{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));left:16px;z-index:9999;display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:760px;margin:0 auto;padding:16px;border:1px solid #d7d0c7;border-radius:6px;background:#faf7f1;color:#26231f;box-shadow:0 8px 28px rgba(34,24,16,.14)}",
+      ".consentBanner__copy h2,.consentModal h2{margin:0 0 8px;font:700 20px/1.25 Arial,sans-serif;letter-spacing:0}.consentBanner__copy p,.consentChoice p{margin:0;color:#49443e;font-size:14px;line-height:1.5}",
+      ".consentBanner__actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:8px;align-items:stretch}.consentModal__actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}.consentButton,.consentMedia__button{min-height:44px;padding:11px 14px;border:2px solid #544237;border-radius:4px;background:#faf7f1;color:#544237;font:700 14px/1.3 Arial,sans-serif;letter-spacing:0;text-transform:none;cursor:pointer;overflow-wrap:anywhere}.consentButton--primary{background:#544237;color:#fff}.consentButton--text{border-color:transparent;background:transparent;text-decoration:underline;text-underline-offset:3px}.consentButton:focus-visible,.consentMedia__button:focus-visible{outline:3px solid #26231f;outline-offset:3px}.consentButton:hover,.consentMedia__button:hover{box-shadow:inset 0 0 0 1px currentColor}",
       ".consentModal{position:fixed;inset:0;z-index:10000;display:grid;place-items:end center;padding:20px;background:rgba(20,16,13,.35)}.consentModal__panel{position:relative;width:min(720px,100%);max-height:min(86vh,760px);overflow:auto;padding:24px;border:1px solid rgba(17,17,17,.12);border-radius:10px;background:#faf7f1;box-shadow:0 22px 60px rgba(17,17,17,.24)}.consentModal__close{position:absolute;top:12px;right:12px;width:42px;height:42px;border:1px solid rgba(17,17,17,.14);border-radius:999px;background:#fff;color:#111;font-size:24px;cursor:pointer}",
       ".consentChoice{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start;margin-top:14px;padding:18px;border:1px solid rgba(17,17,17,.1);border-radius:8px;background:#fff}.consentChoice h3{margin:0 0 6px;font-size:17px;line-height:1.2}.consentChoice details{margin-top:10px;color:rgba(17,17,17,.62);font-size:13px}.consentChoice summary{cursor:pointer;font-weight:800}.consentChoice ul{display:grid;gap:8px;margin:10px 0 0;padding:0;list-style:none}.consentChoice li span{display:block}.consentBadge{display:inline-flex;align-items:center;min-height:34px;padding:8px 10px;border-radius:999px;background:#f4eee6;color:rgba(17,17,17,.68);font-size:12px;font-weight:800}",
       ".consentSwitch{position:relative;display:inline-flex;width:56px;height:32px}.consentSwitch input{position:absolute;opacity:0}.consentSwitch span{position:absolute;inset:0;border:1px solid rgba(17,17,17,.18);border-radius:999px;background:#ece5dc;cursor:pointer}.consentSwitch span:after{content:'';position:absolute;top:4px;left:4px;width:22px;height:22px;border-radius:999px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.16);transition:transform .18s ease}.consentSwitch input:checked+span{border-color:#bd8655;background:#bd8655}.consentSwitch input:checked+span:after{transform:translateX(24px)}",
       ".footerConsentLink{display:block;width:max-content;margin:0;padding:0;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}.footerConsentLink:hover,.footerConsentLink:focus-visible{color:#bd8655}.consentMedia{position:relative;min-height:220px}.consentMedia iframe:not([src]){display:none}.consentMedia__placeholder{display:grid;gap:10px;place-content:center;min-height:220px;padding:24px;border:1px solid rgba(116,83,53,.18);border-radius:8px;background:#f6f0e8;color:#1b1511;text-align:center}.consentMedia__placeholder strong{font:800 13px/1.2 Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}.consentMedia__placeholder p{max-width:34rem;margin:0 auto;color:rgba(17,17,17,.66);font-size:15px;line-height:1.5}",
-      "@media(max-width:720px){.consentBanner{grid-template-columns:1fr;gap:14px;padding:15px}.consentBanner__actions,.consentModal__actions{display:grid;grid-template-columns:1fr 1fr;width:100%}.consentBanner__actions .consentButton--text{grid-column:1/-1}.consentButton{width:100%;padding-inline:10px}.consentModal{padding:10px}.consentModal__panel{max-height:82vh;padding:18px}.consentChoice{grid-template-columns:1fr;gap:12px}}"
+      "@media(max-width:720px){.consentBanner{right:12px;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));gap:12px;padding:14px}.consentBanner__actions,.consentModal__actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.consentBanner__actions .consentButton--text{grid-column:1/-1}.consentButton{width:100%;padding-inline:8px}.consentModal{padding:10px}.consentModal__panel{max-height:82vh;padding:18px}.consentChoice{grid-template-columns:1fr;gap:12px}}"
     ].join("");
     document.head.appendChild(style);
   }

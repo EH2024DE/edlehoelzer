@@ -57,7 +57,7 @@ for (const en of [false, true]) {
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css?v=20261026-care-guarantee-r5">
 <script type="application/ld+json">${json(schema)}</script>
-<script src="/assets/js/consent-manager.js?v=20260823-intent" defer></script>
+<script src="/assets/js/consent-manager.js?v=20261027-compact" defer></script>
 </head><body class="productDetailPage">
 ${pageHeader}
 <main class="container productDetail" id="main-content">

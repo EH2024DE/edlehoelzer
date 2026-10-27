@@ -43,8 +43,8 @@ class ReleaseTests(phase3.Phase3Tests):
                      "schneidebrett-eiche-vs-nussbaum/index.html", "schneidebrett-saftrille/index.html"):
             before = subprocess.check_output(["git", "show", f"origin/main:{path}"], cwd=ROOT)
             current = (ROOT / path).read_bytes()
-            current = re.sub(rb'(/(?:main\.js|styles\.css|assets/js/product-grid\.js))\?v=[^"\s]+', rb'\1', current)
-            before = re.sub(rb'(/(?:main\.js|styles\.css|assets/js/product-grid\.js))\?v=[^"\s]+', rb'\1', before)
+            current = re.sub(rb'(/(?:main\.js|styles\.css|assets/js/product-grid\.js|assets/js/consent-manager\.js))\?v=[^"\s]+', rb'\1', current)
+            before = re.sub(rb'(/(?:main\.js|styles\.css|assets/js/product-grid\.js|assets/js/consent-manager\.js))\?v=[^"\s]+', rb'\1', before)
             # Approved route migrations may update links, not protected content.
             current = current.replace(b'/schneidebrett-fachwerk-eiche/', b'/erbstueck/')
             before = before.replace(b'/schneidebrett-fachwerk-eiche/', b'/erbstueck/')

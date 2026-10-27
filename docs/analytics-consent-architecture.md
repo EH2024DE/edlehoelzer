@@ -2,6 +2,17 @@
 
 Stand: 2026-08-26
 
+## Gestaltungsupdate vom 27.10.2026
+
+Der Banner verwendet eine kompakte, feste Schriftgröße, kürzere DE/EN-Texte
+mit den tatsächlichen Diensten und gleich große direkte Entscheidungen.
+"Alle akzeptieren" ist in Mokka gefüllt, "Nur notwendige" kontrastreich
+umrandet; Einstellungen bleiben auf erster Ebene erreichbar. Keine
+Vorauswahl, neue Zugangshürde oder Änderung der Einwilligungslogik. Die
+Ablehnung bleibt ein Klick. Kontrast und Handler sind durch Tests abgedeckt.
+Die Gestaltung ist keine rechtliche Zertifizierung. Eine zentrale Statistik
+der Einwilligungsentscheidungen wurde nicht eingeführt.
+
 ## Ziel
 
 Die Website soll schon vor einem eigenen Shop saubere Intent-Signale sammeln, ohne Statistik-, Marketing- oder externe Medien-Skripte vor Zustimmung oder einer ausdrücklichen Nutzeranforderung zu laden. Die aktuelle Umsetzung ist bewusst schlank gehalten und kann später um GA4, Meta, Pinterest oder einen eigenen Shop-Checkout erweitert werden.
