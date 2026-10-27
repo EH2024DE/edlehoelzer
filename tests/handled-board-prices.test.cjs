@@ -18,7 +18,7 @@ function engine() {
   return context;
 }
 test('combined starting price is the cheapest wood, not the oak reference price', () => {
-  assert.equal(combined.priceOrder, 264.99);
+  assert.equal(combined.priceOrder, 254.99);
   assert.equal(combined.priceOrder, Math.min(...combined.variants.map(v => v.priceOrder)));
   assert.equal(combined.availabilityStatus, 'available');
   assert.equal(combined.variants.find(v => v.id === 'oak').availabilityStatus, 'made_to_order');
@@ -32,17 +32,17 @@ test('tropical prices agree across both listings, including the optional groove'
 });
 test('wood selection recalculates all three base and groove prices without mutating catalog data', () => {
   const e = engine();
-  assert.equal(e.purchaseSubtotalWithoutCareBalm(combined), 264.99);
-  for (const [id,base,groove] of [['beech',264.99,279.99],['tropical',274.99,289.99],['oak',284.99,299.99]]) {
+  assert.equal(e.purchaseSubtotalWithoutCareBalm(combined), 254.99);
+  for (const [id,base,groove] of [['beech',254.99,269.99],['tropical',274.99,289.99],['oak',284.99,299.99]]) {
     e.purchaseSelections[combined.id] = {woodVariant:id};
     assert.equal(e.purchaseSubtotalWithoutCareBalm(combined), base);
     e.purchaseSelections[combined.id].juiceGroove = true;
     assert.equal(e.purchaseSubtotalWithoutCareBalm(combined), groove);
   }
-  assert.equal(combined.priceOrder, 264.99);
+  assert.equal(combined.priceOrder, 254.99);
 });
 test('unknown variant safely falls back to the advertised starting variant', () => {
   const e = engine();
   e.purchaseSelections[combined.id] = {woodVariant:'invalid'};
-  assert.equal(e.purchaseSubtotalWithoutCareBalm(combined), 264.99);
+  assert.equal(e.purchaseSubtotalWithoutCareBalm(combined), 254.99);
 });

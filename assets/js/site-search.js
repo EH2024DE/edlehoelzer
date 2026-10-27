@@ -55,7 +55,7 @@
       const [catalog, pages] = await data;
       if (current !== generation) return;
       const words = normalize(query).split(/\s+/).map(w => synonyms[w] || w);
-      const products = (catalog.products || catalog).filter(p => p.active !== false || p.availabilityStatus === 'sold').filter(p => score([p.displayName,p.name,p.material,p.segment,p.shortDescription].join(' '), words));
+      const products = (catalog.products || catalog).filter(p => !p.canonicalProductId && (p.active !== false || p.availabilityStatus === 'sold')).filter(p => score([p.displayName,p.name,p.material,p.segment,p.shortDescription].join(' '), words));
       products.sort((a,b) => Number(a.availabilityStatus === 'sold') - Number(b.availabilityStatus === 'sold'));
       const articles = pages.filter(p => score(p.title+' '+p.text, words));
       status.textContent = `${products.length} Produkte und ${articles.length} Inhalte gefunden.`;
@@ -65,7 +65,7 @@
         const grid = node('div','','searchProducts');
         products.slice(0,12).forEach(p => {
           const card = node('article','','searchProduct');
-          const button = node('button','','searchProduct__open'); button.type = 'button';
+          const button = node('a','','searchProduct__open'); button.href = (document.documentElement.lang.startsWith('en') ? '/en' : '') + p.productPath;
           button.dataset.productPreview = p.id; button.dataset.productSource = 'site_search';
           const img = document.createElement('img'); img.src = p.image; img.alt = ''; img.loading = 'lazy';
           button.append(img,node('span',p.displayName || p.name));

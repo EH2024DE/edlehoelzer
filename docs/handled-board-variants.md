@@ -6,7 +6,7 @@ https://www.etsy.com/de/listing/4417507555/
 - Oak: made to order, approximately 60 x 40 x 5 cm according to the current description. Existing photograph represents the sold original (59.5 x 38 x 4.9 cm), not a promise of identical grain on a new board.
 - Tropical hardwood: available, approximately 44.2 x 36 x 5 cm. Reuses the existing photographed model.
 - Beech: available, approximately 50 x 37 x 5 cm. Photo 6 confirms dimensions; its central wood surface supplies the texture, excluding dimension annotations.
-- The standalone tropical listing 4451487112 and its model remain intact.
+- The standalone tropical listing 4451487112 and its model remain intact in the 3D preview. Since 2026-10-26 the website catalog aliases that listing to the tropical variant of the combined product, without a duplicate product page or card. See `product-pages.md`.
 
 The three variants share a rounded outline and underside handle taper. The owner confirmed a common workshop template. Corner rounding and side/rear grain remain visual approximations, not measured CAD specifications. No generated wood photograph is used.
 

@@ -50,13 +50,15 @@ var EdleProductCopy = (function () {
     "Erbstück No. 004 – Eiche & Buche": "Erbstück No. 004 – Oak & beech"
   };
   var phrases = {
+    "Stockbuche in Stirnholzbauweise mit Nussbaumrahmen, ca. 41 × 30 × 4,7 cm und ca. 4 kg.": "Spalted beech end grain with a walnut frame, approx. 41 × 30 × 4.7 cm and approx. 4 kg.",
+    "Pflegebalsam mit Bienenwachs und Leinölfirnis für Schneidebretter und Küchenholz.": "Care balm with beeswax and linseed oil varnish for cutting boards and wooden kitchenware.",
     "Kompaktes Stirnholzbrett in fünf Holzdesigns, ca. 2 cm stark. Maße je nach Ausführung; Gravur optional auf Anfrage.": "Compact end-grain board in five wood designs, approx. 2 cm thick. Dimensions vary by design; optional engraving by arrangement.",
     "Kompakt, Maße je nach Ausführung": "Compact; dimensions vary by design",
     "Historische Eiche mit Buche-Akzenten, ca. 41,5 × 39,8 × 5 cm und ca. 5,8 kg. Halter und Pflegebalsam inklusive; ohne Saftrille ab 284,99 EUR, mit Saftrille 299,99 EUR.": "Historic oak with beech accents, approx. 41.5 × 39.8 × 5 cm and 5.8 kg. Stand and care balm included; from EUR 284.99 without a juice groove, EUR 299.99 with a juice groove.",
     "Nussbaum oder Zwetschge, ca. 17 cm lang und ca. 8 mm stark.": "Walnut or plum wood, approx. 17 cm long and 8 mm thick.",
     "Massiver Teigschaber aus Eiche, Nussbaum, Buche, Esche und weiteren Hölzern, ca. 9 x 13 cm.": "Solid wood dough scraper in oak, walnut, beech, ash and other woods, approx. 9 x 13 cm.",
     "Massiver Bretthalter aus Eiche, Nussbaum oder Buche, passgenau für Bretter bis 5 cm Stärke.": "Solid wood stand in oak, walnut or beech, fitted for boards up to 5 cm thick.",
-    "Drei Holzarten mit eigenen Maßen und Preisen. Ab 264,99 EUR für Buche ohne Saftrille; Tropenholz ab 274,99 EUR und Eiche ab 284,99 EUR.": "Three wood species with individual dimensions and prices. From EUR 264.99 for beech without a juice groove; tropical hardwood from EUR 274.99 and oak from EUR 284.99.",
+    "Drei Holzarten mit eigenen Maßen und Preisen. Ab 254,99 EUR für Buche ohne Saftrille; Tropenholz ab 274,99 EUR und Eiche ab 284,99 EUR.": "Three wood species with individual dimensions and prices. From EUR 254.99 for beech without a juice groove; tropical hardwood from EUR 274.99 and oak from EUR 284.99.",
     "Dreiteiliges Servierbrett-Set mit Halter: 44 × 21,5 cm, 39 × 18 cm und 34 × 14 cm.": "Three-piece serving board set with stand: 44 × 21.5 cm, 39 × 18 cm and 34 × 14 cm.",
     "Servierbretter in Schwertform aus Eiche, Esche oder Nussbaum; je nach Variante ca. 40–66 cm lang.": "Sword-shaped serving boards in oak, ash or walnut; approx. 40–66 cm long, depending on the version.",
     "Massives Eiche-Stirnholzbrett, ca. 41,5 × 39,8 × 5 cm und rund 5,8 kg, mit großzügigen Griffmulden.": "Solid oak end-grain board, approx. 41.5 × 39.8 × 5 cm and 5.8 kg, with generous recessed grips.",
@@ -120,6 +122,43 @@ var EdleProductCopy = (function () {
   return { text: text };
 }());
 
+function renderLegalGuaranteeNotice(english) {
+  var title = english ? 'Your statutory warranty rights' : 'Deine gesetzlichen Gewährleistungsrechte';
+  var image = '/assets/legal/eu-legal-guarantee-' + (english ? 'en' : 'de') + '.svg';
+  return '<details class="legalGuarantee"><summary>' + title + '</summary><figure>' +
+    '<a href="' + image + '" target="_blank" rel="noopener" aria-label="' + (english ? 'Open the full-size EU notice (new tab)' : 'EU-Hinweis in voller Größe öffnen (neuer Tab)') + '">' +
+    '<img src="' + image + '" width="595" height="842" loading="lazy" alt="' + (english ? 'Official EU notice on statutory warranty rights: at least two years for goods sold in the EU, remedies for faulty goods and how to exercise your rights.' : 'Offizieller EU-Hinweis zur gesetzlichen Gewährleistung: mindestens zwei Jahre für in der EU verkaufte Waren, Abhilfe bei mangelhaften Waren und Ausübung deiner Rechte.') + '"></a>' +
+    '<figcaption><a href="https://europa.eu/youreurope/' + (english ? 'guarantees' : 'garantien') + '">' + (english ? 'Read the EU information on your rights' : 'EU-Informationen zu deinen Rechten lesen') + '</a></figcaption></figure></details>';
+}
+
+function productPackageItems(product, rules, selection) {
+  rules = rules || {};
+  selection = selection || {};
+  var items = (product.packageContents || []).map(function (item) { return Object.assign({}, item); });
+  function add(id, label, labelEn) {
+    if (!items.some(function (item) { return item.id === id; })) items.push({id:id, label:label, labelEn:labelEn});
+  }
+  if (!items.length) {
+    if (product.category === 'care') add('product', '1 Dose Pflegebalsam', '1 tin of care balm');
+    else if (String(product.listingId) === '1874454440') add('product', '1 Bretthalter in der gewählten Holzart', '1 board stand in your chosen wood');
+    else if (product.productType === 'servingBoard') add('product', '1 Servierbrett in der gewählten Ausführung', '1 serving board in your chosen version');
+    else if (product.category === 'board') add('product', '1 Schneidebrett in der gewählten Ausführung', '1 cutting board in your chosen version');
+    else add('product', product.displayName || product.name, EdleProductCopy.text(product.displayName || product.name, true));
+  }
+  if (product.category === 'board') add('careGuide', 'Pflegeanleitung', 'Care instructions');
+  var value = Number(selection.goodsValue == null ? (product.variants && product.variants[0] ? product.variants[0].priceOrder : product.priceOrder) : selection.goodsValue);
+  var availableBoard = product.category === 'board' && product.active !== false && ['available', 'made_to_order'].includes(product.availabilityStatus);
+  var balm = product.includesCareBalm || selection.careBalm || (availableBoard && value >= Number(rules.careBalmMinimumGoodsValue || 150));
+  var thickness = String(product.thicknessLabel || '').replace(/,/g, '.').match(/\d+(?:\.\d+)?/g);
+  var thickEnough = thickness && Math.min.apply(Math, thickness.map(Number)) >= Number(rules.holderMinimumBoardThicknessCm || 4);
+  if (product.includesMatchingHolder || (availableBoard && value >= Number(rules.holderMinimumGoodsValue || 350) && thickEnough)) add('holder', 'Passender Bretthalter', 'Matching board stand');
+  if (balm) add('careBalm', 'Pflegebalsam', 'Care balm');
+  var order = ['product', 'holder', 'careBalm', 'careCloth', 'careGuide', 'card'];
+  return items.sort(function (a, b) {
+    return (order.includes(a.id) ? order.indexOf(a.id) : 99) - (order.includes(b.id) ? order.indexOf(b.id) : 99);
+  });
+}
+
 document.documentElement.classList.add("js");
 if (!document.querySelector('[data-photo-viewer-loader]')) {
   var photoStyle = document.createElement("link");
@@ -131,6 +170,13 @@ if (!document.querySelector('[data-photo-viewer-loader]')) {
   photoScript.setAttribute("data-photo-viewer-loader", "");
   document.head.appendChild(photoScript);
 }
+function orderProductMedia(items, primarySrc) {
+  var images = items.filter(function (item) { return item.type === 'image'; });
+  var primary = images.find(function (item) { return item.src === primarySrc; }) || images[0];
+  var videos = items.filter(function (item) { return item.type === 'video'; });
+  return (primary ? [primary] : []).concat(videos, images.filter(function (item) { return item !== primary; }));
+}
+
 function buildCardGalleryItems(product) {
   var images = [product.image].concat(product.gallery || []).filter(Boolean).map(function (src) {
     return src.replace(/^(https:\/\/i\.etsystatic\.com\/.+\/)il_fullxfull\./, "$1il_794xN.");
@@ -148,7 +194,7 @@ if (!document.querySelector('[data-product-hover-loader]')) {
 }
 if (!document.querySelector('[data-site-search-loader]')) {
   var searchStyle=document.createElement('link');searchStyle.rel='stylesheet';searchStyle.href='/assets/css/site-search.css';document.head.appendChild(searchStyle);
-  var searchScript=document.createElement('script');searchScript.src='/assets/js/site-search.js';searchScript.setAttribute('data-site-search-loader','');document.head.appendChild(searchScript);
+  var searchScript=document.createElement('script');searchScript.src='/assets/js/site-search.js?v=20261026-product-pages';searchScript.setAttribute('data-site-search-loader','');document.head.appendChild(searchScript);
 }
 if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var roomStyle=document.createElement('link');roomStyle.rel='stylesheet';roomStyle.href='/assets/css/room-discovery.css';document.head.appendChild(roomStyle);
@@ -157,7 +203,7 @@ if (!document.querySelector('[data-kitchen-preview-loader]')) {
   var kitchenScript=document.createElement('script');kitchenScript.src='/assets/js/kitchen-preview-entry.js?v=20260923-picker';kitchenScript.defer=true;kitchenScript.setAttribute('data-kitchen-preview-loader','');document.head.appendChild(kitchenScript);
 }
 
-var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261023-erbstueck-series";
+var EDLE_HOELZER_PRODUCTS_URL = "/products.json?v=20261026-care-guarantee-r5";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -511,7 +557,7 @@ function initGooglePreferredSource() {
   ];
   var main = document.querySelector("main");
 
-  if (!main || main.classList.contains("homepageRefined") || excludedPaths.indexOf(path) !== -1 || document.querySelector("[data-preferred-source-cta]")) {
+  if (!main || main.querySelector('[data-product-page]') || main.classList.contains("homepageRefined") || excludedPaths.indexOf(path) !== -1 || document.querySelector("[data-preferred-source-cta]")) {
     return;
   }
 
@@ -1467,7 +1513,8 @@ function initProductExperience() {
     benefitBasis: "Based on goods value before shipping.",
     juiceGrooveOption: "Juice groove",
     engravingOption: "Engraving",
-    careBalmOption: "Edle Hölzer care balm · 10% off",
+    careBalmOption: "Add matching wood care",
+    careBalmOptionNote: "Our care balm for refreshing your wooden board. Ready to hand when the surface needs care again.",
     productWhatsappHint: "Still have a question about this product? Message us.",
     productWhatsappCta: "Ask via WhatsApp",
     mediaProof: "Real product photos",
@@ -1560,7 +1607,8 @@ function initProductExperience() {
     benefitBasis: "Maßgeblich ist der Warenwert ohne Versand.",
     juiceGrooveOption: "Saftrille",
     engravingOption: "Gravur",
-    careBalmOption: "Edle Hölzer Pflegebalsam · 10 % günstiger",
+    careBalmOption: "Die passende Pflege gleich dazu",
+    careBalmOptionNote: "Unser Pflegebalsam zum Nachpflegen deines Holzbretts. So hast du ihn zur Hand, wenn die Oberfläche wieder Pflege braucht.",
     productWhatsappHint: "Noch offene Fragen zu diesem Produkt? Schreib uns kurz.",
     productWhatsappCta: "Per WhatsApp klären",
     mediaProof: "Echte Produktbilder",
@@ -1583,6 +1631,8 @@ function initProductExperience() {
   var products = [];
   var purchaseRules = {};
   var purchaseSelections = {};
+  var productPage = document.querySelector('[data-product-page]');
+  function previewRoot() { return activeOverlay || productPage; }
   var compareIds = readCompareState();
   var activeOverlay = null;
   var activeDialog = null;
@@ -1612,6 +1662,7 @@ function initProductExperience() {
 
     var previewTrigger = event.target.closest("[data-product-preview]");
     if (previewTrigger) {
+      if (previewTrigger.tagName === 'A' && (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) return;
       event.preventDefault();
       openProduct(previewTrigger.getAttribute("data-product-preview"), previewTrigger.getAttribute("data-product-source") || "page", previewTrigger, previewTrigger.getAttribute("data-product-reason") || "");
       return;
@@ -1670,7 +1721,7 @@ function initProductExperience() {
   });
 
   document.addEventListener("touchstart", function (event) {
-    if (!activeDialog || !event.target.closest(".productPreview__mainMedia") || event.touches.length !== 1) {
+    if (!previewRoot() || !event.target.closest(".productPreview__mainMedia") || event.touches.length !== 1) {
       previewSwipeStart = null;
       return;
     }
@@ -1682,7 +1733,7 @@ function initProductExperience() {
   }, { passive: true });
 
   document.addEventListener("touchend", function (event) {
-    if (!previewSwipeStart || !activeDialog || event.changedTouches.length !== 1) {
+    if (!previewSwipeStart || !previewRoot() || event.changedTouches.length !== 1) {
       previewSwipeStart = null;
       return;
     }
@@ -1705,10 +1756,15 @@ function initProductExperience() {
       if (!variantProduct || !(variantProduct.variants || []).some(function (variant) { return variant.id === variantInput.value; })) return;
       purchaseSelections[variantProduct.id] = purchaseSelections[variantProduct.id] || {};
       purchaseSelections[variantProduct.id].woodVariant = variantInput.value;
+      if (productPage) {
+        var variantUrl = new URL(location.href);
+        variantUrl.searchParams.set('variante', variantInput.value);
+        history.replaceState(null, '', variantUrl);
+      }
       updatePreviewPurchaseSummary(variantProduct);
       var selectedVariant = purchaseVariant(variantProduct);
-      if (selectedVariant.image && activeOverlay) {
-        var matchingThumb = Array.from(activeOverlay.querySelectorAll('[data-preview-media]')).find(function (thumb) {
+      if (selectedVariant.image && previewRoot()) {
+        var matchingThumb = Array.from(previewRoot().querySelectorAll('[data-preview-media]')).find(function (thumb) {
           return thumb.getAttribute('data-preview-src') === selectedVariant.image;
         });
         if (matchingThumb) switchPreviewMedia(matchingThumb);
@@ -1763,6 +1819,52 @@ function initProductExperience() {
     getProducts: loadProducts
   };
 
+  // Keep native links usable (new tabs, keyboard and no-JS static pages).
+  function productUrl(product) {
+    var canonical = productMap[product.canonicalProductId] || product;
+    return (isEnglish ? '/en' : '') + canonical.productPath + (product.canonicalVariantId ? '?variante=' + encodeURIComponent(product.canonicalVariantId) : '');
+  }
+  function linkProducts(root) {
+    root.querySelectorAll('[data-product-preview]').forEach(function (button) {
+      var product = productMap[button.getAttribute('data-product-preview')];
+      if (!product || !product.productPath) return;
+      if (button.tagName === 'A') { button.href = productUrl(product); return; }
+      var link = document.createElement('a');
+      Array.from(button.attributes).forEach(function (attribute) {
+        if (attribute.name !== 'type') link.setAttribute(attribute.name, attribute.value);
+      });
+      link.href = productUrl(product);
+      while (button.firstChild) link.appendChild(button.firstChild);
+      button.replaceWith(link);
+    });
+  }
+  loadProducts().then(function () {
+    linkProducts(document);
+    new MutationObserver(function (changes) {
+      if (changes.some(function (change) { return change.addedNodes.length; })) linkProducts(document);
+    }).observe(document.body, {childList:true, subtree:true});
+    if (!productPage) return;
+    var product = productMap[productPage.dataset.productPage];
+    if (!product) return;
+    var variantId = new URLSearchParams(location.search).get('variante');
+    if ((product.variants || []).some(function (v) { return v.id === variantId; })) purchaseSelections[product.id] = {woodVariant:variantId};
+    productPage.innerHTML = renderProductPreview(product, 'product-page', '');
+    var section = productPage.querySelector('.productPreview');
+    section.removeAttribute('role'); section.removeAttribute('aria-modal');
+    section.querySelectorAll('[data-product-experience-close]').forEach(function (element) { element.remove(); });
+    var heading = section.querySelector('#product-preview-title');
+    var h1 = document.createElement('h1'); h1.id = heading.id;
+    h1.textContent = isEnglish ? displayProductName(product) : product.name;
+    heading.replaceWith(h1);
+    if (availabilityStatus(product) === 'sold') {
+      var sold = document.createElement('p'); sold.className = 'productCard__availability';
+      sold.textContent = isEnglish ? 'Sold · One-of-a-kind inspiration' : 'Verkauft · Ein Unikat als Inspiration';
+      h1.after(sold);
+    }
+    updatePreviewPurchaseSummary(product);
+    linkProducts(productPage);
+  }).catch(function (error) { console.warn('[Edle Hölzer] Product page:', error); });
+
   function loadProducts() {
     if (!catalogPromise) {
       catalogPromise = fetch(EDLE_HOELZER_PRODUCTS_URL)
@@ -1782,7 +1884,8 @@ function initProductExperience() {
               productMap[product.id] = product;
             }
           });
-          compareIds = compareIds.filter(function (id) {
+          compareIds = compareIds.map(function (id) { return productMap[id] && productMap[id].canonicalProductId || id; }).filter(function (id, index, ids) {
+            if (ids.indexOf(id) !== index) return false;
             return isComparableProduct(productMap[id]);
           });
           writeCompareState();
@@ -1798,6 +1901,11 @@ function initProductExperience() {
     loadProducts().then(function () {
       var product = productMap[productId];
       if (!product) {
+        return;
+      }
+
+      if (product.productPath) {
+        window.location.assign(productUrl(product));
         return;
       }
 
@@ -1827,15 +1935,13 @@ function initProductExperience() {
     var media = productMedia(product);
     var variant = purchaseVariant(product);
     if (variant && variant.image) {
-      media.sort(function (a, b) { return Number(b.src === variant.image) - Number(a.src === variant.image); });
+      media = orderProductMedia(media, variant.image);
     }
     var main = media[0];
     var title = displayProductName(product);
     var facts = productFacts(product);
-    var highlights = productHighlights(product);
     var related = relatedProducts(product);
     var hasEtsy = hasVerifiedListing(product);
-    var etsyUrl = etsyActionUrl(product);
 
     return '<section class="productPreview" role="dialog" aria-modal="true" aria-labelledby="product-preview-title">' +
       '<button class="productExperience__close" type="button" data-product-experience-close aria-label="' + escapeAttribute(labels.close) + '">×</button>' +
@@ -1852,32 +1958,22 @@ function initProductExperience() {
         '<p class="productPreview__eyebrow">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || "Edle Hölzer", isEnglish)) + '</p>' +
         '<h2 id="product-preview-title">' + escapeHtml(title) + '</h2>' +
         renderPurchaseHeadline(product) +
-        (product.includesMatchingHolder ? renderPurchaseBenefit(product) : "") +
-        renderEarlyPurchaseAction(product) +
-        (product.category === 'board' && product.active !== false && String(product.listingId) !== '4440690649' && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt"><p>' + (isEnglish ? 'Will it fit your kitchen?' : 'Passt es in deine Küche?') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
-        (source === "erbstueck" ? '<p class="productPreview__trust">Lieber ein anderes Brett? <a href="/produkte.html#produktfinder" data-umami-event="produktfinder-gestartet">Zum Produktfinder</a></p>' : '') +
-        '<p class="productPreview__moment">' + escapeHtml(productMoment(product)) + '</p>' +
-        '<p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p>' +
-        renderExperiencePromise(product) +
-        (reason ? '<div class="productPreview__reason"><strong>' + escapeHtml(labels.finderReason) + '</strong><p>' + escapeHtml(reason) + '</p></div>' : "") +
-        renderPurchaseConfigurator(product) +
         (facts.length ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.keyFacts) + '</h3><dl class="productPreview__facts">' + facts.map(function (fact) {
           return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
         }).join("") + '</dl></section>' : "") +
-        (highlights.length ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.highlights) + '</h3><ul class="productPreview__chips">' + highlights.map(function (highlight) {
-          return '<li>' + escapeHtml(highlight) + '</li>';
-        }).join("") + '</ul></section>' : "") +
-        (productExperienceText(product) !== productMoment(product) ? '<section class="productPreview__section"><h3>' + escapeHtml(labels.madeFor) + '</h3><p>' + escapeHtml(productExperienceText(product)) + '</p></section>' : "") +
-        '<section class="productPreview__section"><h3>' + escapeHtml(labels.care) + '</h3><p>' + escapeHtml(careNote(product)) + '</p></section>' +
+        renderPurchaseConfigurator(product) +
+        '<section class="productPreview__package"><h3>' + (isEnglish ? 'Included with your selection' : 'Das ist dabei') + '</h3><ul data-product-package>' + renderPackageItems(product) + '</ul><p>' + escapeHtml(isEnglish ? 'Other products and decorative items shown in photos are not included.' : 'Weitere abgebildete Produkte und Dekoration sind nicht enthalten.') + '</p></section>' +
+        renderEarlyPurchaseAction(product) +
+        renderLegalGuaranteeNotice(isEnglish) +
+        (!hasEtsy ? '<p class="productCard__availability">' + escapeHtml(isEnglish ? (product.availabilityNoteEn || labels.unavailableText) : (product.availabilityNote || labels.unavailableText)) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + escapeHtml(labels.askSimilar) + '</a>' : '') +
+        (product.category === 'board' && product.active !== false && String(product.listingId) !== '4440690649' && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt" data-enhanced="true"><p>' + (isEnglish ? 'See this board in your own kitchen before deciding.' : 'Sieh dir dieses Brett vor dem Kauf in deiner Küche an.') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
+        '<div class="productPreview__actions">' + renderProductWhatsappPrompt(product, hasEtsy) + renderPreviewCompareControls(product, source || 'preview') + '</div>' +
+        (reason ? '<div class="productPreview__reason"><strong>' + escapeHtml(labels.finderReason) + '</strong><p>' + escapeHtml(reason) + '</p></div>' : '') +
+        '<details class="productPreview__detail"><summary>' + (isEnglish ? 'Material & craft' : 'Material & Handwerk') + '</summary><p class="productPreview__proof">' + escapeHtml(productProof(product)) + '</p><p>' + escapeHtml(product.category === 'board' ? labels.boardExperiencePromise : productExperienceText(product)) + '</p>' + (hasEngravingControl(product) ? '<p>' + escapeHtml(labels.engravingExperiencePromise) + '</p>' : '') + '</details>' +
+        '<details class="productPreview__detail"><summary>' + escapeHtml(labels.care) + '</summary><p>' + escapeHtml(careNote(product)) + '</p></details>' +
         (related.length ? '<section class="productPreview__section productPreview__related"><h3>' + escapeHtml(related.some(function (item) { return item.category === "accessory"; }) ? (isEnglish ? "Complete the wood family" : "Passend kombinieren") : labels.related) + '</h3><div class="productPreview__relatedGrid">' + related.map(function (relatedProduct) {
           return '<article><img src="' + escapeAttribute(primaryImage(relatedProduct)) + '" alt="' + escapeAttribute(productImageAlt(relatedProduct)) + '" loading="lazy" decoding="async"><strong>' + escapeHtml(displayProductName(relatedProduct)) + '</strong><div class="productPreview__relatedActions"><button type="button" data-product-preview="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "View" : "Ansehen") + '</button><button type="button" data-product-compare="' + escapeAttribute(relatedProduct.id) + '" data-product-source="related">' + escapeHtml(isEnglish ? "Compare" : "Vergleich") + '</button></div></article>';
         }).join("") + '</div></section>' : "") +
-        '<div class="productPreview__actions">' +
-        (hasEtsy ? '<div class="productPreview__checkoutRow"><p><span data-purchase-price-label>' + escapeHtml(purchasePriceLabel(product)) + '</span><strong data-purchase-price>' + escapeHtml(purchasePriceText(product)) + '</strong></p><a class="btn btn--emphasis" href="' + escapeAttribute(etsyUrl) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a></div><p class="productPreview__trust">' + escapeHtml(purchaseOptions(product).length ? labels.optionCheckoutNote : labels.etsyTrust) + '</p>' : '<p class="productCard__availability">' + escapeHtml(isEnglish ? (product.availabilityNoteEn || labels.unavailableText) : (product.availabilityNote || labels.unavailableText)) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' + escapeHtml(labels.askSimilar) + '</a>') +
-          renderProductWhatsappPrompt(product, hasEtsy) +
-          renderPreviewCompareControls(product, source || "preview") +
-          '<button class="btn btn--secondary" type="button" data-product-experience-close>' + escapeHtml(labels.continueBrowsing) + '</button>' +
-        '</div>' +
       '</div>' +
     '</section>';
   }
@@ -2264,7 +2360,7 @@ function initProductExperience() {
   }
 
   function switchPreviewMedia(button) {
-    var main = activeOverlay && activeOverlay.querySelector(".productPreview__mainMedia");
+    var main = previewRoot() && previewRoot().querySelector(".productPreview__mainMedia");
     if (!main) {
       return;
     }
@@ -2277,18 +2373,18 @@ function initProductExperience() {
     };
     main.innerHTML = renderPreviewMainMedia(item);
     startDesktopPreviewVideo(main);
-    activeOverlay.querySelectorAll("[data-preview-media]").forEach(function (item) {
+    previewRoot().querySelectorAll("[data-preview-media]").forEach(function (item) {
       item.classList.toggle("is-active", item === button);
     });
     button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
 
   function switchPreviewByOffset(offset) {
-    if (!activeOverlay) {
+    if (!previewRoot()) {
       return;
     }
 
-    var buttons = Array.prototype.slice.call(activeOverlay.querySelectorAll("[data-preview-media]"));
+    var buttons = Array.prototype.slice.call(previewRoot().querySelectorAll("[data-preview-media]"));
     if (buttons.length < 2) {
       return;
     }
@@ -2306,16 +2402,16 @@ function initProductExperience() {
 
   function productMedia(product) {
     if (Array.isArray(product.media) && product.media.length) {
-      return product.media.filter(function (item) {
+      return orderProductMedia(product.media.filter(function (item) {
         return item && item.src && (item.type === "image" || item.type === "video");
-      }).slice(0, 6).map(function (item) {
+      }).map(function (item) {
         return {
           type: item.type || "image",
           src: item.src,
           poster: item.poster || item.src,
           alt: isEnglish ? productImageAlt(product) : (item.alt || productImageAlt(product))
         };
-      });
+      }), product.image);
     }
 
     var urls = [];
@@ -2325,6 +2421,9 @@ function initProductExperience() {
     if (product.image && urls.indexOf(product.image) === -1) {
       urls.unshift(product.image);
     }
+    (product.variants || []).forEach(function (variant) {
+      if (variant.image && urls.indexOf(variant.image) === -1) urls.push(variant.image);
+    });
     var images = urls.map(function (url) {
       return {
         type: "image",
@@ -2345,7 +2444,7 @@ function initProductExperience() {
       };
     }) : [];
 
-    return videos.concat(images);
+    return orderProductMedia(images.concat(videos), product.image);
   }
 
   function renderPreviewMainMedia(item) {
@@ -2381,9 +2480,9 @@ function initProductExperience() {
     container.innerHTML = '<video data-preview-main controls playsinline autoplay muted' + (poster ? ' poster="' + escapeAttribute(poster) + '"' : "") + ' aria-label="' + escapeAttribute(alt) + '"><source src="' + escapeAttribute(src) + '" type="video/mp4"></video>';
     var video = container.querySelector("video");
     if (video && typeof video.play === "function") {
-      var productId = activeOverlay && activeOverlay.getAttribute("data-current-product-id");
+      var productId = previewRoot() && previewRoot().getAttribute("data-current-product-id");
       track("product_video_view", productMap[productId], {
-        source: (activeOverlay && activeOverlay.getAttribute("data-current-product-source")) || "preview",
+        source: (previewRoot() && previewRoot().getAttribute("data-current-product-source")) || "preview",
         playback: "manual"
       });
       var playPromise = video.play();
@@ -2566,13 +2665,15 @@ function initProductExperience() {
 
   function productFacts(product) {
     var facts = [];
-    pushFact(facts, labels.wood, product.material);
+    var variant = purchaseVariant(product);
+    var woodVariant = variant && ['4417507555', '4599650982'].includes(String(product.listingId));
+    pushFact(facts, labels.wood, woodVariant ? (isEnglish ? variant.nameEn : variant.name) : product.material);
     pushFact(facts, labels.construction, constructionLabel(product));
-    pushFact(facts, labels.dimensions, dimensionLabel(product));
+    pushFact(facts, labels.dimensions, variant && variant.dimensions ? variant.dimensions : dimensionLabel(product));
     pushFact(facts, labels.thickness, displayThicknessLabel(product));
-    pushFact(facts, labels.weight, exactWeightLabel(product));
+    if (!variant || !variant.dimensions) pushFact(facts, labels.weight, exactWeightLabel(product));
     if (product.category === "board") {
-      pushFact(facts, labels.juiceGroove, juiceGrooveFactLabel(product));
+      pushFact(facts, labels.juiceGroove, String(product.listingId) === '4598989614' && variant ? (variant.id === 'groove' ? labels.included : booleanLabel(false)) : juiceGrooveFactLabel(product));
     }
     pushFact(facts, labels.engraving, engravingLabel(product));
     return facts.slice(0, 9);
@@ -2618,33 +2719,39 @@ function initProductExperience() {
   function productMoment(product) {
     var text = [product.name, product.displayName, product.segment, product.shortDescription].join(" ").toLowerCase();
     if (product.category === "care") {
-      return isEnglish ? "For boards that should be cared for instead of replaced." : "Für Bretter, die gepflegt statt ersetzt werden sollen.";
+      return isEnglish ? "Wood care with beeswax and linseed oil varnish." : "Holzpflege mit Bienenwachs und Leinölfirnis.";
+    }
+    if (String(product.listingId) === '1838851839') {
+      return isEnglish ? "Wooden coasters with a matching holder." : "Holzuntersetzer mit passendem Halter.";
+    }
+    if (String(product.listingId) === '1874454440') {
+      return isEnglish ? "A dedicated place for your cutting board." : "Ein fester Platz für dein Schneidebrett.";
     }
     if (/buttermesser|butter\s*knife/.test(text)) {
-      return isEnglish ? "For breakfast, bread boards and small serving moments that should match your wooden kitchen tools." : "Für Frühstück, Brotzeit und kleine Serviermomente, die zu deinen Holzstücken passen sollen.";
+      return isEnglish ? "A solid wood butter knife for breakfast and bread boards." : "Ein Buttermesser aus Massivholz für Frühstück und Brotzeit.";
     }
     if (/pfannenwender|spatula|turner/.test(text)) {
-      return isEnglish ? "For the pan, grill and kitchen tools that may match your board instead of feeling random." : "Für Pfanne, Grill und Küchenhelfer, die zum Brett passen dürfen statt beliebig zu wirken.";
+      return isEnglish ? "A handmade solid wood spatula." : "Ein handgefertigter Pfannenwender aus Massivholz.";
     }
     if (/teigschaber|dough|scraper/.test(text)) {
-      return isEnglish ? "For sourdough, bread dough and a wooden tool family that can match your board." : "Für Sauerteig, Brotteig und eine Holzfamilie, die zum Brett passen kann.";
+      return isEnglish ? "Solid wood dough scrapers for baking." : "Teigschaber aus Massivholz zum Backen.";
     }
     if (/erbst/.test(text)) {
-      return isEnglish ? "For people who do not want a reproducible standard product." : "Für Menschen, die kein reproduzierbares Serienprodukt suchen.";
+      return isEnglish ? "Historic oak and beech, handcrafted into a one-of-a-kind board." : "Historische Eiche und Buche, von Hand zum Einzelstück gefertigt.";
     }
     if (product.listingId === "4599650982") {
       return isEnglish ? "For small prep jobs, breakfast and a cheese selection for one." : "Für kleine Schneidarbeiten, Frühstück und eine Käseauswahl für eine Person.";
     }
-    if (isEndGrain(product)) {
-      return isEnglish ? "For intensive kitchen work with good knives." : "Für intensive Küchenarbeit mit guten Messern.";
+    if (product.productType === 'servingBoard') {
+      return isEnglish ? "For breakfast, cheese and serving at the table." : "Für Brotzeit, Käse und das Anrichten am Tisch.";
     }
-    if (Array.isArray(product.useCases) && product.useCases.indexOf("bbq") !== -1) {
-      return isEnglish ? "For the moment after grilling." : "Für den Moment nach dem Grillen.";
+    if (product.category === 'board' && isEndGrain(product)) {
+      return isEnglish ? "End grain with cross-cut wood fibres." : "Stirnholz mit quer angeschnittenen Holzfasern.";
     }
-    if (product.servingSuitable || product.giftable) {
-      return isEnglish ? "For the moment when a board does not just cut, but stays on the table." : "Für den Moment, in dem ein Brett nicht nur schneidet, sondern auf dem Tisch bleibt.";
+    if (product.category === 'board' && product.woodCut === 'edge') {
+      return isEnglish ? "Edge grain with the grain running lengthwise." : "Langholz mit längs verlaufender Maserung.";
     }
-    return isEnglish ? "For kitchen moments where the board may stay visible." : "Für Küchenmomente, in denen das Brett sichtbar bleiben darf.";
+    return isEnglish ? "Handcrafted wood with its own character." : "Handgefertigtes Holz mit eigenem Charakter.";
   }
 
   function productProof(product) {
@@ -2659,7 +2766,7 @@ function initProductExperience() {
       }
       return normalized.length > 340 ? normalized.slice(0, 337).replace(/\s+\S*$/, "") + "…" : normalized;
     }
-    if (isEndGrain(product)) {
+    if (product.category === 'board' && isEndGrain(product)) {
       return isEnglish ? "Standing wood fibres make end grain more involved to produce and give it its dense, substantial character." : "Stehende Holzfasern machen Stirnholz aufwendiger in der Fertigung und geben dem Brett seinen dichten, massiven Charakter.";
     }
     if (product.material) {
@@ -2670,10 +2777,16 @@ function initProductExperience() {
 
   function productExperienceText(product) {
     var text = [product.name, product.displayName, product.segment].join(" ").toLowerCase();
+    if (String(product.listingId) === '1838851839') {
+      return isEnglish ? "Place under glasses and cups; store the coasters in their matching holder after use." : "Zum Unterlegen unter Gläser und Tassen. Nach Gebrauch finden die Untersetzer im passenden Halter ihren Platz.";
+    }
+    if (String(product.listingId) === '1874454440') {
+      return isEnglish ? "For storing and displaying your board upright. Check that the board thickness fits the holder before choosing." : "Für die aufrechte Aufbewahrung und Präsentation deines Bretts. Achte bei der Auswahl auf die passende Brettstärke.";
+    }
     if (/buttermesser|butter\s*knife/.test(text)) {
       return isEnglish
-        ? "For butter, cream cheese, spreads and breakfast boards. Choose walnut or plum wood and combine it with matching boards, spatulas or dough scrapers."
-        : "Für Butter, Frischkäse, Aufstriche und Brotzeit am Tisch. Du kannst Nussbaum oder Zwetschge wählen und es mit passenden Brettern, Pfannenwendern oder Teigschabern kombinieren.";
+        ? "For spreading butter, cream cheese and other spreads at the breakfast table."
+        : "Zum Verstreichen von Butter, Frischkäse und anderen Aufstrichen am Frühstückstisch.";
     }
     if (/pfannenwender|spatula|turner/.test(text)) {
       return isEnglish
@@ -2987,10 +3100,9 @@ function initProductExperience() {
     }
 
     var selection = purchaseSelection(product);
-    var careThreshold = Number(purchaseRules.careBalmMinimumGoodsValue || 150);
     var total = subtotal;
     purchaseOptions(product).forEach(function (option) {
-      if (option.id === "careBalm" && selection[option.id] && subtotal < careThreshold) {
+      if (option.id === "careBalm" && selection[option.id] && !careBalmIsIncluded(product)) {
         total += option.price;
       }
     });
@@ -3013,6 +3125,7 @@ function initProductExperience() {
   }
 
   function careBalmIsIncluded(product) {
+    if (product.includesCareBalm) return true;
     var subtotal = purchaseSubtotalWithoutCareBalm(product);
     var careThreshold = Number(purchaseRules.careBalmMinimumGoodsValue || 150);
     return Number.isFinite(subtotal) && subtotal >= careThreshold;
@@ -3168,23 +3281,39 @@ function initProductExperience() {
         return '<option value="' + escapeAttribute(variant.id) + '"' + (purchaseVariant(product).id === variant.id ? ' selected' : '') + '>' + escapeHtml((isEnglish ? variant.nameEn : variant.name) + ' · ' + formatCurrency(variant.priceOrder)) + '</option>';
       }).join('') + '</select></label><p data-purchase-variant-summary>' + escapeHtml(purchaseVariantSummary(product)) + '</p><p class="productPreview__trust">' + escapeHtml(product.etsyOptionsOnly ? (isEnglish ? 'Prices depend on the selected design. Confirm dimensions, personalisation and the final price on Etsy.' : 'Der Preis richtet sich nach der gewählten Ausführung. Maße, Personalisierung und Endpreis bestätigst du auf Etsy.') : (isEnglish ? 'Base prices exclude the optional juice groove (+€15). The oak photos show the reference piece; use the worktop preview for the other woods.' : 'Grundpreise ohne optionale Saftrille (+15 €). Die Eichenfotos zeigen das Referenzstück; die anderen Holzarten findest du in der Tresenvorschau.')) + '</p>' : '') +
       (options.length ? '<h3>' + escapeHtml(labels.configuration) + '</h3><div class="productPreview__optionList">' +
-        '<div class="productPreview__option productPreview__option--standard"><span>' + escapeHtml(labels.standardVersion) + '</span><strong>' + escapeHtml(labels.included) + '</strong></div>' +
         options.map(function (option) {
           var hidden = option.id === "careBalm" && careBalmIsIncluded(product);
           var optionCopy = '<span class="productPreview__optionCopy"><span>' + escapeHtml(option.label) + '</span>' +
+            (option.id === 'careBalm' ? '<small class="productPreview__optionNote">' + escapeHtml(labels.careBalmOptionNote) + '</small>' : '') +
             (Number.isFinite(option.regularPrice) ? '<small>' + escapeHtml(labels.regularPrice) + ' ' + escapeHtml(formatCurrency(option.regularPrice)) + '</small>' : "") +
           '</span>';
           return '<label class="productPreview__option"' + (hidden ? " hidden" : "") + ' data-purchase-option-row="' + escapeAttribute(option.id) + '"><input type="checkbox" data-purchase-option="' + escapeAttribute(option.id) + '" data-product-id="' + escapeAttribute(product.id) + '"' + (selection[option.id] ? " checked" : "") + '>' + optionCopy + '<strong>+ ' + escapeHtml(formatCurrency(option.price)) + '</strong></label>';
         }).join("") +
       '</div>' : "") +
-      (product.includesMatchingHolder ? "" : renderPurchaseBenefit(product)) +
     '</section>';
   }
 
+  function renderPackageItems(product) {
+    var items = productPackageItems(product, purchaseRules, {
+      goodsValue: purchaseSubtotalWithoutCareBalm(product),
+      careBalm: purchaseSelection(product).careBalm
+    });
+    return items.map(function (item) {
+      return '<li data-package-item="' + escapeAttribute(item.id) + '">' + escapeHtml(isEnglish ? item.labelEn : item.label) + '</li>';
+    }).join('');
+  }
+
   function updatePreviewPurchaseSummary(product) {
+    var activeOverlay = previewRoot();
     if (!activeOverlay) {
       return;
     }
+    var packageList = activeOverlay.querySelector('[data-product-package]');
+    if (packageList) packageList.innerHTML = renderPackageItems(product);
+    var facts = activeOverlay.querySelector('.productPreview__facts');
+    if (facts) facts.innerHTML = productFacts(product).map(function (fact) {
+      return '<div><dt>' + escapeHtml(fact[0]) + '</dt><dd>' + escapeHtml(fact[1]) + '</dd></div>';
+    }).join('');
     activeOverlay.querySelectorAll('[data-purchase-variant-summary]').forEach(function (element) { element.textContent = purchaseVariantSummary(product); });
     activeOverlay.querySelectorAll('[data-kitchen-preview]').forEach(function (element) {
       var variant = purchaseVariant(product);
@@ -3232,6 +3361,8 @@ function initProductExperience() {
   }
 
   function productUseLabel(product) {
+    if (String(product.listingId) === '1838851839') return isEnglish ? 'Under glasses and cups' : 'Unter Gläsern und Tassen';
+    if (String(product.listingId) === '1874454440') return isEnglish ? 'Upright board storage' : 'Aufrechte Brettaufbewahrung';
     if (product.category === "care") {
       return isEnglish ? "Care for wood surfaces" : "Pflege von Holzoberflächen";
     }
@@ -3255,6 +3386,8 @@ function initProductExperience() {
   }
 
   function productRole(product) {
+    if (String(product.listingId) === '1838851839') return isEnglish ? 'Coaster set' : 'Untersetzer-Set';
+    if (String(product.listingId) === '1874454440') return isEnglish ? 'Board stand' : 'Bretthalter';
     if (product.category === "accessory") {
       return isEnglish ? "tool" : "Werkzeug";
     }
@@ -3347,7 +3480,7 @@ function initProductExperience() {
   }
 
   function isGridProduct(product) {
-    if (!product || product.visibility === "hidden" || product.visibility === "archive") {
+    if (!product || product.canonicalProductId || product.visibility === "hidden" || product.visibility === "archive") {
       return false;
     }
     if (product.visibility === "inspiration" && product.inspirationOnly === true && availabilityStatus(product) === "sold") {
@@ -3396,6 +3529,9 @@ function initProductExperience() {
   }
 
   function productImageAlt(product) {
+    var suppliedAlt = isEnglish ? product.imageAltEn : product.imageAlt;
+    if (suppliedAlt) return suppliedAlt;
+    if (product.displayName || product.name) return displayProductName(product);
     if (product.category === "care") {
       return isEnglish ? "Wood care product for cutting boards" : "Holzpflegeprodukt für Schneidebretter";
     }
@@ -3500,7 +3636,7 @@ function createFinderMatcher() {
   }
   function eligible(product) {
     var profile = product.finderProfile;
-    return Boolean(product.active === true && product.category === "board" &&
+    return Boolean(!product.canonicalProductId && product.active === true && product.category === "board" &&
       ["cuttingBoard", "servingBoard"].indexOf(product.productType) !== -1 &&
       ["available", "made_to_order"].indexOf(product.availabilityStatus) !== -1 &&
       !product.inspirationOnly && !["hidden", "archive", "inspiration"].includes(product.visibility) &&
@@ -5023,7 +5159,7 @@ function initProductsPage() {
   }
 
   function isGridProduct(product) {
-    if (!product || product.visibility === "hidden" || product.visibility === "archive") {
+    if (!product || product.canonicalProductId || product.visibility === "hidden" || product.visibility === "archive") {
       return false;
     }
     if (product.visibility === "inspiration" && product.inspirationOnly === true && availabilityStatus(product) === "sold") {

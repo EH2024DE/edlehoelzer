@@ -149,9 +149,9 @@ test('No.004 dialog uses the verified starting price and defers conflicting dime
   assert.ok(!/\d/.test(product.shortDescription));
   assert.ok(!product.badges.some(b=>/cm|kg/.test(b)));
   const js=fs.readFileSync(path.join(root,'main.js'),'utf8');
-  assert.ok(js.includes('source === "erbstueck"'));
-  assert.ok(js.includes('Zum Produktfinder'));
-  assert.ok(js.indexOf('Zum Produktfinder')<js.indexOf('renderExperiencePromise(product) +'));
+  const detail=fs.readFileSync(path.join(root,product.productPath,'index.html'),'utf8');
+  assert.ok(detail.includes('Zum Produktfinder'));
+  assert.ok(detail.includes('/produkte.html#produktfinder'));
   assert.equal(product.includesMatchingHolder,true);assert.equal(product.includesCareBalm,true);
   assert.ok(html.includes('Passender Halter, Pflegebalsam und Pflegeanleitung inklusive.'));
   assert.ok(!html.includes('Stirnholzhalter'));
