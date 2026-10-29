@@ -1,0 +1,48 @@
+{
+  "version": "2026-10-28-portfolio-preview-1",
+  "approved": false,
+  "checkoutListingIds": [],
+  "currency": "eur",
+  "country": "DE",
+  "maxQuantity": 5,
+  "balmShippingPreviewCents": 270,
+  "shippingConfirmed": false,
+  "offers": [
+    { "sku": "dough-scraper", "listingId": "4471048251", "name": "Teigschaber", "nameEn": "Dough scraper", "unitCents": 2599, "engravingCents": 599, "woods": ["Eiche", "Nussbaum", "Esche", "Rotbuche", "Kambala", "Wildkirsche", "Kastanie", "Ahorn"], "detail": "ca. 9 × 13 cm · Massivholz", "detailEn": "approx. 9 × 13 cm · Solid wood" },
+    { "sku": "care-balm", "listingId": "1881802291", "name": "Pflegebalsam", "nameEn": "Wood care balm", "unitCents": 999, "woods": [], "detail": "Dose Pflegebalsam, Mikrofasertuch und Pflegeanleitung inklusive", "detailEn": "Tin of care balm, microfibre cloth and care instructions included" },
+    { "sku": "butter-knife", "listingId": "4549962555", "name": "Buttermesser", "nameEn": "Butter knife", "unitCents": 2299, "engravingCents": 599, "woods": ["Nussbaum", "Esche", "Zwetschge"], "detail": "ca. 17 cm · Zum Streichen", "detailEn": "approx. 17 cm · For spreading" },
+    {
+      "sku": "spatula", "listingId": "4470469056", "name": "Pfannenwender", "nameEn": "Wooden spatula", "unitCents": 2999, "engravingCents": 599,
+      "woods": ["Eiche", "Nussbaum", "Esche", "Rotbuche", "Kastanie", "Wildkirsche", "Meranti", "Zwetschge", "Kambala", "Wenge"],
+      "detail": "Massivholz · Gerade oder abgeschrägte Kante nach Bestand", "detailEn": "Solid wood · Straight or angled edge, subject to stock",
+      "stockConfirmedAt": "2026-10-28", "stockSource": "Owner Etsy variation screenshots, 14:10",
+      "edgeChoices": [{"id":"straight","name":"Gerade Kante","nameEn":"Straight edge"},{"id":"beveled","name":"Abgeschrägte Kante","nameEn":"Angled edge"}],
+      "edgeStock": {
+        "Eiche": {"straight":3,"beveled":3},
+        "Nussbaum": {"straight":2,"beveled":1},
+        "Esche": {"straight":4,"beveled":1},
+        "Rotbuche": {"straight":1,"beveled":1},
+        "Kastanie": {"straight":6,"beveled":5},
+        "Wildkirsche": {"straight":1,"beveled":1},
+        "Meranti": {"straight":1,"beveled":2},
+        "Zwetschge": {"straight":1,"beveled":1},
+        "Kambala": {"straight":1,"beveled":0},
+        "Wenge": {"straight":4}
+      }
+    },
+    {
+      "sku": "xxl-custom-board",
+      "listingId": "4484195050",
+      "name": "XXL-Schneidebrett nach Maß",
+      "nameEn": "XXL made-to-measure cutting board",
+      "unitCents": 119900,
+      "woods": ["Eiche", "Buche", "Nussbaum", "Ahorn", "Esche", "Kastanie", "Kirsche", "Wenge"],
+      "woodPrices": { "Eiche": 139900, "Buche": 129900, "Nussbaum": 169900, "Ahorn": 119900, "Esche": 119900, "Kastanie": 119900, "Kirsche": 169900, "Wenge": 199900 },
+      "unavailableWoods": ["Wenge"],
+      "accents": ["", "Eiche", "Buche", "Nussbaum", "Esche", "Ahorn", "Kastanie"],
+      "checkoutReady": true,
+      "detail": "Referenzmaß 75 × 60 cm · Stirnholz · Maße und Fertigungszeit nach Abstimmung",
+      "detailEn": "Reference size 75 × 60 cm · End grain · Dimensions and production time agreed individually"
+    }
+  ]
+}

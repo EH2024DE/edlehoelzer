@@ -852,11 +852,12 @@
       <p>Der Preis richtet sich nach Produkt, Holzart, Menge, Gravur und Zusammenstellung. Diese groben Format- und Ausführungsbeispiele helfen bei der Planung; Sets und Sonderanfertigungen kalkulieren wir individuell.</p>
     </div>
     <dl class="b2b-price-list">
-      <div><dt>Kleine Bretter · ca. 30 × 20 cm</dt><dd>bis 60 € pro Stück</dd></div>
-      <div><dt>Mittlere Bretter · bis ca. 40 × 30 cm</dt><dd>90–120 € pro Stück</dd></div>
+      <div><dt>Kompakte Langholzbretter · z. B. Frühstücksbrett</dt><dd>ca. 60 € pro Stück</dd></div>
+      <div><dt>Mittlere Langholzbretter · bis ca. 40 × 30 cm</dt><dd>90–120 € pro Stück</dd></div>
       <div><dt>Große Bretter · einfache Stirnholzausführung</dt><dd>180–230 € pro Stück</dd></div>
     </dl>
-    <p>Maße und Ausführungen sind Beispiele, keine festen Größenklassen. Die Preisrahmen sind kein verbindliches Angebot. Gravur, Verpackung, Versand und die steuerliche Ausweisung klären wir im konkreten Angebot.</p>
+    <p>Schon mit einem Richtwert von 60 € pro Stück lässt sich ein kompaktes Frühstücks- oder Alltagsbrett planen. Die Langholzbeispiele orientieren sich an Eiche und Buche. Holzart, Format und Bauweise stimmen wir passend zu deinem Budget ab; andere Hölzer kalkulieren wir individuell.</p>
+    <p>Maße und Ausführungen sind Beispiele, keine festen Größenklassen. Die Richtwerte sind kein verbindliches Angebot. Gravur, Verpackung und Versand klären wir im konkreten Angebot. Umsatzsteuer wird nicht gesondert ausgewiesen.</p>
     <p>Standardprodukte starten in der Regel ab 10 Stück. Für stärker individualisierte Projekte liegt die sinnvolle Menge meist ab 25 Stück. Deine gewünschte Menge und den Termin prüfen wir gemeinsam.</p>
   </div>
 </section>
@@ -897,7 +898,7 @@
 
 <section class="b2b-section b2b-section--sand"><div class="b2b-wrap b2b-request-wrap">        <div class="b2b-form-card" id="anfrage">
           <h2>Firmengeschenke anfragen</h2>
-          <p>Was möchtest du für dein Unternehmen umsetzen? Eine kurze Nachricht genügt. Weitere Details klären wir gemeinsam.</p>
+          <p>Nenne uns deine Idee, die ungefähre Stückzahl und deinen Budgetrahmen. So können wir dir gezielt sagen, was möglich ist. Weitere Details klären wir gemeinsam.</p>
           <p id="ablauf">Nach deiner Anfrage stimmen wir die Details ab. Du erhältst ein Angebot mit Preis und Zeitrahmen. Erst nach deiner Freigabe setzen wir den Auftrag um.</p>
           <p class="b2b-hint" data-concept-cost>Die Anfrage ist kostenlos. Neue Konzepte entwickeln wir erst nach gesonderter Freigabe für einmalig 150 € (Endpreis, kein gesonderter Umsatzsteuerausweis). Bei anschließender Fertigungsbeauftragung desselben Projekts wird der Betrag vollständig angerechnet.</p>
           <form class="b2b-form" action="https://formspree.io/f/maqanpld" method="POST">
@@ -908,17 +909,19 @@
               <label class="b2b-label">Name *<input class="b2b-input" type="text" name="name" required maxlength="80" autocomplete="name"></label>
               <label class="b2b-label">E-Mail *<input class="b2b-input" type="email" name="email" required maxlength="120" autocomplete="email" inputmode="email"></label>
             </div>
-            <label class="b2b-label">Deine Nachricht *<textarea class="b2b-textarea" name="message" required maxlength="2400" placeholder="Welche Produkte oder Kombinationen interessieren dich? Beschreibe kurz deine Idee oder deinen Anlass, z. B. ein Event oder ein Mitarbeitergeschenk."></textarea></label>
+            <div class="b2b-field-row">
+              <label class="b2b-label">Ungefähre Stückzahl (Produkte oder Sets) *<input class="b2b-input" type="number" name="quantity" required min="1" step="1" placeholder="z. B. 20" inputmode="numeric" aria-describedby="b2b-budget-help"></label>
+              <label class="b2b-label">Budgetrahmen in Euro *<input class="b2b-input" type="text" name="budget" required maxlength="120" placeholder="z. B. 40–60 oder 1.500" aria-describedby="b2b-budget-help"></label>
+            </div>
+            <label class="b2b-label">Budget gilt für *<select class="b2b-select" name="budget_basis" required aria-describedby="b2b-budget-help"><option value="">Bitte wählen</option><option value="pro Stück">Pro Stück / Geschenkset</option><option value="Gesamtprojekt">Gesamtprojekt</option></select></label>
+            <p class="b2b-hint" id="b2b-budget-help">Ein ungefährer Rahmen genügt. Bei Sets zählt die Anzahl der Sets; beschreibe die gewünschte Zusammenstellung kurz in deiner Nachricht.</p>
+            <label class="b2b-label">Deine Idee / Anlass *<textarea class="b2b-textarea" name="message" required maxlength="2400" placeholder="Welche Produkte oder Kombinationen interessieren dich? Beschreibe kurz deine Idee, die Zusammenstellung eines Sets oder deinen Anlass."></textarea></label>
             <details class="b2b-optional">
               <summary>Weitere Angaben (optional)</summary>
               <div class="b2b-optional-fields">
                 <div class="b2b-field-row">
                   <label class="b2b-label">Firma<input class="b2b-input" type="text" name="company" maxlength="100" autocomplete="organization"></label>
                   <label class="b2b-label">Telefon<input class="b2b-input" type="tel" name="phone" maxlength="30" autocomplete="tel" inputmode="tel"></label>
-                </div>
-                <div class="b2b-field-row">
-                  <label class="b2b-label">Ungefähre Stückzahl<input class="b2b-input" type="number" name="quantity" min="1" step="1" placeholder="z. B. 20" inputmode="numeric"></label>
-                  <label class="b2b-label">Budgetrahmen<input class="b2b-input" type="text" name="budget" maxlength="120" placeholder="z. B. 60 € pro Stück oder 1.500 € gesamt"></label>
                 </div>
                 <label class="b2b-label">Wunschtermin / Deadline<input class="b2b-input" type="text" name="timeline" maxlength="100" placeholder="z. B. bis 15. November oder noch offen"></label>
               </div>

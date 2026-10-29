@@ -1,8 +1,12 @@
 (() => {
-  const form = document.querySelector('[data-board-inquiry]');
+  const form = document.querySelector('[data-board-inquiry],.b2b-form');
   if (!form) return;
+  if(form.dataset.inquiryBound)return;
+  form.dataset.inquiryBound='true';
   const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
-  const status = form.querySelector('[role="status"]');
+  let status = form.querySelector('[role="status"]');
+  if(!status){status=document.createElement('p');status.className='boardInquiry__status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');form.append(status);}
+  status.tabIndex=-1;
   const submit = form.querySelector('[type="submit"]');
   let started = false;
   let pending = false;
@@ -12,8 +16,9 @@
   });
   document.querySelectorAll('[data-inquiry-example]').forEach(link => link.addEventListener('click', () => {
     track('inquiry_reference_select');
-    form.elements.reference.value = link.dataset.inquiryExample;
-    form.querySelector('[data-reference-note]').textContent = `${isEnglish ? 'Your reference' : 'Deine Referenz'}: ${link.dataset.inquiryExample}`;
+    if(form.elements.reference)form.elements.reference.value = link.dataset.inquiryExample;
+    const note=form.querySelector('[data-reference-note]');
+    if(note)note.textContent = `${isEnglish ? 'Your reference' : 'Deine Referenz'}: ${link.dataset.inquiryExample}`;
   }));
   document.querySelectorAll('.customProjects__gallery').forEach(gallery => {
     const nav = document.createElement('div');
@@ -58,7 +63,8 @@
       // Provider acceptance confirms submission, not delivery into an inbox.
       track('inquiry_form_success');
       form.reset();
-      form.querySelector('[data-reference-note]').textContent = '';
+      const note=form.querySelector('[data-reference-note]');
+      if(note)note.textContent = '';
       status.textContent = isEnglish ? 'Thank you! Your enquiry has been submitted. We will email you about feasibility, budget and production time.' : 'Danke! Deine Anfrage wurde übermittelt. Wir melden uns per E-Mail zu Machbarkeit, Preisrahmen und Fertigungszeit.';
       started = false;
     } catch {

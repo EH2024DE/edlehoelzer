@@ -42,6 +42,16 @@ test('existing product facts remain unchanged apart from verified corrections an
     badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  // Owner-confirmed Etsy engraving surcharge, 28 October 2026.
+  assert.equal(after.purchaseRules.optionPrices.engravingAccessory, 5.99);
+  before.purchaseRules.optionPrices.engravingAccessory = 5.99;
+  // Owner-provided wood/edge inventory screenshots, 28 October 2026, 14:10.
+  Object.assign(before.products.find(p=>p.listingId==='4470469056'),{
+    stock:39,
+    shortDescription:'Zehn Holzarten, gerade oder abgeschrägte Kante nach Bestand.',
+    longDescription:'Massiver Pfannenwender aus Holz, handgefertigt in unserer Manufaktur in Mittelhessen. Je nach Bestand aus Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Wildkirsche, Meranti, Zwetschge, Kambala oder Wenge. Gerade oder abgeschrägte Kante je nach verfügbarer Holzart und Ausführung. Ein stabiler Küchenhelfer für Pfanne, Grill und Kochfeld.',
+    material:'Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Wildkirsche, Meranti, Zwetschge, Kambala, Wenge'
+  });
   before.products.find(p => p.listingId === '1881802291').shortDescription = 'Pflegebalsam mit Bienenwachs und Leinölfirnis für Schneidebretter und Küchenholz.';
   for (const id of ['1850610674', '4598989614']) Object.assign(before.products.find(p=>p.listingId===id),{includesMatchingHolder:true,includesCareBalm:true});
   const framedBeech=before.products.find(p=>p.listingId==='4370784882');
@@ -56,6 +66,14 @@ test('existing product facts remain unchanged apart from verified corrections an
     if (old.variants) old.variants.forEach((v, index) => { v.priceOrder = current.variants[index].priceOrder; v.image = current.variants[index].image; });
   }
   const existingIds = new Set(before.products.map(p => p.id));
+  Object.assign(before.products.find(p=>p.listingId==='1803930088'),{stock:0,featured:false,active:false,inspirationOnly:true,visibility:'archive',availabilityStatus:'sold'});
+  // Owner-confirmed availability and weight, 29 October 2026.
+  Object.assign(before.products.find(p=>p.listingId==='1818046728'),{
+    deliveryDays:'Fertigung und Versandtermin nach persönlicher Abstimmung',availabilityStatus:'made_to_order',materialInStock:false,availabilityVerifiedAt:'2026-10-29',
+    availabilityNote:'Fertigung auf Bestellung. Lärchenholz ist aktuell nicht auf Lager. Materialbeschaffung und Fertigung benötigen zusätzliche Zeit; deinen Termin stimmen wir vor der verbindlichen Bestellung persönlich ab.',
+    availabilityNoteEn:'Made to order. Larch wood is currently not in stock. Material sourcing and production require additional time; we agree your schedule personally before a binding order.'
+  });
+  Object.assign(heirloom,{weight:'5,8 kg',weightKg:5.8,weightVerifiedAt:'2026-10-29'});
   after.products = after.products.filter(p => existingIds.has(p.id));
   const withoutVideos = data => { data.products.forEach(p => {
     for (const key of ['videos', 'name', 'titleVerifiedAt', 'productPath', 'canonicalProductId', 'canonicalVariantId', 'packageContents']) delete p[key];

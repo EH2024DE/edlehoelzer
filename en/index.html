@@ -24,6 +24,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=20261026-care-guarantee-r5">
   <script src="/assets/js/consent-manager.js?v=20261027-compact" defer></script>
+  <link rel="stylesheet" href="/assets/css/board-inquiry.css">
+  <script src="/assets/js/board-inquiry.js?v=20261029-forms" defer></script>
 </head>
 <body>
 <header class="topbar">
@@ -341,7 +343,33 @@
   </section>
 
   <section id="b2b" class="section section--sand reveal-on-scroll">
-    <div class="container container--narrow"><p class="eyebrow eyebrow--dark">For businesses</p><h2>Corporate gifts with substance.</h2><p class="section__lead">Standard gifts are forgotten quickly. A solid wood product remains. We produce small runs for Christmas gifts, corporate gifts, custom pieces or solid wood business cards.</p><div class="ctaRow"><a href="mailto:info@edlehoelzer.de?subject=B2B%20Inquiry%20Edle%20Hoelzer" class="btn" data-goatcounter-click="true" data-goatcounter-title="custom_request_click" data-umami-event="email-kontakt">Request project</a></div></div>
+    <div class="container container--narrow"><p class="eyebrow eyebrow--dark">For businesses</p><h2>Corporate gifts with substance.</h2><p class="section__lead">Standard gifts are forgotten quickly. A solid wood product remains. We produce small runs for Christmas gifts, corporate gifts, custom pieces or solid wood business cards.</p>
+      <div class="boardInquiry">
+        <p>Tell us your idea, approximate quantity and budget so we can explain what is possible.</p>
+        <p class="customInquiryNote">Your enquiry is free. Developing a new concept requires separate approval of a one-off €150 fee (final price; no VAT shown separately). This is credited in full when you commission production of the same project.</p>
+        <form data-board-inquiry action="https://formspree.io/f/maqanpld" method="POST">
+          <input type="hidden" name="_subject" value="Corporate gift enquiry (EN)">
+          <label class="sr-only" aria-hidden="true">Leave empty<input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          <div class="boardInquiry__fields">
+            <label>Name *<input name="name" required maxlength="80" autocomplete="name"></label>
+            <label>Email *<input type="email" name="email" required maxlength="120" autocomplete="email"></label>
+            <label>Approximate quantity (products or sets) *<input type="number" name="quantity" required min="1" step="1" inputmode="numeric" aria-describedby="b2b-budget-help-en"></label>
+            <label>Budget range in euros *<input name="budget" required maxlength="120" placeholder="e.g. 40–60 or 1,500" aria-describedby="b2b-budget-help-en"></label>
+            <label>Budget applies to *<select name="budget_basis" required aria-describedby="b2b-budget-help-en"><option value="">Please select</option><option value="per piece">Per product / gift set</option><option value="entire project">Entire project</option></select></label>
+          </div>
+          <p id="b2b-budget-help-en" class="customInquiryNote">An approximate range is enough. For sets, enter the number of sets and describe their contents below.</p>
+          <label>Your idea / occasion *<textarea name="message" required maxlength="2400" placeholder="Which products, combinations or gift sets do you have in mind?"></textarea></label>
+          <details><summary>Further details (optional)</summary><div class="boardInquiry__fields">
+            <label>Company<input name="company" maxlength="100" autocomplete="organization"></label>
+            <label>Phone<input type="tel" name="phone" maxlength="30" autocomplete="tel"></label>
+            <label>Preferred date / deadline<input name="timeline" maxlength="100"></label>
+          </div></details>
+          <button type="submit">Send non-binding enquiry</button>
+          <p class="boardInquiry__status" role="status" aria-live="polite"></p>
+          <p class="customInquiryNote">* Required. Read our <a href="/datenschutz.html">privacy policy</a> for information about your data.</p>
+        </form>
+      </div>
+    </div>
   </section>
 
   <section class="closingHero reveal-on-scroll">

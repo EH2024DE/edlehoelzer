@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Search products and guides | Edle Hölzer</title>
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://edlehoelzer.de/en/search/">
+  <link rel="alternate" hreflang="de" href="https://edlehoelzer.de/suche/">
+  <link rel="alternate" hreflang="en" href="https://edlehoelzer.de/en/search/">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/css/site-search.css">
+  <script>window.siteSearchInitialQuery=new URLSearchParams(location.search).get('q')||'';if(location.search)history.replaceState(null,'',location.pathname);</script>
+  <script src="/assets/js/consent-manager.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><div class="container topbar__inner"><a class="brand" href="/en/">Edle Hölzer</a><a href="/en/products.html">Products</a><a href="/suche/" lang="de">DE</a></div></header>
+  <main class="searchPage"><div class="container">
+    <h1>What are you looking for?</h1>
+    <form id="site-search" role="search" action="/en/search/" method="get">
+      <label class="sr-only" for="search-query">Search products and guides</label>
+      <input id="search-query" name="q" type="search" placeholder="Oak, care, engraving …" maxlength="100" autocomplete="off">
+      <button class="btn" type="submit">Search</button>
+    </form>
+    <p id="search-status" role="status" aria-live="polite"></p><div id="search-results"></div>
+    <noscript><p>Please enable JavaScript to search.</p></noscript>
+    <p><a href="/en/products.html#products-grid">All products</a> · <a href="/en/products.html#product-finder">Board finder</a></p>
+  </div></main>
+  <footer class="footer"><div class="container"><p>Edle Hölzer · Handcrafted in Central Hesse.</p><nav aria-label="Service and legal"><a href="/en/">Home</a> · <a href="/en/products.html">Products</a> · <a href="/impressum.html">Legal notice</a> · <a href="/datenschutz.html">Privacy</a> · <a href="mailto:info@edlehoelzer.de">Email</a></nav></div></footer>
+  <script src="/main.js" defer></script>
+</body>
+</html>

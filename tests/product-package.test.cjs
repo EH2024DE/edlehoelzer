@@ -48,6 +48,9 @@ test('optional balm and order thresholds update contents without adding unselect
   assert.ok(!ids('4599650982').includes('holder'));
 });
 test('cloth is included only for listings with explicit evidence, not every eligible board',()=>{
+  assert.ok(ids('1881802291').includes('careCloth'));
+  assert.match(items('1881802291').find(i=>i.id==='careCloth').label,/Mikrofasertuch/);
+  assert.ok(!ids('4522458953',{goodsValue:65.99,careBalm:true}).includes('careCloth'),'optional balm does not imply standalone care set contents');
   for(const id of ['1894223313','1776273564','4297451235','4297472161'])assert.ok(ids(id).includes('careCloth'));
   assert.ok(!ids('1824089235').includes('careCloth'));
 });

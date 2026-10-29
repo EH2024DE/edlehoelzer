@@ -7,7 +7,7 @@
     "optionPrices": {
       "juiceGroove": 15,
       "engravingBoard": 10,
-      "engravingAccessory": 5,
+      "engravingAccessory": 5.99,
       "careBalmRegular": 9.99,
       "careBalmBundleDiscountPercent": 10
     },
@@ -609,12 +609,14 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Lärche Stirnholz – Kompakt",
-      "deliveryDays": "2–3 Werktage",
+      "deliveryDays": "Fertigung und Versandtermin nach persönlicher Abstimmung",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian",
-      "availabilityStatus": "available",
+      "availabilityStatus": "made_to_order",
       "visibility": "grid",
       "inquiryPossible": true,
-      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung.",
+      "availabilityNote": "Fertigung auf Bestellung. Lärchenholz ist aktuell nicht auf Lager. Materialbeschaffung und Fertigung benötigen zusätzliche Zeit; deinen Termin stimmen wir vor der verbindlichen Bestellung persönlich ab.",
+      "availabilityNoteEn": "Made to order. Larch wood is currently not in stock. Material sourcing and production require additional time; we agree your schedule personally before a binding order.",
+      "materialInStock": false,
       "videos": [
         {
           "src": "/assets/product-videos/sibirische-laerche-klein-quadrat-etsy.mp4",
@@ -622,7 +624,7 @@
           "alt": "Lärche Stirnholz – Kompakt im Produktvideo"
         }
       ],
-      "availabilityVerifiedAt": "2026-08-27",
+      "availabilityVerifiedAt": "2026-10-29",
       "titleVerifiedAt": "2026-10-26",
       "productPath": "/produkte/laerche-stirnholz-kompakt-1818046728/"
     },
@@ -1440,6 +1442,11 @@
           "labelEn": "1 tin of care balm"
         },
         {
+          "id": "careCloth",
+          "label": "1 Mikrofasertuch zur Pflege",
+          "labelEn": "1 microfibre care cloth"
+        },
+        {
           "id": "careGuide",
           "label": "Pflegeanleitung",
           "labelEn": "Care instructions"
@@ -1551,9 +1558,9 @@
       "segment": "Zubehoer",
       "priceLabel": "ab 29,99 EUR",
       "priceOrder": 29.99,
-      "stock": 29,
-      "shortDescription": "Eiche, Nussbaum, Esche, Kastanie, Buche, Kambala, Wenge oder Zwetschge.",
-      "longDescription": "Massiver Pfannenwender aus Holz, handgefertigt in unserer Manufaktur in Mittelhessen. Gefertigt aus denselben Edelhölzern wie unsere Schneidebretter – je nach Bestand aus Eiche, Nussbaum, Esche, Kastanie, Buche, Kambala, Wenge oder Zwetschge. Ein stabiler Küchenhelfer für Pfanne, Grill und Kochfeld. Mit etwa 30 cm Länge.",
+      "stock": 39,
+      "shortDescription": "Zehn Holzarten, gerade oder abgeschrägte Kante nach Bestand.",
+      "longDescription": "Massiver Pfannenwender aus Holz, handgefertigt in unserer Manufaktur in Mittelhessen. Je nach Bestand aus Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Wildkirsche, Meranti, Zwetschge, Kambala oder Wenge. Gerade oder abgeschrägte Kante je nach verfügbarer Holzart und Ausführung. Ein stabiler Küchenhelfer für Pfanne, Grill und Kochfeld.",
       "badges": [
         "Eiche + weitere",
         "personalisierbar"
@@ -1584,7 +1591,7 @@
       "dataVerifiedAt": "2026-09-07",
       "source": "etsy-shop-live-20260907",
       "productType": "accessory",
-      "material": "Eiche, Nussbaum, Esche, Kastanie, Buche, Kambala, Wenge, Zwetschge",
+      "material": "Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Wildkirsche, Meranti, Zwetschge, Kambala, Wenge",
       "woodCut": "none",
       "sizeLabel": "Format laut Etsy-Export",
       "thicknessLabel": "massiv",
@@ -1862,7 +1869,7 @@
       "segment": "Stirnholz",
       "priceLabel": "ab 459,99 EUR",
       "priceOrder": 459.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "3D-Stirnholz aus Nussbaum, Eiche, Buche, Esche und Kambala, 48,5 × 35,3 × 4 cm.",
       "longDescription": "Ein massiver Hackblock mit einem geometrischen 3D-Muster aus Nussbaum, Eiche, Buche, Esche und Kambala. Die räumliche Wirkung entsteht ausschließlich durch die Anordnung der unterschiedlich hellen und dunklen Massivhölzer. Mit 48,5 × 35,3 × 4 cm und etwa 4,86 kg ist das Brett als dauerhaft präsente Arbeits- und Servierfläche gedacht.",
       "badges": [
@@ -1887,8 +1894,10 @@
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/1803930088/cutting-board-3d-design-end-grain-walnut",
       "directListingUrlVerified": true,
-      "featured": true,
-      "active": true,
+      "featured": false,
+      "active": false,
+      "inspirationOnly": true,
+      "visibility": "archive",
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
@@ -1927,7 +1936,7 @@
       "displayName": "3D Stirnholz – Nussbaum & weitere",
       "deliveryDays": "2–3 Werktage",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1803930088/cutting-board-3d-design-end-grain-walnut",
-      "availabilityStatus": "available",
+      "availabilityStatus": "sold",
       "dimensions": "48,5 × 35,3 × 4 cm",
       "weight": "ca. 4,86 kg",
       "videos": [
@@ -4478,6 +4487,9 @@
         "frei konfigurierbare Standardmasse"
       ],
       "displayName": "Erbstück No. 004 – Eiche & Buche",
+      "weight": "5,8 kg",
+      "weightKg": 5.8,
+      "weightVerifiedAt": "2026-10-29",
       "deliveryDays": "laut Etsy",
       "availabilityStatus": "available",
       "titleVerifiedAt": "2026-10-26",

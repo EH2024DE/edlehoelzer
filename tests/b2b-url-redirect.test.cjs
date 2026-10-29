@@ -25,7 +25,7 @@ test('legacy B2B redirect preserves query attribution and legacy fragments', () 
   assert.ok(html.includes('href="' + target + '"'));
 });
 
-test('moved B2B content preserves migration and adds only approved gastro and concept-cost information', () => {
+test('moved B2B content preserves migration outside approved gastro, concept-cost and inquiry-form changes', () => {
   const before = execFileSync('git', ['show', 'b5c3dae:b2b.html'], { cwd: root, encoding: 'utf8' });
   const expected = before.replaceAll('b2b.html', 'handgefertigte-holzprodukte-fuer-unternehmen/')
     .replaceAll('./assets/', '/assets/').replaceAll('href="./', 'href="/')
@@ -40,7 +40,11 @@ test('moved B2B content preserves migration and adds only approved gastro and co
     .replace(/        <div class="b2b-faq-item" data-concept-cost>[\s\S]*?<\/div>\n/, '')
     .replace(/          <p class="b2b-hint" data-concept-cost>[^\n]+<\/p>\n/, '');
   const withoutAssetVersions = html => html.replace(/(\/(?:main\.js|styles\.css|assets\/js\/consent-manager\.js))\?v=[^"\s]+/g, '$1');
-  assert.equal(withoutAssetVersions(withoutCosts.replace(gastroLink, '')), withoutAssetVersions(expected));
+  const originalForm=expected.match(/<form class="b2b-form"[\s\S]*?<\/form>/)[0];
+  const withoutFormUpdate=withoutCosts.replace(/<form class="b2b-form"[\s\S]*?<\/form>/,originalForm)
+    .replace('Nenne uns deine Idee, die ungefähre Stückzahl und deinen Budgetrahmen. So können wir dir gezielt sagen, was möglich ist. Weitere Details klären wir gemeinsam.','Was möchtest du für dein Unternehmen umsetzen? Eine kurze Nachricht genügt. Weitere Details klären wir gemeinsam.');
+  const priceBlock=/<section class="b2b-section b2b-section--white" id="preise">[\s\S]*?<\/section>/;
+  assert.equal(withoutAssetVersions(withoutFormUpdate.replace(priceBlock,expected.match(priceBlock)[0]).replace(gastroLink, '')), withoutAssetVersions(expected));
 });
 
 test('sitemap, search index and edge redirect configuration use the new owner URL', () => {

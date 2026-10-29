@@ -10,22 +10,27 @@ const esc = value => String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp
 const json = value => JSON.stringify(value).replace(/</g, '\\u003c');
 const origin = 'https://edlehoelzer.de';
 const catalog = data.products.filter(p => !p.canonicalProductId);
+const [flag, listing] = process.argv.slice(2);
+if (flag && (flag !== '--listing' || !listing)) throw new Error('Usage: node scripts/build-product-pages.cjs [--listing LISTING_ID]');
+const selected = listing ? catalog.filter(p => p.listingId === listing) : catalog;
+if (!selected.length) throw new Error('Unknown listing: ' + listing);
 for (const en of [false, true]) {
   const template = fs.readFileSync(path.join(root, en ? 'en/products.html' : 'produkte.html'), 'utf8');
   const header = template.slice(template.indexOf('<header'), template.indexOf('</header>') + 9).replace(/href="#produktfinder"/g, 'href="' + (en ? '/en/products.html' : '/produkte.html') + '#produktfinder"');
   const footer = template.slice(template.indexOf('<footer'), template.indexOf('</footer>') + 9);
   const directory = '<!-- Generated product directory -->\n<details class="container productDirectory"><summary>' + (en ? 'All product pages' : 'Alle Produktseiten') + '</summary><ul>' + catalog.map(p => '<li><a href="' + (en ? '/en' : '') + p.productPath + '">' + esc(copy.text(p.displayName || p.name, en)) + '</a></li>').join('') + '</ul></details>\n<!-- End generated product directory -->';
   const index = template.replace(/\s*<!-- Generated product directory -->[\s\S]*?<!-- End generated product directory -->/g, '').replace('</main>', directory + '\n</main>');
-  fs.writeFileSync(path.join(root, en ? 'en/products.html' : 'produkte.html'), index);
-  for (const p of catalog) {
+  if (!listing) fs.writeFileSync(path.join(root, en ? 'en/products.html' : 'produkte.html'), index);
+  for (const p of selected) {
     if (!p.productPath) throw new Error('Missing stable productPath: ' + p.id);
     const url = (en ? '/en' : '') + p.productPath;
-    const title = en ? copy.text(p.displayName || p.name, true) : p.name;
+    const title = en ? copy.text(p.displayName || p.name, true) : p.dimensionsReviewRequired ? p.displayName || p.name : p.name;
+    const displayTitle = copy.text(p.displayName || p.name, en);
     const description = en ? copy.text(p.shortDescription || p.displayName, true) : (p.shortDescription || p.displayName || p.name);
     const sold = p.availabilityStatus === 'sold';
     const available = p.active === true && ['available', 'made_to_order'].includes(p.availabilityStatus);
     const status = sold ? (en ? 'Sold · One-of-a-kind inspiration' : 'Verkauft · Ein Unikat als Inspiration') : available ? (p.availabilityStatus === 'made_to_order' ? (en ? 'Made to order' : 'Auf Bestellung') : (en ? 'Available' : 'Verfügbar')) : (en ? 'Currently unavailable' : 'Aktuell nicht verfügbar');
-    const facts = [[en ? 'Wood / material' : 'Holz / Material', p.material], [en ? 'Dimensions' : 'Maße', p.dimensionsReviewRequired ? (en ? 'See current offer' : 'Siehe aktuelles Angebot') : p.sizeLabel], [en ? 'Thickness' : 'Stärke', p.dimensionsReviewRequired ? '' : p.thicknessLabel]];
+    const facts = [[en ? 'Wood / material' : 'Holz / Material', p.material], [en ? 'Dimensions' : 'Maße', p.dimensionsReviewRequired ? (en ? 'See current offer' : 'Siehe aktuelles Angebot') : p.sizeLabel], [en ? 'Thickness' : 'Stärke', p.dimensionsReviewRequired ? '' : p.thicknessLabel], [en ? 'Weight' : 'Gewicht', p.weight]];
     const schema = {'@context':'https://schema.org', '@type':'Product', name:title, description, image:p.gallery?.length ? p.gallery : [p.image], sku:p.id, url:origin + url, brand:{'@type':'Brand',name:'Edle Hölzer'}};
     // No offer for archived/sold pieces, and no invented prices for variants.
     if (available && p.directListingUrlVerified && p.priceOrder > 0 && !p.variants?.length) schema.offers = {'@type':'Offer', url:origin + url, priceCurrency:'EUR', price:p.priceOrder, availability:'https://schema.org/' + (p.availabilityStatus === 'made_to_order' ? 'PreOrder' : 'InStock')};
@@ -64,7 +69,7 @@ ${pageHeader}
 <nav class="productDetail__breadcrumb" aria-label="${en ? 'Breadcrumb' : 'Brotkrümelnavigation'}"><a href="${en ? '/en/products.html' : '/produkte.html'}">${en ? 'All products' : 'Alle Produkte'}</a> / <span>${esc(en ? copy.text(p.displayName || p.name, true) : p.displayName || p.name)}</span></nav>
 <div data-product-page="${esc(p.id)}" data-current-product-id="${esc(p.id)}" data-current-product-source="product-page">
 <article class="productPreview"><div class="productPreview__media"><img src="${esc(p.image)}" alt="${esc(title)}" width="900" height="900" loading="eager" fetchpriority="high"></div><div class="productPreview__content">
-<h1>${esc(title)}</h1><p>${esc(status)}</p>
+<h1>${esc(displayTitle)}</h1><p>${esc(status)}</p>${p.availabilityNote && p.availabilityStatus === 'made_to_order' ? '\n<p class="productPreview__availability">' + esc(en ? p.availabilityNoteEn || copy.text(p.availabilityNote,true) : p.availabilityNote) + '</p>' : ''}
 ${available && !p.variants?.length ? '<p>' + esc(p.priceLabel) + '</p>' : ''}
 <dl class="productPreview__facts">${facts.filter(f => f[1]).map(f => '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(copy.text(f[1], en)) + '</dd></div>').join('')}</dl>
 ${variantText}
@@ -72,7 +77,7 @@ ${variantText}
 ${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.etsyUrl) + '" target="_blank" rel="noopener">' + (en ? 'Configure and buy on Etsy' : 'Auf Etsy konfigurieren und kaufen') + '</a>' : '<a class="btn btn--emphasis" href="' + (en ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + (en ? 'Request a similar piece' : 'Ähnliches Stück anfragen') + '</a>'}
 <details class="productPreview__detail"><summary>${en ? 'Material & craft' : 'Material & Handwerk'}</summary><p>${esc(description)}</p></details>
 ${view.legalNotice(en)}
-</div></article></div>
+</div></article></div>${p.listingId === '4370769708' ? '\n<p class="productDetail__storyLink"><a href="' + (en ? '/en/erbstueck/' : '/schneidebrett-fachwerk-eiche/') + '">' + (en ? 'Explore the Erbstück story and its making' : 'Die Erbstück-Geschichte und Fertigung entdecken') + '</a></p>' : ''}
 <section class="productDetail__browse"><h2>${en ? 'Find your next favourite' : 'Dein nächstes Lieblingsstück'}</h2><a href="${en ? '/en/products.html#produktfinder' : '/produkte.html#produktfinder'}">${en ? 'Explore the product finder' : 'Zum Produktfinder'}</a><details><summary>${en ? 'Browse all products' : 'Alle Produkte entdecken'}</summary><ul>${catalog.map(other => '<li><a href="' + (en ? '/en' : '') + other.productPath + '">' + esc(copy.text(other.displayName || other.name, en)) + '</a></li>').join('')}</ul></details></section>
 </main>${footer}
 <script src="/main.js?v=20261026-care-guarantee-r5"></script>
@@ -82,8 +87,10 @@ ${view.legalNotice(en)}
     fs.writeFileSync(destination, html);
   }
 }
+if (!listing) {
 const sitemapPath = path.join(root, 'sitemap.xml');
 let sitemap = fs.readFileSync(sitemapPath, 'utf8').replace(/\s*<!-- Generated product pages -->[\s\S]*?<!-- End generated product pages -->/g, '');
 sitemap = sitemap.replace('</urlset>', '  <!-- Generated product pages -->\n' + catalog.flatMap(p => [p.productPath, '/en' + p.productPath]).map(url => '  <url><loc>' + origin + url + '</loc></url>').join('\n') + '\n  <!-- End generated product pages -->\n</urlset>');
 fs.writeFileSync(sitemapPath, sitemap);
-console.log(`Generated ${catalog.length} product pages in each language.`);
+}
+console.log(`Generated ${selected.length} product pages in each language.`);

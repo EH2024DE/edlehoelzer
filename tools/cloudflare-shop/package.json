@@ -1,0 +1,13 @@
+{
+  "name": "edle-hoelzer-cloudflare-staging",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node run.mjs dev",
+    "check": "node run.mjs check",
+    "deploy:staging": "node run.mjs deploy-staging"
+  },
+  "devDependencies": { "wrangler": "4.155.0" }
+}

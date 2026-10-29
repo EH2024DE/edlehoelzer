@@ -1,0 +1,32 @@
+{
+  "fonts": [
+    { "id": "allura", "name": "Allura", "popular": true },
+    { "id": "amatic-sc", "name": "Amatic SC", "popular": true },
+    { "id": "montserrat", "name": "Montserrat" },
+    { "id": "playfair-display", "name": "Playfair Display" },
+    { "id": "caveat", "name": "Caveat" },
+    { "id": "marcellus", "name": "Marcellus" }
+  ],
+  "boardPositions": [
+    { "id": "edge-front-left", "name": "Vordere schmale Kante · links", "nameEn": "Front narrow edge · left" },
+    { "id": "edge-front-right", "name": "Vordere schmale Kante · rechts", "nameEn": "Front narrow edge · right" },
+    { "id": "face-top-left", "name": "Schneidefläche · hinten links", "nameEn": "Cutting face · back left" },
+    { "id": "face-top-right", "name": "Schneidefläche · hinten rechts", "nameEn": "Cutting face · back right" },
+    { "id": "face-bottom-left", "name": "Schneidefläche · vorne links", "nameEn": "Cutting face · front left" },
+    { "id": "face-bottom-right", "name": "Schneidefläche · vorne rechts", "nameEn": "Cutting face · front right" }
+  ],
+  "grooveTypes": [
+    { "id": "perimeter", "name": "Umlaufende Saftrille", "nameEn": "Perimeter juice groove", "requiresAgreement": false },
+    { "id": "basin-left", "name": "Mit Auffangbecken links", "nameEn": "With collection basin on the left", "requiresAgreement": false },
+    { "id": "basin-front-right", "name": "Mit Auffangbecken vorne rechts", "nameEn": "With collection basin at the front right", "requiresAgreement": false }
+  ],
+  "grooveGuide": {
+    "image": null,
+    "alt": "Die drei Saftrillen-Ausführungen: umlaufend, Auffangbecken links und Auffangbecken vorne rechts",
+    "altEn": "Three juice groove designs: perimeter, collection basin on the left and collection basin at the front right"
+  },
+  "textLimit": 120,
+  "noteLimit": 500,
+  "uploadMaxBytes": 4194304,
+  "giftPackagingCents": 0
+}

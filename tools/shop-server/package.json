@@ -1,0 +1,17 @@
+{
+  "name": "edle-hoelzer-checkout-pilot",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test ../../tests/shop-pilot.test.mjs"
+  },
+  "dependencies": {
+    "parse5": "8.0.0",
+    "sharp": "0.35.5",
+    "stripe": "23.0.1"
+  }
+}
