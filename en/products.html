@@ -155,48 +155,85 @@
       </div>
 
       <div class="delivery-badge delivery-badge--in-section">
-        <span>Standard version: ready to ship in <strong>2–3 working days</strong>. With an optional juice groove or personal engraving: <strong>4–5 working days</strong>.</span>
+        <span>Available products, including engraving: ready to dispatch in <strong>1–3 working days</strong>. With an additional juice groove: <strong>3–5 working days</strong>. Made-to-order schedules are agreed personally. Transit time is additional.</span>
       </div>
       <p class="priceNote">The displayed starting price applies to the standard version. Juice grooves, personal engraving, shipping and further custom requests are added transparently in the Etsy offer.</p>
 
+      <div class="catalogCategories" role="group" aria-label="Product groups">
+        <button type="button" data-catalog-category="all" aria-pressed="true">All products</button>
+        <button type="button" data-catalog-category="board" aria-pressed="false">Cutting boards</button>
+        <button type="button" data-catalog-category="serving" aria-pressed="false">Serving &amp; breakfast boards</button>
+        <button type="button" data-catalog-category="tools" aria-pressed="false">Kitchen tools</button>
+        <button type="button" data-catalog-category="coasters" aria-pressed="false">Coasters</button>
+        <button type="button" data-catalog-category="care" aria-pressed="false">Care &amp; board stands</button>
+      </div>
       <form class="productFilters" data-product-filters aria-label="Product filters">
-        <label>
-          Category
+        <label>Product group
           <select name="category">
-            <option value="all">All</option>
+            <option value="all">All products</option>
             <option value="board">Cutting boards</option>
-            <option value="accessory">Accessories</option>
-            <option value="care">Care</option>
+            <option value="serving">Serving &amp; breakfast boards</option>
+            <option value="tools">Kitchen tools</option>
+            <option value="coasters">Coasters</option>
+            <option value="care">Care &amp; board stands</option>
           </select>
         </label>
-        <label>
-          Price range
+        <label data-board-filter>Construction
+          <select name="construction">
+            <option value="all">All</option>
+            <option value="end">End grain</option>
+            <option value="edge">Edge grain</option>
+            <option value="block">Chopping blocks · 4 cm+</option>
+          </select>
+        </label>
+        <label data-wood-filter>Wood
+          <select name="wood">
+            <option value="all">All</option>
+            <option value="eiche">Oak</option>
+            <option value="nussbaum">Walnut</option>
+            <option value="buche">Beech / spalted beech</option>
+            <option value="esche">Ash</option>
+            <option value="ahorn">Maple</option>
+            <option value="zwetschge">Plum</option>
+            <option value="other">Other woods</option>
+          </select>
+        </label>
+        <label data-board-filter>Juice groove
+          <select name="groove">
+            <option value="all">All</option>
+            <option value="available">Included or optional</option>
+            <option value="included">Already included</option>
+          </select>
+        </label>
+        <label>Price range
           <select name="price">
             <option value="all">All</option>
-            <option value="under100">Up to about 100</option>
-            <option value="100to250">About 100 to 250</option>
-            <option value="over250">From about 250</option>
+            <option value="under50">Under €50</option>
+            <option value="50to100">€50 to under €100</option>
+            <option value="under100">Under €100</option>
+            <option value="100to250">€100 to €250</option>
+            <option value="over250">Over €250</option>
           </select>
         </label>
-        <label>
-          Use case
+        <label>Use
           <select name="useCase">
             <option value="all">All</option>
-            <option value="daily">Daily cutting</option>
+            <option value="daily">Everyday use</option>
             <option value="bbq">BBQ</option>
             <option value="serving">Serving</option>
-            <option value="gift">Gift</option>
+            <option value="gift">Gifts</option>
           </select>
         </label>
-        <label>
-          Sort
+        <label>Sort
           <select name="sort">
             <option value="recommended">Recommended</option>
             <option value="priceAsc">Price: low to high</option>
             <option value="priceDesc">Price: high to low</option>
           </select>
         </label>
+        <button class="btn btn--ghost-dark" type="reset">Reset filters</button>
       </form>
+      <p class="catalogCount" data-catalog-count role="status" aria-atomic="true"></p>
 
       <details class="legalGuarantee">
         <summary>Your statutory warranty rights</summary>

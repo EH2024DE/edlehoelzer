@@ -1,5 +1,10 @@
 {
   "scripts": {
+    "build:site": "node scripts/build-site.mjs",
+    "test:cloudflare": "node --test tests/cloudflare-staging.test.mjs tests/production-build.test.mjs",
+    "test:release": "node --test tests/production-build.test.mjs tests/order-review.test.mjs tests/owner-availability.test.mjs tests/catalog-filters.test.cjs tests/checkout-reservations.test.mjs tests/checkout-reconciliation.test.mjs tests/notification-delivery.test.mjs tests/portfolio-options-audit.test.mjs",
+    "test:shop": "node --test tests/shop-pilot.test.mjs",
+    "preview:shop": "node tools/shop-server/server.mjs",
     "test:finder": "node --test tests/finder-matching.test.cjs",
     "audit:assets": "node scripts/audit-assets.js",
     "audit:indexability": "node scripts/check-indexability.mjs",

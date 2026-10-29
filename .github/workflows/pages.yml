@@ -29,3 +29,22 @@ jobs:
 
       - name: Validate board finder and gastronomy page
         run: node --test tests/finder-matching.test.cjs tests/gastronomie.test.cjs
+
+  checkout-pilot:
+    name: Validate isolated checkout pilot
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install pinned payment SDK without lifecycle scripts
+        run: npm ci --prefix tools/shop-server --ignore-scripts --no-fund
+      - name: Test price authority, signatures, idempotency and private data boundaries
+        run: npm run test:shop
+      - name: Validate production candidate and owner-confirmed catalogue rules
+        run: npm run test:release
+      - name: Build static release candidate without deployment
+        run: npm run build:site -- "$RUNNER_TEMP/edle-hoelzer-release-candidate"
+      - name: Check release links and private export boundaries
+        run: node scripts/check-release.mjs "$RUNNER_TEMP/edle-hoelzer-release-candidate"

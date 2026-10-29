@@ -50,6 +50,8 @@ var EdleProductCopy = (function () {
     "Erbstück No. 004 – Eiche & Buche": "Erbstück No. 004 – Oak & beech"
   };
   var phrases = {
+    "Zehn Holzarten, gerade oder abgeschrägte Kante nach Bestand.": "Ten wood species, with a straight or angled edge depending on availability.",
+    "Massiver Pfannenwender aus Holz, handgefertigt in unserer Manufaktur in Mittelhessen. Je nach Bestand aus Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Wildkirsche, Meranti, Zwetschge, Kambala oder Wenge. Gerade oder abgeschrägte Kante je nach verfügbarer Holzart und Ausführung. Ein stabiler Küchenhelfer für Pfanne, Grill und Kochfeld.": "Solid wood spatula, handcrafted in our workshop in Central Hesse. Depending on availability: oak, walnut, ash, beech, chestnut, wild cherry, meranti, plum, Kambala or wenge. Straight or angled edge according to the available wood and design. A sturdy kitchen tool for pans, grills and hobs.",
     "Stockbuche in Stirnholzbauweise mit Nussbaumrahmen, ca. 41 × 30 × 4,7 cm und ca. 4 kg.": "Spalted beech end grain with a walnut frame, approx. 41 × 30 × 4.7 cm and approx. 4 kg.",
     "Pflegebalsam mit Bienenwachs und Leinölfirnis für Schneidebretter und Küchenholz.": "Care balm with beeswax and linseed oil varnish for cutting boards and wooden kitchenware.",
     "Kompaktes Stirnholzbrett in fünf Holzdesigns, ca. 2 cm stark. Maße je nach Ausführung; Gravur optional auf Anfrage.": "Compact end-grain board in five wood designs, approx. 2 cm thick. Dimensions vary by design; optional engraving by arrangement.",
@@ -101,6 +103,7 @@ var EdleProductCopy = (function () {
     "Zubehoer": "Accessories", "Zubehör": "Accessories", "Pflege": "Care",
     "personalisierbar": "Personalisable", "Massivholz": "Solid wood", "massiv": "Solid",
     "Nussbaum": "Walnut", "Walnuss": "Walnut", "Zwetschge": "Plum wood",
+    "Rotbuche": "Beech", "Wildkirsche": "Wild cherry",
     "Eiche": "Oak", "Buche": "Beech", "Esche": "Ash", "Ahorn": "Maple",
     "Laerche": "Larch", "Lärche": "Larch", "Mahagoni": "Mahogany", "Birke": "Birch",
     "Bambus": "Bamboo", "Kastanie": "Chestnut", "Tropenholz": "Tropical hardwood", "Padouk": "Padauk",
@@ -1502,8 +1505,8 @@ function initProductExperience() {
     configureOnEtsy: "Configure on Etsy",
     optionCheckoutNote: "Confirm the variants and final total on Etsy.",
     freeShippingGermany: "Free shipping within Germany",
-    standardDispatch: "Ready to dispatch in 2–3 working days",
-    customDispatch: "With engraving or juice groove: 4–5 working days",
+    standardDispatch: "Ready to dispatch in 1–3 working days",
+    customDispatch: "With an additional juice groove: 3–5 working days",
     careBalmIncluded: "Care balm included",
     careBalmThreshold: "Care balm included from €150 goods value",
     careBalmSelected: "Edle Hölzer care balm selected",
@@ -1596,8 +1599,8 @@ function initProductExperience() {
     configureOnEtsy: "Auf Etsy konfigurieren",
     optionCheckoutNote: "Varianten und verbindlichen Endpreis bestätigst du auf Etsy.",
     freeShippingGermany: "Kostenloser Versand innerhalb Deutschlands",
-    standardDispatch: "Versandbereit in 2–3 Werktagen",
-    customDispatch: "Mit Gravur oder Saftrille: 4–5 Werktage",
+    standardDispatch: "Versandbereit in 1–3 Werktagen",
+    customDispatch: "Mit zusätzlicher Saftrille: 3–5 Werktage",
     careBalmIncluded: "Pflegebalsam inklusive",
     careBalmThreshold: "Ab 150 € Warenwert: Pflegebalsam inklusive",
     careBalmSelected: "Edle Hölzer Pflegebalsam ausgewählt",
@@ -1854,7 +1857,7 @@ function initProductExperience() {
     section.querySelectorAll('[data-product-experience-close]').forEach(function (element) { element.remove(); });
     var heading = section.querySelector('#product-preview-title');
     var h1 = document.createElement('h1'); h1.id = heading.id;
-    h1.textContent = isEnglish ? displayProductName(product) : product.name;
+    h1.textContent = isEnglish || product.dimensionsReviewRequired ? displayProductName(product) : product.name;
     heading.replaceWith(h1);
     if (availabilityStatus(product) === 'sold') {
       var sold = document.createElement('p'); sold.className = 'productCard__availability';
@@ -3165,6 +3168,7 @@ function initProductExperience() {
   }
 
   function purchaseDeliveryText(product) {
+    if (product.availabilityStatus === 'made_to_order') return isEnglish ? product.availabilityNoteEn || 'Made to order; timing agreed before a binding order' : product.availabilityNote || 'Fertigung auf Bestellung; Termin vor verbindlicher Bestellung abstimmen';
     var variant = purchaseVariant(product);
     if (variant && variant.availabilityStatus === "made_to_order") return isEnglish ? "Made to order; production and delivery time agreed individually" : "Auf Bestellung; Fertigungs- und Lieferzeit nach Abstimmung";
     var selection = purchaseSelection(product);
@@ -3178,10 +3182,10 @@ function initProductExperience() {
       return option.id;
     });
     if (selectedIds.indexOf("juiceGroove") === -1 && selectedIds.indexOf("engraving") !== -1) {
-      return isEnglish ? "With engraving: 4–5 working days" : "Mit Gravur: 4–5 Werktage";
+      return isEnglish ? "With engraving: 1–3 working days" : "Mit Gravur: 1–3 Werktage";
     }
     if (selectedIds.indexOf("engraving") === -1 && selectedIds.indexOf("juiceGroove") !== -1) {
-      return isEnglish ? "With juice groove: 4–5 working days" : "Mit Saftrille: 4–5 Werktage";
+      return isEnglish ? "With juice groove: 3–5 working days" : "Mit Saftrille: 3–5 Werktage";
     }
     return labels.customDispatch;
   }
@@ -3354,10 +3358,10 @@ function initProductExperience() {
     }
     if (product.category === "board") {
       return isEnglish
-        ? "Standard 2–3 working days; with juice groove or engraving 4–5"
-        : "Standard 2–3 Werktage; mit Saftrille oder Gravur 4–5";
+        ? "Ready to dispatch in 1–3 working days; with an additional juice groove 3–5"
+        : "Versandbereit in 1–3 Werktagen; mit zusätzlicher Saftrille 3–5";
     }
-    return isEnglish ? "2–3 working days" : "2–3 Werktage";
+    return isEnglish ? "Ready to dispatch in 1–3 working days" : "Versandbereit in 1–3 Werktagen";
   }
 
   function productUseLabel(product) {
@@ -3745,6 +3749,46 @@ function createFinderMatcher() {
     return { entries: entries, main: main, alternative: alternative, near: near };
   }
   return { eligible: eligible, supports: supports, evaluate: evaluate, rank: rank, select: select, effectiveUse: effectiveUse, tradeoff: tradeoff };
+}
+
+function createCatalogMatcher() {
+  var servingIds = ['1827805914','4381023266','1818046728','1848021568','4440690649','4389604739','4398179153','4599650982'];
+  function groups(product) {
+    var id = String(product.listingId);
+    if (product.category === 'care' || id === '1874454440') return ['care'];
+    if (id === '1838851839') return ['coasters'];
+    if (product.category === 'accessory') return ['tools'];
+    if (product.category !== 'board') return [];
+    return (product.productType !== 'servingBoard' || (product.useCases || []).includes('daily') ? ['board'] : []).concat(servingIds.includes(id) ? ['serving'] : []);
+  }
+  function matches(product, filters, rules) {
+    var group = filters.category || 'all';
+    if (group !== 'all' && !groups(product).includes(group)) return false;
+    if (['all','board','serving'].includes(group)) {
+      if (filters.construction && filters.construction !== 'all') {
+        if (product.category !== 'board') return false;
+        if (filters.construction === 'block') {
+          var thickness = String(product.thicknessLabel || '').replace(/,/g,'.');
+          var values = (thickness.match(/\d+(?:\.\d+)?/g) || []).map(Number);
+          var minimum = values.length ? Math.min.apply(Math,values) / (/\bmm\b/i.test(thickness) ? 10 : 1) : 0;
+          if (product.dimensionsReviewRequired || minimum < 4) return false;
+        } else if (product.woodCut !== filters.construction) return false;
+      }
+      if (filters.groove && filters.groove !== 'all') {
+        var included = product.finderProfile && product.finderProfile.juiceGroove === true;
+        var optional = ((rules || {}).juiceGrooveOptionListingIds || []).map(String).includes(String(product.listingId));
+        if (product.category !== 'board' || !(included || filters.groove === 'available' && optional)) return false;
+      }
+    }
+    if (group !== 'care' && filters.wood && filters.wood !== 'all') {
+      var wood = String(product.material || '').toLowerCase();
+      if (filters.wood === 'other') {
+        if (!/kirsch|kambala|wenge|padouk|l[aä]rche|mahagoni|kastanie|bambus|tropen|meranti|yellow poplar/.test(wood)) return false;
+      } else if (!wood.includes(filters.wood)) return false;
+    }
+    return true;
+  }
+  return {groups:groups,matches:matches};
 }
 
 function initProductsPage() {
@@ -4189,6 +4233,7 @@ function initProductsPage() {
         throw new Error("products.json enthält keine Produktliste.");
       }
 
+      state.purchaseRules = Array.isArray(data) ? {} : (data.purchaseRules || {});
       state.products = products;
       state.activeProducts = products.filter(isGridProduct);
 
@@ -4484,8 +4529,13 @@ function initProductsPage() {
       if (!["leading", "compatible", "near-match"].includes(status)) status = "excluded";
       node.className = "finderPool__tile is-" + status;
       var canExplain = !initial && status === "near-match" && entry.conflicts.length === 1;
-      var button = node.querySelector("button");
-      button.disabled = false;
+      var button = node.querySelector(".finderPool__inspect");
+      if (button.tagName === "BUTTON") button.disabled = false;
+      button.onclick = canExplain ? function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        showNearExplanation(entry);
+      } : null;
       if (canExplain) button.removeAttribute("data-product-preview");
       else button.setAttribute("data-product-preview", entry.product.id);
       button.setAttribute("data-product-source", "finder-pool");
@@ -4716,13 +4766,30 @@ function initProductsPage() {
     root.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   }
 
+  var catalogMatcher = createCatalogMatcher();
+
   function bindFilters() {
     var filterForm = document.querySelector("[data-product-filters]");
     if (!filterForm) {
       return;
     }
 
-    filterForm.addEventListener("change", renderGrid);
+    function changeGroup() {
+      ['construction','groove','wood','useCase'].forEach(function (name) {
+        if (filterForm.elements[name]) filterForm.elements[name].value = 'all';
+      });
+      renderGrid();
+    }
+    filterForm.addEventListener('change', function (event) {
+      if (event.target.name === 'category') changeGroup(); else renderGrid();
+    });
+    filterForm.addEventListener('reset', function () { setTimeout(renderGrid,0); });
+    document.querySelectorAll('[data-catalog-category]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        filterForm.elements.category.value = button.dataset.catalogCategory;
+        changeGroup();
+      });
+    });
   }
 
   function renderGrid() {
@@ -4731,15 +4798,27 @@ function initProductsPage() {
     }
 
     var filterForm = document.querySelector("[data-product-filters]");
+    var selectedCategory = filterForm ? filterForm.elements.category.value : 'all';
+    var boardFilters = ['all','board','serving'].includes(selectedCategory);
+    document.querySelectorAll('[data-board-filter],[data-wood-filter]').forEach(function (element) {
+      var enabled = element.hasAttribute('data-board-filter') ? boardFilters : selectedCategory !== 'care';
+      element.hidden = !enabled;
+      var select = element.querySelector('select');
+      if (select) { select.disabled = !enabled; if (!enabled) select.value = 'all'; }
+    });
     var filters = filterForm ? new FormData(filterForm) : null;
     var category = filters ? filters.get("category") : "all";
     var price = filters ? filters.get("price") : "all";
     var useCase = filters ? filters.get("useCase") : "all";
     var sort = filters ? filters.get("sort") : "recommended";
 
+    document.querySelectorAll('[data-catalog-category]').forEach(function (button) {
+      button.setAttribute('aria-pressed',String(button.dataset.catalogCategory === category));
+    });
+    var catalogFilters = {category:category,construction:filters && filters.get('construction'),wood:filters && filters.get('wood'),groove:filters && filters.get('groove')};
     var products = state.activeProducts
       .filter(function (product) {
-        return category === "all" || product.category === category;
+        return catalogMatcher.matches(product,catalogFilters,state.purchaseRules);
       })
       .filter(function (product) {
         if (price === "all") {
@@ -4747,6 +4826,8 @@ function initProductsPage() {
         }
 
         var order = Number(product.priceOrder || 0);
+        if (price === 'under50') return order < 50;
+        if (price === '50to100') return order >= 50 && order < 100;
         if (price === "under100") {
           return order < 100;
         }
@@ -4783,6 +4864,8 @@ function initProductsPage() {
       });
     }
 
+    var count = document.querySelector('[data-catalog-count]');
+    if (count) count.textContent = products.length + (isEnglish ? (products.length === 1 ? ' product' : ' products') : (products.length === 1 ? ' Produkt' : ' Produkte'));
     if (!products.length) {
       gridRoot.innerHTML = '<p class="productEmpty">' + (isEnglish ? "There are currently no matching products for this filter combination." : "Für diese Filterkombination gibt es aktuell keine passenden Produkte.") + '</p>';
       return;
@@ -4821,6 +4904,7 @@ function initProductsPage() {
       if (Boolean(a.inspirationOnly) !== Boolean(b.inspirationOnly)) {
         return a.inspirationOnly ? 1 : -1;
       }
+      if ((a.category === 'board') !== (b.category === 'board')) return a.category === 'board' ? -1 : 1;
       var aCurated = curatedIds.indexOf(a.id);
       var bCurated = curatedIds.indexOf(b.id);
       if (aCurated !== -1 || bCurated !== -1) {

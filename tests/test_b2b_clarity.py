@@ -69,26 +69,28 @@ class B2BClarityTests(unittest.TestCase):
                        r'<form class="b2b-form"[^>]+>']:
             self.assertEqual(re.search(marker, SOURCE).group(), re.search(marker, before).group())
         fields = lambda s: re.findall(r'<(?:input|select|textarea)\b[^>]*\bname="([^"]+)"', s)
-        self.assertEqual(set(fields(SOURCE)), set(fields(before)) - {'product'})
+        self.assertEqual(set(fields(SOURCE)), (set(fields(before)) - {'product'}) | {'budget_basis'})
         self.assertIn('data-goatcounter-title="b2b_form_submit"', SOURCE)
 
     def test_low_barrier_form_and_mobile_swipe(self):
         form = SOURCE.split('<form class="b2b-form"')[1].split('</form>')[0]
-        required = re.findall(r'<(?:input|textarea)\b[^>]*\brequired\b[^>]*>', form)
+        required = re.findall(r'<(?:input|select|textarea)\b[^>]*\brequired\b[^>]*>', form)
         self.assertEqual([re.search(r'name="([^"]+)"', tag)[1] for tag in required],
-                         ['name', 'email', 'message'])
+                         ['name', 'email', 'quantity', 'budget', 'budget_basis', 'message'])
         self.assertNotIn('name="product"', form)
-        self.assertIn('60 € pro Stück oder 1.500 € gesamt', form)
+        self.assertIn('Pro Stück / Geschenkset', form)
+        self.assertIn('Gesamtprojekt', form)
+        self.assertNotIn('name="budget"', form.split('<details class="b2b-optional">')[1])
         self.assertIn('<details class="b2b-optional">', form)
         self.assertIn('grid-auto-flow:column', SOURCE)
         self.assertIn('scroll-snap-type:x mandatory', SOURCE)
         self.assertIn('geschenkset-erster-entwurf-800.jpg', SOURCE)
 
     def test_price_orientation_has_format_examples(self):
-        self.assertIn('Kleine Bretter · ca. 30 × 20 cm', SOURCE)
-        self.assertIn('Mittlere Bretter · bis ca. 40 × 30 cm', SOURCE)
+        self.assertIn('Kompakte Langholzbretter · z. B. Frühstücksbrett', SOURCE)
+        self.assertIn('Mittlere Langholzbretter · bis ca. 40 × 30 cm', SOURCE)
         self.assertIn('Große Bretter · einfache Stirnholzausführung', SOURCE)
-        for price in ['bis 60 € pro Stück', '90–120 € pro Stück', '180–230 € pro Stück']:
+        for price in ['ca. 60 € pro Stück', '90–120 € pro Stück', '180–230 € pro Stück']:
             self.assertIn(price, SOURCE)
 
     def test_benefits_are_specific_and_qualified(self):

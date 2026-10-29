@@ -129,7 +129,8 @@ test('serving sets remain eligible without inventing an unknown thickness', () =
     assert.equal(matcher.supports(byListing(id), 'dailyPrep'), false);
     assert.equal(matcher.supports(byListing(id), 'bbq'), false);
   }
-  assert.equal(products.filter(matcher.eligible).length, 34); // Tropical standalone listing aliases the combined board.
+  assert.equal(products.filter(matcher.eligible).length, 33); // Tropical alias and owner-sold rectangular 3D board are excluded.
+  assert.equal(matcher.eligible(byListing('1803930088')), false);
 });
 test('handled tropical block is large and stationary; walnut reissue is made to order', () => {
   const p = byListing('4451487112');
