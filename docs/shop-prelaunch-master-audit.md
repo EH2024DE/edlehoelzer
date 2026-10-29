@@ -24,6 +24,23 @@ Nutzerinteraktion zeigt ein frischer Tab die Verbindung EH2024DE und das Reposit
 edlehoelzer. Repo ausgewaehlt und Konfigurationsseite gelesen; Deploy NICHT geklickt.
 Keine neue GitHub-App-Berechtigung durch den Agenten bestaetigt.
 
+Cloudflare-Konfigurationsdialog: Der automatische Build-Token fordert unter
+anderem Schreibrechte fuer Workers, KV, R2, D1, Vectorize, Queues, Container
+und Workers Routes fuer alle Zonen. Das ist fuer die statische Staginggrundlage
+zu weitreichend. Kein Token erzeugt und Deploy nicht angeklickt. Naechster
+Zugriffsschritt: eingeschraenkte Berechtigung separat vorbereiten und vor
+Erteilung bestaetigen lassen; keine DNS-/Routenrechte fuer Staging benoetigt.
+Offizielle Rollen-/Scope-Dokumentation:
+https://developers.cloudflare.com/workers/authorization/workers/
+
+Arbeitsstand gesichert in Draft-PR https://github.com/EH2024DE/edlehoelzer/pull/199
+(kein Merge). Lokale Gesamtsuite nach Commit-Vorbereitung: 218 Tests bestanden;
+lokale Loopback-Testserver benoetigen Sandbox-Freigabe. Cloudflare-Dry-Run auch
+nach Commit bestanden. GitHub-Cloudflare-Validierung erfolgreich; allgemeine
+Website-CI bei diesem Zwischenstand noch laufend. Der alte manuelle Pages-
+Deployjob wurde aus dem neuen Kandidatenworkflow entfernt; Altbetrieb bleibt
+unveraendert.
+
 ## 2. Bestehender technischer Stand
 
 ### Neu: lokale Cloudflare-Staginggrundlage
@@ -55,7 +72,7 @@ Die neue GitHub-Action validiert nur lokal und hat keinerlei Deployschritt.
 - Lokaler Testshop: Node 24, SQLite, offizielles Stripe SDK. Noch KEIN Cloudflare-Backend.
 - Bereits lokal getestet: serverseitige Cent-Preise, Varianten, signierte Webhooks,
   atomare Reservierungen, Idempotenz, private Outbox und getrennte manuelle Annahme.
-- Letzte lokale Gesamtsuite: 213 Tests bestanden. 435 technische Seitenansichten,
+- Fruehere lokale Gesamtsuite: 213 Tests bestanden. 435 technische Seitenansichten,
   gesonderte Formular-/Galerie-/Tresen-/Suchtests und 1.356 Konfigurationsfaelle.
 - Diese Nachweise gelten fuer den lokalen Dienst, NICHT fuer eine Cloudflare-Portierung.
 - Kein echter Stripe-Sandboxcheckout mit Kontowebhook und echter Mailzustellung belegt.
