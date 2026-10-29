@@ -1,6 +1,7 @@
 const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const assert=require('node:assert/strict');
 const base=process.env.PREVIEW_URL||'http://127.0.0.1:8170';
+require('node:fs').mkdirSync('/tmp/edle-shop-preview',{recursive:true});
 (async()=>{
   const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH});
   try{
@@ -8,6 +9,7 @@ const base=process.env.PREVIEW_URL||'http://127.0.0.1:8170';
       const page=await browser.newPage({viewport:{width,height:900}}),errors=[];
       page.on('pageerror',error=>errors.push(error.message));
       await page.goto(base+(en?'/en/products.html':'/produkte.html'));
+      const consent=page.locator('[data-consent-necessary]');if(await consent.isVisible())await consent.click();
       await page.locator('.productCard').first().waitFor();
       const form=page.locator('[data-product-filters]');
       const select=name=>form.locator('[name="'+name+'"]');

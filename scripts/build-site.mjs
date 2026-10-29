@@ -12,6 +12,28 @@ const set=(node,name,value)=>{const item=node.attrs?.find(item=>item.name===name
 const add=(parent,nodes)=>{for(const node of nodes){node.parentNode=parent;parent.childNodes.push(node);}};
 const text=node=>node.nodeName==='#text'?node.value:(node.childNodes||[]).map(text).join('');
 const offerPaths=new Map(publicCatalog().offers.map(offer=>[offer.sku,offer.productPath]));
+function completeNavigation(document,en){
+  const nodes=walk(document),secondary=nodes.find(node=>(attr(node,'class')||'').split(/\s+/).includes('atelierMenuSecondary'));
+  const guide='/sitemap-uebersicht.html'+(en?'#english-topics':'');
+  if(secondary){
+    const additions=[[en?'/en/refurbishment/':'/schneidebrett-aufbereiten/',en?'Refurbishment':'Aufbereitung'],[guide,en?'Guides & materials':'Wissen & Ratgeber']];
+    for(const [href,label]of additions)if(!walk(secondary).some(node=>node.tagName==='a'&&attr(node,'href')===href))add(secondary,parseFragment('<a href="'+href+'">'+label+'</a>').childNodes);
+  }
+  const footer=nodes.find(node=>node.tagName==='footer'&&attr(node,'class')==='atelierFooter');
+  if(footer){
+    const groups=en?[
+      ['Explore',[['/en/products.html','Products & board finder'],['/en/erbstueck/','Erbst&uuml;ck collection'],['/en/#customwork','Made to measure']]],
+      ['Care & service',[['/en/care.html','Care & cleaning'],['/en/refurbishment/','Refurbishment'],['/en/wooden-cutting-boards-for-restaurants/','For restaurants & hotels']]],
+      ['Materials & guides',[[guide,'All English guides'],['/en/wood-types-for-cutting-boards/','Wood species'],['/en/end-grain-vs-edge-grain/','End grain or edge grain']]]
+    ]:[
+      ['Entdecken',[['/produkte.html','Produkte & Brettfinder'],['/schneidebrett-fachwerk-eiche/','Erbst&uuml;ck-Serie'],['/schneidebrett-nach-mass/','Nach Ma&szlig;']]],
+      ['Service',[['/pflege.html','Pflege & Reinigung'],['/schneidebrett-aufbereiten/','Aufbereitung'],['/handgefertigte-holzprodukte-fuer-unternehmen/','Firmengeschenke'],['/schneidebretter-aus-holz-gastronomie/','F&uuml;r die Gastronomie']]],
+      ['Wissen & Werkstatt',[[guide,'Alle Themen & Ratgeber'],['/holzarten-schneidebrett/','Holzarten & Bauweisen'],['/presse/','Unsere Werkstatt'],['/baumspende.html','Baumspende']]]
+    ];
+    const nav=parseFragment('<nav class="atelierFooterSiteNav" aria-label="'+(en?'Explore all sections':'Alle Bereiche entdecken')+'">'+groups.map(([title,links])=>'<div><h2>'+title+'</h2>'+links.map(([href,label])=>'<a href="'+href+'">'+label+'</a>').join('')+'</div>').join('')+'</nav>').childNodes;
+    for(const node of nav)node.parentNode=footer;footer.childNodes.unshift(...nav);
+  }
+}
 export const isReleaseHtml=file=>file.endsWith('.html')&&!/^(?:tools|docs|logs|atelier-vorschau|shop-vorschau|en\/atelier-preview|en\/shop-preview)\//.test(file);
 
 export function productionHref(value,route){
@@ -34,6 +56,7 @@ export function renderProductionPage(route){
   const original=parse(fs.readFileSync(path.join(ROOT,file),'utf8'));
   const home=['/','/en/'].includes(route);
   const document=parse(home?approvedHome(route.startsWith('/en/')):renderSitePreview(route,{production:true})?.html||serialize(original));
+  completeNavigation(document,route.startsWith('/en/'));
   const head=walk(document).find(node=>node.tagName==='head');
   if(home){
     const metadata=node=>node.tagName==='title'||node.tagName==='meta'&&!['charset','viewport'].includes(attr(node,'name'))||node.tagName==='link'&&['canonical','alternate'].includes(attr(node,'rel'))||node.tagName==='script'&&attr(node,'type')==='application/ld+json';

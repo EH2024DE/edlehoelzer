@@ -25,6 +25,7 @@ for (const en of [false, true]) {
     if (!p.productPath) throw new Error('Missing stable productPath: ' + p.id);
     const url = (en ? '/en' : '') + p.productPath;
     const title = en ? copy.text(p.displayName || p.name, true) : p.dimensionsReviewRequired ? p.displayName || p.name : p.name;
+    const displayTitle = copy.text(p.displayName || p.name, en);
     const description = en ? copy.text(p.shortDescription || p.displayName, true) : (p.shortDescription || p.displayName || p.name);
     const sold = p.availabilityStatus === 'sold';
     const available = p.active === true && ['available', 'made_to_order'].includes(p.availabilityStatus);
@@ -68,8 +69,7 @@ ${pageHeader}
 <nav class="productDetail__breadcrumb" aria-label="${en ? 'Breadcrumb' : 'Brotkrümelnavigation'}"><a href="${en ? '/en/products.html' : '/produkte.html'}">${en ? 'All products' : 'Alle Produkte'}</a> / <span>${esc(en ? copy.text(p.displayName || p.name, true) : p.displayName || p.name)}</span></nav>
 <div data-product-page="${esc(p.id)}" data-current-product-id="${esc(p.id)}" data-current-product-source="product-page">
 <article class="productPreview"><div class="productPreview__media"><img src="${esc(p.image)}" alt="${esc(title)}" width="900" height="900" loading="eager" fetchpriority="high"></div><div class="productPreview__content">
-<h1>${esc(title)}</h1><p>${esc(status)}</p>
-${p.availabilityNote && p.availabilityStatus === 'made_to_order' ? '<p class="productPreview__availability">' + esc(en ? p.availabilityNoteEn || copy.text(p.availabilityNote,true) : p.availabilityNote) + '</p>' : ''}
+<h1>${esc(displayTitle)}</h1><p>${esc(status)}</p>${p.availabilityNote && p.availabilityStatus === 'made_to_order' ? '\n<p class="productPreview__availability">' + esc(en ? p.availabilityNoteEn || copy.text(p.availabilityNote,true) : p.availabilityNote) + '</p>' : ''}
 ${available && !p.variants?.length ? '<p>' + esc(p.priceLabel) + '</p>' : ''}
 <dl class="productPreview__facts">${facts.filter(f => f[1]).map(f => '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(copy.text(f[1], en)) + '</dd></div>').join('')}</dl>
 ${variantText}
@@ -77,8 +77,7 @@ ${variantText}
 ${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.etsyUrl) + '" target="_blank" rel="noopener">' + (en ? 'Configure and buy on Etsy' : 'Auf Etsy konfigurieren und kaufen') + '</a>' : '<a class="btn btn--emphasis" href="' + (en ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + (en ? 'Request a similar piece' : 'Ähnliches Stück anfragen') + '</a>'}
 <details class="productPreview__detail"><summary>${en ? 'Material & craft' : 'Material & Handwerk'}</summary><p>${esc(description)}</p></details>
 ${view.legalNotice(en)}
-</div></article></div>
-${p.listingId === '4370769708' ? '<p class="productDetail__storyLink"><a href="' + (en ? '/en/erbstueck/' : '/schneidebrett-fachwerk-eiche/') + '">' + (en ? 'Explore the Erbstück story and its making' : 'Die Erbstück-Geschichte und Fertigung entdecken') + '</a></p>' : ''}
+</div></article></div>${p.listingId === '4370769708' ? '\n<p class="productDetail__storyLink"><a href="' + (en ? '/en/erbstueck/' : '/schneidebrett-fachwerk-eiche/') + '">' + (en ? 'Explore the Erbstück story and its making' : 'Die Erbstück-Geschichte und Fertigung entdecken') + '</a></p>' : ''}
 <section class="productDetail__browse"><h2>${en ? 'Find your next favourite' : 'Dein nächstes Lieblingsstück'}</h2><a href="${en ? '/en/products.html#produktfinder' : '/produkte.html#produktfinder'}">${en ? 'Explore the product finder' : 'Zum Produktfinder'}</a><details><summary>${en ? 'Browse all products' : 'Alle Produkte entdecken'}</summary><ul>${catalog.map(other => '<li><a href="' + (en ? '/en' : '') + other.productPath + '">' + esc(copy.text(other.displayName || other.name, en)) + '</a></li>').join('')}</ul></details></section>
 </main>${footer}
 <script src="/main.js?v=20261026-care-guarantee-r5"></script>

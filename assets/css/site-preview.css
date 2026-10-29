@@ -49,6 +49,8 @@ body.atelierSite *,body.atelierSite *::before,body.atelierSite *::after{letter-s
 body.atelierSite{margin:0;padding:0;max-width:none}
 body.atelierSite .siteLegal{width:calc(100% - 40px);max-width:900px;margin:auto;padding:45px 0}
 body.atelierSite .siteLegal h1{font-size:32px;line-height:1.4}
+body.atelierSite .siteLegal :is(h1,h2){hyphens:auto}
+@media(max-width:420px){body.atelierSite .siteLegal h1{font-size:28px}}
 body.atelierSite .siteLegal h2{font-size:22px;margin-top:30px}
 body.atelierSite .siteLegal p{font-size:14px;line-height:1.9}
 body.atelierSite :is(h1,h2,h3,h4,button,input,select,textarea){font-family:Atelier,Arial,sans-serif!important}

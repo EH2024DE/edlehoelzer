@@ -4,7 +4,7 @@ const base=process.env.PREVIEW_URL||'http://127.0.0.1:8171';
 (async()=>{
   const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH});
   try{
-    for(const width of [375,1440])for(const [route,en,selector]of [
+    for(const width of [375,430,768,1024,1440])for(const [route,en,selector]of [
       ['/handgefertigte-holzprodukte-fuer-unternehmen/',false,'.b2b-form'],
       ['/en/',true,'#b2b form'],
       ['/schneidebretter-aus-holz-gastronomie/',false,'[data-board-inquiry]'],

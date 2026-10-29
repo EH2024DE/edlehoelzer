@@ -87,3 +87,8 @@ body .consentBadge{border-radius:0;background:transparent;padding-inline:0;font-
 .atelierHomeCustom .boardInquiry summary{cursor:pointer;padding:14px 0;border-block:1px solid var(--atelier-line)}
 .atelierHomeCustom .boardInquiry button[type=submit]{justify-self:start;min-height:46px;padding:12px 18px;border:0;border-radius:3px;background:var(--atelier-mocha);color:white;font:inherit}
 @media(max-width:760px){.atelierHomeCustom .boardInquiry__fields{grid-template-columns:1fr}.atelierHomeCustom .boardInquiry :is(input,select,textarea){font-size:16px}}
+.atelierFooterSiteNav{flex:0 0 100%;width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-bottom:28px}
+.atelierFooterSiteNav h2{font-size:14px;font-weight:500;line-height:1.5;margin-bottom:12px}
+.atelierFooterSiteNav a{display:block;width:fit-content;max-width:100%;padding:8px 0;font-size:13px;line-height:1.6;text-decoration:none}
+.atelierFooterSiteNav a:hover{text-decoration:underline}
+@media(max-width:600px){.atelierFooterSiteNav{grid-template-columns:1fr;gap:26px}.atelierFooterSiteNav a{min-height:44px}}

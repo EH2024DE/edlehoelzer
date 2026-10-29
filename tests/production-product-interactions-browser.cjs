@@ -4,7 +4,7 @@ const base=process.env.PREVIEW_URL||'http://127.0.0.1:8171';
 (async()=>{
   const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH});
   try{
-    for(const width of [375,1440])for(const en of [false,true]){
+    for(const width of [375,430,768,1024,1440])for(const en of [false,true]){
       const page=await browser.newPage({viewport:{width,height:900}}),errors=[];
       page.on('pageerror',error=>errors.push(error.message));
       await page.goto(base+(en?'/en':'')+'/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/');

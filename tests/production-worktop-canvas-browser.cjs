@@ -5,7 +5,7 @@ const base=process.env.PREVIEW_URL||'http://127.0.0.1:8171';
 (async()=>{
   const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--enable-unsafe-swiftshader']});
   try{
-    for(const width of [375,1440]){
+    for(const width of [375,430,768,1024,1440]){
       const page=await browser.newPage({viewport:{width,height:950}}),errors=[],missing=[];
       page.on('pageerror',error=>errors.push(error.message));
       page.on('response',response=>{if(response.url().startsWith(base)&&response.status()>=400)missing.push(response.url());});
