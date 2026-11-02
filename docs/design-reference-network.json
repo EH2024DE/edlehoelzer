@@ -1,0 +1,110 @@
+[
+  {
+    "name": "home",
+    "width": 375,
+    "state": "before",
+    "requests": 17,
+    "reportedTransferBytes": 562569,
+    "fontRequests": 2,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "home",
+    "width": 375,
+    "state": "after",
+    "requests": 12,
+    "reportedTransferBytes": 619566,
+    "fontRequests": 1,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "home",
+    "width": 1440,
+    "state": "before",
+    "requests": 17,
+    "reportedTransferBytes": 562569,
+    "fontRequests": 2,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "home",
+    "width": 1440,
+    "state": "after",
+    "requests": 12,
+    "reportedTransferBytes": 619566,
+    "fontRequests": 1,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "product",
+    "width": 375,
+    "state": "before",
+    "requests": 14,
+    "reportedTransferBytes": 537867,
+    "fontRequests": 2,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "product",
+    "width": 375,
+    "state": "after",
+    "requests": 11,
+    "reportedTransferBytes": 597684,
+    "fontRequests": 1,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "product",
+    "width": 1440,
+    "state": "before",
+    "requests": 14,
+    "reportedTransferBytes": 537867,
+    "fontRequests": 2,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "product",
+    "width": 1440,
+    "state": "after",
+    "requests": 11,
+    "reportedTransferBytes": 597684,
+    "fontRequests": 1,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "care",
+    "width": 375,
+    "state": "before",
+    "requests": 16,
+    "reportedTransferBytes": 543470,
+    "fontRequests": 2,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "care",
+    "width": 375,
+    "state": "after",
+    "requests": 12,
+    "reportedTransferBytes": 610696,
+    "fontRequests": 1,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "care",
+    "width": 1440,
+    "state": "before",
+    "requests": 16,
+    "reportedTransferBytes": 543470,
+    "fontRequests": 2,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  },
+  {
+    "name": "care",
+    "width": 1440,
+    "state": "after",
+    "requests": 12,
+    "reportedTransferBytes": 610696,
+    "fontRequests": 1,
+    "notes": "Cross-origin timing may report zero; not a complete performance benchmark."
+  }
+]
