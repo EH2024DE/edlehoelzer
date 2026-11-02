@@ -1,0 +1,382 @@
+[
+  {
+    "route": "/atelier/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-0.jpg"
+  },
+  {
+    "route": "/barbecue-geschenk/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-1.jpg"
+  },
+  {
+    "route": "/brotzeitbrett/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-2.jpg"
+  },
+  {
+    "route": "/en/cutting-board-juice-groove/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-3.jpg"
+  },
+  {
+    "route": "/en/end-grain-vs-edge-grain/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-4.jpg"
+  },
+  {
+    "route": "/en/erbstueck/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-5.jpg"
+  },
+  {
+    "route": "/en/products.html",
+    "template": "listing",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-6.jpg"
+  },
+  {
+    "route": "/en/snack-board/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-7.jpg"
+  },
+  {
+    "route": "/en/wood-instead-of-plastic/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-8.jpg"
+  },
+  {
+    "route": "/en/wood-types-for-cutting-boards/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-9.jpg"
+  },
+  {
+    "route": "/hochwertige-kuechenaccessoires/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-10.jpg"
+  },
+  {
+    "route": "/holz-statt-plastik/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-11.jpg"
+  },
+  {
+    "route": "/holzarten-schneidebrett/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-12.jpg"
+  },
+  {
+    "route": "/pfannenwender-holz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-13.jpg"
+  },
+  {
+    "route": "/produkte.html",
+    "template": "listing",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-14.jpg"
+  },
+  {
+    "route": "/schneidebrett-nach-mass/",
+    "template": "service",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-15.jpg"
+  },
+  {
+    "route": "/schneidebrett-nussbaum/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-16.jpg"
+  },
+  {
+    "route": "/schneidebrett-saftrille/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-17.jpg"
+  },
+  {
+    "route": "/stirnholz-vs-langholz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-18.jpg"
+  },
+  {
+    "route": "/atelier/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-0.jpg"
+  },
+  {
+    "route": "/barbecue-geschenk/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-1.jpg"
+  },
+  {
+    "route": "/brotzeitbrett/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-2.jpg"
+  },
+  {
+    "route": "/en/cutting-board-juice-groove/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-3.jpg"
+  },
+  {
+    "route": "/en/end-grain-vs-edge-grain/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-4.jpg"
+  },
+  {
+    "route": "/en/erbstueck/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-5.jpg"
+  },
+  {
+    "route": "/en/products.html",
+    "template": "listing",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-6.jpg"
+  },
+  {
+    "route": "/en/snack-board/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-7.jpg"
+  },
+  {
+    "route": "/en/wood-instead-of-plastic/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-8.jpg"
+  },
+  {
+    "route": "/en/wood-types-for-cutting-boards/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-9.jpg"
+  },
+  {
+    "route": "/hochwertige-kuechenaccessoires/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-10.jpg"
+  },
+  {
+    "route": "/holz-statt-plastik/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-11.jpg"
+  },
+  {
+    "route": "/holzarten-schneidebrett/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-12.jpg"
+  },
+  {
+    "route": "/pfannenwender-holz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-13.jpg"
+  },
+  {
+    "route": "/produkte.html",
+    "template": "listing",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-14.jpg"
+  },
+  {
+    "route": "/schneidebrett-nach-mass/",
+    "template": "service",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-15.jpg"
+  },
+  {
+    "route": "/schneidebrett-nussbaum/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-16.jpg"
+  },
+  {
+    "route": "/schneidebrett-saftrille/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-17.jpg"
+  },
+  {
+    "route": "/stirnholz-vs-langholz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-18.jpg"
+  }
+]

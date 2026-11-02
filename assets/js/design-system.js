@@ -76,6 +76,11 @@
     const observer=new MutationObserver(()=>{
       const content=product.querySelector('.productPreview__content'),headline=content?.querySelector('.productPreview__purchaseHeadline'),action=content?.querySelector('.productPreview__earlyPurchase');
       if(headline&&action&&headline.nextElementSibling!==action)headline.after(action);
+      const configuration=content?.querySelector('.productPreview__configuration');
+      if(headline&&configuration&&!configuration.querySelector('[data-ds-option-total]')){
+        const total=headline.cloneNode(true);total.dataset.dsOptionTotal='';total.setAttribute('aria-live','polite');
+        configuration.append(total);
+      }
       product.querySelectorAll('.productPreview__detail').forEach(details=>{details.dataset.dsReadMore='';});
       enhance(product);
     });observer.observe(product,{childList:true,subtree:true});

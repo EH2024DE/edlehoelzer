@@ -1826,6 +1826,7 @@ function initProductExperience() {
   }
   function linkProducts(root) {
     root.querySelectorAll('[data-product-preview]').forEach(function (button) {
+      if (button.classList.contains('finderPool__inspect')) return;
       var product = productMap[button.getAttribute('data-product-preview')];
       if (!product || !product.productPath) return;
       if (button.tagName === 'A') { button.href = productUrl(product); return; }
@@ -3402,7 +3403,7 @@ function initProductExperience() {
 
   function engravingLabel(product) {
     if (product.engravingPossible === true || hasBadge(product, "Gravur") || hasBadge(product, "personalisierbar")) {
-      return isEnglish ? "on request" : "auf Anfrage";
+      return "optional";
     }
     return "";
   }

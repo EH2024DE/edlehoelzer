@@ -40,10 +40,15 @@ test('tokens centralise typography and three containers without viewport type or
   });
 });
 test('financial source files and original pages are untouched on the main-based design branch',()=>{
-  for(const file of ['products.json','main.js',...references.map(r=>r.file)]){
+  for(const file of ['products.json',...references.map(r=>r.file)]){
     const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root});
     assert.ok(before.equals(fs.readFileSync(path.join(root,file))),file);
   }
+});
+test('product runtime changes only the engraving label and protects interactive finder controls',()=>{
+  const before=execFileSync('git',['show',`${baseline}:main.js`],{cwd:root,encoding:'utf8'});
+  const after=fs.readFileSync(path.join(root,'main.js'),'utf8');
+  assert.equal(after,before.replace('return isEnglish ? "on request" : "auf Anfrage";','return "optional";').replace("root.querySelectorAll('[data-product-preview]').forEach(function (button) {","root.querySelectorAll('[data-product-preview]').forEach(function (button) {\n      if (button.classList.contains('finderPool__inspect')) return;"));
 });
 test('reference runtime changes only four CSS-loading guards, not financial or product logic',()=>{
   const source=fs.readFileSync(path.join(root,'main.js'),'utf8');

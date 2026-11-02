@@ -196,11 +196,11 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Products</p>
-        <h2>Another board with a juice groove</h2>
-        <p class="section__lead">This selection follows the three boards shown at the top of the page.</p>
+        <h2>Your board with a juice groove</h2>
+        <p class="section__lead">All available boards are collected at the top of this page. An additional juice groove is optional on suitable boards.</p>
       </div>
       <p class="priceNote">Prices are starting prices in the Etsy shop. Shipping, engraving, juice grooves and custom requests can increase the final price.</p>
-      <div id="products-cutting-board-juice-groove" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
+      <div id="products-cutting-board-juice-groove"></div>
       <div class="ctaRow ctaRow--product-nav">
         <a href="/en/products.html#product-finder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Start product finder</a>
         <a href="/en/products.html#products-grid" class="btn">View all products</a>
@@ -274,10 +274,9 @@
 <script>
   function hasJuiceGroove(p) {
     var text = ((p.name || "") + " " + (p.displayName || "")).toLowerCase();
-    return p.category === "board" && (text.indexOf("saftrille") !== -1 || text.indexOf("juice") !== -1);
+    return p.category === "board" && (p.finderProfile && p.finderProfile.juiceGroove === true || text.indexOf("saftrille") !== -1 || text.indexOf("juice") !== -1);
   }
-  renderProductGrid("products-cutting-board-juice-groove-preview", hasJuiceGroove, { maxItems: 3 });
-  renderProductGrid("products-cutting-board-juice-groove", hasJuiceGroove, { offset: 3, maxItems: 6 });
+  renderProductGrid("products-cutting-board-juice-groove-preview", hasJuiceGroove);
 </script>
 </body>
 </html>
