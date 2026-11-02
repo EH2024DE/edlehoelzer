@@ -57,6 +57,19 @@
     }desktop.addEventListener('change',adapt);adapt();
   });
   enhance();
+  const revealServiceTarget=()=>{
+    if(!location.hash)return;
+    let target;try{target=document.getElementById(decodeURIComponent(location.hash.slice(1)));}catch{return;}
+    const details=target?.closest('.serviceCompareDetails');
+    if(details)details.open=true;
+  };
+  revealServiceTarget();window.addEventListener('hashchange',revealServiceTarget);
+  const serviceComparison=document.querySelector('[data-service-comparison]');
+  if(serviceComparison&&'IntersectionObserver' in window){
+    new IntersectionObserver(entries=>{
+      document.body.classList.toggle('is-comparing-services',entries[0].isIntersecting);
+    }).observe(serviceComparison);
+  }
   // The existing product engine replaces its fallback HTML after loading the catalogue.
   const product=document.querySelector('[data-product-page]');
   if(product){

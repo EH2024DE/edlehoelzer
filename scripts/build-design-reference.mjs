@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {parse,parseFragment,serialize} from 'parse5';
 import postcss from 'postcss';
 import {root,walk,attr,text} from './audit-design-system.mjs';
+import {refineRefurbishment} from './refurbishment-comparison.mjs';
 
 export const references=[
   {route:'/',file:'index.html',template:'home'},
@@ -100,6 +101,7 @@ export function renderReference(reference){
     if(header){body.childNodes.unshift(header);header.parentNode=body;}
     if(footer)append(body,footer);
   }
+  refineRefurbishment(document,reference);
   return {html:serialize(document),legacy:layer.toString(),legacyFile};
 }
 

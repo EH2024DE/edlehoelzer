@@ -2,6 +2,8 @@
 
 Stand: 2. November 2026. Branch `codex/design-system-zeitraum-inspired`, Inhaltsbasis main `f772f7a`. 148 gestaltete Seiten, darunter sämtliche 145 Sitemap-URLs. Keine Produktionsveröffentlichung, keine Shopaktivierung.
 
+Nachtrag zur visuellen Abnahme: Die flächendeckende Stilübertragung war keine vollständige UX-Abnahme. Nach Nutzerfeedback ist die Aufbereitung als kompakte, farblich abgestufte Vergleichskomponente neu aufgebaut. Vorgehen und gezielte Prüfungen stehen in `design-service-review.md`; weitere Seitentypen sind künftig anhand konkreter Nutzerentscheidungen statt nur globaler CSS-Merkmale zu beurteilen.
+
 ## 1. Designprinzipien
 Produkt zuerst, klare nächste Entscheidung, ergänzende Information progressiv. Ordnung und echtes Holz statt dekorativer Karten. Der Nutzer hat die Grundrichtung der Referenzen bestätigt.
 

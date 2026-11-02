@@ -19,6 +19,7 @@ test('all migrated templates preserve search metadata, original content and form
     const metadata=nodes=>nodes.filter(n=>n.tagName==='meta'||n.tagName==='title'||n.tagName==='h1'||n.tagName==='link'&&['canonical','alternate'].includes(attr(n,'rel'))||n.tagName==='script'&&attr(n,'type')==='application/ld+json').map(n=>({tag:n.tagName,attrs:n.attrs,text:text(n)}));
     assert.deepEqual(metadata(after),metadata(before),page.route+' metadata');
     const main=nodes=>nodes.find(n=>n.tagName==='main');
+    for(const node of after.filter(n=>attr(n,'data-ds-added')!==undefined))node.parentNode.childNodes=node.parentNode.childNodes.filter(n=>n!==node);
     if(main(before))assert.equal(text(main(after)),text(main(before)),page.route+' content');
     else for(const node of before.filter(n=>['p','h1','h2','li'].includes(n.tagName)))assert.ok(text(main(after)).includes(text(node)),page.route+' legal content');
     const forms=nodes=>nodes.filter(n=>['form','input','select','textarea'].includes(n.tagName)).map(n=>[n.tagName,...['name','required','action','method','value','min','max'].map(k=>attr(n,k))]);
