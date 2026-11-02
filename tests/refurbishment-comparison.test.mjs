@@ -1,19 +1,35 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import {parseFragment} from 'parse5';
-import {walk,attr,text} from '../scripts/audit-design-system.mjs';
+import {root,walk,attr,text} from '../scripts/audit-design-system.mjs';
 import {comparisonHtml} from '../scripts/refurbishment-comparison.mjs';
 
-test('the same three packages use aligned comparison criteria in both languages',()=>{
+test('three compact disclosure cards replace the table in both languages',()=>{
   for(const en of [false,true]){
     const nodes=walk(parseFragment(comparisonHtml(en)));
-    assert.equal(nodes.filter(n=>n.tagName==='th'&&attr(n,'scope')==='col').length,3);
-    assert.equal(nodes.filter(n=>n.tagName==='tbody').length,4);
-    for(const row of nodes.filter(n=>n.tagName==='tbody'))assert.equal(walk(row).filter(n=>n.tagName==='td').length,3);
+    assert.equal(nodes.filter(n=>n.tagName==='table').length,0);
+    assert.equal(nodes.filter(n=>n.tagName==='article').length,3);
+    assert.equal(nodes.filter(n=>n.tagName==='details').length,3);
     const copy=text(nodes[0]);
-    for(const price of en?['€9.99','€41–64','€95–154']:['9,99 €','41–64 €','95–154 €'])assert.ok(copy.includes(price));
-    assert.ok(copy.includes(en?'Your own time':'Deine Arbeitszeit'));
-    assert.ok(copy.includes(en?'All refresh work':'Alles aus Auffrischung'));
+    for(const price of en?['€41–64','€95–154']:['41–64 €','95–154 €'])assert.ok(copy.includes(price));
+    const option=id=>text(nodes.find(n=>attr(n,'data-service-option')===id));
+    for(const item of en?['Sandpaper','linseed oil','cotton cloth','Washing-up liquid']:['Schleifpapier','Leinöl','Baumwolltuch','Spülmittel'])assert.ok(option('self').toLowerCase().includes(item.toLowerCase()));
+    assert.ok(option('refresh').includes(en?'no balm tin for home':'keine Dose Balsam für zu Hause'));
+    assert.ok(option('full').includes(en?'One care balm tin for home included':'Eine Dose Pflegebalsam für zu Hause inklusive'));
+    assert.ok(copy.includes(en?'All refresh work':'Alle Leistungen der Auffrischung'));
     assert.ok(copy.includes('5 mm'));
+  }
+});
+test('legacy package descriptions also reserve a balm tin for full restoration only',()=>{
+  for(const file of ['schneidebrett-aufbereiten/index.html','en/refurbishment/index.html']){
+    const source=fs.readFileSync(path.join(root,file),'utf8'),nodes=walk(parseFragment(source));
+    const tier=name=>nodes.find(n=>(attr(n,'class')||'').split(/\s+/).includes('service-tier--'+name));
+    const refresh=text(tier('refresh')),full=text(tier('deluxe'));
+    assert.ok(!/Eine Dose Pflegebalsam|One care balm tin/.test(refresh));
+    assert.ok(/Eine Dose Pflegebalsam|One care balm tin/.test(full));
+    assert.ok(!source.includes('refurbVisualTriage__surface'));
+    assert.ok(!source.includes('Eine Dose Pflegebalsam gratis'));
   }
 });

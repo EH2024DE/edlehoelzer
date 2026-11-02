@@ -3,12 +3,11 @@
     "viewportWidth": 375,
     "language": "de",
     "width": 335,
-    "height": 674.5,
-    "tableHeight": 470.5,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 761.375,
+    "cardHeights": [
+      188.78125,
+      199.296875,
+      199.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -20,12 +19,11 @@
     "viewportWidth": 375,
     "language": "en",
     "width": 335,
-    "height": 674.5,
-    "tableHeight": 470.5,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 702.890625,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      199.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -37,12 +35,11 @@
     "viewportWidth": 390,
     "language": "de",
     "width": 350,
-    "height": 674.5,
-    "tableHeight": 470.5,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 761.375,
+    "cardHeights": [
+      188.78125,
+      199.296875,
+      199.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -54,12 +51,11 @@
     "viewportWidth": 390,
     "language": "en",
     "width": 350,
-    "height": 674.5,
-    "tableHeight": 470.5,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 702.890625,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      199.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -71,12 +67,11 @@
     "viewportWidth": 430,
     "language": "de",
     "width": 390,
-    "height": 635.3125,
-    "tableHeight": 431.3125,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 692.375,
+    "cardHeights": [
+      188.78125,
+      175.296875,
+      175.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -88,12 +83,11 @@
     "viewportWidth": 430,
     "language": "en",
     "width": 390,
-    "height": 596.125,
-    "tableHeight": 392.125,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 678.890625,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      175.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -105,12 +99,11 @@
     "viewportWidth": 768,
     "language": "de",
     "width": 672,
-    "height": 493.9375,
-    "tableHeight": 352.9375,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 634.375,
+    "cardHeights": [
+      164.78125,
+      175.296875,
+      175.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -122,12 +115,11 @@
     "viewportWidth": 768,
     "language": "en",
     "width": 672,
-    "height": 493.9375,
-    "tableHeight": 352.9375,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "height": 596.890625,
+    "cardHeights": [
+      151.296875,
+      151.296875,
+      175.296875
     ],
     "clipped": false,
     "keyboard": true,
@@ -138,13 +130,12 @@
   {
     "viewportWidth": 1440,
     "language": "de",
-    "width": 760,
-    "height": 493.9375,
-    "tableHeight": 352.9375,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "width": 1240,
+    "height": 275.78125,
+    "cardHeights": [
+      188.78125,
+      188.78125,
+      188.78125
     ],
     "clipped": false,
     "keyboard": true,
@@ -155,13 +146,12 @@
   {
     "viewportWidth": 1440,
     "language": "en",
-    "width": 760,
-    "height": 493.9375,
-    "tableHeight": 352.9375,
-    "backgrounds": [
-      "rgb(240, 242, 238)",
-      "rgb(70, 92, 76)",
-      "rgb(68, 53, 45)"
+    "width": 1240,
+    "height": 262.296875,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      175.296875
     ],
     "clipped": false,
     "keyboard": true,

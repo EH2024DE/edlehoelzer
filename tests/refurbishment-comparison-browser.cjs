@@ -8,11 +8,13 @@ const fs=require('node:fs');
       const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'});
       await page.goto((process.env.REFERENCE_URL||'http://127.0.0.1:8184')+(en?'/en/refurbishment/':'/schneidebrett-aufbereiten/'),{waitUntil:'networkidle'});
       const consent=page.locator('[data-consent-necessary]');if(await consent.isVisible())await consent.click();
-      const comparison=page.locator('[data-service-comparison]'),table=comparison.locator('table');
-      assert.equal(await table.locator('thead th').count(),3);
-      const metrics=await comparison.evaluate(n=>({width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height,tableHeight:n.querySelector('table').getBoundingClientRect().height,backgrounds:[...n.querySelectorAll('thead th')].map(h=>getComputedStyle(h).backgroundColor),clipped:[...n.querySelectorAll('th,td')].some(c=>c.scrollWidth>c.clientWidth+1)}));
-      assert.equal(new Set(metrics.backgrounds).size,3);assert.equal(metrics.clipped,false);
-      assert.ok(metrics.width<=width);if(width===390){assert.ok(metrics.tableHeight<520);assert.ok(metrics.height<720);}
+      const comparison=page.locator('[data-service-comparison]'),cards=comparison.locator('.serviceOption');
+      assert.equal(await cards.count(),3);assert.equal(await comparison.locator('table').count(),0);
+      const metrics=await comparison.evaluate(n=>({width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height,cardHeights:[...n.querySelectorAll('.serviceOption')].map(c=>c.getBoundingClientRect().height),clipped:[...n.querySelectorAll('h3,.serviceOption__price,.serviceOption__intro')].some(c=>c.scrollWidth>c.clientWidth+1)}));
+      assert.equal(metrics.clipped,false);assert.ok(metrics.width<=width);
+      if(width<=430)assert.ok(metrics.cardHeights.every(h=>h<240));
+      const cardDetails=cards.first().locator('details');assert.equal(await cardDetails.getAttribute('open'),null);
+      await cardDetails.locator('summary').press('Enter');assert.notEqual(await cardDetails.getAttribute('open'),null);await cardDetails.locator('summary').press('Enter');
       const detail=page.locator('.serviceCompareDetails').last();assert.equal(await detail.getAttribute('open'),null);
       await detail.locator('summary').press('Enter');assert.notEqual(await detail.getAttribute('open'),null);
       await detail.locator('summary').press('Enter');
@@ -24,7 +26,7 @@ const fs=require('node:fs');
       assert.notEqual(await page.locator('.serviceCompareDetails').last().getAttribute('open'),null);
       const fallback=await browser.newPage({viewport:{width,height:844},javaScriptEnabled:false});
       await fallback.goto((process.env.REFERENCE_URL||'http://127.0.0.1:8184')+(en?'/en/refurbishment/':'/schneidebrett-aufbereiten/'));
-      assert.ok(await fallback.locator('[data-service-comparison] table').isVisible());await fallback.close();
+      assert.equal(await fallback.locator('[data-service-comparison] .serviceOption').count(),3);await fallback.locator('.serviceOption details summary').first().click();assert.notEqual(await fallback.locator('.serviceOption details').first().getAttribute('open'),null);await fallback.close();
       report.push({viewportWidth:width,language:en?'en':'de',...metrics,keyboard:true,noJavaScript:true,fragmentTarget:true,floatingCtaHidden:true});await page.close();
     }
   }finally{await browser.close();}

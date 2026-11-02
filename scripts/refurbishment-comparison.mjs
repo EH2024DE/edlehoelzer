@@ -12,25 +12,19 @@ function disclose(nodes,label){
   for(const node of contents){parent.childNodes.splice(parent.childNodes.indexOf(node),1);node.parentNode=details;details.childNodes.push(node);}
 }
 export function comparisonHtml(en){
-  const rows=en?[
-    ['Your effort','Your own time','We do the work','We do the work'],
-    ['Surface','Oil & wax yourself','Sand, oil & wax','All refresh work'],
-    ['Repairs','—','—','Cracks, flatness & feet*'],
-    ['Care balm for home','Buy separately','1 tin included','1 tin included']
+  const options=en?[
+    {id:'self',name:'Do it yourself',price:'Materials only',intro:'You clean, sand if needed and oil the board yourself.',items:['Sandpaper if needed','Linseed oil and a dry cotton cloth','Washing-up liquid for cleaning'],extra:'You provide the time and materials. Care balm is optional.'},
+    {id:'refresh',name:'Refresh service',price:'€41–64',intro:'A renewed surface through sanding, oil and a protective finish. No repairs.',items:['Sand, raise the grain and fine-sand','Oil and finish with care balm','No repairs; no balm tin for home'],extra:'Up to 30 × 20 cm: €41 · up to 45 × 30 cm: €51 · longer than 45 cm: €64'},
+    {id:'full',name:'Full restoration',price:'€95–154',intro:'All refresh work plus suitable repairs after assessment. One care balm tin included.',items:['All refresh-service work','Assess and treat suitable cracks, flatness and feet','One care balm tin for home included'],extra:'Up to 30 × 20 cm: €95 · up to 45 × 30 cm: €124 · longer than 45 cm: €154'}
   ]:[
-    ['Dein Aufwand','Deine Arbeitszeit','Wir übernehmen','Wir übernehmen'],
-    ['Oberfläche','Selbst ölen & wachsen','Schliff, Öl & Wachs','Alles aus Auffrischung'],
-    ['Zusätzliche Arbeiten','—','—','Risse, Planheit & Füße*'],
-    ['Pflegebalsam für zu Hause','Separat kaufen','1 Dose inklusive','1 Dose inklusive']
+    {id:'self',name:'Selbst machen',price:'Nur Materialkosten',intro:'Du reinigst, schleifst bei Bedarf und ölst dein Brett selbst.',items:['Schleifpapier nach Bedarf','Leinöl und ein trockenes Baumwolltuch','Spülmittel zum Reinigen'],extra:'Arbeitszeit und Material bringst du selbst ein. Pflegebalsam ist optional.'},
+    {id:'refresh',name:'Auffrischung',price:'41–64 €',intro:'Eine neue Oberfläche durch Schliff, Öl und schützendes Finish. Ohne Reparaturen.',items:['Schleifen, wässern und fein nachschleifen','Ölen und mit Pflegebalsam abschließen','Ohne Reparaturen; keine Dose Balsam für zu Hause'],extra:'Bis 30 × 20 cm: 41 € · bis 45 × 30 cm: 51 € · über 45 cm Länge: 64 €'},
+    {id:'full',name:'Generalüberholung',price:'95–154 €',intro:'Auffrischung plus Reparaturen nach Prüfung. Eine Dose Pflegebalsam inklusive.',items:['Alle Leistungen der Auffrischung','Geeignete Risse, Planheit und Füße prüfen und bearbeiten','Eine Dose Pflegebalsam für zu Hause inklusive'],extra:'Bis 30 × 20 cm: 95 € · bis 45 × 30 cm: 124 € · über 45 cm Länge: 154 €'}
   ];
-  return `<div class="serviceCompare" id="${en?'compare-options':'paketvergleich'}" data-service-comparison data-ds-added>
-    <table aria-label="${en?'Compare care and refurbishment options':'Pflege und Aufbereitung vergleichen'}">
-      <thead><tr><th scope="col" class="serviceCompare__self">${en?'Do it yourself':'Selbst pflegen'}<span>${en?'from €9.99':'ab 9,99 €'}</span></th><th scope="col" class="serviceCompare__refresh">${en?'Refresh':'Auffrischung'}<span>${en?'€41–64':'41–64 €'}</span></th><th scope="col" class="serviceCompare__full">${en?'Full restoration':'General<wbr>überholung'}<span>${en?'€95–154':'95–154 €'}</span></th></tr></thead>
-      ${rows.map(row=>`<tbody><tr><th scope="rowgroup" colspan="3">${row[0]}</th></tr><tr>${row.slice(1).map((cell,i)=>`<td class="serviceCompare__${['self','refresh','full'][i]}">${cell}</td>`).join('')}</tr></tbody>`).join('')}
-    </table>
-    <p class="serviceCompare__care">${en?'DIY: <a href="/en/cutting-board-oil-comparison/">suitable boiled linseed oil</a> is often available online for up to €20. <a href="/en/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/">Our balm</a>: boiled linseed oil and regional beeswax.':'Für zu Hause: <a href="/welches-oel-schneidebrett/">Geeigneter Leinölfirnis</a> häufig bis 20 € online. <a href="/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/">Unser Balsam</a>: Leinölfirnis und regionales Bienenwachs.'}</p>
-    <p class="serviceCompare__shipping">${en?'Workshop: return shipping within Germany included. Shipping to us is extra.':'Werkstatt: Rückversand (DE) inklusive. Hinversand separat.'}</p>
-    <p class="serviceCompare__limits">${en?'*Repairs after photo assessment. Excluded: through-cracks, warping over 5 mm and hygienically irreparable damage.':'*Reparaturen nach Fotoeinschätzung. Ausgeschlossen: durchgehende Risse, Verzug über 5 mm, hygienisch irreparable Schäden.'}</p>
+  return `<div class="serviceOptions" id="${en?'compare-options':'paketvergleich'}" data-service-comparison data-ds-added>
+    <div class="serviceOptions__grid">${options.map(option=>`<article class="serviceOption" data-service-option="${option.id}"><div class="serviceOption__head"><h3>${option.name}</h3><p class="serviceOption__price">${option.price}</p></div><p class="serviceOption__intro">${option.intro}</p><details><summary>${en?'View scope':'Leistungen ansehen'}</summary><ul>${option.items.map(item=>`<li>${item}</li>`).join('')}</ul><p>${option.extra}</p></details></article>`).join('')}</div>
+    <p class="serviceOptions__note">${en?'Workshop prices include return shipping within Germany. You cover shipping to us.':'Werkstattpreise inklusive Rückversand (DE). Den Hinversand trägst du.'}</p>
+    <p class="serviceOptions__note">${en?'Repairs only after photo assessment. Through-cracks, warping over 5 mm and hygienically irreparable damage are excluded.':'Reparaturen nur nach Fotoeinschätzung. Durchgehende Risse, Verzug über 5 mm und hygienisch irreparable Schäden sind ausgeschlossen.'}</p>
   </div>`;
 }
 export function refineRefurbishment(document,reference){
