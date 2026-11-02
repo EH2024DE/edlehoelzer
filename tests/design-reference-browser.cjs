@@ -34,6 +34,13 @@ const output='/tmp/edle-design-system-qa';
         if(visible(supporting)||visible(hint)||actions.filter(visible).length!==1)issues.push('mobile hero is not reduced to title and one action');
         const a=actions.find(visible)?.getBoundingClientRect(),play=document.querySelector('.hero__videoToggle')?.getBoundingClientRect();
         if(a&&play&&a.left<play.right&&a.right>play.left&&a.top<play.bottom&&a.bottom>play.top)issues.push('hero CTA overlaps video control');
+        const title=document.querySelector('.hero h1');
+        if(a&&a.top-title.getBoundingClientRect().bottom<24)issues.push('hero CTA too close to title');
+        if(parseFloat(getComputedStyle(title).fontSize)>30)issues.push('mobile home title too large');
+        for(const card of document.querySelectorAll('.homepageProductGrid .productCard')){
+          const meta=card.querySelector('.productCard__meta'),price=card.querySelector('.productCard__price');
+          if(meta&&price&&price.getBoundingClientRect().top-meta.getBoundingClientRect().bottom>40)issues.push('excessive product price gap');
+        }
       }else if(supporting&&!visible(supporting)||hint&&!visible(hint)||actions.filter(visible).length!==2)issues.push('desktop hero content changed');
     }
     return [...new Set(issues)];

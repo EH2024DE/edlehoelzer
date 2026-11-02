@@ -2,6 +2,7 @@
   "scripts": {
     "audit:design": "node scripts/audit-design-system.mjs",
     "build:design-reference": "node scripts/build-design-reference.mjs",
+    "build:design-site": "node scripts/build-design-site.mjs",
     "preview:design-reference": "node scripts/serve-design-reference.mjs",
     "test:design-system": "node --test tests/design-system.test.mjs",
     "test:finder": "node --test tests/finder-matching.test.cjs",
