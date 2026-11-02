@@ -1,5 +1,7 @@
 # Referenzdesign: Review vor dem Rollout
 
+Nachtrag 2. November 2026: Der bestätigte Referenzstil ist inzwischen auf den vollständigen statischen Build mit 148 Seiten ausgerollt. Die Übersicht verlinkt alle Seiten. Aktueller Umfang, Prüfungen und Freigabegrenzen stehen in `design-system-migration-report.md`; die folgenden Referenznotizen dokumentieren die erste Phase.
+
 ## Stand
 
 Branch `codex/design-system-zeitraum-inspired`, Basis main `f772f7a`. Phase A und B sind als isolierter Build umgesetzt. Es wurden noch nicht alle 145 Seiten migriert und weder GitHub-Produktionsdeployment noch bestehende Cloudflare-/Stripe-Vorschau ersetzt. Der Shopcheckout mit seinen ungespeicherten Arbeiten blieb unberührt.

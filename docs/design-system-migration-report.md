@@ -1,65 +1,63 @@
-# Designsystem-Migration: Zwischenbericht und Rollout-Gate
+# Designsystem-Migration: Vollständiger statischer Designbuild
+
+Stand: 2. November 2026. Branch `codex/design-system-zeitraum-inspired`, Inhaltsbasis main `f772f7a`. 148 gestaltete Seiten, darunter sämtliche 145 Sitemap-URLs. Keine Produktionsveröffentlichung, keine Shopaktivierung.
 
 ## 1. Designprinzipien
-Produkt zuerst, klare nächste Entscheidung, ergänzende Information progressiv. Ordnung und echtes Holz statt dekorativer Karten.
+Produkt zuerst, klare nächste Entscheidung, ergänzende Information progressiv. Ordnung und echtes Holz statt dekorativer Karten. Der Nutzer hat die Grundrichtung der Referenzen bestätigt.
 
 ## 2. ZEITRAUM-Referenzanalyse
-ONDE und KUYU wurden im aktuellen deutschen Auftritt gelesen; TWIST und CENA über die tatsächlichen Collection-Links im Kollektionsverzeichnis. Gemeinsames Prinzip: kurze Idee, optionale Vertiefung, separate Material- und Datenebene. Quellen und gestalterische Ableitung stehen in `design-system.md`. Keine proprietären Texte, Assets oder Gestaltungsmaße übernommen.
+ONDE, KUYU, TWIST oval und CENA: kurze Idee, optionale Vertiefung, separate Material- und Datenebene. Quellen in `design-system.md`. Keine proprietären Texte, Assets oder Gestaltungsmaße übernommen.
 
 ## 3. Edle-Hölzer-Abweichungen
-Wärmere Produktfotografie, Mokkabraun, echte Werkstatt und persönliche Auswahlberatung. Kaufbarkeit und Werterhalt bleiben wichtiger als Architekten-Downloads.
+Warme Produktfotografie, Mokka, echte Werkstatt und direkte Auswahlberatung bleiben eigenständig. Kaufbarkeit und Werterhalt statt Architekten-Downloads.
 
 ## 4. Typography
-Dokumentierter Vergleich Montserrat, Manrope, Source Sans 3, System Sans. Pilot behält Montserrat mit lokaler WOFF2. Fonts, Typestufen und Gewichte werden zentral definiert. Keine viewportskalierenden Fonts oder negativen Laufweiten.
+Lokale Montserrat, zentrale Typestufen, normale Gewichte. Alte Font-, Größen-, Gewichts-, Zeilenhöhen- und Tracking-Deklarationen werden im erzeugten Legacy-CSS entfernt. Keine viewportskalierenden Fonts. Der finale Audit der verlinkten Styles findet keine alte Serif-Typografie oder Inline-Typografie.
 
 ## 5. Colors
-Off-White, Anthrazit, Mokka, Salbei und eine Linienfarbe als Tokens. Alte Farben werden nicht durch globale Suchen/Ersetzen im Shopbranch verändert.
+Off-White, Anthrazit, Mokka, Salbei und Linienfarbe als Tokens. Helle und immersive Flächen erhalten explizite Textfarben. Produkt- und Sticky-Hauptbuttons haben weißen Text; Video- und Vergleichslabels ebenfalls definierte Kontraste.
 
 ## 6. Spacing
-4–128px Skala, 96px Hauptsections, 64px mobil. Preis-/Konfigurationsgruppen kompakter. Keine neuen Seitenrhythmen pro Referenz.
+4–128px Skala, 96px Hauptsections, 64px mobil. Mobiler Home-Titel 30px, mindestens 32px Abstand zur Hauptaktion. Unnötiges Flex-Strecken und Absatzmargins zwischen Produktmetadaten und Preis entfernt.
 
 ## 7. Grid
-Drei Container. Produktdetail 3/2, Tablet 1/1, mobil gestapelt; Collection drei/vier Spalten, Tablet zwei, mobil manuelles Swipen. Englischer impliziter Column-Grid-Überlauf behoben.
+Drei Container, Produktdetail 3/2, Tablet 1/1, mobil gestapelt. Collection mobil manuell swipebar. Lange Tabellen scrollen innerhalb ihres Bereichs; lange deutsche Wörter und Rechtstext-Links erzeugen keinen Seitenüberlauf.
 
 ## 8. Components
-Header, Footer, Hero, Section, Intro, ProductCard, ProductHero, Facts, Gallery, ReadMore, Accordion, Tabs, CTA, Form, Quote, ImageText, EditorialText, Trust und Legal sind dokumentiert. Bestehende Interaktionen und Datenverträge werden weiterverwendet.
+Gemeinsame Header-, Footer-, Hero-, Section-, ProductCard-, ProductHero-, Facts-, Gallery-, ReadMore-, Accordion-, Tabs-, CTA-, Form-, Quote-, ImageText-, Trust- und Legal-Verträge. Rechtstexte erhalten gemeinsame Navigation und Footer. Altklassen bleiben für vorhandene Funktionen erhalten, nicht als zweite Fontquelle.
 
 ## 9. Templates
-Alle 145 Sitemap-Seiten sind Home, Product Listing, Product Detail, Editorial/Guide, Service/Conversion, B2B oder Legal zugeordnet. CSV enthält Priorität und Kriterien für weitere Migration, keine erfundene automatische Bildqualitätsbewertung.
+Home, Listing, Produktdetail, Editorial, Service, B2B, Legal sowie der funktionale Tresenvorschau-Adapter. Automatisch aus allen öffentlichen HTML-Dateien erfasst. Weiterleitungsseiten bleiben Weiterleitungen, keine künstlichen Landingpages.
 
 ## 10. Progressive Disclosure
-Inhalte bleiben im HTML. Native Details funktionieren ohne JS, ReadMore mit ARIA-Button bei Enhancement. Tabs nur bei genügend Inhalt. Keine Pflichtdaten einklappen.
+Inhalte bleiben im HTML. Native Details funktionieren ohne JS; ReadMore mit ARIA-Button nach Enhancement. FAQ einheitlich, Tabs nur bei genügend Inhalt. Keine Pflichtdaten einklappen. Auf der Aufbereitungsseite bleiben Prozessfotos einmal in der Galerie sichtbar statt zusätzlich mehrfach einzeln; Texte bleiben erhalten.
 
 ## 11. Product UX
-Großes quadratisches Primärbild, klarer Preis, Fakten als dl. Bestehender Etsy-CTA in Preisnähe, vorhandene Optionen unverändert. Kein zweites Shopmodell.
+Großes quadratisches Primärbild, klarer Preis, Fakten als dl. Vorhandene Galerie, Video an zweiter Position, Zoom und Optionen bleiben. Keine zweite Shopoberfläche, keine geänderten Produkt- oder Finanzdaten.
 
 ## 12. Mobile
-375/430px, zusätzlich Tablet und Desktop. Hero 375×667 auf Beschnitt geprüft. Mobile Tabs werden native Details, keine gekappten Labels. Bildflächen bleiben stabil.
+Alle 148 Seiten bei 375/1440px geprüft; sechs Referenzen zusätzlich bei 430/768/1024px. Mobiler Home-Hero enthält nur Titel und eine Hauptaktion. Konkrete Abstandsregressionen verhindern erneut zu enge Hero-CTAs oder zu große Preisabstände.
 
 ## 13. Accessibility
-Sichtbare Fokuslinien, 44/48px Ziele, native Fallbacks, Tabs-Tastatur, ARIA-Zustände, Reduced Motion. Neue Mokka/Weiß-Kombination bietet hohen Kontrast. Echte Screenreader-/Safari-Prüfung offen.
+Fokus, 44/48px Ziele, native Fallbacks, Tabs-Tastatur, ARIA-Zustände, Reduced Motion. Kontrastprüfung der sichtbaren Textknoten einschließlich Alpha-Komposition auf einfarbigen Flächen. Text über Bildern/Verläufen wird zur menschlichen Prüfung markiert, nicht fälschlich automatisch freigegeben. Keine vollständige WCAG-Zertifizierung; echter Screenreader und iOS/Safari bleiben Freigabetests.
 
 ## 14. Performance
-Keine neue Browserlibrary. parse5/PostCSS nur Entwicklung. Font lokal rund 38KB. CSS-Legacy-Menge bleibt zunächst; Performance-Budget und endgültige Entfernung doppelter Alt-Ladepfade sind Rollout-Aufgaben, keine bereits behauptete Optimierung.
-
-Vier bekannte doppelte CSS-Lader sind im generierten Referenz-main.js bereits begrenzt. Die indikative Netzwerkaufnahme meldet dennoch rund 57–67KB zusätzliche Transferbytes; Cross-Origin-Timings sind unvollständig. Das Performance-Akzeptanzkriterium ist noch offen, nicht stillschweigend bestanden.
+Keine neue Browserlibrary. parse5/PostCSS sind Buildwerkzeuge, Font lokal rund 38KB. Gleiche CSS-Kombinationen werden über ihren Inhaltshash geteilt, vier doppelte Laufzeit-CSS-Lader im Build begrenzt. Die indikative Aufnahme zeigt noch rund 38–47KB mehr gemeldete CSS/JS/Font-Transferbytes; Cross-Origin-Fontgrößen des Vorher-Zustands können null sein. Daraus wird kein vollständiger Performancevergleich oder Geschwindigkeitsgewinn abgeleitet. Lighthouse und ein gleichwertiger Produktionsvergleich bleiben vor Livegang offen.
 
 ## 15. SEO-Schutz
-Automatische Vergleiche schützen H1, Titel, Metadaten, Canonical/Hreflang, JSON-LD, alle Haupttexte, interne Links und Formverträge. Sitemap unverändert. Pilot wird nicht indexiert.
+Alle 148 Seiten werden auf unveränderte H1, Titel, Metadaten, Canonical/Hreflang, JSON-LD, Haupttexte, Links und Formularverträge verglichen. Sitemap unverändert. Vorschau noindex/nofollow. Keine SEO-Inhalte blind gekürzt.
 
-## 16. Migrierte Referenzen
-Nur im Referenzbuild: Home DE/EN, Nussbaum-Stirnholz-Produktdetail DE/EN, Pflegeguide DE/EN. Nicht migrierte Produktionsdateien sind unverändert. Sechs Referenz-URLs, drei Typen.
+## 16. Migrierte Seiten
+Alle 145 Sitemap-Seiten plus drei ergänzende öffentliche Seiten im statischen Designartefakt. `docs/design-page-inventory.csv` enthält den neuen Stand. Die rohe Inhaltsquelle wird nicht durch 148 handgepflegte Designkopien ersetzt: der Build ist die verbindliche Übertragung und muss für eine spätere Veröffentlichung verwendet werden.
 
 ## 17. Verbleibende Legacy Styles
-2.402 Inventarfundstellen auf main, 179 Hexfarben, 73 max-width-Werte, 30 Media-Query-Ausdrücke. Generierte Legacy-Schichten bleiben bewusst erhalten; keine Vollmigration behaupten. Kompiliertes Tresenvorschau-Bundle benötigt einen eigenen, geprüften Adapter.
+Bestehende Layout- und Verhaltensregeln bleiben in isolierten Legacy-Layers. Alte Quelldateien werden nicht blind gelöscht. Der Audit `design-final-legacy-audit.json` prüft tatsächlich verlinkte Styles des fertigen Artefakts; die historische Fundstellen-CSV bleibt als Ausgangsinventar erhalten. Das kompilierte 3D-Bundle ist funktional unverändert.
 
 ## 18. Screenshots
-Zwölf dauerhafte Vorher-/Nachher-Viewportbilder unter `design-reference-screenshots/`; volle 30 Seitenansichten und Bericht unter `/tmp/edle-design-system-qa/`. Review mit Links: `design-reference-review.md`.
-
-Der Bericht der 30 Ansichten ist zusätzlich als `design-reference-qa.json` versioniert. Externer temporärer Link und seine Betriebsgrenzen stehen im Review.
+Zwölf Vorher-/Nachher-Bilder unter `design-reference-screenshots/`, zusätzliche Templatebilder unter `design-site-screenshots/`. Alle 296 Viewportbilder liegen unter `/tmp/edle-design-site-qa/`. Maschinenlesbare Berichte: `design-site-qa.json`, `design-reference-qa.json`.
 
 ## 19. Tests
-112 Node-Tests bestanden. 30 Referenzansichten ohne automatische Befunde. Menü, Galerie, ReadMore und sechs No-JS-Fallbacks bestanden. Komponentenprüfseite deckt Tabs, FAQ und responsive Umschaltung ab. Keine Live-Anfragen oder Zahlungen durchgeführt.
+114 Node-Tests bestanden. 296 siteweite Browseransichten ohne automatische Befunde; 30 Referenzansichten auf fünf Breiten bestanden. Menü, Galerie, ReadMore, Tabs, FAQ und sechs No-JS-Fallbacks geprüft. Tresenvorschau auf Mobile/Desktop nicht leer; Drehung verändert Canvas-Pixel. Aufbereitungsseiten nach der Bildbereinigung zusätzlich geprüft. Keine echten Anfragen oder Zahlungen.
 
-## 20. Nächste Schritte
-Grundrichtung der Phase A/B vom Nutzer bestätigt; mobile Hero-Reduktion ergänzt. Phase C/D noch nicht begonnen. Nächste Reihenfolge: Produktdetail-Template und Generator, Listing, übrige Home-Komponenten, Maß/Atelier/Erbstück, Pflege/Aufbereitung, B2B/Gastronomie, Guides, Legal. Pro Gruppe kleine geprüfte Commits. Vor Veröffentlichung frühere bestätigte, ungespeicherte Inhalte mit dem Shopbranch abstimmen, Legacy-Audit erneut ausführen und reales iOS/Safari testen. Zuerst Design vollständig konsolidieren und abnehmen, danach Shopintegration. Keine automatische DNS-/Stripe-/Preis-/Versandänderung.
+## 20. Veröffentlichung und nächste Schritte
+CI erzeugt ein statisches Review-Artefakt mit `npm run build:design-site`; kein Deploy-Schritt hinzugefügt. Externe Übersicht: https://accompanying-sends-built-sentences.trycloudflare.com/design-reference/ . Temporärer Tunnel, abhängig vom lokalen Rechner. Vor Livegang: Gesamtreview, echter iOS/Safari-/Screenreader-Test, Performance-Abnahme und ausdrückliche Veröffentlichungsfreigabe. Frühere ungespeicherte Inhaltsänderungen des Shopcheckouts sind nicht still übernommen; mögliche DE/EN-Inhalts-/Preisabweichungen bleiben ein separater Content-Abgleich. Erst nach Designabnahme folgt die Shopintegration. Keine Stripe-, Versand-, DNS- oder Zahlungsänderung aus diesem Auftrag ableiten.

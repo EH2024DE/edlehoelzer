@@ -1,6 +1,6 @@
 # Edle Hölzer Designsystem
 
-Status: Phase A/B, Referenzkandidat. Kein siteweiter Rollout und keine Produktionsfreigabe.
+Status: Grundrichtung bestätigt, vollständiger statischer Designbuild für 148 Seiten. Keine Produktionsfreigabe. Alle Sitemap-Seiten und ergänzende öffentliche Seiten werden automatisch demselben System zugeordnet.
 
 ## Gestaltungsentscheidung
 
@@ -60,6 +60,8 @@ Ausnahmen: bestehende Produktgalerie-, Video-, Menü- und Formularzustände dür
 Der Referenzbuild fasst bestehende CSS-Dateien pro Referenz in einer `legacy` Cascade Layer zusammen. Die neue Token/Base/Component-Schicht gewinnt ohne !important. Inline-CSS der Pflege wird aus dem HTML in diese Legacy-Schicht verschoben. Keine weitere unkontrollierte Override-Datei pro Seite. Der Adapter ordnet bestehende Inhalte Komponenten zu; er importiert weder Shopserver noch dessen Geheimnisse. Rohseiten nicht migrierter URLs bleiben unverändert.
 
 Die Referenzseiten sind im Build explizit opt-in. Das ist noch keine Aktivierung des Builds im produktiven GitHub-Deployment. Nach Review wird Template für Template migriert, anschließend Legacy-Dateien durch geprüfte Komponenten ersetzt. Nicht vorab alle Altstyles löschen.
+
+Nach dem Referenzreview wurde `build-design-site.mjs` ergänzt: alle öffentlichen HTML-Seiten werden durch denselben Adapter verarbeitet. Eine inhaltsgehashte Legacy-Datei wird je tatsächlich unterschiedlicher CSS-Kombination geteilt, nicht pro Seite erneut erfunden. Typografie wird vollständig aus Legacy entfernt und im zentralen System definiert. Visuelle Inline-Typografie wird bereinigt, notwendige Layout-/Crop-Werte bleiben. Die CI erstellt nur ein statisches Review-Artefakt; eine spätere Veröffentlichung muss dieses Artefakt statt der unveränderten Rohseiten verwenden. Index und vollständige Prüfungen stehen im Migrationsbericht.
 
 Vier bekannte dynamische CSS-Lader in main.js erhalten nur im generierten Build einen ds-site-Guard, weil diese Styles bereits in der Legacy-Schicht enthalten sind. Nicht migrierte Seiten laden sie normal weiter. Ein Quellvergleich testet, dass außer genau diesen vier Guards kein Laufzeitcode verändert wird. Zwei dynamische Styleblöcke werden durch das Enhancement in die Legacy-Schicht eingeordnet. Preise, Produkte und Kaufregeln bleiben unverändert.
 
