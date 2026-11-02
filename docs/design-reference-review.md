@@ -4,6 +4,8 @@
 
 Branch `codex/design-system-zeitraum-inspired`, Basis main `f772f7a`. Phase A und B sind als isolierter Build umgesetzt. Es wurden noch nicht alle 145 Seiten migriert und weder GitHub-Produktionsdeployment noch bestehende Cloudflare-/Stripe-Vorschau ersetzt. Der Shopcheckout mit seinen ungespeicherten Arbeiten blieb unberührt.
 
+Review-Rückmeldung: Die Designrichtung wurde vom Nutzer grundsätzlich bestätigt. Nachgebessert wurde der mobile Home-Hero: nur bestehende H1 und eine Hauptaktion, kein langer Introtext, kein zweiter Button und kein zusätzlicher Finder-Hinweis. Diese Elemente bleiben im HTML und auf Desktop sichtbar. Der mobile Bildrahmen ist auf mindestens 440px reduziert. Designmigration hat Vorrang; Shopintegration folgt getrennt danach.
+
 ## Vorher / nachher
 
 | Typ | Vorher | Nachher |
@@ -45,7 +47,7 @@ Kein automatischer Test beweist vollständige WCAG-Konformität. Screenreader un
 
 ## Risiken und offene Freigaben
 
-1. Designrichtung, Fonts und drei Referenztypen gemeinsam prüfen; danach erst templateweiser Rollout.
+1. Grundrichtung bestätigt; der templateweise Designrollout kann nach der mobilen Korrektur fortgesetzt werden. Kein Shop-Livegang aus dieser Freigabe ableiten.
 2. Main enthält nicht alle ungespeicherten, zuvor bestätigten Inhalts- und Produktkorrekturen des Shopcheckouts. Vor einer Veröffentlichung müssen diese separat und gezielt übernommen werden. Der Referenzbuild erklärt sie nicht für erledigt.
 3. Der Pilot enthält noch die vorhandene Legacy-CSS-Menge. Neue Kernassets: rund 18KB CSS, 5.6KB JS und 38KB lokale Fontdatei, unkomprimiert. Vier doppelte CSS-Ladepfade werden ausschließlich im generierten Referenz-main.js für ds-site unterbunden; der Quellvergleich prüft exakt diese vier Guards. Die indikative Netzwerkaufnahme meldet weniger Requests, aber noch rund 57–67KB zusätzliche CSS/JS/Font-Transferbytes pro Referenz. Cross-Origin-Werte können null sein, daher ist das kein vollständiger Performancevergleich. Das Ziel „nicht schwerer“ ist noch nicht abgenommen: vor Rollout Legacy-CSS abbauen und Lighthouse/Netzwerkbudget unter identischen Bedingungen vergleichen.
 4. Finale Fotosprache und Bildreduktion bleiben redaktionell zu entscheiden. Bestehende Bildauswahl wurde nicht gegen fremde Stockbilder ausgetauscht.

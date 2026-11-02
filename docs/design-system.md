@@ -25,7 +25,7 @@ Quellen: [Montserrat-Metadaten](https://raw.githubusercontent.com/google/fonts/m
 - Body 17px, unterstützend mindestens 14px; CTA 16px, Zielhöhe mindestens 48px.
 - Hauptsection 96 / 64px; kaufrelevante Gruppen 16–32px.
 - Wide 1440px, Content 1240px, Reading 760px; Fließtext maximal 68ch.
-- Bildrahmen: Produkt und Detail 1:1, Editorial 3:2, immersiver Hero flexibel mit begrenzter Höhe.
+- Bildrahmen: Produkt und Detail 1:1, Editorial 3:2, immersiver Hero flexibel mit begrenzter Höhe. Home-Hero mobil: bestehende H1 und eine Hauptaktion, mindestens 440px Bildrahmen; zusätzliche Copy und zweite Aktion nur auf Desktop.
 - Radius 4px, keine normalen Card-Shadows. Schatten nur für echte Overlays.
 
 ## Komponentenvertrag

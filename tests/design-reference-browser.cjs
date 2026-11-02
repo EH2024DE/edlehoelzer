@@ -14,7 +14,7 @@ const output='/tmp/edle-design-system-qa';
    const consent=page.locator('[data-consent-necessary]');if(await consent.isVisible())await consent.click();
    await page.evaluate(async()=>{await document.fonts.ready;for(const img of document.images)img.loading='eager';await Promise.all([...document.images].map(img=>Promise.race([img.decode().catch(()=>{}),new Promise(r=>setTimeout(r,4000))])));});
    const issues=await page.evaluate(()=>{
-    const issues=[],visible=n=>{const r=n.getBoundingClientRect();return r.width>0&&r.height>0;};
+    const issues=[],visible=n=>{if(!n)return false;const r=n.getBoundingClientRect();return r.width>0&&r.height>0;};
     if(document.documentElement.scrollWidth>innerWidth+1)issues.push('horizontal overflow');
     if(document.querySelectorAll('main h1').length!==1)issues.push('H1 count');
     if(!document.fonts.check('400 17px "EH Sans"','ÄÖÜäöüß'))issues.push('font not ready');
@@ -28,6 +28,14 @@ const output='/tmp/edle-design-system-qa';
       if(s.objectFit==='fill'&&n.naturalWidth&&Math.abs(r.width/r.height-n.naturalWidth/n.naturalHeight)>.05)issues.push('stretched image');
     }
     const media=document.querySelector('.productPreview__mainMedia');if(media){const r=media.getBoundingClientRect();if(Math.abs(r.width-r.height)>2)issues.push('non-square product media');}
+    if(document.body.dataset.dsTemplate==='home'){
+      const supporting=document.querySelector('.hero__supportingCopy'),hint=document.querySelector('.hero__finderHint'),actions=[...document.querySelectorAll('.hero__actions>a')];
+      if(innerWidth<=760){
+        if(visible(supporting)||visible(hint)||actions.filter(visible).length!==1)issues.push('mobile hero is not reduced to title and one action');
+        const a=actions.find(visible)?.getBoundingClientRect(),play=document.querySelector('.hero__videoToggle')?.getBoundingClientRect();
+        if(a&&play&&a.left<play.right&&a.right>play.left&&a.top<play.bottom&&a.bottom>play.top)issues.push('hero CTA overlaps video control');
+      }else if(supporting&&!visible(supporting)||hint&&!visible(hint)||actions.filter(visible).length!==2)issues.push('desktop hero content changed');
+    }
     return [...new Set(issues)];
    });
    const file=`after-${width}-${index}.jpg`;await page.screenshot({path:output+'/'+file,fullPage:true,type:'jpeg',quality:75});

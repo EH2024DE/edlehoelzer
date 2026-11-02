@@ -7,7 +7,7 @@
     --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;
     --container-wide:1440px;--container-content:1240px;--container-reading:760px;--gutter:48px;
     --text-meta:14px;--text-body:17px;--text-lead:19px;--text-h1:48px;--text-product-title:38px;--text-h2:32px;--text-h3:22px;
-    --text-control:16px;--text-card:18px;--text-price:26px;--size-control:48px;--size-target:44px;--header-height:80px;--header-mobile-height:64px;--hero-min:440px;--hero-max:640px;--hero-mobile-min:520px;
+    --text-control:16px;--text-card:18px;--text-price:26px;--size-control:48px;--size-target:44px;--header-height:80px;--header-mobile-height:64px;--hero-min:440px;--hero-max:640px;--hero-mobile-min:440px;
     --radius:4px;--border:1px solid var(--color-line);--duration:180ms;--ease:ease-out;--section-space:96px;--shadow-overlay:0 12px 40px #24272326;
   }
   @media(max-width:760px){:root{--gutter:20px;--text-h1:34px;--text-product-title:30px;--text-h2:26px;--text-h3:20px;--section-space:64px}}
@@ -156,6 +156,7 @@
     .ds-site .topbar,.ds-site .topbar__inner{min-height:var(--header-mobile-height)}.ds-site .topbar__inner{gap:var(--space-3)}.ds-site .brand__text{font-size:var(--text-card)}.ds-site .brand__logo{width:28px;height:28px}
     .ds-site .ds-hero--immersive{height:auto;min-height:var(--hero-mobile-min)}.ds-site .hero__content{height:auto;min-height:var(--hero-mobile-min);padding-block:var(--space-5)}
     .ds-site .hero__supportingCopy{font-size:var(--text-body);margin-block:var(--space-4)}.ds-site .hero__actions{gap:var(--space-2);margin-top:var(--space-4)}
+    .ds-site .hero :is(.hero__supportingCopy,.hero__finderHint),.ds-site .hero__actions>a~a{display:none}
     .ds-site .homepageProducts{padding-top:var(--space-7)}
     .ds-site :is(.homeWorkshop,.materialProofBlock__layout,.roomDiscovery__layout,.erbstueckFeature__layout,.ds-image-text,.productPreview,.pflege-grid,.pflege-produkt){grid-template-columns:1fr;gap:var(--space-6)}
     .ds-site .productPreview__content{padding-top:var(--space-4)}.ds-site .productPreview h1{max-width:100%}
