@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install design build dependencies
         run: npm ci
@@ -29,6 +31,9 @@ jobs:
 
       - name: Audit linked typography in the generated design
         run: node scripts/audit-design-build.mjs "$RUNNER_TEMP/edle-design-site"
+
+      - name: Audit internal destinations and fragments
+        run: node scripts/audit-design-links.mjs "$RUNNER_TEMP/edle-design-site"
 
       - name: Save static design artifact without publishing
         uses: actions/upload-artifact@v4

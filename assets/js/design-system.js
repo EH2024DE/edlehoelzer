@@ -100,6 +100,18 @@
     }desktop.addEventListener('change',adapt);adapt();
   });
   enhance();
+  if(document.body.dataset.dsTemplate==='home'&&'IntersectionObserver' in window&&!motionReduced()){
+    const sections=[...document.querySelectorAll('main .reveal-on-scroll')];
+    const reveal=node=>{node.dataset.dsReveal='visible';};
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){reveal(entry.target);observer.unobserve(entry.target);}
+    }),{threshold:0,rootMargin:'0px 0px -24px 0px'});
+    sections.forEach(section=>{
+      if(section.getBoundingClientRect().top>=innerHeight){section.dataset.dsReveal='pending';observer.observe(section);}
+    });
+    document.addEventListener('focusin',event=>{const section=event.target.closest('[data-ds-reveal=pending]');if(section){section.style.transition='none';reveal(section);observer.unobserve(section);}});
+    matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',event=>{if(event.matches){sections.forEach(reveal);observer.disconnect();}});
+  }
   // Equalise the decision area per visual row, including cards with extra availability notes.
   const gridSelector='.productGrid,.landingProductGrid,.homepageProductGrid';
   let alignmentFrame=0;

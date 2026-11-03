@@ -4245,7 +4245,7 @@ function initProductsPage() {
       if (finderRoot) {
         finderRoot.setAttribute("aria-live", "polite");
         finderRoot.innerHTML = isEnglish
-          ? '<div class="finderShell__top"><div><span class="finderStepLabel">Product finder unavailable</span><h3>The product selection could not be loaded.</h3><p>Please use one of these direct alternatives.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">View all available boards</a><a class="btn btn--ghost-dark" href="/en/custom-cutting-board/">Request a custom board</a></div>'
+          ? '<div class="finderShell__top"><div><span class="finderStepLabel">Product finder unavailable</span><h3>The product selection could not be loaded.</h3><p>Please use one of these direct alternatives.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">View all available boards</a><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry">Request a custom board</a></div>'
           : '<div class="finderShell__top"><div><span class="finderStepLabel">Brettfinder nicht verfügbar</span><h3>Die Produktauswahl konnte nicht geladen werden.</h3><p>Nutze bitte eine dieser direkten Alternativen.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">Alle verfügbaren Bretter ansehen</a><a class="btn btn--ghost-dark" href="/schneidebrett-nach-mass/">Wunschbrett anfragen</a></div>';
       }
       if (gridRoot) {
@@ -4576,7 +4576,7 @@ function initProductsPage() {
   function finderAction(entry, kind) {
     var p = entry.product;
     if (p.availabilityStatus === "made_to_order") {
-      return '<a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") +
+      return '<a class="btn btn--emphasis" href="' + (isEnglish ? "mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry" : "/schneidebrett-nach-mass/") +
         '" data-finder-open="' + kind + '" data-finder-product="' + escapeAttribute(p.id) + '">' +
         (isEnglish ? "Ask about this version" : "Ausführung anfragen") + '</a>';
     }
@@ -4718,7 +4718,7 @@ function initProductsPage() {
         '</p><p>' + escapeHtml(buildReason(near)) + '</p><p>' + escapeHtml(displayPriceLabel(near.product)) + '</p><div class="ctaRow">' + finderAction(near, "near_match") +
         '<button type="button" class="textLink" data-finder-reconsider="' + escapeAttribute(near.product.id) + '">' + reconsiderLabel(near) + '</button></div></div></aside>' : "") +
       '<div class="finderResult__secondaryActions"><button type="button" class="textLink" data-finder-reset>' + (isEnglish ? "Start again" : "Neu beginnen") +
-        '</button><a class="textLink" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
+        '</button><a class="textLink" href="' + (isEnglish ? "mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry" : "/schneidebrett-nach-mass/") + '">' +
         (isEnglish ? "Ask about a custom board" : "Individuelles Brett anfragen") + '</a></div>';
     bindFinderActions(root);
     root.querySelector("[data-finder-reset]").onclick = function () {
@@ -5114,7 +5114,7 @@ function initProductsPage() {
     if (!hasVerifiedListing(product)) {
       return '<div class="ctaRow ctaRow--stacked">' + detailButton + compareButton + '<span class="productCard__availability">' +
         escapeHtml(labels.unavailableText) +
-        '</span><a class="btn btn--secondary" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
+        '</span><a class="btn btn--secondary" href="' + (isEnglish ? "mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry" : "/schneidebrett-nach-mass/") + '">' +
         escapeHtml(labels.askSimilar) +
         '</a></div>';
     }

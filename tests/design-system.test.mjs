@@ -7,6 +7,7 @@ import {parse} from 'parse5';
 import postcss from 'postcss';
 import {references,renderReference,guardLegacyStyleLoads} from '../scripts/build-design-reference.mjs';
 import {root,walk,attr,text,baseline} from '../scripts/audit-design-system.mjs';
+import {repairEnglishNavigation} from '../scripts/repair-english-navigation.mjs';
 test('reference rendering preserves SEO, original main content, links and form contracts',()=>{
   for(const reference of references){
     const original=parse(fs.readFileSync(path.join(root,reference.file),'utf8'));
@@ -41,8 +42,8 @@ test('tokens centralise typography and three containers without viewport type or
 });
 test('reference source pages are untouched on the main-based design branch',()=>{
   for(const file of references.map(r=>r.file)){
-    const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root});
-    assert.ok(before.equals(fs.readFileSync(path.join(root,file))),file);
+    const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root,encoding:'utf8'});
+    assert.equal(repairEnglishNavigation(before,file),fs.readFileSync(path.join(root,file),'utf8'),file);
   }
 });
 test('financial calculations and delivery rules stay unchanged during option UI work',()=>{

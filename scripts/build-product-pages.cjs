@@ -14,7 +14,7 @@ const onlyListing = process.argv.find(arg=>arg.startsWith('--listing='))?.slice(
 if (onlyListing && !catalog.some(p=>String(p.listingId)===onlyListing)) throw new Error('Unknown listing: '+onlyListing);
 for (const en of [false, true]) {
   const template = fs.readFileSync(path.join(root, en ? 'en/products.html' : 'produkte.html'), 'utf8');
-  const header = template.slice(template.indexOf('<header'), template.indexOf('</header>') + 9).replace(/href="#produktfinder"/g, 'href="' + (en ? '/en/products.html' : '/produkte.html') + '#produktfinder"');
+  const header = template.slice(template.indexOf('<header'), template.indexOf('</header>') + 9).replace(/href="#(?:produktfinder|product-finder)"/g, 'href="' + (en ? '/en/products.html#product-finder' : '/produkte.html#produktfinder') + '"');
   const footer = template.slice(template.indexOf('<footer'), template.indexOf('</footer>') + 9);
   const directory = '<!-- Generated product directory -->\n<details class="container productDirectory"><summary>' + (en ? 'All product pages' : 'Alle Produktseiten') + '</summary><ul>' + catalog.map(p => '<li><a href="' + (en ? '/en' : '') + p.productPath + '">' + esc(copy.text(p.displayName || p.name, en)) + '</a></li>').join('') + '</ul></details>\n<!-- End generated product directory -->';
   const index = template.replace(/\s*<!-- Generated product directory -->[\s\S]*?<!-- End generated product directory -->/g, '').replace('</main>', directory + '\n</main>');
@@ -72,7 +72,7 @@ ${available && !p.variants?.length ? '<p>' + esc(p.priceLabel) + '</p>' : ''}
 <dl class="productPreview__facts">${facts.filter(f => f[1]).map(f => '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(copy.text(f[1], en)) + '</dd></div>').join('')}</dl>
 ${variantText}
 <section class="productPreview__package"><h2>${en ? 'Included with your selection' : 'Das ist dabei'}</h2><ul>${view.packageItems(p,data.purchaseRules).map(item=>'<li>'+esc(en ? item.labelEn : item.label)+'</li>').join('')}</ul><p>${en ? 'Other products and decorative items shown in photos are not included.' : 'Weitere abgebildete Produkte und Dekoration sind nicht enthalten.'}</p></section>
-${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.etsyUrl) + '" target="_blank" rel="noopener">' + (en ? 'Configure and buy on Etsy' : 'Auf Etsy konfigurieren und kaufen') + '</a>' : '<a class="btn btn--emphasis" href="' + (en ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + (en ? 'Request a similar piece' : 'Ähnliches Stück anfragen') + '</a>'}
+${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.etsyUrl) + '" target="_blank" rel="noopener">' + (en ? 'Configure and buy on Etsy' : 'Auf Etsy konfigurieren und kaufen') + '</a>' : '<a class="btn btn--emphasis" href="' + (en ? 'mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry' : '/schneidebrett-nach-mass/') + '">' + (en ? 'Request a similar piece' : 'Ähnliches Stück anfragen') + '</a>'}
 <details class="productPreview__detail"><summary>${en ? 'Material & craft' : 'Material & Handwerk'}</summary><p>${esc(description)}</p></details>
 ${view.legalNotice(en)}
 </div></article></div>

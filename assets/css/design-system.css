@@ -38,6 +38,11 @@
   .ds-site :where(figure,blockquote){margin:0}
   .ds-site [hidden]{display:none!important}
   .ds-site .reveal-on-scroll{opacity:1;transform:none;transition:none}
+  .ds-site[data-ds-template=home] [data-ds-reveal]{transition:opacity 420ms ease-out,transform 420ms ease-out}
+  .ds-site[data-ds-template=home] [data-ds-reveal=pending]{opacity:0;transform:translateY(12px)}
+  .ds-site[data-ds-template=home] [data-ds-reveal=visible]{opacity:1;transform:none}
+  @media print{.ds-site[data-ds-template=home] [data-ds-reveal]{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.ds-site[data-ds-template=home] [data-ds-reveal]{opacity:1;transform:none;transition:none}}
   @media(prefers-reduced-motion:reduce){.ds-site *{scroll-behavior:auto;animation:none;transition:none}}
 }
 @layer components {
@@ -105,6 +110,8 @@
   .ds-site .erbstueckHero{background:var(--color-text);color:#fff;height:auto;min-height:var(--hero-min);padding-block:var(--space-8)}
   .ds-site .erbstueckHero :where(div,section,nav,dl,li,h1,h2,h3,p,dt,dd){color:inherit}
   .ds-site .erbstueckHero .pageSummary{color:#fff}
+  .ds-site:has(.erbstueckHero) :is(.mobileStickyCta,.erbstueckStickyCta){display:none}
+  .ds-site:has(.erbstueckHero) :is(.btn,.erbstueckProductActions a){min-height:44px;padding:8px 16px;font-size:var(--text-control);line-height:1.5;width:auto;max-width:100%}
   .ds-site .erbstueckHero .btn--ghost{color:#fff;border-color:#fff}
   .ds-site :is(.erbstueckHero .eyebrow,.erbstueckHero .breadcrumb){color:#fff}
   .ds-site .erbstueckBadges li{background:transparent;color:inherit;border-color:var(--color-line)}
@@ -246,6 +253,12 @@
   .ds-site .referenceProducts a>span:last-child{text-decoration:underline}
   .ds-site :is(.proofCard,.compactInfoCard,.noteGrid>article,.clusterCard,.decisionGrid>article,.toolGrid>article){border:0;border-top:var(--border);border-radius:0;box-shadow:none;background:transparent;padding:var(--space-5) 0}
   .ds-site :is(.b2b-section,.service-section,.treeSection){color:var(--color-text);background:transparent}
+  .ds-site .treeHero h1{max-width:24ch}
+  .ds-site .treeWrap{max-width:var(--container-content)}
+  .ds-site .treeNarrow{max-width:var(--container-reading)}
+  .ds-site :is(.treeHero__panel,.treeCallout,.treeCounter){background:transparent;box-shadow:none;border:0;border-top:var(--border);border-radius:0;padding:var(--space-5) 0}
+  .ds-site .treeFlow{box-shadow:none;border:var(--border);border-radius:var(--radius)}
+  .ds-site .treeCounter__number{font-size:64px;line-height:1.2;min-height:120px;border-radius:var(--radius);background:var(--color-bg-soft);color:var(--color-text)}
   .ds-site :is(.seoText,.seoCopy,.editorialText,.service-intro){max-width:68ch}
   .ds-site :is(.productFilters,.boardInquiry,.b2b-form,.gastroForm){font-family:var(--font-sans);box-shadow:none;border-radius:0}
   .ds-site .pageSummary{background:transparent;border:0;padding:var(--space-5) 0;box-shadow:none;max-width:var(--container-reading)}

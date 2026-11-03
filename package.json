@@ -1,6 +1,7 @@
 {
   "scripts": {
     "audit:design": "node scripts/audit-design-system.mjs",
+    "audit:design-links": "node scripts/audit-design-links.mjs",
     "build:design-reference": "node scripts/build-design-reference.mjs",
     "build:design-site": "node scripts/build-design-site.mjs",
     "preview:design-reference": "node scripts/serve-design-reference.mjs",
