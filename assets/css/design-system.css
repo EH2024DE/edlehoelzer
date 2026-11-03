@@ -192,7 +192,7 @@
   .ds-site .productDetail{max-width:var(--container-wide);padding-block:var(--space-7)}
   .ds-site .productPreview{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:var(--space-7);background:transparent;color:inherit;padding:0;border:0;border-radius:0;box-shadow:none}
   .ds-site .productPreview__content{padding:0;max-width:100%;min-width:0}
-  .ds-site .productPreview h1{font-size:var(--text-product-title);max-width:28ch;line-height:1.2;margin-bottom:var(--space-5)}
+  .ds-site .productPreview h1{font-size:30px;max-width:28ch;line-height:1.25;margin-bottom:var(--space-5)}
   .ds-site .productPreview__mainMedia{aspect-ratio:1;height:auto;max-height:none;background:var(--color-bg-soft);border-radius:0;overflow:hidden}
   .ds-site .productPreview__media>img,.ds-site .productPreview__mainMedia :is(img,video){width:100%;height:100%;aspect-ratio:1;object-fit:cover}
   .ds-site .productPreview__thumbs{gap:var(--space-2);margin-top:var(--space-3)}
@@ -317,7 +317,7 @@
     .ds-site .hero :is(.hero__supportingCopy,.hero__finderHint),.ds-site .hero__actions>a~a{display:none}
     .ds-site .homepageProducts{padding-top:var(--space-7)}
     .ds-site :is(.homeWorkshop,.materialProofBlock__layout,.roomDiscovery__layout,.erbstueckFeature__layout,.ds-image-text,.productPreview,.pflege-grid,.pflege-produkt){grid-template-columns:1fr;gap:var(--space-6)}
-    .ds-site .productPreview__content{padding-top:var(--space-4)}.ds-site .productPreview h1{max-width:100%}
+    .ds-site .productPreview__content{padding-top:var(--space-4)}.ds-site .productPreview h1{font-size:23px;max-width:100%}
     .ds-site :is(.careRoutine,.carePathGrid,.pflege-boxes,.careChoiceGrid){grid-template-columns:1fr;gap:var(--space-3)}
     .ds-site .pageSummary dl{grid-template-columns:1fr;gap:var(--space-5)}
     .ds-site .footer__inner,.ds-site .footer__nav{grid-template-columns:1fr;gap:var(--space-6)}
