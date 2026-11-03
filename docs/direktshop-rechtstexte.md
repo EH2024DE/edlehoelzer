@@ -57,6 +57,9 @@ prüfen. Die Belehrung und das Musterformular auch in Textform bereitstellen.
 
 ## Vertrag widerrufen
 
+Die [interne Formularvorschau](vorschau/vertrag-widerrufen.html) zeigt Eingabe,
+Prüfung und Bestätigung. Sie sendet und speichert keine Daten.
+
 Nach [§ 356a BGB](https://www.gesetze-im-internet.juris.de/bgb/__356a.html)
 für betroffene Onlineverträge eine gut sichtbare, leicht zugängliche Funktion
 vorsehen. Vorgesehener Einstieg im Footer: „Vertrag widerrufen“, ohne Konto.
