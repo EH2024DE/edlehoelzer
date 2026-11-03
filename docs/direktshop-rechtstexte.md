@@ -3,6 +3,9 @@
 Interner Entwurf. Nicht als freigegebene AGB oder Widerrufsbelehrung verwenden.
 Die bestehende Etsy-Strecke und die öffentliche Website bleiben unverändert.
 
+Die [gestaltete Rechtstexte-Vorschau](vorschau/rechtliches.html) bündelt die
+Entwürfe und verlinkt die Formularvorschau sowie die bestehenden Rechtstexte.
+
 ## AGB
 
 Der Direktshop wird von Edle Hölzer GbR, Schulgasse 4A, 35460 Staufenberg,
