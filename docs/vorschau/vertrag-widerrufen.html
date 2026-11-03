@@ -4,16 +4,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Vertrag widerrufen | Edle Hölzer – Vorschau</title>
+<link rel="stylesheet" href="../../assets/css/design-system.css">
 <style>
-body{max-width:40rem;margin:3rem auto;padding:0 1.25rem;font:1rem/1.6 system-ui,sans-serif;color:#242521;background:#fafaf8}
-label{display:block;margin-block:1rem}input,textarea{display:block;box-sizing:border-box;width:100%;padding:.6rem;border:1px solid #73766d;font:inherit}
-button{min-height:44px;padding:.5rem 1rem;font:inherit;background:#42342b;color:white;border:0}
-button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #526851;outline-offset:3px}
-pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}
+@font-face{font-family:EH Sans;src:url('../../assets/fonts/design/montserrat-latin.woff2') format('woff2'),url('../../node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2') format('woff2');font-weight:100 900;font-display:swap}
+.withdrawal-header{border-bottom:var(--border);padding:var(--space-4) var(--gutter)}
+.withdrawal-brand{display:flex;align-items:center;gap:var(--space-3);font-weight:600}
+.withdrawal-brand img{width:32px;height:32px;object-fit:contain}
+.withdrawal{width:min(var(--container-reading),calc(100% - 2 * var(--gutter)));margin:var(--section-space) auto}
+.withdrawal-step{color:var(--color-sage);font-size:var(--text-meta);font-weight:600;margin:0 0 var(--space-3)}
+.withdrawal h1{font-size:var(--text-h1);line-height:1.12;margin:0 0 var(--space-4)}
+.withdrawal h2{font-size:var(--text-h2);line-height:1.2;margin:0 0 var(--space-4)}
+.withdrawal-note{color:var(--color-text-muted);font-size:var(--text-meta);margin:0 0 var(--space-6)}
+.withdrawal form,.withdrawal #review{border-top:var(--border);padding-top:var(--space-6)}
+.withdrawal label{display:grid;gap:var(--space-2);margin-bottom:var(--space-5);font-weight:500}
+.withdrawal :is(input,textarea){display:block;width:100%;min-height:var(--size-control);padding:var(--space-3) var(--space-4);border:var(--border);border-radius:var(--radius);background:var(--color-surface);color:inherit;font:400 var(--text-control)/1.5 var(--font-sans)}
+.withdrawal textarea{resize:vertical}
+.withdrawal :is(button,input,textarea):focus-visible{outline:2px solid var(--color-sage);outline-offset:3px}
+.withdrawal pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;background:var(--color-bg-soft);padding:var(--space-5);margin:var(--space-5) 0}
+.withdrawal-actions{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+.withdrawal button:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:480px){.withdrawal-actions,.withdrawal form>.ds-button{width:100%}.withdrawal-actions>.ds-button{flex:1 1 100%}}
 </style>
-<main>
+<body class="ds-site">
+<header class="withdrawal-header">
+  <span class="withdrawal-brand"><img src="../../assets/logo.png" width="32" height="32" alt="">Edle Hölzer</span>
+</header>
+<main class="withdrawal">
+  <p class="withdrawal-step" id="step">Schritt 1 von 2</p>
   <h1>Vertrag widerrufen</h1>
-  <p><strong>Interne Vorschau:</strong> Nur Beispieldaten eingeben. Es wird nichts übermittelt.</p>
+  <p class="withdrawal-note"><strong>Vorschau:</strong> Nur Beispieldaten eingeben. Es wird nichts übermittelt.</p>
   <form id="withdrawal">
     <label>Name <input name="customer" required maxlength="120" autocomplete="off"></label>
     <label>Bestellnummer oder andere Angaben zum Vertrag
@@ -22,14 +41,16 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}
     <label>E-Mail für die Eingangsbestätigung
       <input name="email" type="email" required maxlength="254" autocomplete="off">
     </label>
-    <button type="submit" disabled>Widerruf prüfen</button>
+    <button class="ds-button" type="submit" disabled>Widerruf prüfen</button>
   </form>
   <section id="review" hidden>
     <h2 tabindex="-1">Deine Widerrufserklärung</h2>
     <p>Hiermit widerrufe ich den nachfolgend bezeichneten Vertrag.</p>
     <pre id="summary"></pre>
-    <button id="edit" type="button">Angaben ändern</button>
-    <button id="confirm" type="button">Widerruf bestätigen (Test)</button>
+    <div class="withdrawal-actions">
+      <button id="confirm" class="ds-button" type="button">Widerruf bestätigen (Test)</button>
+      <button id="edit" class="ds-button ds-button--secondary" type="button">Angaben ändern</button>
+    </div>
   </section>
   <p id="result" role="status"></p>
 </main>
@@ -38,6 +59,7 @@ const form = document.querySelector('#withdrawal');
 const review = document.querySelector('#review');
 const result = document.querySelector('#result');
 const confirm = document.querySelector('#confirm');
+const step = document.querySelector('#step');
 form.addEventListener('submit', event => {
   event.preventDefault();
   const data = new FormData(form);
@@ -48,11 +70,13 @@ form.addEventListener('submit', event => {
   confirm.disabled = false;
   form.hidden = true;
   review.hidden = false;
+  step.textContent = 'Schritt 2 von 2';
   review.querySelector('h2').focus();
 });
 document.querySelector('#edit').addEventListener('click', () => {
   review.hidden = true;
   form.hidden = false;
+  step.textContent = 'Schritt 1 von 2';
   form.elements.customer.focus();
 });
 confirm.addEventListener('click', () => {
@@ -61,4 +85,5 @@ confirm.addEventListener('click', () => {
 });
 form.querySelector('button').disabled = false;
 </script>
+</body>
 </html>
