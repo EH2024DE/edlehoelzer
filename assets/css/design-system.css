@@ -168,12 +168,18 @@
   .ds-site .productCard__body{padding:var(--space-4) 0}
   .ds-site :is(.productCard__name,.productCard h3){font-size:var(--text-card);line-height:1.4}
   .ds-site .productCard__meta{font-size:var(--text-meta)}
-  .ds-site .productCard__body{flex:0 0 auto;gap:var(--space-3)}
+  .ds-site .productCard{display:flex;flex-direction:column;height:100%}
+  .ds-site .productCard__body{display:flex;flex-direction:column;flex:1 1 auto;gap:var(--space-3)}
   .ds-site .productCard__body :is(h3,p){margin:0}
   .ds-site .productCard__name{min-height:0}
   .ds-site .productCard__meta{min-height:0}
   .ds-site .productCard__footer{margin-top:var(--space-3);padding-top:0;gap:var(--space-3)}
-  .ds-site .productCard__price{margin:0;font-size:var(--text-card);font-weight:600}
+  .ds-site .productCard__price{margin:var(--space-3) 0 0;margin-top:auto;padding-top:var(--space-3);font-size:var(--text-card);font-weight:600;min-height:var(--card-price-height,0px)}
+  .ds-site .productCard__body>.productCard__price{margin-top:auto}
+  .ds-site .productCard__body>.ctaRow{margin-top:0;display:flex;flex-direction:column;align-items:stretch;gap:var(--space-3);min-height:var(--card-action-height,0px)}
+  .ds-site .productCard__body>.ctaRow>.btn{width:100%;min-height:var(--size-control)}
+  .ds-site .productCard__body>.ctaRow>.btn:first-child{min-height:max(var(--size-control),var(--card-primary-height,0px))}
+  .ds-site .productCard__compareUtility{min-height:var(--size-target);align-self:start;margin:0}
   .ds-site :is(.productCard__cta--secondary,.productCard__cta--etsy){background:transparent;color:var(--color-text);border-color:var(--color-line)}
   .ds-site :is(.productBadgeRow,.productCard__badges){display:none}
   .ds-site .productDetail{max-width:var(--container-wide);padding-block:var(--space-7)}
@@ -251,7 +257,18 @@
   .ds-site :is(.careRoutine,.carePathGrid,.pflege-boxes,.careChoiceGrid){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6);background:transparent;border:0;border-radius:0;padding:0}
   .ds-site :is(.careRoutine,.carePathGrid,.pflege-boxes,.careChoiceGrid)>*{background:transparent;box-shadow:none;border:0;border-top:var(--border);border-radius:0;padding:var(--space-5) 0}
   .ds-site :is(.pflege-produkt,.pflege-grid){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-7);align-items:start}
-  .ds-site .pflege-produkt__img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:0;box-shadow:none}
+  .ds-site .pflege-produkt__img{width:100%;height:auto;max-height:none;aspect-ratio:3/2;object-fit:cover;border-radius:0;box-shadow:none;padding:0;background:transparent}
+  .ds-site .pflege-produkt__media{padding:0;background:transparent;border:0;border-radius:0;overflow:hidden}
+  .ds-site .grooveChoices{margin:var(--space-4) 0;padding:0;border:0;min-width:0}
+  .ds-site .grooveChoices legend{font-size:var(--text-control);font-weight:500;margin-bottom:var(--space-3)}
+  .ds-site .grooveChoices__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-2)}
+  .ds-site .grooveChoice{display:grid;gap:var(--space-2);align-content:start;padding:var(--space-2);border:var(--border);border-radius:var(--radius);cursor:pointer;min-width:0}
+  .ds-site .grooveChoice:has(input:checked){border-color:var(--color-accent);background:var(--color-bg-soft)}
+  .ds-site .grooveChoice img{width:100%;height:auto;aspect-ratio:6/5}
+  .ds-site .grooveChoice span{font-size:var(--text-meta);line-height:1.5;overflow-wrap:anywhere}
+  .ds-site .grooveChoices__note{font-size:var(--text-meta);line-height:1.6;margin-bottom:0}
+  .ds-site .productPreview__mainMedia img[src="/assets/juice-groove-guide.svg"]{object-fit:contain;background:var(--color-bg)}
+  .ds-site.is-configuring-product .backToTop{visibility:hidden;pointer-events:none}
   .ds-site .workshopNote{border-block:var(--border);padding-block:var(--space-5);max-width:var(--container-reading)}
   .ds-site .pflege-cta{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-5)}
   .ds-site .pflege-text{max-width:68ch}

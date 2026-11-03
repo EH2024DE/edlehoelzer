@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const source = fs.readFileSync('main.js', 'utf8');
 const products = require('../products.json').products;
 function engine(isEnglish) {
-  const context = {isEnglish, normalizeConstructionTerms:value=>value};
+  const context = {isEnglish, purchaseRules:require('../products.json').purchaseRules, normalizeConstructionTerms:value=>value};
   vm.runInNewContext(source.split('document.documentElement.classList.add("js");')[0], context);
   vm.runInNewContext(source.slice(source.indexOf('function orderProductMedia('),source.indexOf('function buildCardGalleryItems(')),context);
   for (const name of ['productMedia','productMoment','productExperienceText','productImageAlt','displayProductName','isEndGrain','productProof','productUseLabel','productRole']) {

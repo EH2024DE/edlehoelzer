@@ -28,6 +28,7 @@ test('every independent product has two static indexable pages and reciprocal al
       assert.equal(schema['@type'],'ProductGroup');
       assert.equal(schema.hasVariant.length,p.variants.length);
       for (const [i,v] of p.variants.entries()) {
+        if(v.availabilityStatus==='sold'){assert.equal(schema.hasVariant[i].offers,undefined);continue;}
         assert.equal(schema.hasVariant[i].offers.price,v.priceOrder);
         assert.ok(schema.hasVariant[i].offers.url.endsWith('?variante='+v.id));
       }

@@ -10,6 +10,8 @@ const esc = value => String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp
 const json = value => JSON.stringify(value).replace(/</g, '\\u003c');
 const origin = 'https://edlehoelzer.de';
 const catalog = data.products.filter(p => !p.canonicalProductId);
+const onlyListing = process.argv.find(arg=>arg.startsWith('--listing='))?.slice('--listing='.length);
+if (onlyListing && !catalog.some(p=>String(p.listingId)===onlyListing)) throw new Error('Unknown listing: '+onlyListing);
 for (const en of [false, true]) {
   const template = fs.readFileSync(path.join(root, en ? 'en/products.html' : 'produkte.html'), 'utf8');
   const header = template.slice(template.indexOf('<header'), template.indexOf('</header>') + 9).replace(/href="#produktfinder"/g, 'href="' + (en ? '/en/products.html' : '/produkte.html') + '#produktfinder"');
@@ -18,6 +20,7 @@ for (const en of [false, true]) {
   const index = template.replace(/\s*<!-- Generated product directory -->[\s\S]*?<!-- End generated product directory -->/g, '').replace('</main>', directory + '\n</main>');
   fs.writeFileSync(path.join(root, en ? 'en/products.html' : 'produkte.html'), index);
   for (const p of catalog) {
+    if (onlyListing && String(p.listingId)!==onlyListing) continue;
     if (!p.productPath) throw new Error('Missing stable productPath: ' + p.id);
     const url = (en ? '/en' : '') + p.productPath;
     const title = en ? copy.text(p.displayName || p.name, true) : p.name;
@@ -41,7 +44,7 @@ for (const en of [false, true]) {
         ...(available && ['available','made_to_order'].includes(v.availabilityStatus) ? {offers:{'@type':'Offer', url:origin + url + '?variante=' + encodeURIComponent(v.id), price:v.priceOrder, priceCurrency:'EUR', availability:'https://schema.org/' + (v.availabilityStatus === 'made_to_order' ? 'PreOrder' : 'InStock')}} : {})
       }));
     }
-    const variantText = p.variants?.length ? '<h2>' + (en ? 'Available versions' : 'Ausführungen') + '</h2><ul>' + p.variants.map(v => '<li>' + esc(en ? v.nameEn : v.name) + ' · ' + esc(v.dimensions) + ' · ' + Number(v.priceOrder).toLocaleString(en ? 'en-IE' : 'de-DE', {style:'currency',currency:'EUR'}) + (v.availabilityStatus === 'made_to_order' ? (en ? ' · Made to order' : ' · Auf Bestellung') : '') + '</li>').join('') + '</ul>' : '';
+    const variantText = p.variants?.length ? '<h2>' + (en ? 'Versions' : 'Ausführungen') + '</h2><ul>' + p.variants.map(v => '<li>' + esc(en ? v.nameEn : v.name) + ' · ' + esc(v.dimensions) + ' · ' + Number(v.priceOrder).toLocaleString(en ? 'en-IE' : 'de-DE', {style:'currency',currency:'EUR'}) + (v.availabilityStatus === 'sold' ? (en ? ' · Sold' : ' · Verkauft') : v.availabilityStatus === 'made_to_order' ? (en ? ' · Made to order' : ' · Auf Bestellung') : '') + '</li>').join('') + '</ul>' : '';
     const pageHeader = header.replace(/href="\/produkte.html"/g, 'href="' + p.productPath + '"').replace(/href="\/en\/products.html"/g, 'href="/en' + p.productPath + '"');
     const html = `<!doctype html>
 <html lang="${en ? 'en' : 'de'}"><head>
@@ -86,4 +89,4 @@ const sitemapPath = path.join(root, 'sitemap.xml');
 let sitemap = fs.readFileSync(sitemapPath, 'utf8').replace(/\s*<!-- Generated product pages -->[\s\S]*?<!-- End generated product pages -->/g, '');
 sitemap = sitemap.replace('</urlset>', '  <!-- Generated product pages -->\n' + catalog.flatMap(p => [p.productPath, '/en' + p.productPath]).map(url => '  <url><loc>' + origin + url + '</loc></url>').join('\n') + '\n  <!-- End generated product pages -->\n</urlset>');
 fs.writeFileSync(sitemapPath, sitemap);
-console.log(`Generated ${catalog.length} product pages in each language.`);
+console.log(`Generated ${onlyListing ? 1 : catalog.length} product pages in each language.`);

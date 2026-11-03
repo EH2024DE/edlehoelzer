@@ -57,6 +57,34 @@
     }desktop.addEventListener('change',adapt);adapt();
   });
   enhance();
+  // Equalise the decision area per visual row, including cards with extra availability notes.
+  const gridSelector='.productGrid,.landingProductGrid,.homepageProductGrid';
+  let alignmentFrame=0;
+  function alignProductRows(){
+    alignmentFrame=0;
+    document.querySelectorAll(gridSelector).forEach(grid=>{
+      const cards=[...grid.children].filter(n=>n.classList.contains('productCard'));
+      cards.forEach(card=>{card.style.setProperty('--card-action-height','0px');card.style.setProperty('--card-primary-height','0px');card.style.setProperty('--card-price-height','0px');});
+      const rows=new Map();
+      cards.forEach(card=>{const top=Math.round(card.getBoundingClientRect().top);if(!rows.has(top))rows.set(top,[]);rows.get(top).push(card);});
+      rows.forEach(row=>{
+        const actions=row.map(card=>card.querySelector('.productCard__body>.ctaRow'));
+        const primaryHeight=Math.max(0,...actions.map(action=>action?.querySelector(':scope>.btn')?.getBoundingClientRect().height||0));
+        row.forEach(card=>card.style.setProperty('--card-primary-height',primaryHeight+'px'));
+        const actionHeight=Math.max(0,...actions.map(action=>action?.getBoundingClientRect().height||0));
+        row.forEach(card=>card.style.setProperty('--card-action-height',actionHeight+'px'));
+        const priceHeight=Math.max(0,...row.map(card=>card.querySelector('.productCard__price')?.getBoundingClientRect().height||0));
+        row.forEach(card=>card.style.setProperty('--card-price-height',priceHeight+'px'));
+      });
+    });
+  }
+  const scheduleAlignment=()=>{if(!alignmentFrame)alignmentFrame=requestAnimationFrame(alignProductRows);};
+  const grids=[...document.querySelectorAll(gridSelector)];
+  if(grids.length){
+    const resize=new ResizeObserver(scheduleAlignment);grids.forEach(grid=>resize.observe(grid));
+    const mutation=new MutationObserver(scheduleAlignment);grids.forEach(grid=>mutation.observe(grid,{childList:true,subtree:true}));
+    window.addEventListener('resize',scheduleAlignment,{passive:true});document.fonts.ready.then(scheduleAlignment);scheduleAlignment();
+  }
   const revealServiceTarget=()=>{
     if(!location.hash)return;
     let target;try{target=document.getElementById(decodeURIComponent(location.hash.slice(1)));}catch{return;}
@@ -77,6 +105,10 @@
       const content=product.querySelector('.productPreview__content'),headline=content?.querySelector('.productPreview__purchaseHeadline'),action=content?.querySelector('.productPreview__earlyPurchase');
       if(headline&&action&&headline.nextElementSibling!==action)headline.after(action);
       const configuration=content?.querySelector('.productPreview__configuration');
+      if(configuration&&!configuration.dataset.dsObserved){
+        configuration.dataset.dsObserved='true';
+        new IntersectionObserver(entries=>document.body.classList.toggle('is-configuring-product',entries[0].isIntersecting)).observe(configuration);
+      }
       if(headline&&configuration&&!configuration.querySelector('[data-ds-option-total]')){
         const total=headline.cloneNode(true);total.dataset.dsOptionTotal='';total.setAttribute('aria-live','polite');
         configuration.append(total);

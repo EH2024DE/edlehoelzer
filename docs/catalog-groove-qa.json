@@ -1,0 +1,162 @@
+[
+  {
+    "route": "/en/care.html",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-0.jpg"
+  },
+  {
+    "route": "/en/products.html",
+    "template": "listing",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-1.jpg"
+  },
+  {
+    "route": "/en/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-2.jpg"
+  },
+  {
+    "route": "/en/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-3.jpg"
+  },
+  {
+    "route": "/pflege.html",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-4.jpg"
+  },
+  {
+    "route": "/produkte.html",
+    "template": "listing",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-5.jpg"
+  },
+  {
+    "route": "/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-6.jpg"
+  },
+  {
+    "route": "/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-7.jpg"
+  },
+  {
+    "route": "/en/care.html",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-0.jpg"
+  },
+  {
+    "route": "/en/products.html",
+    "template": "listing",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-1.jpg"
+  },
+  {
+    "route": "/en/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-2.jpg"
+  },
+  {
+    "route": "/en/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-3.jpg"
+  },
+  {
+    "route": "/pflege.html",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-4.jpg"
+  },
+  {
+    "route": "/produkte.html",
+    "template": "listing",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-5.jpg"
+  },
+  {
+    "route": "/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-6.jpg"
+  },
+  {
+    "route": "/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-7.jpg"
+  }
+]

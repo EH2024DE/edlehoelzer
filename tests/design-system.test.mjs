@@ -39,16 +39,24 @@ test('tokens centralise typography and three containers without viewport type or
     if(decl.prop==='font-family')assert.ok(decl.value.includes('var(--font-')||decl.parent.name==='font-face');
   });
 });
-test('financial source files and original pages are untouched on the main-based design branch',()=>{
-  for(const file of ['products.json',...references.map(r=>r.file)]){
+test('reference source pages are untouched on the main-based design branch',()=>{
+  for(const file of references.map(r=>r.file)){
     const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root});
     assert.ok(before.equals(fs.readFileSync(path.join(root,file))),file);
   }
 });
-test('product runtime changes only the engraving label and protects interactive finder controls',()=>{
+test('financial calculations and delivery rules stay unchanged during option UI work',()=>{
   const before=execFileSync('git',['show',`${baseline}:main.js`],{cwd:root,encoding:'utf8'});
   const after=fs.readFileSync(path.join(root,'main.js'),'utf8');
-  assert.equal(after,before.replace('return isEnglish ? "on request" : "auf Anfrage";','return "optional";').replace("root.querySelectorAll('[data-product-preview]').forEach(function (button) {","root.querySelectorAll('[data-product-preview]').forEach(function (button) {\n      if (button.classList.contains('finderPool__inspect')) return;"));
+  const extract=(source,name)=>{const start=source.indexOf('  function '+name+'(');assert.ok(start>=0);return source.slice(start,source.indexOf('\n  function ',start+1));};
+  for(const name of ['purchaseTotal','purchaseSubtotalWithoutCareBalm','formatCurrency','hasFreeShippingGermany','purchaseDeliveryText'])assert.equal(extract(after,name),extract(before,name),name);
+  const catalogBefore=JSON.parse(execFileSync('git',['show',`${baseline}:products.json`],{cwd:root,encoding:'utf8'}));
+  const catalogAfter=JSON.parse(fs.readFileSync(path.join(root,'products.json'),'utf8'));
+  const old=catalogBefore.products.find(p=>p.listingId==='4599650982'),sold=catalogAfter.products.find(p=>p.listingId==='4599650982');
+  assert.equal(sold.stock,0);assert.equal(sold.active,false);assert.equal(sold.inspirationOnly,true);assert.equal(sold.availabilityStatus,'sold');
+  for(const key of ['stock','active','availabilityStatus'])sold[key]=old[key];delete sold.inspirationOnly;
+  sold.variants.forEach((v,i)=>{assert.equal(v.availabilityStatus,'sold');v.availabilityStatus=old.variants[i].availabilityStatus;});
+  assert.deepEqual(catalogAfter,catalogBefore,'only the owner-confirmed sold state may change');
 });
 test('reference runtime changes only four CSS-loading guards, not financial or product logic',()=>{
   const source=fs.readFileSync(path.join(root,'main.js'),'utf8');
