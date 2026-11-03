@@ -10,7 +10,9 @@ const byId = id => products.find(p => p.listingId === id);
 test('new live Etsy listings retain all photos, verified starting prices and direct links', () => {
   for (const [id, price, photos] of [['4599650982', 39.99, 13], ['4598989614', 284.99, 16]]) {
     const p = byId(id);
-    assert.ok(p.active && p.dataVerified && p.directListingUrlVerified);
+    assert.ok(p.dataVerified && p.directListingUrlVerified);
+    if(id==='4599650982')assert.ok(!p.active && p.inspirationOnly && p.stock===0 && p.availabilityStatus==='sold');
+    else assert.ok(p.active);
     assert.equal(p.priceOrder, price);
     assert.equal(p.gallery.length, photos);
     assert.equal(new Set(p.gallery).size, photos);
@@ -23,7 +25,7 @@ test('five compact-board designs have the prices and photos shown on Etsy', () =
   const p = byId('4599650982');
   assert.deepEqual(p.variants.map(v => v.priceOrder), [39.99, 49.99, 59.99, 59.99, 59.99]);
   assert.deepEqual(p.variants.map(v => p.gallery.indexOf(v.image)), [3, 12, 0, 6, 9]);
-  assert.ok(p.variants.every(v => v.nameEn && v.availabilityStatus === 'available'));
+  assert.ok(p.variants.every(v => v.nameEn && v.availabilityStatus === 'sold'));
   assert.equal(p.priceOrder, Math.min(...p.variants.map(v => v.priceOrder)));
 });
 

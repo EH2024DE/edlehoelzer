@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Three juice groove layouts: continuous, front left basin, front right basin">
+  <rect width="1200" height="600" fill="#fafbf9"/>
+  <g fill="#eee9e2" stroke="#44352d" stroke-width="4">
+    <rect x="40" y="100" width="340" height="400" rx="16"/>
+    <rect x="430" y="100" width="340" height="400" rx="16"/>
+    <rect x="820" y="100" width="340" height="400" rx="16"/>
+  </g>
+  <g fill="none" stroke="#44352d" stroke-width="9" stroke-linejoin="round">
+    <rect x="65" y="125" width="290" height="350" rx="12"/>
+    <path d="M467 125H733Q745 125 745 137V463Q745 475 733 475H467Q455 475 455 463V137Q455 125 467 125Z"/>
+    <path d="M857 125H1123Q1135 125 1135 137V463Q1135 475 1123 475H857Q845 475 845 463V137Q845 125 857 125Z"/>
+  </g>
+  <g fill="#b7a28c" stroke="#44352d" stroke-width="4">
+    <path d="M455 389Q455 380 464 389L541 466Q550 475 537 475H467Q455 475 455 463Z"/>
+    <path d="M1135 389Q1135 380 1126 389L1049 466Q1040 475 1053 475H1123Q1135 475 1135 463Z"/>
+  </g>
+  <g fill="#44352d" font-family="Arial,sans-serif" font-size="30" text-anchor="middle">
+    <text x="210" y="66">1</text><text x="600" y="66">2</text><text x="990" y="66">3</text>
+  </g>
+  <g stroke="#44352d" stroke-width="3"><path d="M110 530H310M500 530H700M890 530H1090"/></g>
+</svg>

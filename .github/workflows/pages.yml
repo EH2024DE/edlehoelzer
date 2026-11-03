@@ -17,6 +17,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install design build dependencies
+        run: npm ci
+
+      - name: Validate shared design and preserved page contracts
+        run: node --test tests/design-system.test.mjs tests/design-site.test.mjs tests/refurbishment-comparison.test.mjs tests/design-feedback.test.mjs tests/juice-groove.test.cjs
+
+      - name: Build the complete static design for review
+        run: node scripts/build-design-site.mjs "$RUNNER_TEMP/edle-design-site"
+
+      - name: Audit linked typography in the generated design
+        run: node scripts/audit-design-build.mjs "$RUNNER_TEMP/edle-design-site"
+
+      - name: Audit internal destinations and fragments
+        run: node scripts/audit-design-links.mjs "$RUNNER_TEMP/edle-design-site"
+
+      - name: Save static design artifact without publishing
+        uses: actions/upload-artifact@v4
+        with:
+          name: edle-design-site
+          path: ${{ runner.temp }}/edle-design-site
+          retention-days: 7
 
       - name: Validate indexability signals
         run: node scripts/check-indexability.mjs

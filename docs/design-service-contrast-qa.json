@@ -1,0 +1,102 @@
+[
+  {
+    "route": "/en/refurbishment/",
+    "template": "service",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-0.jpg"
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "template": "service",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-1.jpg"
+  },
+  {
+    "route": "/en/refurbishment/",
+    "template": "service",
+    "width": 390,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "390-0.jpg"
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "template": "service",
+    "width": 390,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "390-1.jpg"
+  },
+  {
+    "route": "/en/refurbishment/",
+    "template": "service",
+    "width": 430,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "430-0.jpg"
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "template": "service",
+    "width": 430,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "430-1.jpg"
+  },
+  {
+    "route": "/en/refurbishment/",
+    "template": "service",
+    "width": 768,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "768-0.jpg"
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "template": "service",
+    "width": 768,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "768-1.jpg"
+  },
+  {
+    "route": "/en/refurbishment/",
+    "template": "service",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-0.jpg"
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "template": "service",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-1.jpg"
+  }
+]

@@ -4503,7 +4503,7 @@
       "segment": "Stirnholz",
       "priceLabel": "ab 39,99 EUR",
       "priceOrder": 39.99,
-      "stock": 5,
+      "stock": 0,
       "displayName": "Kleines Stirnholzbrett – Verschiedene Holzdesigns",
       "shortDescription": "Kompaktes Stirnholzbrett in fünf Holzdesigns, ca. 2 cm stark. Maße je nach Ausführung; Gravur optional auf Anfrage.",
       "material": "Nussbaum, Eiche, Zwetschge, Stockbuche, Ahorn, Buche",
@@ -4527,7 +4527,7 @@
           "name": "Eiche + Nussbaum + Buche",
           "nameEn": "Oak + walnut + beech",
           "priceOrder": 39.99,
-          "availabilityStatus": "available",
+          "availabilityStatus": "sold",
           "image": "https://i.etsystatic.com/54205761/r/il/95bdf5/8712484250/il_fullxfull.8712484250_jkjm.jpg"
         },
         {
@@ -4535,7 +4535,7 @@
           "name": "Eiche + Nussbaum + Ahorn",
           "nameEn": "Oak + walnut + maple",
           "priceOrder": 49.99,
-          "availabilityStatus": "available",
+          "availabilityStatus": "sold",
           "image": "https://i.etsystatic.com/54205761/r/il/dc62b5/8760303877/il_fullxfull.8760303877_ojg0.jpg"
         },
         {
@@ -4543,7 +4543,7 @@
           "name": "Eiche + Zwetschge",
           "nameEn": "Oak + plum wood",
           "priceOrder": 59.99,
-          "availabilityStatus": "available",
+          "availabilityStatus": "sold",
           "image": "https://i.etsystatic.com/54205761/r/il/0f3164/8712538166/il_fullxfull.8712538166_bmoj.jpg"
         },
         {
@@ -4551,7 +4551,7 @@
           "name": "Nussbaum + Stockbuche",
           "nameEn": "Walnut + spalted beech",
           "priceOrder": 59.99,
-          "availabilityStatus": "available",
+          "availabilityStatus": "sold",
           "image": "https://i.etsystatic.com/54205761/r/il/127f52/8712484490/il_fullxfull.8712484490_42vo.jpg"
         },
         {
@@ -4559,7 +4559,7 @@
           "name": "Eiche + Nussbaum + Buche – Design 2",
           "nameEn": "Oak + walnut + beech – Design 2",
           "priceOrder": 59.99,
-          "availabilityStatus": "available",
+          "availabilityStatus": "sold",
           "image": "https://i.etsystatic.com/54205761/r/il/c54f20/8760304155/il_fullxfull.8760304155_el25.jpg"
         }
       ],
@@ -4588,7 +4588,8 @@
       "etsyListingUrl": "https://www.etsy.com/listing/4599650982/kleines-stirnholz-schneidebrett",
       "directListingUrlVerified": true,
       "featured": false,
-      "active": true,
+      "active": false,
+      "inspirationOnly": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
@@ -4596,7 +4597,7 @@
       "source": "etsy-api-and-visible-listing-20261022",
       "productType": "cuttingBoard",
       "woodCut": "end",
-      "availabilityStatus": "available",
+      "availabilityStatus": "sold",
       "servingSuitable": true,
       "giftable": true,
       "finderProfile": {

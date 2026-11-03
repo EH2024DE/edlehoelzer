@@ -159,6 +159,15 @@ function productPackageItems(product, rules, selection) {
   });
 }
 
+function supportsJuiceGrooveOption(product, rules) {
+  if (!product || product.category !== "board" || product.productType === "servingBoard") return false;
+  if (product.inspirationOnly || product.availabilityStatus === "sold") return false;
+  var values = String(product.thicknessLabel || "").replace(/,/g, ".").match(/\d+(?:\.\d+)?/g);
+  if (!values || Math.min.apply(Math, values.map(Number)) < 2) return false;
+  if (product.finderProfile && product.finderProfile.juiceGroove === true) return false;
+  return ((rules || {}).juiceGrooveOptionListingIds || []).map(String).indexOf(String(product.listingId)) !== -1;
+}
+
 document.documentElement.classList.add("js");
 if (!document.querySelector('[data-photo-viewer-loader]')) {
   var photoStyle = document.createElement("link");
@@ -1750,6 +1759,14 @@ function initProductExperience() {
   }, { passive: true });
 
   document.addEventListener("change", function (event) {
+    var grooveStyleInput = event.target.closest("[data-purchase-groove-style]");
+    if (grooveStyleInput) {
+      var grooveProduct = productMap[grooveStyleInput.getAttribute("data-product-id")];
+      if (!grooveProduct || !supportsJuiceGrooveOption(grooveProduct, purchaseRules) || !["continuous", "left", "right"].includes(grooveStyleInput.value)) return;
+      purchaseSelections[grooveProduct.id] = purchaseSelections[grooveProduct.id] || {};
+      purchaseSelections[grooveProduct.id].juiceGrooveStyle = grooveStyleInput.value;
+      return;
+    }
     var variantInput = event.target.closest("[data-purchase-variant]");
     if (variantInput) {
       var variantProduct = productMap[variantInput.getAttribute("data-product-id")];
@@ -1826,6 +1843,7 @@ function initProductExperience() {
   }
   function linkProducts(root) {
     root.querySelectorAll('[data-product-preview]').forEach(function (button) {
+      if (button.classList.contains('finderPool__inspect')) return;
       var product = productMap[button.getAttribute('data-product-preview')];
       if (!product || !product.productPath) return;
       if (button.tagName === 'A') { button.href = productUrl(product); return; }
@@ -1965,7 +1983,7 @@ function initProductExperience() {
         '<section class="productPreview__package"><h3>' + (isEnglish ? 'Included with your selection' : 'Das ist dabei') + '</h3><ul data-product-package>' + renderPackageItems(product) + '</ul><p>' + escapeHtml(isEnglish ? 'Other products and decorative items shown in photos are not included.' : 'Weitere abgebildete Produkte und Dekoration sind nicht enthalten.') + '</p></section>' +
         renderEarlyPurchaseAction(product) +
         renderLegalGuaranteeNotice(isEnglish) +
-        (!hasEtsy ? '<p class="productCard__availability">' + escapeHtml(isEnglish ? (product.availabilityNoteEn || labels.unavailableText) : (product.availabilityNote || labels.unavailableText)) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? '/en/custom-cutting-board/' : '/schneidebrett-nach-mass/') + '">' + escapeHtml(labels.askSimilar) + '</a>' : '') +
+        (!hasEtsy ? '<p class="productCard__availability">' + escapeHtml(isEnglish ? (product.availabilityNoteEn || labels.unavailableText) : (product.availabilityNote || labels.unavailableText)) + '</p><a class="btn btn--emphasis" href="' + (isEnglish ? 'mailto:info@edlehoelzer.de?subject=Similar%20board%20inquiry' : '/schneidebrett-nach-mass/') + '">' + escapeHtml(labels.askSimilar) + '</a>' : '') +
         (product.category === 'board' && product.active !== false && String(product.listingId) !== '4440690649' && Number(product.priceOrder) > 100 ? '<div class="productPreview__roomPrompt" data-enhanced="true"><p>' + (isEnglish ? 'See this board in your own kitchen before deciding.' : 'Sieh dir dieses Brett vor dem Kauf in deiner Küche an.') + '</p><button type="button" class="btn btn--secondary" data-kitchen-preview="' + escapeAttribute(product.listingId || '') + '">' + (isEnglish ? 'View on my worktop' : 'Auf meinem Tresen ansehen') + '</button></div>' : '') +
         '<div class="productPreview__actions">' + renderProductWhatsappPrompt(product, hasEtsy) + renderPreviewCompareControls(product, source || 'preview') + '</div>' +
         (reason ? '<div class="productPreview__reason"><strong>' + escapeHtml(labels.finderReason) + '</strong><p>' + escapeHtml(reason) + '</p></div>' : '') +
@@ -2401,8 +2419,12 @@ function initProductExperience() {
   }
 
   function productMedia(product) {
+    function withGrooveGuide(items) {
+      if (supportsJuiceGrooveOption(product, purchaseRules)) items.push({type:"image",src:"/assets/juice-groove-guide.svg",poster:"/assets/juice-groove-guide.svg",alt:isEnglish?"Juice groove layouts: 1 continuous, 2 front left basin, 3 front right basin. The front edge is at the bottom.":"Saftrillenformen: 1 umlaufend, 2 Auffangbecken vorne links, 3 Auffangbecken vorne rechts. Die Vorderkante ist unten."});
+      return items;
+    }
     if (Array.isArray(product.media) && product.media.length) {
-      return orderProductMedia(product.media.filter(function (item) {
+      return orderProductMedia(withGrooveGuide(product.media.filter(function (item) {
         return item && item.src && (item.type === "image" || item.type === "video");
       }).map(function (item) {
         return {
@@ -2411,7 +2433,7 @@ function initProductExperience() {
           poster: item.poster || item.src,
           alt: isEnglish ? productImageAlt(product) : (item.alt || productImageAlt(product))
         };
-      }), product.image);
+      })), product.image);
     }
 
     var urls = [];
@@ -2444,7 +2466,7 @@ function initProductExperience() {
       };
     }) : [];
 
-    return orderProductMedia(images.concat(videos), product.image);
+    return orderProductMedia(withGrooveGuide(images.concat(videos)), product.image);
   }
 
   function renderPreviewMainMedia(item) {
@@ -2453,12 +2475,9 @@ function initProductExperience() {
     }
 
     if (item.type === "video") {
-      if (shouldAutoplayPreviewVideo()) {
-        return '<video data-preview-main controls playsinline preload="metadata" autoplay muted loop' + (item.poster ? ' poster="' + escapeAttribute(item.poster) + '"' : "") + ' aria-label="' + escapeAttribute(item.alt || labels.previewTitle) + '"><source src="' + escapeAttribute(item.src) + '" type="video/mp4"></video>';
-      }
       return '<div class="productPreview__videoPoster" data-preview-main>' +
         '<img src="' + escapeAttribute(item.poster) + '" alt="' + escapeAttribute(item.alt || labels.previewTitle) + '" decoding="async">' +
-        '<button type="button" data-preview-video-play data-video-src="' + escapeAttribute(item.src) + '" data-video-poster="' + escapeAttribute(item.poster) + '" data-video-alt="' + escapeAttribute(item.alt || labels.previewTitle) + '"><span aria-hidden="true">▶</span>' + escapeHtml(labels.playVideo) + '</button>' +
+        '<button type="button" data-preview-video-play aria-label="' + escapeAttribute(labels.playVideo) + '" title="' + escapeAttribute(labels.playVideo) + '" data-video-src="' + escapeAttribute(item.src) + '" data-video-poster="' + escapeAttribute(item.poster) + '" data-video-alt="' + escapeAttribute(item.alt || labels.previewTitle) + '"><img src="/assets/icons/lucide/play.svg" alt="" aria-hidden="true" width="24" height="24"></button>' +
       '</div>';
     }
 
@@ -3021,7 +3040,6 @@ function initProductExperience() {
     var options = [];
     var listingId = String(product.listingId || "");
     var optionPrices = purchaseRules.optionPrices || {};
-    var juiceGrooveIds = purchaseRules.juiceGrooveOptionListingIds || [];
     var careBalmMaximumBasePrice = Number(purchaseRules.careBalmOptionMaximumBasePrice || 150);
     var careBalmExcludedIds = purchaseRules.careBalmOptionExcludedListingIds || [];
     var engravable = product.category === "board" || product.category === "accessory";
@@ -3033,7 +3051,7 @@ function initProductExperience() {
       Array.isArray(product.badges) ? product.badges.join(" ") : ""
     ].join(" ").toLowerCase();
 
-    if (product.category === "board" && juiceGrooveIds.map(String).indexOf(listingId) !== -1) {
+    if (supportsJuiceGrooveOption(product, purchaseRules)) {
       options.push({
         id: "juiceGroove",
         label: labels.juiceGrooveOption,
@@ -3290,7 +3308,16 @@ function initProductExperience() {
           return '<label class="productPreview__option"' + (hidden ? " hidden" : "") + ' data-purchase-option-row="' + escapeAttribute(option.id) + '"><input type="checkbox" data-purchase-option="' + escapeAttribute(option.id) + '" data-product-id="' + escapeAttribute(product.id) + '"' + (selection[option.id] ? " checked" : "") + '>' + optionCopy + '<strong>+ ' + escapeHtml(formatCurrency(option.price)) + '</strong></label>';
         }).join("") +
       '</div>' : "") +
+      (supportsJuiceGrooveOption(product, purchaseRules) ? renderGrooveChoices(product) : "") +
     '</section>';
+  }
+
+  function renderGrooveChoices(product) {
+    var selection = purchaseSelection(product), selected = selection.juiceGrooveStyle || "continuous";
+    var choices = [["continuous",isEnglish?"Continuous":"Umlaufend"],["left",isEnglish?"Front left basin":"Becken vorne links"],["right",isEnglish?"Front right basin":"Becken vorne rechts"]];
+    return '<fieldset class="grooveChoices" data-groove-choices' + (selection.juiceGroove ? '' : ' hidden') + '><legend>' + (isEnglish?'Choose your juice groove':'Deine Saftrille auswählen') + '</legend><div class="grooveChoices__grid">' + choices.map(function(choice){
+      return '<label class="grooveChoice"><img src="/assets/juice-groove-' + choice[0] + '.svg" alt="" width="240" height="200"><input type="radio" name="groove-' + escapeAttribute(product.id) + '" data-purchase-groove-style data-product-id="' + escapeAttribute(product.id) + '" value="' + choice[0] + '"' + (selected===choice[0]?' checked':'') + (selection.juiceGroove?'':' disabled') + '><span>' + escapeHtml(choice[1]) + '</span></label>';
+    }).join('') + '</div><p class="grooveChoices__note">' + (isEnglish?'Front edge at the bottom, viewed from your working position. Each design costs €15 extra. Schematic illustration; confirm the selected design on Etsy before ordering.':'Die Vorderkante ist unten, aus deiner Arbeitsposition betrachtet. Jede Ausführung kostet 15 € Aufpreis. Schematische Darstellung; bestätige die gewählte Form vor der Bestellung auf Etsy.') + '</p></fieldset>';
   }
 
   function renderPackageItems(product) {
@@ -3309,6 +3336,11 @@ function initProductExperience() {
       return;
     }
     var packageList = activeOverlay.querySelector('[data-product-package]');
+    var grooveChoices = activeOverlay.querySelector('[data-groove-choices]');
+    if (grooveChoices) {
+      grooveChoices.hidden = !purchaseSelection(product).juiceGroove;
+      grooveChoices.querySelectorAll('input').forEach(function(input){input.disabled=grooveChoices.hidden;});
+    }
     if (packageList) packageList.innerHTML = renderPackageItems(product);
     var facts = activeOverlay.querySelector('.productPreview__facts');
     if (facts) facts.innerHTML = productFacts(product).map(function (fact) {
@@ -3402,7 +3434,7 @@ function initProductExperience() {
 
   function engravingLabel(product) {
     if (product.engravingPossible === true || hasBadge(product, "Gravur") || hasBadge(product, "personalisierbar")) {
-      return isEnglish ? "on request" : "auf Anfrage";
+      return "optional";
     }
     return "";
   }
@@ -4213,7 +4245,7 @@ function initProductsPage() {
       if (finderRoot) {
         finderRoot.setAttribute("aria-live", "polite");
         finderRoot.innerHTML = isEnglish
-          ? '<div class="finderShell__top"><div><span class="finderStepLabel">Product finder unavailable</span><h3>The product selection could not be loaded.</h3><p>Please use one of these direct alternatives.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">View all available boards</a><a class="btn btn--ghost-dark" href="/en/custom-cutting-board/">Request a custom board</a></div>'
+          ? '<div class="finderShell__top"><div><span class="finderStepLabel">Product finder unavailable</span><h3>The product selection could not be loaded.</h3><p>Please use one of these direct alternatives.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">View all available boards</a><a class="btn btn--ghost-dark" href="mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry">Request a custom board</a></div>'
           : '<div class="finderShell__top"><div><span class="finderStepLabel">Brettfinder nicht verfügbar</span><h3>Die Produktauswahl konnte nicht geladen werden.</h3><p>Nutze bitte eine dieser direkten Alternativen.</p></div></div><div class="ctaRow"><a class="btn" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="' + shopTitle + '">Alle verfügbaren Bretter ansehen</a><a class="btn btn--ghost-dark" href="/schneidebrett-nach-mass/">Wunschbrett anfragen</a></div>';
       }
       if (gridRoot) {
@@ -4544,7 +4576,7 @@ function initProductsPage() {
   function finderAction(entry, kind) {
     var p = entry.product;
     if (p.availabilityStatus === "made_to_order") {
-      return '<a class="btn btn--emphasis" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") +
+      return '<a class="btn btn--emphasis" href="' + (isEnglish ? "mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry" : "/schneidebrett-nach-mass/") +
         '" data-finder-open="' + kind + '" data-finder-product="' + escapeAttribute(p.id) + '">' +
         (isEnglish ? "Ask about this version" : "Ausführung anfragen") + '</a>';
     }
@@ -4686,7 +4718,7 @@ function initProductsPage() {
         '</p><p>' + escapeHtml(buildReason(near)) + '</p><p>' + escapeHtml(displayPriceLabel(near.product)) + '</p><div class="ctaRow">' + finderAction(near, "near_match") +
         '<button type="button" class="textLink" data-finder-reconsider="' + escapeAttribute(near.product.id) + '">' + reconsiderLabel(near) + '</button></div></div></aside>' : "") +
       '<div class="finderResult__secondaryActions"><button type="button" class="textLink" data-finder-reset>' + (isEnglish ? "Start again" : "Neu beginnen") +
-        '</button><a class="textLink" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
+        '</button><a class="textLink" href="' + (isEnglish ? "mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry" : "/schneidebrett-nach-mass/") + '">' +
         (isEnglish ? "Ask about a custom board" : "Individuelles Brett anfragen") + '</a></div>';
     bindFinderActions(root);
     root.querySelector("[data-finder-reset]").onclick = function () {
@@ -5074,7 +5106,7 @@ function initProductsPage() {
     var compareButton = '<button class="productCard__compareUtility' + (compared ? ' is-in-compare' : '') + '" type="button" aria-label="' + escapeAttribute(compareAriaLabel) + '" data-product-compare="' + escapeAttribute(product.id) + '" data-product-source="' + escapeAttribute(productSource) + '" aria-pressed="' + (compared ? 'true' : 'false') + '">' + escapeHtml(compareLabel) + '</button>';
 
     if (product.inspirationOnly === true) {
-      return '<div class="ctaRow ctaRow--stacked">' + detailButton + '<a class="btn btn--secondary" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
+      return '<div class="ctaRow ctaRow--stacked">' + detailButton + '<a class="btn btn--secondary" href="' + (isEnglish ? "mailto:info@edlehoelzer.de?subject=Similar%20board%20inquiry" : "/schneidebrett-nach-mass/") + '">' +
         escapeHtml(isEnglish ? "Request a similar piece" : "Ähnliche Anfertigung anfragen") +
         '</a></div>';
     }
@@ -5082,7 +5114,7 @@ function initProductsPage() {
     if (!hasVerifiedListing(product)) {
       return '<div class="ctaRow ctaRow--stacked">' + detailButton + compareButton + '<span class="productCard__availability">' +
         escapeHtml(labels.unavailableText) +
-        '</span><a class="btn btn--secondary" href="' + (isEnglish ? "/en/custom-cutting-board/" : "/schneidebrett-nach-mass/") + '">' +
+        '</span><a class="btn btn--secondary" href="' + (isEnglish ? "mailto:info@edlehoelzer.de?subject=Custom%20board%20inquiry" : "/schneidebrett-nach-mass/") + '">' +
         escapeHtml(labels.askSimilar) +
         '</a></div>';
     }

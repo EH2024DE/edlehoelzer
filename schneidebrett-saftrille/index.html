@@ -263,11 +263,11 @@
     <div class="container">
       <div class="sectionIntro">
         <p class="eyebrow eyebrow--dark">Produkte</p>
-        <h2>Weiteres Brett mit Saftrille</h2>
-        <p class="section__lead">Diese Auswahl ergänzt die drei Bretter vom Seitenanfang.</p>
+        <h2>Dein Brett mit Saftrille</h2>
+        <p class="section__lead">Die verfügbaren Bretter findest du gesammelt am Seitenanfang. Eine zusätzliche Saftrille ist bei geeigneten Brettern optional erhältlich.</p>
       </div>
       <p class="priceNote">Alle Preise sind Ab-Preise im Etsy-Shop. Versand, Gravur, Saftrille und Sonderwünsche können den Endpreis erhöhen.</p>
-      <div id="products-saftrille" class="landingProductGrid seo-products-carousel" aria-live="polite"></div>
+      <div id="products-saftrille"></div>
       <div class="ctaRow ctaRow--product-nav">
         <a href="#products-saftrille-preview" class="btn btn--emphasis">Bretter mit Saftrille entdecken</a>
         <a href="mailto:info@edlehoelzer.de?subject=Anfrage%20Schneidebrett%20mit%20Saftrille" class="btn" data-umami-event="email-kontakt">Saftrille nach Maß anfragen</a>
@@ -346,10 +346,9 @@
 <script>
   function hasJuiceGroove(p) {
     var text = ((p.name || "") + " " + (p.displayName || "")).toLowerCase();
-    return p.category === "board" && (text.indexOf("saftrille") !== -1 || text.indexOf("juice") !== -1);
+    return p.category === "board" && (p.finderProfile && p.finderProfile.juiceGroove === true || text.indexOf("saftrille") !== -1 || text.indexOf("juice") !== -1);
   }
-  renderProductGrid("products-saftrille-preview", hasJuiceGroove, { maxItems: 3 });
-  renderProductGrid("products-saftrille", hasJuiceGroove, { offset: 3, maxItems: 6 });
+  renderProductGrid("products-saftrille-preview", hasJuiceGroove);
 </script>
 </body>
 </html>

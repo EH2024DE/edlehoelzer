@@ -1,0 +1,2966 @@
+[
+  {
+    "route": "/atelier/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-0.jpg"
+  },
+  {
+    "route": "/barbecue-geschenk/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-1.jpg"
+  },
+  {
+    "route": "/baumspende.html",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-2.jpg"
+  },
+  {
+    "route": "/brettvorschau/",
+    "template": "tool",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-3.jpg"
+  },
+  {
+    "route": "/brotzeitbrett/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-4.jpg"
+  },
+  {
+    "route": "/danke.html",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-5.jpg"
+  },
+  {
+    "route": "/datenschutz.html",
+    "template": "legal",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-6.jpg"
+  },
+  {
+    "route": "/en/butcher-block/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-7.jpg"
+  },
+  {
+    "route": "/en/care.html",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-8.jpg"
+  },
+  {
+    "route": "/en/cutting-board-juice-groove/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-9.jpg"
+  },
+  {
+    "route": "/en/cutting-board-oil-comparison/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-10.jpg"
+  },
+  {
+    "route": "/en/end-grain-vs-edge-grain/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-11.jpg"
+  },
+  {
+    "route": "/en/erbstueck/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-12.jpg"
+  },
+  {
+    "route": "/en/how-to-recognise-a-quality-cutting-board/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-13.jpg"
+  },
+  {
+    "route": "/en/",
+    "template": "home",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-14.jpg"
+  },
+  {
+    "route": "/en/knife-friendly-cutting-board/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-15.jpg"
+  },
+  {
+    "route": "/en/products.html",
+    "template": "listing",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-16.jpg"
+  },
+  {
+    "route": "/en/produkte/3d-stirnholz-eiche-weitere-1776273564/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-17.jpg"
+  },
+  {
+    "route": "/en/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-18.jpg"
+  },
+  {
+    "route": "/en/produkte/bambus-buche-fruehstuecksbrett-1827805914/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-19.jpg"
+  },
+  {
+    "route": "/en/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-20.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-kambala-schachbrett-1783351692/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-21.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-massiv-mit-griffmulden-4522496017/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-22.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-mooreiche-servierbrett-4381023266/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-23.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-stirnholz-jahresring-struktur-1841836619/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-24.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-stirnholz-mit-saftrille-1830530996/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-25.jpg"
+  },
+  {
+    "route": "/en/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-26.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-buche-kompakt-mit-astloch-1855639262/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-27.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-esche-buche-mit-saftrille-4297451235/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-28.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-kambala-quadrat-4380304814/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-29.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-langholz-schweizer-kante-1774262638/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-30.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-massiv-astloch-kante-4522458953/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-31.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-servierbrett-doppelgriff-4398179153/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-32.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-stirnholz-massiver-hackblock-4455205567/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-33.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-stirnholz-schmales-design-4358136560/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-34.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-35.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-wenge-schachbrett-4299097497/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-36.jpg"
+  },
+  {
+    "route": "/en/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-37.jpg"
+  },
+  {
+    "route": "/en/produkte/erbstueck-no-004-eiche-buche-4370769708/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-38.jpg"
+  },
+  {
+    "route": "/en/produkte/esche-stirnholz-bbq-hackblock-4380062082/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-39.jpg"
+  },
+  {
+    "route": "/en/produkte/kambala-schneidebrett-kompakt-1848021568/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-40.jpg"
+  },
+  {
+    "route": "/en/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-41.jpg"
+  },
+  {
+    "route": "/en/produkte/laerche-stirnholz-kompakt-1818046728/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-42.jpg"
+  },
+  {
+    "route": "/en/produkte/mahagoni-stirnholz-ruhiger-block-1886613306/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-43.jpg"
+  },
+  {
+    "route": "/en/produkte/nussbaum-ahorn-streifenbrett-4450988121/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-44.jpg"
+  },
+  {
+    "route": "/en/produkte/nussbaum-langholz-flankenoptik-1886821275/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-45.jpg"
+  },
+  {
+    "route": "/en/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-46.jpg"
+  },
+  {
+    "route": "/en/produkte/padouk-eiche-grossformat-kariert-archiv-22/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-47.jpg"
+  },
+  {
+    "route": "/en/produkte/padouk-eiche-kompakt-kariert-1859366842/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-48.jpg"
+  },
+  {
+    "route": "/en/produkte/pfannenwender-massivholz-mix-4470469056/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-49.jpg"
+  },
+  {
+    "route": "/en/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-50.jpg"
+  },
+  {
+    "route": "/en/produkte/servierbrett-set-dreiteilig-4440690649/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-51.jpg"
+  },
+  {
+    "route": "/en/produkte/servierbrett-set-schwertform-4389604739/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-52.jpg"
+  },
+  {
+    "route": "/en/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-53.jpg"
+  },
+  {
+    "route": "/en/produkte/stockbuche-stirnholz-naturmaserung-4370784882/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-54.jpg"
+  },
+  {
+    "route": "/en/produkte/stockbuche-stirnholz-schachbrett-1783359006/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-55.jpg"
+  },
+  {
+    "route": "/en/produkte/teigschaber-aus-massivholz-4471048251/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-56.jpg"
+  },
+  {
+    "route": "/en/produkte/teigschaber-set-2er-oder-3er-4493690534/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-57.jpg"
+  },
+  {
+    "route": "/en/produkte/untersetzer-set-holz-mit-halter-1838851839/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-58.jpg"
+  },
+  {
+    "route": "/en/produkte/walnuss-eiche-rahmenbrett-4297472161/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-59.jpg"
+  },
+  {
+    "route": "/en/produkte/wenge-nussbaum-eiche-kariert-1894223313/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-60.jpg"
+  },
+  {
+    "route": "/en/produkte/xxl-stirnholz-nach-mass-4484195050/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-61.jpg"
+  },
+  {
+    "route": "/en/produkte/xxl-streifenbrett-thermobambus-birke-4417621529/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-62.jpg"
+  },
+  {
+    "route": "/en/refurbishment/",
+    "template": "service",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-63.jpg",
+    "followUp": "duplicate process media cleanup"
+  },
+  {
+    "route": "/en/snack-board/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-64.jpg"
+  },
+  {
+    "route": "/en/wood-instead-of-plastic/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-65.jpg"
+  },
+  {
+    "route": "/en/wood-types-for-cutting-boards/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-66.jpg"
+  },
+  {
+    "route": "/en/wooden-cutting-boards-for-restaurants/",
+    "template": "b2b",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-67.jpg"
+  },
+  {
+    "route": "/en/wooden-dough-scraper/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-68.jpg"
+  },
+  {
+    "route": "/geschenk-fuer-frauen-holz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-69.jpg"
+  },
+  {
+    "route": "/geschenk-fuer-maenner-holz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-70.jpg"
+  },
+  {
+    "route": "/hackblock/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-71.jpg"
+  },
+  {
+    "route": "/handgefertigte-holzprodukte-fuer-unternehmen/",
+    "template": "b2b",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-72.jpg"
+  },
+  {
+    "route": "/hochwertige-geschenke-holz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-73.jpg"
+  },
+  {
+    "route": "/hochwertige-kuechenaccessoires/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-74.jpg"
+  },
+  {
+    "route": "/hochwertiges-schneidebrett-erkennen/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-75.jpg"
+  },
+  {
+    "route": "/holz-statt-plastik/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-76.jpg"
+  },
+  {
+    "route": "/holzarten-schneidebrett/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-77.jpg"
+  },
+  {
+    "route": "/impressum.html",
+    "template": "legal",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-78.jpg"
+  },
+  {
+    "route": "/",
+    "template": "home",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-79.jpg"
+  },
+  {
+    "route": "/messerschonendes-schneidebrett/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-80.jpg"
+  },
+  {
+    "route": "/pfannenwender-holz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-81.jpg"
+  },
+  {
+    "route": "/pflege.html",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-82.jpg"
+  },
+  {
+    "route": "/presse/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-83.jpg"
+  },
+  {
+    "route": "/produkte.html",
+    "template": "listing",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-84.jpg"
+  },
+  {
+    "route": "/produkte/3d-stirnholz-eiche-weitere-1776273564/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-85.jpg"
+  },
+  {
+    "route": "/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-86.jpg"
+  },
+  {
+    "route": "/produkte/bambus-buche-fruehstuecksbrett-1827805914/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-87.jpg"
+  },
+  {
+    "route": "/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-88.jpg"
+  },
+  {
+    "route": "/produkte/buche-kambala-schachbrett-1783351692/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-89.jpg"
+  },
+  {
+    "route": "/produkte/buche-massiv-mit-griffmulden-4522496017/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-90.jpg"
+  },
+  {
+    "route": "/produkte/buche-mooreiche-servierbrett-4381023266/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-91.jpg"
+  },
+  {
+    "route": "/produkte/buche-stirnholz-jahresring-struktur-1841836619/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-92.jpg"
+  },
+  {
+    "route": "/produkte/buche-stirnholz-mit-saftrille-1830530996/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-93.jpg"
+  },
+  {
+    "route": "/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-94.jpg"
+  },
+  {
+    "route": "/produkte/eiche-buche-kompakt-mit-astloch-1855639262/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-95.jpg"
+  },
+  {
+    "route": "/produkte/eiche-esche-buche-mit-saftrille-4297451235/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-96.jpg"
+  },
+  {
+    "route": "/produkte/eiche-kambala-quadrat-4380304814/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-97.jpg"
+  },
+  {
+    "route": "/produkte/eiche-langholz-schweizer-kante-1774262638/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-98.jpg"
+  },
+  {
+    "route": "/produkte/eiche-massiv-astloch-kante-4522458953/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-99.jpg"
+  },
+  {
+    "route": "/produkte/eiche-servierbrett-doppelgriff-4398179153/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-100.jpg"
+  },
+  {
+    "route": "/produkte/eiche-stirnholz-massiver-hackblock-4455205567/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-101.jpg"
+  },
+  {
+    "route": "/produkte/eiche-stirnholz-schmales-design-4358136560/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-102.jpg"
+  },
+  {
+    "route": "/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-103.jpg"
+  },
+  {
+    "route": "/produkte/eiche-wenge-schachbrett-4299097497/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-104.jpg"
+  },
+  {
+    "route": "/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-105.jpg"
+  },
+  {
+    "route": "/produkte/erbstueck-no-004-eiche-buche-4370769708/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-106.jpg"
+  },
+  {
+    "route": "/produkte/esche-stirnholz-bbq-hackblock-4380062082/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-107.jpg"
+  },
+  {
+    "route": "/produkte/kambala-schneidebrett-kompakt-1848021568/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-108.jpg"
+  },
+  {
+    "route": "/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-109.jpg"
+  },
+  {
+    "route": "/produkte/laerche-stirnholz-kompakt-1818046728/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-110.jpg"
+  },
+  {
+    "route": "/produkte/mahagoni-stirnholz-ruhiger-block-1886613306/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-111.jpg"
+  },
+  {
+    "route": "/produkte/nussbaum-ahorn-streifenbrett-4450988121/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-112.jpg"
+  },
+  {
+    "route": "/produkte/nussbaum-langholz-flankenoptik-1886821275/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-113.jpg"
+  },
+  {
+    "route": "/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-114.jpg"
+  },
+  {
+    "route": "/produkte/padouk-eiche-grossformat-kariert-archiv-22/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-115.jpg"
+  },
+  {
+    "route": "/produkte/padouk-eiche-kompakt-kariert-1859366842/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-116.jpg"
+  },
+  {
+    "route": "/produkte/pfannenwender-massivholz-mix-4470469056/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-117.jpg"
+  },
+  {
+    "route": "/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-118.jpg"
+  },
+  {
+    "route": "/produkte/servierbrett-set-dreiteilig-4440690649/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-119.jpg"
+  },
+  {
+    "route": "/produkte/servierbrett-set-schwertform-4389604739/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-120.jpg"
+  },
+  {
+    "route": "/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-121.jpg"
+  },
+  {
+    "route": "/produkte/stockbuche-stirnholz-naturmaserung-4370784882/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-122.jpg"
+  },
+  {
+    "route": "/produkte/stockbuche-stirnholz-schachbrett-1783359006/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-123.jpg"
+  },
+  {
+    "route": "/produkte/teigschaber-aus-massivholz-4471048251/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-124.jpg"
+  },
+  {
+    "route": "/produkte/teigschaber-set-2er-oder-3er-4493690534/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-125.jpg"
+  },
+  {
+    "route": "/produkte/untersetzer-set-holz-mit-halter-1838851839/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-126.jpg"
+  },
+  {
+    "route": "/produkte/walnuss-eiche-rahmenbrett-4297472161/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-127.jpg"
+  },
+  {
+    "route": "/produkte/wenge-nussbaum-eiche-kariert-1894223313/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-128.jpg"
+  },
+  {
+    "route": "/produkte/xxl-stirnholz-nach-mass-4484195050/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-129.jpg"
+  },
+  {
+    "route": "/produkte/xxl-streifenbrett-thermobambus-birke-4417621529/",
+    "template": "product",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-130.jpg"
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "template": "service",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-131.jpg",
+    "followUp": "duplicate process media cleanup"
+  },
+  {
+    "route": "/schneidebrett-eiche-vs-nussbaum/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-132.jpg"
+  },
+  {
+    "route": "/schneidebrett-eiche/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-133.jpg"
+  },
+  {
+    "route": "/schneidebrett-fachwerk-eiche/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-134.jpg"
+  },
+  {
+    "route": "/schneidebrett-made-in-germany/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-135.jpg"
+  },
+  {
+    "route": "/schneidebrett-mit-gravur/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-136.jpg"
+  },
+  {
+    "route": "/schneidebrett-nach-mass/",
+    "template": "service",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-137.jpg"
+  },
+  {
+    "route": "/schneidebrett-nussbaum/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-138.jpg"
+  },
+  {
+    "route": "/schneidebrett-saftrille/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-139.jpg"
+  },
+  {
+    "route": "/schneidebretter-aus-holz-gastronomie/",
+    "template": "b2b",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-140.jpg"
+  },
+  {
+    "route": "/schneidebretter-massivholz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-141.jpg"
+  },
+  {
+    "route": "/sitemap-uebersicht.html",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-142.jpg"
+  },
+  {
+    "route": "/stirnholz-schneidebrett/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-143.jpg"
+  },
+  {
+    "route": "/stirnholz-vs-langholz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-144.jpg"
+  },
+  {
+    "route": "/suche/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-145.jpg"
+  },
+  {
+    "route": "/teigschaber-holz/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-146.jpg"
+  },
+  {
+    "route": "/welches-oel-schneidebrett/",
+    "template": "editorial",
+    "width": 375,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "375-147.jpg"
+  },
+  {
+    "route": "/atelier/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-0.jpg"
+  },
+  {
+    "route": "/barbecue-geschenk/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-1.jpg"
+  },
+  {
+    "route": "/baumspende.html",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-2.jpg"
+  },
+  {
+    "route": "/brettvorschau/",
+    "template": "tool",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-3.jpg"
+  },
+  {
+    "route": "/brotzeitbrett/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-4.jpg"
+  },
+  {
+    "route": "/danke.html",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-5.jpg"
+  },
+  {
+    "route": "/datenschutz.html",
+    "template": "legal",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-6.jpg"
+  },
+  {
+    "route": "/en/butcher-block/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-7.jpg"
+  },
+  {
+    "route": "/en/care.html",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-8.jpg"
+  },
+  {
+    "route": "/en/cutting-board-juice-groove/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-9.jpg"
+  },
+  {
+    "route": "/en/cutting-board-oil-comparison/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-10.jpg"
+  },
+  {
+    "route": "/en/end-grain-vs-edge-grain/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-11.jpg"
+  },
+  {
+    "route": "/en/erbstueck/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-12.jpg"
+  },
+  {
+    "route": "/en/how-to-recognise-a-quality-cutting-board/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-13.jpg"
+  },
+  {
+    "route": "/en/",
+    "template": "home",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-14.jpg"
+  },
+  {
+    "route": "/en/knife-friendly-cutting-board/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-15.jpg"
+  },
+  {
+    "route": "/en/products.html",
+    "template": "listing",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-16.jpg"
+  },
+  {
+    "route": "/en/produkte/3d-stirnholz-eiche-weitere-1776273564/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-17.jpg"
+  },
+  {
+    "route": "/en/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-18.jpg"
+  },
+  {
+    "route": "/en/produkte/bambus-buche-fruehstuecksbrett-1827805914/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-19.jpg"
+  },
+  {
+    "route": "/en/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-20.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-kambala-schachbrett-1783351692/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-21.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-massiv-mit-griffmulden-4522496017/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-22.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-mooreiche-servierbrett-4381023266/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-23.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-stirnholz-jahresring-struktur-1841836619/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-24.jpg"
+  },
+  {
+    "route": "/en/produkte/buche-stirnholz-mit-saftrille-1830530996/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-25.jpg"
+  },
+  {
+    "route": "/en/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-26.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-buche-kompakt-mit-astloch-1855639262/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-27.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-esche-buche-mit-saftrille-4297451235/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-28.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-kambala-quadrat-4380304814/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-29.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-langholz-schweizer-kante-1774262638/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-30.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-massiv-astloch-kante-4522458953/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-31.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-servierbrett-doppelgriff-4398179153/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-32.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-stirnholz-massiver-hackblock-4455205567/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-33.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-stirnholz-schmales-design-4358136560/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-34.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-35.jpg"
+  },
+  {
+    "route": "/en/produkte/eiche-wenge-schachbrett-4299097497/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-36.jpg"
+  },
+  {
+    "route": "/en/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-37.jpg"
+  },
+  {
+    "route": "/en/produkte/erbstueck-no-004-eiche-buche-4370769708/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-38.jpg"
+  },
+  {
+    "route": "/en/produkte/esche-stirnholz-bbq-hackblock-4380062082/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-39.jpg"
+  },
+  {
+    "route": "/en/produkte/kambala-schneidebrett-kompakt-1848021568/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-40.jpg"
+  },
+  {
+    "route": "/en/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-41.jpg"
+  },
+  {
+    "route": "/en/produkte/laerche-stirnholz-kompakt-1818046728/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-42.jpg"
+  },
+  {
+    "route": "/en/produkte/mahagoni-stirnholz-ruhiger-block-1886613306/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-43.jpg"
+  },
+  {
+    "route": "/en/produkte/nussbaum-ahorn-streifenbrett-4450988121/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-44.jpg"
+  },
+  {
+    "route": "/en/produkte/nussbaum-langholz-flankenoptik-1886821275/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-45.jpg"
+  },
+  {
+    "route": "/en/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-46.jpg"
+  },
+  {
+    "route": "/en/produkte/padouk-eiche-grossformat-kariert-archiv-22/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-47.jpg"
+  },
+  {
+    "route": "/en/produkte/padouk-eiche-kompakt-kariert-1859366842/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-48.jpg"
+  },
+  {
+    "route": "/en/produkte/pfannenwender-massivholz-mix-4470469056/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-49.jpg"
+  },
+  {
+    "route": "/en/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-50.jpg"
+  },
+  {
+    "route": "/en/produkte/servierbrett-set-dreiteilig-4440690649/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-51.jpg"
+  },
+  {
+    "route": "/en/produkte/servierbrett-set-schwertform-4389604739/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-52.jpg"
+  },
+  {
+    "route": "/en/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-53.jpg"
+  },
+  {
+    "route": "/en/produkte/stockbuche-stirnholz-naturmaserung-4370784882/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-54.jpg"
+  },
+  {
+    "route": "/en/produkte/stockbuche-stirnholz-schachbrett-1783359006/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-55.jpg"
+  },
+  {
+    "route": "/en/produkte/teigschaber-aus-massivholz-4471048251/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-56.jpg"
+  },
+  {
+    "route": "/en/produkte/teigschaber-set-2er-oder-3er-4493690534/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-57.jpg"
+  },
+  {
+    "route": "/en/produkte/untersetzer-set-holz-mit-halter-1838851839/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-58.jpg"
+  },
+  {
+    "route": "/en/produkte/walnuss-eiche-rahmenbrett-4297472161/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-59.jpg"
+  },
+  {
+    "route": "/en/produkte/wenge-nussbaum-eiche-kariert-1894223313/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-60.jpg"
+  },
+  {
+    "route": "/en/produkte/xxl-stirnholz-nach-mass-4484195050/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-61.jpg"
+  },
+  {
+    "route": "/en/produkte/xxl-streifenbrett-thermobambus-birke-4417621529/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-62.jpg"
+  },
+  {
+    "route": "/en/refurbishment/",
+    "template": "service",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-63.jpg",
+    "followUp": "duplicate process media cleanup"
+  },
+  {
+    "route": "/en/snack-board/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-64.jpg"
+  },
+  {
+    "route": "/en/wood-instead-of-plastic/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-65.jpg"
+  },
+  {
+    "route": "/en/wood-types-for-cutting-boards/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-66.jpg"
+  },
+  {
+    "route": "/en/wooden-cutting-boards-for-restaurants/",
+    "template": "b2b",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-67.jpg"
+  },
+  {
+    "route": "/en/wooden-dough-scraper/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-68.jpg"
+  },
+  {
+    "route": "/geschenk-fuer-frauen-holz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-69.jpg"
+  },
+  {
+    "route": "/geschenk-fuer-maenner-holz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-70.jpg"
+  },
+  {
+    "route": "/hackblock/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-71.jpg"
+  },
+  {
+    "route": "/handgefertigte-holzprodukte-fuer-unternehmen/",
+    "template": "b2b",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-72.jpg"
+  },
+  {
+    "route": "/hochwertige-geschenke-holz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-73.jpg"
+  },
+  {
+    "route": "/hochwertige-kuechenaccessoires/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-74.jpg"
+  },
+  {
+    "route": "/hochwertiges-schneidebrett-erkennen/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-75.jpg"
+  },
+  {
+    "route": "/holz-statt-plastik/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-76.jpg"
+  },
+  {
+    "route": "/holzarten-schneidebrett/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-77.jpg"
+  },
+  {
+    "route": "/impressum.html",
+    "template": "legal",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-78.jpg"
+  },
+  {
+    "route": "/",
+    "template": "home",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-79.jpg"
+  },
+  {
+    "route": "/messerschonendes-schneidebrett/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-80.jpg"
+  },
+  {
+    "route": "/pfannenwender-holz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-81.jpg"
+  },
+  {
+    "route": "/pflege.html",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-82.jpg"
+  },
+  {
+    "route": "/presse/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-83.jpg"
+  },
+  {
+    "route": "/produkte.html",
+    "template": "listing",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-84.jpg"
+  },
+  {
+    "route": "/produkte/3d-stirnholz-eiche-weitere-1776273564/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-85.jpg"
+  },
+  {
+    "route": "/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-86.jpg"
+  },
+  {
+    "route": "/produkte/bambus-buche-fruehstuecksbrett-1827805914/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-87.jpg"
+  },
+  {
+    "route": "/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-88.jpg"
+  },
+  {
+    "route": "/produkte/buche-kambala-schachbrett-1783351692/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-89.jpg"
+  },
+  {
+    "route": "/produkte/buche-massiv-mit-griffmulden-4522496017/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-90.jpg"
+  },
+  {
+    "route": "/produkte/buche-mooreiche-servierbrett-4381023266/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-91.jpg"
+  },
+  {
+    "route": "/produkte/buche-stirnholz-jahresring-struktur-1841836619/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-92.jpg"
+  },
+  {
+    "route": "/produkte/buche-stirnholz-mit-saftrille-1830530996/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-93.jpg"
+  },
+  {
+    "route": "/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-94.jpg"
+  },
+  {
+    "route": "/produkte/eiche-buche-kompakt-mit-astloch-1855639262/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-95.jpg"
+  },
+  {
+    "route": "/produkte/eiche-esche-buche-mit-saftrille-4297451235/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-96.jpg"
+  },
+  {
+    "route": "/produkte/eiche-kambala-quadrat-4380304814/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-97.jpg"
+  },
+  {
+    "route": "/produkte/eiche-langholz-schweizer-kante-1774262638/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-98.jpg"
+  },
+  {
+    "route": "/produkte/eiche-massiv-astloch-kante-4522458953/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-99.jpg"
+  },
+  {
+    "route": "/produkte/eiche-servierbrett-doppelgriff-4398179153/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-100.jpg"
+  },
+  {
+    "route": "/produkte/eiche-stirnholz-massiver-hackblock-4455205567/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-101.jpg"
+  },
+  {
+    "route": "/produkte/eiche-stirnholz-schmales-design-4358136560/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-102.jpg"
+  },
+  {
+    "route": "/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-103.jpg"
+  },
+  {
+    "route": "/produkte/eiche-wenge-schachbrett-4299097497/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-104.jpg"
+  },
+  {
+    "route": "/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-105.jpg"
+  },
+  {
+    "route": "/produkte/erbstueck-no-004-eiche-buche-4370769708/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-106.jpg"
+  },
+  {
+    "route": "/produkte/esche-stirnholz-bbq-hackblock-4380062082/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-107.jpg"
+  },
+  {
+    "route": "/produkte/kambala-schneidebrett-kompakt-1848021568/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-108.jpg"
+  },
+  {
+    "route": "/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-109.jpg"
+  },
+  {
+    "route": "/produkte/laerche-stirnholz-kompakt-1818046728/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-110.jpg"
+  },
+  {
+    "route": "/produkte/mahagoni-stirnholz-ruhiger-block-1886613306/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-111.jpg"
+  },
+  {
+    "route": "/produkte/nussbaum-ahorn-streifenbrett-4450988121/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-112.jpg"
+  },
+  {
+    "route": "/produkte/nussbaum-langholz-flankenoptik-1886821275/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-113.jpg"
+  },
+  {
+    "route": "/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-114.jpg"
+  },
+  {
+    "route": "/produkte/padouk-eiche-grossformat-kariert-archiv-22/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-115.jpg"
+  },
+  {
+    "route": "/produkte/padouk-eiche-kompakt-kariert-1859366842/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-116.jpg"
+  },
+  {
+    "route": "/produkte/pfannenwender-massivholz-mix-4470469056/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-117.jpg"
+  },
+  {
+    "route": "/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-118.jpg"
+  },
+  {
+    "route": "/produkte/servierbrett-set-dreiteilig-4440690649/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-119.jpg"
+  },
+  {
+    "route": "/produkte/servierbrett-set-schwertform-4389604739/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-120.jpg"
+  },
+  {
+    "route": "/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-121.jpg"
+  },
+  {
+    "route": "/produkte/stockbuche-stirnholz-naturmaserung-4370784882/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-122.jpg"
+  },
+  {
+    "route": "/produkte/stockbuche-stirnholz-schachbrett-1783359006/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-123.jpg"
+  },
+  {
+    "route": "/produkte/teigschaber-aus-massivholz-4471048251/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-124.jpg"
+  },
+  {
+    "route": "/produkte/teigschaber-set-2er-oder-3er-4493690534/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-125.jpg"
+  },
+  {
+    "route": "/produkte/untersetzer-set-holz-mit-halter-1838851839/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-126.jpg"
+  },
+  {
+    "route": "/produkte/walnuss-eiche-rahmenbrett-4297472161/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-127.jpg"
+  },
+  {
+    "route": "/produkte/wenge-nussbaum-eiche-kariert-1894223313/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-128.jpg"
+  },
+  {
+    "route": "/produkte/xxl-stirnholz-nach-mass-4484195050/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-129.jpg"
+  },
+  {
+    "route": "/produkte/xxl-streifenbrett-thermobambus-birke-4417621529/",
+    "template": "product",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-130.jpg"
+  },
+  {
+    "route": "/schneidebrett-aufbereiten/",
+    "template": "service",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-131.jpg",
+    "followUp": "duplicate process media cleanup"
+  },
+  {
+    "route": "/schneidebrett-eiche-vs-nussbaum/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-132.jpg"
+  },
+  {
+    "route": "/schneidebrett-eiche/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-133.jpg"
+  },
+  {
+    "route": "/schneidebrett-fachwerk-eiche/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-134.jpg"
+  },
+  {
+    "route": "/schneidebrett-made-in-germany/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-135.jpg"
+  },
+  {
+    "route": "/schneidebrett-mit-gravur/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-136.jpg"
+  },
+  {
+    "route": "/schneidebrett-nach-mass/",
+    "template": "service",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-137.jpg"
+  },
+  {
+    "route": "/schneidebrett-nussbaum/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-138.jpg"
+  },
+  {
+    "route": "/schneidebrett-saftrille/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-139.jpg"
+  },
+  {
+    "route": "/schneidebretter-aus-holz-gastronomie/",
+    "template": "b2b",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-140.jpg"
+  },
+  {
+    "route": "/schneidebretter-massivholz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-141.jpg"
+  },
+  {
+    "route": "/sitemap-uebersicht.html",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-142.jpg"
+  },
+  {
+    "route": "/stirnholz-schneidebrett/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-143.jpg"
+  },
+  {
+    "route": "/stirnholz-vs-langholz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-144.jpg"
+  },
+  {
+    "route": "/suche/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-145.jpg"
+  },
+  {
+    "route": "/teigschaber-holz/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-146.jpg"
+  },
+  {
+    "route": "/welches-oel-schneidebrett/",
+    "template": "editorial",
+    "width": 1440,
+    "status": 200,
+    "issues": [],
+    "imageBackgroundText": [],
+    "errors": [],
+    "screenshot": "1440-147.jpg"
+  }
+]

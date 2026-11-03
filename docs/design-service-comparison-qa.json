@@ -1,0 +1,162 @@
+[
+  {
+    "viewportWidth": 375,
+    "language": "de",
+    "width": 335,
+    "height": 761.375,
+    "cardHeights": [
+      188.78125,
+      199.296875,
+      199.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 375,
+    "language": "en",
+    "width": 335,
+    "height": 702.890625,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      199.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 390,
+    "language": "de",
+    "width": 350,
+    "height": 761.375,
+    "cardHeights": [
+      188.78125,
+      199.296875,
+      199.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 390,
+    "language": "en",
+    "width": 350,
+    "height": 702.890625,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      199.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 430,
+    "language": "de",
+    "width": 390,
+    "height": 692.375,
+    "cardHeights": [
+      188.78125,
+      175.296875,
+      175.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 430,
+    "language": "en",
+    "width": 390,
+    "height": 678.890625,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      175.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 768,
+    "language": "de",
+    "width": 672,
+    "height": 634.375,
+    "cardHeights": [
+      164.78125,
+      175.296875,
+      175.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 768,
+    "language": "en",
+    "width": 672,
+    "height": 596.890625,
+    "cardHeights": [
+      151.296875,
+      151.296875,
+      175.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 1440,
+    "language": "de",
+    "width": 1240,
+    "height": 275.78125,
+    "cardHeights": [
+      188.78125,
+      188.78125,
+      188.78125
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  },
+  {
+    "viewportWidth": 1440,
+    "language": "en",
+    "width": 1240,
+    "height": 262.296875,
+    "cardHeights": [
+      175.296875,
+      175.296875,
+      175.296875
+    ],
+    "clipped": false,
+    "keyboard": true,
+    "noJavaScript": true,
+    "fragmentTarget": true,
+    "floatingCtaHidden": true
+  }
+]

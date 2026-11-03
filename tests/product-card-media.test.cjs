@@ -42,6 +42,9 @@ test('existing product facts remain unchanged apart from verified corrections an
     badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  const compactSold=before.products.find(p=>p.listingId==='4599650982');
+  Object.assign(compactSold,{stock:0,active:false,inspirationOnly:true,availabilityStatus:'sold'});
+  compactSold.variants.forEach(v=>{v.availabilityStatus='sold';});
   before.products.find(p => p.listingId === '1881802291').shortDescription = 'Pflegebalsam mit Bienenwachs und Leinölfirnis für Schneidebretter und Küchenholz.';
   for (const id of ['1850610674', '4598989614']) Object.assign(before.products.find(p=>p.listingId===id),{includesMatchingHolder:true,includesCareBalm:true});
   const framedBeech=before.products.find(p=>p.listingId==='4370784882');
