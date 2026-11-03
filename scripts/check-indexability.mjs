@@ -23,6 +23,8 @@ const allowedCanonicalAliases = new Map([
 function walk(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     if (entry.name === ".git" || entry.name === "node_modules") return [];
+    // The public site build never publishes repository documentation.
+    if (directory === root && entry.isDirectory() && entry.name === "docs") return [];
     const fullPath = join(directory, entry.name);
     return entry.isDirectory() ? walk(fullPath) : [fullPath];
   });
