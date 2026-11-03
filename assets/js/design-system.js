@@ -13,6 +13,40 @@
   layerRuntimeStyles();
   new MutationObserver(layerRuntimeStyles).observe(document.head,{childList:true});
   const unique=prefix=>`${prefix}-${++serial}`;
+  const disclosureStates=new WeakMap();
+  const motionReduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const disclosureTarget=(node,current)=>disclosureStates.get(node)?.open??current;
+  function animateDisclosure(node,open,{details=false}={}){
+    const previous=disclosureStates.get(node),from=node.getBoundingClientRect().height,fromOpacity=getComputedStyle(node).opacity;
+    previous?.animation?.cancel();
+    const overflow=previous?.overflow??node.style.overflow;
+    const state={open,overflow,animation:null};disclosureStates.set(node,state);
+    const complete=()=>{
+      if(disclosureStates.get(node)!==state)return;
+      if(details)node.open=open;else node.hidden=!open;
+      node.style.overflow=overflow;disclosureStates.delete(node);
+      node.dispatchEvent(new Event('ds-disclosure-change'));
+    };
+    if(motionReduced()||!node.animate){complete();return;}
+    let to;
+    if(details){
+      node.open=false;const closed=node.getBoundingClientRect().height;
+      node.open=true;to=open?node.getBoundingClientRect().height:closed;
+    }else{
+      node.hidden=false;to=open?node.scrollHeight:0;
+    }
+    node.style.overflow='hidden';
+    const start={height:from+'px'},end={height:to+'px'};
+    if(!details){
+      const padding=getComputedStyle(node).paddingBottom;
+      start.opacity=previous?fromOpacity:open?0:1;end.opacity=open?1:0;
+      start.paddingBottom=from?padding:'0px';end.paddingBottom=open?padding:'0px';
+    }
+    const duration=parseFloat(getComputedStyle(node).getPropertyValue('--duration-disclosure'))||240;
+    state.animation=node.animate([start,end],{duration,easing:'cubic-bezier(.2,.7,.2,1)'});
+    state.animation.finished.then(complete).catch(()=>{});
+    node.dispatchEvent(new Event('ds-disclosure-change'));
+  }
   function enhance(scope=document){
     scope.querySelectorAll('details[data-ds-read-more]:not([data-ds-ready])').forEach(details=>{
       details.dataset.dsReady='true';
@@ -21,9 +55,9 @@
       details.id ||= unique('read-more');
       const button=document.createElement('button');button.type='button';button.className='readMore__button';
       button.setAttribute('aria-controls',details.id);details.before(button);summary.hidden=true;
-      const sync=()=>{button.setAttribute('aria-expanded',String(details.open));button.textContent=`${label} · ${details.open?(en?'Show less':'Weniger anzeigen'):(en?'Read more':'Mehr lesen')}`;};
-      button.addEventListener('click',()=>{details.open=!details.open;sync();});
-      details.addEventListener('toggle',sync);sync();
+      const sync=()=>{const open=disclosureTarget(details,details.open);button.setAttribute('aria-expanded',String(open));button.textContent=`${label} · ${open?(en?'Show less':'Weniger anzeigen'):(en?'Read more':'Mehr lesen')}`;};
+      button.addEventListener('click',()=>animateDisclosure(details,!disclosureTarget(details,details.open),{details:true}));
+      details.addEventListener('toggle',sync);details.addEventListener('ds-disclosure-change',sync);sync();
     });
     scope.querySelectorAll('.faqItem:not([data-ds-ready])').forEach(item=>{
       item.dataset.dsReady='true';
@@ -32,7 +66,15 @@
       for(const child of [...item.childNodes])if(child!==heading)answer.append(child);
       const button=document.createElement('button');button.className='faqQuestion';button.type='button';button.textContent=heading.textContent;
       button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls',answer.id);heading.replaceChildren(button);answer.hidden=true;item.append(answer);
-      button.addEventListener('click',()=>{answer.hidden=!answer.hidden;button.setAttribute('aria-expanded',String(!answer.hidden));});
+      button.addEventListener('click',()=>{const open=!disclosureTarget(answer,!answer.hidden);button.setAttribute('aria-expanded',String(open));animateDisclosure(answer,open);});
+    });
+    scope.querySelectorAll('details:not([data-ds-motion])').forEach(details=>{
+      details.dataset.dsMotion='true';
+      const summary=[...details.children].find(n=>n.tagName==='SUMMARY');if(!summary)return;
+      summary.addEventListener('click',event=>{
+        if(event.target.closest('a,button,input,select,textarea')||details.getAttribute('role')==='tabpanel')return;
+        event.preventDefault();animateDisclosure(details,!disclosureTarget(details,details.open),{details:true});
+      });
     });
   }
   document.querySelectorAll('[data-ds-tabs]').forEach(root=>{
@@ -48,6 +90,7 @@
     });root.before(list);
     function select(index){active=index;panels.forEach((panel,i)=>{panel.hidden=desktop.matches&&i!==active;if(desktop.matches)panel.open=true;buttons[i].tabIndex=i===active?0:-1;buttons[i].setAttribute('aria-selected',String(i===active));});}
     function adapt(){
+      panels.forEach(panel=>{const state=disclosureStates.get(panel);if(state){state.animation?.cancel();panel.style.overflow=state.overflow;disclosureStates.delete(panel);}});
       const focus=document.activeElement,focused=panels.findIndex(p=>p.contains(focus));if(focused>=0)active=focused;
       list.hidden=!desktop.matches;
       panels.forEach((panel,i)=>{const summary=panel.querySelector('summary');summary.hidden=desktop.matches;if(desktop.matches){panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',buttons[i].id);}else{panel.removeAttribute('role');panel.removeAttribute('aria-labelledby');panel.open=i===active;}});

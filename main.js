@@ -2475,12 +2475,9 @@ function initProductExperience() {
     }
 
     if (item.type === "video") {
-      if (shouldAutoplayPreviewVideo()) {
-        return '<video data-preview-main controls playsinline preload="metadata" autoplay muted loop' + (item.poster ? ' poster="' + escapeAttribute(item.poster) + '"' : "") + ' aria-label="' + escapeAttribute(item.alt || labels.previewTitle) + '"><source src="' + escapeAttribute(item.src) + '" type="video/mp4"></video>';
-      }
       return '<div class="productPreview__videoPoster" data-preview-main>' +
         '<img src="' + escapeAttribute(item.poster) + '" alt="' + escapeAttribute(item.alt || labels.previewTitle) + '" decoding="async">' +
-        '<button type="button" data-preview-video-play data-video-src="' + escapeAttribute(item.src) + '" data-video-poster="' + escapeAttribute(item.poster) + '" data-video-alt="' + escapeAttribute(item.alt || labels.previewTitle) + '"><span aria-hidden="true">▶</span>' + escapeHtml(labels.playVideo) + '</button>' +
+        '<button type="button" data-preview-video-play aria-label="' + escapeAttribute(labels.playVideo) + '" title="' + escapeAttribute(labels.playVideo) + '" data-video-src="' + escapeAttribute(item.src) + '" data-video-poster="' + escapeAttribute(item.poster) + '" data-video-alt="' + escapeAttribute(item.alt || labels.previewTitle) + '"><img src="/assets/icons/lucide/play.svg" alt="" aria-hidden="true" width="24" height="24"></button>' +
       '</div>';
     }
 
