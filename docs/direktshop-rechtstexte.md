@@ -48,6 +48,12 @@ Ablauf mit Vormerkung und späterem Einzug übereinstimmt.
 
 ## Widerrufsrecht
 
+Für Rücksendungen nach Widerruf trägt der Käufer die unmittelbaren Kosten.
+Genannte Rücksendeanschrift: Edle Hölzer GbR, Schulgasse 4 A, 35460
+Neustaufenberg. Vor Veröffentlichung die postalische Ortsbezeichnung mit dem
+bestehenden Impressum (35460 Staufenberg) abgleichen. Für Waren, die nicht
+normal per Post zurückgesendet werden können, die Kostenangabe separat prüfen.
+
 Die Widerrufsbelehrung und das Musterformular werden getrennt von den AGB
 bereitgestellt. Grundlage sind die für den Warenverkauf einschlägigen
 [amtlichen Muster](https://www.gesetze-im-internet.de/bgbeg/).
