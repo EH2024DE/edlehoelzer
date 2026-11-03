@@ -53,3 +53,35 @@ jobs:
 
       - name: Validate board finder and gastronomy page
         run: node --test tests/finder-matching.test.cjs tests/gastronomie.test.cjs
+
+      - name: Prepare public Pages files
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.PAGES_DEPLOY_ENABLED == 'true'
+        run: |
+          site="$RUNNER_TEMP/edle-design-site"
+          rm -rf "$site/design-reference" "$site/design-reference.json"
+          cp CNAME .nojekyll "$site/"
+
+      - name: Upload public Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.PAGES_DEPLOY_ENABLED == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/edle-design-site
+
+  deploy:
+    name: Publish GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.PAGES_DEPLOY_ENABLED == 'true'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy validated site
+        id: deployment
+        uses: actions/deploy-pages@v4
