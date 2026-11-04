@@ -129,8 +129,13 @@ test('serving sets remain eligible without inventing an unknown thickness', () =
     assert.equal(matcher.supports(byListing(id), 'dailyPrep'), false);
     assert.equal(matcher.supports(byListing(id), 'bbq'), false);
   }
-  assert.equal(products.filter(matcher.eligible).length, 33); // Tropical alias excluded; all compact-board variants sold.
-  assert.equal(matcher.eligible(byListing('4599650982')),false);
+});
+test('sold compact and walnut boards are excluded from the finder', () => {
+  for (const id of ['4599650982', '1850610674']) {
+    const product = byListing(id);
+    assert.equal(product.availabilityStatus, 'sold');
+    assert.equal(matcher.eligible(product), false);
+  }
 });
 test('handled tropical block is large and stationary; walnut reissue is made to order', () => {
   const p = byListing('4451487112');
