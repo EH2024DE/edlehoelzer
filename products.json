@@ -3132,7 +3132,7 @@
       "segment": "Stirnholz",
       "priceLabel": "279,99 EUR",
       "priceOrder": 279.99,
-      "stock": 1,
+      "stock": 0,
       "shortDescription": "Stirnholz, Nussbaum, 46 x 36 x 4,6 cm.",
       "longDescription": "Das perfekte Schneidebrett für Hobbyköche & Genießer Dieses Schneidebrett aus massivem Stirnholz-Nussbaum ist mehr als nur ein Küchenhelfer – es ist langlebig, messerschonend und ein echter Blickfang. Ideal für präzises Schneiden, stilvolles Servieren und als hochwertiges Geschenk für Feinschmecker. Warum dieses Schneidebrett? - Messerschonend & langlebig –.",
       "badges": [
@@ -3156,8 +3156,9 @@
       ],
       "etsyUrl": "https://www.etsy.com/de/listing/1850610674/schneidebrett-holz-stirnholz-nussbaum",
       "directListingUrlVerified": true,
-      "featured": true,
-      "active": true,
+      "featured": false,
+      "active": false,
+      "inspirationOnly": true,
       "needsReview": false,
       "dataVerified": true,
       "imageVerified": true,
@@ -3195,7 +3196,7 @@
       ],
       "displayName": "Nussbaum Stirnholz – Mit Saftrille",
       "deliveryDays": "2–3 Werktage",
-      "availabilityStatus": "available",
+      "availabilityStatus": "sold",
       "videos": [
         {
           "src": "/assets/product-videos/nussbaum-45x36x4-6-etsy.mp4",

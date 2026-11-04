@@ -76,7 +76,7 @@ ${available ? '<a class="btn btn--emphasis" href="' + esc(p.etsyListingUrl || p.
 <details class="productPreview__detail"><summary>${en ? 'Material & craft' : 'Material & Handwerk'}</summary><p>${esc(description)}</p></details>
 ${view.legalNotice(en)}
 </div></article></div>
-<section class="productDetail__browse"><h2>${en ? 'Find your next favourite' : 'Dein nächstes Lieblingsstück'}</h2><a href="${en ? '/en/products.html#produktfinder' : '/produkte.html#produktfinder'}">${en ? 'Explore the product finder' : 'Zum Produktfinder'}</a><details><summary>${en ? 'Browse all products' : 'Alle Produkte entdecken'}</summary><ul>${catalog.map(other => '<li><a href="' + (en ? '/en' : '') + other.productPath + '">' + esc(copy.text(other.displayName || other.name, en)) + '</a></li>').join('')}</ul></details></section>
+<section class="productDetail__browse"><h2>${en ? 'Find your next favourite' : 'Dein nächstes Lieblingsstück'}</h2><a href="${en ? '/en/products.html#product-finder' : '/produkte.html#produktfinder'}">${en ? 'Explore the product finder' : 'Zum Produktfinder'}</a><details><summary>${en ? 'Browse all products' : 'Alle Produkte entdecken'}</summary><ul>${catalog.map(other => '<li><a href="' + (en ? '/en' : '') + other.productPath + '">' + esc(copy.text(other.displayName || other.name, en)) + '</a></li>').join('')}</ul></details></section>
 </main>${footer}
 <script src="/main.js?v=20261026-care-guarantee-r5"></script>
 </body></html>\n`;
