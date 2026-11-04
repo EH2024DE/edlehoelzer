@@ -61,7 +61,8 @@
           return;
         }
 
-        container.innerHTML = filtered.map(renderCard).join("");
+        var homepage = container.classList.contains("homepageProductGrid");
+        container.innerHTML = filtered.map(function (product) { return renderCard(product, homepage); }).join("");
       })
       .catch(function (error) {
         console.warn("[Edle Hölzer] Landingpage-Produkte konnten nicht geladen werden:", error);
@@ -81,7 +82,7 @@
     return Number(a.priceOrder || 0) - Number(b.priceOrder || 0);
   }
 
-  function renderCard(product) {
+  function renderCard(product, homepage) {
     var hoverVideo = Array.isArray(product.videos) && product.videos.find(function (video) { return video && video.src; });
     var hoverAttribute = hoverVideo ? ' data-product-hover-video="' + escapeAttribute(hoverVideo.src) + '"' : "";
     if (typeof buildCardGalleryItems === "function") hoverAttribute += ' data-product-card-gallery="' + escapeAttribute(JSON.stringify(buildCardGalleryItems(product))) + '"';
@@ -103,7 +104,7 @@
       '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || (isEnglish ? "Product" : "Produkt"), isEnglish)) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(productName) + '</h3>' +
-          (isEnglish ? renderLegacyFacts(product) + renderLegacyServiceSignals(product) : renderCardMeta(product) + renderBadges(product)) +
+          (homepage ? renderCardMeta(product, isEnglish) : isEnglish ? renderLegacyFacts(product) + renderLegacyServiceSignals(product) : renderCardMeta(product) + renderBadges(product)) +
           '<div class="productCard__footer">' +
             (displayPriceLabel(product) ? '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' : "") +
             '<span class="productCard__buy">' +
@@ -179,7 +180,7 @@
     }).join("") + '</div>';
   }
 
-  function renderCardMeta(product) {
+  function renderCardMeta(product, isEnglish) {
     var parts = [];
     if (product.material) {
       parts.push(product.material);
@@ -189,7 +190,7 @@
     } else if (product.category === "accessory" && dimensionLabel(product)) {
       parts.push(dimensionLabel(product));
     }
-    return parts.length ? '<p class="productCard__meta">' + escapeHtml(parts.slice(0, 2).join(" · ")) + '</p>' : "";
+    return parts.length ? '<p class="productCard__meta">' + escapeHtml(EdleProductCopy.text(parts.slice(0, 2).join(" · "), isEnglish)) + '</p>' : "";
   }
 
   function renderLegacyFacts(product) {
