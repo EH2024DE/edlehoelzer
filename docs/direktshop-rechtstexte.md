@@ -28,7 +28,10 @@ Bei Gravuren mit einer von dir bereitgestellten Vorlage benötigen wir die
 Berechtigung, diese Vorlage für deinen Auftrag zu verwenden. Wenn eine
 Entwurfsfreigabe vereinbart ist, gravieren wir erst nach deiner Freigabe.
 
-**Freigabepunkte:** Annahmefrist, Ablauf bei abgelaufener Vormerkung,
+Die Annahmefrist beträgt 24 Stunden ab Bestelleingang. Erfolgt keine
+Annahme, endet die Bindung an die Bestellung.
+
+**Freigabepunkte:** Annahmefrist technisch absichern, Ablauf bei abgelaufener Vormerkung,
 Vertragssprachen, Speicherung und Bereitstellung des Vertragstexts sowie
 Versionierung der mit der Bestellung übermittelten Unterlagen bestätigen.
 Verbraucherschlichtung mit dem Impressum abgleichen.
@@ -49,9 +52,8 @@ Ablauf mit Vormerkung und späterem Einzug übereinstimmt.
 ## Widerrufsrecht
 
 Für Rücksendungen nach Widerruf trägt der Käufer die unmittelbaren Kosten.
-Genannte Rücksendeanschrift: Edle Hölzer GbR, Schulgasse 4 A, 35460
-Neustaufenberg. Vor Veröffentlichung die postalische Ortsbezeichnung mit dem
-bestehenden Impressum (35460 Staufenberg) abgleichen. Für Waren, die nicht
+Rücksendeanschrift: Edle Hölzer GbR, Schulgasse 4 A, 35460
+Staufenberg, Deutschland. Für Waren, die nicht
 normal per Post zurückgesendet werden können, die Kostenangabe separat prüfen.
 
 Die Widerrufsbelehrung und das Musterformular werden getrennt von den AGB
