@@ -33,6 +33,7 @@ test('existing product facts remain unchanged apart from verified corrections an
   const walnut = before.products.find(p => p.listingId === '1850610674');
   walnut.priceOrder = 279.99;
   walnut.priceLabel = '279,99 EUR';
+  Object.assign(walnut,{stock:0,active:false,featured:false,inspirationOnly:true,availabilityStatus:'sold'});
   const heirloom = before.products.find(p => p.listingId === '4370769708');
   Object.assign(heirloom, {
     priceOrder: 284.99, priceLabel: 'ab 284,99 EUR', priceVerifiedAt: '2026-10-23',

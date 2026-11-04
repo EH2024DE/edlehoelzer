@@ -36,10 +36,13 @@ test('Erbstueck groove option is not confused with wood-species pricing', () => 
   assert.equal(p.weight, 'ca. 5,8 kg');
 });
 
-test('deactivated walnut duplicate is absent and the original uses the current Etsy price', () => {
+test('deactivated walnut duplicate is absent and the sold original retains its reference price', () => {
   assert.equal(byId('4598938055'), undefined);
   const original = byId('1850610674');
-  assert.equal(original.active, true);
+  assert.equal(original.active, false);
+  assert.equal(original.stock, 0);
+  assert.equal(original.availabilityStatus, 'sold');
+  assert.equal(original.inspirationOnly, true);
   assert.equal(original.priceOrder, 279.99);
   assert.equal(original.priceLabel, '279,99 EUR');
   assert.ok(original.etsyUrl.includes('/1850610674/'));

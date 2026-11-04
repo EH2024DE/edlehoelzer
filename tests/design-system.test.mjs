@@ -40,10 +40,19 @@ test('tokens centralise typography and three containers without viewport type or
     if(decl.prop==='font-family')assert.ok(decl.value.includes('var(--font-')||decl.parent.name==='font-face');
   });
 });
-test('reference source pages are untouched on the main-based design branch',()=>{
+test('reference source pages preserve baseline markup outside the bilingual homepage collection',()=>{
   for(const file of references.map(r=>r.file)){
     const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root,encoding:'utf8'});
-    assert.equal(repairEnglishNavigation(before,file),fs.readFileSync(path.join(root,file),'utf8'),file);
+    const normalize=html=>file.includes('1850610674')?html
+      .replace(/<script type="application\/ld\+json">(.*?)<\/script>/,(_,source)=>{const schema=JSON.parse(source);delete schema.offers;return JSON.stringify(schema);})
+      .replace(/<\/h1><p>[^<]+<\/p>\n(?:<p>279,99 EUR<\/p>)?/,'</h1>\n')
+      .replace(/<a class="btn btn--emphasis" href="[^"]+"[^>]*>[^<]+<\/a>\n/,'')
+      :['index.html','en/index.html'].includes(file)?html
+      .replace(/^[ \t]*<link rel="stylesheet" href="\/assets\/css\/homepage-refinement\.css[^"]*">\n/gm,'')
+      .replace(/(\/assets\/js\/product-grid\.js\?v=)[^"]+/g,'$1')
+      .replace(/<section[^>]*aria-labelledby="homepage-products-title">[\s\S]*?<\/section>/,'')
+      .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,''):html;
+    assert.equal(normalize(repairEnglishNavigation(before,file)),normalize(fs.readFileSync(path.join(root,file),'utf8')),file);
   }
 });
 test('financial calculations and delivery rules stay unchanged during option UI work',()=>{
@@ -57,7 +66,10 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   assert.equal(sold.stock,0);assert.equal(sold.active,false);assert.equal(sold.inspirationOnly,true);assert.equal(sold.availabilityStatus,'sold');
   for(const key of ['stock','active','availabilityStatus'])sold[key]=old[key];delete sold.inspirationOnly;
   sold.variants.forEach((v,i)=>{assert.equal(v.availabilityStatus,'sold');v.availabilityStatus=old.variants[i].availabilityStatus;});
-  assert.deepEqual(catalogAfter,catalogBefore,'only the owner-confirmed sold state may change');
+  const oldWalnut=catalogBefore.products.find(p=>p.listingId==='1850610674'),walnut=catalogAfter.products.find(p=>p.listingId==='1850610674');
+  assert.equal(walnut.stock,0);assert.equal(walnut.active,false);assert.equal(walnut.featured,false);assert.equal(walnut.inspirationOnly,true);assert.equal(walnut.availabilityStatus,'sold');
+  for(const key of ['stock','active','featured','availabilityStatus'])walnut[key]=oldWalnut[key];delete walnut.inspirationOnly;
+  assert.deepEqual(catalogAfter,catalogBefore,'only the owner-confirmed sold states may change');
 });
 test('reference runtime changes only four CSS-loading guards, not financial or product logic',()=>{
   const source=fs.readFileSync(path.join(root,'main.js'),'utf8');
