@@ -38,7 +38,7 @@
       .then(function (products) {
         var filtered = products
           .filter(function (product) {
-            return isGridProduct(product);
+            return isGridProduct(product, container.classList.contains("homepageProductGrid"));
           })
           .filter(function (product) {
             return typeof filterFn === "function" ? filterFn(product) : true;
@@ -249,13 +249,14 @@
     return availabilityStatus(product) === "available";
   }
 
-  function isGridProduct(product) {
+  function isGridProduct(product, homepage) {
     if (product && product.canonicalProductId) return false;
     if (!product || product.active !== true || product.visibility === "hidden" || product.visibility === "archive") {
       return false;
     }
     if (availabilityStatus(product) === "made_to_order") {
-      return product.visibility === "grid";
+      return (product.visibility === "grid" || homepage === true) &&
+        product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
     }
     return isAvailableProduct(product) && product.directListingUrlVerified === true && Boolean(product.etsyListingUrl || product.etsyUrl);
   }
