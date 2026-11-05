@@ -116,6 +116,14 @@ test('invalid, sold, inspiration, inactive and unverified data cannot be recomme
     assert.equal(matcher.evaluate(p, {}).status, 'excluded');
   }
 });
+test('zero stock cannot be advertised as available; confirmed made-to-order remains eligible', () => {
+  const larch=byListing('1818046728');
+  assert.equal(larch.stock,0);
+  assert.equal(larch.availabilityStatus,'made_to_order');
+  assert.equal(matcher.eligible(larch),true);
+  assert.equal(matcher.eligible({...larch,availabilityStatus:'available'}),false);
+  assert.equal(matcher.eligible({...larch,availabilityStatus:'available',stock:1}),true);
+});
 test('serving with stationary handling recommends working boards, not antipasti platters', () => {
   const r = select('serving', 'large', 'stationary', 'light', 'max250');
   assert.equal(r.main.product.productType, 'cuttingBoard');

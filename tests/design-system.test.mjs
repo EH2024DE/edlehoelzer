@@ -59,7 +59,10 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   const before=execFileSync('git',['show',`${baseline}:main.js`],{cwd:root,encoding:'utf8'});
   const after=fs.readFileSync(path.join(root,'main.js'),'utf8');
   const extract=(source,name)=>{const start=source.indexOf('  function '+name+'(');assert.ok(start>=0);return source.slice(start,source.indexOf('\n  function ',start+1));};
-  for(const name of ['purchaseTotal','purchaseSubtotalWithoutCareBalm','formatCurrency','hasFreeShippingGermany','purchaseDeliveryText'])assert.equal(extract(after,name),extract(before,name),name);
+  for(const name of ['purchaseTotal','purchaseSubtotalWithoutCareBalm','formatCurrency','hasFreeShippingGermany'])assert.equal(extract(after,name),extract(before,name),name);
+  const approvedDeliveryGuard='    if (product.availabilityStatus === "made_to_order") return isEnglish ? (product.availabilityNoteEn || "Made to order; production and delivery time agreed individually") : (product.availabilityNote || "Auf Bestellung; Fertigungs- und Lieferzeit nach Abstimmung");\n';
+  assert.ok(extract(after,'purchaseDeliveryText').includes(approvedDeliveryGuard));
+  assert.equal(extract(after,'purchaseDeliveryText').replace(approvedDeliveryGuard,''),extract(before,'purchaseDeliveryText'));
   const catalogBefore=JSON.parse(execFileSync('git',['show',`${baseline}:products.json`],{cwd:root,encoding:'utf8'}));
   const catalogAfter=JSON.parse(fs.readFileSync(path.join(root,'products.json'),'utf8'));
   const old=catalogBefore.products.find(p=>p.listingId==='4599650982'),sold=catalogAfter.products.find(p=>p.listingId==='4599650982');
@@ -69,7 +72,14 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   const oldWalnut=catalogBefore.products.find(p=>p.listingId==='1850610674'),walnut=catalogAfter.products.find(p=>p.listingId==='1850610674');
   assert.equal(walnut.stock,0);assert.equal(walnut.active,false);assert.equal(walnut.featured,false);assert.equal(walnut.inspirationOnly,true);assert.equal(walnut.availabilityStatus,'sold');
   for(const key of ['stock','active','featured','availabilityStatus'])walnut[key]=oldWalnut[key];delete walnut.inspirationOnly;
-  assert.deepEqual(catalogAfter,catalogBefore,'only the owner-confirmed sold states may change');
+  const larch=catalogAfter.products.find(p=>p.listingId==='1818046728');
+  assert.equal(larch.stock,0);assert.equal(larch.availabilityStatus,'made_to_order');
+  assert.match(larch.availabilityNote,/nicht auf Lager/);
+  const oldLarch=catalogBefore.products.find(p=>p.listingId==='1818046728');
+  for(const key of ['availabilityStatus','deliveryDays','availabilityNote','availabilityNoteEn']){
+    if(key in oldLarch)larch[key]=oldLarch[key];else delete larch[key];
+  }
+  assert.deepEqual(catalogAfter,catalogBefore,'only the owner-confirmed availability corrections may change');
 });
 test('reference runtime changes only four CSS-loading guards, not financial or product logic',()=>{
   const source=fs.readFileSync(path.join(root,'main.js'),'utf8');
