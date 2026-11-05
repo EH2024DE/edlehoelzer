@@ -70,7 +70,7 @@
     if (isEnglish()) {
       return {
         title: "Cookies and privacy",
-        intro: "Necessary technologies keep this website working. With your consent, we use Umami and GoatCounter for statistics and show external media such as YouTube.",
+        intro: "We use Umami and GoatCounter for statistics and show YouTube media only with your consent.",
         acceptAll: "Accept all",
         necessaryOnly: "Necessary only",
         settings: "Settings",
@@ -90,7 +90,7 @@
 
     return {
       title: "Cookies und Datenschutz",
-      intro: "Notwendige Technologien halten die Website funktionsfähig. Mit deiner Zustimmung nutzen wir Umami und GoatCounter für Statistik und zeigen externe Medien wie YouTube.",
+      intro: "Umami und GoatCounter für Statistik sowie YouTube-Medien nutzen wir nur mit deiner Zustimmung.",
       acceptAll: "Alle akzeptieren",
       necessaryOnly: "Nur notwendige",
       settings: "Einstellungen",

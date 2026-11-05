@@ -235,9 +235,15 @@
   .ds-site .finderShell>*{order:0;margin:0}
   .ds-site .finderShell__top{display:block}
   .ds-site .finderOptions{width:100%}
-  .ds-site .finderOption{background:var(--color-bg);border:var(--border);border-radius:var(--radius);transform:none;box-shadow:none}
-  .ds-site .finderOption.is-selected{background:var(--color-bg-soft);border-color:var(--color-accent)}
-  .ds-site .finderOption__description{font-size:var(--text-meta)}
+  .ds-site .finderOption{position:relative;display:grid;align-content:center;gap:6px;min-height:76px;padding:12px 42px 12px 14px;background:var(--color-surface);color:var(--color-text);border:1px solid var(--color-text-muted);border-radius:var(--radius);transform:none;box-shadow:none;transition:background-color var(--duration),border-color var(--duration),color var(--duration)}
+  .ds-site .finderOption::after{content:'';position:absolute;right:14px;top:16px;width:16px;height:16px;border:1px solid currentColor;border-radius:50%}
+  .ds-site .finderOption__title{font-size:16px;line-height:1.35;font-weight:600}
+  .ds-site .finderOption__description{font-size:14px;line-height:1.45;font-weight:400;color:var(--color-text-muted)}
+  .ds-site .finderOption.is-selected{background:var(--color-accent);color:#fff;border-color:var(--color-accent)}
+  .ds-site .finderOption.is-selected .finderOption__description{color:#fff}
+  .ds-site .finderOption.is-selected::after{background:#fff;box-shadow:inset 0 0 0 4px var(--color-accent)}
+  @media(hover:hover){.ds-site .finderOption:not(.is-selected):hover{background:var(--color-bg-soft);border-color:var(--color-accent)}}
+  .ds-site:has(.finderShell:hover,.finderShell:focus-within) .backToTop{visibility:hidden;pointer-events:none}
   .ds-site .finderPool__tile img{width:100%;height:100%;object-fit:cover}
   .ds-site :is(.editorialDisclosure,.editorialTopic){border-top:var(--border);max-width:var(--container-reading)}
   .ds-site .editorialTopic>summary h2{display:inline;font-size:var(--text-h3);line-height:1.5;margin:0}
@@ -310,7 +316,38 @@
   .ds-site .consentMedia__placeholder{background:var(--color-bg-soft);border:var(--border);border-radius:var(--radius);padding:var(--space-5);font-family:var(--font-sans)}
   .ds-site .consentMedia__placeholder strong{font-size:var(--text-meta);font-weight:600}
   .ds-site :is(.roomDiscovery__eyebrow,.roomDiscovery__privacy,.reviewTrust a,.homeEditorialLinks a,.textLink,.walnutTextLink,.productCard__compareUtility,.productCard__segment,.workshopNote strong,.productPreview__related strong,.productPreview__related button,.productPreview__purchaseOption strong){font-size:var(--text-meta);line-height:1.6}
-  .ds-site .backToTop{height:var(--size-target);font-size:var(--text-meta);border-radius:var(--radius);box-shadow:none}
+  .ds-site .backToTop{width:var(--size-target);height:var(--size-target);padding:0;right:16px;bottom:max(16px,env(safe-area-inset-bottom));font-size:var(--text-meta);border-radius:var(--radius);box-shadow:none;background:var(--color-bg);color:var(--color-text);border:var(--border);backdrop-filter:none}
+  .ds-site .backToTop.is-visible{opacity:1}
+  .ds-site .backToTop__label{display:none}
+  .ds-site .backToTop span:first-child{font-size:20px}
+  .ds-site:has([data-consent-root],[data-consent-modal]) :is(.backToTop,.whatsappServiceFloat,.mobileStickyCta){visibility:hidden;pointer-events:none}
+  .ds-site :is(.siteSearchLink,.mobileMenu__close){min-width:44px;min-height:44px}
+  .ds-site .consentBanner{max-width:1240px;padding:12px;gap:8px;background:var(--color-surface);color:var(--color-text);border:var(--border);border-radius:var(--radius)}
+  .ds-site .consentBanner__copy h2{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .ds-site .consentBanner__copy p{margin:0;font-size:14px;line-height:1.4;color:var(--color-text)}
+  .ds-site .consentBanner__actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:8px;align-items:stretch}
+  .ds-site .consentBanner .consentButton{min-height:44px;padding:8px;font-size:14px;line-height:1.2;border-width:1px}
+  .ds-site .consentBanner .consentButton{border-color:var(--color-accent);background:var(--color-surface);color:var(--color-accent)}
+  .ds-site .consentBanner .consentButton--primary{background:var(--color-accent);color:var(--color-surface)}
+  .ds-site .consentBanner .consentButton--text{border-color:transparent}
+  .ds-site .consentBanner__actions .consentButton--text{grid-column:auto}
+  .ds-site .gastroHero{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:center;gap:var(--space-7);height:auto;min-height:0;max-width:var(--container-wide);margin-inline:auto;padding-inline:var(--page-gutter,24px);background:var(--color-bg);color:var(--color-text);isolation:auto}
+  .ds-site .gastroHero__copy{order:0;width:100%;max-width:none;margin:0;padding:0}
+  .ds-site .gastroHero__image{order:1;position:static;z-index:auto;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+  .ds-site .gastroHero h1{text-shadow:none;color:var(--color-text)}
+  .ds-site .gastroHero .breadcrumb a{color:var(--color-text-muted)}
+  @media(min-width:900px){
+    .ds-site .consentBanner{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px}
+  }
+  @media(max-width:759px){
+    .ds-site .gastroHero{grid-template-columns:minmax(0,1fr);gap:var(--space-5)}
+    .ds-site .gastroHero h1{font-size:30px}
+  }
+  @media(max-width:374px){
+    .ds-site .consentBanner__actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .ds-site .consentBanner__actions .consentButton--text{grid-column:1/-1}
+    .ds-site .consentBanner{padding:8px;gap:4px}
+  }
   .ds-site .legalGuarantee figcaption,.ds-site .legalGuarantee p{font-size:var(--text-meta)}
   .ds-site .legalGuarantee img{max-width:520px;height:auto;object-fit:contain}
   @media(max-width:1024px){.ds-site :is(.homepageProductGrid,.landingProductGrid){grid-template-columns:repeat(2,minmax(0,1fr))}.ds-site .productPreview{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6)}}

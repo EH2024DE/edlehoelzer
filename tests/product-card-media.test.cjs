@@ -43,6 +43,12 @@ test('existing product facts remain unchanged apart from verified corrections an
     badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  Object.assign(before.products.find(p=>p.listingId==='1818046728'),{
+    availabilityStatus:'made_to_order',
+    deliveryDays:'Materialbeschaffung und Fertigungszeit nach Absprache',
+    availabilityNote:'Fertigung auf Bestellung. Lärchenholz ist derzeit nicht auf Lager; Materialbeschaffung und Fertigungszeit stimmen wir vorab mit dir ab.',
+    availabilityNoteEn:'Made to order. Larch timber is currently not in stock; we agree material sourcing and production time with you before ordering.'
+  });
   const compactSold=before.products.find(p=>p.listingId==='4599650982');
   Object.assign(compactSold,{stock:0,active:false,inspirationOnly:true,availabilityStatus:'sold'});
   compactSold.variants.forEach(v=>{v.availabilityStatus='sold';});

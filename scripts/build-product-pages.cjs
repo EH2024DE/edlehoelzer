@@ -26,7 +26,7 @@ for (const en of [false, true]) {
     const title = en ? copy.text(p.displayName || p.name, true) : p.name;
     const description = en ? copy.text(p.shortDescription || p.displayName, true) : (p.shortDescription || p.displayName || p.name);
     const sold = p.availabilityStatus === 'sold';
-    const available = p.active === true && ['available', 'made_to_order'].includes(p.availabilityStatus);
+    const available = p.active === true && ['available', 'made_to_order'].includes(p.availabilityStatus) && (p.availabilityStatus === 'made_to_order' || !(Number.isFinite(p.stock) && p.stock <= 0));
     const status = sold ? (en ? 'Sold · One-of-a-kind inspiration' : 'Verkauft · Ein Unikat als Inspiration') : available ? (p.availabilityStatus === 'made_to_order' ? (en ? 'Made to order' : 'Auf Bestellung') : (en ? 'Available' : 'Verfügbar')) : (en ? 'Currently unavailable' : 'Aktuell nicht verfügbar');
     const facts = [[en ? 'Wood / material' : 'Holz / Material', p.material], [en ? 'Dimensions' : 'Maße', p.dimensionsReviewRequired ? (en ? 'See current offer' : 'Siehe aktuelles Angebot') : p.sizeLabel], [en ? 'Thickness' : 'Stärke', p.dimensionsReviewRequired ? '' : p.thicknessLabel]];
     const schema = {'@context':'https://schema.org', '@type':'Product', name:title, description, image:p.gallery?.length ? p.gallery : [p.image], sku:p.id, url:origin + url, brand:{'@type':'Brand',name:'Edle Hölzer'}};

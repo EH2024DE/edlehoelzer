@@ -158,15 +158,14 @@
   if(product){
     const observer=new MutationObserver(()=>{
       const content=product.querySelector('.productPreview__content'),headline=content?.querySelector('.productPreview__purchaseHeadline'),action=content?.querySelector('.productPreview__earlyPurchase');
-      if(headline&&action&&headline.nextElementSibling!==action)headline.after(action);
       const configuration=content?.querySelector('.productPreview__configuration');
+      if(headline&&configuration&&headline.nextElementSibling!==configuration)headline.after(configuration);
+      const purchaseEnd=configuration||headline;
+      if(purchaseEnd&&action&&purchaseEnd.nextElementSibling!==action)purchaseEnd.after(action);
+      if(headline)headline.setAttribute('aria-live','polite');
       if(configuration&&!configuration.dataset.dsObserved){
         configuration.dataset.dsObserved='true';
         new IntersectionObserver(entries=>document.body.classList.toggle('is-configuring-product',entries[0].isIntersecting)).observe(configuration);
-      }
-      if(headline&&configuration&&!configuration.querySelector('[data-ds-option-total]')){
-        const total=headline.cloneNode(true);total.dataset.dsOptionTotal='';total.setAttribute('aria-live','polite');
-        configuration.append(total);
       }
       product.querySelectorAll('.productPreview__detail').forEach(details=>{details.dataset.dsReadMore='';});
       enhance(product);

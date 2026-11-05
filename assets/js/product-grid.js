@@ -246,7 +246,7 @@
   }
 
   function isAvailableProduct(product) {
-    return availabilityStatus(product) === "available";
+    return availabilityStatus(product) === "available" && !(Number.isFinite(product.stock) && product.stock <= 0);
   }
 
   function isGridProduct(product, homepage) {

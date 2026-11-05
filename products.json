@@ -609,12 +609,13 @@
         "sehr grosse BBQ-Arbeiten"
       ],
       "displayName": "Lärche Stirnholz – Kompakt",
-      "deliveryDays": "2–3 Werktage",
+      "deliveryDays": "Materialbeschaffung und Fertigungszeit nach Absprache",
       "etsyListingUrl": "https://www.etsy.com/de/listing/1818046728/end-grain-cutting-board-made-of-siberian",
-      "availabilityStatus": "available",
+      "availabilityStatus": "made_to_order",
       "visibility": "grid",
       "inquiryPossible": true,
-      "availabilityNote": "Verkauftes Einzelstück. Es dient als Inspiration; eine ähnliche individuelle Anfertigung prüfen wir nach Materialverfügbarkeit, Format und Nutzung.",
+      "availabilityNote": "Fertigung auf Bestellung. Lärchenholz ist derzeit nicht auf Lager; Materialbeschaffung und Fertigungszeit stimmen wir vorab mit dir ab.",
+      "availabilityNoteEn": "Made to order. Larch timber is currently not in stock; we agree material sourcing and production time with you before ordering.",
       "videos": [
         {
           "src": "/assets/product-videos/sibirische-laerche-klein-quadrat-etsy.mp4",

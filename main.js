@@ -812,7 +812,6 @@ function initBackToTop() {
   }
 
   var button = document.createElement("button");
-  var threshold = 520;
   var ticking = false;
   var isEnglish = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
   var label = isEnglish ? "Back to top" : "Nach oben";
@@ -838,7 +837,14 @@ function initBackToTop() {
   }
 
   function updateVisibility() {
-    var isVisible = window.scrollY > threshold;
+    var isVisible = window.scrollY > window.innerHeight * 1.5;
+    if (isVisible) {
+      var bounds = button.getBoundingClientRect();
+      isVisible = !Array.prototype.some.call(document.querySelectorAll('.btn, .productCard__price, .productPreview__purchaseHeadline'), function (element) {
+        var rect = element.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && rect.left < bounds.right && rect.right > bounds.left && rect.top < bounds.bottom && rect.bottom > bounds.top;
+      });
+    }
     button.classList.toggle("is-visible", isVisible);
     ticking = false;
   }
@@ -853,12 +859,13 @@ function initBackToTop() {
   }
 
   button.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? "auto" : "smooth" });
   });
 
   document.body.appendChild(button);
   updateVisibility();
   window.addEventListener("scroll", requestVisibilityUpdate, { passive: true });
+  window.addEventListener("resize", requestVisibilityUpdate, { passive: true });
 }
 
 function initHeroVideo() {
@@ -3184,6 +3191,7 @@ function initProductExperience() {
 
   function purchaseDeliveryText(product) {
     var variant = purchaseVariant(product);
+    if (product.availabilityStatus === "made_to_order") return isEnglish ? (product.availabilityNoteEn || "Made to order; production and delivery time agreed individually") : (product.availabilityNote || "Auf Bestellung; Fertigungs- und Lieferzeit nach Abstimmung");
     if (variant && variant.availabilityStatus === "made_to_order") return isEnglish ? "Made to order; production and delivery time agreed individually" : "Auf Bestellung; Fertigungs- und Lieferzeit nach Abstimmung";
     var selection = purchaseSelection(product);
     var selectedCustomOptions = purchaseOptions(product).filter(function (option) {
@@ -3277,7 +3285,10 @@ function initProductExperience() {
     if (!hasVerifiedListing(product)) {
       return "";
     }
-    return '<div class="productPreview__earlyPurchase"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(purchaseOptions(product).length ? labels.configureOnEtsy : etsyActionLabel(product)) + '</a><span>' + escapeHtml(isEnglish ? "Secure checkout on Etsy. Details remain visible here." : "Sicherer Checkout über Etsy. Alle Details bleiben hier sichtbar.") + '</span></div>';
+    var selectionNote = purchaseOptions(product).length || (product.variants || []).length
+      ? (isEnglish ? "Choose your options in the Etsy listing. Your selection here is a price preview and is not transferred to Etsy." : "Deine Ausführung wählst du im Etsy-Angebot. Die Auswahl hier dient der Preisvorschau und wird nicht an Etsy übertragen.")
+      : (isEnglish ? "Checkout takes place on Etsy. Check the final price and availability there." : "Der Kauf erfolgt über Etsy. Endpreis und Verfügbarkeit bestätigst du dort.");
+    return '<div class="productPreview__earlyPurchase"><a class="btn btn--emphasis" href="' + escapeAttribute(etsyActionUrl(product)) + '" target="_blank" rel="noopener" data-etsy-link data-product-etsy="' + escapeAttribute(product.id) + '">' + escapeHtml(isEnglish ? "Buy on Etsy" : "Bei Etsy kaufen") + '</a><span>' + escapeHtml(selectionNote) + '</span></div>';
   }
 
   function renderPurchaseBenefit(product) {
@@ -3508,7 +3519,7 @@ function initProductExperience() {
   }
 
   function isAvailableProduct(product) {
-    return availabilityStatus(product) === "available";
+    return availabilityStatus(product) === "available" && !(Number.isFinite(product.stock) && product.stock <= 0);
   }
 
   function isGridProduct(product) {
@@ -3671,6 +3682,7 @@ function createFinderMatcher() {
     return Boolean(!product.canonicalProductId && product.active === true && product.category === "board" &&
       ["cuttingBoard", "servingBoard"].indexOf(product.productType) !== -1 &&
       ["available", "made_to_order"].indexOf(product.availabilityStatus) !== -1 &&
+      (product.availabilityStatus === "made_to_order" || !(Number.isFinite(product.stock) && product.stock <= 0)) &&
       !product.inspirationOnly && !["hidden", "archive", "inspiration"].includes(product.visibility) &&
       product.dataVerified === true && product.imageVerified === true && product.needsReview === false &&
       Boolean(product.id && product.image && product.sizeLabel) && (product.productType === "servingBoard" || /\d/.test(product.thicknessLabel || "")) && Number(product.priceOrder) > 0 &&
@@ -4388,7 +4400,7 @@ function initProductsPage() {
     }).join("");
     prevButton.disabled = state.currentStep === 0;
     nextButton.disabled = !state.answers[question.id];
-    nextButton.textContent = resultIsComplete()
+    nextButton.textContent = resultIsComplete() || state.currentStep === questions.length - 1
       ? (isEnglish ? "Show result" : "Ergebnis anzeigen") : (isEnglish ? "Next" : "Weiter");
 
     optionsNode.querySelectorAll("[data-option]").forEach(function (button) {
@@ -4414,18 +4426,20 @@ function initProductsPage() {
           node.setAttribute("aria-pressed", String(active));
         });
         nextButton.disabled = false;
+        nextButton.textContent = resultIsComplete() ? (isEnglish ? "Show result" : "Ergebnis anzeigen") : (isEnglish ? "Next" : "Weiter");
+        if (resultIsComplete() && (isEditing || state.currentStep === activeQuestions().length - 1)) {
+          isEditing = false;
+          showFinderResult();
+          return;
+        }
+        // Schedule navigation before decorative pool updates so these cannot block the next question.
+        finderTimer = window.setTimeout(function () {
+          state.currentStep += 1;
+          renderFinder();
+          focusFinderQuestion();
+        }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 350);
         renderDecisionChips();
         renderFinderPool();
-        finderTimer = window.setTimeout(function () {
-          if (resultIsComplete() && isEditing || state.currentStep === activeQuestions().length - 1) {
-            isEditing = false;
-            showFinderResult();
-          } else {
-            state.currentStep += 1;
-            renderFinder();
-            focusFinderQuestion();
-          }
-        }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 350);
       });
     });
     prevButton.onclick = function () {
@@ -4531,9 +4545,13 @@ function initProductsPage() {
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && root.dataset.ready) {
       Array.from(root.children).forEach(function (node) {
         var old = previous.get(node), now = node.getBoundingClientRect();
-        if (old && node.animate) node.animate([
-          { translate: (old.left - now.left) + "px " + (old.top - now.top) + "px" }, { translate: "0px 0px" }
-        ], { duration: 400, easing: "cubic-bezier(.22,.8,.3,1)" });
+        if (old && node.animate) {
+          try {
+            node.animate([
+              { transform: "translate(" + (old.left - now.left) + "px," + (old.top - now.top) + "px)" }, { transform: "translate(0,0)" }
+            ], { duration: 400, easing: "cubic-bezier(.22,.8,.3,1)" });
+          } catch (_) { /* Decorative motion must not interrupt the finder. */ }
+        }
       });
     }
     root.dataset.ready = "true";
@@ -5187,7 +5205,7 @@ function initProductsPage() {
   }
 
   function isAvailableProduct(product) {
-    return availabilityStatus(product) === "available";
+    return availabilityStatus(product) === "available" && !(Number.isFinite(product.stock) && product.stock <= 0);
   }
 
   function isGridProduct(product) {
