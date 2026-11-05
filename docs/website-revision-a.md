@@ -28,3 +28,11 @@ Base: main at cf95715. This package corrects verified availability and purchase 
 ## Not claimed as complete
 
 This is not a whole-site conversion redesign. The next package should handle homepage trust, static product fallback, English homepage structure, section rhythm and careful palette decisions. Real-time inventory counts require a reliable inventory source; stale catalogue counts must not become artificial scarcity. Portraits are awaiting the planned photo session. B2B copy and business-scope changes require owner decisions. External Etsy photograph delivery is not certified by these UI tests. No real iPhone/Safari measurement, legal certification or production performance guarantee is claimed here.
+
+## Finder follow-up
+
+The reported final-question hang was not reproduced reliably in Chromium. Final answers now render results synchronously rather than waiting for the transition timer. The result button label also identifies the final step before selection. Optional pool animations use widely supported transform keyframes and cannot interrupt navigation if animation creation fails.
+
+Options use 16px titles, 14px explanations, compact spacing, stronger outlines and a mocha/white selected state with an additional selection marker. The back-to-top control stays out of the active question area.
+
+Regression: tests/finder-completion-browser.cjs covers all four final budget choices in German and English at 390/1440px, immediate results, editing, explicit result action, simulated animation failure and measured option typography/colours. Screenshots: /tmp/edle-finder-fix. This does not establish a specific root cause on the user's iPhone.

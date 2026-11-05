@@ -4400,7 +4400,7 @@ function initProductsPage() {
     }).join("");
     prevButton.disabled = state.currentStep === 0;
     nextButton.disabled = !state.answers[question.id];
-    nextButton.textContent = resultIsComplete()
+    nextButton.textContent = resultIsComplete() || state.currentStep === questions.length - 1
       ? (isEnglish ? "Show result" : "Ergebnis anzeigen") : (isEnglish ? "Next" : "Weiter");
 
     optionsNode.querySelectorAll("[data-option]").forEach(function (button) {
@@ -4426,18 +4426,20 @@ function initProductsPage() {
           node.setAttribute("aria-pressed", String(active));
         });
         nextButton.disabled = false;
+        nextButton.textContent = resultIsComplete() ? (isEnglish ? "Show result" : "Ergebnis anzeigen") : (isEnglish ? "Next" : "Weiter");
+        if (resultIsComplete() && (isEditing || state.currentStep === activeQuestions().length - 1)) {
+          isEditing = false;
+          showFinderResult();
+          return;
+        }
+        // Schedule navigation before decorative pool updates so these cannot block the next question.
+        finderTimer = window.setTimeout(function () {
+          state.currentStep += 1;
+          renderFinder();
+          focusFinderQuestion();
+        }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 350);
         renderDecisionChips();
         renderFinderPool();
-        finderTimer = window.setTimeout(function () {
-          if (resultIsComplete() && isEditing || state.currentStep === activeQuestions().length - 1) {
-            isEditing = false;
-            showFinderResult();
-          } else {
-            state.currentStep += 1;
-            renderFinder();
-            focusFinderQuestion();
-          }
-        }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 350);
       });
     });
     prevButton.onclick = function () {
@@ -4543,9 +4545,13 @@ function initProductsPage() {
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && root.dataset.ready) {
       Array.from(root.children).forEach(function (node) {
         var old = previous.get(node), now = node.getBoundingClientRect();
-        if (old && node.animate) node.animate([
-          { translate: (old.left - now.left) + "px " + (old.top - now.top) + "px" }, { translate: "0px 0px" }
-        ], { duration: 400, easing: "cubic-bezier(.22,.8,.3,1)" });
+        if (old && node.animate) {
+          try {
+            node.animate([
+              { transform: "translate(" + (old.left - now.left) + "px," + (old.top - now.top) + "px)" }, { transform: "translate(0,0)" }
+            ], { duration: 400, easing: "cubic-bezier(.22,.8,.3,1)" });
+          } catch (_) { /* Decorative motion must not interrupt the finder. */ }
+        }
       });
     }
     root.dataset.ready = "true";
