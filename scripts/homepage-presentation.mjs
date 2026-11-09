@@ -46,12 +46,6 @@ export function refineHomepage(document,reference){
     for(const card of staticCards(products,english))append(grid,card);
   }
   const meta=JSON.parse(read('data/reviews-meta.json'));
-  const heroCopy=nodes.find(n=>has(n,'hero__copy'));
-  if(heroCopy&&!meta.needsReview&&meta.ratingCount>0){
-    const rating=Number(meta.ratingAverage).toLocaleString(english?'en-GB':'de-DE',{minimumFractionDigits:1});
-    const line=parseFragment(`<a class="heroTrust" data-ds-added="hero-trust" href="#${english?'reviews':'bewertungen'}" title="${english?'Etsy data updated':'Etsy-Daten aktualisiert'}: ${escape(meta.lastUpdated)}"><span aria-hidden="true">★</span> ${rating} · ${meta.ratingCount} ${english?'Etsy reviews':'Etsy-Bewertungen'}<span class="heroTrust__origin">${english?'Handmade in Central Hesse':'Handgefertigt in Mittelhessen'}</span></a>`).childNodes[0];
-    append(heroCopy,line);
-  }
   const reviewRoot=nodes.find(n=>attr(n,'data-review-trust-strip')!==undefined);
   if(reviewRoot){
     const headline=walk(reviewRoot).find(n=>attr(n,'data-review-headline')!==undefined);

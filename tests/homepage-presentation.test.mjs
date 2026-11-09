@@ -26,8 +26,7 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   assert.equal(workshop.length,1);assert.match(attr(workshop[0].parentNode,'class'),/closingHero/);
   const trust=nodes.find(n=>attr(n,'data-ds-added')==='hero-trust');
   const meta=JSON.parse(fs.readFileSync(path.join(root,'data/reviews-meta.json'),'utf8'));
-  assert.ok(text(trust).includes(String(meta.ratingCount)));
-  assert.ok(attr(trust,'title').includes(meta.lastUpdated));
+  assert.equal(trust,undefined,'reviews do not belong in the hero');
   assert.ok(text(nodes.find(n=>attr(n,'data-review-subline')!==undefined)).includes(String(meta.ratingCount)));
   assert.ok(text(nodes.find(n=>attr(n,'data-review-subline')!==undefined)).includes(String(meta.transactionSoldCount)));
   const reviews=featuredReviews();
