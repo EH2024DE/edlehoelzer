@@ -14,6 +14,7 @@ import { createReferenceEditor } from './reference-editor.js';
 import additionalModels from './additional-models.js';
 import { holderTextures, createHolder, standBoard, createBackTexture, createBackGeometry } from './board-holder.js';
 import eligibility from './preview-eligibility.json';
+import productAvailability from './product-availability.json';
 createIcons({ icons: { Camera, ImagePlus, RotateCcw, Download, Maximize, Minimize, SlidersHorizontal } });
 const $ = (id) => document.getElementById(id),
   stage = $("stage");
@@ -117,9 +118,10 @@ const catalog = {
 let cameraInfo=null, paperWhite=null;
 for(const key of Object.keys(catalog)){
   if(!eligibility.listingIds.includes(catalog[key].listingId))delete catalog[key];
-  else if(english&&catalog[key].nameEn)catalog[key].name=catalog[key].nameEn;
+  else if(english)catalog[key].name=catalog[key].nameEn||t(catalog[key].name);
 }
 let referenceProposed=false;
+function canBuyModel(model){const state=productAvailability[model.listingId];return !!state?.available&&(!model.variant||state.variants[model.variant]===true);}
 const rawTextures={};
 
 function correctColor(source,key=''){
@@ -351,7 +353,7 @@ async function select(key) {
   const purchaseUrl=new URL(`https://www.etsy.com/listing/${p.listingId}`);
   purchaseUrl.search=new URLSearchParams({utm_source:'edlehoelzer.de',utm_medium:'referral',utm_campaign:'kitchen_preview',utm_content:`buy_${p.listingId}_${entryPoint}`}).toString();
   $('purchase').href=purchaseUrl.href;
-  $('purchase').hidden=mode!=='room'||calibrating||!homography;
+  $('purchase').hidden=mode!=='room'||calibrating||!homography||!canBuyModel(p);
   $('purchase').setAttribute('aria-label',english?`Buy ${p.name} in the shop (new tab)`:`${p.name} im Shop kaufen (neuer Tab)`);
   position();
   status();
@@ -386,7 +388,7 @@ function updateJourney(){
   $('detect').textContent=english?(referenceProposed?'Find again':'Find A4 paper'):(referenceProposed?'Erneut suchen':'A4-Blatt finden');
   $('editReference').textContent=english?'Adjust corners':'Ecken feinjustieren';
   $('apply').textContent=english?'Corners correct · Place board':'Ecken stimmen · Brett platzieren';
-  $('purchase').hidden=!ready;
+  $('purchase').hidden=!ready||!canBuyModel(catalog[selected]);
   $('download').hidden=!ready;
   savedViews?.update(ready);
 }
@@ -748,7 +750,7 @@ function showReferenceFeedback(reason){
  feedbackCopy.textContent=english?(corners?'The size is not reliable yet. Check that the frame meets all four paper corners. If they already match, try another photo from slightly above and to one side.':reason==='small'?'The paper is too small in this photo to estimate the size reliably. Move a little closer and keep all four corners visible, as in the example.':'The paper looks very flat from this angle. Hold the camera a little higher and photograph slightly from the side, as in the example.'):(corners?'Die Größe lässt sich noch nicht zuverlässig darstellen. Liegt der Rahmen genau auf allen vier Blattecken? Falls ja, hilft ein neues Foto leicht schräg von oben und seitlich.':reason==='small'?'Das Blatt ist im Foto zu klein für eine zuverlässige Größenabschätzung. Gehe etwas näher heran und lasse alle vier Ecken sichtbar, ähnlich wie im Beispiel.':'Das Blatt wirkt aus diesem Blickwinkel sehr flach. Halte die Kamera etwas höher und fotografiere leicht seitlich, ähnlich wie im Beispiel.');
  if(!referenceFeedback.open)referenceFeedback.showModal();
 }
-savedViews=createSavedViews({host:viewDock,english,onCompare:id=>measurePreview('kitchen_preview_compare',id),models:Object.entries(catalog).map(([key,p])=>({key,name:p.name,id:p.listingId,image:assetPath(p.image||`assets/${key}.jpg`)})),onChoose:async key=>{
+savedViews=createSavedViews({host:viewDock,english,canBuy:view=>canBuyModel(catalog[view.modelKey]||{listingId:view.id}),onCompare:id=>measurePreview('kitchen_preview_compare',id),models:Object.entries(catalog).map(([key,p])=>({key,name:p.name,id:p.listingId,image:assetPath(p.image||`assets/${key}.jpg`)})),onChoose:async key=>{
  await select(key);stage.scrollIntoView({block:'center',behavior:'smooth'});
 },capture:()=>{
  if(mode!=='room'||calibrating||!homography)return null;
@@ -855,7 +857,7 @@ const initialKey=requestedListing?Object.keys(catalog).find(key=>catalog[key].li
 document.querySelector('.products').hidden=true;
 const quickChoice=document.querySelector('.model-choice');
 quickChoice.hidden=true;
-const changeBoard=document.createElement('a');changeBoard.href='/produkte.html';changeBoard.textContent='Anderes Brett auswählen';
+const changeBoard=document.createElement('a');changeBoard.href=english?'/en/products.html':'/produkte.html';changeBoard.textContent=t('Anderes Brett auswählen');
 document.querySelector('aside').prepend(changeBoard);
 $('purchase').addEventListener('click',()=>{
   window.EdleAnalytics?.track('kitchen_preview_buy_click',{

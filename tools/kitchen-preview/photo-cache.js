@@ -17,12 +17,22 @@ async function transact(mode,value){
 export function savePhoto(value){
  const snapshot=value?{...value,savedAt:Date.now()}:null;
  try{window.parent.__edleWorktopPhoto=snapshot;}catch{}
- queue=queue.then(()=>transact('readwrite',snapshot)).catch(()=>{});
+ // Store bytes rather than a File handle: WebKit can lose persisted File data
+ // across document navigation even though the IndexedDB record still exists.
+ queue=queue.then(async()=>{
+  if(!snapshot?.file)return transact('readwrite',snapshot);
+  const {file,...metadata}=snapshot;
+  return transact('readwrite',{...metadata,photoBytes:await file.arrayBuffer(),photoType:file.type,photoName:file.name||'worktop.jpg'});
+ }).catch(()=>{});
  return queue;
 }
 export async function loadPhoto(){
  let value;try{value=window.parent.__edleWorktopPhoto;}catch{}
  if(!value)try{value=await transact('readonly');}catch{}
  if(value&&Date.now()-value.savedAt>24*60*60*1000){await savePhoto(null);return null;}
+ if(value?.photoBytes&&!value.file){
+  const {photoBytes,photoType,photoName,...metadata}=value;
+  value={...metadata,file:new File([photoBytes],photoName||'worktop.jpg',{type:photoType||'image/jpeg'})};
+ }
  return value;
 }

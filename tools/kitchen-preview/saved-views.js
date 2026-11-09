@@ -1,5 +1,5 @@
 import { createIcons, ArrowLeft, ArrowRight } from 'lucide';
-export function createSavedViews({host,capture,english,onBuy,models=[],onChoose,onCompare}){
+export function createSavedViews({host,capture,english,onBuy,models=[],onChoose,onCompare,canBuy=()=>false}){
  const key='edle-worktop-comparisons-v1',ttl=86400000;
  const identity=view=>view.modelKey||view.id;
  const words=english?{save:'Save comparison view',title:'Your saved views',note:'On your device for 24 hours. Photos may show different positions and angles.',remove:'Remove',buy:'Buy this board in the shop',close:'Close',full:'Two views saved. Remove one before adding another.',error:'Could not save on this device. Please use the image download instead.'}:{save:'Ansicht zum Vergleich merken',title:'Deine gemerkten Ansichten',note:'Für 24 Stunden auf deinem Gerät. Fotos können unterschiedliche Positionen und Blickwinkel zeigen.',remove:'Entfernen',buy:'Dieses Brett im Shop kaufen',close:'Schließen',full:'Zwei Ansichten gemerkt. Entferne eine, bevor du eine weitere hinzufügst.',error:'Speichern auf diesem Gerät nicht möglich. Nutze bitte den Bild-Download.'};
@@ -30,6 +30,7 @@ export function createSavedViews({host,capture,english,onBuy,models=[],onChoose,
  section.append(addSecond,chooser);
  async function choose(key){chooser.hidden=true;addSecond.setAttribute('aria-expanded','false');addSecond.disabled=true;try{await onChoose(key);}catch{message.textContent=english?'Could not load the board. Please try again.':'Das Brett konnte nicht geladen werden. Bitte erneut versuchen.';}finally{addSecond.disabled=false;}}
  function purchaseLink(view){
+  if(!canBuy(view)){const note=document.createElement('span');note.className='saved-view-unavailable';note.textContent=english?'Currently unavailable':'Aktuell nicht verfügbar';return note;}
   const buy=document.createElement('a');buy.textContent=words.buy;buy.target='_blank';buy.rel='noopener';buy.className='saved-view-buy';
   const url=new URL(`https://www.etsy.com/listing/${view.id}`);url.search=new URLSearchParams({utm_source:'edlehoelzer.de',utm_medium:'referral',utm_campaign:'kitchen_preview',utm_content:`compare_buy_${view.id}`});buy.href=url.href;buy.onclick=()=>onBuy(view.id);return buy;
  }
