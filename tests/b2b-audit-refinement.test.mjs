@@ -7,7 +7,7 @@ import {parse,serialize} from 'parse5';
 import {root,walk,attr,text} from '../scripts/audit-design-system.mjs';
 import {refineB2bAudit} from '../scripts/b2b-audit-refinement.mjs';
 
-const pages=['handgefertigte-holzprodukte-fuer-unternehmen/index.html','schneidebretter-aus-holz-gastronomie/index.html','en/wooden-cutting-boards-for-restaurants/index.html'];
+const pages=['handgefertigte-holzprodukte-fuer-unternehmen/index.html','schneidebretter-aus-holz-gastronomie/index.html','en/wooden-cutting-boards-for-restaurants/index.html','en/corporate-gifts/index.html'];
 const route=file=>'/'+file.replace(/index\.html$/,'');
 const load=file=>parse(fs.readFileSync(path.join(root,file),'utf8'));
 const fields=doc=>walk(doc).filter(n=>['input','select','textarea','button'].includes(n.tagName));
@@ -21,7 +21,8 @@ for(const file of pages)test(`${file}: optional extras preserve submission and c
   const json=before.filter(n=>attr(n,'type')==='application/ld+json').map(serialize);
   const copy=before.filter(n=>n.nodeName==='#text').map(n=>[n,n.value]);
   refineB2bAudit(doc,{route:route(file)});
-  const disclosure=walk(doc).find(n=>n.tagName==='details'&&walk(n).some(budget));
+  const legacyEnglish=file==='en/wooden-cutting-boards-for-restaurants/index.html';
+  const disclosure=walk(doc).find(n=>n.tagName==='details'&&walk(n).some(c=>attr(c,'name')==='phone'));
   assert.ok(disclosure);
   assert.equal(text(disclosure.childNodes.find(n=>n.tagName==='summary')),file.startsWith('en/')?'Further details (optional)':'Weitere Angaben (optional)');
   assert.equal(attr(disclosure,'open'),undefined);
@@ -29,11 +30,11 @@ for(const file of pages)test(`${file}: optional extras preserve submission and c
   assert.equal(fields(doc).length,originalFields.length);
   for(const field of originalFields){
     assert.ok(fields(doc).includes(field));
-    assert.deepEqual(field.attrs,attributes.get(field).filter(a=>!budget(field)||!['required','aria-required'].includes(a.name)));
+    assert.deepEqual(field.attrs,attributes.get(field).filter(a=>!legacyEnglish||!budget(field)||!['required','aria-required'].includes(a.name)));
     if(budget(field)){
-      assert.ok(inside(field,disclosure));
-      assert.match(text(field.parentNode),/\(optional\)/);
-      assert.doesNotMatch(text(field.parentNode),/Pflichtfeld|\(required\)/);
+      assert.equal(inside(field,disclosure),legacyEnglish);
+      if(legacyEnglish)assert.match(text(field.parentNode),/\(optional\)/);
+      else assert.notEqual(attr(field,'required'),undefined);
     }
   }
   for(const [form,attrs] of forms)assert.deepEqual(form.attrs,attrs);
@@ -49,7 +50,7 @@ for(const file of pages)test(`${file}: optional extras preserve submission and c
 });
 
 test('gastronomy message hooks still support both JavaScript-required states',()=>{
-  for(const file of pages.slice(1)){
+  for(const file of pages.slice(1,3)){
     const doc=load(file);refineB2bAudit(doc,{route:route(file)});
     const nodes=walk(doc),find=name=>nodes.find(n=>attr(n,name)!==undefined);
     const description=find('data-gastro-description'),anchor=find('data-gastro-description-anchor'),optional=find('data-gastro-optional-message');
@@ -65,7 +66,7 @@ test('gastronomy message hooks still support both JavaScript-required states',()
     vm.runInNewContext(script,context);
     assert.equal(message.required,true);assert.equal(description.destination,anchor);
     idea.value='Servierbrett';vm.runInNewContext(script,context);
-    assert.equal(message.required,false);assert.equal(description.destination,optional);
+    assert.equal(message.required,file.startsWith('en/')?false:true);assert.equal(description.destination,file.startsWith('en/')?optional:anchor);
   }
 });
 

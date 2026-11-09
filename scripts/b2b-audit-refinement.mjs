@@ -1,7 +1,7 @@
 import {parseFragment} from 'parse5';
 import {walk,attr} from './audit-design-system.mjs';
 
-const routes=new Set(['/b2b.html','/handgefertigte-holzprodukte-fuer-unternehmen/','/schneidebretter-aus-holz-gastronomie/','/en/wooden-cutting-boards-for-restaurants/']);
+const routes=new Set(['/b2b.html','/handgefertigte-holzprodukte-fuer-unternehmen/','/en/corporate-gifts/','/schneidebretter-aus-holz-gastronomie/','/en/wooden-cutting-boards-for-restaurants/']);
 const secondary=new Set(['company','phone','dimensions','wood','engraving','timing','timeline']);
 const controls=node=>walk(node).filter(n=>['input','select','textarea'].includes(n.tagName));
 const ancestor=(node,predicate)=>{for(let parent=node.parentNode;parent;parent=parent.parentNode)if(predicate(parent))return parent;};
@@ -25,14 +25,15 @@ function optionalLabel(control){
 export function refineB2bAudit(document,reference){
   if(!routes.has(reference.route))return;
   const en=reference.route.startsWith('/en/');
+  const requiredBudget=reference.route!=='/en/wooden-cutting-boards-for-restaurants/';
   for(const form of walk(document).filter(n=>n.tagName==='form'&&(has(n,'data-board-inquiry')||(attr(n,'class')||'').split(/\s+/).includes('b2b-form')))){
     const fields=controls(form),budgets=fields.filter(n=>['budget','budget_basis'].includes(attr(n,'name')));
     if(!budgets.length)continue;
-    for(const field of budgets){
+    for(const field of requiredBudget?[]:budgets){
       field.attrs=field.attrs.filter(a=>!['required','aria-required'].includes(a.name));
       optionalLabel(field);
     }
-    let details=walk(form).find(n=>n.tagName==='details'&&controls(n).some(c=>secondary.has(attr(c,'name'))||budgets.includes(c)));
+    let details=walk(form).find(n=>n.tagName==='details'&&controls(n).some(c=>secondary.has(attr(c,'name'))||!requiredBudget&&budgets.includes(c)));
     if(!details){
       details=parseFragment('<details data-b2b-audit-optional><summary></summary></details>').childNodes[0];
       const submit= form.childNodes.find(n=>n.tagName==='button'&&attr(n,'type')==='submit');
@@ -46,9 +47,9 @@ export function refineB2bAudit(document,reference){
     for(const node of [...form.childNodes]){
       const group=controls(node);
       if(node===details||!group.length)continue;
-      if(group.every(c=>budgets.includes(c)||(secondary.has(attr(c,'name'))&&!has(c,'required')&&attr(c,'aria-required')!=='true')))move(node,details,before);
+      if(group.every(c=>!requiredBudget&&budgets.includes(c)||(secondary.has(attr(c,'name'))&&!has(c,'required')&&attr(c,'aria-required')!=='true')))move(node,details,before);
     }
     const help=form.childNodes.find(n=>attr(n,'id')==='budget-help');
-    if(help)move(help,details,before);
+    if(help&&!requiredBudget)move(help,details,before);
   }
 }

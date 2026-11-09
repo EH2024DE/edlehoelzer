@@ -33,7 +33,7 @@ for(const file of files)test(`${file}: additive, verified and idempotent navigat
   assert.deepEqual(links.map(text),english?['Products','Atelier','Heirloom','Custom','Care']:['Produkte','Atelier','Erbstück','Maß','Pflege']);
   const discover=nodes.find(n=>has(n,'mobileMenu__discover'));
   const additions=walk(discover).filter(n=>n.tagName==='a');
-  assert.ok(additions.some(n=>attr(n,'href')==='/handgefertigte-holzprodukte-fuer-unternehmen/'));
+  assert.ok(additions.some(n=>attr(n,'href')===(file.startsWith('en/')?'/en/corporate-gifts/':'/handgefertigte-holzprodukte-fuer-unternehmen/')));
   assert.ok(additions.some(n=>attr(n,'href')===(english?'/en/wooden-cutting-boards-for-restaurants/':'/schneidebretter-aus-holz-gastronomie/')));
   for(const link of [...links,...additions]){
     const href=attr(link,'href');assert.match(href,/^\/(?!\/)/);assert.ok(text(link).trim());

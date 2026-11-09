@@ -5,14 +5,14 @@ const has=(node,name)=>(attr(node,'class')||'').split(/\s+/).includes(name);
 const append=(parent,node)=>{node.parentNode=parent;parent.childNodes.push(node);};
 const fragment=html=>parseFragment(html).childNodes[0];
 
-// Destinations are existing source routes; English Atelier has no translated page.
+// Destinations are existing source routes, including the translated owner pages.
 const desktopLinks={
   de:[['Produkte','/produkte.html#produkte-grid'],['Atelier','/atelier/'],['Erbstück','/schneidebrett-fachwerk-eiche/'],['Maß','/schneidebrett-nach-mass/'],['Pflege','/pflege.html']],
-  en:[['Products','/en/products.html#products-grid'],['Atelier','/atelier/','de'],['Heirloom','/en/erbstueck/'],['Custom','/en/#customwork'],['Care','/en/care.html']]
+  en:[['Products','/en/products.html#products-grid'],['Atelier','/en/atelier/'],['Heirloom','/en/erbstueck/'],['Custom','/en/#customwork'],['Care','/en/care.html']]
 };
 const discoverLinks={
   de:[['B2B / Firmengeschenke','/handgefertigte-holzprodukte-fuer-unternehmen/'],['Gastronomie','/schneidebretter-aus-holz-gastronomie/']],
-  en:[['B2B / Corporate gifts (DE)','/handgefertigte-holzprodukte-fuer-unternehmen/'],['Restaurants &amp; hotels','/en/wooden-cutting-boards-for-restaurants/']]
+  en:[['B2B / Corporate gifts','/en/corporate-gifts/'],['Restaurants &amp; hotels','/en/wooden-cutting-boards-for-restaurants/']]
 };
 
 export function refineAuditNavigation(document,reference){

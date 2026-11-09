@@ -58,7 +58,7 @@ test('reference source pages preserve baseline markup outside the bilingual home
   for(const file of references.map(r=>r.file)){
     const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root,encoding:'utf8'});
     const normalize=html=>file==='en/index.html'?html.replace(/<header[\s\S]*?<\/header>/,'').replace(/<main[\s\S]*?<\/main>/,'')
-      .replace(/<a href="(?:\/en\/#b2b|\/handgefertigte-holzprodukte-fuer-unternehmen\/)"[^>]*>Corporate gifts(?: \(DE\))?<\/a>/,'')
+      .replace(/<a href="(?:\/en\/#b2b|\/en\/corporate-gifts\/|\/handgefertigte-holzprodukte-fuer-unternehmen\/)"[^>]*>Corporate gifts(?: \(DE\))?<\/a>/,'')
       .replace(/^[ \t]*<link rel="stylesheet" href="\/assets\/css\/homepage-refinement\.css[^"]*">\n/gm,'')
       .replace(/(\/assets\/js\/product-grid\.js\?v=)[^"]+/g,'$1')
       .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,'')

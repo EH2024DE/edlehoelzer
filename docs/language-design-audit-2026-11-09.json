@@ -1,0 +1,188 @@
+{
+  "checkedAt": "2026-11-09",
+  "scope": "Current repository and built design system, not a claim of live deployment",
+  "rows": [
+    {
+      "de": "/atelier/",
+      "en": "/en/atelier/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": true,
+      "status": "Shared structure; browser QA required"
+    },
+    {
+      "de": "/handgefertigte-holzprodukte-fuer-unternehmen/",
+      "en": "/en/corporate-gifts/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": true,
+      "status": "Shared structure; browser QA required"
+    },
+    {
+      "de": "/schneidebrett-nach-mass/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/schneidebrett-fachwerk-eiche/",
+      "en": "/en/erbstueck/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    },
+    {
+      "de": "/pflege.html",
+      "en": "/en/care.html",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    },
+    {
+      "de": "/schneidebrett-aufbereiten/",
+      "en": "/en/refurbishment/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    },
+    {
+      "de": "/teigschaber-holz/",
+      "en": "/en/wooden-dough-scraper/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    },
+    {
+      "de": "/pfannenwender-holz/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/holzarten-schneidebrett/",
+      "en": "/en/wood-types-for-cutting-boards/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    },
+    {
+      "de": "/stirnholz-vs-langholz/",
+      "en": "/en/end-grain-vs-edge-grain/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    },
+    {
+      "de": "/schneidebrett-saftrille/",
+      "en": "/en/cutting-board-juice-groove/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": true,
+      "status": "Shared structure; browser QA required"
+    },
+    {
+      "de": "/schneidebrett-mit-gravur/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/hochwertige-kuechenaccessoires/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/holz-statt-plastik/",
+      "en": "/en/wood-instead-of-plastic/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    },
+    {
+      "de": "/brotzeitbrett/",
+      "en": "/en/snack-board/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": true,
+      "status": "Shared structure; browser QA required"
+    },
+    {
+      "de": "/schneidebrett-nussbaum/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/barbecue-geschenk/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/hochwertige-geschenke-holz/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/presse/",
+      "en": null,
+      "englishPageExists": false,
+      "sharedDesignBuild": false,
+      "sameSourceSectionStructure": false,
+      "status": "English page missing"
+    },
+    {
+      "de": "/bewertungen/",
+      "en": "/en/reviews/",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": true,
+      "status": "Shared structure; browser QA required"
+    },
+    {
+      "de": "/produkte.html",
+      "en": "/en/products.html",
+      "englishPageExists": true,
+      "sharedDesignBuild": true,
+      "sameSourceSectionStructure": false,
+      "status": "Shared design system; content/section alignment still needs review"
+    }
+  ],
+  "exceptions": [
+    {
+      "route": "/schneidebretter-aus-holz-gastronomie/",
+      "decision": "Germany-only; existing English page deliberately unchanged"
+    },
+    {
+      "route": "/baumspende.html",
+      "decision": "German only; 2026 intake closed"
+    },
+    {
+      "route": "/brettvorschau/",
+      "decision": "Shared interactive application; translation and interaction need separate browser QA"
+    }
+  ]
+}
