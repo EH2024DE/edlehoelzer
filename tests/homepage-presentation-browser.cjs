@@ -12,6 +12,12 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       page.on('pageerror',e=>errors.push(e.message));await page.goto(base+'/'+lang,{waitUntil:'domcontentloaded'});
       await page.locator('[data-consent-necessary]').click();await page.evaluate(()=>document.fonts.ready);
       await page.locator('#homepage-products .productCard').nth(3).waitFor();
+      const cardLayout=await page.locator('#homepage-products .productCard').evaluateAll(cards=>cards.map(card=>({inventory:card.querySelector('.productCard__inventory').getBoundingClientRect().bottom,price:card.querySelector('.productCard__price').getBoundingClientRect().top})));
+      for(const box of cardLayout)assert.ok(box.price>=box.inventory+7,'inventory text never overlaps the price');
+      if(width<=760||width>=1200)assert.ok(Math.max(...cardLayout.map(b=>b.price))-Math.min(...cardLayout.map(b=>b.price))<2,'prices align across the homepage row');
+      await page.locator('#homepage-products .productCard').first().scrollIntoViewIfNeeded();
+      await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-products.png`});
+      await page.evaluate(()=>window.scrollTo(0,0));
       assert.equal(await page.locator('.heroTrust').count(),0);
       const heroTitle=await page.locator('.hero h1').boundingBox(),heroButton=await page.locator('.hero__actions a').first().boundingBox();
       assert.ok(heroButton.y>=heroTitle.y+heroTitle.height+24,'hero title and CTA have breathing room');

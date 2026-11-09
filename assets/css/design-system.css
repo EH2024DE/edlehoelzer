@@ -226,6 +226,9 @@
   .ds-site .serviceOption__price{font-size:var(--text-price);line-height:1.35;font-weight:500;margin:0;white-space:nowrap}
   .ds-site [data-service-option=self] .serviceOption__price{font-size:var(--text-card);white-space:normal}
   .ds-site .serviceOption__features{padding-left:var(--space-4);margin:var(--space-3) 0 var(--space-5);font-size:var(--text-meta);line-height:1.6}
+  .ds-site .serviceOption__balm{font-size:var(--text-meta);line-height:1.6;margin:0 0 var(--space-5)}
+  .ds-site .serviceOption__balm a{display:inline-flex;align-items:center;min-height:var(--size-target);text-decoration:underline}
+  .ds-site .serviceOption__balm span{display:block;color:var(--color-text-muted)}
   .ds-site .serviceOption details{margin-top:auto}
   .ds-site .serviceOption__link{display:inline-flex;min-height:var(--size-target);align-items:center;margin-top:var(--space-3);text-decoration:underline}
   .ds-site .serviceOption__intro{font-size:var(--text-control);line-height:1.5;margin:var(--space-3) 0}
@@ -271,8 +274,8 @@
   .ds-site .homepageProductGrid .productCard__footer{margin-top:auto}
   .ds-site .homepageProductGrid>.productCard{height:auto}
   @supports (grid-template-rows: subgrid){
-    .ds-site .homepageProductGrid>.productCard{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:var(--space-2)}
-    .ds-site .homepageProductGrid .productCard__body{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:var(--space-2);align-items:start}
+    .ds-site .homepageProductGrid>.productCard{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:var(--space-2)}
+    .ds-site .homepageProductGrid .productCard__body{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:var(--space-2);align-items:start}
     .ds-site .homepageProductGrid .productCard__footer{margin-top:0}
   }
   .ds-site .productCard__price{margin:var(--space-3) 0 0;margin-top:auto;padding-top:var(--space-3);font-size:var(--text-card);font-weight:600;min-height:var(--card-price-height,0px)}
@@ -456,7 +459,7 @@
     .ds-site .footer__inner,.ds-site .footer__nav{grid-template-columns:1fr;gap:var(--space-6)}
     .ds-site .landingProductGrid{display:flex;overflow-x:auto;gap:var(--space-5);scroll-snap-type:x proximity}.ds-site .landingProductGrid>*{flex:0 0 84%;scroll-snap-align:start}
     @supports (grid-template-rows: subgrid){
-      .ds-site .landingProductGrid.homepageProductGrid{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:84%;grid-template-rows:repeat(4,auto);row-gap:var(--space-2)}
+      .ds-site .landingProductGrid.homepageProductGrid{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:84%;grid-template-rows:repeat(5,auto);row-gap:var(--space-2)}
     }
     .ds-site .ds-tabs__list{display:none}
   }
