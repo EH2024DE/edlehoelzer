@@ -46,7 +46,11 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       const photo=page.locator('.closingHero>img');await photo.scrollIntoViewIfNeeded();await photo.evaluate(img=>img.decode());
       await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-closing.png`});
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
-      if(lang){const topic=page.locator('.homeTopic').first();await topic.locator('summary').click();assert.equal(await topic.getAttribute('open'),'');await topic.locator('summary').click();}
+      if(lang){
+        const background=page.locator('.homePerson__more').first(),id=await background.getAttribute('id');
+        const button=page.locator('button[aria-controls="'+id+'"]');await button.click();assert.equal(await background.getAttribute('open'),'');await button.click();
+        const topic=page.locator('.homeTopic').first();await topic.locator('summary').click();assert.equal(await topic.getAttribute('open'),'');await topic.locator('summary').click();
+      }
       assert.deepEqual(errors,[]);metrics.push({width,lang,height:await page.evaluate(()=>document.documentElement.scrollHeight)});await page.close();
     }
     for(const javaScriptEnabled of [false,true])for(const lang of ['','en/']){

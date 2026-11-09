@@ -34,6 +34,8 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   assert.equal(quotes.length,6);
   for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(originalText(review)),'full original review remains available');
   if(reference.route==='/en/'){
+    assert.equal(nodes.filter(n=>(attr(n,'class')||'').includes('homePerson__more')).length,2);
+    assert.equal(nodes.filter(n=>(attr(n,'class')||'').includes('homeAboutStory')).length,1);
     assert.ok(nodes.filter(n=>(attr(n,'class')||'').includes('homeTopic__content')).length>=8);
     assert.ok(nodes.some(n=>attr(n,'data-ds-added')==='room-discovery'));
     assert.equal(attr(nodes.find(n=>attr(n,'data-hero-video')!==undefined),'autoplay'),undefined);

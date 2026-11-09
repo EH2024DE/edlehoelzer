@@ -80,6 +80,19 @@ export function refineHomepage(document,reference){
     link.parentNode=reviewContainer;reviewContainer.childNodes.splice(reviewContainer.childNodes.indexOf(sourceLink),0,link);
   }
   if(english){
+    const about=nodes.find(n=>attr(n,'id')==='about');
+    const intro=about&&walk(about).find(n=>n.tagName==='p'&&has(n,'section__lead'));
+    if(intro){
+      const details=parseFragment('<details class="homeAboutStory" data-ds-read-more><summary data-ds-added>Our story</summary></details>').childNodes[0];
+      const parent=intro.parentNode;details.parentNode=parent;parent.childNodes.splice(parent.childNodes.indexOf(intro),0,details);remove(intro);append(details,intro);
+    }
+    for(const person of (about?walk(about):[]).filter(n=>has(n,'homePerson'))){
+      const paragraphs=walk(person).filter(n=>n.tagName==='p');
+      if(paragraphs.length<3)continue;
+      const details=parseFragment('<details class="homePerson__more" data-ds-read-more><summary data-ds-added>Background</summary></details>').childNodes[0];
+      append(paragraphs[0].parentNode,details);
+      for(const paragraph of paragraphs.slice(1)){remove(paragraph);append(details,paragraph);}
+    }
     const main=nodes.find(n=>n.tagName==='main');
     const closing=nodes.find(n=>has(n,'closingHero'));
     const topics=parseFragment('<section class="section homeTopics"><div class="container"><h2 data-ds-added="topics-heading">More from our workshop</h2></div></section>').childNodes[0];
