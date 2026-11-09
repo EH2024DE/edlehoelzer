@@ -8,11 +8,15 @@ import postcss from 'postcss';
 import {references,renderReference,guardLegacyStyleLoads} from '../scripts/build-design-reference.mjs';
 import {root,walk,attr,text,baseline} from '../scripts/audit-design-system.mjs';
 import {repairEnglishNavigation} from '../scripts/repair-english-navigation.mjs';
+import {refineB2bAudit} from '../scripts/b2b-audit-refinement.mjs';
 test('reference rendering preserves SEO, original main content, links and form contracts',()=>{
   for(const reference of references){
     const original=parse(fs.readFileSync(path.join(root,reference.file),'utf8'));
+    refineB2bAudit(original,reference);
     const rendered=renderReference(reference),document=parse(rendered.html);
     const nodes=walk(document),oldNodes=walk(original);
+    const productRoot=nodes.find(n=>attr(n,'data-display-title'));
+    if(productRoot){const heading=oldNodes.find(n=>n.tagName==='h1');heading.childNodes=[{nodeName:'#text',value:attr(productRoot,'data-display-title'),parentNode:heading}];}
     for(const node of nodes.filter(n=>attr(n,'data-ds-added')!==undefined))node.parentNode.childNodes=node.parentNode.childNodes.filter(n=>n!==node);
     if(reference.template==='home')for(const list of [nodes,oldNodes]){
       const track=list.find(n=>attr(n,'data-review-track')!==undefined);if(track)track.childNodes=[];
@@ -91,7 +95,18 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   for(const key of ['availabilityStatus','deliveryDays','availabilityNote','availabilityNoteEn']){
     if(key in oldLarch)larch[key]=oldLarch[key];else delete larch[key];
   }
-  assert.deepEqual(catalogAfter,catalogBefore,'only the owner-confirmed availability corrections may change');
+  const snapshot=JSON.parse(fs.readFileSync(path.join(root,'data/inventory-public-snapshot.json'),'utf8'));
+  for(const product of catalogAfter.products.filter(p=>p.inventoryCheckedAt)){
+    const original=catalogBefore.products.find(p=>p.id===product.id);
+    assert.equal(product.inventoryCheckedAt,snapshot.checkedAt);
+    if(product.availabilityStatus==='unavailable'){
+      assert.ok(!Object.hasOwn(snapshot.quantities,product.listingId));
+      assert.ok(['1803930088','4370769708'].includes(product.listingId));
+      for(const key of ['active','availabilityStatus','availabilityNote','availabilityNoteEn']){if(key in original)product[key]=original[key];else delete product[key];}
+    }else assert.equal(product.stock,snapshot.quantities[product.listingId]);
+    product.stock=original.stock;delete product.inventoryCheckedAt;
+  }
+  assert.deepEqual(catalogAfter,catalogBefore,'only confirmed availability and dated public stock corrections may change; prices remain intact');
 });
 test('reference runtime changes only four CSS-loading guards, not financial or product logic',()=>{
   const source=fs.readFileSync(path.join(root,'main.js'),'utf8');

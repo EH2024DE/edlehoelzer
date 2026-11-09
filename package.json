@@ -5,7 +5,7 @@
     "build:design-reference": "node scripts/build-design-reference.mjs",
     "build:design-site": "node scripts/build-design-site.mjs",
     "preview:design-reference": "node scripts/serve-design-reference.mjs",
-    "test:design-system": "node --test tests/design-system.test.mjs tests/design-site.test.mjs tests/refurbishment-comparison.test.mjs tests/design-feedback.test.mjs tests/juice-groove.test.cjs tests/homepage-presentation.test.mjs tests/review-archive.test.mjs",
+    "test:design-system": "node --test tests/design-system.test.mjs tests/design-site.test.mjs tests/refurbishment-comparison.test.mjs tests/design-feedback.test.mjs tests/juice-groove.test.cjs tests/homepage-presentation.test.mjs tests/review-archive.test.mjs tests/homepage-price-ladder.test.cjs tests/audit-followup.test.cjs tests/audit-navigation.test.mjs tests/b2b-audit-refinement.test.mjs",
     "test:finder": "node --test tests/finder-matching.test.cjs",
     "audit:assets": "node scripts/audit-assets.js",
     "audit:indexability": "node scripts/check-indexability.mjs",

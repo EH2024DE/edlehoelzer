@@ -17,7 +17,7 @@ const cardSource=read('assets/js/product-grid.js');
 
 function staticCards(products,english){
   const context=vm.createContext({window:{localStorage:{getItem:()=>null}},document:{documentElement:{lang:english?'en':'de'}},console});
-  vm.runInContext(copySource+cardSource,context);
+  vm.runInContext(read('assets/js/catalog-display.js')+copySource+cardSource,context);
   return products.map(product=>{
     const card=parseFragment(context.window.EdleProductCards.render(product,true)).childNodes[0];
     set(card,'data-ds-added','static-product');
@@ -25,6 +25,8 @@ function staticCards(products,english){
       if(attr(button,'data-product-preview')){
         button.tagName='a';button.nodeName='a';button.attrs=button.attrs.filter(a=>a.name!=='type');
         set(button,'href',(english?'/en':'')+product.productPath);
+        set(button,'data-umami-event','homepage_product_open');
+        set(button,'data-umami-event-product',product.id);
         button.attrs=button.attrs.filter(a=>a.name!=='data-product-preview');
       }else if(attr(button,'data-product-compare'))set(button,'hidden','');
     }
@@ -47,6 +49,8 @@ export function refineHomepage(document,reference){
   }
   const meta=JSON.parse(read('data/reviews-meta.json'));
   const reviewRoot=nodes.find(n=>attr(n,'data-review-trust-strip')!==undefined);
+  const people=nodes.find(n=>has(n,'homePeople')||has(n,'storyGrid')&&walk(n).some(child=>has(child,'homePerson')));
+  if(people){set(people,'tabindex','0');set(people,'aria-label',english?'Meet the team':'Das Team kennenlernen');}
   if(reviewRoot){
     const headline=walk(reviewRoot).find(n=>attr(n,'data-review-headline')!==undefined);
     const subline=walk(reviewRoot).find(n=>attr(n,'data-review-subline')!==undefined);

@@ -43,6 +43,17 @@ test('existing product facts remain unchanged apart from verified corrections an
     badges: ['Eiche & Buche', 'Stirnholz', 'Erbstück']
   });
   const after = JSON.parse(fs.readFileSync(path.join(root, 'products.json'), 'utf8'));
+  const snapshot=require('../data/inventory-public-snapshot.json');
+  for(const current of after.products.filter(p=>p.inventoryCheckedAt)){
+    const old=before.products.find(p=>p.id===current.id);
+    assert.equal(current.inventoryCheckedAt,snapshot.checkedAt);
+    if(current.availabilityStatus==='unavailable'){
+      assert.ok(['1803930088','4370769708'].includes(current.listingId));
+      assert.ok(!Object.hasOwn(snapshot.quantities,current.listingId));
+      for(const key of ['active','availabilityStatus','availabilityNote','availabilityNoteEn']){if(key in old)current[key]=old[key];else delete current[key];}
+    }else assert.equal(current.stock,snapshot.quantities[current.listingId]);
+    current.stock=old.stock;delete current.inventoryCheckedAt;
+  }
   Object.assign(before.products.find(p=>p.listingId==='1818046728'),{
     availabilityStatus:'made_to_order',
     deliveryDays:'Materialbeschaffung und Fertigungszeit nach Absprache',

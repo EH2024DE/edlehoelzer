@@ -105,7 +105,8 @@
       '<div class="productCard__body">' +
           '<p class="productCard__segment">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || (isEnglish ? "Product" : "Produkt"), isEnglish)) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(productName) + '</h3>' +
-          (homepage ? renderCardMeta(product, isEnglish) : isEnglish ? renderLegacyFacts(product) + renderLegacyServiceSignals(product) : renderCardMeta(product) + renderBadges(product)) +
+          renderCardMeta(product, isEnglish) +
+          (window.EdleCatalogDisplay ? '<p class="productCard__inventory">'+escapeHtml(window.EdleCatalogDisplay.inventoryText(product,isEnglish))+'</p>' : '') +
           '<div class="productCard__footer">' +
             (displayPriceLabel(product) ? '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' : "") +
             '<span class="productCard__buy">' +
@@ -191,7 +192,9 @@
     } else if (product.category === "accessory" && dimensionLabel(product)) {
       parts.push(dimensionLabel(product));
     }
-    return parts.length ? '<p class="productCard__meta">' + escapeHtml(EdleProductCopy.text(parts.slice(0, 2).join(" · "), isEnglish)) + '</p>' : "";
+    if(product.thicknessLabel&&!product.dimensionsReviewRequired&&/\d/.test(product.thicknessLabel)&&!/(?:[x×].*){2}/.test(dimensionLabel(product)))parts.push(product.thicknessLabel);
+    if(product.weight&&!product.dimensionsReviewRequired)parts.push(product.weight);
+    return parts.length ? '<p class="productCard__meta">' + escapeHtml(EdleProductCopy.text(parts.join(" · "), isEnglish)) + '</p>' : "";
   }
 
   function renderLegacyFacts(product) {

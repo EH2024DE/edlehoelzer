@@ -10,6 +10,9 @@ import {refineRefurbishment} from './refurbishment-comparison.mjs';
 import {refineContentLayout} from './design-content-layout.mjs';
 import {addEnglishProcess} from './erbstueck-process-translation.mjs';
 import {refineHomepage} from './homepage-presentation.mjs';
+import {refineB2bAudit} from './b2b-audit-refinement.mjs';
+import {refineAuditNavigation} from './audit-navigation.mjs';
+import {refineProductAudit} from './product-audit-refinement.mjs';
 
 export const references=[
   {route:'/',file:'index.html',template:'home'},
@@ -67,7 +70,7 @@ export function renderReference(reference){
   }
   const layer=postcss.atRule({name:'layer',params:'legacy'});layer.append(legacy.nodes);
   const legacyFile=`assets/css/design-legacy-${createHash('sha256').update(layer.toString()).digest('hex').slice(0,12)}.css`;
-  for(const fragment of parseFragment(`<link rel="stylesheet" href="/${legacyFile}"><link rel="stylesheet" href="/assets/css/design-system.css"><script src="/assets/js/design-system.js" defer></script>`).childNodes)append(head,fragment);
+  for(const fragment of parseFragment(`<link rel="stylesheet" href="/${legacyFile}"><link rel="stylesheet" href="/assets/css/design-system.css"><script src="/assets/js/catalog-display.js" defer></script><script src="/assets/js/design-system.js" defer></script>`).childNodes)append(head,fragment);
   let hero=nodes.find(n=>has(n,reference.template==='home'?'hero':reference.template==='product'?'productPreview':'pflege-hero'));
   if(!hero&&!['legal','tool'].includes(reference.template)){
     let candidate=nodes.find(n=>n.tagName==='h1');
@@ -108,6 +111,9 @@ export function renderReference(reference){
   refineContentLayout(document,reference);
   addEnglishProcess(document,reference);
   refineHomepage(document,reference);
+  refineB2bAudit(document,reference);
+  refineAuditNavigation(document,reference);
+  refineProductAudit(document,reference);
   const footer=walk(document).find(n=>n.tagName==='footer');
   const footerGroup=footer&&walk(footer).find(n=>has(n,'footer__group'));
   if(footerGroup){
