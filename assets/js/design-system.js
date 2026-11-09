@@ -143,7 +143,7 @@
   const revealServiceTarget=()=>{
     if(!location.hash)return;
     let target;try{target=document.getElementById(decodeURIComponent(location.hash.slice(1)));}catch{return;}
-    const details=target?.closest('.serviceCompareDetails');
+    const details=target?.closest('.serviceCompareDetails,.homeTopic');
     if(details)details.open=true;
   };
   revealServiceTarget();window.addEventListener('hashchange',revealServiceTarget);

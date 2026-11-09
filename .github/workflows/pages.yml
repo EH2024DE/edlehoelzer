@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Validate shared design and preserved page contracts
-        run: node --test tests/design-system.test.mjs tests/design-site.test.mjs tests/refurbishment-comparison.test.mjs tests/design-feedback.test.mjs tests/juice-groove.test.cjs tests/homepage-price-ladder.test.cjs
+        run: node --test tests/design-system.test.mjs tests/design-site.test.mjs tests/refurbishment-comparison.test.mjs tests/design-feedback.test.mjs tests/juice-groove.test.cjs tests/homepage-price-ladder.test.cjs tests/homepage-presentation.test.mjs
 
       - name: Build the complete static design for review
         run: node scripts/build-design-site.mjs "$RUNNER_TEMP/edle-design-site"

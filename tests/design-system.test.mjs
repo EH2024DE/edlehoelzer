@@ -13,13 +13,21 @@ test('reference rendering preserves SEO, original main content, links and form c
     const original=parse(fs.readFileSync(path.join(root,reference.file),'utf8'));
     const rendered=renderReference(reference),document=parse(rendered.html);
     const nodes=walk(document),oldNodes=walk(original);
+    for(const node of nodes.filter(n=>attr(n,'data-ds-added')!==undefined))node.parentNode.childNodes=node.parentNode.childNodes.filter(n=>n!==node);
+    if(reference.template==='home')for(const list of [nodes,oldNodes]){
+      const track=list.find(n=>attr(n,'data-review-track')!==undefined);if(track)track.childNodes=[];
+      for(const node of list.filter(n=>attr(n,'data-review-headline')!==undefined||attr(n,'data-review-subline')!==undefined))node.childNodes=[];
+    }
     for(const tag of ['title','h1'])assert.deepEqual(nodes.filter(n=>n.tagName===tag).map(text),oldNodes.filter(n=>n.tagName===tag).map(text),reference.route+' '+tag);
     const metadata=doc=>walk(doc).filter(n=>n.tagName==='meta'||n.tagName==='link'&&['canonical','alternate'].includes(attr(n,'rel'))||n.tagName==='script'&&attr(n,'type')==='application/ld+json').map(n=>({tag:n.tagName,attrs:n.attrs,text:text(n)}));
     assert.deepEqual(metadata(document),metadata(original),reference.route+' SEO');
     const main=doc=>walk(doc).find(n=>n.tagName==='main');
-    assert.equal(text(main(document)),text(main(original)),reference.route+' text');
+    const content=node=>walk(node).filter(n=>n.nodeName==='#text'&&n.value.trim()).map(n=>n.value.replace(/\s+/g,' ').trim()).sort();
+    if(reference.template==='home')assert.deepEqual(content(main(document)),content(main(original)),reference.route+' text (reordering allowed)');
+    else assert.equal(text(main(document)),text(main(original)),reference.route+' text');
     const anchors=doc=>walk(main(doc)).filter(n=>n.tagName==='a').map(n=>attr(n,'href'));
-    assert.deepEqual(anchors(document),anchors(original),reference.route+' internal links');
+    if(reference.template==='home')for(const href of anchors(original))assert.ok(anchors(document).includes(href),href);
+    else assert.deepEqual(anchors(document),anchors(original),reference.route+' internal links');
     const forms=doc=>walk(doc).filter(n=>['form','input','select','textarea'].includes(n.tagName)).map(n=>[n.tagName,...['name','required','action','method'].map(k=>attr(n,k))]);
     assert.deepEqual(forms(document),forms(original));
     assert.ok(nodes.some(n=>attr(n,'data-ds-template')===reference.template));
@@ -52,7 +60,11 @@ test('reference source pages preserve baseline markup outside the bilingual home
       .replace(/(\/assets\/js\/product-grid\.js\?v=)[^"]+/g,'$1')
       .replace(/<section[^>]*aria-labelledby="homepage-products-title">[\s\S]*?<\/section>/,'')
       .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,''):html;
-    assert.equal(normalize(repairEnglishNavigation(before,file)),normalize(fs.readFileSync(path.join(root,file),'utf8')),file);
+    const approvedPortraitChanges=html=>['index.html','en/index.html'].includes(file)?html
+      .replace(/<section id="(?:ueberuns|about)"[\s\S]*?<\/section>/,'')
+      .replace(/<section class="(?:section homeDecision|closingHero)[^\"]*"[\s\S]*?<\/section>/,''):html;
+    const whitespace=html=>html.replace(/>\s+</g,'><');
+    assert.equal(whitespace(approvedPortraitChanges(normalize(repairEnglishNavigation(before,file)))),whitespace(approvedPortraitChanges(normalize(fs.readFileSync(path.join(root,file),'utf8')))),file);
   }
 });
 test('financial calculations and delivery rules stay unchanged during option UI work',()=>{

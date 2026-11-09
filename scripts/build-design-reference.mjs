@@ -9,6 +9,7 @@ import {root,walk,attr,text} from './audit-design-system.mjs';
 import {refineRefurbishment} from './refurbishment-comparison.mjs';
 import {refineContentLayout} from './design-content-layout.mjs';
 import {addEnglishProcess} from './erbstueck-process-translation.mjs';
+import {refineHomepage} from './homepage-presentation.mjs';
 
 export const references=[
   {route:'/',file:'index.html',template:'home'},
@@ -106,6 +107,7 @@ export function renderReference(reference){
   refineRefurbishment(document,reference);
   refineContentLayout(document,reference);
   addEnglishProcess(document,reference);
+  refineHomepage(document,reference);
   return {html:serialize(document),legacy:layer.toString(),legacyFile};
 }
 
