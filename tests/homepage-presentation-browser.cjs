@@ -12,7 +12,11 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       page.on('pageerror',e=>errors.push(e.message));await page.goto(base+'/'+lang,{waitUntil:'domcontentloaded'});
       await page.locator('[data-consent-necessary]').click();await page.evaluate(()=>document.fonts.ready);
       await page.locator('#homepage-products .productCard').nth(3).waitFor();
-      const trust=await page.locator('.heroTrust').boundingBox();assert.ok(trust.y>=0&&trust.y+trust.height<844);
+      assert.equal(await page.locator('.heroTrust').count(),0);
+      const heroTitle=await page.locator('.hero h1').boundingBox(),heroButton=await page.locator('.hero__actions a').first().boundingBox();
+      assert.ok(heroButton.y>=heroTitle.y+heroTitle.height+24,'hero title and CTA have breathing room');
+      assert.ok(heroButton.y+heroButton.height<844,'hero CTA is visible without scrolling');
+      await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-hero.png`});
       assert.equal(await page.locator('[data-static-reviews] .reviewCard').count(),6);
       const reviews=page.locator('[data-review-viewport]');
       assert.ok(await reviews.evaluate(el=>el.scrollWidth>el.clientWidth),'reviews stay horizontally swipeable');
@@ -24,6 +28,7 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       const kitchen=page.locator('.roomDiscovery figure');await kitchen.scrollIntoViewIfNeeded();
       const kitchenSize=await kitchen.evaluate(async figure=>{const img=figure.querySelector('img');await img.decode();return {figure:figure.getBoundingClientRect().width,layout:figure.parentElement.getBoundingClientRect().width,image:img.getBoundingClientRect().width,fit:getComputedStyle(img).objectFit};});
       assert.ok(Math.abs(kitchenSize.figure-kitchenSize.layout)<1,'kitchen photo spans the full content width');
+      assert.ok(Math.abs(kitchenSize.figure-width)<1,'kitchen photo spans the viewport, not just the content container');
       assert.ok(Math.abs(kitchenSize.image-kitchenSize.figure)<1);assert.equal(kitchenSize.fit,'cover');
       await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-kitchen.png`});
       await page.locator('.homePerson').first().scrollIntoViewIfNeeded();

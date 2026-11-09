@@ -106,12 +106,9 @@
   .ds-site .hero__actions{display:flex;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-5)}
   .ds-site .hero .btn--ghost{border-color:#fff;color:#fff}
   .ds-site .hero__finderHint{font-size:var(--text-meta);color:#fff;margin:var(--space-3) 0 0}
-  .ds-site .heroTrust{display:block;margin-top:var(--space-4);font-size:14px;line-height:1.5;color:#fff;text-decoration:none;width:fit-content;min-height:44px}
-  .ds-site .heroTrust:hover{text-decoration:underline}
-  .ds-site .heroTrust__origin{display:block;font-size:14px}
   .ds-site .homePeople,.ds-site .storyGrid:has(>.homePerson){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-7)}
   .ds-site .homePerson{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:var(--space-5);align-items:start;padding:0;background:none;border:0;box-shadow:none}
-  .ds-site .homePerson>img{width:100%;height:auto;aspect-ratio:2001/3000;object-fit:cover;border-radius:0}
+  .ds-site .homePerson>img{display:block;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:auto;object-fit:contain;align-self:start;border-radius:0}
   .ds-site .homePerson h3{font-size:20px;line-height:1.35;margin:0 0 var(--space-3)}
   .ds-site .homePerson p{font-size:16px;line-height:1.6;margin:0 0 var(--space-3)}
   .ds-site .homeDecision.closingHero{min-height:480px}
@@ -153,7 +150,8 @@
     .ds-site[data-ds-template=home]{--section-space:48px}
     .ds-site[data-ds-template=home] .workshopGrid{grid-auto-columns:75%;overflow-x:auto;scroll-snap-type:x mandatory}
     .ds-site[data-ds-template=home] .workshopGrid__item{scroll-snap-align:start}
-    .ds-site .homePerson{grid-template-columns:minmax(110px,2fr) minmax(0,3fr);gap:var(--space-4)}
+    .ds-site .homePerson{grid-template-columns:minmax(0,1fr);gap:var(--space-5)}
+    .ds-site .homePerson>img{max-width:320px;justify-self:center}
     .ds-site .homePerson h3{font-size:18px}
     .ds-site .homePerson p{font-size:14px}
     .ds-site[data-ds-template=home] .backToTop{display:none}
@@ -216,8 +214,10 @@
   .ds-site.is-comparing-services :is(.mobileStickyCta,.whatsappServiceFloat,.backToTop){visibility:hidden;pointer-events:none}
   .ds-site :is(.homeWorkshop,.materialProofBlock__layout,.roomDiscovery__layout,.erbstueckFeature__layout,.refurbishmentFeature__grid,.ds-image-text){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-8);align-items:center}
   .ds-site :is(.homeWorkshop,.roomDiscovery,.erbstueckFeature,.materialProofBlock) img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:0;box-shadow:none}
-  .ds-site .roomDiscovery__layout>div{grid-column:1/-1;max-width:var(--container-reading)}
-  .ds-site .roomDiscovery figure{grid-column:1/-1;width:100%;max-width:none;margin:0}
+  .ds-site .roomDiscovery__layout{display:block;width:100%;max-width:none;padding-inline:0}
+  .ds-site .roomDiscovery__layout>div{width:calc(100% - 2 * var(--gutter));max-width:var(--container-reading);margin-inline:auto}
+  .ds-site .roomDiscovery figure{width:100%;max-width:none;margin:var(--space-6) 0 0}
+  .ds-site .roomDiscovery figcaption{padding-inline:var(--gutter)}
   .ds-site .roomDiscovery figure img{display:block;object-position:50% 65%}
   .ds-site .refurbishmentFeature__grid{display:block}
   .ds-site .refurbishmentFeature__visual{display:none}
@@ -415,7 +415,7 @@
     .ds-site .serviceOptions__grid{grid-template-columns:1fr;gap:var(--space-3)}
     .ds-site .topbar,.ds-site .topbar__inner{min-height:var(--header-mobile-height)}.ds-site .topbar__inner{gap:var(--space-3)}.ds-site .brand__text{font-size:var(--text-card)}.ds-site .brand__logo{width:28px;height:28px}
     .ds-site .ds-hero--immersive{height:auto;min-height:var(--hero-mobile-min)}.ds-site .hero__content{height:auto;min-height:var(--hero-mobile-min);padding-block:var(--space-5)}
-    .ds-site .hero h1{font-size:var(--text-product-title)}
+    .ds-site .hero h1{font-size:28px;line-height:1.18;max-width:21ch;text-wrap:balance}
     .ds-site .hero__supportingCopy{font-size:var(--text-body);margin-block:var(--space-4)}.ds-site .hero__actions{gap:var(--space-2);margin-top:var(--space-6)}
     .ds-site .hero :is(.hero__supportingCopy,.hero__finderHint),.ds-site .hero__actions>a~a{display:none}
     .ds-site .homepageProducts{padding-top:var(--space-7)}
