@@ -46,14 +46,16 @@ async function main() {
   const exportFlag = process.argv.find(arg => arg.startsWith('--export-texts='));
   if (exportFlag) {
     const catalog = await readJson(path.join(ROOT, 'products.json'), {products:[]});
+    const authorNames=await readJson(path.join(ROOT,'data/review-author-names.json'),{names:{}});
     const normal = value => String(value || '').replace(/\s+/g, ' ').trim();
     const texts = reviews.filter(review => normal(review.review)).sort((a,b)=>b.create_timestamp-a.create_timestamp).map(review => {
       const matches=existingReviews.filter(old=>normal(review.review).includes(normal(old.text))&&normal(old.text));
       const existing=matches.length===1?matches[0]:null;
       const product=(catalog.products||[]).find(product=>String(product.listingId)===String(review.listing_id));
+      const id='etsy-review-'+createHash('sha256').update(String(review.listing_id)+'|'+review.create_timestamp+'|'+review.review).digest('hex').slice(0,16);
       return {
-        id:'etsy-review-'+createHash('sha256').update(String(review.listing_id)+'|'+review.create_timestamp+'|'+review.review).digest('hex').slice(0,16),
-        reviewerName:existing?.reviewerName || 'Etsy-Kundin oder -Kunde',
+        id,
+        reviewerName:authorNames.names[id] || 'Etsy-Kundin oder -Kunde',
         source:'Etsy',rating:review.rating,text:review.review,
         product:product?.displayName || existing?.product || 'Holzprodukt von Edle Hölzer',
         listingId:String(review.listing_id),date:new Date(review.create_timestamp*1000).toISOString().slice(0,10),

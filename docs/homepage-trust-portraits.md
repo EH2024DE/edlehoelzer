@@ -45,3 +45,11 @@ The English homepage retains more legacy content than German, although secondary
 - Both archive pages have self-canonicals, language alternates, complete static text and CollectionPage/BreadcrumbList metadata. There is no self-serving Organization AggregateRating markup.
 - Google Search Console access was confirmed. Submission of the new URLs must follow successful publication and an HTTP 200 check on the production domain; a preview URL must not be submitted as the production page. Sitemap submission and a crawl request do not guarantee indexing.
 - References: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl and https://developers.google.com/search/docs/appearance/structured-data/review-snippet .
+
+## Review attribution and mobile follow-up
+
+- Corrected the review viewport's legacy negative margins and scroll padding. The first card now snaps inside the page gutter instead of beyond the left edge; regression checks measure the actual left edge.
+- Both personal introductions now start with Gude in German and English.
+- Matched all 39 Etsy author names against the public shop review pages. Tördin was confirmed by the owner; Elyadesign remains the explicitly approved profile name. The verified mapping is stored by public review hash in data/review-author-names.json, without buyer account identifiers.
+- Added all three public Google Maps reviews, with original text, first name and a separate Google Maps source link. Nidya's first name was confirmed by the owner. Google only displayed relative dates, so those remain relative and are qualified by the observation date rather than invented exact dates.
+- The archive now contains 42 reviews: 39 from Etsy and three from Google Maps. Platform totals and ratings remain separate. The six homepage excerpts include both sources; no combined average is presented.

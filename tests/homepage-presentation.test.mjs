@@ -5,7 +5,7 @@ import path from 'node:path';
 import {parse} from 'parse5';
 import {renderReference,references} from '../scripts/build-design-reference.mjs';
 import {root,walk,attr,text} from '../scripts/audit-design-system.mjs';
-import {allReviews,originalText} from '../scripts/review-content.mjs';
+import {featuredReviews,originalText} from '../scripts/review-content.mjs';
 for(const reference of references.filter(r=>r.template==='home'))test(reference.route+' has static products, real portraits and one closing workshop photo',()=>{
   const document=parse(renderReference(reference).html),nodes=walk(document);
   const grid=nodes.find(n=>attr(n,'id')==='homepage-products');
@@ -20,6 +20,7 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   const people=nodes.filter(n=>(attr(n,'class')||'').split(' ').includes('homePerson'));
   assert.equal(people.length,2);
   assert.ok(text(people[0]).includes('Özgür'));assert.ok(text(people[1]).includes('Serkan'));
+  for(const person of people)assert.match(text(walk(person).find(n=>n.tagName==='h3')),/^Gude,/);
   for(const person of people){const img=walk(person).find(n=>n.tagName==='img');assert.match(attr(img,'src'),/assets\/team\//);assert.equal(attr(img,'height'),'1199');}
   const workshop=nodes.filter(n=>n.tagName==='img'&&(attr(n,'src')||'').includes('team/oezguer-workshop'));
   assert.equal(workshop.length,1);assert.match(attr(workshop[0].parentNode,'class'),/closingHero/);
@@ -27,9 +28,9 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   const meta=JSON.parse(fs.readFileSync(path.join(root,'data/reviews-meta.json'),'utf8'));
   assert.ok(text(trust).includes(String(meta.ratingCount)));
   assert.ok(attr(trust,'title').includes(meta.lastUpdated));
-  assert.ok(text(nodes.find(n=>attr(n,'data-review-headline')!==undefined)).includes(String(meta.ratingCount)));
+  assert.ok(text(nodes.find(n=>attr(n,'data-review-subline')!==undefined)).includes(String(meta.ratingCount)));
   assert.ok(text(nodes.find(n=>attr(n,'data-review-subline')!==undefined)).includes(String(meta.transactionSoldCount)));
-  const reviews=allReviews().slice(0,6);
+  const reviews=featuredReviews();
   const quotes=nodes.filter(n=>attr(n,'data-review-id'));
   assert.equal(quotes.length,6);
   for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(originalText(review)),'full original review remains available');

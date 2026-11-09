@@ -16,6 +16,9 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       assert.equal(await page.locator('[data-static-reviews] .reviewCard').count(),6);
       const reviews=page.locator('[data-review-viewport]');
       assert.ok(await reviews.evaluate(el=>el.scrollWidth>el.clientWidth),'reviews stay horizontally swipeable');
+      const leftEdge=await reviews.evaluate(el=>({viewport:el.getBoundingClientRect().left,first:el.querySelector('.reviewCard').getBoundingClientRect().left,margin:getComputedStyle(el).marginLeft,scroll:el.scrollLeft}));
+      assert.equal(leftEdge.margin,'0px');assert.ok(leftEdge.first>=leftEdge.viewport-1,'the first review is not clipped on the left');
+      await reviews.scrollIntoViewIfNeeded();await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-reviews.png`});
       const fullReview=page.locator('.reviewCard__full').first();await fullReview.locator('summary').click();
       assert.equal(await fullReview.getAttribute('open'),'');await fullReview.locator('summary').click();
       await page.locator('.homePerson').first().scrollIntoViewIfNeeded();
@@ -39,9 +42,9 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
     }
     for(const width of [375,1440])for(const route of ['/bewertungen/','/en/reviews/']){
       const page=await browser.newPage({javaScriptEnabled:false,viewport:{width,height:844}});
-      await page.goto(base+route);assert.equal(await page.locator('.reviewArchive__item').count(),39);
+      await page.goto(base+route);assert.equal(await page.locator('.reviewArchive__item').count(),42);
       await page.locator('.brand__logo').evaluate(img=>img.decode());
-      assert.equal(await page.locator('.reviewArchive__item blockquote').count(),39);
+      assert.equal(await page.locator('.reviewArchive__item blockquote').count(),42);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
       await page.screenshot({path:`${output}/reviews-${route.includes('/en/')?'en':'de'}-${width}.png`});await page.close();
     }

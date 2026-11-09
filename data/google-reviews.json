@@ -1,0 +1,45 @@
+{
+  "source": "Google Maps",
+  "sourceUrl": "https://www.google.com/maps/place/Edle+H%C3%B6lzer/@50.6516401,8.7369854,17z/data=!3m1!4b1!4m6!3m5!1s0x47bcf59a67f2aa13:0x3470ef474c7b8eda!8m2!3d50.6516401!4d8.7369854!16s%2Fg%2F11wxmtr8d9",
+  "ratingAverage": 5,
+  "ratingCount": 3,
+  "lastUpdated": "2026-11-09",
+  "reviews": [
+    {
+      "id": "google-review-nidya",
+      "reviewerName": "Nidya",
+      "source": "Google Maps",
+      "rating": 5,
+      "dateLabel": "vor einem Jahr",
+      "dateLabelEn": "a year ago",
+      "observedAt": "2026-11-09",
+      "text": "Wir sind absolut begeistert von Edle Hölzer und unserem neuen Schneidebrett! Nachdem wir zuerst über Instagram gechattet haben, folgte ein sehr freundlicher und kompetenter Austausch am Telefon. Am Ende haben wir die Schreinerei persönlich besucht, was wirklich ein Highlight war.\n\nWir haben uns für ein großes Schneidebrett aus Buche mit abstehenden Griffen entschieden – eines für uns und eines für unsere Eltern. Die Qualität ist erstklassig, das Design ein echter Hingucker! Wir nutzen das Brett nicht nur in der Küche, sondern auch als Servierbrett, zuletzt an Weihnachten. Unsere Gäste waren mehr als begeistert!\n\nVielen Dank an das Team von Edle Hölzer für die tolle Beratung und die herausragende Handwerkskunst. Wir kommen definitiv wieder!",
+      "product": "Schneidebrett aus Buche mit Griffen",
+      "needsReview": false
+    },
+    {
+      "id": "google-review-rebekka",
+      "reviewerName": "Rebekka",
+      "source": "Google Maps",
+      "rating": 5,
+      "dateLabel": "vor einem Jahr",
+      "dateLabelEn": "a year ago",
+      "observedAt": "2026-11-09",
+      "text": "Sehr sehr nette Beratung und tolle Auswahl. Die Bretter sind wirklich mit Liebe und ganz viel handwerklicher Kunst gefertigt. Kann jedem nur ein Brett ans Herz legen. Ich habe meins als Geschenk gekauft und es kam wahnsinnig gut an. Ist natürlich auch toll, wenn 200 Jahre alte Balken nochmal eine neue Verwendung finden. Wahre Kunst! Vielen Dank! Und unbedingt die Werkstatt besuchen, das ist absolut sehenswert.",
+      "product": "Schneidebrett als Geschenk",
+      "needsReview": false
+    },
+    {
+      "id": "google-review-goekhan",
+      "reviewerName": "Gökhan",
+      "source": "Google Maps",
+      "rating": 5,
+      "dateLabel": "vor einem Jahr",
+      "dateLabelEn": "a year ago",
+      "observedAt": "2026-11-09",
+      "text": "Top Produkte, kann ich nur empfehlen.",
+      "product": "Produkte von Edle Hölzer",
+      "needsReview": false
+    }
+  ]
+}
