@@ -1,11 +1,11 @@
 const fs=require('node:fs'),http=require('node:http'),path=require('node:path'),assert=require('node:assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
-const root=process.env.DESIGN_BUILD||'/tmp/edle-revision-a-build',output='/tmp/edle-audit-followup';fs.mkdirSync(output,{recursive:true});
+const playwright=require(process.env.PLAYWRIGHT_MODULE||'playwright'),engine=process.env.BROWSER_ENGINE||'chromium';
+const root=process.env.DESIGN_BUILD||'/tmp/edle-revision-a-build',output='/tmp/edle-audit-followup'+(engine==='chromium'?'':'-'+engine);fs.mkdirSync(output,{recursive:true});
 const types={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.webp':'image/webp','.jpg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,'http://localhost').pathname);if(fs.existsSync(f)&&fs.statSync(f).isDirectory())f=path.join(f,'index.html');if(!fs.existsSync(f)){res.writeHead(404);return res.end();}res.setHeader('Content-Type',types[path.extname(f)]||'application/octet-stream');fs.createReadStream(f).pipe(res);});
 (async()=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-  const base='http://127.0.0.1:'+server.address().port,browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH});
+  const base='http://127.0.0.1:'+server.address().port,browser=await playwright[engine].launch(engine==='chromium'?{executablePath:process.env.CHROMIUM_PATH}:{});
   const product=require('../products.json').products.find(p=>p.listingId==='1776273564');
   const routes=['/','/en/','/presse/','/pflege.html','/en/care.html','/schneidebrett-aufbereiten/','/en/refurbishment/','/handgefertigte-holzprodukte-fuer-unternehmen/','/schneidebretter-aus-holz-gastronomie/','/en/wooden-cutting-boards-for-restaurants/',product.productPath,'/en'+product.productPath];
   const results=[];

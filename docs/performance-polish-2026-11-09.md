@@ -68,3 +68,10 @@ Preis-, DNS- oder Rechtstext-Eingriff in dieser Runde.
   Aenderung an den Erkennungsalgorithmen.
 - 150 Seiten ohne fehlende interne Ziele oder Fragmente; 147 indexierbare
   Sitemap-Seiten mit korrekten Kanonischen URLs.
+- Zusaetzlich WebKit 26.5: Startseiten bei allen vier Breiten sowie 24 Ansichten
+  der Audit-Seiten bestanden. Preisraster, Portraets, Details, Navigation,
+  Formulare und Kaufleiste damit auch Safari-nah getestet. Das ist keine
+  physische iPhone-Abnahme und keine Messung realer Mobilfunk-Ladezeiten.
+- Browserpruefungen lassen sich mit `BROWSER_ENGINE=webkit` wiederholen;
+  Chromium bleibt Standard. Der Medienaudit ignoriert installierte
+  `node_modules` statt Abhaengigkeiten als Website-Inhalte zu durchsuchen.
