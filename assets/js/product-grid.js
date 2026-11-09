@@ -32,7 +32,8 @@
       return;
     }
 
-    container.innerHTML = '<p class="productGridEmpty">' + (document.documentElement.lang === 'en' ? 'Loading products.' : 'Produkte werden geladen.') + '</p>';
+    var hasStaticCards = container.hasAttribute('data-static-products') && container.querySelector('.productCard');
+    if (!hasStaticCards) container.innerHTML = '<p class="productGridEmpty">' + (document.documentElement.lang === 'en' ? 'Loading products.' : 'Produkte werden geladen.') + '</p>';
 
     loadProducts()
       .then(function (products) {
@@ -66,7 +67,7 @@
       })
       .catch(function (error) {
         console.warn("[Edle Hölzer] Landingpage-Produkte konnten nicht geladen werden:", error);
-        renderFallback(container);
+        if (!hasStaticCards) renderFallback(container);
       });
   }
 
@@ -263,6 +264,7 @@
 
   function displayPriceLabel(product) {
     return String(product && product.priceLabel ? product.priceLabel : "")
+      .replace(/^ab\s+/i, document.documentElement.lang === 'en' ? 'from ' : 'ab ')
       .replace(/\s*EUR\b/g, " €")
       .replace(/\s{2,}/g, " ")
       .trim();
@@ -421,5 +423,6 @@
   }
 
   window.renderProductGrid = renderProductGrid;
+  window.EdleProductCards = { render: renderCard };
   window.productGridHasMinimumBoardSize = hasMinimumBoardSize;
 })();

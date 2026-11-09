@@ -1048,7 +1048,7 @@ function initCardWelcome() {
 }
 
 function initReviewTrustStrips() {
-  var roots = Array.prototype.slice.call(document.querySelectorAll("[data-review-trust-strip]"));
+  var roots = Array.prototype.slice.call(document.querySelectorAll("[data-review-trust-strip]")).filter(function (root) { return !root.hasAttribute('data-static-reviews'); });
 
   if (!roots.length || !window.fetch) {
     return;
