@@ -7,11 +7,20 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const base='http://127.0.0.1:'+server.address().port;
   const browser=await playwright[engine].launch(engine==='chromium'?{executablePath:process.env.CHROMIUM_PATH}:{});const metrics=[];
   try{
-    for(const width of [375,430,768,1440])for(const lang of ['','en/']){
+    for(const width of [320,375,430,768,1440])for(const lang of ['','en/']){
       const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'}),errors=[];
       page.on('pageerror',e=>errors.push(e.message));await page.goto(base+'/'+lang,{waitUntil:'domcontentloaded'});
       await page.locator('[data-consent-necessary]').click();await page.evaluate(()=>document.fonts.ready);
       await page.locator('#homepage-products .productCard').nth(3).waitFor();
+      await page.locator('.siteSearchLink').waitFor();
+      const languageLink=page.locator('.topbar__right .lang a').filter({hasText:lang?'DE':'EN'});
+      assert.ok(await languageLink.isVisible());
+      assert.equal(await languageLink.getAttribute('href'),lang?'/':'/en/');
+      assert.equal(await page.locator('.mobileMenu__lang').count(),0);
+      const header=await page.locator('.topbar__inner').evaluate(el=>['.menuButton','.brand','.lang a:not(.is-active)','.siteSearchLink'].map(selector=>{const box=el.querySelector(selector).getBoundingClientRect();return {selector,left:box.left,right:box.right,top:box.top,bottom:box.bottom,width:box.width,height:box.height};}).filter(b=>b.width));
+      for(const box of header)assert.ok(box.left>=0&&box.right<=width,JSON.stringify(header));
+      for(let i=0;i<header.length;i++)for(let j=i+1;j<header.length;j++)assert.ok(header[i].right<=header[j].left+1||header[j].right<=header[i].left+1,'header controls never overlap: '+JSON.stringify(header));
+      if(width<=760){const logo=header.find(b=>b.selector==='.brand');assert.ok(Math.abs((logo.left+logo.right)/2-width/2)<2,'logo stays centred');}
       const cardLayout=await page.locator('#homepage-products .productCard').evaluateAll(cards=>cards.map(card=>({inventory:card.querySelector('.productCard__inventory').getBoundingClientRect().bottom,price:card.querySelector('.productCard__price').getBoundingClientRect().top})));
       for(const box of cardLayout)assert.ok(box.price>=box.inventory+7,'inventory text never overlaps the price');
       if(width<=760||width>=1200)assert.ok(Math.max(...cardLayout.map(b=>b.price))-Math.min(...cardLayout.map(b=>b.price))<2,'prices align across the homepage row');
@@ -46,11 +55,8 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       const photo=page.locator('.closingHero>img');await photo.scrollIntoViewIfNeeded();await photo.evaluate(img=>img.decode());
       await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-closing.png`});
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
-      if(lang){
-        const background=page.locator('.homePerson__more').first(),id=await background.getAttribute('id');
-        const button=page.locator('button[aria-controls="'+id+'"]');await button.click();assert.equal(await background.getAttribute('open'),'');await button.click();
-        const topic=page.locator('.homeTopic').first();await topic.locator('summary').click();assert.equal(await topic.getAttribute('open'),'');await topic.locator('summary').click();
-      }
+      assert.equal(await page.locator('.homepageTrustBar,.homeTopic').count(),0);
+      assert.ok((await page.locator('[data-review-subline]').textContent()).includes(String(require('../data/reviews-meta.json').transactionSoldCount)),'visible sales count uses the shared metadata');
       assert.deepEqual(errors,[]);metrics.push({width,lang,height:await page.evaluate(()=>document.documentElement.scrollHeight)});await page.close();
     }
     for(const javaScriptEnabled of [false,true])for(const lang of ['','en/']){

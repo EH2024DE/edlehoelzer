@@ -5,7 +5,7 @@
     var checked=Date.parse(product.inventoryCheckedAt||''),age=(now===undefined?Date.now():now)-checked;
     if(!Number.isFinite(checked)||age<0||age>7*86400000||!Number.isInteger(product.stock))return en?'Check current stock on Etsy':'Aktuellen Bestand bei Etsy prüfen';
     var date=product.inventoryCheckedAt.slice(0,10),single=product.stock===1;
-    return (en?'Etsy stock: ':'Etsy-Bestand: ')+product.stock+(en?(single?' piece':' pieces'):(single?' Exemplar':' Exemplare'))+' · '+(en?'as of ':'Stand ')+date;
+    return (en?'Total Etsy stock: ':'Etsy-Gesamtbestand: ')+product.stock+(en?(single?' piece':' pieces'):(single?' Exemplar':' Exemplare'))+' · '+(en?'as of ':'Stand ')+date;
   }
   var api={inventoryText:inventoryText};
   if(typeof module==='object'&&module.exports)module.exports=api;

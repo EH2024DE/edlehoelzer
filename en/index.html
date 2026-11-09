@@ -30,327 +30,197 @@
 <header class="topbar">
   <div class="container topbar__inner">
     <button class="menuButton" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-    <a href="/" class="brand" aria-label="Edle Hölzer home">
-      <img src="../assets/logo.png" alt="Edle Hölzer Logo mit Holzmaserung als Link zur Startseite" class="brand__logo" width="756" height="756">
+    <a href="/en/" class="brand" aria-label="Edle Hölzer home">
+      <img src="../assets/logo.png" alt="Edle Hölzer wood-grain logo linking to the home page" class="brand__logo" width="756" height="756">
       <span class="brand__text">Edle Hölzer</span>
     </a>
     <div class="topbar__right">
       <div class="lang"><a href="/">DE</a><a href="/en/" class="is-active">EN</a></div>
-      <a href="/en/products.html#product-finder" class="btn btn--small">Find a board</a>
+      <a href="/en/products.html#product-finder" class="btn btn--small" data-umami-event="produktfinder-gestartet">Board finder</a>
     </div>
   </div>
-  <nav class="mobileMenu" id="mobileMenu">
+  <nav class="mobileMenu" id="mobileMenu" aria-label="Main navigation">
     <div class="mobileMenu__head">
       <div class="mobileMenu__lang"><a href="/">DE</a><a href="/en/" class="is-active">EN</a></div>
       <button class="mobileMenu__close" id="menuCloseButton" aria-label="Close menu">×</button>
     </div>
-    <a href="/en/knife-friendly-cutting-board/">Cutting boards</a>
-    <a href="/en/products.html#product-finder">Board finder</a>
-    <a href="/en/care.html">Care</a>
-    <a href="/en/#workshop">About</a>
-    <a href="mailto:info@edlehoelzer.de?subject=B2B%20gift%20inquiry" data-umami-event="email-kontakt">B2B</a>
-    <a href="/en/erbstueck/" class="mobileMenu__featured">Erbstück Series</a>
-    <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="You are leaving for the Edle Hölzer Etsy shop" data-umami-event="etsy-klick" data-umami-event-seite="index">Shop → Etsy</a>
+    <div class="mobileMenu__primary">
+      <a href="/en/products.html#products-grid">Products</a>
+      <a href="/atelier/" class="mobileMenu__featured" lang="de">Atelier (DE)</a>
+      <a href="/en/erbstueck/">Erbstück</a>
+      <a href="/en/#customwork">Custom work</a>
+      <a href="/en/#about">About us</a>
+    </div>
+    <a href="/en/products.html#product-finder" class="mobileMenu__finder btn btn--emphasis" data-umami-event="produktfinder-gestartet">Start board finder</a>
+    <details class="mobileMenu__discover">
+      <summary>Discover</summary>
+      <div>
+        <a href="/en/care.html">Care &amp; refurbishment</a>
+        <a href="/hochwertige-geschenke-holz/" lang="de">Gifts (DE)</a>
+        <a href="/handgefertigte-holzprodukte-fuer-unternehmen/" lang="de" data-umami-event="b2b-interesse">Corporate gifts (DE)</a>
+        <a href="/sitemap-uebersicht.html#english-topics">All topics &amp; guides</a>
+      </div>
+    </details>
+    <a class="mobileMenu__shop" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="You are leaving for the Edle Hölzer shop" data-umami-event="etsy-klick">Shop</a>
   </nav>
   <div class="menuBackdrop" id="menuBackdrop"></div>
 </header>
 
-<main>
+<main class="homepageRefined">
   <section id="hero" class="hero">
-    <video id="heroVideo" class="hero__video" autoplay muted loop playsinline preload="none" poster="/assets/hero_intro_video_edle_hoelzer_poster.webp" data-hero-video data-src="/assets/hero_intro_video_edle_hoelzer.mp4" aria-label="Edle Hölzer workshop video"></video>
+    <video id="heroVideo" class="hero__video" muted loop playsinline preload="none" poster="/assets/hero_intro_video_edle_hoelzer_poster.webp" data-hero-video data-autoplay="manual" data-src="/assets/hero_intro_video_edle_hoelzer.mp4" aria-label="Edle Hölzer workshop video"></video>
     <div class="hero__overlay"></div>
     <button class="hero__videoToggle" type="button" data-hero-video-toggle aria-controls="heroVideo" aria-label="Play hero video" data-label-play="Play hero video" data-label-pause="Pause hero video">
       <span class="hero__videoToggleIcon" aria-hidden="true"></span>
     </button>
     <div class="container hero__content">
       <div class="hero__copy">
-        <h1>Selected wood. Built for your kitchen.</h1>
+        <h1>Solid wood cutting boards. Made for years.</h1>
+        <p class="hero__supportingCopy">Handcrafted in Central Hesse. Find the board that suits your kitchen, your everyday life and the way you cook.</p>
         <div class="hero__actions">
-          <a href="/en/products.html#product-finder" class="btn btn--emphasis">Start board finder</a>
-          <a href="/en/products.html#products-grid" class="btn btn--ghost">All products</a>
+          <a href="/en/products.html#product-finder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Find the right board</a>
+          <a href="/en/products.html#products-grid" class="btn btn--ghost">View the collection</a>
         </div>
         <p class="hero__finderHint">Find the right board in 5 questions.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section--white homepageRefined homepageProducts reveal-on-scroll" aria-labelledby="homepage-products-title">
+  <section class="section section--white homepageProducts reveal-on-scroll" aria-labelledby="homepage-products-title">
+    <span id="find-your-board"></span>
     <div class="container">
       <div class="sectionIntro sectionIntro--split">
         <div>
           <p class="eyebrow eyebrow--dark">Available now</p>
           <h2 id="homepage-products-title">Four boards. Four distinct characters.</h2>
         </div>
-        <p>From subtle grain to striking end grain. Discover selected boards for everyday use.</p>
+        <p>From subtle grain to striking end grain. Discover selected pieces for everyday use.</p>
       </div>
       <div id="homepage-products" class="landingProductGrid homepageProductGrid" aria-live="polite" aria-label="Browse available products" tabindex="0"></div>
-      <div class="ctaRow homepageProducts__actions">
-        <a href="/en/products.html#product-finder" class="btn btn--ghost-dark">Find the right board</a>
+      <div class="ctaRow homepageProducts__actions" id="product-finder-start">
+        <a href="/en/products.html#product-finder" class="btn btn--ghost-dark" data-umami-event="produktfinder-gestartet">Find the right board</a>
         <a href="/en/products.html#products-grid" class="walnutTextLink">View the collection</a>
       </div>
     </div>
   </section>
 
-  <section class="homepageTrustBar" aria-label="Trust in Edle Hölzer">
-    <div class="container homepageTrustBar__grid">
-      <p><strong>5.0 stars</strong><span>from 39 Etsy reviews</span></p>
-      <p><strong>76 sales</strong><span>through our Etsy shop</span></p>
-      <p><strong>14 countries</strong><span>already supplied</span></p>
-      <p><strong>Individually checked</strong><span>before every dispatch</span></p>
+  <section class="roomDiscovery" id="your-board-your-kitchen" aria-labelledby="room-discovery-title">
+    <div class="container roomDiscovery__layout">
+      <div>
+        <p class="roomEyebrow">Your kitchen. Your benchmark.</p>
+        <h2 id="room-discovery-title">See your board<br>in your kitchen.</h2>
+        <p>Have a board in mind? See how its size and wood look in your kitchen. All you need is a photo of your worktop with a sheet of A4 paper.</p>
+        <button type="button" class="btn roomDiscovery__cta" data-kitchen-preview="">See the board in my kitchen</button>
+        <p class="roomDisclosure">Your photo stays on your device. A visual guide, not an exact measurement or a colour-accurate preview.</p>
+      </div>
+      <figure>
+        <img src="/assets/kitchen-preview-example.jpg" alt="Kitchen worktop with a sheet of A4 paper lying flat, its long edge parallel to the front edge of the worktop" width="1300" height="1024" loading="lazy">
+        <figcaption>An example of a suitable starting photo.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--sand materialProofBlock reveal-on-scroll">
+    <span id="material-proof-en"></span>
+    <div class="container">
+      <div class="sectionIntro">
+        <p class="eyebrow eyebrow--dark">Why Edle Hölzer</p>
+        <h2>Quality wood. Made for everyday life.</h2>
+      </div>
+      <div class="materialProofGrid materialProofGrid--three">
+        <article class="proofCard"><strong>Material</strong><p>Solid wood, each piece selected for its grain and suitability.</p></article>
+        <article class="proofCard"><strong>Craftsmanship</strong><p>Each piece worked individually. Edges, surface and feel checked before dispatch.</p></article>
+        <article class="proofCard"><strong>Lasting value</strong><p>Made to be cared for and, if the wood is in suitable condition, refurbished in our workshop.</p></article>
+      </div>
     </div>
   </section>
 
   <section class="erbstueckFeature reveal-on-scroll" aria-labelledby="erbstueck-feature-title">
     <figure class="erbstueckFeature__media">
-      <img src="/assets/Erbstueck.jpg" alt="Numbered Erbstück cutting board made from historic timber in the workshop" width="1588" height="1059" loading="lazy" decoding="async">
+      <img src="/assets/Erbstueck.jpg" alt="Erbstück cutting board made from historic wood in the workshop" width="1588" height="1059" loading="lazy" decoding="async">
     </figure>
     <div class="erbstueckFeature__shade" aria-hidden="true"></div>
     <div class="container erbstueckFeature__stage">
       <div class="erbstueckFeature__copy">
-        <p class="eyebrow">Erbstück series · numbered one-offs</p>
-        <h2 id="erbstueck-feature-title">Not always available. Never repeatable. Only when the timber allows it.</h2>
-        <p class="erbstueckFeature__lead">Historic timber becomes a numbered piece for everyday use – only when the material, its condition and the intended use belong together.</p>
-        <ul class="erbstueckFeature__facts" aria-label="Erbstück series characteristics">
-          <li>Historic timber</li>
-          <li>Every piece numbered</li>
-          <li>Made as material allows</li>
-        </ul>
+        <p class="eyebrow">Erbstück series · numbered one-of-a-kind pieces</p>
+        <h2 id="erbstueck-feature-title">Wood with a history.<br>For your everyday life.</h2>
+        <p class="erbstueckFeature__lead">Historic wood becomes a numbered, one-of-a-kind piece for everyday use – only when the material, condition and intended use are a good match.</p>
         <div class="erbstueckFeature__actions">
-          <a href="mailto:info@edlehoelzer.de?subject=Erbst%C3%BCck%20inquiry" class="btn btn--emphasis" data-umami-event="email-kontakt">Enquire about an Erbstück</a>
-          <a href="/en/erbstueck/" class="erbstueckFeature__link">Discover the series</a>
+          <a href="/en/erbstueck/" class="erbstueckFeature__link">Explore the series</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="reviews" class="reviewTrust section reveal-on-scroll" data-review-trust-strip data-reviews-src="/data/reviews-en.json?v=20260726-review-photos">
+  <section id="reviews" class="reviewTrust section reveal-on-scroll" data-review-trust-strip data-review-selection="etsy-review-20260914-eiche,etsy-review-202606-heike-service" data-review-compact>
+    <span id="etsy-trust"></span>
     <div class="container">
       <div class="reviewTrust__head">
         <p class="eyebrow eyebrow--dark">Customer reviews</p>
         <h2 data-review-headline>5.0 stars from 39 Etsy reviews</h2>
-        <p data-review-subline>76 sales and genuine feedback from people who already use our products or have given them as gifts.</p>
+        <p data-review-subline>Customer reviews on Etsy · Delivered to 14 countries.</p>
       </div>
-      <div class="reviewTrust__viewport" data-review-viewport tabindex="0" aria-label="Scroll Etsy reviews horizontally">
+      <div class="reviewTrust__viewport" data-review-viewport aria-label="Selected Etsy reviews">
         <div class="reviewTrust__track" data-review-track>
           <article class="reviewCard">
             <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="reviewCard__text">“Excellent customer service, high-quality and unusual/customized products. I am delighted and would gladly buy again anytime!”</p>
-            <p class="reviewCard__meta">Heike · June 2026 · Custom wooden piece</p>
+            <p class="reviewCard__text" lang="de">„Ein wirklich hochwertiges Schneidebrett und ein unglaublich guter Service.“</p>
+            <p class="reviewCard__meta">Eva · September 2026 · Oak end grain</p>
           </article>
           <article class="reviewCard">
             <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="reviewCard__text">“For my baking projects I wanted a tool that was not made of plastic, but something special in wood. The dough scraper fully met my expectations.”</p>
-            <p class="reviewCard__meta">Nick · May 2026 · Wooden dough scraper</p>
-          </article>
-          <article class="reviewCard">
-            <div class="reviewCard__stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <p class="reviewCard__text">“Everything was great. It is good to work with.”</p>
-            <p class="reviewCard__meta">Marc · June 2026 · Wooden spatula</p>
+            <p class="reviewCard__text" lang="de">„Exzellenter Kundenservice, hochwertige und ausgefallene/individualisierte Ware. Ich bin hocherfreut und kaufe jederzeit wieder gerne!“</p>
+            <p class="reviewCard__meta">Heike · June 2026 · Custom woodwork</p>
           </article>
         </div>
       </div>
-      <a class="reviewTrust__link" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-review-source-link data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="You are leaving for the Edle Hölzer Etsy shop" data-umami-event="etsy-klick" data-umami-event-seite="index">See all reviews on Etsy</a>
+      <a class="reviewTrust__link" href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-review-source-link data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-etsy-link title="You are leaving for the Edle Hölzer Etsy shop" data-umami-event="etsy-klick" data-umami-event-seite="index">View all reviews on Etsy</a>
     </div>
   </section>
+
 
   <section id="about" class="section section--white reveal-on-scroll">
-    <div class="container container--narrow"><p class="eyebrow eyebrow--dark">About</p><h2>Who is behind it.</h2><p class="section__lead">Edle Hölzer grew out of the shared passion of Özgür and Serkan for honest craftsmanship, strong materials and thoughtful design. What started in a small workshop has grown into a workshop-based brand with a clear standard: durable wood products, cleanly made and free of unnecessary show.</p></div>
-    <div class="container storyGrid">
-      <article class="homePerson"><img src="/assets/team/oezguer-480.webp" srcset="/assets/team/oezguer-480.webp 480w, /assets/team/oezguer-800.webp 800w" sizes="(max-width: 760px) 38vw, 240px" alt="Özgür holding an oak end-grain cutting board in the workshop" width="800" height="1199" loading="lazy" decoding="async"><div><h3>Gude, I'm Özgür.</h3><p>I am the founder of Edle Hölzer, a craftsman for around 20 years, and responsible for design, wood selection and production.</p><p>In central Germany, I make cutting boards from oak, walnut, reclaimed timber and other carefully selected woods – traditionally and deliberately without CNC.</p><p>Every board is made by hand with precision. It should last, carry character and never feel like an anonymous mass-produced object.</p></div></article>
-      <article class="homePerson"><img src="/assets/team/serkan-480.webp" srcset="/assets/team/serkan-480.webp 480w, /assets/team/serkan-800.webp 800w" sizes="(max-width: 760px) 38vw, 240px" alt="Serkan holding a solid wood cutting board in the workshop" width="800" height="1199" loading="lazy" decoding="async"><div><h3>Gude, I'm Serkan.</h3><p>I am an engineer, hobby photographer and responsible for the online presence of Edle Hölzer.</p><p>My role is to make Özgür's craftsmanship visible through photography, video and a clear presentation of what stands behind the work.</p><p>I am not interested in artificial marketing. I care about showing regional woods, real joinery and durable design in a way that feels honest, high-quality and understandable.</p></div></article>
-    </div>
-  </section>
-
-  <section class="section section--white deliveryMap reveal-on-scroll" aria-labelledby="delivery-map-title">
-    <div class="container deliveryMap__layout">
-      <div class="deliveryMap__copy">
-        <p class="eyebrow eyebrow--dark">From Central Hesse across Europe</p>
-        <h2 id="delivery-map-title">Made in Central Hesse. At home across Europe.</h2>
-        <p class="section__lead">Boards and kitchen tools from our workshop have already found a place in fourteen countries across Europe. Each symbol represents a piece by Edle Hölzer that arrived there.</p>
-      </div>
-      <div class="deliveryMap__visual" aria-label="Map of Europe with countries delivered to">
-        <img src="/assets/europe-country-outlines.svg" alt="" width="800" height="600" loading="lazy">
-        <button class="deliveryMap__marker" style="--map-x:46.2%;--map-y:37.3%" type="button" aria-label="Germany"><span>Germany</span></button>
-        <button class="deliveryMap__marker" style="--map-x:18%;--map-y:29.9%" type="button" aria-label="Ireland"><span>Ireland</span></button>
-        <button class="deliveryMap__marker" style="--map-x:26.7%;--map-y:26.1%" type="button" aria-label="United Kingdom"><span>United Kingdom</span></button>
-        <button class="deliveryMap__marker" style="--map-x:33.7%;--map-y:52.3%" type="button" aria-label="France"><span>France</span></button>
-        <button class="deliveryMap__marker" style="--map-x:52.1%;--map-y:79.8%" type="button" aria-label="Malta"><span>Malta</span></button>
-        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:80.1%;--map-y:81.8%" type="button" aria-label="Cyprus"><span>Cyprus</span></button>
-        <button class="deliveryMap__marker" style="--map-x:44.7%;--map-y:20.9%" type="button" aria-label="Denmark"><span>Denmark</span></button>
-        <button class="deliveryMap__marker" style="--map-x:40.6%;--map-y:33.1%" type="button" aria-label="Netherlands"><span>Netherlands</span></button>
-        <button class="deliveryMap__marker" style="--map-x:57.9%;--map-y:36.4%" type="button" aria-label="Poland"><span>Poland</span></button>
-        <button class="deliveryMap__marker" style="--map-x:54.8%;--map-y:10.8%" type="button" aria-label="Sweden"><span>Sweden</span></button>
-        <button class="deliveryMap__marker" style="--map-x:45.6%;--map-y:8.8%" type="button" aria-label="Norway"><span>Norway</span></button>
-        <button class="deliveryMap__marker" style="--map-x:50.7%;--map-y:47.5%" type="button" aria-label="Austria"><span>Austria</span></button>
-        <button class="deliveryMap__marker" style="--map-x:54.5%;--map-y:54%" type="button" aria-label="Slovenia"><span>Slovenia</span></button>
-        <button class="deliveryMap__marker deliveryMap__marker--left" style="--map-x:83.4%;--map-y:72%" type="button" aria-label="Türkiye"><span>Türkiye</span></button>
-      </div>
-    </div>
-  </section>
-
-  <section id="find-your-board" class="section section--sand reveal-on-scroll">
+    <span id="workshop"></span>
     <div class="container">
-      <div class="sectionIntro">
-        <p class="eyebrow eyebrow--dark">Orientation</p>
-        <h2>What will you use it for?</h2>
-        <p class="section__lead">Start with the use case, not the wood species. This makes it clearer whether an available product, a custom inquiry or an Erbstück piece is the right next step.</p>
+      <div class="sectionIntro"><p class="eyebrow eyebrow--dark">About us</p><h2>The people behind the craft.</h2></div>
+      <div class="homePeople">
+        <article class="homePerson"><img src="/assets/team/oezguer-480.webp" srcset="/assets/team/oezguer-480.webp 480w, /assets/team/oezguer-800.webp 800w" sizes="(max-width: 760px) 38vw, 240px" alt="Özgür holding an oak end-grain board in the workshop" width="800" height="1199" loading="lazy" decoding="async"><div><h3>Gude, I'm Özgür.</h3><p>I founded Edle Hölzer, have worked in skilled crafts for around 20 years and am responsible for design, wood selection and production.</p><p>In our workshop in Central Hesse, we make our boards by hand using traditional methods, deliberately without CNC.</p></div></article>
+        <article class="homePerson"><img src="/assets/team/serkan-480.webp" srcset="/assets/team/serkan-480.webp 480w, /assets/team/serkan-800.webp 800w" sizes="(max-width: 760px) 38vw, 240px" alt="Serkan holding a solid wood cutting board in the workshop" width="800" height="1199" loading="lazy" decoding="async"><div><h3>Gude, I'm Serkan.</h3><p>I'm an engineer and amateur photographer, responsible for the online presence of Edle Hölzer.</p><p>Through photography and video, I bring Özgür's craftsmanship, the materials and the details of our work into view.</p></div></article>
       </div>
-      <div class="premiumCardGrid">
-        <a class="premiumCard" href="/en/snack-board/" aria-label="View pieces for breakfast and bread"><strong>Breakfast &amp; bread</strong><span>Bread, butter, coffee and wood: a small moment that returns every day.</span><span class="premiumCard__link">View breakfast pieces</span></a>
-        <a class="premiumCard" href="/en/products.html#products-grid" aria-label="View boards for daily cooking"><strong>Daily cooking</strong><span>A board that lies steadily, follows the knife and can stay on the worktop.</span><span class="premiumCard__link">View cooking pieces</span></a>
-        <a class="premiumCard" href="/en/cutting-board-juice-groove/" aria-label="View boards for grill serving"><strong>Serving at the grill</strong><span>Surface, weight and juice groove for the moment after grilling.</span><span class="premiumCard__link">Understand grooves</span></a>
-        <a class="premiumCard" href="/en/erbstueck/" aria-label="Find a visible wood gift"><strong>A visible gift</strong><span>A piece that is used, cared for and remembered longer than a voucher.</span><span class="premiumCard__link">View gifts</span></a>
-        <a class="premiumCard" href="/en/#customwork" aria-label="Request custom work"><strong>Custom work</strong><span>When place, size and use matter more than standard dimensions.</span><span class="premiumCard__link">Request custom work</span></a>
-        <a class="premiumCard" href="/en/care.html" aria-label="View wood care and refurbishment"><strong>Care &amp; passing on</strong><span>Oil, refresh, restore: wood may stay when it is treated properly.</span><span class="premiumCard__link">View care</span></a>
+      <div class="homeEditorialLinks"><a href="/presse/" class="textLink">Our story</a><a href="/schneidebrett-made-in-germany/" class="textLink">See how we make our boards</a></div>
+    </div>
+  </section>
+
+  <section class="section refurbishmentFeature reveal-on-scroll" aria-labelledby="refurbishment-feature-title">
+    <span id="restoration"></span>
+    <div class="container refurbishmentFeature__grid">
+      <div class="refurbishmentFeature__copy">
+        <p class="eyebrow eyebrow--dark">Refurbishment service</p>
+        <h2 id="refurbishment-feature-title">Made for years.<br>Refurbished for more.</h2>
+        <p class="refurbishmentFeature__lead">Signs of use are part of the story. If the wood is sound, we refresh your board in our workshop with sanding and a new finish.</p>
+        <a href="/en/refurbishment/#refurbishment-service" class="textLink" data-umami-event="refurbishment_inquiry_start" data-umami-event-source-page="index">Have your board assessed for refurbishment</a>
+      </div>
+      <div class="refurbishmentFeature__visual" aria-label="Cutting board before and after refurbishment">
+        <figure>
+          <img src="/assets/schneidebrett-aufbereiten-vorher-trocken-verkratzt.jpg" alt="Dry, heavily scratched cutting board before refurbishment" width="1170" height="1740" loading="lazy" decoding="async">
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/holzbrett-restaurieren-nachher-gepflegte-oberflaeche-1200.jpg" alt="Smoothed and freshly treated wood surface after refurbishment" width="806" height="1200" loading="lazy" decoding="async">
+          <figcaption>After</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <section id="product-finder-start" class="section section--white homepageConversion reveal-on-scroll">
-    <div class="container homepageConversion__inner">
-      <div>
-        <p class="eyebrow eyebrow--dark">Board finder</p>
-        <h2>Find the wooden piece that fits your everyday rhythm.</h2>
-        <p class="section__lead">Whether it is for breakfast, cooking, grilling, gifting or care: the finder starts with the moment and then points to suitable products.</p>
-      </div>
-      <div class="homepageConversion__actions">
-        <a href="/en/products.html#product-finder" class="btn btn--emphasis">Find a board</a>
-        <a href="/en/products.html#products-grid" class="textLink">View all products</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="lead-paths" class="section section--sand reveal-on-scroll">
-    <div class="container">
-      <div class="sectionIntro">
-        <p class="eyebrow eyebrow--dark">Inquiries</p>
-        <h2>Not every board starts in the shop.</h2>
-        <p class="section__lead">Some pieces begin with a specific size, an engraving, an occasion or a company idea. In those cases, an inquiry is often more useful than a direct purchase.</p>
-      </div>
-      <div class="premiumCardGrid premiumCardGrid--three">
-        <a class="premiumCard" href="/en/#customwork" aria-label="Request custom board"><strong>Custom board</strong><span>When size, wood or use does not fit a standard format.</span><span class="premiumCard__link">Request custom board</span></a>
-        <a class="premiumCard" href="/en/#b2b" aria-label="Request business gift"><strong>Corporate gifts</strong><span>For companies that do not want another forgettable branded item.</span><span class="premiumCard__link">Request business gift</span></a>
-        <a class="premiumCard" href="/en/erbstueck/" aria-label="View Erbstück"><strong>Erbstück series</strong><span>Historic timber, limited by the material and made only on request.</span><span class="premiumCard__link">View Erbstück</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section id="etsy-trust" class="section section--white homepageConversion reveal-on-scroll">
-    <div class="container homepageConversion__inner">
-      <div>
-        <p class="eyebrow eyebrow--dark">Etsy</p>
-        <h2>Checkout happens on Etsy. The experience starts here.</h2>
-        <p class="section__lead">You can explore, compare and understand the products on edlehoelzer.de. Checkout remains on Etsy, with reviews, buyer protection and familiar payment options.</p>
-      </div>
-      <div class="homepageConversion__actions">
-        <a href="https://edlehoelzervonkoc.etsy.com" class="btn" target="_blank" rel="noopener" data-etsy-link title="You are leaving for the Edle Hölzer Etsy shop" data-umami-event="etsy-klick" data-umami-event-seite="index">View Etsy shop</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section ownershipMoment reveal-on-scroll">
-    <div class="container">
-      <div class="sectionIntro">
-        <p class="eyebrow eyebrow--dark">In use</p>
-        <h2>Companions for recurring moments.</h2>
-        <p class="ownershipMoment__lead">A good wooden piece is not put away because it gets in the way. It stays visible, is used, cared for and becomes more familiar with every mark.</p>
-      </div>
-      <div class="premiumCardGrid">
-        <article class="premiumCard"><strong>In the morning</strong><span>Bread, coffee, a knife and a surface that does not feel disposable.</span></article>
-        <article class="premiumCard"><strong>In the evening</strong><span>Vegetables, cheese, bread or a shared meal at the table.</span></article>
-        <article class="premiumCard"><strong>On the weekend</strong><span>Grill, steak, salt and a board that carries the moment.</span></article>
-      </div>
-      <div class="ctaRow"><a href="/en/products.html#product-finder" class="btn btn--emphasis">Find a board</a></div>
-    </div>
-  </section>
-
-  <section id="material-proof-en" class="section section--white materialProofBlock reveal-on-scroll">
-    <div class="container">
-      <div class="sectionIntro">
-        <p class="eyebrow eyebrow--dark">Proof over claim</p>
-        <h2>Why you feel the difference</h2>
-        <p class="section__lead materialProofBlock__lead">Breakfast, cooking or grilling feel different when weight, edge and surface are right. The wooden piece is not decoration. It is the tool that makes the moment calmer, more tactile and more durable.</p>
-      </div>
-      <div class="materialProofGrid">
-        <article class="proofCard"><strong>Weight</strong><p>A solid board moves less quickly while you work.</p></article>
-        <article class="proofCard"><strong>Edges</strong><p>Rounded edges decide whether a heavy board is pleasant to handle.</p></article>
-        <article class="proofCard"><strong>Surface</strong><p>Sanding and oiling are part of the tactile quality, not decoration.</p></article>
-        <article class="proofCard"><strong>Material</strong><p>Oak, walnut and end grain behave differently. We do not recommend them as if they were the same.</p></article>
-      </div>
-      <div class="ctaRow"><a href="/en/products.html#product-finder" class="btn btn--emphasis">Find a board</a></div>
-    </div>
-  </section>
-
-  <section id="workshop" class="section section--sand section--tight-top reveal-on-scroll">
-    <div class="container">
-      <div class="workshopIntro">
-        <div><p class="eyebrow eyebrow--dark">Workshop</p><h2>The difference is made in the process.</h2></div>
-        <p class="section__lead workshopIntro__lead">Traditional machines we stay loyal to for a reason. Precisely adjusted, carefully guided and used for results that do not just look good today, but still hold up tomorrow.</p>
-      </div>
-      <div class="workshopGrid" aria-label="Workshop impressions" tabindex="0">
-        <figure class="workshopGrid__item workshopGrid__item--wide"><img src="../assets/workshop1.jpg" alt="Handgeführter Zuschnitt an der Tischkreissäge in der Edle Hölzer Werkstatt" width="1200" height="1800" decoding="async" srcset="../assets/workshop1-800.jpg 533w, ../assets/workshop1-1200.jpg 800w, ../assets/workshop1-1600.jpg 1066w, ../assets/workshop1.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><figcaption>Clean cutting is not a minor detail. Precision starts here.</figcaption></figure>
-        <figure class="workshopGrid__item"><img src="../assets/workshop2.jpg" alt="Eichebohlen aus regionalem Holz zur Auswahl in der Edle Hölzer Werkstatt" width="1066" height="1600" decoding="async" srcset="../assets/workshop2-800.jpg 533w, ../assets/workshop2-1200.jpg 800w, ../assets/workshop2.jpg 1066w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><figcaption>Material choice decides early whether a product will later have character.</figcaption></figure>
-        <figure class="workshopGrid__item"><img src="../assets/workshop3.jpg" alt="Abrichthobel in der Werkstatt für gerade Flächen an Massivholz" width="1200" height="1800" decoding="async" srcset="../assets/workshop3-800.jpg 533w, ../assets/workshop3-1200.jpg 800w, ../assets/workshop3-1600.jpg 1066w, ../assets/workshop3.jpg 1200w" sizes="(max-width: 767px) 100vw, (max-width: 1200px) 90vw, 1200px" loading="lazy"><figcaption>Flat surfaces and clean transitions do not happen by accident.</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="customwork" class="section section--white reveal-on-scroll">
-    <div class="container customLayout">
-      <div class="customLayout__left"><p class="eyebrow eyebrow--dark">Custom work</p><h2>When the board needs a place of its own.</h2><p class="section__lead">Whether it is a breakfast spot, kitchen island, grill station, gift or Erbstück piece: we discuss the wooden piece directly with you and assess what makes sense and what can be executed cleanly.</p></div>
-      <div class="customLayout__right">
-        <div class="processRow"><span>01</span><div><h3>Clarify use and place</h3><p>Preliminary discussion by e-mail or phone. You outline the occasion, place, use, dimensions and wishes.</p></div></div>
-        <div class="processRow"><span>02</span><div><h3>Material selection</h3><p>We assess suitable woods, construction, format and meaningful details for your board.</p></div></div>
-        <div class="processRow"><span>03</span><div><h3>Non-binding quote</h3><p>You receive a clear assessment of effort, price and feasibility – without obligation.</p></div></div>
-        <div class="processRow"><span>04</span><div><h3>Realisation</h3><p>Once approved, we build your board cleanly and in line with your requirements.</p></div></div>
-        <div class="ctaRow"><a href="mailto:info@edlehoelzer.de" class="btn btn--emphasis" data-goatcounter-click="true" data-goatcounter-title="custom_request_click" data-umami-event="email-kontakt">Request project</a></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="restoration" class="service-section reveal-on-scroll">
-    <div class="container">
-      <div class="service-section__label">Refurbishment service</div>
-      <h2>Board worn down? We rebuild the surface.</h2>
-      <p>Solid wood does not need to be thrown away when it shows marks. Two packages, honest assessment in advance, fixed pricing and return shipping included. Currently available within Germany only.</p>
-
-      <div class="service-cards">
-        <div class="service-card">
-          <div class="service-card__badge">Refresh</div>
-          <h3>Surface care &amp; sanding</h3>
-          <p>Fine knife marks removed, surface freshly sanded, oiled and sealed with care balm. For boards that are still in good condition but need a clean refresh.</p>
-          <div class="service-card__price">from 41 €</div>
-          <div class="service-card__note">incl. return shipping within Germany</div>
-          <a href="/en/refurbishment/#refresh" class="btn btn--ghost">Learn more</a>
-        </div>
-
-        <div class="service-card service-card--featured">
-          <div class="service-card__badge service-card__badge--gold">Full refit</div>
-          <h3>Complete refurbishment</h3>
-          <p>Cracks closed, feet renewed, surface planed where needed and rebuilt cleanly. For boards that have really suffered but are worth saving.</p>
-          <div class="service-card__price">from 95 €</div>
-          <div class="service-card__note">incl. return shipping within Germany</div>
-          <a href="/en/refurbishment/#full-restoration" class="btn">Learn more</a>
-        </div>
-      </div>
-
-      <div class="service-section__cta">
-        <p>Not sure which package fits?</p>
-        <a href="mailto:info@edlehoelzer.de?subject=Refurbishment%20inquiry" class="btn btn--ghost" data-umami-event="email-kontakt">Send a photo – we will take a look</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="b2b" class="section section--sand reveal-on-scroll">
-    <div class="container container--narrow"><p class="eyebrow eyebrow--dark">For businesses</p><h2>Corporate gifts with substance.</h2><p class="section__lead">Standard gifts are forgotten quickly. A solid wood product remains. We produce small runs for Christmas gifts, corporate gifts, custom pieces or solid wood business cards.</p><div class="ctaRow"><a href="mailto:info@edlehoelzer.de?subject=B2B%20Inquiry%20Edle%20Hoelzer" class="btn" data-goatcounter-click="true" data-goatcounter-title="custom_request_click" data-umami-event="email-kontakt">Request project</a></div></div>
-  </section>
-
-  <section class="closingHero reveal-on-scroll">
+  <section class="closingHero homeDecision reveal-on-scroll" id="customwork">
+    <span id="lead-paths"></span>
+    <span id="b2b"></span>
     <img src="/assets/team/oezguer-workshop-800.webp" srcset="/assets/team/oezguer-workshop-800.webp 800w, /assets/team/oezguer-workshop-1400.webp 1400w" sizes="100vw" alt="Özgür smiling while working at the table saw in the workshop" width="1400" height="934" loading="lazy" decoding="async">
-    <div class="closingHero__overlay"></div>
+    <div class="closingHero__overlay" aria-hidden="true"></div>
     <div class="container closingHero__content">
-      <p class="eyebrow">Next step</p><h2>Which board fits your everyday use?</h2><p>Start with the board finder or send an inquiry when place, size, engraving or occasion matters more than a standard product.</p>
-      <div class="ctaRow"><a href="/en/products.html#product-finder" class="btn btn--emphasis">Find a board</a><a href="/en/#customwork" class="btn">Request a custom board</a></div>
+      <p class="eyebrow">Next step</p><h2>Which board suits your everyday life?</h2><p>Start with the board finder or get in touch directly when the setting, dimensions, engraving or occasion matter more than a standard product.</p>
+      <div class="ctaRow"><a href="/en/products.html#product-finder" class="btn btn--emphasis" data-umami-event="produktfinder-gestartet">Find the right board</a><a href="mailto:info@edlehoelzer.de?subject=Custom%20cutting%20board%20inquiry" class="btn">Request a custom board</a></div>
     </div>
   </section>
 </main>
@@ -380,7 +250,7 @@
         <div class="footer__groupTitle">Service &amp; Legal</div>
         <a href="/en/care.html">Care &amp; cleaning</a>
         <a href="/en/refurbishment/">Cutting board refurbishment</a>
-        <a href="/en/#b2b" data-umami-event="b2b-interesse">Corporate gifts</a>
+        <a href="/handgefertigte-holzprodukte-fuer-unternehmen/" lang="de" data-umami-event="b2b-interesse">Corporate gifts (DE)</a>
         <a href="https://edlehoelzervonkoc.etsy.com" target="_blank" rel="noopener" data-etsy-link title="You are leaving for the Edle Hölzer Etsy shop" data-goatcounter-click="true" data-goatcounter-title="etsy_click" data-umami-event="etsy-klick" data-umami-event-seite="index">Shop</a>
         <a href="/impressum.html">Imprint</a>
         <a href="/datenschutz.html">Privacy</a>

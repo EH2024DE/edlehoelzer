@@ -37,6 +37,15 @@ function staticCards(products,english){
 export function refineHomepage(document,reference){
   if(reference.template!=='home')return;
   const english=reference.route.startsWith('/en/'),nodes=walk(document);
+  const languageMenu=nodes.find(n=>has(n,'mobileMenu__lang'));
+  if(languageMenu)remove(languageMenu);
+  const languageLinks=nodes.find(n=>has(n,'lang'));
+  if(languageLinks)for(const link of walk(languageLinks).filter(n=>n.tagName==='a')){
+    const isEnglish=attr(link,'href')==='/en/';
+    set(link,'lang',isEnglish?'en':'de');set(link,'hreflang',isEnglish?'en':'de');
+    set(link,'aria-label',isEnglish?'Switch to English':'Zur deutschen Version');
+    set(link,'title',isEnglish?'English':'Deutsch');
+  }
   const grid=nodes.find(n=>attr(n,'id')==='homepage-products');
   if(grid){
     const source=read(reference.file),match=source.match(/var homepageProductIds = (\[[\s\S]*?\]);/);
@@ -78,41 +87,5 @@ export function refineHomepage(document,reference){
     const reviewContainer=reviewRoot.childNodes.find(n=>n.tagName==='div');
     const sourceLink=reviewContainer.childNodes.find(n=>attr(n,'data-review-source-link')!==undefined);
     link.parentNode=reviewContainer;reviewContainer.childNodes.splice(reviewContainer.childNodes.indexOf(sourceLink),0,link);
-  }
-  if(english){
-    const about=nodes.find(n=>attr(n,'id')==='about');
-    const intro=about&&walk(about).find(n=>n.tagName==='p'&&has(n,'section__lead'));
-    if(intro){
-      const details=parseFragment('<details class="homeAboutStory" data-ds-read-more><summary data-ds-added>Our story</summary></details>').childNodes[0];
-      const parent=intro.parentNode;details.parentNode=parent;parent.childNodes.splice(parent.childNodes.indexOf(intro),0,details);remove(intro);append(details,intro);
-    }
-    for(const person of (about?walk(about):[]).filter(n=>has(n,'homePerson'))){
-      const paragraphs=walk(person).filter(n=>n.tagName==='p');
-      if(paragraphs.length<3)continue;
-      const details=parseFragment('<details class="homePerson__more" data-ds-read-more><summary data-ds-added>Background</summary></details>').childNodes[0];
-      append(paragraphs[0].parentNode,details);
-      for(const paragraph of paragraphs.slice(1)){remove(paragraph);append(details,paragraph);}
-    }
-    const main=nodes.find(n=>n.tagName==='main');
-    const closing=nodes.find(n=>has(n,'closingHero'));
-    const topics=parseFragment('<section class="section homeTopics"><div class="container"><h2 data-ds-added="topics-heading">More from our workshop</h2></div></section>').childNodes[0];
-    const container=walk(topics).find(n=>has(n,'container'));
-    const ids=new Set(['find-your-board','product-finder-start','lead-paths','etsy-trust','material-proof-en','customwork','restoration','b2b']);
-    const candidates=nodes.filter(n=>n.tagName==='section'&&(ids.has(attr(n,'id'))||has(n,'deliveryMap')||has(n,'ownershipMoment')));
-    for(const section of candidates){
-      const heading=walk(section).find(n=>n.tagName==='h2');
-      if(!heading)continue;
-      const details=parseFragment('<details class="homeTopic"><summary></summary></details>').childNodes[0];
-      const summary=details.childNodes[0];
-      remove(heading);append(summary,heading);remove(section);
-      set(section,'class','homeTopic__content');
-      append(details,section);append(container,details);
-    }
-    if(candidates.length){topics.parentNode=main;main.childNodes.splice(main.childNodes.indexOf(closing),0,topics);}
-    const room=parseFragment(`<section class="roomDiscovery" id="your-board-your-kitchen" aria-labelledby="room-discovery-title" data-ds-added="room-discovery"><div class="container roomDiscovery__layout"><div><p class="roomEyebrow">Your kitchen. Your scale.</p><h2 id="room-discovery-title">See your board<br>in your kitchen.</h2><p>Have a board in mind? See how its size and wood look in your kitchen. All you need is a worktop photo with an A4 sheet.</p><button type="button" class="btn roomDiscovery__cta" data-kitchen-preview>See a board in my kitchen</button><p class="roomDisclosure">Your photo stays on your device. A visual guide, not a precise measurement or colour reference.</p></div><figure><img src="/assets/kitchen-preview-example.jpg" alt="Kitchen worktop with an A4 sheet for scale" width="1300" height="1024" loading="lazy"><figcaption>An example of a suitable starting photo.</figcaption></figure></div></section>`).childNodes[0];
-    const productSection=grid.parentNode.parentNode;
-    room.parentNode=main;main.childNodes.splice(main.childNodes.indexOf(productSection)+1,0,room);
-    const video=nodes.find(n=>attr(n,'data-hero-video')!==undefined);
-    if(video){video.attrs=video.attrs.filter(a=>a.name!=='autoplay');set(video,'data-autoplay','manual');}
   }
 }

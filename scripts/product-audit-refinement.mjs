@@ -26,7 +26,8 @@ export function refineProductAudit(document,reference){
     if(heading){heading.childNodes=[];for(const n of parseFragment(escape(title)).childNodes)append(heading,n);}
     const content=walk(productRoot).find(n=>has(n,'productPreview__content'));
     if(content){
-      const stock=parseFragment(`<p class="productInventory" data-ds-added="inventory">${escape(inventory)}</p>`).childNodes[0];
+      const variantNote=product.active&&product.availabilityStatus==='available'&&(product.category==='accessory'||product.variants?.length)?(en?' Total across all versions. Check your chosen wood in the Etsy offer.':' Gesamtmenge über alle Ausführungen. Prüfe deine Holzart im Etsy-Angebot.') : '';
+      const stock=parseFragment(`<p class="productInventory" data-ds-added="inventory">${escape(inventory+variantNote)}</p>`).childNodes[0];
       stock.parentNode=content;content.childNodes.splice(heading?content.childNodes.indexOf(heading)+1:0,0,stock);
       if(product.category==='board'&&!(product.packageContents||[]).some(p=>/balsam/i.test(p.label||'')))
         add(content,`<p class="productCareBridge" data-ds-added="care-bridge"><a href="${en?'/en':''}${balm.productPath}">${en?'Care balm for your board':'Pflegebalsam für dein Brett'} →</a></p>`);

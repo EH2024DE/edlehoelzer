@@ -85,6 +85,16 @@
   .ds-site .brand__text{font:600 22px/1.2 var(--font-sans)}
   .ds-site .topbar__right :is(a,button){font-size:var(--text-meta)}
   .ds-site .topbar__right>.btn{display:none}
+  .ds-site[data-ds-template=home] .topbar__right{position:static;transform:none;display:flex;align-items:center;gap:0;justify-self:end;grid-column:3}
+  .ds-site[data-ds-template=home] .topbar__right .lang{display:flex;gap:0;align-items:center}
+  .ds-site[data-ds-template=home] .lang a{display:inline-flex;justify-content:center;align-items:center;min-width:44px;min-height:44px;opacity:1;font-size:13px;font-weight:500;text-decoration:none}
+  .ds-site[data-ds-template=home] .lang a.is-active{display:none}
+  .ds-site[data-ds-template=home] .lang a:hover{text-decoration:underline}
+  @media(max-width:360px){
+    .ds-site[data-ds-template=home] .brand .brand__text{font-size:14px}
+    .ds-site[data-ds-template=home] .brand .brand__logo{width:20px;height:20px}
+    .ds-site[data-ds-template=home] .topbar__inner .brand{gap:var(--space-1)}
+  }
   .ds-site .menuButton{width:var(--size-target);height:var(--size-target);border:0;background:transparent;box-shadow:none}
   .ds-site .mobileMenu{font-family:var(--font-sans);background:var(--color-bg)}
   .ds-site .mobileMenu a{font-size:var(--text-card);line-height:1.5;min-height:var(--size-target)}
@@ -109,6 +119,10 @@
   .ds-site .careComparison{margin-block:var(--space-7)}
   .ds-site .productPurchaseBar{display:none}
   @media(max-width:760px){
+    .ds-site[data-ds-template=home] .topbar__inner{position:relative;grid-template-columns:44px minmax(0,1fr) 88px;gap:var(--space-2)}
+    .ds-site[data-ds-template=home] .brand{position:absolute;left:50%;transform:translateX(-50%);gap:var(--space-2);min-height:44px;white-space:nowrap}
+    .ds-site[data-ds-template=home] .brand__text{font-size:16px}
+    .ds-site[data-ds-template=home] .brand__logo{width:24px;height:24px}
     .ds-site .productPurchaseBar:not([hidden]){display:flex;position:fixed;inset:auto 0 0;z-index:170;gap:var(--space-4);align-items:center;justify-content:space-between;padding:var(--space-3) var(--gutter) calc(var(--space-3) + env(safe-area-inset-bottom));background:var(--color-surface);border-top:var(--border)}
     .ds-site .productPurchaseBar__price{font-size:18px;font-weight:500;line-height:1.3}
     .ds-site .productPurchaseBar small{display:block;font-size:14px;font-weight:400}

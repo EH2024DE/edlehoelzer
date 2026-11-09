@@ -55,7 +55,12 @@ test('tokens centralise typography and three containers without viewport type or
 test('reference source pages preserve baseline markup outside the bilingual homepage collection',()=>{
   for(const file of references.map(r=>r.file)){
     const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root,encoding:'utf8'});
-    const normalize=html=>file.includes('1850610674')?html
+    const normalize=html=>file==='en/index.html'?html.replace(/<header[\s\S]*?<\/header>/,'').replace(/<main[\s\S]*?<\/main>/,'')
+      .replace(/<a href="(?:\/en\/#b2b|\/handgefertigte-holzprodukte-fuer-unternehmen\/)"[^>]*>Corporate gifts(?: \(DE\))?<\/a>/,'')
+      .replace(/^[ \t]*<link rel="stylesheet" href="\/assets\/css\/homepage-refinement\.css[^"]*">\n/gm,'')
+      .replace(/(\/assets\/js\/product-grid\.js\?v=)[^"]+/g,'$1')
+      .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,'')
+      :file.includes('1850610674')?html
       .replace(/<script type="application\/ld\+json">(.*?)<\/script>/,(_,source)=>{const schema=JSON.parse(source);delete schema.offers;return JSON.stringify(schema);})
       .replace(/<\/h1><p>[^<]+<\/p>\n(?:<p>279,99 EUR<\/p>)?/,'</h1>\n')
       .replace(/<a class="btn btn--emphasis" href="[^"]+"[^>]*>[^<]+<\/a>\n/,'')
@@ -65,6 +70,7 @@ test('reference source pages preserve baseline markup outside the bilingual home
       .replace(/<section[^>]*aria-labelledby="homepage-products-title">[\s\S]*?<\/section>/,'')
       .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,''):html;
     const approvedPortraitChanges=html=>['index.html','en/index.html'].includes(file)?html
+      .replace(/<p data-review-subline>[\s\S]*?<\/p>/,'')
       .replace(/<section id="(?:ueberuns|about)"[\s\S]*?<\/section>/,'')
       .replace(/<section class="(?:section homeDecision|closingHero)[^\"]*"[\s\S]*?<\/section>/,''):html;
     const whitespace=html=>html.replace(/>\s+</g,'><');

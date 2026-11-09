@@ -34,10 +34,22 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   assert.equal(quotes.length,6);
   for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(originalText(review)),'full original review remains available');
   if(reference.route==='/en/'){
-    assert.equal(nodes.filter(n=>(attr(n,'class')||'').includes('homePerson__more')).length,2);
-    assert.equal(nodes.filter(n=>(attr(n,'class')||'').includes('homeAboutStory')).length,1);
-    assert.ok(nodes.filter(n=>(attr(n,'class')||'').includes('homeTopic__content')).length>=8);
-    assert.ok(nodes.some(n=>attr(n,'data-ds-added')==='room-discovery'));
+    assert.ok(!nodes.some(n=>(attr(n,'class')||'').includes('homepageTrustBar')));
+    assert.ok(!nodes.some(n=>(attr(n,'class')||'').includes('homeTopic')));
+    assert.ok(nodes.some(n=>attr(n,'id')==='your-board-your-kitchen'));
     assert.equal(attr(nodes.find(n=>attr(n,'data-hero-video')!==undefined),'autoplay'),undefined);
   }
+});
+test('English homepage follows the German section template without a separate trust bar',()=>{
+  const sections=route=>{
+    const nodes=walk(parse(renderReference(references.find(r=>r.route===route)).html));
+    const main=nodes.find(n=>n.tagName==='main');
+    return main.childNodes.filter(n=>n.tagName==='section').map(section=>({
+      classes:attr(section,'class').split(/\s+/).sort(),
+      images:walk(section).filter(n=>n.tagName==='img').map(n=>attr(n,'src')),
+      primaryActions:walk(section).filter(n=>(attr(n,'class')||'').split(/\s+/).includes('btn--emphasis')).length
+    }));
+  };
+  assert.equal(sections('/').length,9);
+  assert.deepEqual(sections('/en/'),sections('/'));
 });

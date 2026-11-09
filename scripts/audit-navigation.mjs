@@ -12,7 +12,7 @@ const desktopLinks={
 };
 const discoverLinks={
   de:[['B2B / Firmengeschenke','/handgefertigte-holzprodukte-fuer-unternehmen/'],['Gastronomie','/schneidebretter-aus-holz-gastronomie/']],
-  en:[['B2B / Corporate gifts','/en/#b2b'],['Restaurants &amp; hotels','/en/wooden-cutting-boards-for-restaurants/']]
+  en:[['B2B / Corporate gifts (DE)','/handgefertigte-holzprodukte-fuer-unternehmen/'],['Restaurants &amp; hotels','/en/wooden-cutting-boards-for-restaurants/']]
 };
 
 export function refineAuditNavigation(document,reference){
