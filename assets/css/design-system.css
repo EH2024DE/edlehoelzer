@@ -115,6 +115,7 @@
     .ds-site .topbar__inner>.menuButton{display:none}
   }
   .ds-site :is(.productCard__inventory,.productInventory){font-size:var(--text-meta);line-height:1.5;color:var(--color-text-muted)}
+  .ds-site .productInventory>.textLink{display:block;width:fit-content;margin-top:var(--space-2);min-height:var(--size-target);align-content:center}
   .ds-site .careProductPrice{font-size:var(--text-price);font-weight:500}
   .ds-site .careComparison{margin-block:var(--space-7)}
   .ds-site .productPurchaseBar{display:none}
@@ -288,8 +289,8 @@
   .ds-site .homepageProductGrid .productCard__footer{margin-top:auto}
   .ds-site .homepageProductGrid>.productCard{height:auto}
   @supports (grid-template-rows: subgrid){
-    .ds-site .homepageProductGrid>.productCard{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:var(--space-2)}
-    .ds-site .homepageProductGrid .productCard__body{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:var(--space-2);align-items:start}
+    .ds-site .homepageProductGrid>.productCard{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:var(--space-2)}
+    .ds-site .homepageProductGrid .productCard__body{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:var(--space-2);align-items:start}
     .ds-site .homepageProductGrid .productCard__footer{margin-top:0}
   }
   .ds-site .productCard__price{margin:var(--space-3) 0 0;margin-top:auto;padding-top:var(--space-3);font-size:var(--text-card);font-weight:600;min-height:var(--card-price-height,0px)}
@@ -473,7 +474,7 @@
     .ds-site .footer__inner,.ds-site .footer__nav{grid-template-columns:1fr;gap:var(--space-6)}
     .ds-site .landingProductGrid{display:flex;overflow-x:auto;gap:var(--space-5);scroll-snap-type:x proximity}.ds-site .landingProductGrid>*{flex:0 0 84%;scroll-snap-align:start}
     @supports (grid-template-rows: subgrid){
-      .ds-site .landingProductGrid.homepageProductGrid{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:84%;grid-template-rows:repeat(5,auto);row-gap:var(--space-2)}
+      .ds-site .landingProductGrid.homepageProductGrid{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:84%;grid-template-rows:repeat(4,auto);row-gap:var(--space-2)}
     }
     .ds-site .ds-tabs__list{display:none}
   }

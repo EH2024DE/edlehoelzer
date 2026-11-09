@@ -81,6 +81,7 @@ test('existing product facts remain unchanged apart from verified corrections an
   const withoutVideos = data => { data.products.forEach(p => {
     for (const key of ['videos', 'name', 'titleVerifiedAt', 'productPath', 'canonicalProductId', 'canonicalVariantId', 'packageContents']) delete p[key];
   }); return data; };
+  require('./catalog-copy-approval.cjs').restoreApprovedWoodCopy(before,after);
   assert.deepEqual(withoutVideos(after), withoutVideos(before));
 });
 

@@ -1,11 +1,11 @@
 (function(root){
   function inventoryText(product,en,now){
     if(!product.active||product.availabilityStatus==='sold'||product.availabilityStatus==='unavailable')return en?'Currently unavailable':'Aktuell nicht verfügbar';
-    if(product.availabilityStatus==='made_to_order')return en?'Made to order, not ready stock':'Auf Bestellung gefertigt, kein Lagerbestand';
+    if(product.availabilityStatus==='made_to_order')return en?'Made to order for you':'Für dich auf Bestellung gefertigt';
     var checked=Date.parse(product.inventoryCheckedAt||''),age=(now===undefined?Date.now():now)-checked;
-    if(!Number.isFinite(checked)||age<0||age>7*86400000||!Number.isInteger(product.stock))return en?'Check current stock on Etsy':'Aktuellen Bestand bei Etsy prüfen';
-    var date=product.inventoryCheckedAt.slice(0,10),single=product.stock===1;
-    return (en?'Total Etsy stock: ':'Etsy-Gesamtbestand: ')+product.stock+(en?(single?' piece':' pieces'):(single?' Exemplar':' Exemplare'))+' · '+(en?'as of ':'Stand ')+date;
+    if(!Number.isFinite(checked)||age<0||age>7*86400000||!Number.isInteger(product.stock))return en?'Check availability in the shop':'Verfügbarkeit im Shop ansehen';
+    if(product.stock<=0)return en?'Currently unavailable':'Aktuell nicht verfügbar';
+    return en?'Available in the shop':'Im Shop verfügbar';
   }
   var api={inventoryText:inventoryText};
   if(typeof module==='object'&&module.exports)module.exports=api;

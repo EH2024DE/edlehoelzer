@@ -18,7 +18,7 @@ test('three compact disclosure cards replace the table in both languages',()=>{
     for(const item of en?['Sandpaper','linseed oil','cotton cloth','Washing-up liquid']:['Schleifpapier','Leinöl','Baumwolltuch','Spülmittel'])assert.ok(option('self').toLowerCase().includes(item.toLowerCase()));
     assert.ok(!/Dose|tin for home/i.test(option('refresh')));
     const self=nodes.find(n=>attr(n,'data-service-option')==='self');
-    assert.ok(walk(self).some(n=>n.tagName==='a'&&(attr(n,'href')||'').includes('1881802291')));
+    assert.ok(walk(self).some(n=>n.tagName==='a'&&(attr(n,'href')||'').includes('/produkte/pflegebalsam-schneidebrett/')));
     assert.ok(option('self').includes(en?'€9.99':'9,99'));
     assert.ok(option('full').includes(en?'One care balm tin for home included':'Eine Dose Pflegebalsam für zu Hause inklusive'));
     assert.ok(copy.includes(en?'All refresh work':'Alle Leistungen der Auffrischung'));

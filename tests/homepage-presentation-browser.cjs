@@ -21,7 +21,8 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       for(const box of header)assert.ok(box.left>=0&&box.right<=width,JSON.stringify(header));
       for(let i=0;i<header.length;i++)for(let j=i+1;j<header.length;j++)assert.ok(header[i].right<=header[j].left+1||header[j].right<=header[i].left+1,'header controls never overlap: '+JSON.stringify(header));
       if(width<=760){const logo=header.find(b=>b.selector==='.brand');assert.ok(Math.abs((logo.left+logo.right)/2-width/2)<2,'logo stays centred');}
-      const cardLayout=await page.locator('#homepage-products .productCard').evaluateAll(cards=>cards.map(card=>({inventory:card.querySelector('.productCard__inventory').getBoundingClientRect().bottom,price:card.querySelector('.productCard__price').getBoundingClientRect().top})));
+      assert.equal(await page.locator('#homepage-products .productCard__inventory').count(),0);
+      const cardLayout=await page.locator('#homepage-products .productCard').evaluateAll(cards=>cards.map(card=>({inventory:card.querySelector('.productCard__meta').getBoundingClientRect().bottom,price:card.querySelector('.productCard__price').getBoundingClientRect().top})));
       for(const box of cardLayout)assert.ok(box.price>=box.inventory+7,'inventory text never overlaps the price');
       if(width<=760||width>=1200)assert.ok(Math.max(...cardLayout.map(b=>b.price))-Math.min(...cardLayout.map(b=>b.price))<2,'prices align across the homepage row');
       await page.locator('#homepage-products .productCard').first().scrollIntoViewIfNeeded();

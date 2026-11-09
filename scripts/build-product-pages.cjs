@@ -23,7 +23,7 @@ for (const en of [false, true]) {
     if (onlyListing && String(p.listingId)!==onlyListing) continue;
     if (!p.productPath) throw new Error('Missing stable productPath: ' + p.id);
     const url = (en ? '/en' : '') + p.productPath;
-    const title = en ? copy.text(p.displayName || p.name, true) : p.name;
+    const title = copy.text(p.displayName || p.name, en);
     const description = en ? copy.text(p.shortDescription || p.displayName, true) : (p.shortDescription || p.displayName || p.name);
     const sold = p.availabilityStatus === 'sold';
     const available = p.active === true && ['available', 'made_to_order'].includes(p.availabilityStatus) && (p.availabilityStatus === 'made_to_order' || !(Number.isFinite(p.stock) && p.stock <= 0));

@@ -1,5 +1,29 @@
 # Hosting redirects
 
+## Product URL migration, 9 November 2026
+
+36 reviewed product pages now use short descriptive addresses without Etsy IDs.
+The exact DE/EN names, old addresses and new addresses are recorded in
+`data/product-url-migration.json`. Both language variants are migrated, with
+72 one-hop source-to-target entries in `config/cloudflare-bulk-redirects.csv`.
+New pages are self-canonical; hreflang, generated directories, catalogue links
+and the sitemap point to the final addresses. Etsy listing IDs, product IDs,
+prices and inventory remain unchanged. Existing editorial pages such as
+`/teigschaber-holz/` are distinct from `/produkte/teigschaber-holz/` and are not
+redirected or repurposed.
+
+The old HTML pages immediately redirect and include a visible fallback link.
+JavaScript additionally preserves query strings (including chosen variants)
+and fragments. No old address is removed. These are HTTP-200 HTML fallbacks,
+not deployed HTTP 301s. Cloudflare rules are prepared only: no DNS, proxy or
+account change has been made. Activating real 301s remains a release check.
+
+Reference: https://developers.google.com/search/docs/crawling-indexing/301-redirects
+
+To regenerate the reviewed migration deterministically:
+`node scripts/apply-product-naming.cjs`. Do not run the old generic slug generator
+as a migration: product URLs are now explicitly assigned and must remain stable.
+
 ## Corporate gifts URL migration
 
 - Source: `https://edlehoelzer.de/b2b.html`

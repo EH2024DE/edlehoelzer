@@ -106,7 +106,6 @@
           '<p class="productCard__segment">' + escapeHtml(EdleProductCopy.text(product.segment || product.category || (isEnglish ? "Product" : "Produkt"), isEnglish)) + '</p>' +
           '<h3 class="productCard__name">' + escapeHtml(productName) + '</h3>' +
           renderCardMeta(product, isEnglish) +
-          (window.EdleCatalogDisplay ? '<p class="productCard__inventory">'+escapeHtml(window.EdleCatalogDisplay.inventoryText(product,isEnglish))+'</p>' : '') +
           '<div class="productCard__footer">' +
             (displayPriceLabel(product) ? '<p class="productCard__price">' + escapeHtml(displayPriceLabel(product)) + '</p>' : "") +
             '<span class="productCard__buy">' +

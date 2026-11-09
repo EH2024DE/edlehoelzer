@@ -7,6 +7,7 @@ import {sitePages} from '../scripts/build-design-site.mjs';
 import {renderReference} from '../scripts/build-design-reference.mjs';
 import {root,walk,attr,text} from '../scripts/audit-design-system.mjs';
 import {refineB2bAudit} from '../scripts/b2b-audit-refinement.mjs';
+import catalogApproval from './catalog-copy-approval.cjs';
 
 test('every sitemap URL is included in the shared design build, without duplicate routes',()=>{
   const pages=sitePages(),routes=pages.map(p=>p.route);
@@ -18,6 +19,7 @@ test('all migrated templates preserve search metadata, original content and form
     const source=parse(fs.readFileSync(path.join(root,page.file),'utf8')),rendered=parse(renderReference(page).html);
     refineB2bAudit(source,page);
     const before=walk(source),after=walk(rendered);
+    catalogApproval.clearCatalogDirectories(before);catalogApproval.clearCatalogDirectories(after);
     // Only the visible product title is shortened; search metadata and schema remain intact.
     const productRoot=after.find(n=>attr(n,'data-display-title'));
     if(productRoot){const heading=before.find(n=>n.tagName==='h1');heading.childNodes=[{nodeName:'#text',value:attr(productRoot,'data-display-title'),parentNode:heading}];}
