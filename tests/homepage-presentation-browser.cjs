@@ -21,6 +21,11 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       await reviews.scrollIntoViewIfNeeded();await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-reviews.png`});
       const fullReview=page.locator('.reviewCard__full').first();await fullReview.locator('summary').click();
       assert.equal(await fullReview.getAttribute('open'),'');await fullReview.locator('summary').click();
+      const kitchen=page.locator('.roomDiscovery figure');await kitchen.scrollIntoViewIfNeeded();
+      const kitchenSize=await kitchen.evaluate(async figure=>{const img=figure.querySelector('img');await img.decode();return {figure:figure.getBoundingClientRect().width,layout:figure.parentElement.getBoundingClientRect().width,image:img.getBoundingClientRect().width,fit:getComputedStyle(img).objectFit};});
+      assert.ok(Math.abs(kitchenSize.figure-kitchenSize.layout)<1,'kitchen photo spans the full content width');
+      assert.ok(Math.abs(kitchenSize.image-kitchenSize.figure)<1);assert.equal(kitchenSize.fit,'cover');
+      await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-kitchen.png`});
       await page.locator('.homePerson').first().scrollIntoViewIfNeeded();
       for(const image of await page.locator('.homePerson>img').all()){
         const fit=await image.evaluate(async img=>{await img.decode();return {natural:img.naturalWidth/img.naturalHeight,actual:img.clientWidth/img.clientHeight};});
