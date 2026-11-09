@@ -5,6 +5,7 @@ import path from 'node:path';
 import {parse} from 'parse5';
 import {renderReference,references} from '../scripts/build-design-reference.mjs';
 import {root,walk,attr,text} from '../scripts/audit-design-system.mjs';
+import {allReviews,originalText} from '../scripts/review-content.mjs';
 for(const reference of references.filter(r=>r.template==='home'))test(reference.route+' has static products, real portraits and one closing workshop photo',()=>{
   const document=parse(renderReference(reference).html),nodes=walk(document);
   const grid=nodes.find(n=>attr(n,'id')==='homepage-products');
@@ -28,10 +29,10 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   assert.ok(attr(trust,'title').includes(meta.lastUpdated));
   assert.ok(text(nodes.find(n=>attr(n,'data-review-headline')!==undefined)).includes(String(meta.ratingCount)));
   assert.ok(text(nodes.find(n=>attr(n,'data-review-subline')!==undefined)).includes(String(meta.transactionSoldCount)));
-  const reviews=JSON.parse(fs.readFileSync(path.join(root,'data/reviews.json'),'utf8')).filter(r=>!r.needsReview&&r.text&&r.reviewerName).slice(0,6);
+  const reviews=allReviews().slice(0,6);
   const quotes=nodes.filter(n=>attr(n,'data-review-id'));
   assert.equal(quotes.length,6);
-  for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(review.text),'full original review remains available');
+  for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(originalText(review)),'full original review remains available');
   if(reference.route==='/en/'){
     assert.ok(nodes.filter(n=>(attr(n,'class')||'').includes('homeTopic__content')).length>=8);
     assert.ok(nodes.some(n=>attr(n,'data-ds-added')==='room-discovery'));

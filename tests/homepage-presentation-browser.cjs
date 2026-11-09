@@ -37,6 +37,14 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       const link=page.locator('#homepage-products a[href]').first();await link.click();await page.waitForURL(/\/produkte\//);
       await page.close();
     }
+    for(const width of [375,1440])for(const route of ['/bewertungen/','/en/reviews/']){
+      const page=await browser.newPage({javaScriptEnabled:false,viewport:{width,height:844}});
+      await page.goto(base+route);assert.equal(await page.locator('.reviewArchive__item').count(),39);
+      await page.locator('.brand__logo').evaluate(img=>img.decode());
+      assert.equal(await page.locator('.reviewArchive__item blockquote').count(),39);
+      assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+      await page.screenshot({path:`${output}/reviews-${route.includes('/en/')?'en':'de'}-${width}.png`});await page.close();
+    }
     fs.writeFileSync(output+'/metrics.json',JSON.stringify(metrics,null,2));console.log({passed:true,metrics,output});
   }finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1;});

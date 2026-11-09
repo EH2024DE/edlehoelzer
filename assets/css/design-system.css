@@ -126,6 +126,14 @@
   .ds-site [data-static-reviews] .reviewCard__meta,.ds-site .reviewTrust__date{font-size:14px;line-height:1.6;color:var(--color-text-muted)}
   .ds-site .reviewCard__stars{color:var(--color-accent)}
   .ds-site .reviewCard__full>summary{font-size:14px;line-height:1.5;text-decoration:underline;text-underline-offset:4px}
+  .ds-site .reviewArchive__intro{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:var(--space-7);align-items:center;margin-block:var(--space-6)}
+  .ds-site .reviewArchive__intro img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+  .ds-site .reviewArchive__list{max-width:var(--container-reading);margin-block:var(--space-7)}
+  .ds-site .reviewArchive__item{padding-block:var(--space-6);border-top:var(--border)}
+  .ds-site .reviewArchive__item h2{font-size:20px;margin-bottom:var(--space-2)}
+  .ds-site .reviewArchive__item blockquote{white-space:pre-line;font-size:17px;line-height:1.65;max-width:65ch}
+  .ds-site :is(.reviewArchive__meta,.reviewArchive__notice,.reviewArchive__product){font-size:14px;line-height:1.6;color:var(--color-text-muted)}
+  @media(max-width:760px){.ds-site .reviewArchive__intro{grid-template-columns:minmax(0,1fr);gap:var(--space-5)}}
   .ds-site[data-ds-template=home]{--section-space:80px}
   .ds-site[data-ds-template=home] .ds-section+.ds-section:not(.closingHero){padding-top:0}
   .ds-site .homeTopic{border-top:var(--border)}

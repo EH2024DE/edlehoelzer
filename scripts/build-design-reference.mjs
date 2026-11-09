@@ -108,6 +108,13 @@ export function renderReference(reference){
   refineContentLayout(document,reference);
   addEnglishProcess(document,reference);
   refineHomepage(document,reference);
+  const footer=walk(document).find(n=>n.tagName==='footer');
+  const footerGroup=footer&&walk(footer).find(n=>has(n,'footer__group'));
+  if(footerGroup){
+    const english=reference.route.startsWith('/en/');
+    const link=parseFragment(`<a data-ds-added="reviews-navigation" href="${english?'/en/reviews/':'/bewertungen/'}">${english?'Reviews':'Bewertungen'}</a>`).childNodes[0];
+    append(footerGroup,link);
+  }
   return {html:serialize(document),legacy:layer.toString(),legacyFile};
 }
 

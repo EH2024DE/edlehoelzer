@@ -3,6 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {parseFragment} from 'parse5';
 import {root,walk,attr,text} from './audit-design-system.mjs';
+import {allReviews,originalText} from './review-content.mjs';
 
 const has=(node,name)=>(attr(node,'class')||'').split(/\s+/).includes(name);
 const set=(node,name,value)=>{const existing=node.attrs.find(a=>a.name===name);if(existing)existing.value=value;else node.attrs.push({name,value});};
@@ -60,20 +61,23 @@ export function refineHomepage(document,reference){
       [headline,meta.needsReview?(english?'Customer reviews on Etsy':'Kundenstimmen auf Etsy'):`${rating} ${english?'stars from':'Sterne aus'} ${meta.ratingCount} ${english?'Etsy reviews':'Etsy-Bewertungen'}`],
       [subline,meta.needsReview?(english?'Original customer feedback.':'Originale Kundenstimmen.'):`${meta.ratingCount} ${english?'reviews':'Bewertungen'} · ${meta.transactionSoldCount} ${english?'sales via Etsy':'Verkäufe über Etsy'}`]
     ]){node.childNodes=[];for(const child of parseFragment(escape(value)).childNodes)append(node,child);}
-    const reviews=JSON.parse(read('data/reviews.json')).filter(r=>!r.needsReview&&r.text&&r.reviewerName).slice(0,6);
+    const reviews=allReviews().slice(0,6);
     const track=walk(reviewRoot).find(n=>attr(n,'data-review-track')!==undefined);
     const viewport=walk(reviewRoot).find(n=>attr(n,'data-review-viewport')!==undefined);
     set(viewport,'tabindex','0');set(viewport,'role','region');
     set(reviewRoot,'data-static-reviews','');
     track.childNodes=[];
     for(const review of reviews){
-      const long=review.text.length>220;
-      const excerpt=long?review.text.slice(0,review.text.lastIndexOf(' ',180))+'…':review.text;
-      const card=parseFragment(`<article class="reviewCard" data-review-id="${escape(review.id)}"><div class="reviewCard__stars" aria-label="${review.rating} ${english?'out of 5 stars':'von 5 Sternen'}">${'★'.repeat(review.rating)}</div><p class="reviewCard__text">„${escape(excerpt)}“</p>${long?`<details class="reviewCard__full"><summary>${english?'Read the full original review':'Originalbewertung vollständig lesen'}</summary><p>${escape(review.text)}</p></details>`:''}<p class="reviewCard__meta">${escape(review.reviewerName)} · ${escape(review.date)} · ${escape(review.product)} · Etsy</p></article>`).childNodes[0];
+      const original=originalText(review);
+      const long=original.length>220;
+      const excerpt=long?original.slice(0,original.lastIndexOf(' ',180))+'…':original;
+      const card=parseFragment(`<article class="reviewCard" data-review-id="${escape(review.id)}"><div class="reviewCard__stars" aria-label="${review.rating} ${english?'out of 5 stars':'von 5 Sternen'}">${'★'.repeat(review.rating)}</div><p class="reviewCard__text">„${escape(excerpt)}“</p>${long?`<details class="reviewCard__full"><summary>${english?'Read the full original review':'Originalbewertung vollständig lesen'}</summary><p>${escape(original)}</p></details>`:''}<p class="reviewCard__meta">${escape(english&&review.reviewerName==='Etsy-Kundin oder -Kunde'?'Etsy customer':review.reviewerName)} · ${escape(review.date)} · ${escape(review.product)} · Etsy</p></article>`).childNodes[0];
       append(track,card);
     }
     const date=parseFragment(`<p class="reviewTrust__date" data-ds-added="review-date">${english?'Etsy data updated':'Etsy-Datenstand'}: ${escape(meta.lastUpdated)}${english?' · Quotes in their original language.':''}</p>`).childNodes[0];
     append(walk(reviewRoot).find(n=>has(n,'reviewTrust__head')),date);
+    const link=parseFragment(`<p data-ds-added="review-archive-link"><a class="textLink" href="${english?'/en/reviews/':'/bewertungen/'}">${english?'Read all':'Alle'} ${allReviews().length} ${english?'reviews':'Bewertungen lesen'} →</a></p>`).childNodes[0];
+    append(reviewRoot.childNodes.find(n=>n.tagName==='div'),link);
   }
   if(english){
     const main=nodes.find(n=>n.tagName==='main');

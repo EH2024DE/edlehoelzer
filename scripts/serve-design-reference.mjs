@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import {root} from './audit-design-system.mjs';
-const directory=path.join(os.tmpdir(),'edle-design-system-reference');
+const directory=path.resolve(process.env.DESIGN_PREVIEW_DIR||path.join(os.tmpdir(),'edle-design-system-reference'));
 const port=Number(process.env.PORT||8184);
 const mime={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml','.jpg':'image/jpeg','.png':'image/png','.webp':'image/webp','.woff2':'font/woff2','.mp4':'video/mp4'};
 http.createServer((req,res)=>{

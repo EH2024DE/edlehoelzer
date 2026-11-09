@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import fsSync from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -42,6 +43,28 @@ async function main() {
   const resolvedShopId = await resolveShopId(SHOP_ID);
   const shop = await fetchEtsyJson(`https://api.etsy.com/v3/application/shops/${encodeURIComponent(resolvedShopId)}`);
   const reviews = await fetchShopReviews(resolvedShopId);
+  const exportFlag = process.argv.find(arg => arg.startsWith('--export-texts='));
+  if (exportFlag) {
+    const catalog = await readJson(path.join(ROOT, 'products.json'), {products:[]});
+    const normal = value => String(value || '').replace(/\s+/g, ' ').trim();
+    const texts = reviews.filter(review => normal(review.review)).sort((a,b)=>b.create_timestamp-a.create_timestamp).map(review => {
+      const matches=existingReviews.filter(old=>normal(review.review).includes(normal(old.text))&&normal(old.text));
+      const existing=matches.length===1?matches[0]:null;
+      const product=(catalog.products||[]).find(product=>String(product.listingId)===String(review.listing_id));
+      return {
+        id:'etsy-review-'+createHash('sha256').update(String(review.listing_id)+'|'+review.create_timestamp+'|'+review.review).digest('hex').slice(0,16),
+        reviewerName:existing?.reviewerName || 'Etsy-Kundin oder -Kunde',
+        source:'Etsy',rating:review.rating,text:review.review,
+        product:product?.displayName || existing?.product || 'Holzprodukt von Edle Hölzer',
+        listingId:String(review.listing_id),date:new Date(review.create_timestamp*1000).toISOString().slice(0,10),
+        featured:Boolean(existing?.featured),needsReview:false
+      };
+    });
+    const destination=path.resolve(exportFlag.slice('--export-texts='.length));
+    await writeJson(destination,{meta:buildMetaFromShop(existingMeta,shop),reviews:texts});
+    console.log(`[reviews:export] ${texts.length} Originaltexte aus ${reviews.length} Bewertungen exportiert. Keine Benutzer- oder Transaktions-IDs und keine Käuferfotos exportiert.`);
+    return;
+  }
   if (process.argv.includes('--inspect')) {
     console.log(JSON.stringify(reviews.slice().sort((a,b)=>b.create_timestamp-a.create_timestamp).slice(0,5).map(review=>({
       listingId:review.listing_id,rating:review.rating,text:review.review,createdAt:review.create_timestamp

@@ -26,8 +26,8 @@ Base: main at 6d3eacd. No Stripe, payment, shipping, catalogue price or DNS chan
 
 ## Verification
 
-- Static design: 148 pages, 145 indexable routes. Internal destinations/fragments and typography audits pass.
-- 58 focused regression tests pass; the two new homepage build checks run in the regular design test suite and GitHub validation.
+- Static design: 150 pages, 147 indexable routes including the new bilingual review archive. Internal destinations/fragments and typography audits pass.
+- 61 focused regression tests pass; the homepage and review archive checks run in the regular design test suite and GitHub validation.
 - Existing SEO, main content and form-contract tests remain in place; intentional review replacement is separately checked against all six stored original texts.
 - Browser checks at 375, 430, 768 and 1440px in both languages: portrait ratios, loaded local images, first-screen trust, no horizontal page overflow, disclosures and native review scrolling. Additional tests cover no JavaScript and failed catalogue fetches with working direct product links.
 - Screenshots and measured page heights: /tmp/edle-homepage-portraits. These are Chromium checks, not physical iPhone/Safari checks.
@@ -35,4 +35,13 @@ Base: main at 6d3eacd. No Stripe, payment, shipping, catalogue price or DNS chan
 
 ## Still open
 
-The English homepage retains more legacy content than German, although secondary topics now collapse. This is not a claim that every content or B2B revision is finished. Live inventory, a fresh Etsy data sync, B2B scope/fee decisions, deeper service-page changes and real-device validation remain separate work. External Etsy photograph delivery is not guaranteed by these local-photo checks.
+The English homepage retains more legacy content than German, although secondary topics now collapse. This is not a claim that every content or B2B revision is finished. Live inventory, B2B scope/fee decisions, deeper service-page changes and real-device validation remain separate work. External Etsy photograph delivery is not guaranteed by these local-photo checks.
+
+## Full review archive
+
+- Added /bewertungen/ and /en/reviews/, each with all 39 original texts fetched read-only from the Etsy shop API on 2026-11-09. The current shop snapshot reports 5.0 stars, 39 reviews and 81 sales.
+- Kept the existing curated review datasets intact for product-specific selections. The full archive lives in data/reviews-all.json. No customer account IDs, transaction IDs, addresses or new buyer photographs were imported. Unknown names use a neutral attribution.
+- Six recent reviews remain on the homepages; full-archive links are available there, in shared generated footers, the topic overview, the site search index and sitemap.xml.
+- Both archive pages have self-canonicals, language alternates, complete static text and CollectionPage/BreadcrumbList metadata. There is no self-serving Organization AggregateRating markup.
+- Google Search Console access was confirmed. Submission of the new URLs must follow successful publication and an HTTP 200 check on the production domain; a preview URL must not be submitted as the production page. Sitemap submission and a crawl request do not guarantee indexing.
+- References: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl and https://developers.google.com/search/docs/appearance/structured-data/review-snippet .
