@@ -1,5 +1,5 @@
 import {parseFragment} from 'parse5';
-import {walk,attr} from './audit-design-system.mjs';
+import {walk,attr,text} from './audit-design-system.mjs';
 
 const has=(node,name)=>(attr(node,'class')||'').split(/\s+/).includes(name);
 const append=(parent,node)=>{node.parentNode=parent;parent.childNodes.push(node);};
@@ -20,6 +20,29 @@ export function refineAuditNavigation(document,reference){
   const nodes=walk(document);
   const header=nodes.find(node=>node.tagName==='header'&&has(node,'topbar'));
   if(!header)return;
+  const languageTargets=['de','en'].map(code=>[code,attr(nodes.find(n=>n.tagName==='link'&&attr(n,'rel')==='alternate'&&attr(n,'hreflang')===code),'href')]);
+  if(languageTargets.every(([,href])=>href)){
+    let right=walk(header).find(n=>has(n,'topbar__right'));
+    const inner=walk(header).find(n=>has(n,'topbar__inner'));
+    if(!right&&inner){right=fragment('<div class="topbar__right"></div>');append(inner,right);}
+    if(right&&!walk(right).some(n=>has(n,'lang'))){
+      const group=fragment('<div class="lang"></div>');
+      for(const link of [...right.childNodes].filter(n=>n.tagName==='a'&&['DE','EN'].includes(text(n).trim()))){
+        right.childNodes.splice(right.childNodes.indexOf(link),1);append(group,link);
+      }
+      append(right,group);
+    }
+    for(const group of walk(header).filter(n=>has(n,'lang')||has(n,'mobileMenu__lang'))){
+      for(const [code,href] of languageTargets){
+        const url=new URL(href);
+        const existing=walk(group).find(n=>n.tagName==='a'&&text(n).trim()===code.toUpperCase());
+        if(existing){
+          const base=attr(nodes.find(n=>n.tagName==='link'&&attr(n,'rel')==='canonical'),'href')||'https://edlehoelzer.de'+reference.route;
+          if(new URL(attr(existing,'href'),base).pathname!==url.pathname)existing.attrs.find(a=>a.name==='href').value=url.pathname;
+        }else append(group,fragment(`<a href="${url.pathname}" lang="${code}" hreflang="${code}"${language===code?' class="is-active" aria-current="page"':''} aria-label="${code==='en'?'Switch to English':'Zur deutschen Version'}">${code.toUpperCase()}</a>`));
+      }
+    }
+  }
   const headerNodes=walk(header);
   const inner=headerNodes.find(node=>has(node,'topbar__inner'));
   const right=inner?.childNodes.find(node=>has(node,'topbar__right'));

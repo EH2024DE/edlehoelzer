@@ -8,7 +8,7 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
  const browser=await playwright[engine].launch(engine==='chromium'?{executablePath:process.env.CHROMIUM_PATH}:{}),results=[];
  const editorial=require('../data/english-editorial-pages.json');
- const routes=['/','/en/','/schneidebrett-nach-mass/','/schneidebretter-aus-holz-gastronomie/','/handgefertigte-holzprodukte-fuer-unternehmen/','/en/corporate-gifts/','/pflege.html','/en/care.html','/en/erbstueck/','/en/refurbishment/','/en/wooden-dough-scraper/',...editorial.map(p=>p.route)];
+ const routes=[...new Set(['/','/en/','/schneidebrett-nach-mass/','/schneidebretter-aus-holz-gastronomie/','/handgefertigte-holzprodukte-fuer-unternehmen/','/en/corporate-gifts/','/pflege.html','/en/care.html','/en/erbstueck/','/en/refurbishment/','/en/wooden-dough-scraper/',...editorial.map(p=>p.route),...editorial.map(p=>'/'+p.source.replace(/index\.html$/,''))])];
  try{
   for(const width of (process.env.AUDIT_WIDTHS||'320,390,1440').split(',').map(Number))for(const route of routes){
    const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'}),errors=[];
@@ -28,6 +28,8 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
    }
    await page.locator('[data-consent-necessary]').click();
    assert.ok(await page.locator('#menuButton').isVisible(),'hamburger remains available at every width');
+   const headerBoxes=await page.locator('.topbar__inner').evaluate(el=>[...el.children].filter(n=>n.matches('.menuButton,.brand,.desktopNav,.topbar__right')).map(n=>n.getBoundingClientRect()).filter(r=>r.width).map(r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom})));
+   for(let i=0;i<headerBoxes.length;i++)for(let j=i+1;j<headerBoxes.length;j++)assert.ok(headerBoxes[i].right<=headerBoxes[j].left+1||headerBoxes[j].right<=headerBoxes[i].left+1,route+' header controls do not overlap at '+width);
    if(width>=1200){
     await page.locator('#menuButton').click();assert.equal(await page.locator('#menuButton').getAttribute('aria-expanded'),'true');
     await page.locator('#menuCloseButton').click();assert.equal(await page.locator('#menuButton').getAttribute('aria-expanded'),'false');
@@ -36,6 +38,10 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
    }
    assert.equal(await page.locator('h1').count(),1);
    assert.ok((await page.locator('h1').evaluate(n=>getComputedStyle(n).fontFamily)).includes('EH Sans'));
+   if(route==='/schneidebrett-nach-mass/'){
+    await page.locator('.topbar__right .lang a').filter({hasText:'EN'}).click();await page.waitForURL(base+'/en/custom-cutting-board/');
+    await page.locator('.topbar__right .lang a').filter({hasText:'DE'}).click();await page.waitForURL(base+route);
+   }
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' page overflow');
    const hero=page.locator('.editorialHero__image');
    if(await hero.count())await hero.evaluate(img=>img.decode());

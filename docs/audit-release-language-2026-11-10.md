@@ -104,3 +104,36 @@ copy automatically. Review editorial changes before regenerating.
 4. Final real-device and mobile-network acceptance by the owner.
 5. A future editorial parity pass may expand English articles; no claim is made
    that every German paragraph has been translated one-to-one in this round.
+
+## Full sitemap follow-up
+
+The initial selected-page check did not establish whole-site language coverage.
+The follow-up checks all 84 indexable German sitemap pages: 82 have reciprocal
+English destinations. The only exclusions are the German donation programme and
+the Germany-only hospitality offering. An existing English hospitality page is
+retained, without expanding that offering.
+
+The custom-board page already existed in this branch, but its German source
+lacked a reliable visible English switch. Header and menu switches now point to
+the corresponding page rather than an English homepage. English body links and
+footer links use their English destination where available.
+
+There are now 18 generated English editorial destinations: the previous eight,
+seven further editorial pages, legal notice, privacy notice and a topic index.
+The legal notices translate the existing German source; this is not a legal
+adequacy review. Editorial equivalents are concise, not paragraph-for-paragraph
+translations of the longer German articles.
+
+Follow-up verification:
+
+- Full coverage: `docs/language-coverage-2026-11-10.json`, no issues.
+- Design regression: 57 passing; release checks: seven passing.
+- Build: 170 pages, 167 indexable; no typography findings.
+- Internal links: no missing destinations or fragments.
+- Indexability: 252 HTML files, 167 self-canonical sitemap pages.
+- Browser checks cover 46 routes at 320, 390 and 1440 pixels, including the
+  German-to-English custom-board switch and its return link.
+- Chromium and WebKit each passed all 138 renders (276 total).
+
+These changes belong to PR 211 and the temporary preview. They are not claimed
+to be published to the production domain before merge and deployment.

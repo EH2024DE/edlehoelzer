@@ -1,0 +1,441 @@
+{
+  "checkedAt": "2026-11-10",
+  "scope": "Entire indexable sitemap in the current build, including product and legal pages; not a claim of live publication",
+  "germanPages": 84,
+  "pairs": 82,
+  "exceptions": [
+    {
+      "de": "/schneidebretter-aus-holz-gastronomie/",
+      "exception": "Germany-only hospitality offering; no new English expansion",
+      "issues": []
+    },
+    {
+      "de": "/baumspende.html",
+      "exception": "German-only donation programme",
+      "issues": []
+    }
+  ],
+  "issues": [],
+  "rows": [
+    {
+      "de": "/bewertungen/",
+      "en": "/en/reviews/",
+      "issues": []
+    },
+    {
+      "de": "/",
+      "en": "/en/",
+      "issues": []
+    },
+    {
+      "de": "/presse/",
+      "en": "/en/press/",
+      "issues": []
+    },
+    {
+      "de": "/produkte.html",
+      "en": "/en/products.html",
+      "issues": []
+    },
+    {
+      "de": "/atelier/",
+      "en": "/en/atelier/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebretter-massivholz/",
+      "en": "/en/solid-wood-cutting-boards/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-eiche/",
+      "en": "/en/oak-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-nussbaum/",
+      "en": "/en/walnut-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-eiche-vs-nussbaum/",
+      "en": "/en/oak-vs-walnut-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-mit-gravur/",
+      "en": "/en/engraved-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-nach-mass/",
+      "en": "/en/custom-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebretter-aus-holz-gastronomie/",
+      "exception": "Germany-only hospitality offering; no new English expansion",
+      "issues": []
+    },
+    {
+      "de": "/stirnholz-schneidebrett/",
+      "en": "/en/end-grain-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/brotzeitbrett/",
+      "en": "/en/snack-board/",
+      "issues": []
+    },
+    {
+      "de": "/hackblock/",
+      "en": "/en/butcher-block/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-saftrille/",
+      "en": "/en/cutting-board-juice-groove/",
+      "issues": []
+    },
+    {
+      "de": "/messerschonendes-schneidebrett/",
+      "en": "/en/knife-friendly-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-fachwerk-eiche/",
+      "en": "/en/erbstueck/",
+      "issues": []
+    },
+    {
+      "de": "/barbecue-geschenk/",
+      "en": "/en/barbecue-gifts/",
+      "issues": []
+    },
+    {
+      "de": "/hochwertige-geschenke-holz/",
+      "en": "/en/wooden-gifts/",
+      "issues": []
+    },
+    {
+      "de": "/geschenk-fuer-maenner-holz/",
+      "en": "/en/wooden-gifts-for-men/",
+      "issues": []
+    },
+    {
+      "de": "/geschenk-fuer-frauen-holz/",
+      "en": "/en/wooden-gifts-for-women/",
+      "issues": []
+    },
+    {
+      "de": "/hochwertige-kuechenaccessoires/",
+      "en": "/en/wooden-kitchen-accessories/",
+      "issues": []
+    },
+    {
+      "de": "/teigschaber-holz/",
+      "en": "/en/wooden-dough-scraper/",
+      "issues": []
+    },
+    {
+      "de": "/pfannenwender-holz/",
+      "en": "/en/wooden-spatula/",
+      "issues": []
+    },
+    {
+      "de": "/holz-statt-plastik/",
+      "en": "/en/wood-instead-of-plastic/",
+      "issues": []
+    },
+    {
+      "de": "/handgefertigte-holzprodukte-fuer-unternehmen/",
+      "en": "/en/corporate-gifts/",
+      "issues": []
+    },
+    {
+      "de": "/baumspende.html",
+      "exception": "German-only donation programme",
+      "issues": []
+    },
+    {
+      "de": "/pflege.html",
+      "en": "/en/care.html",
+      "issues": []
+    },
+    {
+      "de": "/welches-oel-schneidebrett/",
+      "en": "/en/cutting-board-oil-comparison/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-aufbereiten/",
+      "en": "/en/refurbishment/",
+      "issues": []
+    },
+    {
+      "de": "/stirnholz-vs-langholz/",
+      "en": "/en/end-grain-vs-edge-grain/",
+      "issues": []
+    },
+    {
+      "de": "/impressum.html",
+      "en": "/en/legal-notice/",
+      "issues": []
+    },
+    {
+      "de": "/datenschutz.html",
+      "en": "/en/privacy/",
+      "issues": []
+    },
+    {
+      "de": "/holzarten-schneidebrett/",
+      "en": "/en/wood-types-for-cutting-boards/",
+      "issues": []
+    },
+    {
+      "de": "/hochwertiges-schneidebrett-erkennen/",
+      "en": "/en/how-to-recognise-a-quality-cutting-board/",
+      "issues": []
+    },
+    {
+      "de": "/schneidebrett-made-in-germany/",
+      "en": "/en/cutting-boards-made-in-germany/",
+      "issues": []
+    },
+    {
+      "de": "/sitemap-uebersicht.html",
+      "en": "/en/topics/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/buttermesser-holz/",
+      "en": "/en/produkte/buttermesser-holz/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/teigschaber-holz/",
+      "en": "/en/produkte/teigschaber-holz/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/buche-stirnholz-jahresring-struktur-1841836619/",
+      "en": "/en/produkte/buche-stirnholz-jahresring-struktur-1841836619/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/fruehstuecksbrett-bambus-buche/",
+      "en": "/en/produkte/fruehstuecksbrett-bambus-buche/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/eiche-stirnholzbrett-xxl/",
+      "en": "/en/produkte/eiche-stirnholzbrett-xxl/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/laerche-stirnholzbrett/",
+      "en": "/en/produkte/laerche-stirnholzbrett/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/mahagoni-stirnholz-ruhiger-block-1886613306/",
+      "en": "/en/produkte/mahagoni-stirnholz-ruhiger-block-1886613306/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/schneidebretthalter-holz/",
+      "en": "/en/produkte/schneidebretthalter-holz/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/holzuntersetzer-mit-halter/",
+      "en": "/en/produkte/holzuntersetzer-mit-halter/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholzbrett-eiche-nussbaum-wenge/",
+      "en": "/en/produkte/stirnholzbrett-eiche-nussbaum-wenge/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/schneidebrett-nach-mass-75x60/",
+      "en": "/en/produkte/schneidebrett-nach-mass-75x60/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/xxl-streifenbrett-thermobambus-birke-4417621529/",
+      "en": "/en/produkte/xxl-streifenbrett-thermobambus-birke-4417621529/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholz-schneidebrett-mit-griffen/",
+      "en": "/en/produkte/stirnholz-schneidebrett-mit-griffen/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/pflegebalsam-schneidebrett/",
+      "en": "/en/produkte/pflegebalsam-schneidebrett/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/kambala-schneidebrett/",
+      "en": "/en/produkte/kambala-schneidebrett/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/pfannenwender-holz/",
+      "en": "/en/produkte/pfannenwender-holz/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/servierbretter-holz-3er-set/",
+      "en": "/en/produkte/servierbretter-holz-3er-set/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/nussbaum-langholzbrett-33x22/",
+      "en": "/en/produkte/nussbaum-langholzbrett-33x22/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+      "en": "/en/produkte/3d-stirnholz-nussbaum-weitere-1803930088/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/eiche-tapasbrett-90-cm/",
+      "en": "/en/produkte/eiche-tapasbrett-90-cm/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/servierbrett-holz-schwertform/",
+      "en": "/en/produkte/servierbrett-holz-schwertform/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholzbrett-padouk-eiche-kompakt/",
+      "en": "/en/produkte/stirnholzbrett-padouk-eiche-kompakt/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/padouk-eiche-grossformat-kariert-archiv-22/",
+      "en": "/en/produkte/padouk-eiche-grossformat-kariert-archiv-22/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/eiche-stirnholzbrett-42x40/",
+      "en": "/en/produkte/eiche-stirnholzbrett-42x40/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/servierbrett-buche-mooreiche/",
+      "en": "/en/produkte/servierbrett-buche-mooreiche/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/eiche-kambala-quadrat-4380304814/",
+      "en": "/en/produkte/eiche-kambala-quadrat-4380304814/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/esche-stirnholzbrett-41x40/",
+      "en": "/en/produkte/esche-stirnholzbrett-41x40/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholzbrett-nussbaum-ahorn/",
+      "en": "/en/produkte/stirnholzbrett-nussbaum-ahorn/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/buche-stirnholzbrett-53x36/",
+      "en": "/en/produkte/buche-stirnholzbrett-53x36/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholzbrett-buche-kambala/",
+      "en": "/en/produkte/stirnholzbrett-buche-kambala/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/",
+      "en": "/en/produkte/nussbaum-stirnholz-mit-saftrille-1850610674/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/3d-stirnholzbrett-46x46/",
+      "en": "/en/produkte/3d-stirnholzbrett-46x46/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stockbuche-stirnholzbrett-nussbaumrahmen/",
+      "en": "/en/produkte/stockbuche-stirnholzbrett-nussbaumrahmen/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/buche-stirnholzbrett-saftrille/",
+      "en": "/en/produkte/buche-stirnholzbrett-saftrille/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/eiche-langholzbrett-40x30/",
+      "en": "/en/produkte/eiche-langholzbrett-40x30/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholzbrett-eiche-wenge/",
+      "en": "/en/produkte/stirnholzbrett-eiche-wenge/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholzbrett-eiche-buche-kompakt/",
+      "en": "/en/produkte/stirnholzbrett-eiche-buche-kompakt/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/nussbaum-stirnholzbrett-eichenrahmen/",
+      "en": "/en/produkte/nussbaum-stirnholzbrett-eichenrahmen/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/eiche-stirnholzbrett-schmal/",
+      "en": "/en/produkte/eiche-stirnholzbrett-schmal/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/stirnholzbrett-eiche-esche-buche/",
+      "en": "/en/produkte/stirnholzbrett-eiche-esche-buche/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/buche-langholzbrett/",
+      "en": "/en/produkte/buche-langholzbrett/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/eiche-langholzbrett/",
+      "en": "/en/produkte/eiche-langholzbrett/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/teigschaber-set-2er-oder-3er-4493690534/",
+      "en": "/en/produkte/teigschaber-set-2er-oder-3er-4493690534/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/erbstueck-no-004-eiche-buche-4370769708/",
+      "en": "/en/produkte/erbstueck-no-004-eiche-buche-4370769708/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+      "en": "/en/produkte/kleines-stirnholzbrett-verschiedene-holzdesigns-4599650982/",
+      "issues": []
+    },
+    {
+      "de": "/produkte/erbstueck-stirnholzbrett-eiche/",
+      "en": "/en/produkte/erbstueck-stirnholzbrett-eiche/",
+      "issues": []
+    }
+  ]
+}

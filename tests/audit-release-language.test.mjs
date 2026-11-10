@@ -5,16 +5,24 @@ import path from 'node:path';
 import {parse} from 'parse5';
 import {root,walk,attr,text} from '../scripts/audit-design-system.mjs';
 import {renderReference} from '../scripts/build-design-reference.mjs';
+import {auditLanguageCoverage} from '../scripts/audit-language-coverage.mjs';
 const pages=JSON.parse(fs.readFileSync(path.join(root,'data/english-editorial-pages.json'),'utf8'));
-test('eight English editorial destinations have reciprocal language metadata and original workshop imagery',()=>{
-  assert.equal(pages.length,8);
+test('the entire indexable German sitemap has English destinations except the two owner-approved exclusions',()=>{
+  const report=auditLanguageCoverage();
+  assert.deepEqual(report.issues,[]);
+  assert.equal(report.pairs,report.germanPages-2);
+  assert.deepEqual(report.exceptions.map(r=>r.de).sort(),['/baumspende.html','/schneidebretter-aus-holz-gastronomie/']);
+});
+test('all generated English destinations have reciprocal language metadata and appropriate workshop imagery',()=>{
+  assert.equal(pages.length,18);
   for(const page of pages){
     const nodes=walk(parse(fs.readFileSync(path.join(root,page.route.slice(1),'index.html'),'utf8')));
     assert.equal(attr(nodes.find(n=>n.tagName==='html'),'lang'),'en');
     assert.equal(nodes.filter(n=>n.tagName==='h1').length,1);
     assert.equal(text(nodes.find(n=>n.tagName==='h1')),page.title);
     assert.equal(attr(nodes.find(n=>n.tagName==='link'&&attr(n,'rel')==='canonical'),'href'),'https://edlehoelzer.de'+page.route);
-    assert.ok(nodes.some(n=>n.tagName==='img'&&attr(n,'src')===page.image));
+    if(page.image)assert.ok(nodes.some(n=>n.tagName==='img'&&attr(n,'src')===page.image));
+    if(page.legal)assert.equal(nodes.some(n=>n.tagName==='details'&&attr(n,'class')==='editorialDisclosure'),false,'legal information stays visible');
     for(const section of page.sections)assert.ok(text(nodes.find(n=>n.tagName==='main')).includes(section.text));
     const de=walk(parse(fs.readFileSync(path.join(root,page.source),'utf8')));
     assert.ok(de.some(n=>n.tagName==='link'&&attr(n,'hreflang')==='en'&&attr(n,'href')==='https://edlehoelzer.de'+page.route));
