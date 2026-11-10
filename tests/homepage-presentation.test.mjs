@@ -33,7 +33,8 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   const quotes=nodes.filter(n=>attr(n,'data-review-id'));
   assert.equal(quotes.length,6);
   assert.ok(!nodes.some(n=>attr(n,'data-ds-added')==='review-date'),'sync date stays out of the homepage presentation');
-  assert.ok(text(quotes[0]).includes('Sandra'),'Sandra is featured first with her original review');
+  const latest=JSON.parse(fs.readFileSync(path.join(root,'data/reviews-all.json'),'utf8')).slice().sort((a,b)=>b.date.localeCompare(a.date))[0];
+  assert.ok(text(quotes[0]).includes(latest.reviewerName),'latest original Etsy review is featured first');
   for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(originalText(review)),'full original review remains available');
   if(reference.route==='/en/'){
     assert.ok(!nodes.some(n=>(attr(n,'class')||'').includes('homepageTrustBar')));
