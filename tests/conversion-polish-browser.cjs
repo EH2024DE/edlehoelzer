@@ -12,6 +12,13 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
   await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.locator('[data-consent-necessary]').click();await page.evaluate(()=>document.fonts.ready);
   if(route==='/'||route==='/en/'){
    assert.equal(await page.locator('.hero [data-ds-added=hero-trust]').count(),0);
+   const proof=page.locator('.hero__proof');assert.equal(await proof.count(),1);assert.ok(await proof.isVisible());
+   const heroBox=await page.locator('.hero').boundingBox(),proofBox=await proof.boundingBox(),ctaBox=await page.locator('.hero__actions a').first().boundingBox();
+   assert.ok(proofBox.y>=ctaBox.y+ctaBox.height+12);assert.ok(proofBox.y+proofBox.height<=heroBox.y+heroBox.height);
+   await page.locator('.hero').screenshot({path:path.join(out,'hero-'+width+'-'+(route==='/en/'?'en':'de')+'.png')});
+   const reviewTop=await page.locator('.reviewTrust').evaluate(n=>n.getBoundingClientRect().top);
+   const headingTop=await page.locator('[data-review-headline]').evaluate(n=>n.getBoundingClientRect().top);
+   assert.ok(headingTop-reviewTop>=40,'review heading has breathing room after the dark section');
    assert.equal(await page.locator('[data-review-trust-strip] .eyebrow').isVisible(),false);
    assert.ok((await page.locator('.reviewCard__meta').first().textContent()).match(/\d{2}[./]\d{2}[./]2026/));
    const action=page.locator('.closingHero .btn--emphasis');await action.scrollIntoViewIfNeeded();

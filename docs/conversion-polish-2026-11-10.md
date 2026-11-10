@@ -3,6 +3,12 @@
 No palette redesign, hero reviews, artificial scarcity, generic delivery promise
 or hospitality/PE-500 changes. No shop, price, checkout or deployment activation.
 
+Follow-up: both homepage heroes now include a short process/service proof line
+(individual pre-dispatch inspection and personal advice), without review counts
+or ratings. The review section has 48px top padding after the dark Erbstueck
+feature; it is exempt from the same-background section-spacing reduction.
+Browser checks assert both the hero line fitting and the review heading clearance.
+
 ## Changes
 
 1. Existing mobile purchase-bar behavior retained and explicitly tested: hidden

@@ -37,6 +37,11 @@ export function refineHomepage(document,reference){
   if(reference.template!=='home')return;
   const english=reference.route.startsWith('/en/'),nodes=walk(document);
   for(const link of nodes.filter(n=>n.tagName==='a'&&has(n.parentNode,'hero__actions')))link.attrs=link.attrs.filter(a=>a.name!=='data-umami-event');
+  const heroActions=nodes.find(n=>has(n,'hero__actions'));
+  if(heroActions){
+    const proof=parseFragment(`<p class="hero__proof" data-ds-added="hero-proof">${english?'Individually checked before dispatch. Personal advice.':'Vor dem Versand einzeln geprüft. Persönlich beraten.'}</p>`).childNodes[0];
+    proof.parentNode=heroActions.parentNode;heroActions.parentNode.childNodes.splice(heroActions.parentNode.childNodes.indexOf(heroActions)+1,0,proof);
+  }
   const languageMenu=nodes.find(n=>has(n,'mobileMenu__lang'));
   if(languageMenu)remove(languageMenu);
   const languageLinks=nodes.find(n=>has(n,'lang'));
