@@ -3,12 +3,14 @@
 No palette redesign, hero reviews, artificial scarcity, generic delivery promise
 or hospitality/PE-500 changes. No shop, price, checkout or deployment activation.
 
-Follow-up: both homepage heroes now include three side-by-side USP bullet points:
+Follow-up: both homepages now have a separate light USP strip below the hero:
 handcrafted in Central Hesse, made-to-measure kitchen tools/boards, and unique
-pieces instead of mass production with personal coordination. No review counts
+pieces instead of mass production with personal coordination. Mobile uses three
+distinct rows; desktop uses three columns. No review counts
 or ratings. The review section has 48px top padding after the dark Erbstueck
 feature; it is exempt from the same-background section-spacing reduction.
-Browser checks assert both the hero line fitting and the review heading clearance.
+Browser checks assert the strip stays below the image, remains readable without
+overflow, uses the correct responsive arrangement and retains review clearance.
 
 ## Changes
 

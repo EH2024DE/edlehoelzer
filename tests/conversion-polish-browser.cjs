@@ -15,10 +15,14 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
    const proof=page.locator('.hero__proof');assert.equal(await proof.count(),1);assert.ok(await proof.isVisible());
    assert.equal(await proof.locator('li').count(),3);
    const points=await proof.locator('li').evaluateAll(items=>items.map(n=>({top:n.getBoundingClientRect().top,width:n.clientWidth,scroll:n.scrollWidth})));
-   assert.ok(points.every(p=>p.top===points[0].top&&p.scroll<=p.width),'three USP columns stay aligned without overflow');
-   const heroBox=await page.locator('.hero').boundingBox(),proofBox=await proof.boundingBox(),ctaBox=await page.locator('.hero__actions a').first().boundingBox();
-   assert.ok(proofBox.y>=ctaBox.y+ctaBox.height+12);assert.ok(proofBox.y+proofBox.height<=heroBox.y+heroBox.height);
+   assert.ok(points.every(p=>p.scroll<=p.width),'USP text never overflows');
+   if(width<=760)assert.ok(points[0].top<points[1].top&&points[1].top<points[2].top,'mobile USPs form distinct rows');
+   else assert.ok(points.every(p=>p.top===points[0].top),'desktop USPs remain side by side');
+   const heroBox=await page.locator('.hero').boundingBox(),proofBox=await proof.boundingBox();
+   assert.ok(proofBox.y>=heroBox.y+heroBox.height,'USP strip sits below the image hero');
+   assert.equal(await page.locator('.hero .hero__proof').count(),0);
    await page.locator('.hero').screenshot({path:path.join(out,'hero-'+width+'-'+(route==='/en/'?'en':'de')+'.png')});
+   await page.locator('.homeProofStrip').screenshot({path:path.join(out,'usp-'+width+'-'+(route==='/en/'?'en':'de')+'.png')});
    const reviewTop=await page.locator('.reviewTrust').evaluate(n=>n.getBoundingClientRect().top);
    const headingTop=await page.locator('[data-review-headline]').evaluate(n=>n.getBoundingClientRect().top);
    assert.ok(headingTop-reviewTop>=40,'review heading has breathing room after the dark section');

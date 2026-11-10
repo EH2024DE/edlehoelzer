@@ -39,9 +39,10 @@ export function refineHomepage(document,reference){
   for(const link of nodes.filter(n=>n.tagName==='a'&&has(n.parentNode,'hero__actions')))link.attrs=link.attrs.filter(a=>a.name!=='data-umami-event');
   const heroActions=nodes.find(n=>has(n,'hero__actions'));
   if(heroActions){
-    const points=english?['Handcrafted in Central Hesse','Made-to-measure boards and kitchen tools','Unique, not mass-produced – personally tailored']:['Handgefertigt in Mittelhessen','Küchenhelfer und Bretter nach Maß','Unikate statt Massenware – persönlich abgestimmt'];
-    const proof=parseFragment(`<ul class="hero__proof" data-ds-added="hero-proof">${points.map(point=>`<li>${escape(point)}</li>`).join('')}</ul>`).childNodes[0];
-    proof.parentNode=heroActions.parentNode;heroActions.parentNode.childNodes.splice(heroActions.parentNode.childNodes.indexOf(heroActions)+1,0,proof);
+    const points=english?['Handcrafted in Central Hesse','Made-to-measure kitchen tools and cutting boards','Unique, not mass-produced – personally tailored']:['Handgefertigt in Mittelhessen','Küchenhelfer und Schneidebretter nach Maß','Unikate statt Massenware – persönlich abgestimmt'];
+    const proof=parseFragment(`<div class="homeProofStrip" data-ds-added="hero-proof"><ul class="container hero__proof" aria-label="${english?'What makes us different':'Was uns ausmacht'}">${points.map(point=>`<li>${escape(point)}</li>`).join('')}</ul></div>`).childNodes[0];
+    const hero=nodes.find(n=>has(n,'hero'));
+    proof.parentNode=hero.parentNode;hero.parentNode.childNodes.splice(hero.parentNode.childNodes.indexOf(hero)+1,0,proof);
   }
   const languageMenu=nodes.find(n=>has(n,'mobileMenu__lang'));
   if(languageMenu)remove(languageMenu);
