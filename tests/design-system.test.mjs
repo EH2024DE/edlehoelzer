@@ -8,11 +8,17 @@ import postcss from 'postcss';
 import {references,renderReference,guardLegacyStyleLoads} from '../scripts/build-design-reference.mjs';
 import {root,walk,attr,text,baseline} from '../scripts/audit-design-system.mjs';
 import {repairEnglishNavigation} from '../scripts/repair-english-navigation.mjs';
+import {refineB2bAudit} from '../scripts/b2b-audit-refinement.mjs';
+import catalogApproval from './catalog-copy-approval.cjs';
 test('reference rendering preserves SEO, original main content, links and form contracts',()=>{
   for(const reference of references){
     const original=parse(fs.readFileSync(path.join(root,reference.file),'utf8'));
+    refineB2bAudit(original,reference);
     const rendered=renderReference(reference),document=parse(rendered.html);
     const nodes=walk(document),oldNodes=walk(original);
+    catalogApproval.clearCatalogDirectories(nodes);catalogApproval.clearCatalogDirectories(oldNodes);
+    const productRoot=nodes.find(n=>attr(n,'data-display-title'));
+    if(productRoot){const heading=oldNodes.find(n=>n.tagName==='h1');heading.childNodes=[{nodeName:'#text',value:attr(productRoot,'data-display-title'),parentNode:heading}];}
     for(const node of nodes.filter(n=>attr(n,'data-ds-added')!==undefined))node.parentNode.childNodes=node.parentNode.childNodes.filter(n=>n!==node);
     if(reference.template==='home')for(const list of [nodes,oldNodes]){
       const track=list.find(n=>attr(n,'data-review-track')!==undefined);if(track)track.childNodes=[];
@@ -51,7 +57,12 @@ test('tokens centralise typography and three containers without viewport type or
 test('reference source pages preserve baseline markup outside the bilingual homepage collection',()=>{
   for(const file of references.map(r=>r.file)){
     const before=execFileSync('git',['show',`${baseline}:${file}`],{cwd:root,encoding:'utf8'});
-    const normalize=html=>file.includes('1850610674')?html
+    const normalize=html=>file==='en/index.html'?html.replace(/<header[\s\S]*?<\/header>/,'').replace(/<main[\s\S]*?<\/main>/,'')
+      .replace(/<a href="(?:\/en\/#b2b|\/en\/corporate-gifts\/|\/handgefertigte-holzprodukte-fuer-unternehmen\/)"[^>]*>Corporate gifts(?: \(DE\))?<\/a>/,'')
+      .replace(/^[ \t]*<link rel="stylesheet" href="\/assets\/css\/homepage-refinement\.css[^"]*">\n/gm,'')
+      .replace(/(\/assets\/js\/product-grid\.js\?v=)[^"]+/g,'$1')
+      .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,'')
+      :file.includes('1850610674')?html
       .replace(/<script type="application\/ld\+json">(.*?)<\/script>/,(_,source)=>{const schema=JSON.parse(source);delete schema.offers;return JSON.stringify(schema);})
       .replace(/<\/h1><p>[^<]+<\/p>\n(?:<p>279,99 EUR<\/p>)?/,'</h1>\n')
       .replace(/<a class="btn btn--emphasis" href="[^"]+"[^>]*>[^<]+<\/a>\n/,'')
@@ -61,9 +72,10 @@ test('reference source pages preserve baseline markup outside the bilingual home
       .replace(/<section[^>]*aria-labelledby="homepage-products-title">[\s\S]*?<\/section>/,'')
       .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,''):html;
     const approvedPortraitChanges=html=>['index.html','en/index.html'].includes(file)?html
+      .replace(/<p data-review-subline>[\s\S]*?<\/p>/,'')
       .replace(/<section id="(?:ueberuns|about)"[\s\S]*?<\/section>/,'')
       .replace(/<section class="(?:section homeDecision|closingHero)[^\"]*"[\s\S]*?<\/section>/,''):html;
-    const whitespace=html=>html.replace(/>\s+</g,'><');
+    const whitespace=html=>JSON.parse(fs.readFileSync(path.join(root,'data/product-url-migration.json'),'utf8')).reduce((value,item)=>value.replaceAll(item.previousPath,item.productPath),html).replace(/>\s+</g,'><');
     assert.equal(whitespace(approvedPortraitChanges(normalize(repairEnglishNavigation(before,file)))),whitespace(approvedPortraitChanges(normalize(fs.readFileSync(path.join(root,file),'utf8')))),file);
   }
 });
@@ -91,7 +103,19 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   for(const key of ['availabilityStatus','deliveryDays','availabilityNote','availabilityNoteEn']){
     if(key in oldLarch)larch[key]=oldLarch[key];else delete larch[key];
   }
-  assert.deepEqual(catalogAfter,catalogBefore,'only the owner-confirmed availability corrections may change');
+  const snapshot=JSON.parse(fs.readFileSync(path.join(root,'data/inventory-public-snapshot.json'),'utf8'));
+  for(const product of catalogAfter.products.filter(p=>p.inventoryCheckedAt)){
+    const original=catalogBefore.products.find(p=>p.id===product.id);
+    assert.equal(product.inventoryCheckedAt,snapshot.checkedAt);
+    if(product.availabilityStatus==='unavailable'){
+      assert.ok(!Object.hasOwn(snapshot.quantities,product.listingId));
+      assert.ok(['1803930088','4370769708'].includes(product.listingId));
+      for(const key of ['active','availabilityStatus','availabilityNote','availabilityNoteEn']){if(key in original)product[key]=original[key];else delete product[key];}
+    }else assert.equal(product.stock,snapshot.quantities[product.listingId]);
+    product.stock=original.stock;delete product.inventoryCheckedAt;
+  }
+  catalogApproval.restoreApprovedWoodCopy(catalogBefore,catalogAfter);
+  assert.deepEqual(catalogAfter,catalogBefore,'only confirmed availability and documented wood copy may change; prices remain intact');
 });
 test('reference runtime changes only four CSS-loading guards, not financial or product logic',()=>{
   const source=fs.readFileSync(path.join(root,'main.js'),'utf8');

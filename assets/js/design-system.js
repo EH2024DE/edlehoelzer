@@ -156,7 +156,43 @@
   // The existing product engine replaces its fallback HTML after loading the catalogue.
   const product=document.querySelector('[data-product-page]');
   if(product){
-    const observer=new MutationObserver(()=>{
+    const en=document.documentElement.lang==='en';
+    const additions=[...product.querySelectorAll('[data-ds-added="inventory"],[data-ds-added="care-bridge"]')].map(n=>n.cloneNode(true));
+    const bar=document.createElement('aside');bar.className='productPurchaseBar';bar.hidden=true;
+    bar.setAttribute('aria-label',en?'Purchase summary':'Kaufübersicht');
+    const price=document.createElement('div');price.className='productPurchaseBar__price';
+    const priceLabel=document.createElement('small'),priceValue=document.createElement('span');price.append(priceLabel,priceValue);
+    const buy=document.createElement('a');buy.className='btn btn--emphasis';buy.target='_blank';buy.rel='noopener';buy.dataset.umamiEvent='product_sticky_etsy_click';
+    bar.append(price,buy);document.body.append(bar);
+    let observedAction,actionObserver;
+    const setBar=open=>{bar.hidden=!open;document.body.classList.toggle('has-product-purchase-bar',open);};
+    const updatePurchaseVisibility=()=>setBar(!!observedAction&&matchMedia('(max-width:760px)').matches&&observedAction.getBoundingClientRect().bottom<0);
+    let visibilityFrame=0;
+    const schedulePurchaseVisibility=()=>{if(!visibilityFrame)visibilityFrame=requestAnimationFrame(()=>{visibilityFrame=0;updatePurchaseVisibility();});};
+    window.addEventListener('scroll',schedulePurchaseVisibility,{passive:true});window.addEventListener('resize',schedulePurchaseVisibility,{passive:true});
+    function syncPurchaseBar(){
+      const heading=product.querySelector('h1');
+      if(heading&&product.dataset.displayTitle&&heading.textContent!==product.dataset.displayTitle)heading.textContent=product.dataset.displayTitle;
+      const content=product.querySelector('.productPreview__content');
+      if(content)for(const template of additions)if(!content.querySelector('[data-ds-added="'+template.dataset.dsAdded+'"]'))content.append(template.cloneNode(true));
+      const inventory=content?.querySelector('.productInventory'),headline=content?.querySelector('.productPreview__purchaseHeadline');
+      if(inventory&&headline&&inventory.nextElementSibling!==headline)headline.before(inventory);
+      const action=product.querySelector('.productPreview__earlyPurchase a[data-etsy-link]');
+      const value=product.querySelector('[data-purchase-price]'),label=product.querySelector('[data-purchase-price-label]');
+      if(!action||!value){setBar(false);return;}
+      if(priceValue.textContent!==value.textContent)priceValue.textContent=value.textContent;
+      if(priceLabel.textContent!==label?.textContent)priceLabel.textContent=label?.textContent||'';
+      if(buy.href!==action.href)buy.href=action.href;
+      if(buy.textContent!==action.textContent)buy.textContent=action.textContent;
+      if(action!==observedAction){
+        actionObserver?.disconnect();observedAction=action;
+        if('IntersectionObserver' in window){actionObserver=new IntersectionObserver(updatePurchaseVisibility);actionObserver.observe(action);}
+      }
+      updatePurchaseVisibility();
+    }
+    let productFrame=0;
+    const updateProductPresentation=()=>{
+      productFrame=0;
       const content=product.querySelector('.productPreview__content'),headline=content?.querySelector('.productPreview__purchaseHeadline'),action=content?.querySelector('.productPreview__earlyPurchase');
       const configuration=content?.querySelector('.productPreview__configuration');
       if(headline&&configuration&&headline.nextElementSibling!==configuration)headline.after(configuration);
@@ -169,7 +205,10 @@
       }
       product.querySelectorAll('.productPreview__detail').forEach(details=>{details.dataset.dsReadMore='';});
       enhance(product);
-    });observer.observe(product,{childList:true,subtree:true});
+      syncPurchaseBar();
+    };
+    const observer=new MutationObserver(()=>{if(!productFrame)productFrame=requestAnimationFrame(updateProductPresentation);});observer.observe(product,{childList:true,subtree:true});
     product.querySelectorAll('.productPreview__detail').forEach(details=>{details.dataset.dsReadMore='';});enhance(product);
+    syncPurchaseBar();
   }
 })();

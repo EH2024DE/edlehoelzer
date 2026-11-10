@@ -9,7 +9,7 @@ const mediaExts = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif", ".mp4", ".
 function walk(dir, out = []) {
   if (!fs.existsSync(dir)) return out;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === ".git") continue;
+    if ([".git", "node_modules"].includes(entry.name)) continue;
     const p = path.join(dir, entry.name);
     if (entry.isDirectory()) walk(p, out);
     else out.push(p);

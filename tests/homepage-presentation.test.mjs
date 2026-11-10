@@ -20,7 +20,7 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   const people=nodes.filter(n=>(attr(n,'class')||'').split(' ').includes('homePerson'));
   assert.equal(people.length,2);
   assert.ok(text(people[0]).includes('Özgür'));assert.ok(text(people[1]).includes('Serkan'));
-  for(const person of people)assert.match(text(walk(person).find(n=>n.tagName==='h3')),/^Gude,/);
+  for(const person of people)assert.match(text(walk(person).find(n=>n.tagName==='h3')),reference.route==='/en/'?/^Hi, I'm /:/^Gude, ich bin /);
   for(const person of people){const img=walk(person).find(n=>n.tagName==='img');assert.match(attr(img,'src'),/assets\/team\//);assert.equal(attr(img,'height'),'1199');}
   const workshop=nodes.filter(n=>n.tagName==='img'&&(attr(n,'src')||'').includes('team/oezguer-workshop'));
   assert.equal(workshop.length,1);assert.match(attr(workshop[0].parentNode,'class'),/closingHero/);
@@ -32,10 +32,26 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   const reviews=featuredReviews();
   const quotes=nodes.filter(n=>attr(n,'data-review-id'));
   assert.equal(quotes.length,6);
+  assert.ok(!nodes.some(n=>attr(n,'data-ds-added')==='review-date'),'sync date stays out of the homepage presentation');
+  assert.ok(text(quotes[0]).includes('Sandra'),'Sandra is featured first with her original review');
   for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(originalText(review)),'full original review remains available');
   if(reference.route==='/en/'){
-    assert.ok(nodes.filter(n=>(attr(n,'class')||'').includes('homeTopic__content')).length>=8);
-    assert.ok(nodes.some(n=>attr(n,'data-ds-added')==='room-discovery'));
+    assert.ok(!nodes.some(n=>(attr(n,'class')||'').includes('homepageTrustBar')));
+    assert.ok(!nodes.some(n=>(attr(n,'class')||'').includes('homeTopic')));
+    assert.ok(nodes.some(n=>attr(n,'id')==='your-board-your-kitchen'));
     assert.equal(attr(nodes.find(n=>attr(n,'data-hero-video')!==undefined),'autoplay'),undefined);
   }
+});
+test('English homepage follows the German section template without a separate trust bar',()=>{
+  const sections=route=>{
+    const nodes=walk(parse(renderReference(references.find(r=>r.route===route)).html));
+    const main=nodes.find(n=>n.tagName==='main');
+    return main.childNodes.filter(n=>n.tagName==='section').map(section=>({
+      classes:attr(section,'class').split(/\s+/).sort(),
+      images:walk(section).filter(n=>n.tagName==='img').map(n=>attr(n,'src')),
+      primaryActions:walk(section).filter(n=>(attr(n,'class')||'').split(/\s+/).includes('btn--emphasis')).length
+    }));
+  };
+  assert.equal(sections('/').length,9);
+  assert.deepEqual(sections('/en/'),sections('/'));
 });

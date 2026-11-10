@@ -1,5 +1,8 @@
 import {parseFragment} from 'parse5';
-import {walk,attr} from './audit-design-system.mjs';
+import {walk,attr,root} from './audit-design-system.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+const balm=JSON.parse(fs.readFileSync(path.join(root,'products.json'),'utf8')).products.find(p=>p.listingId==='1881802291');
 
 const has=(node,name)=>(attr(node,'class')||'').split(/\s+/).includes(name);
 const insertBefore=(parent,node,before)=>{node.parentNode=parent;parent.childNodes.splice(parent.childNodes.indexOf(before),0,node);};
@@ -14,15 +17,17 @@ function disclose(nodes,label){
 export function comparisonHtml(en){
   const options=en?[
     {id:'self',name:'Do it yourself',price:'Materials only',intro:'You clean, sand if needed and oil the board yourself.',items:['Sandpaper if needed','Linseed oil and a dry cotton cloth','Washing-up liquid for cleaning'],extra:'You provide the time and materials. Care balm is optional.'},
-    {id:'refresh',name:'Refresh service',price:'€41–64',intro:'A renewed surface through sanding, oil and a protective finish. No repairs.',items:['Sand, raise the grain and fine-sand','Oil and finish with care balm','No repairs; no balm tin for home'],extra:'Up to 30 × 20 cm: €41 · up to 45 × 30 cm: €51 · longer than 45 cm: €64'},
+    {id:'refresh',name:'Refresh service',price:'€41–64',intro:'A renewed surface through sanding, oil and a protective finish. No repairs.',items:['Sand, raise the grain and fine-sand','Oil and finish with care balm','No repairs'],extra:'Up to 30 × 20 cm: €41 · up to 45 × 30 cm: €51 · longer than 45 cm: €64'},
     {id:'full',name:'Full restoration',price:'€95–154',intro:'All refresh work plus suitable repairs after assessment. One care balm tin included.',items:['All refresh-service work','Assess and treat suitable cracks, flatness and feet','One care balm tin for home included'],extra:'Up to 30 × 20 cm: €95 · up to 45 × 30 cm: €124 · longer than 45 cm: €154'}
   ]:[
     {id:'self',name:'Selbst machen',price:'Nur Materialkosten',intro:'Du reinigst, schleifst bei Bedarf und ölst dein Brett selbst.',items:['Schleifpapier nach Bedarf','Leinöl und ein trockenes Baumwolltuch','Spülmittel zum Reinigen'],extra:'Arbeitszeit und Material bringst du selbst ein. Pflegebalsam ist optional.'},
-    {id:'refresh',name:'Auffrischung',price:'41–64 €',intro:'Eine neue Oberfläche durch Schliff, Öl und schützendes Finish. Ohne Reparaturen.',items:['Schleifen, wässern und fein nachschleifen','Ölen und mit Pflegebalsam abschließen','Ohne Reparaturen; keine Dose Balsam für zu Hause'],extra:'Bis 30 × 20 cm: 41 € · bis 45 × 30 cm: 51 € · über 45 cm Länge: 64 €'},
+    {id:'refresh',name:'Auffrischung',price:'41–64 €',intro:'Eine neue Oberfläche durch Schliff, Öl und schützendes Finish. Ohne Reparaturen.',items:['Schleifen, wässern und fein nachschleifen','Ölen und mit Pflegebalsam abschließen','Ohne Reparaturen'],extra:'Bis 30 × 20 cm: 41 € · bis 45 × 30 cm: 51 € · über 45 cm Länge: 64 €'},
     {id:'full',name:'Generalüberholung',price:'95–154 €',intro:'Auffrischung plus Reparaturen nach Prüfung. Eine Dose Pflegebalsam inklusive.',items:['Alle Leistungen der Auffrischung','Geeignete Risse, Planheit und Füße prüfen und bearbeiten','Eine Dose Pflegebalsam für zu Hause inklusive'],extra:'Bis 30 × 20 cm: 95 € · bis 45 × 30 cm: 124 € · über 45 cm Länge: 154 €'}
   ];
+  const price=Number(balm.priceOrder).toLocaleString(en?'en-IE':'de-DE',{style:'currency',currency:'EUR'});
+  const balmOffer=`<p class="serviceOption__balm"><a href="${en?'/en':''}${balm.productPath}">${en?'Our care balm from':'Unser Pflegebalsam ab'} ${price} →</a><span>${en?'Linseed oil varnish and regional beeswax. Optional care for home.':'Leinölfirnis und regionales Bienenwachs. Optional für die Pflege zu Hause.'}</span></p>`;
   return `<div class="serviceOptions" id="${en?'compare-options':'paketvergleich'}" data-service-comparison data-ds-added>
-    <div class="serviceOptions__grid">${options.map(option=>`<article class="serviceOption" data-service-option="${option.id}"><div class="serviceOption__head"><h3>${option.name}</h3><p class="serviceOption__price">${option.price}</p></div><p class="serviceOption__intro">${option.intro}</p><details><summary>${en?'View scope':'Leistungen ansehen'}</summary><ul>${option.items.map(item=>`<li>${item}</li>`).join('')}</ul><p>${option.extra}</p></details></article>`).join('')}</div>
+    <div class="serviceOptions__grid" tabindex="0" aria-label="${en?'Compare care options':'Pflegeangebote vergleichen'}">${options.map(option=>`<article class="serviceOption" data-service-option="${option.id}"><div class="serviceOption__head"><h3>${option.name}</h3><p class="serviceOption__price">${option.price}</p></div><p class="serviceOption__intro">${option.intro}</p><ul class="serviceOption__features">${option.items.map(item=>`<li>${item}</li>`).join('')}</ul>${option.id==='self'?balmOffer:''}<details><summary>${en?'Prices and details':'Preise und Details'}</summary><p>${option.extra}</p></details><a class="serviceOption__link" href="${option.id==='self'?(en?'/en/care.html':'/pflege.html'):'mailto:info@edlehoelzer.de?subject='+encodeURIComponent(option.name)}" data-umami-event="${option.id==='self'?'care_selfservice_click':'care_refurbishment_check_click'}">${option.id==='self'?(en?'View care guide':'Zur Pflegeanleitung'):(en?'Request photo assessment':'Fotoeinschätzung anfragen')}</a></article>`).join('')}</div>
     <p class="serviceOptions__note">${en?'Workshop prices include return shipping within Germany. You cover shipping to us.':'Werkstattpreise inklusive Rückversand (DE). Den Hinversand trägst du.'}</p>
     <p class="serviceOptions__note">${en?'Repairs only after photo assessment. Through-cracks, warping over 5 mm and hygienically irreparable damage are excluded.':'Reparaturen nur nach Fotoeinschätzung. Durchgehende Risse, Verzug über 5 mm und hygienisch irreparable Schäden sind ausgeschlossen.'}</p>
   </div>`;

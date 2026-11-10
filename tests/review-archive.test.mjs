@@ -7,8 +7,8 @@ import {root,walk,attr,text} from '../scripts/audit-design-system.mjs';
 import {allReviews,originalText} from '../scripts/review-content.mjs';
 const reviews=allReviews();
 test('all review records have unique public identifiers and no customer account identifiers',()=>{
-  assert.equal(reviews.length,42);assert.equal(new Set(reviews.map(r=>r.id)).size,reviews.length);
-  assert.equal(reviews.filter(r=>r.source==='Etsy').length,39);assert.equal(reviews.filter(r=>r.source==='Google Maps').length,3);
+  assert.equal(reviews.length,43);assert.equal(new Set(reviews.map(r=>r.id)).size,reviews.length);
+  assert.equal(reviews.filter(r=>r.source==='Etsy').length,40);assert.equal(reviews.filter(r=>r.source==='Google Maps').length,3);
   for(const review of reviews)assert.ok(!review.reviewerName.includes('Etsy-Kundin'),'all author names are verified');
   assert.equal(reviews.find(r=>r.id==='google-review-nidya').reviewerName,'Nidya');
   const names=JSON.parse(fs.readFileSync(path.join(root,'data/review-author-names.json'),'utf8')).names;

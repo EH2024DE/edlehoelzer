@@ -62,7 +62,7 @@ test('concept labels prevent invented inventory and unnecessary production image
   assert.match(html, /kein Espresso-Serienprodukt/);
   assert.doesNotMatch(html, /holzbrett-kanten-fraesen|id="planung"/);
   assert.doesNotMatch(html, /Burg Hotel|Stauffenberg|Referenzkunde|HACCP-konform|kostenlose Vor-Ort|erfolgreich umgesetzt für|Wir bauen alles/i);
-  assert.match(html, /bestimmte Umbaumaßnahmen im Innenausbau sind nach Abstimmung möglich/);
+  assert.doesNotMatch(html, /Innenausbau/);
   assert.match(html, /Frühstücks-, Brunch- und Serviertabletts/);
   assert.doesNotMatch(html, /data-carousel-(controls|position)/);
 });

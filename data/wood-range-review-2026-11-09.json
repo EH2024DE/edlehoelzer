@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-11-09",
+  "scope": "Listed wood range, not live quantity per wood variant. Prices and URLs unchanged.",
+  "updates": [
+    {
+      "listingId": "4549962555",
+      "sourceUrl": "https://www.etsy.com/listing/4549962555",
+      "evidence": "Current Etsy title plus owner confirmation: oak and ash are available alongside walnut and plum.",
+      "fields": {
+        "displayName": "Buttermesser – Nussbaum, Zwetschge, Esche & Eiche",
+        "material": "Nussbaum, Zwetschge, Esche oder Eiche",
+        "shortDescription": "Nussbaum, Zwetschge, Esche oder Eiche, ca. 17 cm lang und ca. 8 mm stark.",
+        "longDescription": "Handgemachtes Buttermesser aus Holz für Frühstück, Brotzeit und den gedeckten Tisch. Die geschwungene, minimalistische Form liegt angenehm in der Hand und verstreicht Butter, Frischkäse oder weiche Aufstriche sauber. Erhältlich aus Nussbaum, Zwetschge, Esche oder Eiche; auf Wunsch mit kleiner Gravur am Griff. Wenn mehrere Exemplare einer Holzart verfügbar sind, können wir vor dem Versand Fotos zur Auswahl schicken.",
+        "badges": ["Nussbaum / Zwetschge / Esche / Eiche", "ca. 17 cm", "personalisierbar"]
+      }
+    },
+    {
+      "listingId": "4471048251",
+      "sourceUrl": "https://www.etsy.com/listing/4471048251",
+      "evidence": "Public listing description names maple and meranti as well as the existing range. Wild cherry remains excluded from the visible range following the owner's sold-out confirmation.",
+      "fields": {
+        "material": "Eiche, Nussbaum, Esche, Rotbuche, Ahorn, Kambala, Meranti und Kastanie",
+        "shortDescription": "Massiver Teigschaber aus Eiche, Nussbaum, Esche, Rotbuche, Ahorn, Kambala, Meranti oder Kastanie, je nach aktueller Auswahl. Ca. 9 × 13 cm.",
+        "longDescription": "Holz-Teigschaber aus Massivholz für Backen, Kochen und Küchenarbeit. Handgefertigt in unserer Manufaktur in Mittelhessen aus Eiche, Nussbaum, Esche, Rotbuche, Ahorn, Kambala, Meranti oder Kastanie, je nach aktueller Auswahl. Ein kompakter Küchenhelfer mit klarer Form, angenehmer Haptik und vielseitiger Funktion: Teig teilen und formen oder Schnittgut vom Schneidebrett aufnehmen. Die aktuell bestellbaren Holzarten findest du im Etsy-Angebot."
+      }
+    },
+    {
+      "listingId": "4470469056",
+      "sourceUrl": "https://www.etsy.com/listing/4470469056",
+      "evidence": "The spatula's own wood section names seven woods. Plum occurs only in the butter-knife cross-reference, not as a spatula choice.",
+      "fields": {
+        "material": "Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Kambala und Wenge",
+        "shortDescription": "Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Kambala oder Wenge, je nach aktueller Auswahl.",
+        "longDescription": "Massiver Pfannenwender aus Holz, handgefertigt in unserer Manufaktur in Mittelhessen. Je nach aktueller Auswahl aus Eiche, Nussbaum, Esche, Rotbuche, Kastanie, Kambala oder Wenge. Ein stabiler Küchenhelfer für Pfanne, Grill und Kochfeld. Die Standardausführung ist rund 30 cm lang; die kompaktere Wenge-Ausführung rund 23 cm. Die aktuell bestellbaren Holzarten und Kantenformen findest du im Etsy-Angebot."
+      }
+    },
+    {
+      "listingId": "1838851839",
+      "sourceUrl": "https://www.etsy.com/listing/1838851839",
+      "evidence": "Current public wood-selection section: oak, walnut and cherry, replacing the old ash/plum range.",
+      "fields": {
+        "material": "Eiche, Nussbaum oder Kirsche",
+        "shortDescription": "Eiche, Nussbaum oder Kirsche, ca. 10 × 10 cm.",
+        "longDescription": "Dieses Untersetzer-Set aus massivem Holz mit passendem Halter ist für den täglichen Einsatz auf Tisch und Arbeitsfläche gemacht. Ruhig im Design, funktional im Alltag und handgefertigt in unserer Manufaktur. Du hast die Wahl zwischen Stirnholz und Langholz sowie Eiche, Nussbaum oder Kirsche, je nach aktueller Auswahl im Etsy-Angebot."
+      }
+    },
+    {
+      "listingId": "4440690649",
+      "sourceUrl": "https://www.etsy.com/listing/4440690649",
+      "evidence": "Current public choices: maple, ash and cherry; the website's mahogany/larch range is outdated.",
+      "fields": {
+        "material": "Ahorn, Esche oder Kirsche",
+        "longDescription": "Dieses dreiteilige Langholz-Servierbrett-Set ist für das stilvolle Anrichten und Servieren gemacht. Massiv gefertigt, fein geschliffen und vielseitig einsetzbar – von Kuchen und Gebäck bis zu Brot, Käse oder Antipasti. Der passende Halter sorgt für eine aufgeräumte Aufbewahrung. Je nach aktueller Auswahl im Etsy-Angebot erhältst du das Set aus Ahorn, Esche oder Kirsche."
+      }
+    },
+    {
+      "listingId": "4389604739",
+      "sourceUrl": "https://www.etsy.com/listing/4389604739",
+      "evidence": "Public description distinguishes oak/ash/walnut base boards from optional wenge/maple inlays.",
+      "fields": {
+        "material": "Eiche, Esche oder Nussbaum; Intarsien je nach Ausführung aus Wenge oder Ahorn"
+      }
+    }
+  ]
+}

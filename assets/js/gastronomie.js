@@ -33,7 +33,7 @@
   var anchor = form.querySelector("[data-gastro-description-anchor]");
   var optional = form.querySelector("[data-gastro-optional-message]");
   function updateDescription() {
-    var required = ["noch offen", "Individuelle Sonderlösung", "undecided", "Bespoke solution"].includes(idea.value);
+    var required = !isEnglish || ["noch offen", "Individuelle Sonderlösung", "undecided", "Bespoke solution"].includes(idea.value);
     form.elements.message.required = required;
     description.querySelector("[data-gastro-description-label]").textContent = required ? (isEnglish ? "Description (required)" : "Beschreibung (Pflichtfeld)") : (isEnglish ? "Description / message (optional)" : "Beschreibung / Nachricht (optional)");
     document.getElementById("gastro-description-help").hidden = !required;

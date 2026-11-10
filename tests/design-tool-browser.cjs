@@ -3,7 +3,7 @@ const sharp=require(process.env.SHARP_MODULE||'sharp');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 (async()=>{
-  const browser=await chromium.launch();const results=[];
+  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH});const results=[];
   try{
     for(const width of [375,1440]){
       const page=await browser.newPage({viewport:{width,height:1000}});

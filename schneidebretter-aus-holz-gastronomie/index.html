@@ -80,7 +80,7 @@
           "name": "Fertigt ihr auch Produkte außerhalb klassischer Schneidebretter?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ja. Frühstücks-, Brunch- und Serviertabletts können wir individuell gestalten. Auch bestimmte Umbaumaßnahmen im Innenausbau sind nach gemeinsamer Abstimmung möglich. Umfang, Material, Budget und Machbarkeit klären wir vorab."
+            "text": "Ja. Frühstücks-, Brunch- und Serviertabletts können wir individuell gestalten. Umfang, Material, Budget und Machbarkeit klären wir vorab."
           }
         },
         {
@@ -232,7 +232,7 @@
         <label>Unternehmen / Restaurant / Hotel (optional)<input name="company" autocomplete="organization" maxlength="120"></label>
         <div class="boardInquiry__fields">
           <label>Produktidee<select name="product_idea"><option value="noch offen">Noch offen</option><option>Steak-/Tranchierbrett</option><option>Servierbrett</option><option>Frühstücks-, Brunch- oder Serviertablett</option><option>Kaffee-/Espressobrett</option><option>Untersetzer / kleine Holzlösung</option><option>Individuelle Sonderlösung</option></select></label>
-          <label>Ungefähre Stückzahl<select name="quantity"><option value="noch offen">Noch offen</option><option>1–5</option><option>6–15</option><option>16–30</option><option>31–50</option><option>51–100</option></select></label>
+          <label>Ungefähre Stückzahl (Pflichtfeld)<select name="quantity" required><option value="">Bitte wählen</option><option>1–5</option><option>6–15</option><option>16–30</option><option>31–50</option><option>51–100</option></select></label>
         </div>
         <div data-gastro-description-anchor></div>
         <label data-gastro-description><span data-gastro-description-label>Beschreibung (Pflichtfeld)</span><textarea name="message" maxlength="3000" required aria-describedby="gastro-description-help" placeholder="Was soll die Lösung in eurem Betrieb leisten?"></textarea><span id="gastro-description-help" class="gastroBudgetHelp">Beschreibt kurz eure Idee oder den Einsatzzweck, damit wir einschätzen können, was ihr braucht.</span></label>
@@ -267,7 +267,7 @@
 
   <section id="sonderloesungen" class="section gastroFeasibility" aria-labelledby="feasibility-title">
     <div class="container gastroSplit">
-      <div><p class="eyebrow">Nach eurem Einsatz gefertigt</p><h2 id="feasibility-title">Eure Idee. Handwerklich geprüft.</h2><p>Maße, Stärke, Holzart, Kanten, Griffmulden oder Aussparungen stimmen wir auf die Nutzung ab. Mehr zur <a href="/schneidebrett-saftrille/">Saftrille</a> und <a href="/schneidebrett-mit-gravur/">Logo-Gravur</a>.</p><p>Frühstücks-, Brunch- und Serviertabletts gestalten wir nach euren Vorstellungen. Auch bestimmte Umbaumaßnahmen im Innenausbau sind nach Abstimmung möglich. Was zu eurem Projekt passt, prüfen wir gemeinsam.</p></div>
+      <div><p class="eyebrow">Nach eurem Einsatz gefertigt</p><h2 id="feasibility-title">Eure Idee. Handwerklich geprüft.</h2><p>Maße, Stärke, Holzart, Kanten, Griffmulden oder Aussparungen stimmen wir auf die Nutzung ab. Mehr zur <a href="/schneidebrett-saftrille/">Saftrille</a> und <a href="/schneidebrett-mit-gravur/">Logo-Gravur</a>.</p><p>Frühstücks-, Brunch- und Serviertabletts gestalten wir nach euren Vorstellungen. Was zu eurem Projekt passt, prüfen wir gemeinsam.</p></div>
       <div><h3>Vor dem Angebot klären wir:</h3><ul class="gastroCheck"><li>Funktion, Format und geeignetes Material</li><li>Stückzahl und Fertigungsaufwand</li><li>Was im Budgetrahmen möglich ist</li><li>Ausführung und verbindlichen Liefertermin</li></ul><p>Wenn eine Idee nicht sinnvoll umsetzbar ist, sagen wir das offen.</p></div>
     </div>
   </section>
@@ -282,7 +282,7 @@
   <section id="faq" class="section section--white" aria-labelledby="faq-title">
     <div class="container"><h2 id="faq-title">Häufige Fragen</h2><div class="faqList">
       <details class="faqItem" data-concept-cost><summary>Was kosten Anfrage und individuelle Planung?</summary><p>Die Anfrage und eine erste Kostenindikation auf Basis unseres bestehenden Sortiments sind kostenlos. Soll für das Projekt ein neues Produktkonzept oder eine individuelle Lösung entwickelt werden, vereinbaren wir vorab eine einmalige Konzept- und Planungspauschale von 150 € als Endpreis. Umsatzsteuer wird nicht gesondert ausgewiesen. Leistungsumfang und Kosten werden vor Beginn gesondert freigegeben. Bei anschließender Beauftragung der Fertigung desselben Projekts rechnen wir die Pauschale vollständig auf die Rechnung an. Ohne Fertigungsauftrag bleibt sie die Vergütung für die vereinbarte Konzeptarbeit.</p></details>
-      <details class="faqItem"><summary>Fertigt ihr auch Produkte außerhalb klassischer Schneidebretter?</summary><p>Ja. Frühstücks-, Brunch- und Serviertabletts können wir individuell gestalten. Auch bestimmte Umbaumaßnahmen im Innenausbau sind nach gemeinsamer Abstimmung möglich. Umfang, Material, Budget und Machbarkeit klären wir vorab.</p></details>
+      <details class="faqItem"><summary>Fertigt ihr auch Produkte außerhalb klassischer Schneidebretter?</summary><p>Ja. Frühstücks-, Brunch- und Serviertabletts können wir individuell gestalten. Umfang, Material, Budget und Machbarkeit klären wir vorab.</p></details>
       <details class="faqItem"><summary>Sind kleine Stückzahlen möglich?</summary><p>Ja. Einzelstücke und Serien bis zu 100 Exemplaren sind möglich. Ausführung, Stückpreis und Liefertermin stimmen wir passend zu eurem Projekt und Budget ab.</p></details>
       <details class="faqItem"><summary>Sind Sondermaße möglich?</summary><p>Ja, wenn Format und Aufbau für die geplante Nutzung technisch sinnvoll sind. Maße, Stärke, Gewicht und Handhabung stimmen wir vor der Fertigung ab.</p></details>
       <details class="faqItem"><summary>Kann unser Logo graviert werden?</summary><p>Je nach Produkt und Motiv ist eine Logo-Gravur möglich. Größe, Position und Lesbarkeit prüfen wir auf dem gewählten Holz, bevor ihr die Ausführung freigebt.</p></details>
