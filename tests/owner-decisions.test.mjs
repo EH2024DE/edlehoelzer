@@ -18,7 +18,7 @@ test('new English pages mirror German main sections, images and form contracts',
     assert.deepEqual(fields(en),fields(de));
     assert.equal(attr(en.find(n=>n.tagName==='html'),'lang'),'en');
     const visible=main(en).filter(n=>n.nodeName==='#text'&&n.value.trim()).map(n=>n.value.trim());
-    for(const value of page.texts)assert.ok(visible.includes(value),value);
+    for(const value of page.texts)assert.ok(visible.includes(value)||value.endsWith(' (DE)')&&visible.includes(value.replace(/ \(DE\)$/,'')),value);
     const faq=JSON.parse(text(en.find(n=>n.tagName==='script'&&attr(n,'type')==='application/ld+json'&&text(n).includes('FAQPage'))));
     assert.ok(faq.mainEntity.length>=4);
   }

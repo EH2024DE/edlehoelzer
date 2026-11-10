@@ -75,7 +75,13 @@ test('reference source pages preserve baseline markup outside the bilingual home
       .replace(/<p data-review-subline>[\s\S]*?<\/p>/,'')
       .replace(/<section id="(?:ueberuns|about)"[\s\S]*?<\/section>/,'')
       .replace(/<section class="(?:section homeDecision|closingHero)[^\"]*"[\s\S]*?<\/section>/,''):html;
-    const whitespace=html=>JSON.parse(fs.readFileSync(path.join(root,'data/product-url-migration.json'),'utf8')).reduce((value,item)=>value.replaceAll(item.previousPath,item.productPath),html).replace(/>\s+</g,'><');
+    const whitespace=html=>JSON.parse(fs.readFileSync(path.join(root,'data/product-url-migration.json'),'utf8')).reduce((value,item)=>value.replaceAll(item.previousPath,item.productPath),html)
+      .replaceAll('href="/" class="brand" aria-label="Edle Hölzer home"','href="/en/" class="brand" aria-label="Edle Hölzer home"')
+      .replaceAll('href="/en/#customwork"','href="/en/custom-cutting-board/"')
+      .replace(/(<div class="(?:lang|mobileMenu__lang)">)[\s\S]*?<\/div>/g,'$1</div>')
+      .replace(/href="(?:\.\.\/|\/)(?:impressum\.html)"/g,'href="/en/legal-notice/"')
+      .replace(/href="(?:\.\.\/|\/)(?:datenschutz\.html)"/g,'href="/en/privacy/"')
+      .replace(/href="\/sitemap-uebersicht\.html(?:#english-topics)?"/g,'href="/en/topics/"').replace(/>\s+</g,'><');
     assert.equal(whitespace(approvedPortraitChanges(normalize(repairEnglishNavigation(before,file)))),whitespace(approvedPortraitChanges(normalize(fs.readFileSync(path.join(root,file),'utf8')))),file);
   }
 });

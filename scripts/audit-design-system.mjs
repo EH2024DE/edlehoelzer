@@ -17,7 +17,7 @@ export function template(url){
   if(['/','/en/'].includes(p))return 'Home';
   if(/\/(?:en\/)?produkte\//.test(p))return 'Product Detail';
   if(/\/(produkte|products)\.html$/.test(p))return 'Product Listing';
-  if(/impressum|datenschutz|privacy|widerruf|agb/.test(p))return 'Legal';
+  if(/impressum|datenschutz|privacy|legal-notice|widerruf|agb/.test(p))return 'Legal';
   if(/unternehmen|gastronomie|restaurants|b2b|corporate-gifts/.test(p))return 'B2B';
   if(/nach-mass|aufbereiten|refurbishment|custom/.test(p))return 'Service / Conversion';
   return 'Editorial / Guide';

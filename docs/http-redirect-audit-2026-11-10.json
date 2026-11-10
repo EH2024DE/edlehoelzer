@@ -1,0 +1,1489 @@
+{
+  "checkedAt": "2026-11-10T05:35:46.092Z",
+  "rules": 74,
+  "requests": 148,
+  "passed": 0,
+  "htmlFallbacks": 148,
+  "results": [
+    {
+      "source": "https://edlehoelzer.de/b2b.html",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/handgefertigte-holzprodukte-fuer-unternehmen/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/b2b.html?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/handgefertigte-holzprodukte-fuer-unternehmen/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/3d-stirnholz-eiche-weitere-1776273564/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/3d-stirnholzbrett-46x46/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/3d-stirnholz-eiche-weitere-1776273564/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/3d-stirnholzbrett-46x46/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/bambus-buche-fruehstuecksbrett-1827805914/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/fruehstuecksbrett-bambus-buche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/bambus-buche-fruehstuecksbrett-1827805914/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/fruehstuecksbrett-bambus-buche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/schneidebretthalter-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/schneidebretthalter-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-kambala-schachbrett-1783351692/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-buche-kambala/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-kambala-schachbrett-1783351692/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-buche-kambala/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-massiv-mit-griffmulden-4522496017/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buche-langholzbrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-massiv-mit-griffmulden-4522496017/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buche-langholzbrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-mooreiche-servierbrett-4381023266/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/servierbrett-buche-mooreiche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-mooreiche-servierbrett-4381023266/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/servierbrett-buche-mooreiche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-stirnholz-mit-saftrille-1830530996/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buche-stirnholzbrett-saftrille/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buche-stirnholz-mit-saftrille-1830530996/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buche-stirnholzbrett-saftrille/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buttermesser-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buttermesser-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-buche-kompakt-mit-astloch-1855639262/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-buche-kompakt/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-buche-kompakt-mit-astloch-1855639262/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-buche-kompakt/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-esche-buche-mit-saftrille-4297451235/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-esche-buche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-esche-buche-mit-saftrille-4297451235/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-esche-buche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-langholz-schweizer-kante-1774262638/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-langholzbrett-40x30/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-langholz-schweizer-kante-1774262638/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-langholzbrett-40x30/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-massiv-astloch-kante-4522458953/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-langholzbrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-massiv-astloch-kante-4522458953/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-langholzbrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-servierbrett-doppelgriff-4398179153/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-tapasbrett-90-cm/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-servierbrett-doppelgriff-4398179153/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-tapasbrett-90-cm/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-stirnholz-massiver-hackblock-4455205567/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-stirnholzbrett-42x40/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-stirnholz-massiver-hackblock-4455205567/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-stirnholzbrett-42x40/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-stirnholz-schmales-design-4358136560/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-stirnholzbrett-schmal/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-stirnholz-schmales-design-4358136560/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-stirnholzbrett-schmal/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-stirnholzbrett-xxl/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/eiche-stirnholzbrett-xxl/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-wenge-schachbrett-4299097497/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-wenge/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/eiche-wenge-schachbrett-4299097497/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-wenge/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/erbstueck-stirnholzbrett-eiche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/erbstueck-stirnholzbrett-eiche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/esche-stirnholz-bbq-hackblock-4380062082/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/esche-stirnholzbrett-41x40/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/esche-stirnholz-bbq-hackblock-4380062082/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/esche-stirnholzbrett-41x40/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/kambala-schneidebrett-kompakt-1848021568/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/kambala-schneidebrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/kambala-schneidebrett-kompakt-1848021568/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/kambala-schneidebrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/laerche-stirnholz-kompakt-1818046728/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/laerche-stirnholzbrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/laerche-stirnholz-kompakt-1818046728/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/laerche-stirnholzbrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/nussbaum-ahorn-streifenbrett-4450988121/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-nussbaum-ahorn/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/nussbaum-ahorn-streifenbrett-4450988121/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-nussbaum-ahorn/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/nussbaum-langholz-flankenoptik-1886821275/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/nussbaum-langholzbrett-33x22/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/nussbaum-langholz-flankenoptik-1886821275/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/nussbaum-langholzbrett-33x22/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/padouk-eiche-kompakt-kariert-1859366842/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-padouk-eiche-kompakt/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/padouk-eiche-kompakt-kariert-1859366842/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-padouk-eiche-kompakt/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/pfannenwender-massivholz-mix-4470469056/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/pfannenwender-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/pfannenwender-massivholz-mix-4470469056/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/pfannenwender-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/pflegebalsam-schneidebrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/pflegebalsam-schneidebrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/servierbrett-set-dreiteilig-4440690649/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/servierbretter-holz-3er-set/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/servierbrett-set-dreiteilig-4440690649/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/servierbretter-holz-3er-set/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/servierbrett-set-schwertform-4389604739/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/servierbrett-holz-schwertform/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/servierbrett-set-schwertform-4389604739/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/servierbrett-holz-schwertform/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholz-schneidebrett-mit-griffen/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholz-schneidebrett-mit-griffen/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/stockbuche-stirnholz-naturmaserung-4370784882/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stockbuche-stirnholzbrett-nussbaumrahmen/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/stockbuche-stirnholz-naturmaserung-4370784882/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stockbuche-stirnholzbrett-nussbaumrahmen/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/stockbuche-stirnholz-schachbrett-1783359006/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buche-stirnholzbrett-53x36/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/stockbuche-stirnholz-schachbrett-1783359006/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/buche-stirnholzbrett-53x36/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/teigschaber-aus-massivholz-4471048251/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/teigschaber-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/teigschaber-aus-massivholz-4471048251/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/teigschaber-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/untersetzer-set-holz-mit-halter-1838851839/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/holzuntersetzer-mit-halter/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/untersetzer-set-holz-mit-halter-1838851839/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/holzuntersetzer-mit-halter/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/walnuss-eiche-rahmenbrett-4297472161/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/nussbaum-stirnholzbrett-eichenrahmen/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/walnuss-eiche-rahmenbrett-4297472161/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/nussbaum-stirnholzbrett-eichenrahmen/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/wenge-nussbaum-eiche-kariert-1894223313/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-nussbaum-wenge/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/wenge-nussbaum-eiche-kariert-1894223313/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/stirnholzbrett-eiche-nussbaum-wenge/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/xxl-stirnholz-nach-mass-4484195050/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/schneidebrett-nach-mass-75x60/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/en/produkte/xxl-stirnholz-nach-mass-4484195050/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/en/produkte/schneidebrett-nach-mass-75x60/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/3d-stirnholz-eiche-weitere-1776273564/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/3d-stirnholzbrett-46x46/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/3d-stirnholz-eiche-weitere-1776273564/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/3d-stirnholzbrett-46x46/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/bambus-buche-fruehstuecksbrett-1827805914/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/fruehstuecksbrett-bambus-buche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/bambus-buche-fruehstuecksbrett-1827805914/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/fruehstuecksbrett-bambus-buche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/schneidebretthalter-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/bretthalter-eiche-nussbaum-oder-buche-1874454440/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/schneidebretthalter-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-kambala-schachbrett-1783351692/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-buche-kambala/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-kambala-schachbrett-1783351692/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-buche-kambala/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-massiv-mit-griffmulden-4522496017/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buche-langholzbrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-massiv-mit-griffmulden-4522496017/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buche-langholzbrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-mooreiche-servierbrett-4381023266/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/servierbrett-buche-mooreiche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-mooreiche-servierbrett-4381023266/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/servierbrett-buche-mooreiche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-stirnholz-mit-saftrille-1830530996/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buche-stirnholzbrett-saftrille/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buche-stirnholz-mit-saftrille-1830530996/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buche-stirnholzbrett-saftrille/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buttermesser-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/buttermesser-nussbaum-oder-zwetschge-4549962555/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buttermesser-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-buche-kompakt-mit-astloch-1855639262/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-buche-kompakt/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-buche-kompakt-mit-astloch-1855639262/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-buche-kompakt/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-esche-buche-mit-saftrille-4297451235/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-esche-buche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-esche-buche-mit-saftrille-4297451235/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-esche-buche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-langholz-schweizer-kante-1774262638/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-langholzbrett-40x30/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-langholz-schweizer-kante-1774262638/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-langholzbrett-40x30/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-massiv-astloch-kante-4522458953/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-langholzbrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-massiv-astloch-kante-4522458953/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-langholzbrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-servierbrett-doppelgriff-4398179153/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-tapasbrett-90-cm/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-servierbrett-doppelgriff-4398179153/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-tapasbrett-90-cm/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-stirnholz-massiver-hackblock-4455205567/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-stirnholzbrett-42x40/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-stirnholz-massiver-hackblock-4455205567/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-stirnholzbrett-42x40/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-stirnholz-schmales-design-4358136560/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-stirnholzbrett-schmal/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-stirnholz-schmales-design-4358136560/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-stirnholzbrett-schmal/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-stirnholzbrett-xxl/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-stirnholz-xxl-mit-saftrille-1824089235/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/eiche-stirnholzbrett-xxl/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-wenge-schachbrett-4299097497/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-wenge/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/eiche-wenge-schachbrett-4299097497/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-wenge/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/erbstueck-stirnholzbrett-eiche/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/erbstueck-historische-eiche-mit-halter-pflegebalsam-4598989614/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/erbstueck-stirnholzbrett-eiche/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/esche-stirnholz-bbq-hackblock-4380062082/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/esche-stirnholzbrett-41x40/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/esche-stirnholz-bbq-hackblock-4380062082/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/esche-stirnholzbrett-41x40/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/kambala-schneidebrett-kompakt-1848021568/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/kambala-schneidebrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/kambala-schneidebrett-kompakt-1848021568/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/kambala-schneidebrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/laerche-stirnholz-kompakt-1818046728/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/laerche-stirnholzbrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/laerche-stirnholz-kompakt-1818046728/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/laerche-stirnholzbrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/nussbaum-ahorn-streifenbrett-4450988121/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-nussbaum-ahorn/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/nussbaum-ahorn-streifenbrett-4450988121/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-nussbaum-ahorn/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/nussbaum-langholz-flankenoptik-1886821275/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/nussbaum-langholzbrett-33x22/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/nussbaum-langholz-flankenoptik-1886821275/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/nussbaum-langholzbrett-33x22/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/padouk-eiche-kompakt-kariert-1859366842/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-padouk-eiche-kompakt/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/padouk-eiche-kompakt-kariert-1859366842/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-padouk-eiche-kompakt/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/pfannenwender-massivholz-mix-4470469056/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/pfannenwender-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/pfannenwender-massivholz-mix-4470469056/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/pfannenwender-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/pflegebalsam-schneidebrett/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/pflegebalsam-leinoel-bienenwachs-1881802291/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/pflegebalsam-schneidebrett/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/servierbrett-set-dreiteilig-4440690649/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/servierbretter-holz-3er-set/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/servierbrett-set-dreiteilig-4440690649/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/servierbretter-holz-3er-set/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/servierbrett-set-schwertform-4389604739/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/servierbrett-holz-schwertform/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/servierbrett-set-schwertform-4389604739/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/servierbrett-holz-schwertform/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholz-schneidebrett-mit-griffen/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/stirnholz-mit-griffen-drei-holzarten-4417507555/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholz-schneidebrett-mit-griffen/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/stockbuche-stirnholz-naturmaserung-4370784882/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stockbuche-stirnholzbrett-nussbaumrahmen/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/stockbuche-stirnholz-naturmaserung-4370784882/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stockbuche-stirnholzbrett-nussbaumrahmen/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/stockbuche-stirnholz-schachbrett-1783359006/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buche-stirnholzbrett-53x36/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/stockbuche-stirnholz-schachbrett-1783359006/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/buche-stirnholzbrett-53x36/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/teigschaber-aus-massivholz-4471048251/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/teigschaber-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/teigschaber-aus-massivholz-4471048251/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/teigschaber-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/untersetzer-set-holz-mit-halter-1838851839/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/holzuntersetzer-mit-halter/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/untersetzer-set-holz-mit-halter-1838851839/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/holzuntersetzer-mit-halter/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/walnuss-eiche-rahmenbrett-4297472161/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/nussbaum-stirnholzbrett-eichenrahmen/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/walnuss-eiche-rahmenbrett-4297472161/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/nussbaum-stirnholzbrett-eichenrahmen/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/wenge-nussbaum-eiche-kariert-1894223313/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-nussbaum-wenge/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/wenge-nussbaum-eiche-kariert-1894223313/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/stirnholzbrett-eiche-nussbaum-wenge/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/xxl-stirnholz-nach-mass-4484195050/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/schneidebrett-nach-mass-75x60/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/produkte/xxl-stirnholz-nach-mass-4484195050/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/produkte/schneidebrett-nach-mass-75x60/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/teigschaber-sauerteig/",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/teigschaber-holz/",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    },
+    {
+      "source": "https://edlehoelzer.de/teigschaber-sauerteig/?redirect_check=20261110",
+      "expectedStatus": 301,
+      "expectedLocation": "https://edlehoelzer.de/teigschaber-holz/?redirect_check=20261110",
+      "status": 200,
+      "location": null,
+      "server": "GitHub.com",
+      "htmlFallback": true,
+      "passed": false
+    }
+  ]
+}

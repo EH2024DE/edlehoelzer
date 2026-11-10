@@ -1,5 +1,9 @@
 # Website-Audit: aktueller Restumfang
 
+Historischer Stand. Fuer die anschliessende Release-/Sprach-/Mobilrunde siehe
+`audit-release-language-2026-11-10.md`; insbesondere EN-Ziele und Live-Status
+wurden seit diesem Dokument weiterbearbeitet.
+
 Stand: 09.11.2026. Grundlage: lokaler aktueller Design-Build und Repository,
 nicht die Behauptung einer bereits veroeffentlichten Live-Aenderung. Abgleich mit
 den 20 Revisionsaufgaben aus dem Grok/Gemini/Claude-Paket. Spaetere ausdrueckliche
