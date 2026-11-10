@@ -112,10 +112,11 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   const snapshot=JSON.parse(fs.readFileSync(path.join(root,'data/inventory-public-snapshot.json'),'utf8'));
   for(const product of catalogAfter.products.filter(p=>p.inventoryCheckedAt)){
     const original=catalogBefore.products.find(p=>p.id===product.id);
-    assert.equal(product.inventoryCheckedAt,snapshot.checkedAt);
+    if(product.availabilityStatus==='unavailable')assert.ok(product.inventoryCheckedAt<=snapshot.checkedAt,'historic unavailable observations remain dated honestly');
+    else assert.equal(product.inventoryCheckedAt,snapshot.checkedAt);
     if(product.availabilityStatus==='unavailable'){
       assert.ok(!Object.hasOwn(snapshot.quantities,product.listingId));
-      assert.ok(['1803930088','4370769708'].includes(product.listingId));
+      assert.equal(product.active,false);assert.equal(product.stock,0);
       for(const key of ['active','availabilityStatus','availabilityNote','availabilityNoteEn']){if(key in original)product[key]=original[key];else delete product[key];}
     }else assert.equal(product.stock,snapshot.quantities[product.listingId]);
     product.stock=original.stock;delete product.inventoryCheckedAt;

@@ -12,8 +12,11 @@ export function allReviews(){
 export function googleReviewMeta(){return JSON.parse(fs.readFileSync(path.join(root,'data/google-reviews.json'),'utf8'));}
 export function featuredReviews(){
   const reviews=allReviews(),etsy=reviews.filter(r=>r.source==='Etsy'),google=reviews.filter(r=>r.source==='Google Maps');
-  const latest=etsy.find(r=>r.id==='etsy-review-8491ddd212bb90c3')||etsy[0];
-  return [latest,google[0],etsy.find(r=>r.id==='etsy-review-75b496e06b4e5a2b'),google[1],etsy.find(r=>r.id==='etsy-review-034877d1781c3f53'),google[2]].filter(Boolean).slice(0,6);
+  const latest=etsy.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''))[0];
+  const seen=new Set();
+  return [latest,google[0],etsy.find(r=>r.id==='etsy-review-75b496e06b4e5a2b'),google[1],etsy.find(r=>r.id==='etsy-review-034877d1781c3f53'),google[2],...etsy,...google].filter(r=>{
+    if(!r||seen.has(r.id))return false;seen.add(r.id);return true;
+  }).slice(0,6);
 }
 export function reviewDateLabel(review,english){
   return review.date||(english?review.dateLabelEn:review.dateLabel)+' · '+(english?'as displayed':'Anzeige')+' '+review.observedAt;
