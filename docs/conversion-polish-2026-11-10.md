@@ -3,17 +3,15 @@
 No palette redesign, hero reviews, artificial scarcity, generic delivery promise
 or hospitality/PE-500 changes. No shop, price, checkout or deployment activation.
 
-Follow-up: both homepages now have a separate light USP strip below the hero:
-handcrafted in Central Hesse, unique pieces instead of mass production, and
-made-to-measure availability. The main hero title is 28px mobile / 44px desktop,
+Final owner decision, 2026-11-11: the experimental USP/trust strip below the hero
+has been removed from both homepages, including its CSS. Existing customer
+reviews and the product purchase note remain. The main hero title is 28px mobile / 44px desktop,
 with its closing promise smaller at 20px / 28px, on a separate line and 12px gap;
-the original H1 wording remains unchanged. Mobile and desktop
-both use three centered columns with two fine vertical separators, no bullet
-dots, readable mobile type and controlled hyphenation. No review counts
+the original H1 wording remains unchanged. No hero review counts
 or ratings. The review section has 48px top padding after the dark Erbstueck
 feature; it is exempt from the same-background section-spacing reduction.
-Browser checks assert the strip stays below the image, remains readable without
-overflow, uses the correct responsive arrangement and retains review clearance.
+Browser checks assert the trust strip is absent and retain title hierarchy,
+overflow and review-clearance checks.
 
 ## Changes
 

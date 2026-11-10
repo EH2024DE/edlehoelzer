@@ -12,21 +12,12 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
   await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.locator('[data-consent-necessary]').click();await page.evaluate(()=>document.fonts.ready);
   if(route==='/'||route==='/en/'){
    assert.equal(await page.locator('.hero [data-ds-added=hero-trust]').count(),0);
-   const proof=page.locator('.hero__proof');assert.equal(await proof.count(),1);assert.ok(await proof.isVisible());
+   assert.equal(await page.locator('.hero__proof,.homeProofStrip,[data-ds-added="hero-proof"]').count(),0);
    const headline=page.locator('.hero h1'),promise=headline.locator('.hero__promise');assert.equal(await promise.count(),1);
    assert.equal(await headline.evaluate(n=>getComputedStyle(n).fontSize),width<=760?'28px':'44px');
    assert.equal(await promise.evaluate(n=>getComputedStyle(n).fontSize),width<=760?'20px':'28px');
    assert.ok(await promise.evaluate(n=>parseFloat(getComputedStyle(n).marginTop)>=8));
-   assert.equal(await proof.locator('li').count(),3);
-   assert.ok(await proof.locator('li').evaluateAll(items=>items.every((n,i)=>getComputedStyle(n,'::before').content==='none'&&getComputedStyle(n).listStyleType==='none'&&(i===0||parseFloat(getComputedStyle(n).borderInlineStartWidth)===1))),'trust columns use separators, not bullet dots');
-   const points=await proof.locator('li').evaluateAll(items=>items.map(n=>({top:n.getBoundingClientRect().top,width:n.clientWidth,scroll:n.scrollWidth})));
-   assert.ok(points.every(p=>p.scroll<=p.width),'USP text never overflows');
-   assert.ok(points.every(p=>p.top===points[0].top),'USPs remain side by side at every viewport');
-   const heroBox=await page.locator('.hero').boundingBox(),proofBox=await proof.boundingBox();
-   assert.ok(proofBox.y>=heroBox.y+heroBox.height,'USP strip sits below the image hero');
-   assert.equal(await page.locator('.hero .hero__proof').count(),0);
    await page.locator('.hero').screenshot({path:path.join(out,'hero-'+width+'-'+(route==='/en/'?'en':'de')+'.png')});
-   await page.locator('.homeProofStrip').screenshot({path:path.join(out,'usp-'+width+'-'+(route==='/en/'?'en':'de')+'.png')});
    const reviewTop=await page.locator('.reviewTrust').evaluate(n=>n.getBoundingClientRect().top);
    const headingTop=await page.locator('[data-review-headline]').evaluate(n=>n.getBoundingClientRect().top);
    assert.ok(headingTop-reviewTop>=40,'review heading has breathing room after the dark section');
