@@ -519,7 +519,7 @@ function initConversionTracking() {
   }
 
   document.addEventListener("click", function (event) {
-    var link = event.target.closest("a");
+    var link = event.target.closest("a,[data-product-preview]");
     var page = window.location.pathname.replace(/\/index\.html$/, "/") || "/";
 
     if (!link) {
@@ -533,11 +533,17 @@ function initConversionTracking() {
       label: linkText(link)
     };
 
-    if (link.hasAttribute("data-etsy-link") || (url && /(^|\.)etsy\.com$/i.test(url.hostname))) {
+    if(document.body.classList.contains('ds-site')){
+      if(link.closest('.hero__actions'))track('homepage_hero_click',Object.assign({},payload,{action:href.indexOf('finder')!==-1?'finder':'collection'}));
+      if(link.closest('.homepageProductGrid .productCard'))track('homepage_product_open',Object.assign({},payload,{product_id:link.getAttribute('data-product-preview')||link.getAttribute('data-umami-event-product')||''}));
+    }
+
+    if (!link.hasAttribute('data-etsy-policy')&&(link.hasAttribute("data-etsy-link") || (url && /(^|\.)etsy\.com$/i.test(url.hostname)))) {
       if (url && /1881802291/.test(url.pathname)) {
         track("care_balm_etsy_click", payload);
       } else {
         payload.host = url ? url.hostname : "";
+        payload.placement = link.getAttribute('data-conversion-location') || (link.closest('.productPreview__earlyPurchase')?'main':'other');
         track("etsy_checkout_click", payload);
       }
     }
@@ -1716,7 +1722,7 @@ function initProductExperience() {
     var etsyTrigger = event.target.closest("[data-product-etsy]");
     if (etsyTrigger) {
       var etsyProduct = productMap[etsyTrigger.getAttribute("data-product-etsy")];
-      track("product_preview_etsy_click", etsyProduct || null, { source: "preview", target: "etsy" });
+      if(!document.body.classList.contains('ds-site'))track("product_preview_etsy_click", etsyProduct || null, { source: "preview", target: "etsy" });
       return;
     }
 

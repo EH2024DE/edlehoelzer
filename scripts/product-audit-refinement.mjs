@@ -31,6 +31,11 @@ export function refineProductAudit(document,reference){
     if(heading){heading.childNodes=[];for(const n of parseFragment(escape(title)).childNodes)append(heading,n);}
     const content=walk(productRoot).find(n=>has(n,'productPreview__content'));
     if(content){
+      if(product.active&&['available','made_to_order'].includes(product.availabilityStatus)){
+        const trust=parseFragment(`<p class="productPurchaseTrust" data-ds-added="purchase-trust">${en?'Personal service. ':'Persönlicher Service. '}<a href="https://www.etsy.com/legal/buyers/" target="_blank" rel="noopener" data-etsy-policy>${en?'Purchase Protection for eligible orders under Etsy’s terms.':'Käuferschutz für berechtigte Bestellungen nach Etsy-Bedingungen.'}</a></p>`).childNodes[0];
+        const action=walk(content).find(n=>n.tagName==='a'&&/etsy\.com/.test(attr(n,'href')||''));
+        if(action){trust.parentNode=action.parentNode;action.parentNode.childNodes.splice(action.parentNode.childNodes.indexOf(action)+1,0,trust);}else append(content,trust);
+      }
       const variantNote=product.active&&product.availabilityStatus==='available'&&(product.category==='accessory'||product.variants?.length)?(en?' Choose your available wood and version in the shop.':' Deine verfügbare Holzart und Ausführung wählst du im Shop.') : '';
       const custom=product.listingId==='4484195050';
       const inquiry=product.active&&product.availabilityStatus==='made_to_order'?` <a class="textLink" href="${custom?'/schneidebrett-nach-mass/#anfrage':'mailto:info@edlehoelzer.de?subject='+encodeURIComponent((en?'Enquiry: ':'Anfrage: ')+title)}">${custom?(en?'Enquire about your custom board':'Wunschbrett anfragen'):(en?'Enquire about this board':'Dieses Brett anfragen')} →</a>`:'';

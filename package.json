@@ -1,7 +1,7 @@
 {
   "scripts": {
     "audit:design": "node scripts/audit-design-system.mjs",
-    "test:audit-release": "node --test tests/audit-release-language.test.mjs tests/consent-banner.test.cjs",
+    "test:audit-release": "node --test tests/audit-release-language.test.mjs tests/consent-banner.test.cjs tests/conversion-polish.test.mjs",
     "audit:design-links": "node scripts/audit-design-links.mjs",
     "build:design-reference": "node scripts/build-design-reference.mjs",
     "build:design-site": "node scripts/build-design-site.mjs",

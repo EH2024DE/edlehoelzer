@@ -72,6 +72,7 @@ test('reference source pages preserve baseline markup outside the bilingual home
       .replace(/<section[^>]*aria-labelledby="homepage-products-title">[\s\S]*?<\/section>/,'')
       .replace(/var homepageProductIds = \[[\s\S]*?\n  \}\);/,''):html;
     const approvedPortraitChanges=html=>['index.html','en/index.html'].includes(file)?html
+      .replace(/<span class="hero__promise">([^<]+)<\/span>/g,'$1')
       .replace(/<p data-review-subline>[\s\S]*?<\/p>/,'')
       .replace(/<section id="(?:ueberuns|about)"[\s\S]*?<\/section>/,'')
       .replace(/<section class="(?:section homeDecision|closingHero)[^\"]*"[\s\S]*?<\/section>/,''):html;

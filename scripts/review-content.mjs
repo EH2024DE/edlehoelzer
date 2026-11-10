@@ -16,7 +16,12 @@ export function featuredReviews(){
   return [latest,google[0],etsy.find(r=>r.id==='etsy-review-75b496e06b4e5a2b'),google[1],etsy.find(r=>r.id==='etsy-review-034877d1781c3f53'),google[2]].filter(Boolean).slice(0,6);
 }
 export function reviewDateLabel(review,english){
-  return review.date||(english?review.dateLabelEn:review.dateLabel)+' · '+(english?'as displayed':'Anzeige')+' '+review.observedAt;
+  return review.date?formatReviewDate(review.date,english):(english?review.dateLabelEn:review.dateLabel)+' · '+(english?'as displayed':'Anzeige')+' '+formatReviewDate(review.observedAt,english);
+}
+export function formatReviewDate(value,english){
+  if(!/^\d{4}-\d{2}(?:-\d{2})?$/.test(value||''))return value||'';
+  const full=value.length===10,date=new Date(value+(full?'T12:00:00Z':'-01T12:00:00Z'));
+  return new Intl.DateTimeFormat(english?'en-GB':'de-DE',{year:'numeric',month:full?'2-digit':'long',...(full?{day:'2-digit'}:{}),timeZone:'UTC'}).format(date);
 }
 export function originalText(review){
   return text(parseFragment('<textarea>'+String(review.text).replaceAll('<','&lt;')+'</textarea>')).replace(/\r\n/g,'\n').replace(/[ \t]+$/gm,'');

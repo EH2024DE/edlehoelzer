@@ -157,12 +157,12 @@
   const product=document.querySelector('[data-product-page]');
   if(product){
     const en=document.documentElement.lang==='en';
-    const additions=[...product.querySelectorAll('[data-ds-added="inventory"],[data-ds-added="care-bridge"]')].map(n=>n.cloneNode(true));
+    const additions=[...product.querySelectorAll('[data-ds-added="inventory"],[data-ds-added="care-bridge"],[data-ds-added="purchase-trust"]')].map(n=>n.cloneNode(true));
     const bar=document.createElement('aside');bar.className='productPurchaseBar';bar.hidden=true;
     bar.setAttribute('aria-label',en?'Purchase summary':'Kaufübersicht');
     const price=document.createElement('div');price.className='productPurchaseBar__price';
     const priceLabel=document.createElement('small'),priceValue=document.createElement('span');price.append(priceLabel,priceValue);
-    const buy=document.createElement('a');buy.className='btn btn--emphasis';buy.target='_blank';buy.rel='noopener';buy.dataset.umamiEvent='product_sticky_etsy_click';
+    const buy=document.createElement('a');buy.className='btn btn--emphasis';buy.target='_blank';buy.rel='noopener';buy.dataset.conversionLocation='sticky';
     bar.append(price,buy);document.body.append(bar);
     let observedAction,actionObserver;
     const setBar=open=>{bar.hidden=!open;document.body.classList.toggle('has-product-purchase-bar',open);};
@@ -178,6 +178,8 @@
       const inventory=content?.querySelector('.productInventory'),headline=content?.querySelector('.productPreview__purchaseHeadline');
       if(inventory&&headline&&inventory.nextElementSibling!==headline)headline.before(inventory);
       const action=product.querySelector('.productPreview__earlyPurchase a[data-etsy-link]');
+      const trust=content?.querySelector('[data-ds-added="purchase-trust"]');
+      if(action&&trust&&action.parentNode.nextElementSibling!==trust)action.parentNode.after(trust);
       const value=product.querySelector('[data-purchase-price]'),label=product.querySelector('[data-purchase-price-label]');
       if(!action||!value){setBar(false);return;}
       if(priceValue.textContent!==value.textContent)priceValue.textContent=value.textContent;
