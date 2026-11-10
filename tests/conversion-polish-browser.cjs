@@ -16,8 +16,7 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
    assert.equal(await proof.locator('li').count(),3);
    const points=await proof.locator('li').evaluateAll(items=>items.map(n=>({top:n.getBoundingClientRect().top,width:n.clientWidth,scroll:n.scrollWidth})));
    assert.ok(points.every(p=>p.scroll<=p.width),'USP text never overflows');
-   if(width<=760)assert.ok(points[0].top<points[1].top&&points[1].top<points[2].top,'mobile USPs form distinct rows');
-   else assert.ok(points.every(p=>p.top===points[0].top),'desktop USPs remain side by side');
+   assert.ok(points.every(p=>p.top===points[0].top),'USPs remain side by side at every viewport');
    const heroBox=await page.locator('.hero').boundingBox(),proofBox=await proof.boundingBox();
    assert.ok(proofBox.y>=heroBox.y+heroBox.height,'USP strip sits below the image hero');
    assert.equal(await page.locator('.hero .hero__proof').count(),0);
