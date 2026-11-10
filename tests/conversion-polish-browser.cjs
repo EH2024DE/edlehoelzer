@@ -7,12 +7,15 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
  const browser=await playwright[engine].launch(engine==='chromium'?{executablePath:process.env.CHROMIUM_PATH}:{});
  const product=require('../products.json').products.find(p=>p.listingId==='1776273564');let renders=0;
- try{for(const width of [375,430,1440])for(const route of ['/','/en/',product.productPath,'/en'+product.productPath]){
+ try{for(const width of [320,375,430,1440])for(const route of ['/','/en/',product.productPath,'/en'+product.productPath]){
   const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.locator('[data-consent-necessary]').click();await page.evaluate(()=>document.fonts.ready);
   if(route==='/'||route==='/en/'){
    assert.equal(await page.locator('.hero [data-ds-added=hero-trust]').count(),0);
    const proof=page.locator('.hero__proof');assert.equal(await proof.count(),1);assert.ok(await proof.isVisible());
+   assert.equal(await proof.locator('li').count(),3);
+   const points=await proof.locator('li').evaluateAll(items=>items.map(n=>({top:n.getBoundingClientRect().top,width:n.clientWidth,scroll:n.scrollWidth})));
+   assert.ok(points.every(p=>p.top===points[0].top&&p.scroll<=p.width),'three USP columns stay aligned without overflow');
    const heroBox=await page.locator('.hero').boundingBox(),proofBox=await proof.boundingBox(),ctaBox=await page.locator('.hero__actions a').first().boundingBox();
    assert.ok(proofBox.y>=ctaBox.y+ctaBox.height+12);assert.ok(proofBox.y+proofBox.height<=heroBox.y+heroBox.height);
    await page.locator('.hero').screenshot({path:path.join(out,'hero-'+width+'-'+(route==='/en/'?'en':'de')+'.png')});

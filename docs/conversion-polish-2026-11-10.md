@@ -3,8 +3,9 @@
 No palette redesign, hero reviews, artificial scarcity, generic delivery promise
 or hospitality/PE-500 changes. No shop, price, checkout or deployment activation.
 
-Follow-up: both homepage heroes now include a short process/service proof line
-(individual pre-dispatch inspection and personal advice), without review counts
+Follow-up: both homepage heroes now include three side-by-side USP bullet points:
+handcrafted in Central Hesse, made-to-measure kitchen tools/boards, and unique
+pieces instead of mass production with personal coordination. No review counts
 or ratings. The review section has 48px top padding after the dark Erbstueck
 feature; it is exempt from the same-background section-spacing reduction.
 Browser checks assert both the hero line fitting and the review heading clearance.
@@ -59,7 +60,7 @@ There is no invented retrospective baseline or guaranteed conversion uplift.
 
 - 57 design regressions and ten release tests.
 - Focused browser coverage: DE/EN homepage and current square 3D product, at
-  375/430/1440px in Chromium and WebKit. Tests cover sticky transitions, outline
+  320/375/430/1440px in Chromium and WebKit. Tests cover sticky transitions, outline
   appearance, closing-button fill, touch height, localized dates, no overflow,
   trust-note placement and exactly-once local purchase-event recording.
 - Screenshots: `/tmp/edle-conversion-polish-chromium/` and
