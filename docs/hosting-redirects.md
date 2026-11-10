@@ -1,5 +1,21 @@
 # Hosting redirects
 
+## Verified live status, 10 November 2026
+
+`node scripts/audit-http-redirects.mjs` checked all 74 configured rules both
+without and with a query string (148 requests, automatic redirects disabled).
+Every source returned HTTP 200 with an HTML fallback; none returned the required
+HTTP 301 and Location header. The public response identifies GitHub.com as the
+server. No hosting, DNS, proxy or redirect rule was changed by this check.
+
+Evidence: `docs/http-redirect-audit-2026-11-10.json`. The script exits with a
+nonzero status while the planned server-side redirects are not active. It is an
+explicit deployment acceptance check, not a claim that the HTML fallbacks fail.
+
+The existing fallback pages must remain in place. Enabling server-side redirects
+requires a separately approved hosting/edge configuration; adding the CSV to the
+repository alone cannot make GitHub Pages emit these 301 responses.
+
 ## Product URL migration, 9 November 2026
 
 36 reviewed product pages now use short descriptive addresses without Etsy IDs.
