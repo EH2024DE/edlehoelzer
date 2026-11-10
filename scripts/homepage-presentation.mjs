@@ -39,7 +39,7 @@ export function refineHomepage(document,reference){
   for(const link of nodes.filter(n=>n.tagName==='a'&&has(n.parentNode,'hero__actions')))link.attrs=link.attrs.filter(a=>a.name!=='data-umami-event');
   const heroActions=nodes.find(n=>has(n,'hero__actions'));
   if(heroActions){
-    const points=english?['Hand\u00adcrafted in Central Hesse','Made-to-measure kitchen tools and cutting boards','Unique, not mass-produced – personally tailored']:['Hand\u00adgefertigt in Mittel\u00adhessen','Küchen\u00adhelfer und Schneide\u00adbretter nach Maß','Unikate statt Massen\u00adware – persönlich abge\u00adstimmt'];
+    const points=english?['Hand\u00adcrafted in Central Hesse','Unique, not mass-produced','Custom sizes available']:['Hand\u00adgefertigt in Mittel\u00adhessen','Unikate statt Massen\u00adware','Auch nach Maß möglich'];
     const proof=parseFragment(`<div class="homeProofStrip" data-ds-added="hero-proof"><ul class="container hero__proof" aria-label="${english?'What makes us different':'Was uns ausmacht'}">${points.map(point=>`<li>${escape(point)}</li>`).join('')}</ul></div>`).childNodes[0];
     const hero=nodes.find(n=>has(n,'hero'));
     proof.parentNode=hero.parentNode;hero.parentNode.childNodes.splice(hero.parentNode.childNodes.indexOf(hero)+1,0,proof);

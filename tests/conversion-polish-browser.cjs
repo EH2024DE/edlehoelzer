@@ -13,6 +13,9 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
   if(route==='/'||route==='/en/'){
    assert.equal(await page.locator('.hero [data-ds-added=hero-trust]').count(),0);
    const proof=page.locator('.hero__proof');assert.equal(await proof.count(),1);assert.ok(await proof.isVisible());
+   const headline=page.locator('.hero h1'),promise=headline.locator('.hero__promise');assert.equal(await promise.count(),1);
+   assert.equal(await headline.evaluate(n=>getComputedStyle(n).fontSize),width<=760?'26px':'44px');
+   assert.ok(await promise.evaluate(n=>parseFloat(getComputedStyle(n).marginTop)>=8));
    assert.equal(await proof.locator('li').count(),3);
    const points=await proof.locator('li').evaluateAll(items=>items.map(n=>({top:n.getBoundingClientRect().top,width:n.clientWidth,scroll:n.scrollWidth})));
    assert.ok(points.every(p=>p.scroll<=p.width),'USP text never overflows');

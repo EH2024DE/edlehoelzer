@@ -4,8 +4,10 @@ No palette redesign, hero reviews, artificial scarcity, generic delivery promise
 or hospitality/PE-500 changes. No shop, price, checkout or deployment activation.
 
 Follow-up: both homepages now have a separate light USP strip below the hero:
-handcrafted in Central Hesse, made-to-measure kitchen tools/boards, and unique
-pieces instead of mass production with personal coordination. Mobile and desktop
+handcrafted in Central Hesse, unique pieces instead of mass production, and
+made-to-measure availability. The hero title is slightly smaller (26px mobile,
+44px desktop), with its existing closing promise on a separate line and 12px gap;
+the original H1 wording remains unchanged. Mobile and desktop
 both use three columns, with readable mobile type and natural hyphenation. No review counts
 or ratings. The review section has 48px top padding after the dark Erbstueck
 feature; it is exempt from the same-background section-spacing reduction.
