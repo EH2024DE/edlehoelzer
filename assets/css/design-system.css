@@ -232,6 +232,8 @@
   .ds-site .closingHero .eyebrow{color:#fff}
   .ds-site .thankyou-icon{color:var(--color-accent)}
   .ds-site .closingHero .btn--ghost{color:#fff;border-color:#fff}
+  .ds-site .closingHero .btn--emphasis{background:var(--color-surface);border-color:var(--color-surface);color:var(--color-accent)}
+  .ds-site .closingHero .btn--emphasis:hover{background:var(--color-bg-soft);border-color:var(--color-bg-soft);color:var(--color-accent)}
   .ds-site .gastroHero :is(.breadcrumb,span){color:var(--color-text-muted)}
   .ds-site .refurbCompare span{background:var(--color-text);color:#fff;font-size:var(--text-meta)}
   .ds-site .consentMedia__placeholder{color:var(--color-text)}
@@ -356,6 +358,9 @@
   .ds-site [data-purchase-price]{font-size:var(--text-price);font-weight:500;display:block;margin-top:var(--space-2)}
   .ds-site .productPreview__purchaseMeta{margin-top:var(--space-3)}
   .ds-site .productPreview__earlyPurchase{margin-block:var(--space-5)}
+  .ds-site .productPurchaseTrust{font-size:var(--text-meta);line-height:1.6;margin-block:var(--space-3) var(--space-5);max-width:60ch}
+  .ds-site .productPreview__roomPrompt .btn{background:transparent;color:var(--color-accent);border-color:var(--color-accent)}
+  .ds-site .productPreview__roomPrompt .btn:hover{background:var(--color-bg-soft)}
   .ds-site :is(.ds-hero--editorial,.ds-hero--service,.ds-hero--b2b,.ds-hero--listing){padding-block:var(--space-8);background:transparent;color:var(--color-text);border-bottom:var(--border)}
   .ds-site :is(.seoHero__image,.accessoryHero img,.gastroHero__image,.b2b-hero img,.productsHero__figure img){height:auto;min-height:0;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:0;box-shadow:none}
   .ds-site :is(.seoHero__image,.accessoryHero img).ds-image--portrait{width:min(100%,426px);height:auto;aspect-ratio:auto 2/3;object-fit:cover;max-height:none;padding:0;border:0;justify-self:center}
@@ -395,6 +400,11 @@
   .ds-site .referenceProducts img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
   .ds-site .referenceProducts a>span:last-child{text-decoration:underline}
   .ds-site :is(.proofCard,.compactInfoCard,.noteGrid>article,.clusterCard,.decisionGrid>article,.toolGrid>article){border:0;border-top:var(--border);border-radius:0;box-shadow:none;background:transparent;padding:var(--space-5) 0}
+  .ds-site[data-ds-template=home] .materialProofBlock .sectionIntro{margin-bottom:var(--space-5)}
+  .ds-site[data-ds-template=home] .materialProofBlock .materialProofGrid{gap:var(--space-4);margin-block:var(--space-5) 0}
+  .ds-site[data-ds-template=home] .materialProofBlock .proofCard{padding-block:var(--space-4);min-height:0}
+  .ds-site[data-ds-template=home] .materialProofBlock .proofCard p{margin-block:var(--space-2) 0}
+  .ds-site :is(.textLink,.summaryTextLink,.summaryActions>a,.hero__actions>a,.homeEditorialLinks a){display:inline-flex;align-items:center;min-height:var(--size-target);padding-block:var(--space-2)}
   .ds-site :is(.b2b-section,.service-section,.treeSection){color:var(--color-text);background:transparent}
   .ds-site .treeHero h1{max-width:24ch}
   .ds-site .treeWrap{max-width:var(--container-content)}

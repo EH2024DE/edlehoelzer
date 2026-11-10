@@ -25,7 +25,6 @@ function staticCards(products,english){
       if(attr(button,'data-product-preview')){
         button.tagName='a';button.nodeName='a';button.attrs=button.attrs.filter(a=>a.name!=='type');
         set(button,'href',(english?'/en':'')+product.productPath);
-        set(button,'data-umami-event','homepage_product_open');
         set(button,'data-umami-event-product',product.id);
         button.attrs=button.attrs.filter(a=>a.name!=='data-product-preview');
       }else if(attr(button,'data-product-compare'))set(button,'hidden','');
@@ -37,6 +36,7 @@ function staticCards(products,english){
 export function refineHomepage(document,reference){
   if(reference.template!=='home')return;
   const english=reference.route.startsWith('/en/'),nodes=walk(document);
+  for(const link of nodes.filter(n=>n.tagName==='a'&&has(n.parentNode,'hero__actions')))link.attrs=link.attrs.filter(a=>a.name!=='data-umami-event');
   const languageMenu=nodes.find(n=>has(n,'mobileMenu__lang'));
   if(languageMenu)remove(languageMenu);
   const languageLinks=nodes.find(n=>has(n,'lang'));
@@ -67,6 +67,7 @@ export function refineHomepage(document,reference){
     }
   }
   if(reviewRoot){
+    const eyebrow=walk(reviewRoot).find(n=>has(n,'eyebrow'));if(eyebrow)set(eyebrow,'hidden','');
     const headline=walk(reviewRoot).find(n=>attr(n,'data-review-headline')!==undefined);
     const subline=walk(reviewRoot).find(n=>attr(n,'data-review-subline')!==undefined);
     const rating=Number(meta.ratingAverage).toLocaleString(english?'en-GB':'de-DE',{minimumFractionDigits:1});
