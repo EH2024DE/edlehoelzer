@@ -10,7 +10,7 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
  const editorial=require('../data/english-editorial-pages.json');
  const routes=[...new Set(['/','/en/','/schneidebrett-nach-mass/','/schneidebretter-aus-holz-gastronomie/','/handgefertigte-holzprodukte-fuer-unternehmen/','/en/corporate-gifts/','/pflege.html','/en/care.html','/en/erbstueck/','/en/refurbishment/','/en/wooden-dough-scraper/',...editorial.map(p=>p.route),...editorial.map(p=>'/'+p.source.replace(/index\.html$/,''))])];
  try{
-  for(const width of (process.env.AUDIT_WIDTHS||'320,390,1440').split(',').map(Number))for(const route of routes){
+  for(const width of (process.env.AUDIT_WIDTHS||'320,390,1440').split(',').map(Number))for(const route of routes.filter(route=>!process.env.AUDIT_ROUTES||process.env.AUDIT_ROUTES.split(',').includes(route))){
    const page=await browser.newPage({viewport:{width,height:844},reducedMotion:'reduce'}),errors=[];
    page.on('pageerror',e=>errors.push(e.message));
    await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.evaluate(()=>document.fonts.ready);
@@ -53,9 +53,24 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
     const f=page.locator('[name="'+name+'"]');assert.ok(await f.evaluate(n=>n.required&&!n.closest('details')));
    }
    if(route==='/en/custom-cutting-board/'){
+    const galleries=page.locator('.customProjects__gallery');assert.equal(await galleries.count(),2);
+    for(let i=0;i<2;i++){
+     const gallery=galleries.nth(i);assert.equal(await gallery.locator('img').count(),3);
+     await gallery.scrollIntoViewIfNeeded();
+     for(const img of await gallery.locator('img').all()){await img.evaluate(n=>{n.loading='eager';return n.decode();});assert.equal(await img.evaluate(n=>getComputedStyle(n).objectFit),'contain');}
+     await gallery.locator('..').getByRole('button',{name:'Next project photo'}).click();
+     assert.ok(await gallery.evaluate(n=>n.scrollLeft>n.clientWidth*.8),'gallery advances to second view');
+     await gallery.locator('..').getByRole('button',{name:'Previous project photo'}).click();
+    }
+    await page.locator('.customProjects').screenshot({path:path.join(out,'custom-projects-'+width+'.png')});
     let requests=0;await page.route('https://formspree.io/f/maqanpld',r=>{requests++;return r.fulfill({status:200,contentType:'application/json',body:'{"ok":true}'});});
     await page.locator('[name=email]').fill('preview@example.invalid');await page.locator('[name=message]').fill('Local test only; no message is sent.');
     await page.locator('[data-board-inquiry] [type=submit]').click();await page.locator('[data-board-inquiry] [role=status]').filter({hasText:'Thank you!'}).waitFor();assert.equal(requests,1);
+   }
+   if(width<760&&['/pflege.html','/schneidebrett-nach-mass/'].includes(route)){
+    const bar=page.locator('.mobileStickyCta');assert.equal(await bar.count(),1);
+    const box=await bar.boundingBox();assert.ok(box.height<=70,'compact sticky CTA height '+box.height);
+    for(const link of await bar.locator('a').all())assert.ok((await link.boundingBox()).height>=44);
    }
    await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:path.join(out,route.replaceAll('/','_')+'-'+width+'.png')});
    assert.deepEqual(errors,[],route);results.push({route,width,bannerHeight:height,pageHeight:await page.evaluate(()=>document.documentElement.scrollHeight)});await page.close();

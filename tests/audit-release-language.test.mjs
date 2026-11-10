@@ -39,6 +39,16 @@ test('custom enquiry keeps the existing provider and required contact fields wit
   assert.ok(nodes.some(n=>attr(n,'data-reference-note')!==undefined));
   assert.ok(nodes.some(n=>n.tagName==='script'&&attr(n,'src')==='/assets/js/board-inquiry.js'));
 });
+test('custom board projects share the German gallery assets and page sequence',()=>{
+  const docs=['schneidebrett-nach-mass/index.html','en/custom-cutting-board/index.html'].map(file=>walk(parse(fs.readFileSync(path.join(root,file),'utf8'))));
+  const galleryAssets=nodes=>nodes.filter(n=>(attr(n,'class')||'').split(' ').includes('customProjects__gallery')).map(n=>walk(n).filter(n=>n.tagName==='img').map(n=>attr(n,'src')));
+  assert.deepEqual(galleryAssets(docs[1]),galleryAssets(docs[0]));
+  assert.deepEqual(galleryAssets(docs[1]).map(a=>a.length),[3,3]);
+  const en=docs[1];
+  for(const cls of ['summaryHero','customProjects','customBudget'])assert.ok(en.some(n=>(attr(n,'class')||'').split(' ').includes(cls)));
+  assert.ok(en.some(n=>n.tagName==='a'&&/etsy\.com.*4484195050/.test(attr(n,'href')||'')));
+  assert.match(text(en.find(n=>n.tagName==='main')),/contact you personally/);
+});
 test('service density changes disclose secondary explanations but never budget fields or the price section',()=>{
   for(const [route,file] of [['/schneidebretter-aus-holz-gastronomie/','schneidebretter-aus-holz-gastronomie/index.html'],['/handgefertigte-holzprodukte-fuer-unternehmen/','handgefertigte-holzprodukte-fuer-unternehmen/index.html'],['/en/corporate-gifts/','en/corporate-gifts/index.html']]){
     const nodes=walk(parse(renderReference({route,file,template:'b2b'}).html));

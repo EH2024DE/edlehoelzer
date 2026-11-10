@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {parse,parseFragment,serialize} from 'parse5';
 import {root,walk,attr,text} from './audit-design-system.mjs';
+import {customBoardEnglish} from './custom-board-english.mjs';
 
 export const pages=JSON.parse(fs.readFileSync(path.join(root,'data/english-editorial-pages.json'),'utf8'));
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
@@ -34,13 +35,20 @@ for(const page of pages){
   const faqs=page.faq.length?`<section class="section"><div class="container ds-reading"><h2>Questions before you choose</h2><div class="faqList">${page.faq.map(([q,a])=>`<article class="faqItem"><h3>${escape(q)}</h3><p>${escape(a)}</p></article>`).join('')}</div></div></section>`:'';
   const schema=[{'@context':'https://schema.org','@type':'WebPage',name:page.title,description:page.description,url:canonical,inLanguage:'en'},...(page.faq.length?[{'@context':'https://schema.org','@type':'FAQPage',mainEntity:page.faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}]:[])];
   let html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)} | Edle Hölzer</title><meta name="description" content="${escape(page.description)}"><meta name="robots" content="index,follow"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="de" href="https://edlehoelzer.de${de}"><link rel="alternate" hreflang="en" href="${canonical}"><link rel="alternate" hreflang="x-default" href="https://edlehoelzer.de${de}"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="https://edlehoelzer.de${page.image}"><link rel="stylesheet" href="/styles.css"><script src="/assets/js/consent-manager.js" defer></script>${schema.map(s=>`<script type="application/ld+json">${JSON.stringify(s).replaceAll('<','\\u003c')}</script>`).join('')}</head><body>${header}<main class="englishEditorial"><section class="section"><div class="container editorialHero"><div><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/en/">Home</a> / ${escape(page.title)}</nav><p class="eyebrow">Edle Hölzer</p><h1>${escape(page.title)}</h1><p class="lead">${escape(page.intro)}</p><a class="btn btn--emphasis" href="${page.target}">${escape(page.cta)}</a></div><img class="editorialHero__image${page.ratio==='portrait'?' editorialHero__image--portrait':''}" src="${page.image}" alt="${escape(page.imageAlt)}" width="${page.ratio==='portrait'?800:1200}" height="${page.ratio==='portrait'?1200:800}" decoding="async"></div></section>${productCards?`<section class="section"><div class="container"><h2>Explore individual pieces</h2><div class="editorialProducts">${productCards}</div></div></section>`:''}${people}${sections}${faqs}${page.form?form:''}<section class="section"><div class="container ds-reading"><h2>Related topics</h2><ul class="seoLinkList">${page.related.map(([label,href])=>`<li><a href="${href}">${escape(label)}</a></li>`).join('')}</ul><p>Have a question about your own piece? <a href="mailto:info@edlehoelzer.de">Talk to us directly</a>.</p></div></section></main>${footer}<script src="/main.js"></script></body></html>`;
+  const isCustom=page.route==='/en/custom-cutting-board/';
+  if(isCustom){
+    const reference=catalog.find(p=>p.listingId==='4484195050');
+    const etsyUrl=reference.etsyUrl||reference.url||'https://www.etsy.com/listing/4484195050/';
+    html=html.replace(/<main[\s\S]*?<\/main>/,customBoardEnglish({source:read(page.source),form,sections,faqs,etsyUrl}));
+    html=html.replace('</head>','<link rel="stylesheet" href="/assets/css/custom-projects.css"></head>');
+  }
   const doc=parse(html);
   const heroImage=walk(doc).find(n=>n.tagName==='img'&&(attr(n,'class')||'').includes('editorialHero__image'));
   if(page.legal||page.overview){
     const hero=heroImage.parentNode;hero.childNodes=hero.childNodes.filter(n=>n!==heroImage);
     hero.attrs.find(a=>a.name==='class').value='container ds-reading';
     const head=walk(doc).find(n=>n.tagName==='head');head.childNodes=head.childNodes.filter(n=>!(n.tagName==='meta'&&attr(n,'property')==='og:image'));
-  }else heroImage.attrs.push({name:'loading',value:'eager'});
+  }else if(heroImage)heroImage.attrs.push({name:'loading',value:'eager'});
   for(const node of walk(doc))for(const a of node.attrs||[])if(['href','src'].includes(a.name)&&a.value.startsWith('../')){
     const url=new URL(a.value,'https://edlehoelzer.de/en/');a.value=url.pathname+url.search+url.hash;
   }

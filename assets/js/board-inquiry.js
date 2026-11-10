@@ -24,8 +24,8 @@
     previous.type = next.type = 'button';
     previous.textContent = '←';
     next.textContent = '→';
-    previous.setAttribute('aria-label', 'Vorheriges Projektfoto');
-    next.setAttribute('aria-label', 'Nächstes Projektfoto');
+    previous.setAttribute('aria-label', isEnglish ? 'Previous project photo' : 'Vorheriges Projektfoto');
+    next.setAttribute('aria-label', isEnglish ? 'Next project photo' : 'Nächstes Projektfoto');
     position.setAttribute('aria-live', 'polite');
     const images = [...gallery.querySelectorAll('img')];
     const index = () => Math.round(gallery.scrollLeft / (gallery.clientWidth + 12));
@@ -35,8 +35,9 @@
       next.disabled = current >= images.length - 1;
       position.textContent = `${current + 1} / ${images.length}`;
     };
-    previous.onclick = () => gallery.scrollBy({left: -(gallery.clientWidth + 12), behavior: 'smooth'});
-    next.onclick = () => gallery.scrollBy({left: gallery.clientWidth + 12, behavior: 'smooth'});
+    const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    previous.onclick = () => gallery.scrollBy({left: -(gallery.clientWidth + 12), behavior});
+    next.onclick = () => gallery.scrollBy({left: gallery.clientWidth + 12, behavior});
     gallery.addEventListener('scroll', update, {passive: true});
     nav.append(previous, position, next);
     gallery.after(nav);

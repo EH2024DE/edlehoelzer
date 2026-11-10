@@ -137,3 +137,21 @@ Follow-up verification:
 
 These changes belong to PR 211 and the temporary preview. They are not claimed
 to be published to the production domain before merge and deployment.
+
+## Custom-board presentation correction
+
+- Replaced the simplified English image/product-card opening with the German
+  page's core sequence: summary, two completed customer projects, budget and
+  process, enquiry, then deeper guidance. Existing English explanatory copy
+  remains available below the enquiry.
+- Both customer projects reuse the German galleries, in the same image order,
+  with three manually browsable views each. Images use `contain` in stable 3:2
+  frames, without cropping away the board.
+- Retained a direct Etsy listing link. Both languages explain that dimensions,
+  wood and details are personally agreed before production, regardless of the
+  purchase route. Prices and ordering rules are unchanged.
+- Reduced mobile quick-access bar padding and type, with 44px minimum touch
+  targets; checks enforce a maximum 70px bar height at tested mobile widths.
+- Design regression: 57 passing. Release tests: eight passing. Focused browser
+  checks cover custom boards and care in both languages at 320/390/1440px,
+  including gallery navigation, full-image fitting and mocked enquiry submission.
