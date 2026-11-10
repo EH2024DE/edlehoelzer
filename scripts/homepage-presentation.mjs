@@ -59,7 +59,13 @@ export function refineHomepage(document,reference){
   const meta=JSON.parse(read('data/reviews-meta.json'));
   const reviewRoot=nodes.find(n=>attr(n,'data-review-trust-strip')!==undefined);
   const people=nodes.find(n=>has(n,'homePeople')||has(n,'storyGrid')&&walk(n).some(child=>has(child,'homePerson')));
-  if(people){set(people,'tabindex','0');set(people,'aria-label',english?'Meet the team':'Das Team kennenlernen');}
+  if(people){
+    set(people,'tabindex','0');set(people,'aria-label',english?'Meet the team':'Das Team kennenlernen');
+    for(const person of people.childNodes.filter(n=>has(n,'homePerson'))){
+      const image=person.childNodes.find(n=>n.tagName==='img');
+      if(image)set(image,'sizes','(max-width: 760px) 180px, (min-width: 901px) 320px, 40vw');
+    }
+  }
   if(reviewRoot){
     const headline=walk(reviewRoot).find(n=>attr(n,'data-review-headline')!==undefined);
     const subline=walk(reviewRoot).find(n=>attr(n,'data-review-subline')!==undefined);

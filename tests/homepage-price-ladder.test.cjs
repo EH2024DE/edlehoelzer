@@ -20,6 +20,8 @@ test('both homepages retain the four ascending price tiers and custom XXL anchor
     const ranges=[[50,150],[200,300],[400,600],[1000,Infinity]];
     selected.forEach((p,i)=>assert.ok(p.priceOrder>=ranges[i][0]&&p.priceOrder<ranges[i][1],file+' tier '+(i+1)));
     assert.equal(selected[3].listingId,'4484195050');
+    assert.equal(selected[2].listingId,'1776273564','only the current square 3D board belongs on the homepage');
+    assert.equal(products.find(p=>p.listingId==='1803930088').active,false,'the retired rectangular 3D board stays archived');
     assert.equal(selected[3].availabilityStatus,'made_to_order');
   }
 });

@@ -268,6 +268,19 @@
   .ds-site .roomDiscovery figure{width:100%;max-width:none;margin:var(--space-6) 0 0}
   .ds-site .roomDiscovery figcaption{padding-inline:var(--gutter)}
   .ds-site .roomDiscovery figure img{display:block;object-position:50% 65%}
+  @media(min-width:901px){
+    .ds-site .roomDiscovery__layout{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);width:calc(100% - 2 * var(--gutter));max-width:var(--container-content);margin-inline:auto;gap:var(--space-7)}
+    .ds-site .roomDiscovery__layout>div{width:auto;max-width:none;margin:0}
+    .ds-site .roomDiscovery figure{margin:0}
+    .ds-site .roomDiscovery figure img{aspect-ratio:4/3}
+    .ds-site .roomDiscovery figcaption{padding-inline:0}
+    .ds-site .homePeople .homePerson{grid-template-columns:minmax(0,1fr);gap:var(--space-5)}
+    .ds-site .homePeople .homePerson>img{width:320px;max-width:100%;justify-self:start}
+    .ds-site .homeDecision.closingHero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:0;align-items:center}
+    .ds-site .homeDecision.closingHero>img{position:static;grid-column:2;grid-row:1;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+    .ds-site .homeDecision .closingHero__overlay{display:none}
+    .ds-site .homeDecision .closingHero__content{grid-column:1;grid-row:1;width:100%;max-width:none;min-height:0;padding:var(--space-7);margin:0}
+  }
   .ds-site .refurbishmentFeature__grid{display:block}
   .ds-site .refurbishmentFeature__visual{display:none}
   .ds-site .landingProductGrid{display:grid;grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5);overflow:visible;max-width:100%}

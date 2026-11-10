@@ -43,17 +43,27 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
       assert.equal(await fullReview.getAttribute('open'),'');await fullReview.locator('summary').click();
       const kitchen=page.locator('.roomDiscovery figure');await kitchen.scrollIntoViewIfNeeded();
       const kitchenSize=await kitchen.evaluate(async figure=>{const img=figure.querySelector('img');await img.decode();return {figure:figure.getBoundingClientRect().width,layout:figure.parentElement.getBoundingClientRect().width,image:img.getBoundingClientRect().width,fit:getComputedStyle(img).objectFit};});
-      assert.ok(Math.abs(kitchenSize.figure-kitchenSize.layout)<1,'kitchen photo spans the full content width');
-      assert.ok(Math.abs(kitchenSize.figure-width)<1,'kitchen photo spans the viewport, not just the content container');
+      if(width<=900){
+        assert.ok(Math.abs(kitchenSize.figure-width)<1,'mobile kitchen photo spans the viewport');
+      }else{
+        assert.ok(kitchenSize.figure<=520&&kitchenSize.figure>350,'desktop kitchen photo stays compact and readable');
+      }
       assert.ok(Math.abs(kitchenSize.image-kitchenSize.figure)<1);assert.equal(kitchenSize.fit,'cover');
       await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-kitchen.png`});
       await page.locator('.homePerson').first().scrollIntoViewIfNeeded();
+      const greetings=await page.locator('.homePerson h3').allTextContents();
+      assert.ok(greetings.every(text=>text.startsWith(lang?"Hi, I'm":"Gude, ich bin")),'greetings match the page language');
       for(const image of await page.locator('.homePerson>img').all()){
-        const fit=await image.evaluate(async img=>{await img.decode();return {natural:img.naturalWidth/img.naturalHeight,actual:img.clientWidth/img.clientHeight};});
+        const fit=await image.evaluate(async img=>{await img.decode();return {natural:img.naturalWidth/img.naturalHeight,actual:img.clientWidth/img.clientHeight,width:img.clientWidth};});
         assert.ok(Math.abs(fit.natural-fit.actual)<.01,JSON.stringify(fit));
+        if(width>=1200)assert.ok(fit.width>=320,'desktop portraits show recognisable faces');
       }
       await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-people.png`});
       const photo=page.locator('.closingHero>img');await photo.scrollIntoViewIfNeeded();await photo.evaluate(img=>img.decode());
+      if(width>900){
+        const ratio=await photo.evaluate(img=>({actual:img.clientWidth/img.clientHeight,natural:img.naturalWidth/img.naturalHeight}));
+        assert.ok(Math.abs(ratio.actual-ratio.natural)<.01,'desktop workshop photo preserves the complete composition');
+      }
       await page.screenshot({path:`${output}/${lang?'en':'de'}-${width}-closing.png`});
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
       assert.equal(await page.locator('.homepageTrustBar,.homeTopic').count(),0);

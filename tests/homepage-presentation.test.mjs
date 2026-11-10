@@ -20,7 +20,7 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   const people=nodes.filter(n=>(attr(n,'class')||'').split(' ').includes('homePerson'));
   assert.equal(people.length,2);
   assert.ok(text(people[0]).includes('Özgür'));assert.ok(text(people[1]).includes('Serkan'));
-  for(const person of people)assert.match(text(walk(person).find(n=>n.tagName==='h3')),/^Gude,/);
+  for(const person of people)assert.match(text(walk(person).find(n=>n.tagName==='h3')),reference.route==='/en/'?/^Hi, I'm /:/^Gude, ich bin /);
   for(const person of people){const img=walk(person).find(n=>n.tagName==='img');assert.match(attr(img,'src'),/assets\/team\//);assert.equal(attr(img,'height'),'1199');}
   const workshop=nodes.filter(n=>n.tagName==='img'&&(attr(n,'src')||'').includes('team/oezguer-workshop'));
   assert.equal(workshop.length,1);assert.match(attr(workshop[0].parentNode,'class'),/closingHero/);
