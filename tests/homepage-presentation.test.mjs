@@ -32,6 +32,7 @@ for(const reference of references.filter(r=>r.template==='home'))test(reference.
   const reviews=featuredReviews();
   const quotes=nodes.filter(n=>attr(n,'data-review-id'));
   assert.equal(quotes.length,6);
+  assert.ok(text(quotes[0]).includes('Sandra'),'Sandra is featured first with her original review');
   for(const review of reviews)assert.ok(text(quotes.find(n=>attr(n,'data-review-id')===review.id)).includes(originalText(review)),'full original review remains available');
   if(reference.route==='/en/'){
     assert.ok(!nodes.some(n=>(attr(n,'class')||'').includes('homepageTrustBar')));
