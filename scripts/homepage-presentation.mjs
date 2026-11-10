@@ -87,8 +87,6 @@ export function refineHomepage(document,reference){
       const card=parseFragment(`<article class="reviewCard" data-review-id="${escape(review.id)}"><div class="reviewCard__stars" aria-label="${review.rating} ${english?'out of 5 stars':'von 5 Sternen'}">${'★'.repeat(review.rating)}</div><p class="reviewCard__text">„${escape(excerpt)}“</p>${long?`<details class="reviewCard__full"><summary>${english?'Read the full original review':'Originalbewertung vollständig lesen'}</summary><p>${escape(original)}</p></details>`:''}<p class="reviewCard__meta">${escape(review.reviewerName)} · ${escape(reviewDateLabel(review,english))} · ${escape(review.product)} · <a href="${escape(review.sourceUrl||meta.sourceUrl)}" target="_blank" rel="noopener">${escape(review.source)}</a></p></article>`).childNodes[0];
       append(track,card);
     }
-    const date=parseFragment(`<p class="reviewTrust__date" data-ds-added="review-date">${english?'Etsy data updated':'Etsy-Datenstand'}: ${escape(meta.lastUpdated)}${english?' · Quotes in their original language.':''}</p>`).childNodes[0];
-    append(walk(reviewRoot).find(n=>has(n,'reviewTrust__head')),date);
     const link=parseFragment(`<p data-ds-added="review-archive-link"><a class="textLink" href="${english?'/en/reviews/':'/bewertungen/'}">${english?'Read all':'Alle'} ${allReviews().length} ${english?'reviews':'Bewertungen lesen'} →</a></p>`).childNodes[0];
     const reviewContainer=reviewRoot.childNodes.find(n=>n.tagName==='div');
     const sourceLink=reviewContainer.childNodes.find(n=>attr(n,'data-review-source-link')!==undefined);
