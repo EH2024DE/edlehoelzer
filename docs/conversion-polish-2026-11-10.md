@@ -5,10 +5,11 @@ or hospitality/PE-500 changes. No shop, price, checkout or deployment activation
 
 Follow-up: both homepages now have a separate light USP strip below the hero:
 handcrafted in Central Hesse, unique pieces instead of mass production, and
-made-to-measure availability. The hero title is slightly smaller (26px mobile,
-44px desktop), with its existing closing promise on a separate line and 12px gap;
+made-to-measure availability. The main hero title is 28px mobile / 44px desktop,
+with its closing promise smaller at 20px / 28px, on a separate line and 12px gap;
 the original H1 wording remains unchanged. Mobile and desktop
-both use three columns, with readable mobile type and natural hyphenation. No review counts
+both use three centered columns with two fine vertical separators, no bullet
+dots, readable mobile type and controlled hyphenation. No review counts
 or ratings. The review section has 48px top padding after the dark Erbstueck
 feature; it is exempt from the same-background section-spacing reduction.
 Browser checks assert the strip stays below the image, remains readable without
