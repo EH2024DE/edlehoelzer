@@ -8,7 +8,7 @@ const fragment=html=>parseFragment(html).childNodes[0];
 // Destinations are existing source routes, including the translated owner pages.
 const desktopLinks={
   de:[['Produkte','/produkte.html#produkte-grid'],['Atelier','/atelier/'],['Erbstück','/schneidebrett-fachwerk-eiche/'],['Maß','/schneidebrett-nach-mass/'],['Pflege','/pflege.html']],
-  en:[['Products','/en/products.html#products-grid'],['Atelier','/en/atelier/'],['Heirloom','/en/erbstueck/'],['Custom','/en/#customwork'],['Care','/en/care.html']]
+  en:[['Products','/en/products.html#products-grid'],['Atelier','/en/atelier/'],['Heirloom','/en/erbstueck/'],['Custom','/en/custom-cutting-board/'],['Care','/en/care.html']]
 };
 const discoverLinks={
   de:[['B2B / Firmengeschenke','/handgefertigte-holzprodukte-fuer-unternehmen/'],['Gastronomie','/schneidebretter-aus-holz-gastronomie/']],

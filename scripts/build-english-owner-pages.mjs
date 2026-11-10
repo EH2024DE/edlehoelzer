@@ -9,6 +9,7 @@ const set=(n,k,v)=>{const a=n.attrs.find(a=>a.name===k);if(a)a.value=v;else n.at
 const replaceText=(n,value)=>{n.childNodes=[{nodeName:'#text',value,parentNode:n}];};
 const english=parse(read('en/index.html'));
 const links=new Map([['/','/en/'],['/produkte.html','/en/products.html'],['/atelier/','/en/atelier/'],['/handgefertigte-holzprodukte-fuer-unternehmen/','/en/corporate-gifts/'],['/pflege.html','/en/care.html'],['/schneidebrett-fachwerk-eiche/','/en/erbstueck/'],['/schneidebrett-aufbereiten/','/en/refurbishment/']]);
+for(const page of JSON.parse(read('data/english-editorial-pages.json')))links.set('/'+page.source.replace(/index\.html$/,''),page.route);
 for(const page of Object.values(pages)){
   const doc=parse(read(page.source)),nodes=walk(doc),main=nodes.find(n=>n.tagName==='main');
   const sourceNodes=walk(main).filter(n=>n.nodeName==='#text'&&n.value.trim()&&!['script','style'].includes(n.parentNode?.tagName));

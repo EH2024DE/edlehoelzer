@@ -19,6 +19,14 @@ function disclose(node,label){
 
 export function refineContentLayout(document,reference){
   const nodes=walk(document),en=reference.route.startsWith('/en/');
+  if(reference.route==='/schneidebretter-aus-holz-gastronomie/'){
+    const summary=nodes.find(n=>has(n,'pageSummary'));
+    if(summary)disclose(summary,'Projektumfang auf einen Blick');
+  }
+  if(['/handgefertigte-holzprodukte-fuer-unternehmen/','/en/corporate-gifts/'].includes(reference.route)){
+    const benefits=nodes.find(n=>has(n,'b2b-benefits'));
+    if(benefits)disclose(benefits,en?'Material, personalisation and service':'Material, Individualisierung und Service');
+  }
   if(reference.route==='/en/erbstueck/'){
     const hero=nodes.find(n=>has(n,'erbstueckHero'));
     const summary=nodes.find(n=>has(n,'pageSummary'));
