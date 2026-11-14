@@ -1,0 +1,89 @@
+name: Refresh public Etsy data
+
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: etsy-public-data-sync
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Validate synchronizer against synthetic failures
+        run: node --test tests/etsy-public-sync.test.mjs
+      - name: Read complete public Etsy snapshot
+        env:
+          ETSY_API_KEY_HEADER: ${{ secrets.ETSY_API_KEY_HEADER }}
+          ETSY_API_KEY: ${{ secrets.ETSY_API_KEY }}
+          ETSY_SHARED_SECRET: ${{ secrets.ETSY_SHARED_SECRET }}
+          ETSY_SHOP_ID: ${{ secrets.ETSY_SHOP_ID }}
+        run: node scripts/sync-etsy-public.mjs --write
+      - name: Rebuild original review archives
+        run: node scripts/build-review-pages.mjs
+      - name: Update product markup for newly unavailable listings
+        run: |
+          node --input-type=module -e 'import fs from "node:fs";import {execFileSync} from "node:child_process";for(const item of JSON.parse(fs.readFileSync("docs/etsy-sync-report.json")).changes.filter(c=>c.change==="no-longer-active"))execFileSync(process.execPath,["scripts/build-product-pages.cjs","--listing="+item.listingId],{stdio:"inherit"});'
+      - name: Check whether kitchen preview availability needs rebuilding
+        id: preview
+        run: |
+          node --input-type=module -e 'import fs from "node:fs";const report=JSON.parse(fs.readFileSync("docs/etsy-sync-report.json"));const eligible=JSON.parse(fs.readFileSync("tools/kitchen-preview/preview-eligibility.json")).listingIds;fs.appendFileSync(process.env.GITHUB_OUTPUT,"rebuild="+report.changes.some(c=>c.change==="no-longer-active"&&eligible.includes(c.listingId))+"\n");'
+      - name: Rebuild kitchen preview only when an eligible product becomes unavailable
+        if: steps.preview.outputs.rebuild == 'true'
+        run: |
+          npm ci --prefix tools/kitchen-preview
+          node tools/kitchen-preview/build-website.mjs
+      - name: Validate generated update before offering it for publication
+        run: |
+          npm run test:design-system
+          npm run test:audit-release
+          node scripts/check-indexability.mjs
+          node scripts/build-design-site.mjs "$RUNNER_TEMP/etsy-design"
+          node scripts/audit-design-links.mjs "$RUNNER_TEMP/etsy-design"
+      - name: Update dedicated review branch and pull request
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          branch='automation/etsy-public-sync'
+          git fetch origin "$branch:refs/remotes/origin/$branch" || true
+          git switch -C "$branch"
+          git add products.json data/reviews-all.json data/reviews-meta.json data/inventory-public-snapshot.json data/etsy-listings-public.json docs/etsy-sync-report.json bewertungen/index.html en/reviews/index.html produkte en/produkte tools/kitchen-preview/product-availability.json brettvorschau
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh verified public Etsy data'
+          git push --force-with-lease origin "$branch"
+          pr=$(gh pr list --head "$branch" --base main --state open --json number --jq '.[0].number // empty')
+          if [ -z "$pr" ]; then
+            gh pr create --base main --head "$branch" --title 'Update public Etsy reviews, sales and listing availability' --body 'Daily read-only Etsy refresh. Original review texts and verified author mappings are retained. New authors without a verified public name use a neutral attribution. No customer account IDs, order data, buyer photos, price changes or new product pages are imported. See docs/etsy-sync-report.json for manual follow-ups. Publication requires review and merge; no automatic merge.'
+          fi
+          gh workflow run pages.yml --ref "$branch"
+      - name: Record result
+        if: success()
+        run: |
+          echo 'Verified Etsy data offered as a pull request; production is unchanged until merge.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Failure notice
+        if: failure()
+        run: |
+          echo 'Etsy refresh stopped. No update was published. Check missing secrets, API authorization, completeness checks or a sold homepage selection before retrying. Last deployed data remains in place.' >> "$GITHUB_STEP_SUMMARY"

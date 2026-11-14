@@ -79,9 +79,10 @@ const server=http.createServer((req,res)=>{let f=path.join(root,new URL(req.url,
     }
     for(const width of [375,1440])for(const route of ['/bewertungen/','/en/reviews/']){
       const page=await browser.newPage({javaScriptEnabled:false,viewport:{width,height:844}});
-      await page.goto(base+route);assert.equal(await page.locator('.reviewArchive__item').count(),43);
+      const count=JSON.parse(fs.readFileSync(path.join(__dirname,'../data/reviews-all.json'))).length+JSON.parse(fs.readFileSync(path.join(__dirname,'../data/google-reviews.json'))).reviews.length;
+      await page.goto(base+route);assert.equal(await page.locator('.reviewArchive__item').count(),count);
       await page.locator('.brand__logo').evaluate(img=>img.decode());
-      assert.equal(await page.locator('.reviewArchive__item blockquote').count(),43);
+      assert.equal(await page.locator('.reviewArchive__item blockquote').count(),count);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
       await page.screenshot({path:`${output}/reviews-${route.includes('/en/')?'en':'de'}-${width}.png`});await page.close();
     }

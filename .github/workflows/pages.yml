@@ -29,6 +29,9 @@ jobs:
       - name: Validate English editorial pages and consent controls
         run: npm run test:audit-release
 
+      - name: Validate safe public Etsy synchronization
+        run: npm run test:etsy-sync
+
       - name: Build the complete static design for review
         run: node scripts/build-design-site.mjs "$RUNNER_TEMP/edle-design-site"
 
