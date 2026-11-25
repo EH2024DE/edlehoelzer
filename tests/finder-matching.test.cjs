@@ -117,7 +117,7 @@ test('invalid, sold, inspiration, inactive and unverified data cannot be recomme
   }
 });
 test('zero stock cannot be advertised as available; confirmed made-to-order remains eligible', () => {
-  const larch=byListing('1818046728');
+  const larch={...byListing('1818046728'),stock:0};
   assert.equal(larch.stock,0);
   assert.equal(larch.availabilityStatus,'made_to_order');
   assert.equal(matcher.eligible(larch),true);
@@ -138,8 +138,12 @@ test('serving sets remain eligible without inventing an unknown thickness', () =
     assert.equal(matcher.supports(byListing(id), 'bbq'), false);
   }
 });
-test('sold compact and walnut boards are excluded from the finder', () => {
-  for (const id of ['4599650982', '1850610674']) {
+test('sold oak and walnut boards are excluded while available compact variants remain eligible', () => {
+  const compact = byListing('4599650982');
+  assert.equal(compact.availabilityStatus, 'available');
+  assert.equal(compact.stock, 2);
+  assert.equal(matcher.eligible(compact), true);
+  for (const id of ['1774262638', '1850610674']) {
     const product = byListing(id);
     assert.equal(product.availabilityStatus, 'sold');
     assert.equal(matcher.eligible(product), false);

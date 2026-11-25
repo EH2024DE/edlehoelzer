@@ -14,7 +14,7 @@ test('public snapshot contains only listing-level public quantities, not custome
   assert.deepEqual(Object.keys(snapshot).sort(),['checkedAt','quantities','source']);
   for(const [id,quantity] of Object.entries(snapshot.quantities)){assert.match(id,/^\d+$/);assert.ok(Number.isInteger(quantity)&&quantity>=0);}
   for(const p of data.products.filter(p=>p.inventoryCheckedAt&&p.active))assert.equal(p.stock,snapshot.quantities[p.listingId]);
-  assert.equal(data.products.find(p=>p.listingId==='4599650982').availabilityStatus,'sold');
+  assert.equal(data.products.find(p=>p.listingId==='4599650982').availabilityStatus,'available');
 });
 test('availability stays on product pages with a clear made-to-order enquiry',async()=>{
   const {renderReference}=await import('../scripts/build-design-reference.mjs');

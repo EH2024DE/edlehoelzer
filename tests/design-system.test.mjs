@@ -97,14 +97,16 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   const catalogBefore=JSON.parse(execFileSync('git',['show',`${baseline}:products.json`],{cwd:root,encoding:'utf8'}));
   const catalogAfter=JSON.parse(fs.readFileSync(path.join(root,'products.json'),'utf8'));
   const old=catalogBefore.products.find(p=>p.listingId==='4599650982'),sold=catalogAfter.products.find(p=>p.listingId==='4599650982');
-  assert.equal(sold.stock,0);assert.equal(sold.active,false);assert.equal(sold.inspirationOnly,true);assert.equal(sold.availabilityStatus,'sold');
-  for(const key of ['stock','active','availabilityStatus'])sold[key]=old[key];delete sold.inspirationOnly;
-  sold.variants.forEach((v,i)=>{assert.equal(v.availabilityStatus,'sold');v.availabilityStatus=old.variants[i].availabilityStatus;});
+  assert.equal(sold.stock,2);assert.equal(sold.active,true);assert.equal(sold.inspirationOnly,false);assert.equal(sold.availabilityStatus,'available');
+  assert.equal(sold.priceOrder,59.99);assert.equal(sold.priceLabel,'59,99 EUR');
+  for(const key of ['active','availabilityStatus','priceOrder','priceLabel'])sold[key]=old[key];delete sold.inspirationOnly;
+  delete sold.visibility;delete sold.availabilityVerifiedAt;
+  sold.variants.forEach((v,i)=>{assert.equal(v.availabilityStatus,['oak-plum','oak-walnut-beech-2'].includes(v.id)?'available':'sold');v.availabilityStatus=old.variants[i].availabilityStatus;delete v.stock;});
   const oldWalnut=catalogBefore.products.find(p=>p.listingId==='1850610674'),walnut=catalogAfter.products.find(p=>p.listingId==='1850610674');
   assert.equal(walnut.stock,0);assert.equal(walnut.active,false);assert.equal(walnut.featured,false);assert.equal(walnut.inspirationOnly,true);assert.equal(walnut.availabilityStatus,'sold');
-  for(const key of ['stock','active','featured','availabilityStatus'])walnut[key]=oldWalnut[key];delete walnut.inspirationOnly;
+  for(const key of ['active','featured','availabilityStatus'])walnut[key]=oldWalnut[key];delete walnut.inspirationOnly;
   const larch=catalogAfter.products.find(p=>p.listingId==='1818046728');
-  assert.equal(larch.stock,0);assert.equal(larch.availabilityStatus,'made_to_order');
+  assert.equal(larch.stock,JSON.parse(fs.readFileSync(path.join(root,'data/inventory-public-snapshot.json'),'utf8')).quantities[larch.listingId]);assert.equal(larch.availabilityStatus,'made_to_order');
   assert.match(larch.availabilityNote,/nicht auf Lager/);
   const oldLarch=catalogBefore.products.find(p=>p.listingId==='1818046728');
   for(const key of ['availabilityStatus','deliveryDays','availabilityNote','availabilityNoteEn']){
@@ -113,7 +115,8 @@ test('financial calculations and delivery rules stay unchanged during option UI 
   const snapshot=JSON.parse(fs.readFileSync(path.join(root,'data/inventory-public-snapshot.json'),'utf8'));
   for(const product of catalogAfter.products.filter(p=>p.inventoryCheckedAt)){
     const original=catalogBefore.products.find(p=>p.id===product.id);
-    assert.equal(product.inventoryCheckedAt,snapshot.checkedAt);
+    if(product.availabilityStatus==='unavailable')assert.ok(Date.parse(product.inventoryCheckedAt)<=Date.parse(snapshot.checkedAt));
+    else assert.equal(product.inventoryCheckedAt,snapshot.checkedAt);
     if(product.availabilityStatus==='unavailable'){
       assert.ok(!Object.hasOwn(snapshot.quantities,product.listingId));
       assert.ok(['1803930088','4370769708'].includes(product.listingId));
@@ -121,6 +124,16 @@ test('financial calculations and delivery rules stay unchanged during option UI 
     }else assert.equal(product.stock,snapshot.quantities[product.listingId]);
     product.stock=original.stock;delete product.inventoryCheckedAt;
   }
+  // Only the six individually confirmed sold-out boards may change these fields.
+  for(const id of ['1841836619','1886613306','4417621529','4380304814','1850610674','1774262638']){
+    assert.equal(snapshot.quantities[id],0);
+    const product=catalogAfter.products.find(p=>p.listingId===id),original=catalogBefore.products.find(p=>p.listingId===id);
+    for(const key of ['active','stock','availabilityStatus','directListingUrlVerified','visibility','inspirationOnly','soldReason','replacementStrategy','requestUrl']){
+      if(key in original)product[key]=original[key];else delete product[key];
+    }
+  }
+  assert.equal(catalogAfter.updatedAt,snapshot.checkedAt.slice(0,10));
+  catalogAfter.updatedAt=catalogBefore.updatedAt;
   catalogApproval.restoreApprovedWoodCopy(catalogBefore,catalogAfter);
   assert.deepEqual(catalogAfter,catalogBefore,'only confirmed availability and documented wood copy may change; prices remain intact');
 });

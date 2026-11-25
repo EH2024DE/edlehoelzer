@@ -3158,7 +3158,10 @@ function initProductExperience() {
 
   function purchaseVariant(product) {
     var variants = product.variants || [];
-    return variants.find(function (variant) { return variant.id === purchaseSelection(product).woodVariant; }) || variants[0];
+    var selected = purchaseSelection(product).woodVariant;
+    var available = variants.filter(function (variant) { return ['available', 'made_to_order'].includes(variant.availabilityStatus); });
+    return available.find(function (variant) { return variant.id === selected; }) || available[0] ||
+      variants.find(function (variant) { return variant.id === selected; }) || variants[0];
   }
 
   function purchaseVariantSummary(product) {
@@ -3357,7 +3360,8 @@ function initProductExperience() {
     var selection = purchaseSelection(product);
     return '<section class="productPreview__configuration">' +
       ((product.variants || []).length ? '<label class="productPreview__variant">' + escapeHtml(isEnglish ? (product.variantLabelEn || 'Wood species') : (product.variantLabel || 'Holzart')) + '<select data-purchase-variant data-product-id="' + escapeAttribute(product.id) + '">' + product.variants.map(function (variant) {
-        return '<option value="' + escapeAttribute(variant.id) + '"' + (purchaseVariant(product).id === variant.id ? ' selected' : '') + '>' + escapeHtml((isEnglish ? variant.nameEn : variant.name) + ' · ' + formatCurrency(variant.priceOrder)) + '</option>';
+        var sold = variant.availabilityStatus === 'sold';
+        return '<option value="' + escapeAttribute(variant.id) + '"' + (purchaseVariant(product).id === variant.id ? ' selected' : '') + (sold ? ' disabled' : '') + '>' + escapeHtml((isEnglish ? variant.nameEn : variant.name) + ' · ' + formatCurrency(variant.priceOrder) + (sold ? (isEnglish ? ' · Sold' : ' · Verkauft') : '')) + '</option>';
       }).join('') + '</select></label><p data-purchase-variant-summary>' + escapeHtml(purchaseVariantSummary(product)) + '</p><p class="productPreview__trust">' + escapeHtml(product.etsyOptionsOnly ? (isEnglish ? 'Prices depend on the selected design. Confirm dimensions, personalisation and the final price on Etsy.' : 'Der Preis richtet sich nach der gewählten Ausführung. Maße, Personalisierung und Endpreis bestätigst du auf Etsy.') : (isEnglish ? 'Base prices exclude the optional juice groove (+€15). The oak photos show the reference piece; use the worktop preview for the other woods.' : 'Grundpreise ohne optionale Saftrille (+15 €). Die Eichenfotos zeigen das Referenzstück; die anderen Holzarten findest du in der Tresenvorschau.')) + '</p>' : '') +
       (options.length ? '<h3>' + escapeHtml(labels.configuration) + '</h3><div class="productPreview__optionList">' +
         options.map(function (option) {
