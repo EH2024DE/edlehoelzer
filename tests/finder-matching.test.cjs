@@ -12,6 +12,52 @@ const byListing = id => products.find(p => p.listingId === id);
 const answers = (use, space, movement, style, budget, giftUse) => ({ use, space, movement, style, budget, giftUse });
 const select = (...args) => matcher.select(products, answers(...args));
 
+const start = source.indexOf('  function syncWoodCutFilter(');
+const end = source.indexOf('  function renderGrid()', start);
+const { syncWoodCutFilter, matchesWoodCut } = vm.runInNewContext(source.slice(start, end) + '\n({syncWoodCutFilter,matchesWoodCut})');
+
+test('grain filter uses explicit metadata and only narrows cutting boards', () => {
+  assert.equal(matchesWoodCut({ woodCut: 'end' }, 'board', 'end'), true);
+  assert.equal(matchesWoodCut({ woodCut: 'edge' }, 'board', 'end'), false);
+  assert.equal(matchesWoodCut({}, 'board', 'end'), false);
+  assert.equal(matchesWoodCut({}, 'board', 'all'), true);
+  for (const category of ['all', 'accessory', 'care']) {
+    assert.equal(matchesWoodCut({ woodCut: 'edge' }, category, 'end'), true);
+  }
+});
+
+test('leaving the board category hides, disables and resets the grain selection', () => {
+  const all = { checked: false };
+  const fieldset = { hidden: true, disabled: true, querySelector: () => all };
+  const form = { elements: { category: { value: 'board' } }, querySelector: () => fieldset };
+  syncWoodCutFilter(form);
+  assert.equal(fieldset.hidden, false);
+  assert.equal(fieldset.disabled, false);
+  for (const category of ['accessory', 'care', 'all']) {
+    form.elements.category.value = category;
+    all.checked = false;
+    syncWoodCutFilter(form);
+    assert.equal(fieldset.hidden, true);
+    assert.equal(fieldset.disabled, true);
+    assert.equal(all.checked, true);
+  }
+  syncWoodCutFilter(null);
+});
+
+test('both languages have native exclusive choices and a live result count', () => {
+  for (const file of ['produkte.html', 'en/products.html']) {
+    const html = fs.readFileSync(path.join(root, file), 'utf8');
+    assert.match(html, /data-wood-cut-filter hidden disabled/);
+    for (const value of ['all', 'end', 'edge']) {
+      assert.match(html, new RegExp('type="radio" name="woodCut" value="' + value + '"'));
+    }
+    assert.match(html, /data-product-filter-count role="status"/);
+  }
+  assert.match(source, /syncWoodCutFilter\(filterForm\);\s*var filters = filterForm \? new FormData/);
+  assert.match(source, /return matchesWoodCut\(product, category, woodCut\)/);
+});
+
+
 test('1: breakfast admits the real breakfast board, not a heavy hackblock', () => {
   const result = select('breakfast', 'compact', 'portable', 'open', 'max100');
   assert.equal(matcher.evaluate(byListing('1827805914'), answers('breakfast', 'compact', 'portable', 'open', 'max100')).hardConflicts.length, 0);

@@ -261,7 +261,16 @@
             <option value="priceDesc">Preis: hoch zuerst</option>
           </select>
         </label>
+        <fieldset class="woodCutFilter" data-wood-cut-filter hidden disabled>
+          <legend>Bauweise</legend>
+          <div class="woodCutFilter__options">
+            <label><input type="radio" name="woodCut" value="all" checked><span>Alle</span></label>
+            <label><input type="radio" name="woodCut" value="end"><span>Stirnholz</span></label>
+            <label><input type="radio" name="woodCut" value="edge"><span>Langholz</span></label>
+          </div>
+        </fieldset>
       </form>
+      <p class="productFilterCount" data-product-filter-count role="status"></p>
 
       <details class="legalGuarantee">
         <summary>Deine gesetzlichen Gewährleistungsrechte</summary>

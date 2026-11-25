@@ -196,7 +196,16 @@
             <option value="priceDesc">Price: high to low</option>
           </select>
         </label>
+        <fieldset class="woodCutFilter" data-wood-cut-filter hidden disabled>
+          <legend>Grain orientation</legend>
+          <div class="woodCutFilter__options">
+            <label><input type="radio" name="woodCut" value="all" checked><span>All</span></label>
+            <label><input type="radio" name="woodCut" value="end"><span>End grain</span></label>
+            <label><input type="radio" name="woodCut" value="edge"><span>Edge grain</span></label>
+          </div>
+        </fieldset>
       </form>
+      <p class="productFilterCount" data-product-filter-count role="status"></p>
 
       <details class="legalGuarantee">
         <summary>Your statutory warranty rights</summary>
