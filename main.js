@@ -4829,21 +4829,40 @@ function initProductsPage() {
     filterForm.addEventListener("change", renderGrid);
   }
 
+  function syncWoodCutFilter(filterForm) {
+    if (!filterForm) return;
+    var fieldset = filterForm.querySelector('[data-wood-cut-filter]');
+    if (!fieldset) return;
+    var show = filterForm.elements.category.value === 'board';
+    fieldset.hidden = !show;
+    fieldset.disabled = !show;
+    if (!show) fieldset.querySelector('input[value="all"]').checked = true;
+  }
+
+  function matchesWoodCut(product, category, woodCut) {
+    return category !== 'board' || !woodCut || woodCut === 'all' || product.woodCut === woodCut;
+  }
+
   function renderGrid() {
     if (!gridRoot) {
       return;
     }
 
     var filterForm = document.querySelector("[data-product-filters]");
+    syncWoodCutFilter(filterForm);
     var filters = filterForm ? new FormData(filterForm) : null;
     var category = filters ? filters.get("category") : "all";
     var price = filters ? filters.get("price") : "all";
     var useCase = filters ? filters.get("useCase") : "all";
     var sort = filters ? filters.get("sort") : "recommended";
+    var woodCut = filters ? filters.get("woodCut") : "all";
 
     var products = state.activeProducts
       .filter(function (product) {
         return category === "all" || product.category === category;
+      })
+      .filter(function (product) {
+        return matchesWoodCut(product, category, woodCut);
       })
       .filter(function (product) {
         if (price === "all") {
@@ -4886,6 +4905,9 @@ function initProductsPage() {
         return String(a.displayName || a.name || "").localeCompare(String(b.displayName || b.name || ""), isEnglish ? "en" : "de");
       });
     }
+
+    var count = document.querySelector('[data-product-filter-count]');
+    if (count) count.textContent = products.length + (isEnglish ? (products.length === 1 ? ' product' : ' products') : (products.length === 1 ? ' Produkt' : ' Produkte'));
 
     if (!products.length) {
       gridRoot.innerHTML = '<p class="productEmpty">' + (isEnglish ? "There are currently no matching products for this filter combination." : "Für diese Filterkombination gibt es aktuell keine passenden Produkte.") + '</p>';
